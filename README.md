@@ -20,7 +20,7 @@ Search Screen        |  Cart Screen       |   Address Screen               |  Ad
 
 Account Screen                  | Edit Details Screen       |   Orders Screen      |     Payment Screen
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/account_screen.png)|![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/edit_details_screen.png)|![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/orders_screen.png)|![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/splash_screen.png)|
+![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/account_screen.png)|![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/edit_details_screen.png)|![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/orders_screen.png)|![](https://raw.githubusercontent.com/ashishrawat2911/flutter_commerce/master/screenshot/payment_screen.png)|
 
 Product Screen 1         |  Product Screen 2              
 :-------------------------:|:-------------------------:
