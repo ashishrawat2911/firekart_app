@@ -21,7 +21,7 @@ dependencies:
   fluttertoast: ^4.0.0
   smooth_page_indicator: 0.1.5
   freezed: 0.10.9
-  flutter_bloc: 6.0.0-dev.1
+  flutter_bloc: 6.0.0
   cloud_firestore: 0.13.7
   firebase_crashlytics: 0.1.3+3
   firebase_auth: 0.16.1
