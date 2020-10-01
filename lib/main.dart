@@ -16,7 +16,6 @@ void main() {
     Crashlytics.instance.enableInDevMode = false;
     FlutterError.onError = CrashlyticsService.recordFlutterError;
     runApp(App());
-
   }, (error, stack) {
     CrashlyticsService.recordError(error, stack);
   }, zoneSpecification: ZoneSpecification());
