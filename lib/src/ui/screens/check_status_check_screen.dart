@@ -46,13 +46,13 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
       if (widget.checkForAccountStatusOnly || status) {
         var isUserDataPresent = await firebaseRepo.checkUserDetail();
         if (isUserDataPresent) {
-          Navigator.of(context).pushReplacementNamed(Router.mainHomeScreen);
+          Navigator.of(context).pushReplacementNamed(Routes.mainHomeScreen);
         } else {
-          Navigator.of(context).pushReplacementNamed(Router.addUserDetailScreen,
+          Navigator.of(context).pushReplacementNamed(Routes.addUserDetailScreen,
               arguments: true);
         }
       } else {
-        Navigator.of(context).pushReplacementNamed(Router.loginScreen);
+        Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
       }
     });
   }

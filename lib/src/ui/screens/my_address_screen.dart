@@ -189,7 +189,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                 StringsConstants.editCaps,
                                 onTap: () {
                                   Navigator.pushNamed(
-                                          context, Router.addAddressScreen,
+                                          context, Routes.addAddressScreen,
                                           arguments: AddAddressScreenArguments(
                                               newAddress: false,
                                               accountDetails: accountDetails,
@@ -271,7 +271,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   addNewNavigation(AccountDetails accountDetails) {
-    Navigator.pushNamed(context, Router.addAddressScreen,
+    Navigator.pushNamed(context, Routes.addAddressScreen,
             arguments: AddAddressScreenArguments(
                 newAddress: true, accountDetails: accountDetails))
         .then((value) {

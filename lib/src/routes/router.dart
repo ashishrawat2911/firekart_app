@@ -23,20 +23,24 @@ import 'package:fluttercommerce/src/ui/screens/splash_screen.dart';
 * flutter packages pub run build_runner watch
 * */
 
-@CupertinoAutoRouter()
-class $Router {
-  @initial
-  SplashScreen splashScreen;
-  CheckStatusScreen checkStatusScreen;
-  MainHomeScreen mainHomeScreen;
-  LoginScreen loginScreen;
-  OTPLoginScreen otpLoginScreen;
-  ProductDetailPage productDetailPage;
-  AddUserDetailScreen addUserDetailScreen;
-  CartScreen cartScreen;
-  AllProductListScreen allProductListScreen;
-  SearchItemScreen searchItemScreen;
-  MyAddressScreen myAddressScreen;
-  AddAddressScreen addAddressScreen;
-  MyOrdersScreen myOrdersScreen;
-}
+@CupertinoAutoRouter(
+  routes: [
+    CupertinoRoute(page: SplashScreen, initial: true),
+    CupertinoRoute(page: CheckStatusScreen),
+    CupertinoRoute(page: MainHomeScreen),
+    CupertinoRoute(page: LoginScreen),
+    CupertinoRoute(page: OTPLoginScreen),
+    CupertinoRoute(
+      page: ProductDetailPage,
+    ),
+    CupertinoRoute(page: AddUserDetailScreen),
+    CupertinoRoute(page: CartScreen),
+    CupertinoRoute(page: AllProductListScreen),
+    CupertinoRoute(page: SearchItemScreen),
+    CupertinoRoute(page: MyAddressScreen),
+    CupertinoRoute(page: AddAddressScreen),
+    CupertinoRoute(page: MyOrdersScreen),
+  ],
+  routesClassName: "Routes",
+)
+class $AppRouter {}

@@ -14,9 +14,8 @@ class _AppState extends State<App> {
     return MaterialApp(
       theme: AppTheme.appTheme(),
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: Router.onGenerateRoute,
-      navigatorKey: Router.navigator.key,
-      initialRoute: Router.splashScreen,
+      onGenerateRoute: AppRouter(),
+      initialRoute: Routes.splashScreen,
       home: SplashScreen(),
     );
   }

@@ -53,7 +53,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           StringsConstants.editCaps,
                           onTap: () {
                             Navigator.of(context).pushNamed(
-                                Router.addUserDetailScreen,
+                                Routes.addUserDetailScreen,
                                 arguments: false);
                           },
                         ),
@@ -65,14 +65,14 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.myOrders),
                     leading: Icon(Icons.shopping_basket),
                     onTap: () {
-                      Navigator.of(context).pushNamed(Router.myOrdersScreen);
+                      Navigator.of(context).pushNamed(Routes.myOrdersScreen);
                     },
                   ),
                   ListTile(
                     title: Text(StringsConstants.myAddress),
                     leading: Icon(Icons.place),
                     onTap: () {
-                      Navigator.of(context).pushNamed(Router.myAddressScreen);
+                      Navigator.of(context).pushNamed(Routes.myAddressScreen);
                     },
                   ),
                   Divider(),
@@ -84,7 +84,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           .logoutUser()
                           .then((value) {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Router.loginScreen, (route) => false);
+                            Routes.loginScreen, (route) => false);
                       });
                     },
                   ),

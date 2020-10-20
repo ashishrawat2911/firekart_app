@@ -32,7 +32,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(Router.cartScreen);
+                    Navigator.of(context).pushNamed(Routes.cartScreen);
                   },
                   child: Row(
                     children: <Widget>[

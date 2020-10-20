@@ -201,14 +201,14 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                         : StringsConstants.changeTextCapital,
                     onTap: () {
                       if (accountProvider.addressSelected == null) {
-                        Navigator.pushNamed(context, Router.addAddressScreen,
+                        Navigator.pushNamed(context, Routes.addAddressScreen,
                             arguments: AddAddressScreenArguments(
                               newAddress: true,
                               accountDetails: accountProvider.accountDetails,
                             ));
                       } else {
                         Navigator.of(context)
-                            .pushNamed(Router.myAddressScreen, arguments: true);
+                            .pushNamed(Routes.myAddressScreen, arguments: true);
                       }
                     },
                   )
@@ -274,7 +274,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                       orderSuccessfullyPlaced: () {
                         if (Navigator.canPop(context)) {
                           Navigator.of(context)
-                              .pushReplacementNamed(Router.myOrdersScreen);
+                              .pushReplacementNamed(Routes.myOrdersScreen);
                         }
                       });
                 },

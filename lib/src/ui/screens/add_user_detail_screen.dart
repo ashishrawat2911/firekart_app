@@ -53,7 +53,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              Navigator.of(context).pushReplacementNamed(Router.mainHomeScreen);
+              Navigator.of(context).pushReplacementNamed(Routes.mainHomeScreen);
             } else {
               Navigator.of(context).pop();
             }
@@ -89,7 +89,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ActionText(StringsConstants.manageAddress, onTap: () {
-                        Navigator.of(context).pushNamed(Router.myAddressScreen);
+                        Navigator.of(context).pushNamed(Routes.myAddressScreen);
                       }),
                     ],
                   ),

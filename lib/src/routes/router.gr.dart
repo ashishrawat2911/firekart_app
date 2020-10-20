@@ -4,154 +4,226 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:fluttercommerce/src/ui/screens/splash_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/check_status_check_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/main_home_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/login_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/otp_login_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/product_detail_page.dart';
-import 'package:fluttercommerce/src/models/product_model.dart';
-import 'package:fluttercommerce/src/ui/screens/add_user_detail_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/cart_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/all_product_list_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/SearchScreen.dart';
-import 'package:fluttercommerce/src/ui/screens/my_address_screen.dart';
-import 'package:fluttercommerce/src/ui/screens/add_address_screen.dart';
-import 'package:fluttercommerce/src/models/account_details_model.dart';
-import 'package:fluttercommerce/src/ui/screens/my_orders_screen.dart';
+// ignore_for_file: public_member_api_docs
 
-class Router {
-  static const splashScreen = '/';
-  static const checkStatusScreen = '/check-status-screen';
-  static const mainHomeScreen = '/main-home-screen';
-  static const loginScreen = '/login-screen';
-  static const otpLoginScreen = '/otp-login-screen';
-  static const productDetailPage = '/product-detail-page';
-  static const addUserDetailScreen = '/add-user-detail-screen';
-  static const cartScreen = '/cart-screen';
-  static const allProductListScreen = '/all-product-list-screen';
-  static const searchItemScreen = '/search-item-screen';
-  static const myAddressScreen = '/my-address-screen';
-  static const addAddressScreen = '/add-address-screen';
-  static const myOrdersScreen = '/my-orders-screen';
-  static final navigator = ExtendedNavigator();
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final args = settings.arguments;
-    switch (settings.name) {
-      case Router.splashScreen:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => SplashScreen(),
-          settings: settings,
-        );
-      case Router.checkStatusScreen:
-        if (hasInvalidArgs<bool>(args)) {
-          return misTypedArgsRoute<bool>(args);
-        }
-        final typedArgs = args as bool ?? false;
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) =>
-              CheckStatusScreen(checkForAccountStatusOnly: typedArgs),
-          settings: settings,
-        );
-      case Router.mainHomeScreen:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => MainHomeScreen(),
-          settings: settings,
-        );
-      case Router.loginScreen:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => LoginScreen(),
-          settings: settings,
-        );
-      case Router.otpLoginScreen:
-        if (hasInvalidArgs<String>(args)) {
-          return misTypedArgsRoute<String>(args);
-        }
-        final typedArgs = args as String;
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => OTPLoginScreen(phoneNumber: typedArgs),
-          settings: settings,
-        );
-      case Router.productDetailPage:
-        if (hasInvalidArgs<ProductModel>(args)) {
-          return misTypedArgsRoute<ProductModel>(args);
-        }
-        final typedArgs = args as ProductModel;
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => ProductDetailPage(typedArgs),
-          settings: settings,
-        );
-      case Router.addUserDetailScreen:
-        if (hasInvalidArgs<bool>(args)) {
-          return misTypedArgsRoute<bool>(args);
-        }
-        final typedArgs = args as bool;
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => AddUserDetailScreen(typedArgs),
-          settings: settings,
-        );
-      case Router.cartScreen:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => CartScreen(),
-          settings: settings,
-        );
-      case Router.allProductListScreen:
-        if (hasInvalidArgs<String>(args)) {
-          return misTypedArgsRoute<String>(args);
-        }
-        final typedArgs = args as String;
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => AllProductListScreen(typedArgs),
-          settings: settings,
-        );
-      case Router.searchItemScreen:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => SearchItemScreen(),
-          settings: settings,
-        );
-      case Router.myAddressScreen:
-        if (hasInvalidArgs<bool>(args)) {
-          return misTypedArgsRoute<bool>(args);
-        }
-        final typedArgs = args as bool ?? false;
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => MyAddressScreen(selectedAddress: typedArgs),
-          settings: settings,
-        );
-      case Router.addAddressScreen:
-        if (hasInvalidArgs<AddAddressScreenArguments>(args)) {
-          return misTypedArgsRoute<AddAddressScreenArguments>(args);
-        }
-        final typedArgs =
-            args as AddAddressScreenArguments ?? AddAddressScreenArguments();
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => AddAddressScreen(typedArgs.newAddress,
-              typedArgs.accountDetails, typedArgs.editAddress),
-          settings: settings,
-        );
-      case Router.myOrdersScreen:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => MyOrdersScreen(),
-          settings: settings,
-        );
-      default:
-        return unknownRoutePage(settings.name);
-    }
-  }
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
+
+import '../models/account_details_model.dart';
+import '../models/product_model.dart';
+import '../ui/screens/SearchScreen.dart';
+import '../ui/screens/add_address_screen.dart';
+import '../ui/screens/add_user_detail_screen.dart';
+import '../ui/screens/all_product_list_screen.dart';
+import '../ui/screens/cart_screen.dart';
+import '../ui/screens/check_status_check_screen.dart';
+import '../ui/screens/login_screen.dart';
+import '../ui/screens/main_home_screen.dart';
+import '../ui/screens/my_address_screen.dart';
+import '../ui/screens/my_orders_screen.dart';
+import '../ui/screens/otp_login_screen.dart';
+import '../ui/screens/product_detail_page.dart';
+import '../ui/screens/splash_screen.dart';
+
+class Routes {
+  static const String splashScreen = '/';
+  static const String checkStatusScreen = '/check-status-screen';
+  static const String mainHomeScreen = '/main-home-screen';
+  static const String loginScreen = '/login-screen';
+  static const String oTPLoginScreen = '/o-tp-login-screen';
+  static const String productDetailPage = '/product-detail-page';
+  static const String addUserDetailScreen = '/add-user-detail-screen';
+  static const String cartScreen = '/cart-screen';
+  static const String allProductListScreen = '/all-product-list-screen';
+  static const String searchItemScreen = '/search-item-screen';
+  static const String myAddressScreen = '/my-address-screen';
+  static const String addAddressScreen = '/add-address-screen';
+  static const String myOrdersScreen = '/my-orders-screen';
+  static const all = <String>{
+    splashScreen,
+    checkStatusScreen,
+    mainHomeScreen,
+    loginScreen,
+    oTPLoginScreen,
+    productDetailPage,
+    addUserDetailScreen,
+    cartScreen,
+    allProductListScreen,
+    searchItemScreen,
+    myAddressScreen,
+    addAddressScreen,
+    myOrdersScreen,
+  };
 }
 
-//**************************************************************************
-// Arguments holder classes
-//***************************************************************************
+class AppRouter extends RouterBase {
+  @override
+  List<RouteDef> get routes => _routes;
+  final _routes = <RouteDef>[
+    RouteDef(Routes.splashScreen, page: SplashScreen),
+    RouteDef(Routes.checkStatusScreen, page: CheckStatusScreen),
+    RouteDef(Routes.mainHomeScreen, page: MainHomeScreen),
+    RouteDef(Routes.loginScreen, page: LoginScreen),
+    RouteDef(Routes.oTPLoginScreen, page: OTPLoginScreen),
+    RouteDef(Routes.productDetailPage, page: ProductDetailPage),
+    RouteDef(Routes.addUserDetailScreen, page: AddUserDetailScreen),
+    RouteDef(Routes.cartScreen, page: CartScreen),
+    RouteDef(Routes.allProductListScreen, page: AllProductListScreen),
+    RouteDef(Routes.searchItemScreen, page: SearchItemScreen),
+    RouteDef(Routes.myAddressScreen, page: MyAddressScreen),
+    RouteDef(Routes.addAddressScreen, page: AddAddressScreen),
+    RouteDef(Routes.myOrdersScreen, page: MyOrdersScreen),
+  ];
+  @override
+  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
+  final _pagesMap = <Type, AutoRouteFactory>{
+    SplashScreen: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => SplashScreen(),
+        settings: data,
+      );
+    },
+    CheckStatusScreen: (data) {
+      final args = data.getArgs<CheckStatusScreenArguments>(
+        orElse: () => CheckStatusScreenArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => CheckStatusScreen(
+            checkForAccountStatusOnly: args.checkForAccountStatusOnly),
+        settings: data,
+      );
+    },
+    MainHomeScreen: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => MainHomeScreen(),
+        settings: data,
+      );
+    },
+    LoginScreen: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => LoginScreen(),
+        settings: data,
+      );
+    },
+    OTPLoginScreen: (data) {
+      final args = data.getArgs<OTPLoginScreenArguments>(
+        orElse: () => OTPLoginScreenArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => OTPLoginScreen(phoneNumber: args.phoneNumber),
+        settings: data,
+      );
+    },
+    ProductDetailPage: (data) {
+      final args = data.getArgs<ProductDetailPageArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => ProductDetailPage(args.productModel),
+        settings: data,
+      );
+    },
+    AddUserDetailScreen: (data) {
+      final args = data.getArgs<AddUserDetailScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => AddUserDetailScreen(args.newAddress),
+        settings: data,
+      );
+    },
+    CartScreen: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => CartScreen(),
+        settings: data,
+      );
+    },
+    AllProductListScreen: (data) {
+      final args = data.getArgs<AllProductListScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => AllProductListScreen(args.productCondition),
+        settings: data,
+      );
+    },
+    SearchItemScreen: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => SearchItemScreen(),
+        settings: data,
+      );
+    },
+    MyAddressScreen: (data) {
+      final args = data.getArgs<MyAddressScreenArguments>(
+        orElse: () => MyAddressScreenArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) =>
+            MyAddressScreen(selectedAddress: args.selectedAddress),
+        settings: data,
+      );
+    },
+    AddAddressScreen: (data) {
+      final args = data.getArgs<AddAddressScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => AddAddressScreen(
+          args.newAddress,
+          args.accountDetails,
+          args.editAddress,
+        ),
+        settings: data,
+      );
+    },
+    MyOrdersScreen: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => MyOrdersScreen(),
+        settings: data,
+      );
+    },
+  };
+}
 
-//AddAddressScreen arguments holder class
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// CheckStatusScreen arguments holder class
+class CheckStatusScreenArguments {
+  final bool checkForAccountStatusOnly;
+  CheckStatusScreenArguments({this.checkForAccountStatusOnly = false});
+}
+
+/// OTPLoginScreen arguments holder class
+class OTPLoginScreenArguments {
+  final String phoneNumber;
+  OTPLoginScreenArguments({this.phoneNumber});
+}
+
+/// ProductDetailPage arguments holder class
+class ProductDetailPageArguments {
+  final ProductModel productModel;
+  ProductDetailPageArguments({@required this.productModel});
+}
+
+/// AddUserDetailScreen arguments holder class
+class AddUserDetailScreenArguments {
+  final bool newAddress;
+  AddUserDetailScreenArguments({@required this.newAddress});
+}
+
+/// AllProductListScreen arguments holder class
+class AllProductListScreenArguments {
+  final String productCondition;
+  AllProductListScreenArguments({@required this.productCondition});
+}
+
+/// MyAddressScreen arguments holder class
+class MyAddressScreenArguments {
+  final bool selectedAddress;
+  MyAddressScreenArguments({this.selectedAddress = false});
+}
+
+/// AddAddressScreen arguments holder class
 class AddAddressScreenArguments {
   final bool newAddress;
   final AccountDetails accountDetails;
   final Address editAddress;
   AddAddressScreenArguments(
-      {this.newAddress, this.accountDetails, this.editAddress});
+      {@required this.newAddress,
+      @required this.accountDetails,
+      @required this.editAddress});
 }
