@@ -48,7 +48,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         actions: <Widget>[
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(Router.searchItemScreen);
+              Navigator.of(context).pushNamed(Routes.searchItemScreen);
             },
             child: Padding(
               padding: const EdgeInsets.all(16.0),

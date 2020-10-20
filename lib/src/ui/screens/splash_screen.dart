@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   navigationPage() async {
-    await Navigator.pushReplacementNamed(context, Router.checkStatusScreen);
+    await Navigator.pushReplacementNamed(context, Routes.checkStatusScreen);
   }
 
   @override

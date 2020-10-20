@@ -15,7 +15,7 @@ class ProductCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       onTap: () {
         Navigator.of(context)
-            .pushNamed(Router.productDetailPage, arguments: productModel);
+            .pushNamed(Routes.productDetailPage, arguments: productModel);
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

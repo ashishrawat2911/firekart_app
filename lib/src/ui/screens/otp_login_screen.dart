@@ -137,7 +137,7 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
                       onButtonDisabled: () {},
                       loginSuccessFull: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Router.checkStatusScreen, (route) => false,
+                            Routes.checkStatusScreen, (route) => false,
                             arguments: true);
                       },
                       codeCountDown: (String value) {

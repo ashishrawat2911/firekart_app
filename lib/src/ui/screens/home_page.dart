@@ -49,7 +49,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            Navigator.of(context).pushNamed(Router.allProductListScreen);
+            Navigator.of(context).pushNamed(Routes.allProductListScreen);
           },
           label: Text(
             StringsConstants.viewAllProducts,
@@ -204,7 +204,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         condition = "on_sale";
                       }
                       Navigator.of(context).pushNamed(
-                          Router.allProductListScreen,
+                          Routes.allProductListScreen,
                           arguments: condition);
                     },
                   ))
