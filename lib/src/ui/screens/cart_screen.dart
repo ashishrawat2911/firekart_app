@@ -208,7 +208,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                             ));
                       } else {
                         Navigator.of(context)
-                            .pushNamed(Routes.myAddressScreen, arguments: true);
+                            .pushNamed(Routes.myAddressScreen, arguments:MyAddressScreenArguments(selectedAddress: true) );
                       }
                     },
                   )
