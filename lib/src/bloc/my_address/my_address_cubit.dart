@@ -12,17 +12,17 @@ class MyAddressCubit extends Cubit<MyAddressState> {
   MyAddressCubit() : super(MyAddressState.loading());
 
   listenToAccountDetails() async {
-    firebaseRepo.streamUserDetails(await authRepo.getUid()).listen((event) {
+    firebaseRepo!.streamUserDetails(await authRepo!.getUid()).listen((event) {
       AccountDetails accountDetails = AccountDetails.fromDocument(event);
-      accountDetails.addresses = accountDetails.addresses.reversed.toList();
+      accountDetails.addresses = accountDetails.addresses!.reversed.toList();
       emit(MyAddressState.showAccountDetails(accountDetails));
     });
   }
 
   fetchAccountDetails() async {
     try {
-      AccountDetails accountDetails = await firebaseRepo.fetchUserDetails();
-      accountDetails.addresses = accountDetails.addresses.reversed.toList();
+      AccountDetails accountDetails = await firebaseRepo!.fetchUserDetails();
+      accountDetails.addresses = accountDetails.addresses!.reversed.toList();
       emit(MyAddressState.showAccountDetails(accountDetails));
     } catch (e) {
       emit(MyAddressState.error(e.toString()));

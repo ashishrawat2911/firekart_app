@@ -17,8 +17,8 @@ class CartItemCubit extends Cubit<CartItemState> {
   }
 
   updateCartValues(
-      CartModel cartModel, int cartValue, bool shouldIncrease) async {
-    int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
+      CartModel? cartModel, int? cartValue, bool shouldIncrease) async {
+    int newCartValue = shouldIncrease ? cartValue! + 1 : cartValue! - 1;
     emit(CartDataLoading());
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
@@ -26,8 +26,8 @@ class CartItemCubit extends Cubit<CartItemState> {
             StringsConstants.connectionNotAvailable, cartValue));
         return;
       }
-      cartModel.numOfItems = newCartValue;
-      _firebaseRepo.addProductToCart(cartModel).then((value) {
+      cartModel!.numOfItems = newCartValue;
+      _firebaseRepo!.addProductToCart(cartModel).then((value) {
         emit(ShowCartValue(newCartValue));
       }).catchError((e) {
         emit(UpdateCartError(e.toString(), cartValue));
@@ -37,7 +37,7 @@ class CartItemCubit extends Cubit<CartItemState> {
     }
   }
 
-  deleteItem(CartModel cartModel, {bool deleteExternally = true}) async {
+  deleteItem(CartModel? cartModel, {bool deleteExternally = true}) async {
     if (deleteExternally) {
       emit(CartDeleteLoading());
     }
@@ -45,7 +45,7 @@ class CartItemCubit extends Cubit<CartItemState> {
       emit(DeleteCartError(StringsConstants.connectionNotAvailable));
       return;
     }
-    _firebaseRepo.delProductFromCart(cartModel.productId).then((value) {
+    _firebaseRepo!.delProductFromCart(cartModel!.productId!).then((value) {
       emit(ItemDeleted());
     }).catchError((e) {
       emit(DeleteCartError(e.toString()));

@@ -6,7 +6,7 @@ import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/styles.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/router.gr.dart';
+import 'package:fluttercommerce/src/routes/routers.dart';
 import 'package:fluttercommerce/src/ui/common/commom_text_field.dart';
 import 'package:fluttercommerce/src/ui/common/common_button.dart';
 
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
     phoneNumberController.addListener(() {
       print(phoneNumberController.text);
-      phoneLoginCubit.validateButton(phoneNumberController.text);
+      phoneLoginCubit!.validateButton(phoneNumberController.text);
     });
   }
 
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               BlocConsumer<PhoneLoginCubit, PhoneLoginState>(
-                cubit: phoneLoginCubit,
+                cubit: phoneLoginCubit!,
                 listener: (BuildContext context, PhoneLoginState state) {},
                 builder: (BuildContext context, PhoneLoginState state) {
                   bool isButtonEnabled() {
@@ -134,12 +134,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       Navigator.of(context)
           .pushNamed(Routes.oTPLoginScreen,
-              arguments: OTPLoginScreenArguments(phoneNumber:phoneNumberController.text))
+              arguments: OTPLoginScreenArguments(phoneNumberController.text))
           .then((value) {
-        if (value != null && value) {
+        if (value != null && value as bool) {
           phoneNumberController.clear();
         }
       });

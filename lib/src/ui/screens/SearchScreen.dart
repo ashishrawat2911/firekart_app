@@ -14,7 +14,7 @@ class SearchItemScreen extends StatefulWidget {
 }
 
 class _SearchItemScreenState extends State<SearchItemScreen> {
-  ProductSearchCubit productSearchCubit = AppInjector.get<ProductSearchCubit>();
+  ProductSearchCubit? productSearchCubit = AppInjector.get<ProductSearchCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,11 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
         appBar: CommonSearchBar(
           hintText: StringsConstants.searchItems,
           onTextChanged: (String value) {
-            productSearchCubit.searchProduct(value);
+            productSearchCubit!.searchProduct(value);
           },
         ),
         body: BlocBuilder<ProductSearchCubit, ProductSearchState>(
-          cubit: productSearchCubit,
+          cubit: productSearchCubit!,
           builder: (BuildContext context, ProductSearchState state) {
             return state.when(idle: () {
               return Container();

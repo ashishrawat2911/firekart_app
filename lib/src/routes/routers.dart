@@ -6,6 +6,7 @@
 
 // ignore_for_file: public_member_api_docs
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -74,6 +75,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.addAddressScreen, page: AddAddressScreen),
     RouteDef(Routes.myOrdersScreen, page: MyOrdersScreen),
   ];
+
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
@@ -106,11 +108,9 @@ class AppRouter extends RouterBase {
       );
     },
     OTPLoginScreen: (data) {
-      final args = data.getArgs<OTPLoginScreenArguments>(
-        orElse: () => OTPLoginScreenArguments(),
-      );
+      final args = data.getArgs<OTPLoginScreenArguments>(nullOk: false);
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => OTPLoginScreen(phoneNumber: args.phoneNumber),
+        builder: (context) => OTPLoginScreen(args.phoneNumber),
         settings: data,
       );
     },
@@ -163,7 +163,7 @@ class AppRouter extends RouterBase {
         builder: (context) => AddAddressScreen(
           args.newAddress,
           args.accountDetails,
-          args.editAddress,
+          editAddress: args.editAddress,
         ),
         settings: data,
       );
@@ -184,36 +184,42 @@ class AppRouter extends RouterBase {
 /// CheckStatusScreen arguments holder class
 class CheckStatusScreenArguments {
   final bool checkForAccountStatusOnly;
+
   CheckStatusScreenArguments({this.checkForAccountStatusOnly = false});
 }
 
 /// OTPLoginScreen arguments holder class
 class OTPLoginScreenArguments {
   final String phoneNumber;
-  OTPLoginScreenArguments({this.phoneNumber});
+
+  OTPLoginScreenArguments(this.phoneNumber);
 }
 
 /// ProductDetailPage arguments holder class
 class ProductDetailPageArguments {
   final ProductModel productModel;
-  ProductDetailPageArguments({@required this.productModel});
+
+  ProductDetailPageArguments({required this.productModel});
 }
 
 /// AddUserDetailScreen arguments holder class
 class AddUserDetailScreenArguments {
   final bool newAddress;
-  AddUserDetailScreenArguments({@required this.newAddress});
+
+  AddUserDetailScreenArguments({required this.newAddress});
 }
 
 /// AllProductListScreen arguments holder class
 class AllProductListScreenArguments {
   final String productCondition;
-  AllProductListScreenArguments({@required this.productCondition});
+
+  AllProductListScreenArguments({required this.productCondition});
 }
 
 /// MyAddressScreen arguments holder class
 class MyAddressScreenArguments {
   final bool selectedAddress;
+
   MyAddressScreenArguments({this.selectedAddress = false});
 }
 
@@ -221,9 +227,10 @@ class MyAddressScreenArguments {
 class AddAddressScreenArguments {
   final bool newAddress;
   final AccountDetails accountDetails;
-  final Address editAddress;
+  final Address? editAddress;
+
   AddAddressScreenArguments(
-      {@required this.newAddress,
-      @required this.accountDetails,
-      @required this.editAddress});
+      {required this.newAddress,
+      required this.accountDetails,
+      this.editAddress});
 }

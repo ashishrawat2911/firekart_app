@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/src/res/app_assets.dart';
-import 'package:fluttercommerce/src/routes/router.gr.dart';
+import 'package:fluttercommerce/src/routes/routers.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

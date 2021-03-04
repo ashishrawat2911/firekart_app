@@ -1,10 +1,10 @@
 import 'package:fluttercommerce/src/models/product_model.dart';
 
 class HomePageModel {
-  List<ProductModel> topProducts;
-  List<ProductModel> dealOfTheDay;
+  List<ProductModel>? topProducts;
+  List<ProductModel>? dealOfTheDay;
 
-  List<ProductModel> onSale;
+  List<ProductModel>? onSale;
 
   HomePageModel({this.topProducts, this.dealOfTheDay, this.onSale});
 

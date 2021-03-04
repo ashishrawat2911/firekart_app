@@ -5,7 +5,7 @@ import 'package:fluttercommerce/src/core/utils/validator.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
-import 'package:fluttercommerce/src/routes/router.gr.dart';
+import 'package:fluttercommerce/src/routes/routers.dart';
 import 'package:fluttercommerce/src/ui/common/action_text.dart';
 import 'package:fluttercommerce/src/ui/common/commom_text_field.dart';
 import 'package:fluttercommerce/src/ui/common/common_app_loader.dart';
@@ -33,10 +33,10 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
   void initState() {
     super.initState();
     if (!widget.newAddress) {
-      addAddressCubit.loadPreviousData();
+      addAddressCubit!.loadPreviousData();
     }
     nameEditingController.addListener(() {
-      addAddressCubit.validateButton(nameEditingController.text);
+      addAddressCubit!.validateButton(nameEditingController.text);
     });
   }
 
@@ -49,7 +49,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
             "${widget.newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: BlocConsumer<AddAccountDetailsCubit, AddAccountDetailsState>(
-        cubit: addAddressCubit,
+        cubit: addAddressCubit!,
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
@@ -59,7 +59,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
             }
           }
           if (state is EditData) {
-            nameEditingController.text = state.accountDetails.name;
+            nameEditingController.text = state.accountDetails.name!;
           }
         },
         builder: (BuildContext context, AddAccountDetailsState state) {
@@ -140,8 +140,8 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
-      addAddressCubit.saveData(nameEditingController.text,
+    if (_formKey.currentState!.validate()) {
+      addAddressCubit!.saveData(nameEditingController.text,
           isEdit: widget.newAddress);
     }
   }

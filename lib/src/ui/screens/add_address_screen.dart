@@ -13,9 +13,9 @@ import 'package:fluttercommerce/src/ui/common/common_button.dart';
 class AddAddressScreen extends StatefulWidget {
   final bool newAddress;
   final AccountDetails accountDetails;
-  final Address editAddress;
+  final Address? editAddress;
 
-  AddAddressScreen(this.newAddress, this.accountDetails, this.editAddress);
+  AddAddressScreen(this.newAddress, this.accountDetails, {this.editAddress});
 
   @override
   _AddAddressScreenState createState() => _AddAddressScreenState();
@@ -40,7 +40,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   FocusNode phoneFocusNode = FocusNode();
   Validator validator = Validator();
 
-  bool setAsDefault;
+  bool? setAsDefault;
 
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
@@ -49,12 +49,12 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
     super.initState();
     setAsDefault = false;
     if (widget.editAddress != null) {
-      Address address = widget.editAddress;
-      nameEditingController.text = address.name;
-      pincodeEditingController.text = address.pincode;
-      addressEditingController.text = address.address;
-      cityEditingController.text = address.city;
-      phoneEditingController.text = address.phoneNumber;
+      Address address = widget.editAddress!;
+      nameEditingController.text = address.name!;
+      pincodeEditingController.text = address.pincode!;
+      addressEditingController.text = address.address!;
+      cityEditingController.text = address.city!;
+      phoneEditingController.text = address.phoneNumber!;
       setAsDefault = address.isDefault;
     }
   }
@@ -123,7 +123,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     focusNode: addressFocusNode,
                     nextFocusNode: cityFocusNode,
                     validator: (val) {
-                      if (val.isEmpty) {
+                      if (val!.isEmpty) {
                         return "Address is Required";
                       } else
                         return null;
@@ -193,7 +193,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                             void Function(void Function()) setState) {
                           return Checkbox(
                             value: setAsDefault,
-                            onChanged: (bool value) {
+                            onChanged: (bool? value) {
                               setState(() {
                                 setAsDefault = value;
                               });
@@ -211,7 +211,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     height: 50,
                   ),
                   BlocConsumer<AddAddressCubit, AddAddressState>(
-                    cubit: addAddressCubit,
+                    cubit: addAddressCubit!,
                     listener: (BuildContext context, AddAddressState state) {
                       if (state is Successful) {
                         Navigator.of(context).pop(true);
@@ -241,7 +241,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       Address address = Address(
           name: nameEditingController.text,
           address: addressEditingController.text,
@@ -250,7 +250,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
           pincode: pincodeEditingController.text,
           phoneNumber: "+91${phoneEditingController.text}",
           state: stateEditingController.text);
-      addAddressCubit.saveAddress(widget.accountDetails, address);
+      addAddressCubit!.saveAddress(widget.accountDetails!, address);
     }
   }
 }

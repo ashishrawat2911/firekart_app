@@ -1,7 +1,7 @@
 class AccountDetails {
-  String name;
-  String phoneNumber;
-  List<Address> addresses = [];
+  String? name;
+  String? phoneNumber;
+  List<Address>? addresses = [];
 
   AccountDetails({this.name, this.phoneNumber, this.addresses});
 
@@ -9,11 +9,11 @@ class AccountDetails {
     name = json['name'];
     phoneNumber = json['phone_number'];
     if (json['addresses'] != null) {
-      addresses = new List<Address>();
+      addresses = [];
       print(json["addresses"]);
-      addresses = (json['addresses'] as List)
-          ?.map((e) => e == null ? null : Address.fromDocument(e))
-          ?.toList();
+      addresses = (json['addresses'] as List?)
+          ?.map((e) => Address.fromDocument(e))
+          .toList();
     } else {
       addresses = [];
     }
@@ -24,20 +24,20 @@ class AccountDetails {
     data['name'] = this.name;
     data['phone_number'] = this.phoneNumber;
     if (this.addresses != null) {
-      data['addresses'] = this.addresses.map((v) => v.toJson()).toList();
+      data['addresses'] = this.addresses!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Address {
-  String name;
-  String pincode;
-  String address;
-  String city;
-  String state;
-  String phoneNumber;
-  bool isDefault;
+  String? name;
+  String? pincode;
+  String? address;
+  String? city;
+  String? state;
+  String? phoneNumber;
+  bool? isDefault;
 
   Address(
       {this.name,

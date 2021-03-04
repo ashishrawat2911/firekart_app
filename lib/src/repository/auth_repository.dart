@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/notifiers/account_provider.dart';
@@ -9,11 +8,11 @@ class AuthRepository {
   var accountProvider = AppInjector.get<AccountProvider>();
 
   Future<bool> sendCode(
-    String phoneNumber, {
-    @required PhoneVerificationCompleted verificationCompleted,
-    @required PhoneVerificationFailed verificationFailed,
-    @required PhoneCodeSent codeSent,
-    @required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
+    String? phoneNumber, {
+    required PhoneVerificationCompleted verificationCompleted,
+    required PhoneVerificationFailed verificationFailed,
+    required PhoneCodeSent codeSent,
+    required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
   }) async {
     try {
       return firebaseAuth
@@ -34,12 +33,12 @@ class AuthRepository {
     }
   }
 
-  setAccountDetails({String displayName, String photoUrl}) async {
+  setAccountDetails({required String? displayName, String? photoUrl}) async {
     UserUpdateInfo updateInfo = UserUpdateInfo();
     updateInfo.displayName = displayName;
     updateInfo.photoUrl = photoUrl;
     (await getCurrentUser()).updateProfile(updateInfo).then((value) async {
-      accountProvider.firebaseUser = await getCurrentUser();
+      accountProvider!.firebaseUser = await getCurrentUser();
     });
 //    accountProvider.firebaseUser = await getCurrentUser();
 //    accountProvider.firebaseUser = await getCurrentUser();

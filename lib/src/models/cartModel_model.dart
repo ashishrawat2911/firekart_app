@@ -2,15 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttercommerce/src/models/product_model.dart';
 
 class CartModel {
-  String productId;
-  String image;
-  String name;
-  String unit;
+  String? productId;
+  String? image;
+  String? name;
+  String? unit;
 
-  String currency;
-  num currentPrice;
-  num quantityPerUnit;
-  num numOfItems;
+  String? currency;
+  num? currentPrice;
+  num? quantityPerUnit;
+  num? numOfItems;
 
   CartModel(
       {this.productId,
@@ -24,14 +24,14 @@ class CartModel {
 
   factory CartModel.fromJson(DocumentSnapshot json) {
     return CartModel(
-      productId: json['product_id'] as String,
-      image: json['image'] as String,
-      name: json['name'] as String,
-      unit: json['unit'] as String,
-      currency: json['currency'] as String,
-      currentPrice: json['current_price'] as num,
-      quantityPerUnit: json['quantity_per_unit'] as num,
-      numOfItems: json['no_of_items'] as num,
+      productId: json['product_id'] as String?,
+      image: json['image'] as String?,
+      name: json['name'] as String?,
+      unit: json['unit'] as String?,
+      currency: json['currency'] as String?,
+      currentPrice: json['current_price'] as num?,
+      quantityPerUnit: json['quantity_per_unit'] as num?,
+      numOfItems: json['no_of_items'] as num?,
     );
   }
 

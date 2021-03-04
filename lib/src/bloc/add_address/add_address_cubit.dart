@@ -15,13 +15,13 @@ class AddAddressCubit extends Cubit<AddAddressState> {
   saveAddress(AccountDetails accountDetails, Address address) {
     emit(ButtonLoading());
 
-    if (address.isDefault) {
-      List.generate(accountDetails.addresses.length, (index) {
-        accountDetails.addresses[index].isDefault = false;
+    if (address.isDefault!) {
+      List.generate(accountDetails.addresses!.length, (index) {
+        accountDetails.addresses![index].isDefault = false;
       });
     }
-    accountDetails.addresses.add(address);
-    _firebaseRepo.addUserDetails(accountDetails).then((value) {
+    accountDetails.addresses!.add(address);
+    _firebaseRepo!.addUserDetails(accountDetails).then((value) {
       emit(AddAddressState.successful());
     }).catchError((e) {
       emit(AddAddressState.error(e.toString()));

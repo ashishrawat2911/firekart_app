@@ -14,9 +14,9 @@ class AddToCartCubit extends Cubit<AddToCartState> {
 
   AddToCartCubit() : super(ShowAddButton());
 
-  listenToProduct(String productId) async {
-    _firebaseRepo.cartStatusListen(await _authRepo.getUid()).listen((event) {
-      checkItemInCart(productId, isListening: true);
+  listenToProduct(String? productId) async {
+    _firebaseRepo!.cartStatusListen(await _authRepo!.getUid()).listen((event) {
+      checkItemInCart(productId!, isListening: true);
     });
   }
 
@@ -24,7 +24,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
     if (!isListening) {
       emit(AddToCardLoading());
     }
-    int cartValue = await _firebaseRepo.checkItemInCart(productId);
+    int cartValue = await (_firebaseRepo!.checkItemInCart(productId) as Future<int>);
     if (cartValue > 0) {
       emit(ShowCartValue(cartValue));
     } else {
@@ -39,7 +39,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
       return;
     }
     CartModel cartModel = CartModel.fromProduct(productModel, 1);
-    _firebaseRepo.addProductToCart(cartModel).then((value) {
+    _firebaseRepo!.addProductToCart(cartModel).then((value) {
       emit(ShowCartValue(1));
     }).catchError((e) {
       emit(AddToCartError(e.toString()));
@@ -58,7 +58,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         return;
       }
       CartModel cartModel = CartModel.fromProduct(productModel, newCartValue);
-      _firebaseRepo.addProductToCart(cartModel).then((value) {
+      _firebaseRepo!.addProductToCart(cartModel).then((value) {
         emit(ShowCartValue(newCartValue));
       }).catchError((e) {
         emit(UpdateCartError(e.toString(), cartValue));
@@ -68,7 +68,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         emit(DeleteCartError(StringsConstants.connectionNotAvailable));
         return;
       }
-      _firebaseRepo.delProductFromCart(productModel.productId).then((value) {
+      _firebaseRepo!.delProductFromCart(productModel.productId!).then((value) {
         emit(ShowAddButton());
       }).catchError((e) {
         emit(DeleteCartError(e.toString()));

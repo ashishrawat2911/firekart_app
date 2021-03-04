@@ -7,7 +7,7 @@ import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/models/product_model.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/router.gr.dart';
+import 'package:fluttercommerce/src/routes/routers.dart';
 import 'package:fluttercommerce/src/ui/common/action_text.dart';
 import 'package:fluttercommerce/src/ui/common/product_card.dart';
 import 'package:shimmer/shimmer.dart';
@@ -18,11 +18,11 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
-  ProductDataCubit dealsDayCubit =
+  ProductDataCubit? dealsDayCubit =
       AppInjector.get<ProductDataCubit>(instanceName: AppInjector.dealOfTheDay);
-  ProductDataCubit topProductsCubit =
+  ProductDataCubit? topProductsCubit =
       AppInjector.get<ProductDataCubit>(instanceName: AppInjector.topProducts);
-  ProductDataCubit onSaleCubit =
+  ProductDataCubit? onSaleCubit =
       AppInjector.get<ProductDataCubit>(instanceName: AppInjector.onSale);
 
   @override
@@ -32,9 +32,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
   }
 
   fetchProductData() async {
-    dealsDayCubit.fetchProductData(ProductData.DealOfTheDay);
-    topProductsCubit.fetchProductData(ProductData.OnSale);
-    onSaleCubit.fetchProductData(ProductData.TopProducts);
+    dealsDayCubit!.fetchProductData(ProductData.DealOfTheDay);
+    topProductsCubit!.fetchProductData(ProductData.OnSale);
+    onSaleCubit!.fetchProductData(ProductData.TopProducts);
   }
 
   @override
@@ -64,10 +64,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: 20,
               ),
-              productDataBuilder(dealsDayCubit, StringsConstants.dealOfTheDay),
-              productDataBuilder(onSaleCubit, StringsConstants.onSale),
+              productDataBuilder(dealsDayCubit!, StringsConstants.dealOfTheDay),
+              productDataBuilder(onSaleCubit!, StringsConstants.onSale),
               productDataBuilder(
-                  topProductsCubit, StringsConstants.topProducts),
+                  topProductsCubit!, StringsConstants.topProducts),
               SizedBox(
                 height: 20,
               )
@@ -80,7 +80,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   Widget productDataBuilder(Cubit cubit, String title) {
     return BlocBuilder<ProductDataCubit, ResultState<List<ProductModel>>>(
-      cubit: cubit,
+      cubit: cubit as ProductDataCubit,
       builder: (BuildContext context, ResultState<List<ProductModel>> state) {
         return ResultStateBuilder(
           state: state,
@@ -100,8 +100,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   productLoader() {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       enabled: true,
       child: Container(
         margin: EdgeInsets.only(left: 10, right: 10),
@@ -195,7 +195,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   child: ActionText(
                     StringsConstants.viewAllCaps,
                     onTap: () {
-                      String condition;
+                      String? condition;
                       if (title == StringsConstants.dealOfTheDay) {
                         condition = "deal_of_the_day";
                       } else if (title == StringsConstants.topProducts) {
@@ -203,10 +203,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      Navigator.of(context).pushNamed(
-                          Routes.allProductListScreen,
-                          arguments: AllProductListScreenArguments(
-                              productCondition: condition));
+                      Navigator.of(context)
+                          .pushNamed(Routes.allProductListScreen,
+                              arguments: AllProductListScreenArguments(
+                                productCondition: (condition)!,
+                              ));
                     },
                   ))
             ],

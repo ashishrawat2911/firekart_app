@@ -1,13 +1,13 @@
 class FaqModel {
-  List<FaqModel> faqList;
+  List<FaqModel>? faqList;
 
   FaqModel({this.faqList});
 
   factory FaqModel.fromDocument(json) {
     return FaqModel(
-      faqList: (json['faqList'] as List)
-          ?.map((e) => e == null ? null : FaqModel.fromDocument(e))
-          ?.toList(),
+      faqList: (json['faqList'] as List?)
+          ?.map((e) => FaqModel.fromDocument(e))
+          .toList(),
     );
   }
 
@@ -17,15 +17,15 @@ class FaqModel {
 }
 
 class Faq {
-  String questions;
-  String answers;
+  String? questions;
+  String? answers;
 
   Faq({this.questions, this.answers});
 
   factory Faq.fromDocument(json) {
     return Faq(
-      questions: json['questions'] as String,
-      answers: json['answers'] as String,
+      questions: json['questions'] as String?,
+      answers: json['answers'] as String?,
     );
   }
 
