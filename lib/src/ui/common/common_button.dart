@@ -5,24 +5,24 @@ import 'package:fluttercommerce/src/res/app_colors.dart';
 
 class CommonButton extends StatelessWidget {
   final String title;
-  final VoidCallback onTap;
-  final TextStyle textStyle;
-  final Color buttonColor;
-  final double elevation;
-  final double width;
-  final double height;
-  final double fontSize;
-  final Color titleColor;
-  final FontWeight fontWeight;
+  final VoidCallback? onTap;
+  final TextStyle? textStyle;
+  final Color? buttonColor;
+  final double? elevation;
+  final double? width;
+  final double? height;
+  final double? fontSize;
+  final Color? titleColor;
+  final FontWeight? fontWeight;
   final bool hasForwardIcon;
   final bool replaceWithIndicator;
   final bool isEnabled;
-  final TextAlign textAlign;
-  final EdgeInsets margin;
+  final TextAlign? textAlign;
+  final EdgeInsets? margin;
 
   const CommonButton(
-      {Key key,
-      @required this.title,
+      {Key? key,
+      required this.title,
       this.onTap,
       this.textStyle,
       this.buttonColor,
@@ -53,7 +53,7 @@ class CommonButton extends StatelessWidget {
               ? () {
                   if (onTap != null) {
                     HapticFeedback.lightImpact();
-                    onTap();
+                    onTap!();
                   }
                 }
               : null,

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'address_card_state.dart';
 
@@ -9,78 +9,79 @@ part of 'address_card_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AddressCardStateTearOff {
   const _$AddressCardStateTearOff();
 
-// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
-// ignore: unused_element
   EditLoading editLoading() {
     return const EditLoading();
   }
 
-// ignore: unused_element
   SetDefaultLoading setDefaultLoading() {
     return const SetDefaultLoading();
   }
 
-// ignore: unused_element
   Error error(String message) {
     return Error(
       message,
     );
   }
 
-// ignore: unused_element
-  Successful successful() {
-    return const Successful();
+  SuccessfulSaved successful() {
+    return const SuccessfulSaved();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AddressCardState = _$AddressCardStateTearOff();
 
 /// @nodoc
 mixin _$AddressCardState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result editLoading(),
-    @required Result setDefaultLoading(),
-    @required Result error(String message),
-    @required Result successful(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() editLoading,
+    required TResult Function() setDefaultLoading,
+    required TResult Function(String message) error,
+    required TResult Function() successful,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result editLoading(),
-    Result setDefaultLoading(),
-    Result error(String message),
-    Result successful(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result editLoading(EditLoading value),
-    @required Result setDefaultLoading(SetDefaultLoading value),
-    @required Result error(Error value),
-    @required Result successful(Successful value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(EditLoading value) editLoading,
+    required TResult Function(SetDefaultLoading value) setDefaultLoading,
+    required TResult Function(Error value) error,
+    required TResult Function(SuccessfulSaved value) successful,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result editLoading(EditLoading value),
-    Result setDefaultLoading(SetDefaultLoading value),
-    Result error(Error value),
-    Result successful(Successful value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(SuccessfulSaved value)? successful,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -135,32 +136,26 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result editLoading(),
-    @required Result setDefaultLoading(),
-    @required Result error(String message),
-    @required Result successful(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() editLoading,
+    required TResult Function() setDefaultLoading,
+    required TResult Function(String message) error,
+    required TResult Function() successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result editLoading(),
-    Result setDefaultLoading(),
-    Result error(String message),
-    Result successful(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -169,32 +164,26 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result editLoading(EditLoading value),
-    @required Result setDefaultLoading(SetDefaultLoading value),
-    @required Result error(Error value),
-    @required Result successful(Successful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(EditLoading value) editLoading,
+    required TResult Function(SetDefaultLoading value) setDefaultLoading,
+    required TResult Function(Error value) error,
+    required TResult Function(SuccessfulSaved value) successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result editLoading(EditLoading value),
-    Result setDefaultLoading(SetDefaultLoading value),
-    Result error(Error value),
-    Result successful(Successful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(SuccessfulSaved value)? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -244,32 +233,26 @@ class _$EditLoading implements EditLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result editLoading(),
-    @required Result setDefaultLoading(),
-    @required Result error(String message),
-    @required Result successful(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() editLoading,
+    required TResult Function() setDefaultLoading,
+    required TResult Function(String message) error,
+    required TResult Function() successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return editLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result editLoading(),
-    Result setDefaultLoading(),
-    Result error(String message),
-    Result successful(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (editLoading != null) {
       return editLoading();
     }
@@ -278,32 +261,26 @@ class _$EditLoading implements EditLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result editLoading(EditLoading value),
-    @required Result setDefaultLoading(SetDefaultLoading value),
-    @required Result error(Error value),
-    @required Result successful(Successful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(EditLoading value) editLoading,
+    required TResult Function(SetDefaultLoading value) setDefaultLoading,
+    required TResult Function(Error value) error,
+    required TResult Function(SuccessfulSaved value) successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return editLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result editLoading(EditLoading value),
-    Result setDefaultLoading(SetDefaultLoading value),
-    Result error(Error value),
-    Result successful(Successful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(SuccessfulSaved value)? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (editLoading != null) {
       return editLoading(this);
     }
@@ -353,32 +330,26 @@ class _$SetDefaultLoading implements SetDefaultLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result editLoading(),
-    @required Result setDefaultLoading(),
-    @required Result error(String message),
-    @required Result successful(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() editLoading,
+    required TResult Function() setDefaultLoading,
+    required TResult Function(String message) error,
+    required TResult Function() successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return setDefaultLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result editLoading(),
-    Result setDefaultLoading(),
-    Result error(String message),
-    Result successful(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (setDefaultLoading != null) {
       return setDefaultLoading();
     }
@@ -387,32 +358,26 @@ class _$SetDefaultLoading implements SetDefaultLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result editLoading(EditLoading value),
-    @required Result setDefaultLoading(SetDefaultLoading value),
-    @required Result error(Error value),
-    @required Result successful(Successful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(EditLoading value) editLoading,
+    required TResult Function(SetDefaultLoading value) setDefaultLoading,
+    required TResult Function(Error value) error,
+    required TResult Function(SuccessfulSaved value) successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return setDefaultLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result editLoading(EditLoading value),
-    Result setDefaultLoading(SetDefaultLoading value),
-    Result error(Error value),
-    Result successful(Successful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(SuccessfulSaved value)? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (setDefaultLoading != null) {
       return setDefaultLoading(this);
     }
@@ -442,7 +407,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(Error(
       message == freezed ? _value.message : message as String,
@@ -452,7 +417,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$Error implements Error {
-  const _$Error(this.message) : assert(message != null);
+  const _$Error(this.message);
 
   @override
   final String message;
@@ -474,38 +439,33 @@ class _$Error implements Error {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   $ErrorCopyWith<Error> get copyWith =>
       _$ErrorCopyWithImpl<Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result editLoading(),
-    @required Result setDefaultLoading(),
-    @required Result error(String message),
-    @required Result successful(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() editLoading,
+    required TResult Function() setDefaultLoading,
+    required TResult Function(String message) error,
+    required TResult Function() successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result editLoading(),
-    Result setDefaultLoading(),
-    Result error(String message),
-    Result successful(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -514,32 +474,26 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result editLoading(EditLoading value),
-    @required Result setDefaultLoading(SetDefaultLoading value),
-    @required Result error(Error value),
-    @required Result successful(Successful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(EditLoading value) editLoading,
+    required TResult Function(SetDefaultLoading value) setDefaultLoading,
+    required TResult Function(Error value) error,
+    required TResult Function(SuccessfulSaved value) successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result editLoading(EditLoading value),
-    Result setDefaultLoading(SetDefaultLoading value),
-    Result error(Error value),
-    Result successful(Successful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(SuccessfulSaved value)? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -550,31 +504,33 @@ class _$Error implements Error {
 abstract class Error implements AddressCardState {
   const factory Error(String message) = _$Error;
 
-  String get message;
-  $ErrorCopyWith<Error> get copyWith;
+  String get message => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SuccessfulCopyWith<$Res> {
-  factory $SuccessfulCopyWith(
-          Successful value, $Res Function(Successful) then) =
-      _$SuccessfulCopyWithImpl<$Res>;
+abstract class $SuccessfulSavedCopyWith<$Res> {
+  factory $SuccessfulSavedCopyWith(
+          SuccessfulSaved value, $Res Function(SuccessfulSaved) then) =
+      _$SuccessfulSavedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SuccessfulCopyWithImpl<$Res>
+class _$SuccessfulSavedCopyWithImpl<$Res>
     extends _$AddressCardStateCopyWithImpl<$Res>
-    implements $SuccessfulCopyWith<$Res> {
-  _$SuccessfulCopyWithImpl(Successful _value, $Res Function(Successful) _then)
-      : super(_value, (v) => _then(v as Successful));
+    implements $SuccessfulSavedCopyWith<$Res> {
+  _$SuccessfulSavedCopyWithImpl(
+      SuccessfulSaved _value, $Res Function(SuccessfulSaved) _then)
+      : super(_value, (v) => _then(v as SuccessfulSaved));
 
   @override
-  Successful get _value => super._value as Successful;
+  SuccessfulSaved get _value => super._value as SuccessfulSaved;
 }
 
 /// @nodoc
-class _$Successful implements Successful {
-  const _$Successful();
+class _$SuccessfulSaved implements SuccessfulSaved {
+  const _$SuccessfulSaved();
 
   @override
   String toString() {
@@ -583,7 +539,7 @@ class _$Successful implements Successful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Successful);
+    return identical(this, other) || (other is SuccessfulSaved);
   }
 
   @override
@@ -591,32 +547,26 @@ class _$Successful implements Successful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result editLoading(),
-    @required Result setDefaultLoading(),
-    @required Result error(String message),
-    @required Result successful(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() editLoading,
+    required TResult Function() setDefaultLoading,
+    required TResult Function(String message) error,
+    required TResult Function() successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result editLoading(),
-    Result setDefaultLoading(),
-    Result error(String message),
-    Result successful(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -625,32 +575,26 @@ class _$Successful implements Successful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result editLoading(EditLoading value),
-    @required Result setDefaultLoading(SetDefaultLoading value),
-    @required Result error(Error value),
-    @required Result successful(Successful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(EditLoading value) editLoading,
+    required TResult Function(SetDefaultLoading value) setDefaultLoading,
+    required TResult Function(Error value) error,
+    required TResult Function(SuccessfulSaved value) successful,
   }) {
-    assert(idle != null);
-    assert(editLoading != null);
-    assert(setDefaultLoading != null);
-    assert(error != null);
-    assert(successful != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result editLoading(EditLoading value),
-    Result setDefaultLoading(SetDefaultLoading value),
-    Result error(Error value),
-    Result successful(Successful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(SuccessfulSaved value)? successful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -658,6 +602,6 @@ class _$Successful implements Successful {
   }
 }
 
-abstract class Successful implements AddressCardState {
-  const factory Successful() = _$Successful;
+abstract class SuccessfulSaved implements AddressCardState {
+  const factory SuccessfulSaved() = _$SuccessfulSaved;
 }

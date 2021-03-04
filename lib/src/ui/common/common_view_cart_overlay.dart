@@ -4,7 +4,7 @@ import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/router.gr.dart';
+import 'package:fluttercommerce/src/routes/routers.dart';
 
 class CommonViewCartOverlay extends StatelessWidget {
   @override

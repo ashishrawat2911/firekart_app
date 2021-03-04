@@ -12,15 +12,15 @@ class ResultStateBuilder<T> extends StatelessWidget {
   final ResultState<T> state;
   final ResultDataWidget<T> dataWidget;
   final ResultLoadingWidget loadingWidget;
-  final ReturnWidget idleWidget;
+  final ReturnWidget? idleWidget;
   final ResultErrorWidget<String> errorWidget;
   final bool showLoadingInitially;
 
   ResultStateBuilder(
-      {@required this.state,
-      @required this.dataWidget,
-      @required this.loadingWidget,
-      @required this.errorWidget,
+      {required this.state,
+      required this.dataWidget,
+      required this.loadingWidget,
+      required this.errorWidget,
       this.idleWidget,
       this.showLoadingInitially = true});
 
@@ -31,7 +31,7 @@ class ResultStateBuilder<T> extends StatelessWidget {
         if (idleWidget == null) {
           return Container();
         }
-        return idleWidget();
+        return idleWidget!();
       },
       loading: () {
         return loadingWidget(false);
@@ -48,6 +48,6 @@ class ResultStateBuilder<T> extends StatelessWidget {
       reLoading: () {
         return loadingWidget(true);
       },
-    );
+    )!;
   }
 }

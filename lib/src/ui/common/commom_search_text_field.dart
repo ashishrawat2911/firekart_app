@@ -4,13 +4,13 @@ import 'package:fluttercommerce/src/res/text_styles.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   final String hint;
-  final ValueChanged<String> onSubmitted;
-  final ValueChanged<String> onChanged;
-  final TextEditingController textEditingController;
-  final FocusNode focusNode;
+  final ValueChanged<String>? onSubmitted;
+  final ValueChanged<String>? onChanged;
+  final TextEditingController? textEditingController;
+  final FocusNode? focusNode;
 
   CommonSearchTextField(
-      {@required this.hint,
+      {required this.hint,
       this.onSubmitted,
       this.onChanged,
       this.textEditingController,
@@ -64,12 +64,12 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
 
 class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
   final ValueChanged<String> onTextChanged;
-  final VoidCallback onBackPressed;
-  final VoidCallback onClosePressed;
-  final String hintText;
+  final VoidCallback? onBackPressed;
+  final VoidCallback? onClosePressed;
+  final String? hintText;
 
   CommonSearchBar(
-      {@required this.onTextChanged,
+      {required this.onTextChanged,
       this.hintText,
       this.onBackPressed,
       this.onClosePressed});
@@ -112,7 +112,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
         },
         decoration: InputDecoration(
             hintText: widget.hintText ??
-                Theme.of(context).inputDecorationTheme.hintStyle,
+                Theme.of(context).inputDecorationTheme.hintStyle as String?,
             contentPadding: EdgeInsets.only(top: 25),
             prefixIcon: Padding(
               padding: const EdgeInsets.only(left: 10.0),
@@ -128,7 +128,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
                     onPressed: () {
                       if (textEditingController.text == "") {
                         if (widget.onClosePressed != null) {
-                          widget.onClosePressed();
+                          widget.onClosePressed!();
                         }
                         Navigator.of(context).pop();
                       } else {

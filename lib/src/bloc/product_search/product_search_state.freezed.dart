@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'product_search_state.dart';
 
@@ -9,69 +9,71 @@ part of 'product_search_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ProductSearchStateTearOff {
   const _$ProductSearchStateTearOff();
 
-// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
-// ignore: unused_element
   ProductList productList(List<ProductModel> productList) {
     return ProductList(
       productList,
     );
   }
 
-// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProductSearchState = _$ProductSearchStateTearOff();
 
 /// @nodoc
 mixin _$ProductSearchState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result productList(List<ProductModel> productList),
-    @required Result loading(),
-    @required Result error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(List<ProductModel> productList) productList,
+    required TResult Function() loading,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result productList(List<ProductModel> productList),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(List<ProductModel> productList)? productList,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result productList(ProductList value),
-    @required Result loading(Loading value),
-    @required Result error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ProductList value) productList,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result productList(ProductList value),
-    Result loading(Loading value),
-    Result error(Error value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ProductList value)? productList,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -126,29 +128,24 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result productList(List<ProductModel> productList),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(List<ProductModel> productList) productList,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result productList(List<ProductModel> productList),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(List<ProductModel> productList)? productList,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -157,29 +154,24 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result productList(ProductList value),
-    @required Result loading(Loading value),
-    @required Result error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ProductList value) productList,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result productList(ProductList value),
-    Result loading(Loading value),
-    Result error(Error value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ProductList value)? productList,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -212,7 +204,7 @@ class _$ProductListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object productList = freezed,
+    Object? productList = freezed,
   }) {
     return _then(ProductList(
       productList == freezed
@@ -224,7 +216,7 @@ class _$ProductListCopyWithImpl<$Res>
 
 /// @nodoc
 class _$ProductList implements ProductList {
-  const _$ProductList(this.productList) : assert(productList != null);
+  const _$ProductList(this.productList);
 
   @override
   final List<ProductModel> productList;
@@ -247,35 +239,31 @@ class _$ProductList implements ProductList {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(productList);
 
+  @JsonKey(ignore: true)
   @override
   $ProductListCopyWith<ProductList> get copyWith =>
       _$ProductListCopyWithImpl<ProductList>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result productList(List<ProductModel> productList),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(List<ProductModel> productList) productList,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return productList(this.productList);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result productList(List<ProductModel> productList),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(List<ProductModel> productList)? productList,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (productList != null) {
       return productList(this.productList);
     }
@@ -284,29 +272,24 @@ class _$ProductList implements ProductList {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result productList(ProductList value),
-    @required Result loading(Loading value),
-    @required Result error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ProductList value) productList,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return productList(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result productList(ProductList value),
-    Result loading(Loading value),
-    Result error(Error value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ProductList value)? productList,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (productList != null) {
       return productList(this);
     }
@@ -317,8 +300,10 @@ class _$ProductList implements ProductList {
 abstract class ProductList implements ProductSearchState {
   const factory ProductList(List<ProductModel> productList) = _$ProductList;
 
-  List<ProductModel> get productList;
-  $ProductListCopyWith<ProductList> get copyWith;
+  List<ProductModel> get productList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProductListCopyWith<ProductList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -356,29 +341,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result productList(List<ProductModel> productList),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(List<ProductModel> productList) productList,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result productList(List<ProductModel> productList),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(List<ProductModel> productList)? productList,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -387,29 +367,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result productList(ProductList value),
-    @required Result loading(Loading value),
-    @required Result error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ProductList value) productList,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result productList(ProductList value),
-    Result loading(Loading value),
-    Result error(Error value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ProductList value)? productList,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -456,29 +431,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result productList(List<ProductModel> productList),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(List<ProductModel> productList) productList,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result productList(List<ProductModel> productList),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(List<ProductModel> productList)? productList,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -487,29 +457,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result productList(ProductList value),
-    @required Result loading(Loading value),
-    @required Result error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ProductList value) productList,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    assert(idle != null);
-    assert(productList != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result productList(ProductList value),
-    Result loading(Loading value),
-    Result error(Error value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ProductList value)? productList,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

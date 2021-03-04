@@ -28,8 +28,8 @@ class AppInjector {
 
   AppInjector._internal();
 
-  static T get<T>({String instanceName, dynamic param1, dynamic param2}) =>
-      _injector<T>(instanceName: instanceName, param1: param1, param2: param2);
+  static T? get<T>({String? instanceName, dynamic param1, dynamic param2}) =>
+      _injector<T>(instanceName: instanceName!, param1: param1, param2: param2);
 
   static const String dealOfTheDay = "deal_of_the_day";
   static const String topProducts = "top_products";

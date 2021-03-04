@@ -14,9 +14,9 @@ class CheckAdaptability {
   }
 
   static onScreenChange(BuildContext context,
-      {VoidCallback onSmallScreen,
-      VoidCallback onMediumScreen,
-      VoidCallback onLargeScreen}) {
+      {VoidCallback? onSmallScreen,
+      VoidCallback? onMediumScreen,
+      VoidCallback? onLargeScreen}) {
     double width = MediaQuery.of(context).size.width;
 
     if (width < 800) {

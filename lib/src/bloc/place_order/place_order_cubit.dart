@@ -21,9 +21,9 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
     emit(PlaceOrderState.orderPlacedInProgress());
     if (await ConnectionStatus.getInstance().checkConnection()) {
       try {
-        await firebaseRepo
+        await firebaseRepo!
             .placeOrder(_orderFromCartList(cartItemStatus, response));
-        await firebaseRepo.emptyCart();
+        await firebaseRepo!.emptyCart();
         emit(PlaceOrderState.orderSuccessfullyPlaced());
       } catch (e) {
         emit(OrderNotPlaced(e.toString()));
@@ -59,7 +59,7 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
         paymentId: response.paymentId,
         signature: response.signature,
         price: cartItemStatus.priceInCart,
-        orderAddress: accountProvider.addressSelected);
+        orderAddress: accountProvider!.addressSelected);
     print(orderModel);
     return orderModel;
   }

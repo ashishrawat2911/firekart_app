@@ -13,7 +13,7 @@ class ProductSearchCubit extends Cubit<ProductSearchState> {
   searchProduct(String query) async {
     emit(ProductSearchState.loading());
     try {
-      var productSnapshot = await firebaseRepo.searchProducts(query);
+      var productSnapshot = await firebaseRepo!.searchProducts(query);
 
       List<ProductModel> list =
           List<ProductModel>.generate(productSnapshot.length, (index) {

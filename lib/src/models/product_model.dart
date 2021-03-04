@@ -1,21 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductModel {
-  String productId;
-  String image;
-  String name;
-  String description;
-  String unit;
-  List<String> categories;
-  String currency;
-  bool dealOfTheDay;
-  bool topProducts;
-  bool onSale;
-  num currentPrice;
-  num actualPrice;
-  num quantityPerUnit;
-  bool isProductAvailable;
-  List<String> nameSearch;
+  String? productId;
+  String? image;
+  String? name;
+  String? description;
+  String? unit;
+  List<String>? categories;
+  String? currency;
+  bool? dealOfTheDay;
+  bool? topProducts;
+  bool? onSale;
+  num? currentPrice;
+  num? actualPrice;
+  num? quantityPerUnit;
+  bool? isProductAvailable;
+  List<String>? nameSearch;
 
   ProductModel(
       {this.productId,
@@ -36,21 +36,21 @@ class ProductModel {
 
   factory ProductModel.fromJson(DocumentSnapshot json) {
     return ProductModel(
-      productId: json['product_id'] as String,
-      image: json['image'] as String,
-      name: json['name'] as String,
-      unit: json['unit'] as String,
-      description: json['description'] as String,
+      productId: json['product_id'] as String?,
+      image: json['image'] as String?,
+      name: json['name'] as String?,
+      unit: json['unit'] as String?,
+      description: json['description'] as String?,
       categories:
-          (json['categories'] as List)?.map((e) => e as String)?.toList(),
-      currency: json['currency'] as String,
-      dealOfTheDay: json['deal_of_the_day'] as bool,
-      topProducts: json['top_products'] as bool,
-      onSale: json['on_sale'] as bool,
-      isProductAvailable: json['is_product_available'] as bool,
-      currentPrice: json['current_price'] as num,
-      actualPrice: json['actual_price'] as num,
-      quantityPerUnit: json['quantity_per_unit'] as num,
+          (json['categories'] as List?)?.map((e) => e as String)?.toList(),
+      currency: json['currency'] as String?,
+      dealOfTheDay: json['deal_of_the_day'] as bool?,
+      topProducts: json['top_products'] as bool?,
+      onSale: json['on_sale'] as bool?,
+      isProductAvailable: json['is_product_available'] as bool?,
+      currentPrice: json['current_price'] as num?,
+      actualPrice: json['actual_price'] as num?,
+      quantityPerUnit: json['quantity_per_unit'] as num?,
     );
   }
 
@@ -69,7 +69,7 @@ class ProductModel {
         'actual_price': actualPrice,
         'quantity_per_unit': quantityPerUnit,
         'is_product_available': isProductAvailable,
-        'name_search': setSearchParam(name),
+        'name_search': setSearchParam(name!),
       };
 
   @override
@@ -78,7 +78,7 @@ class ProductModel {
   }
 
   List<String> setSearchParam(String name) {
-    List<String> nameSearch = List();
+    List<String> nameSearch = [];
     String temp = "";
     for (int i = 0; i < name.length; i++) {
       temp = temp + name[i].toLowerCase();

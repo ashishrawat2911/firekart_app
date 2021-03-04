@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'phone_login_state.dart';
 
@@ -9,31 +9,29 @@ part of 'phone_login_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$PhoneLoginStateTearOff {
   const _$PhoneLoginStateTearOff();
 
-// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
-// ignore: unused_element
   ButtonEnabled onButtonEnabled() {
     return const ButtonEnabled();
   }
 
-// ignore: unused_element
   ButtonDisabled onButtonDisabled() {
     return const ButtonDisabled();
   }
 
-// ignore: unused_element
   PhoneLoading phoneLoading() {
     return const PhoneLoading();
   }
 
-// ignore: unused_element
   ShowError showError(String error) {
     return ShowError(
       error,
@@ -42,45 +40,48 @@ class _$PhoneLoginStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PhoneLoginState = _$PhoneLoginStateTearOff();
 
 /// @nodoc
 mixin _$PhoneLoginState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result phoneLoading(),
-    @required Result showError(String error),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() phoneLoading,
+    required TResult Function(String error) showError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result phoneLoading(),
-    Result showError(String error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result phoneLoading(PhoneLoading value),
-    @required Result showError(ShowError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(PhoneLoading value) phoneLoading,
+    required TResult Function(ShowError value) showError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result phoneLoading(PhoneLoading value),
-    Result showError(ShowError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -135,32 +136,26 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result phoneLoading(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() phoneLoading,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result phoneLoading(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -169,32 +164,26 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result phoneLoading(PhoneLoading value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(PhoneLoading value) phoneLoading,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result phoneLoading(PhoneLoading value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -244,32 +233,26 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result phoneLoading(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() phoneLoading,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return onButtonEnabled();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result phoneLoading(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonEnabled != null) {
       return onButtonEnabled();
     }
@@ -278,32 +261,26 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result phoneLoading(PhoneLoading value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(PhoneLoading value) phoneLoading,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return onButtonEnabled(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result phoneLoading(PhoneLoading value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonEnabled != null) {
       return onButtonEnabled(this);
     }
@@ -353,32 +330,26 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result phoneLoading(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() phoneLoading,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return onButtonDisabled();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result phoneLoading(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonDisabled != null) {
       return onButtonDisabled();
     }
@@ -387,32 +358,26 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result phoneLoading(PhoneLoading value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(PhoneLoading value) phoneLoading,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return onButtonDisabled(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result phoneLoading(PhoneLoading value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonDisabled != null) {
       return onButtonDisabled(this);
     }
@@ -462,32 +427,26 @@ class _$PhoneLoading implements PhoneLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result phoneLoading(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() phoneLoading,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return phoneLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result phoneLoading(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (phoneLoading != null) {
       return phoneLoading();
     }
@@ -496,32 +455,26 @@ class _$PhoneLoading implements PhoneLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result phoneLoading(PhoneLoading value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(PhoneLoading value) phoneLoading,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return phoneLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result phoneLoading(PhoneLoading value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (phoneLoading != null) {
       return phoneLoading(this);
     }
@@ -551,7 +504,7 @@ class _$ShowErrorCopyWithImpl<$Res> extends _$PhoneLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(ShowError(
       error == freezed ? _value.error : error as String,
@@ -561,7 +514,7 @@ class _$ShowErrorCopyWithImpl<$Res> extends _$PhoneLoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$ShowError implements ShowError {
-  const _$ShowError(this.error) : assert(error != null);
+  const _$ShowError(this.error);
 
   @override
   final String error;
@@ -583,38 +536,33 @@ class _$ShowError implements ShowError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $ShowErrorCopyWith<ShowError> get copyWith =>
       _$ShowErrorCopyWithImpl<ShowError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result phoneLoading(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() phoneLoading,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return showError(error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result phoneLoading(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showError != null) {
       return showError(error);
     }
@@ -623,32 +571,26 @@ class _$ShowError implements ShowError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result phoneLoading(PhoneLoading value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(PhoneLoading value) phoneLoading,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(phoneLoading != null);
-    assert(showError != null);
     return showError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result phoneLoading(PhoneLoading value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showError != null) {
       return showError(this);
     }
@@ -659,6 +601,8 @@ class _$ShowError implements ShowError {
 abstract class ShowError implements PhoneLoginState {
   const factory ShowError(String error) = _$ShowError;
 
-  String get error;
-  $ShowErrorCopyWith<ShowError> get copyWith;
+  String get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ShowErrorCopyWith<ShowError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'otp_login_state.dart';
 
@@ -9,55 +9,49 @@ part of 'otp_login_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$OtpLoginStateTearOff {
   const _$OtpLoginStateTearOff();
 
-// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
-// ignore: unused_element
   CodeCountDown codeCountDown(String value) {
     return CodeCountDown(
       value,
     );
   }
 
-// ignore: unused_element
   ButtonEnabled onButtonEnabled() {
     return const ButtonEnabled();
   }
 
-// ignore: unused_element
   ButtonDisabled onButtonDisabled() {
     return const ButtonDisabled();
   }
 
-// ignore: unused_element
   ConfirmOtpLoading confirmOtpLoading() {
     return const ConfirmOtpLoading();
   }
 
-// ignore: unused_element
   ResendOtpLoading resendOtpLoading() {
     return const ResendOtpLoading();
   }
 
-// ignore: unused_element
   AutoFetchOtp autoFetchOtp(String otp) {
     return AutoFetchOtp(
       otp,
     );
   }
 
-// ignore: unused_element
   LoginSuccessful loginSuccessFull() {
     return const LoginSuccessful();
   }
 
-// ignore: unused_element
   ShowError showError(String error) {
     return ShowError(
       error,
@@ -66,61 +60,64 @@ class _$OtpLoginStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $OtpLoginState = _$OtpLoginStateTearOff();
 
 /// @nodoc
 mixin _$OtpLoginState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -175,44 +172,34 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -221,44 +208,34 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -291,7 +268,7 @@ class _$CodeCountDownCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object value = freezed,
+    Object? value = freezed,
   }) {
     return _then(CodeCountDown(
       value == freezed ? _value.value : value as String,
@@ -301,7 +278,7 @@ class _$CodeCountDownCopyWithImpl<$Res>
 
 /// @nodoc
 class _$CodeCountDown implements CodeCountDown {
-  const _$CodeCountDown(this.value) : assert(value != null);
+  const _$CodeCountDown(this.value);
 
   @override
   final String value;
@@ -323,50 +300,41 @@ class _$CodeCountDown implements CodeCountDown {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
 
+  @JsonKey(ignore: true)
   @override
   $CodeCountDownCopyWith<CodeCountDown> get copyWith =>
       _$CodeCountDownCopyWithImpl<CodeCountDown>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return codeCountDown(value);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (codeCountDown != null) {
       return codeCountDown(value);
     }
@@ -375,44 +343,34 @@ class _$CodeCountDown implements CodeCountDown {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return codeCountDown(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (codeCountDown != null) {
       return codeCountDown(this);
     }
@@ -423,8 +381,10 @@ class _$CodeCountDown implements CodeCountDown {
 abstract class CodeCountDown implements OtpLoginState {
   const factory CodeCountDown(String value) = _$CodeCountDown;
 
-  String get value;
-  $CodeCountDownCopyWith<CodeCountDown> get copyWith;
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CodeCountDownCopyWith<CodeCountDown> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -465,44 +425,34 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return onButtonEnabled();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonEnabled != null) {
       return onButtonEnabled();
     }
@@ -511,44 +461,34 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return onButtonEnabled(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonEnabled != null) {
       return onButtonEnabled(this);
     }
@@ -598,44 +538,34 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return onButtonDisabled();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonDisabled != null) {
       return onButtonDisabled();
     }
@@ -644,44 +574,34 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return onButtonDisabled(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (onButtonDisabled != null) {
       return onButtonDisabled(this);
     }
@@ -731,44 +651,34 @@ class _$ConfirmOtpLoading implements ConfirmOtpLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return confirmOtpLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (confirmOtpLoading != null) {
       return confirmOtpLoading();
     }
@@ -777,44 +687,34 @@ class _$ConfirmOtpLoading implements ConfirmOtpLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return confirmOtpLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (confirmOtpLoading != null) {
       return confirmOtpLoading(this);
     }
@@ -864,44 +764,34 @@ class _$ResendOtpLoading implements ResendOtpLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return resendOtpLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (resendOtpLoading != null) {
       return resendOtpLoading();
     }
@@ -910,44 +800,34 @@ class _$ResendOtpLoading implements ResendOtpLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return resendOtpLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (resendOtpLoading != null) {
       return resendOtpLoading(this);
     }
@@ -979,7 +859,7 @@ class _$AutoFetchOtpCopyWithImpl<$Res> extends _$OtpLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object otp = freezed,
+    Object? otp = freezed,
   }) {
     return _then(AutoFetchOtp(
       otp == freezed ? _value.otp : otp as String,
@@ -989,7 +869,7 @@ class _$AutoFetchOtpCopyWithImpl<$Res> extends _$OtpLoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$AutoFetchOtp implements AutoFetchOtp {
-  const _$AutoFetchOtp(this.otp) : assert(otp != null);
+  const _$AutoFetchOtp(this.otp);
 
   @override
   final String otp;
@@ -1011,50 +891,41 @@ class _$AutoFetchOtp implements AutoFetchOtp {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(otp);
 
+  @JsonKey(ignore: true)
   @override
   $AutoFetchOtpCopyWith<AutoFetchOtp> get copyWith =>
       _$AutoFetchOtpCopyWithImpl<AutoFetchOtp>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return autoFetchOtp(otp);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (autoFetchOtp != null) {
       return autoFetchOtp(otp);
     }
@@ -1063,44 +934,34 @@ class _$AutoFetchOtp implements AutoFetchOtp {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return autoFetchOtp(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (autoFetchOtp != null) {
       return autoFetchOtp(this);
     }
@@ -1111,8 +972,10 @@ class _$AutoFetchOtp implements AutoFetchOtp {
 abstract class AutoFetchOtp implements OtpLoginState {
   const factory AutoFetchOtp(String otp) = _$AutoFetchOtp;
 
-  String get otp;
-  $AutoFetchOtpCopyWith<AutoFetchOtp> get copyWith;
+  String get otp => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AutoFetchOtpCopyWith<AutoFetchOtp> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1153,44 +1016,34 @@ class _$LoginSuccessful implements LoginSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return loginSuccessFull();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loginSuccessFull != null) {
       return loginSuccessFull();
     }
@@ -1199,44 +1052,34 @@ class _$LoginSuccessful implements LoginSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return loginSuccessFull(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loginSuccessFull != null) {
       return loginSuccessFull(this);
     }
@@ -1266,7 +1109,7 @@ class _$ShowErrorCopyWithImpl<$Res> extends _$OtpLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(ShowError(
       error == freezed ? _value.error : error as String,
@@ -1276,7 +1119,7 @@ class _$ShowErrorCopyWithImpl<$Res> extends _$OtpLoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$ShowError implements ShowError {
-  const _$ShowError(this.error) : assert(error != null);
+  const _$ShowError(this.error);
 
   @override
   final String error;
@@ -1298,50 +1141,41 @@ class _$ShowError implements ShowError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $ShowErrorCopyWith<ShowError> get copyWith =>
       _$ShowErrorCopyWithImpl<ShowError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result codeCountDown(String value),
-    @required Result onButtonEnabled(),
-    @required Result onButtonDisabled(),
-    @required Result confirmOtpLoading(),
-    @required Result resendOtpLoading(),
-    @required Result autoFetchOtp(String otp),
-    @required Result loginSuccessFull(),
-    @required Result showError(String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(String value) codeCountDown,
+    required TResult Function() onButtonEnabled,
+    required TResult Function() onButtonDisabled,
+    required TResult Function() confirmOtpLoading,
+    required TResult Function() resendOtpLoading,
+    required TResult Function(String otp) autoFetchOtp,
+    required TResult Function() loginSuccessFull,
+    required TResult Function(String error) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return showError(error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result codeCountDown(String value),
-    Result onButtonEnabled(),
-    Result onButtonDisabled(),
-    Result confirmOtpLoading(),
-    Result resendOtpLoading(),
-    Result autoFetchOtp(String otp),
-    Result loginSuccessFull(),
-    Result showError(String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(String value)? codeCountDown,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? confirmOtpLoading,
+    TResult Function()? resendOtpLoading,
+    TResult Function(String otp)? autoFetchOtp,
+    TResult Function()? loginSuccessFull,
+    TResult Function(String error)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showError != null) {
       return showError(error);
     }
@@ -1350,44 +1184,34 @@ class _$ShowError implements ShowError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result codeCountDown(CodeCountDown value),
-    @required Result onButtonEnabled(ButtonEnabled value),
-    @required Result onButtonDisabled(ButtonDisabled value),
-    @required Result confirmOtpLoading(ConfirmOtpLoading value),
-    @required Result resendOtpLoading(ResendOtpLoading value),
-    @required Result autoFetchOtp(AutoFetchOtp value),
-    @required Result loginSuccessFull(LoginSuccessful value),
-    @required Result showError(ShowError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CodeCountDown value) codeCountDown,
+    required TResult Function(ButtonEnabled value) onButtonEnabled,
+    required TResult Function(ButtonDisabled value) onButtonDisabled,
+    required TResult Function(ConfirmOtpLoading value) confirmOtpLoading,
+    required TResult Function(ResendOtpLoading value) resendOtpLoading,
+    required TResult Function(AutoFetchOtp value) autoFetchOtp,
+    required TResult Function(LoginSuccessful value) loginSuccessFull,
+    required TResult Function(ShowError value) showError,
   }) {
-    assert(idle != null);
-    assert(codeCountDown != null);
-    assert(onButtonEnabled != null);
-    assert(onButtonDisabled != null);
-    assert(confirmOtpLoading != null);
-    assert(resendOtpLoading != null);
-    assert(autoFetchOtp != null);
-    assert(loginSuccessFull != null);
-    assert(showError != null);
     return showError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result codeCountDown(CodeCountDown value),
-    Result onButtonEnabled(ButtonEnabled value),
-    Result onButtonDisabled(ButtonDisabled value),
-    Result confirmOtpLoading(ConfirmOtpLoading value),
-    Result resendOtpLoading(ResendOtpLoading value),
-    Result autoFetchOtp(AutoFetchOtp value),
-    Result loginSuccessFull(LoginSuccessful value),
-    Result showError(ShowError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CodeCountDown value)? codeCountDown,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(ConfirmOtpLoading value)? confirmOtpLoading,
+    TResult Function(ResendOtpLoading value)? resendOtpLoading,
+    TResult Function(AutoFetchOtp value)? autoFetchOtp,
+    TResult Function(LoginSuccessful value)? loginSuccessFull,
+    TResult Function(ShowError value)? showError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showError != null) {
       return showError(this);
     }
@@ -1398,6 +1222,8 @@ class _$ShowError implements ShowError {
 abstract class ShowError implements OtpLoginState {
   const factory ShowError(String error) = _$ShowError;
 
-  String get error;
-  $ShowErrorCopyWith<ShowError> get copyWith;
+  String get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ShowErrorCopyWith<ShowError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

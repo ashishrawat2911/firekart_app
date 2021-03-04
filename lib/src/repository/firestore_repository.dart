@@ -12,7 +12,7 @@ class FirestoreRepository {
   Firestore _firestore = Firestore.instance;
 
   Future<List<DocumentSnapshot>> getAllProducts(
-      [DocumentSnapshot documentSnapshot]) async {
+      [DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     var query = _firestore.collection("products").limit(20).orderBy("name");
 
@@ -27,11 +27,11 @@ class FirestoreRepository {
   }
 
   Future<List<DocumentSnapshot>> getAllOrders(
-      [DocumentSnapshot documentSnapshot]) async {
+      [DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     var query = _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("orders")
         .limit(20)
         .orderBy("ordered_at", descending: true);
@@ -54,7 +54,7 @@ class FirestoreRepository {
     return documentList;
   }
 
-  Future<List<ProductModel>> getProductsData(String condition) async {
+  Future<List<ProductModel>> getProductsData(String? condition) async {
     List<DocumentSnapshot> docList = (await _firestore
             .collection("products")
             .where(condition, isEqualTo: true)
@@ -80,23 +80,23 @@ class FirestoreRepository {
   Future<AccountDetails> getAllFaq() async {
     DocumentSnapshot document = await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("account")
         .document("details")
         .get();
     return AccountDetails.fromDocument(document);
   }
 
-  Future<int> checkItemInCart(String productId) async {
+  Future<int?> checkItemInCart(String productId) async {
     try {
       DocumentSnapshot documentSnapshot = await _firestore
           .collection("users")
-          .document(await authRepo.getUid())
+          .document(await authRepo!.getUid())
           .collection("cart")
           .document(productId)
           .get();
       if (documentSnapshot.exists) {
-        return documentSnapshot["no_of_items"] as num;
+        return (documentSnapshot["no_of_items"] as num?) as Future<int?>;
       } else {
         return 0;
       }
@@ -108,16 +108,16 @@ class FirestoreRepository {
   Future<void> addProductToCart(CartModel cartModel) async {
     return await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("cart")
-        .document(cartModel.productId)
+        .document(cartModel.productId!)
         .setData(cartModel.toJson());
   }
 
   Future<void> delProductFromCart(String productId) async {
     return await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("cart")
         .document(productId)
         .delete();
@@ -127,7 +127,7 @@ class FirestoreRepository {
     try {
       DocumentSnapshot documentSnapshot = await _firestore
           .collection("users")
-          .document(await authRepo.getUid())
+          .document(await authRepo!.getUid())
           .collection("account")
           .document("details")
           .get();
@@ -144,7 +144,7 @@ class FirestoreRepository {
   Future<void> addUserDetails(AccountDetails accountDetails) async {
     return await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("account")
         .document("details")
         .setData(accountDetails.toJson());
@@ -153,7 +153,7 @@ class FirestoreRepository {
   Future<AccountDetails> fetchUserDetails() async {
     return AccountDetails.fromDocument(await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("account")
         .document("details")
         .get());
@@ -179,16 +179,16 @@ class FirestoreRepository {
   Future<void> placeOrder(OrderModel orderModel) async {
     return await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("orders")
-        .document(orderModel.orderId)
+        .document(orderModel.orderId!)
         .setData(orderModel.toJson());
   }
 
   Future<void> emptyCart() async {
     return await _firestore
         .collection("users")
-        .document(await authRepo.getUid())
+        .document(await authRepo!.getUid())
         .collection("cart")
         .getDocuments()
         .then((snapshot) {

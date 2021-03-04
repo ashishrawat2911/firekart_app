@@ -6,47 +6,47 @@ import 'package:fluttercommerce/src/models/product_model.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
-class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
+class AllProductCubit extends Cubit<ResultState<List<ProductModel>?>> {
   var _firebaseRepo = AppInjector.get<FirestoreRepository>();
   var _authRepo = AppInjector.get<AuthRepository>();
 
   AllProductCubit() : super(ResultState.idle());
-  List<DocumentSnapshot> documents;
-  List<ProductModel> productList;
+  late List<DocumentSnapshot> documents;
+  List<ProductModel>? productList;
 
-  fetchProducts([String condition]) async {
+  fetchProducts([String? condition]) async {
     emit(ResultState.loading());
     try {
       if (condition == null) {
-        documents = await _firebaseRepo.getAllProducts();
+        documents = await _firebaseRepo!.getAllProducts();
       } else {
-        documents = await _firebaseRepo.getAllProductsData(condition);
+        documents = await _firebaseRepo!.getAllProductsData(condition);
       }
       productList = List<ProductModel>.generate(
           documents.length, (index) => ProductModel.fromJson(documents[index]));
-      List.generate(productList.length, (index) {
-        print(productList[index].name);
+      List.generate(productList!.length, (index) {
+        print(productList![index].name);
       });
-      print(productList.length);
-      emit(ResultState.data(data: productList.toSet().toList()));
+      print(productList!.length);
+      emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
     }
   }
 
-  fetchNextList([String condition]) async {
+  fetchNextList([String? condition]) async {
     try {
       List<DocumentSnapshot> docs =
-          await _firebaseRepo.getAllProducts(documents[documents.length - 1]);
+          await _firebaseRepo!.getAllProducts(documents[documents.length - 1]);
 
       documents.addAll(docs);
       productList = List<ProductModel>.generate(
           documents.length, (index) => ProductModel.fromJson(documents[index]));
-      List.generate(productList.length, (index) {
-        print(productList[index].name);
+      List.generate(productList!.length, (index) {
+        print(productList![index].name);
       });
-      print(productList.length);
-      emit(ResultState.data(data: productList.toSet().toList()));
+      print(productList!.length);
+      emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       print(e);
       emit(ResultState.unNotifiedError(error: e.toString(), data: productList));

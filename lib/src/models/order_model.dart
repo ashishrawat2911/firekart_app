@@ -1,15 +1,15 @@
 import 'package:fluttercommerce/src/models/account_details_model.dart';
 
 class OrderModel {
-  String orderId;
-  num price;
-  List<OrderItem> orderItems;
-  String orderedAt;
-  String orderStatus;
-  String currency;
-  String paymentId;
-  String signature;
-  Address orderAddress;
+  String? orderId;
+  num? price;
+  List<OrderItem>? orderItems;
+  String? orderedAt;
+  String? orderStatus;
+  String? currency;
+  String? paymentId;
+  String? signature;
+  Address? orderAddress;
 
   OrderModel(
       {this.orderId,
@@ -24,17 +24,17 @@ class OrderModel {
 
   factory OrderModel.fromJson(json) {
     return OrderModel(
-        orderId: json['order_id'] as String,
-        price: json['price'] as num,
-        orderStatus: json['order_status'] as String,
-        orderedAt: json['ordered_at'] as String,
-        currency: json['currency'] as String,
-        paymentId: json['payment_id'] as String,
-        signature: json['signature'] as String,
+        orderId: json['order_id'] as String?,
+        price: json['price'] as num?,
+        orderStatus: json['order_status'] as String?,
+        orderedAt: json['ordered_at'] as String?,
+        currency: json['currency'] as String?,
+        paymentId: json['payment_id'] as String?,
+        signature: json['signature'] as String?,
         orderAddress: Address.fromDocument(json['order_address']),
-        orderItems: (json['order_items'] as List)
-            ?.map((e) => e == null ? null : OrderItem.fromJson(e))
-            ?.toList());
+        orderItems: (json['order_items'] as List?)
+            ?.map((e) => OrderItem.fromJson(e))
+            .toList());
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -42,11 +42,11 @@ class OrderModel {
         'price': price,
         'ordered_at': DateTime.now().toIso8601String(),
         "order_status": "Ordered",
-        "currency": orderItems[0].currency,
+        "currency": orderItems![0].currency,
         "payment_id": paymentId,
         "signature": signature,
-        "order_address": orderAddress.toJson(),
-        'order_items': List<dynamic>.from(orderItems.map((x) => x.toJson())),
+        "order_address": orderAddress!.toJson(),
+        'order_items': List<dynamic>.from(orderItems!.map((x) => x.toJson())),
       };
 
   @override
@@ -56,13 +56,13 @@ class OrderModel {
 }
 
 class OrderItem {
-  String productId;
-  String image;
-  String name;
-  String unit;
-  String currency;
-  num price;
-  num noOfItems;
+  String? productId;
+  String? image;
+  String? name;
+  String? unit;
+  String? currency;
+  num? price;
+  num? noOfItems;
 
   OrderItem(
       {this.productId,
@@ -75,13 +75,13 @@ class OrderItem {
 
   factory OrderItem.fromJson(json) {
     return OrderItem(
-      productId: json['product_id'] as String,
-      image: json['image'] as String,
-      name: json['name'] as String,
-      unit: json['unit'] as String,
-      currency: json['currency'] as String,
-      price: json['price'] as num,
-      noOfItems: json['no_of_items'] as num,
+      productId: json['product_id'] as String?,
+      image: json['image'] as String?,
+      name: json['name'] as String?,
+      unit: json['unit'] as String?,
+      currency: json['currency'] as String?,
+      price: json['price'] as num?,
+      noOfItems: json['no_of_items'] as num?,
     );
   }
 

@@ -4,7 +4,7 @@ import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:fluttercommerce/src/bloc/payment/payment.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
-  var _razorPay;
+  late var _razorPay;
 
   PaymentCubit() : super(Idle()) {
     _razorPay = Razorpay();
@@ -29,7 +29,7 @@ class PaymentCubit extends Cubit<PaymentState> {
     try {
       _razorPay.open(options);
     } catch (e) {
-      debugPrint(e);
+      debugPrint(e.toString());
     }
   }
 

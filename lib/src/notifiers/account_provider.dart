@@ -3,29 +3,29 @@ import 'package:flutter/foundation.dart';
 import 'package:fluttercommerce/src/models/account_details_model.dart';
 
 class AccountProvider with ChangeNotifier {
-  FirebaseUser _firebaseUser;
+  FirebaseUser? _firebaseUser;
 
-  FirebaseUser get firebaseUser => _firebaseUser;
+  FirebaseUser? get firebaseUser => _firebaseUser;
 
-  set firebaseUser(FirebaseUser value) {
+  set firebaseUser(FirebaseUser? value) {
     _firebaseUser = value;
     notifyListeners();
   }
 
-  AccountDetails _accountDetails;
+  AccountDetails? _accountDetails;
 
-  AccountDetails get accountDetails => _accountDetails;
+  AccountDetails? get accountDetails => _accountDetails;
 
-  set accountDetails(AccountDetails value) {
+  set accountDetails(AccountDetails? value) {
     _accountDetails = value;
     notifyListeners();
   }
 
-  Address _addressSelected;
+  Address? _addressSelected;
 
-  Address get addressSelected => _addressSelected;
+  Address? get addressSelected => _addressSelected;
 
-  set addressSelected(Address value) {
+  set addressSelected(Address? value) {
     _addressSelected = value;
     notifyListeners();
   }
