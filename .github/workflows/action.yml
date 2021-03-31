@@ -1,11 +1,3 @@
-name: 'Flutter Mate'
-description: ' This action provides flutter for Github Actions.'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  ---------------------------------------
-main.yml
-
 name: Client build
 on:
   push:
