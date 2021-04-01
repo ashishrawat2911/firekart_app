@@ -54,7 +54,8 @@ class _AccountScreenState extends State<AccountScreen> {
                           onTap: () {
                             Navigator.of(context).pushNamed(
                                 Routes.addUserDetailScreen,
-                                arguments: false);
+                                arguments: AddUserDetailScreenArguments(
+                                    newAddress: false));
                           },
                         ),
                       ],

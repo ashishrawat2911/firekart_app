@@ -1,36 +1,18 @@
 class FaqModel {
-  List<FaqModel>? faqList;
+  String question;
+  String answer;
 
-  FaqModel({this.faqList});
+  FaqModel({this.question, this.answer});
 
   factory FaqModel.fromDocument(json) {
     return FaqModel(
-      faqList: (json['faqList'] as List?)
-          ?.map((e) => FaqModel.fromDocument(e))
-          .toList(),
+      question: json['question'] as String,
+      answer: json['answer'] as String,
     );
   }
 
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'faqList': faqList,
-      };
-}
-
-class Faq {
-  String? questions;
-  String? answers;
-
-  Faq({this.questions, this.answers});
-
-  factory Faq.fromDocument(json) {
-    return Faq(
-      questions: json['questions'] as String?,
-      answers: json['answers'] as String?,
-    );
-  }
-
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'questions': questions,
-        'answers': answers,
-      };
+  Map<String, dynamic> toMap() => <String, dynamic>{
+    'question': question,
+    'answer': answer,
+  };
 }

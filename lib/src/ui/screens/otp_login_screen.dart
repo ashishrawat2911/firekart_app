@@ -6,21 +6,21 @@ import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/styles.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/routers.dart';
+import 'package:fluttercommerce/src/routes/router.gr.dart';
 import 'package:fluttercommerce/src/ui/common/commom_text_field.dart';
 import 'package:fluttercommerce/src/ui/common/common_app_loader.dart';
 import 'package:fluttercommerce/src/ui/common/common_button.dart';
 
-class OTPLoginScreen extends StatefulWidget {
+class OtpLoginScreen extends StatefulWidget {
   final String phoneNumber;
 
-  OTPLoginScreen(this.phoneNumber);
+  OtpLoginScreen({this.phoneNumber});
 
   @override
-  _OTPLoginScreenState createState() => _OTPLoginScreenState();
+  _OtpLoginScreenState createState() => _OtpLoginScreenState();
 }
 
-class _OTPLoginScreenState extends State<OTPLoginScreen> {
+class _OtpLoginScreenState extends State<OtpLoginScreen> {
   var otpLoginCubit = AppInjector.get<OtpLoginCubit>();
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
@@ -29,10 +29,10 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
   @override
   void initState() {
     super.initState();
-    otpLoginCubit!.sendOtp(widget.phoneNumber);
+    otpLoginCubit.sendOtp(widget.phoneNumber);
     otpNumberController.addListener(() {
       print(otpNumberController.text);
-      otpLoginCubit!.validateButton(otpNumberController.text);
+      otpLoginCubit.validateButton(otpNumberController.text);
     });
   }
 
@@ -121,7 +121,7 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
-                cubit: otpLoginCubit!,
+                cubit: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {
                   state.when(
                       idle: () {},
@@ -137,7 +137,7 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
                       onButtonDisabled: () {},
                       loginSuccessFull: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.checkStatusScreen, (route) => false,
+                            Routes.checkStatusScreen,(route) => false,
                             arguments: CheckStatusScreenArguments(checkForAccountStatusOnly: true));
                       },
                       codeCountDown: (String value) {
@@ -171,7 +171,7 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
-                cubit: otpLoginCubit!,
+                cubit: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {},
                 builder: (BuildContext context, OtpLoginState state) {
                   if (state is ResendOtpLoading) return CommonAppLoader();
@@ -204,8 +204,8 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState!.validate()) {
-      otpLoginCubit!.loginWithOtp(otpNumberController.text.trim());
+    if (_formKey.currentState.validate()) {
+      otpLoginCubit.loginWithOtp(otpNumberController.text.trim());
     }
   }
 }
