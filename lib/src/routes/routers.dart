@@ -6,7 +6,6 @@
 
 // ignore_for_file: public_member_api_docs
 
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -31,7 +30,7 @@ class Routes {
   static const String checkStatusScreen = '/check-status-screen';
   static const String mainHomeScreen = '/main-home-screen';
   static const String loginScreen = '/login-screen';
-  static const String oTPLoginScreen = '/o-tp-login-screen';
+  static const String otpLoginScreen = '/otp-login-screen';
   static const String productDetailPage = '/product-detail-page';
   static const String addUserDetailScreen = '/add-user-detail-screen';
   static const String cartScreen = '/cart-screen';
@@ -45,7 +44,7 @@ class Routes {
     checkStatusScreen,
     mainHomeScreen,
     loginScreen,
-    oTPLoginScreen,
+    otpLoginScreen,
     productDetailPage,
     addUserDetailScreen,
     cartScreen,
@@ -65,7 +64,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.checkStatusScreen, page: CheckStatusScreen),
     RouteDef(Routes.mainHomeScreen, page: MainHomeScreen),
     RouteDef(Routes.loginScreen, page: LoginScreen),
-    RouteDef(Routes.oTPLoginScreen, page: OTPLoginScreen),
+    RouteDef(Routes.otpLoginScreen, page: OtpLoginScreen),
     RouteDef(Routes.productDetailPage, page: ProductDetailPage),
     RouteDef(Routes.addUserDetailScreen, page: AddUserDetailScreen),
     RouteDef(Routes.cartScreen, page: CartScreen),
@@ -75,7 +74,6 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.addAddressScreen, page: AddAddressScreen),
     RouteDef(Routes.myOrdersScreen, page: MyOrdersScreen),
   ];
-
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
@@ -107,10 +105,12 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    OTPLoginScreen: (data) {
-      final args = data.getArgs<OTPLoginScreenArguments>(nullOk: false);
+    OtpLoginScreen: (data) {
+      final args = data.getArgs<OtpLoginScreenArguments>(
+        orElse: () => OtpLoginScreenArguments(),
+      );
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => OTPLoginScreen(args.phoneNumber),
+        builder: (context) => OtpLoginScreen(phoneNumber: args.phoneNumber),
         settings: data,
       );
     },
@@ -184,42 +184,36 @@ class AppRouter extends RouterBase {
 /// CheckStatusScreen arguments holder class
 class CheckStatusScreenArguments {
   final bool checkForAccountStatusOnly;
-
   CheckStatusScreenArguments({this.checkForAccountStatusOnly = false});
 }
 
-/// OTPLoginScreen arguments holder class
-class OTPLoginScreenArguments {
+/// OtpLoginScreen arguments holder class
+class OtpLoginScreenArguments {
   final String phoneNumber;
-
-  OTPLoginScreenArguments(this.phoneNumber);
+  OtpLoginScreenArguments({this.phoneNumber});
 }
 
 /// ProductDetailPage arguments holder class
 class ProductDetailPageArguments {
   final ProductModel productModel;
-
-  ProductDetailPageArguments({required this.productModel});
+  ProductDetailPageArguments({@required this.productModel});
 }
 
 /// AddUserDetailScreen arguments holder class
 class AddUserDetailScreenArguments {
   final bool newAddress;
-
-  AddUserDetailScreenArguments({required this.newAddress});
+  AddUserDetailScreenArguments({@required this.newAddress});
 }
 
 /// AllProductListScreen arguments holder class
 class AllProductListScreenArguments {
   final String productCondition;
-
-  AllProductListScreenArguments({required this.productCondition});
+  AllProductListScreenArguments({@required this.productCondition});
 }
 
 /// MyAddressScreen arguments holder class
 class MyAddressScreenArguments {
   final bool selectedAddress;
-
   MyAddressScreenArguments({this.selectedAddress = false});
 }
 
@@ -227,10 +221,9 @@ class MyAddressScreenArguments {
 class AddAddressScreenArguments {
   final bool newAddress;
   final AccountDetails accountDetails;
-  final Address? editAddress;
-
+  final Address editAddress;
   AddAddressScreenArguments(
-      {required this.newAddress,
-      required this.accountDetails,
+      {@required this.newAddress,
+      @required this.accountDetails,
       this.editAddress});
 }
