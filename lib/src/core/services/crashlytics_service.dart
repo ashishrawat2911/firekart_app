@@ -16,7 +16,7 @@ class CrashlyticsService {
   }
 
   static fullDeviceLog() async {
-    var authRepo = AppInjector.get<AuthRepository>()!;
+    var authRepo = AppInjector.get<AuthRepository>();
     var isLoggedIn = await authRepo.checkUserLoggedInStatus();
     String packageName = (await PackageInfo.fromPlatform()).packageName;
     StringBuffer stringBuffer = StringBuffer("");

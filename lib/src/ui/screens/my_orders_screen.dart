@@ -18,13 +18,13 @@ class MyOrdersScreen extends StatefulWidget {
 }
 
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
-  MyOrdersCubit? ordersCubit = AppInjector.get<MyOrdersCubit>();
+  MyOrdersCubit ordersCubit = AppInjector.get<MyOrdersCubit>();
   ScrollController controller = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    ordersCubit!.fetchOrders();
+    ordersCubit.fetchOrders();
     controller.addListener(_scrollListener);
   }
 
@@ -32,7 +32,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     if (controller.offset >= controller.position.maxScrollExtent &&
         !controller.position.outOfRange) {
       print("at the end of list");
-      ordersCubit!.fetchNextList();
+      ordersCubit.fetchNextList();
     }
   }
 
@@ -42,9 +42,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
       appBar: AppBar(
         title: Text(StringsConstants.myOrders),
       ),
-      body: BlocBuilder<MyOrdersCubit, ResultState<List<OrderModel>?>>(
-        cubit: ordersCubit!,
-        builder: (BuildContext context, ResultState<List<OrderModel>?> state) {
+      body: BlocBuilder<MyOrdersCubit, ResultState<List<OrderModel>>>(
+        cubit: ordersCubit,
+        builder: (BuildContext context, ResultState<List<OrderModel>> state) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
@@ -52,7 +52,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                 child: CommonAppLoader(),
               );
             },
-            dataWidget: (List<OrderModel>? value) {
+            dataWidget: (List<OrderModel> value) {
               return orderView(value);
             },
             errorWidget: (String error) {
@@ -64,10 +64,10 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     );
   }
 
-  Widget orderView(List<OrderModel>? orderList) {
+  Widget orderView(List<OrderModel> orderList) {
     return ListView.builder(
       controller: controller,
-      itemCount: orderList!.length,
+      itemCount: orderList.length,
       itemBuilder: (BuildContext context, int orderListIndex) {
         return Column(
           children: <Widget>[
@@ -88,7 +88,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               ),
                               Text(
                                 getOrderedTime(
-                                    orderList[orderListIndex].orderedAt!),
+                                    orderList[orderListIndex].orderedAt),
                                 style: AppTextStyles.medium14Black,
                               )
                             ],
@@ -97,9 +97,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                       ],
                     ),
                     ...List<Widget>.generate(
-                        orderList[orderListIndex].orderItems!.length,
+                        orderList[orderListIndex].orderItems.length,
                         (index) => orderCard(
-                            orderList[orderListIndex].orderItems![index])),
+                            orderList[orderListIndex].orderItems[index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -157,7 +157,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             Row(
               children: [
                 CachedNetworkImage(
-                  imageUrl: orderItem.image!,
+                  imageUrl: orderItem.image,
                   height: 46,
                   width: 46,
                   fit: BoxFit.fill,
@@ -169,7 +169,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      orderItem.name!,
+                      orderItem.name,
                       style: AppTextStyles.normal14Black,
                     ),
                     SizedBox(
@@ -187,7 +187,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               height: 10,
             ),
             Text(
-              "${orderItem.noOfItems} item${orderItem.noOfItems! > 1 ? "s" : ""}",
+              "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
               style: AppTextStyles.normal14Color81819A,
             ),
           ],
@@ -196,7 +196,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     );
   }
 
-  Widget getOrderStatusIcon(String? orderStatus) {
+  Widget getOrderStatusIcon(String orderStatus) {
     if (orderStatus == "Delivered") {
       return Icon(
         Icons.check_circle,

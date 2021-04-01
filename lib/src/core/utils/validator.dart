@@ -1,8 +1,8 @@
 class Validator {
-  String? validateName(String? value) {
+  String validateName(String value) {
     var pattern = r'(^[a-zA-Z ]*$)';
     var regExp = new RegExp(pattern);
-    if (value!.isEmpty) {
+    if (value.isEmpty) {
       return "Name is Required";
     } else if (!regExp.hasMatch(value.trim())) {
       return "Name must be a-z and A-Z";
@@ -10,10 +10,10 @@ class Validator {
     return null;
   }
 
-  String? validateMobile(String? value) {
+  String validateMobile(String value) {
     var pattern = r'(^[0-9]*$)';
     var regExp = new RegExp(pattern);
-    if (value!.isEmpty) {
+    if (value.isEmpty) {
       return "Phone number is Required";
     } else if (value.length != 10) {
       return "Phone number must be 10 digits";
@@ -23,10 +23,10 @@ class Validator {
     return null;
   }
 
-  String? validate6DigitCode(String? value) {
+  String validate6DigitCode(String value) {
     var pattern = r'(^[0-9]*$)';
     var regExp = new RegExp(pattern);
-    if (value!.isEmpty) {
+    if (value.isEmpty) {
       return "Passcode is Required";
     } else if (value.length != 6) {
       return "PassCode must be 6 digits";
@@ -36,7 +36,7 @@ class Validator {
     return null;
   }
 
-  String? validate6DigitToken(String value) {
+  String validate6DigitToken(String value) {
     var pattern = r'(^[0-9]*$)';
     var regExp = new RegExp(pattern);
     if (value.isEmpty) {
@@ -49,7 +49,7 @@ class Validator {
     return null;
   }
 
-  String? validatePassCode(String value) {
+  String validatePassCode(String value) {
     var pattern = r'(^[0-9]*$)';
     var regExp = new RegExp(pattern);
     if (value.isEmpty) {
@@ -62,7 +62,7 @@ class Validator {
     return null;
   }
 
-  String? passwordDoNotMatch(String value, String confirmValue) {
+  String passwordDoNotMatch(String value, String confirmValue) {
     var pattern = r'(^[0-9]*$)';
     var regExp = new RegExp(pattern);
     if (value.isEmpty) {
@@ -77,7 +77,7 @@ class Validator {
     return null;
   }
 
-  String? validateEmail(String value) {
+  String validateEmail(String value) {
     var pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     var regExp = new RegExp(pattern);
@@ -90,10 +90,10 @@ class Validator {
     }
   }
 
-  String? validatePinCode(String? value) {
+  String validatePinCode(String value) {
     var pattern = r'(^[0-9]*$)';
     var regExp = new RegExp(pattern);
-    if (value!.isEmpty) {
+    if (value.isEmpty) {
       return "Pincode is Required";
     } else if (value.length != 6) {
       return "Pincode must be 6 digits";
@@ -103,10 +103,10 @@ class Validator {
     return null;
   }
 
-  String? validateText(String? value, String? text) {
+  String validateText(String value, String text) {
     var pattern = r'(^[a-zA-Z ]*$)';
     var regExp = new RegExp(pattern);
-    if (value!.isEmpty) {
+    if (value.isEmpty) {
       return "$text is Required";
     } else if (!regExp.hasMatch(value.trim())) {
       return "$text must be a-z and A-Z";
@@ -114,7 +114,7 @@ class Validator {
     return null;
   }
 
-  String? validateNumber(String value, String desc) {
+  String validateNumber(String value, String desc) {
     if (value.isEmpty) {
       return "$desc is Required";
     }

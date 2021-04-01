@@ -5,11 +5,11 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 
 class FirebaseAuthProvider with ChangeNotifier {
   var authRepo = AppInjector.get<AuthRepository>();
-  FirebaseUser? _firebaseUser;
+  FirebaseUser _firebaseUser;
 
-  FirebaseUser? get firebaseUser => _firebaseUser;
+  FirebaseUser get firebaseUser => _firebaseUser;
 
-  set firebaseUser(FirebaseUser? value) {
+  set firebaseUser(FirebaseUser value) {
     _firebaseUser = value;
     notifyListeners();
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 
 class CommonAppLoader extends StatelessWidget {
-  final double? size;
+  final double size;
   final double strokeWidth;
 
   CommonAppLoader({this.size, this.strokeWidth = 4.0});

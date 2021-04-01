@@ -5,7 +5,7 @@ import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/routers.dart';
+import 'package:fluttercommerce/src/routes/router.gr.dart';
 import 'package:fluttercommerce/src/ui/common/action_text.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -35,11 +35,11 @@ class _AccountScreenState extends State<AccountScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  value.accountDetails!.name!,
+                                  value.accountDetails.name,
                                   style: AppTextStyles.medium22Black,
                                 ),
                                 Text(
-                                  value.accountDetails!.phoneNumber!,
+                                  value.accountDetails.phoneNumber,
                                   style: AppTextStyles.normal14Color4C4C6F,
                                 ),
                               ],
@@ -81,7 +81,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.logout),
                     leading: Icon(Icons.exit_to_app),
                     onTap: () {
-                      AppInjector.get<AuthRepository>()!
+                      AppInjector.get<AuthRepository>()
                           .logoutUser()
                           .then((value) {
                         Navigator.of(context).pushNamedAndRemoveUntil(

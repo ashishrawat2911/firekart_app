@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'add_account_details_state.dart';
 
@@ -9,95 +9,96 @@ part of 'add_account_details_state.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
 /// @nodoc
 class _$AddAccountDetailsStateTearOff {
   const _$AddAccountDetailsStateTearOff();
 
+// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
+// ignore: unused_element
   EditData editData(AccountDetails accountDetails) {
     return EditData(
       accountDetails,
     );
   }
 
+// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
 
+// ignore: unused_element
   ButtonEnabled onButtonEnabled() {
     return const ButtonEnabled();
   }
 
+// ignore: unused_element
   ButtonDisabled onButtonDisabled() {
     return const ButtonDisabled();
   }
 
+// ignore: unused_element
   SaveDataLoading saveDataLoading() {
     return const SaveDataLoading();
   }
 
+// ignore: unused_element
   Successful successful() {
     return const Successful();
   }
 }
 
 /// @nodoc
+// ignore: unused_element
 const $AddAccountDetailsState = _$AddAccountDetailsStateTearOff();
 
 /// @nodoc
 mixin _$AddAccountDetailsState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
-  }) =>
-      throw _privateConstructorUsedError;
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
+  });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
+  });
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
-  }) =>
-      throw _privateConstructorUsedError;
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
+  });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
+  });
 }
 
 /// @nodoc
@@ -153,30 +154,38 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -185,30 +194,38 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -239,7 +256,7 @@ class _$EditDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? accountDetails = freezed,
+    Object accountDetails = freezed,
   }) {
     return _then(EditData(
       accountDetails == freezed
@@ -251,7 +268,7 @@ class _$EditDataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$EditData implements EditData {
-  const _$EditData(this.accountDetails);
+  const _$EditData(this.accountDetails) : assert(accountDetails != null);
 
   @override
   final AccountDetails accountDetails;
@@ -275,37 +292,44 @@ class _$EditData implements EditData {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(accountDetails);
 
-  @JsonKey(ignore: true)
   @override
   $EditDataCopyWith<EditData> get copyWith =>
       _$EditDataCopyWithImpl<EditData>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return editData(accountDetails);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (editData != null) {
       return editData(accountDetails);
     }
@@ -314,30 +338,38 @@ class _$EditData implements EditData {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return editData(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (editData != null) {
       return editData(this);
     }
@@ -348,10 +380,8 @@ class _$EditData implements EditData {
 abstract class EditData implements AddAccountDetailsState {
   const factory EditData(AccountDetails accountDetails) = _$EditData;
 
-  AccountDetails get accountDetails => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EditDataCopyWith<EditData> get copyWith =>
-      throw _privateConstructorUsedError;
+  AccountDetails get accountDetails;
+  $EditDataCopyWith<EditData> get copyWith;
 }
 
 /// @nodoc
@@ -390,30 +420,38 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -422,30 +460,38 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -495,30 +541,38 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return onButtonEnabled();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (onButtonEnabled != null) {
       return onButtonEnabled();
     }
@@ -527,30 +581,38 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return onButtonEnabled(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (onButtonEnabled != null) {
       return onButtonEnabled(this);
     }
@@ -600,30 +662,38 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return onButtonDisabled();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (onButtonDisabled != null) {
       return onButtonDisabled();
     }
@@ -632,30 +702,38 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return onButtonDisabled(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (onButtonDisabled != null) {
       return onButtonDisabled(this);
     }
@@ -705,30 +783,38 @@ class _$SaveDataLoading implements SaveDataLoading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return saveDataLoading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (saveDataLoading != null) {
       return saveDataLoading();
     }
@@ -737,30 +823,38 @@ class _$SaveDataLoading implements SaveDataLoading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return saveDataLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (saveDataLoading != null) {
       return saveDataLoading(this);
     }
@@ -809,30 +903,38 @@ class _$Successful implements Successful {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
-    required TResult Function() loading,
-    required TResult Function() onButtonEnabled,
-    required TResult Function() onButtonDisabled,
-    required TResult Function() saveDataLoading,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result editData(AccountDetails accountDetails),
+    @required Result loading(),
+    @required Result onButtonEnabled(),
+    @required Result onButtonDisabled(),
+    @required Result saveDataLoading(),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
-    TResult Function()? loading,
-    TResult Function()? onButtonEnabled,
-    TResult Function()? onButtonDisabled,
-    TResult Function()? saveDataLoading,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result editData(AccountDetails accountDetails),
+    Result loading(),
+    Result onButtonEnabled(),
+    Result onButtonDisabled(),
+    Result saveDataLoading(),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -841,30 +943,38 @@ class _$Successful implements Successful {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(EditData value) editData,
-    required TResult Function(Loading value) loading,
-    required TResult Function(ButtonEnabled value) onButtonEnabled,
-    required TResult Function(ButtonDisabled value) onButtonDisabled,
-    required TResult Function(SaveDataLoading value) saveDataLoading,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result editData(EditData value),
+    @required Result loading(Loading value),
+    @required Result onButtonEnabled(ButtonEnabled value),
+    @required Result onButtonDisabled(ButtonDisabled value),
+    @required Result saveDataLoading(SaveDataLoading value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(editData != null);
+    assert(loading != null);
+    assert(onButtonEnabled != null);
+    assert(onButtonDisabled != null);
+    assert(saveDataLoading != null);
+    assert(successful != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(EditData value)? editData,
-    TResult Function(Loading value)? loading,
-    TResult Function(ButtonEnabled value)? onButtonEnabled,
-    TResult Function(ButtonDisabled value)? onButtonDisabled,
-    TResult Function(SaveDataLoading value)? saveDataLoading,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result editData(EditData value),
+    Result loading(Loading value),
+    Result onButtonEnabled(ButtonEnabled value),
+    Result onButtonDisabled(ButtonDisabled value),
+    Result saveDataLoading(SaveDataLoading value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }

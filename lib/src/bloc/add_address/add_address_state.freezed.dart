@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'add_address_state.dart';
 
@@ -9,71 +9,69 @@ part of 'add_address_state.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
 /// @nodoc
 class _$AddAddressStateTearOff {
   const _$AddAddressStateTearOff();
 
+// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
+// ignore: unused_element
   ButtonLoading buttonLoading() {
     return const ButtonLoading();
   }
 
+// ignore: unused_element
   AddressCardError error(String message) {
     return AddressCardError(
       message,
     );
   }
 
+// ignore: unused_element
   Successful successful() {
     return const Successful();
   }
 }
 
 /// @nodoc
+// ignore: unused_element
 const $AddAddressState = _$AddAddressStateTearOff();
 
 /// @nodoc
 mixin _$AddAddressState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function() buttonLoading,
-    required TResult Function(String message) error,
-    required TResult Function() successful,
-  }) =>
-      throw _privateConstructorUsedError;
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result buttonLoading(),
+    @required Result error(String message),
+    @required Result successful(),
+  });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? buttonLoading,
-    TResult Function(String message)? error,
-    TResult Function()? successful,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result buttonLoading(),
+    Result error(String message),
+    Result successful(),
+    @required Result orElse(),
+  });
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(ButtonLoading value) buttonLoading,
-    required TResult Function(AddressCardError value) error,
-    required TResult Function(Successful value) successful,
-  }) =>
-      throw _privateConstructorUsedError;
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result buttonLoading(ButtonLoading value),
+    @required Result error(AddressCardError value),
+    @required Result successful(Successful value),
+  });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(ButtonLoading value)? buttonLoading,
-    TResult Function(AddressCardError value)? error,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result buttonLoading(ButtonLoading value),
+    Result error(AddressCardError value),
+    Result successful(Successful value),
+    @required Result orElse(),
+  });
 }
 
 /// @nodoc
@@ -128,24 +126,29 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function() buttonLoading,
-    required TResult Function(String message) error,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result buttonLoading(),
+    @required Result error(String message),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? buttonLoading,
-    TResult Function(String message)? error,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result buttonLoading(),
+    Result error(String message),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -154,24 +157,29 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(ButtonLoading value) buttonLoading,
-    required TResult Function(AddressCardError value) error,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result buttonLoading(ButtonLoading value),
+    @required Result error(AddressCardError value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(ButtonLoading value)? buttonLoading,
-    TResult Function(AddressCardError value)? error,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result buttonLoading(ButtonLoading value),
+    Result error(AddressCardError value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -221,24 +229,29 @@ class _$ButtonLoading implements ButtonLoading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function() buttonLoading,
-    required TResult Function(String message) error,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result buttonLoading(),
+    @required Result error(String message),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return buttonLoading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? buttonLoading,
-    TResult Function(String message)? error,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result buttonLoading(),
+    Result error(String message),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (buttonLoading != null) {
       return buttonLoading();
     }
@@ -247,24 +260,29 @@ class _$ButtonLoading implements ButtonLoading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(ButtonLoading value) buttonLoading,
-    required TResult Function(AddressCardError value) error,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result buttonLoading(ButtonLoading value),
+    @required Result error(AddressCardError value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return buttonLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(ButtonLoading value)? buttonLoading,
-    TResult Function(AddressCardError value)? error,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result buttonLoading(ButtonLoading value),
+    Result error(AddressCardError value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (buttonLoading != null) {
       return buttonLoading(this);
     }
@@ -297,7 +315,7 @@ class _$AddressCardErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? message = freezed,
+    Object message = freezed,
   }) {
     return _then(AddressCardError(
       message == freezed ? _value.message : message as String,
@@ -307,7 +325,7 @@ class _$AddressCardErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$AddressCardError implements AddressCardError {
-  const _$AddressCardError(this.message);
+  const _$AddressCardError(this.message) : assert(message != null);
 
   @override
   final String message;
@@ -329,31 +347,35 @@ class _$AddressCardError implements AddressCardError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
-  @JsonKey(ignore: true)
   @override
   $AddressCardErrorCopyWith<AddressCardError> get copyWith =>
       _$AddressCardErrorCopyWithImpl<AddressCardError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function() buttonLoading,
-    required TResult Function(String message) error,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result buttonLoading(),
+    @required Result error(String message),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? buttonLoading,
-    TResult Function(String message)? error,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result buttonLoading(),
+    Result error(String message),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -362,24 +384,29 @@ class _$AddressCardError implements AddressCardError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(ButtonLoading value) buttonLoading,
-    required TResult Function(AddressCardError value) error,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result buttonLoading(ButtonLoading value),
+    @required Result error(AddressCardError value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(ButtonLoading value)? buttonLoading,
-    TResult Function(AddressCardError value)? error,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result buttonLoading(ButtonLoading value),
+    Result error(AddressCardError value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -390,10 +417,8 @@ class _$AddressCardError implements AddressCardError {
 abstract class AddressCardError implements AddAddressState {
   const factory AddressCardError(String message) = _$AddressCardError;
 
-  String get message => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AddressCardErrorCopyWith<AddressCardError> get copyWith =>
-      throw _privateConstructorUsedError;
+  String get message;
+  $AddressCardErrorCopyWith<AddressCardError> get copyWith;
 }
 
 /// @nodoc
@@ -432,24 +457,29 @@ class _$Successful implements Successful {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function() buttonLoading,
-    required TResult Function(String message) error,
-    required TResult Function() successful,
+  Result when<Result extends Object>({
+    @required Result idle(),
+    @required Result buttonLoading(),
+    @required Result error(String message),
+    @required Result successful(),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? buttonLoading,
-    TResult Function(String message)? error,
-    TResult Function()? successful,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result idle(),
+    Result buttonLoading(),
+    Result error(String message),
+    Result successful(),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -458,24 +488,29 @@ class _$Successful implements Successful {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Idle value) idle,
-    required TResult Function(ButtonLoading value) buttonLoading,
-    required TResult Function(AddressCardError value) error,
-    required TResult Function(Successful value) successful,
+  Result map<Result extends Object>({
+    @required Result idle(Idle value),
+    @required Result buttonLoading(ButtonLoading value),
+    @required Result error(AddressCardError value),
+    @required Result successful(Successful value),
   }) {
+    assert(idle != null);
+    assert(buttonLoading != null);
+    assert(error != null);
+    assert(successful != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(ButtonLoading value)? buttonLoading,
-    TResult Function(AddressCardError value)? error,
-    TResult Function(Successful value)? successful,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result idle(Idle value),
+    Result buttonLoading(ButtonLoading value),
+    Result error(AddressCardError value),
+    Result successful(Successful value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }

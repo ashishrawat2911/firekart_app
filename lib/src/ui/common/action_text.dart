@@ -3,7 +3,7 @@ import 'package:fluttercommerce/src/res/app_colors.dart';
 
 class ActionText extends StatelessWidget {
   final String title;
-  final VoidCallback? onTap;
+  final VoidCallback onTap;
 
   ActionText(this.title, {this.onTap});
 

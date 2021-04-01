@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
-import 'package:fluttercommerce/src/routes/routers.dart';
+import 'package:fluttercommerce/src/routes/router.gr.dart';
 
 class CheckStatusScreen extends StatefulWidget {
   final bool checkForAccountStatusOnly;
@@ -41,10 +41,10 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
 
     Future.delayed(Duration(seconds: widget.checkForAccountStatusOnly ? 2 : 0),
         () async {
-      var status = await repo!.checkUserLoggedInStatus();
+      var status = await repo.checkUserLoggedInStatus();
 
       if (widget.checkForAccountStatusOnly || status) {
-        var isUserDataPresent = await firebaseRepo!.checkUserDetail();
+        var isUserDataPresent = await firebaseRepo.checkUserDetail();
         if (isUserDataPresent) {
           Navigator.of(context).pushReplacementNamed(Routes.mainHomeScreen);
         } else {

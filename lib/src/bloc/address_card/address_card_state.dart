@@ -12,5 +12,5 @@ abstract class AddressCardState with _$AddressCardState {
 
   const factory AddressCardState.error(String message) = Error;
 
-  const factory AddressCardState.successful() = SuccessfulSaved;
+  const factory AddressCardState.successful() = Successful;
 }

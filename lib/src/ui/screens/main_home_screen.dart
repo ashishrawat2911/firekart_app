@@ -37,40 +37,40 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   }
 
   listenToCartValues() async {
-    firebaseRepo!.cartStatusListen(await authRepo!.getUid()).listen((event) {
+    firebaseRepo.cartStatusListen(await authRepo.getUid()).listen((event) {
       var noOfItemsInCart = event?.documents?.length ?? 0;
       if (noOfItemsInCart > 0) {
-        cartStatusProvider!.cartItems =
+        cartStatusProvider.cartItems =
             List<CartModel>.generate(event?.documents?.length ?? 0, (index) {
           DocumentSnapshot documentSnapshot = event.documents[index];
           return CartModel.fromJson(documentSnapshot);
         });
       } else {
-        cartStatusProvider!.cartItems = [];
+        cartStatusProvider.cartItems = [];
       }
     });
   }
 
   void listenToAccountDetails() async {
 //    accountProvider.firebaseUser = await authRepo.getCurrentUser();
-    firebaseRepo!.streamUserDetails(await authRepo!.getUid()).listen((event) {
+    firebaseRepo.streamUserDetails(await authRepo.getUid()).listen((event) {
       AccountDetails accountDetails = AccountDetails.fromDocument(event);
-      accountDetails.addresses = accountDetails.addresses!.reversed.toList();
+      accountDetails.addresses = accountDetails.addresses.reversed.toList();
 
-      Address? address;
-      List.generate(accountDetails.addresses!.length, (index) {
-        Address add = accountDetails.addresses![index];
-        if (add.isDefault!) {
+      Address address;
+      List.generate(accountDetails.addresses.length, (index) {
+        Address add = accountDetails.addresses[index];
+        if (add.isDefault) {
           address = add;
         }
       });
-      if (address == null && accountDetails.addresses!.isNotEmpty) {
-        address = accountDetails.addresses![0];
-        accountProvider!.addressSelected = address;
+      if (address == null && accountDetails.addresses.isNotEmpty) {
+        address = accountDetails.addresses[0];
+        accountProvider.addressSelected = address;
       } else {
-        accountProvider!.addressSelected = address;
+        accountProvider.addressSelected = address;
       }
-      accountProvider!.accountDetails = accountDetails;
+      accountProvider.accountDetails = accountDetails;
     });
   }
 

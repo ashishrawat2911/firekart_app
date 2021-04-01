@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/src/models/product_model.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/routers.dart';
+import 'package:fluttercommerce/src/routes/router.gr.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel productModel;
@@ -15,7 +15,7 @@ class ProductCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       onTap: () {
         Navigator.of(context)
-            .pushNamed(Routes.productDetailPage, arguments: ProductDetailPageArguments(productModel: productModel));
+            .pushNamed(Routes.productDetailPage, arguments: productModel);
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -29,7 +29,7 @@ class ProductCard extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1.5,
                 child: CachedNetworkImage(
-                  imageUrl: productModel.image!,
+                  imageUrl: productModel.image,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -43,7 +43,7 @@ class ProductCard extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    productModel.name!,
+                    productModel.name,
                     style: AppTextStyles.medium14Black,
                   ),
                   SizedBox(

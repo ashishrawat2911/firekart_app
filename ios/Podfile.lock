@@ -365,9 +365,9 @@ PODS:
     - Flutter
     - razorpay-pod
   - Reachability (3.2)
-  - sqflite (0.0.1):
+  - sqflite (0.0.2):
     - Flutter
-    - FMDB (~> 2.7.2)
+    - FMDB (>= 2.7.5)
   - url_launcher (0.0.1):
     - Flutter
 
@@ -471,7 +471,7 @@ SPEC CHECKSUMS:
   razorpay-pod: e2e8cf25aea59eef51c6851716f188df71adab86
   razorpay_flutter: 347215399cb0b826953fd44b88f0e4eba39695a0
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
+  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   url_launcher: a1c0cc845906122c4784c542523d8cacbded5626
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c

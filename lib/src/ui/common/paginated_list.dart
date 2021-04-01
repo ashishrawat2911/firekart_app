@@ -19,11 +19,11 @@ class PaginationListView<@required T> extends StatefulWidget {
   ///
   /// The arguments [pageBuilder], [itemBuilder] must not be null.
   PaginationListView({
-    Key? key,
-    required this.items,
-    required this.itemBuilder,
-    required this.onPagination,
-    required this.paginationController,
+    Key key,
+    @required this.items,
+    @required this.itemBuilder,
+    @required this.onPagination,
+    @required this.paginationController,
     this.scrollDirection = Axis.vertical,
     this.progress,
     this.reverse = false,
@@ -50,20 +50,20 @@ class PaginationListView<@required T> extends StatefulWidget {
   final Axis scrollDirection;
 
   /// When non-null [progress] widget is called to show loading progress
-  final Widget? progress;
+  final Widget progress;
 
   final bool reverse;
 
-  final bool? primary;
-  final ScrollPhysics? physics;
+  final bool primary;
+  final ScrollPhysics physics;
   final bool shrinkWrap = false;
-  final EdgeInsetsGeometry? padding;
-  final double? itemExtent;
+  final EdgeInsetsGeometry padding;
+  final double itemExtent;
   final bool addAutomaticKeepAlives = true;
   final bool addRepaintBoundaries = true;
   final bool addSemanticIndexes = true;
-  final double? cacheExtent;
-  final int? semanticChildCount;
+  final double cacheExtent;
+  final int semanticChildCount;
 
   final PaginationListController paginationController;
   final List<T> items;
@@ -75,7 +75,7 @@ class PaginationListView<@required T> extends StatefulWidget {
 
 class _PaginationListViewState<T> extends State<PaginationListView<T>> {
   bool _paginate = false;
-  ScrollController? _scrollController;
+  ScrollController _scrollController;
   bool _hasLoaded = false;
   int _currentPage = 0;
 
@@ -140,10 +140,10 @@ class _PaginationListViewState<T> extends State<PaginationListView<T>> {
   }
 
   addScroll() {
-    _scrollController!.addListener(() {
-      if (_scrollController!.offset >=
-              _scrollController!.position.maxScrollExtent &&
-          !_scrollController!.position.outOfRange) {
+    _scrollController.addListener(() {
+      if (_scrollController.offset >=
+              _scrollController.position.maxScrollExtent &&
+          !_scrollController.position.outOfRange) {
         if (!_hasLoaded) {
           setState(() {
             _paginate = true;
@@ -165,7 +165,7 @@ class _PaginationListViewState<T> extends State<PaginationListView<T>> {
 }
 
 class PaginationListController {
-  _PaginationListViewState? _listViewState;
+  _PaginationListViewState _listViewState;
 
   void _addState(_PaginationListViewState state) {
     this._listViewState = state;
@@ -175,24 +175,24 @@ class PaginationListController {
     if (_listViewState == null) {
       return null;
     }
-    _listViewState!._setPaginationState(true);
-    _listViewState!._setLoadedState(true);
+    _listViewState._setPaginationState(true);
+    _listViewState._setLoadedState(true);
   }
 
   successHidePagination() {
     if (_listViewState == null) {
       return null;
     }
-    _listViewState!._setPaginationState(false);
-    _listViewState!._setLoadedState(false);
+    _listViewState._setPaginationState(false);
+    _listViewState._setLoadedState(false);
   }
 
   errorHidePagination() {
     if (_listViewState == null) {
       return null;
     }
-    _listViewState!._errorPageChange();
-    _listViewState!._setPaginationState(false);
-    _listViewState!._setLoadedState(false);
+    _listViewState._errorPageChange();
+    _listViewState._setPaginationState(false);
+    _listViewState._setLoadedState(false);
   }
 }

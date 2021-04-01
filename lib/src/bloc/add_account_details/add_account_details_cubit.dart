@@ -13,7 +13,7 @@ class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
   Validator _validator = Validator();
 
   AddAccountDetailsCubit() : super(AddAccountDetailsState.idle());
-  late AccountDetails _accountDetails;
+  AccountDetails _accountDetails;
 
   validateButton(String name) {
     if (_validator.validateName(name) == null) {
@@ -24,9 +24,9 @@ class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
 
   loadPreviousData() async {
     emit(AddAccountDetailsState.loading());
-    _accountDetails = await _firebaseRepo!.fetchUserDetails();
+    _accountDetails = await _firebaseRepo.fetchUserDetails();
     emit(AddAccountDetailsState.editData(_accountDetails));
-    validateButton(_accountDetails.name!);
+    validateButton(_accountDetails.name);
   }
 
   saveData(String name, {bool isEdit = false}) async {
@@ -34,10 +34,10 @@ class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
       _accountDetails = AccountDetails();
     }
     _accountDetails.name = name;
-    _accountDetails.phoneNumber = await _authRepo!.getPhoneNumber();
+    _accountDetails.phoneNumber = await _authRepo.getPhoneNumber();
     emit(AddAccountDetailsState.saveDataLoading());
-    await _firebaseRepo!.addUserDetails(_accountDetails);
-    await _authRepo!.setAccountDetails(displayName: _accountDetails.name!);
+    await _firebaseRepo.addUserDetails(_accountDetails);
+    await _authRepo.setAccountDetails(displayName: _accountDetails.name);
     emit(AddAccountDetailsState.successful());
   }
 }

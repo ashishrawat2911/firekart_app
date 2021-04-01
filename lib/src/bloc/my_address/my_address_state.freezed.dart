@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'my_address_state.dart';
 
@@ -9,23 +9,23 @@ part of 'my_address_state.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
 /// @nodoc
 class _$MyAddressStateTearOff {
   const _$MyAddressStateTearOff();
 
+// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
 
+// ignore: unused_element
   ShowAccountDetails showAccountDetails(AccountDetails accountDetails) {
     return ShowAccountDetails(
       accountDetails,
     );
   }
 
+// ignore: unused_element
   Error error(String errorMessage) {
     return Error(
       errorMessage,
@@ -34,40 +34,37 @@ class _$MyAddressStateTearOff {
 }
 
 /// @nodoc
+// ignore: unused_element
 const $MyAddressState = _$MyAddressStateTearOff();
 
 /// @nodoc
 mixin _$MyAddressState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(AccountDetails accountDetails) showAccountDetails,
-    required TResult Function(String errorMessage) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  Result when<Result extends Object>({
+    @required Result loading(),
+    @required Result showAccountDetails(AccountDetails accountDetails),
+    @required Result error(String errorMessage),
+  });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(AccountDetails accountDetails)? showAccountDetails,
-    TResult Function(String errorMessage)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Result maybeWhen<Result extends Object>({
+    Result loading(),
+    Result showAccountDetails(AccountDetails accountDetails),
+    Result error(String errorMessage),
+    @required Result orElse(),
+  });
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Loading value) loading,
-    required TResult Function(ShowAccountDetails value) showAccountDetails,
-    required TResult Function(Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  Result map<Result extends Object>({
+    @required Result loading(Loading value),
+    @required Result showAccountDetails(ShowAccountDetails value),
+    @required Result error(Error value),
+  });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Loading value)? loading,
-    TResult Function(ShowAccountDetails value)? showAccountDetails,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Result maybeMap<Result extends Object>({
+    Result loading(Loading value),
+    Result showAccountDetails(ShowAccountDetails value),
+    Result error(Error value),
+    @required Result orElse(),
+  });
 }
 
 /// @nodoc
@@ -122,22 +119,26 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(AccountDetails accountDetails) showAccountDetails,
-    required TResult Function(String errorMessage) error,
+  Result when<Result extends Object>({
+    @required Result loading(),
+    @required Result showAccountDetails(AccountDetails accountDetails),
+    @required Result error(String errorMessage),
   }) {
+    assert(loading != null);
+    assert(showAccountDetails != null);
+    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(AccountDetails accountDetails)? showAccountDetails,
-    TResult Function(String errorMessage)? error,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result loading(),
+    Result showAccountDetails(AccountDetails accountDetails),
+    Result error(String errorMessage),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -146,22 +147,26 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Loading value) loading,
-    required TResult Function(ShowAccountDetails value) showAccountDetails,
-    required TResult Function(Error value) error,
+  Result map<Result extends Object>({
+    @required Result loading(Loading value),
+    @required Result showAccountDetails(ShowAccountDetails value),
+    @required Result error(Error value),
   }) {
+    assert(loading != null);
+    assert(showAccountDetails != null);
+    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Loading value)? loading,
-    TResult Function(ShowAccountDetails value)? showAccountDetails,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result loading(Loading value),
+    Result showAccountDetails(ShowAccountDetails value),
+    Result error(Error value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -194,7 +199,7 @@ class _$ShowAccountDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? accountDetails = freezed,
+    Object accountDetails = freezed,
   }) {
     return _then(ShowAccountDetails(
       accountDetails == freezed
@@ -206,7 +211,8 @@ class _$ShowAccountDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 class _$ShowAccountDetails implements ShowAccountDetails {
-  const _$ShowAccountDetails(this.accountDetails);
+  const _$ShowAccountDetails(this.accountDetails)
+      : assert(accountDetails != null);
 
   @override
   final AccountDetails accountDetails;
@@ -230,29 +236,32 @@ class _$ShowAccountDetails implements ShowAccountDetails {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(accountDetails);
 
-  @JsonKey(ignore: true)
   @override
   $ShowAccountDetailsCopyWith<ShowAccountDetails> get copyWith =>
       _$ShowAccountDetailsCopyWithImpl<ShowAccountDetails>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(AccountDetails accountDetails) showAccountDetails,
-    required TResult Function(String errorMessage) error,
+  Result when<Result extends Object>({
+    @required Result loading(),
+    @required Result showAccountDetails(AccountDetails accountDetails),
+    @required Result error(String errorMessage),
   }) {
+    assert(loading != null);
+    assert(showAccountDetails != null);
+    assert(error != null);
     return showAccountDetails(accountDetails);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(AccountDetails accountDetails)? showAccountDetails,
-    TResult Function(String errorMessage)? error,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result loading(),
+    Result showAccountDetails(AccountDetails accountDetails),
+    Result error(String errorMessage),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (showAccountDetails != null) {
       return showAccountDetails(accountDetails);
     }
@@ -261,22 +270,26 @@ class _$ShowAccountDetails implements ShowAccountDetails {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Loading value) loading,
-    required TResult Function(ShowAccountDetails value) showAccountDetails,
-    required TResult Function(Error value) error,
+  Result map<Result extends Object>({
+    @required Result loading(Loading value),
+    @required Result showAccountDetails(ShowAccountDetails value),
+    @required Result error(Error value),
   }) {
+    assert(loading != null);
+    assert(showAccountDetails != null);
+    assert(error != null);
     return showAccountDetails(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Loading value)? loading,
-    TResult Function(ShowAccountDetails value)? showAccountDetails,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result loading(Loading value),
+    Result showAccountDetails(ShowAccountDetails value),
+    Result error(Error value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (showAccountDetails != null) {
       return showAccountDetails(this);
     }
@@ -288,10 +301,8 @@ abstract class ShowAccountDetails implements MyAddressState {
   const factory ShowAccountDetails(AccountDetails accountDetails) =
       _$ShowAccountDetails;
 
-  AccountDetails get accountDetails => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ShowAccountDetailsCopyWith<ShowAccountDetails> get copyWith =>
-      throw _privateConstructorUsedError;
+  AccountDetails get accountDetails;
+  $ShowAccountDetailsCopyWith<ShowAccountDetails> get copyWith;
 }
 
 /// @nodoc
@@ -312,7 +323,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$MyAddressStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? errorMessage = freezed,
+    Object errorMessage = freezed,
   }) {
     return _then(Error(
       errorMessage == freezed ? _value.errorMessage : errorMessage as String,
@@ -322,7 +333,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$MyAddressStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$Error implements Error {
-  const _$Error(this.errorMessage);
+  const _$Error(this.errorMessage) : assert(errorMessage != null);
 
   @override
   final String errorMessage;
@@ -345,29 +356,32 @@ class _$Error implements Error {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
 
-  @JsonKey(ignore: true)
   @override
   $ErrorCopyWith<Error> get copyWith =>
       _$ErrorCopyWithImpl<Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(AccountDetails accountDetails) showAccountDetails,
-    required TResult Function(String errorMessage) error,
+  Result when<Result extends Object>({
+    @required Result loading(),
+    @required Result showAccountDetails(AccountDetails accountDetails),
+    @required Result error(String errorMessage),
   }) {
+    assert(loading != null);
+    assert(showAccountDetails != null);
+    assert(error != null);
     return error(errorMessage);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(AccountDetails accountDetails)? showAccountDetails,
-    TResult Function(String errorMessage)? error,
-    required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result loading(),
+    Result showAccountDetails(AccountDetails accountDetails),
+    Result error(String errorMessage),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (error != null) {
       return error(errorMessage);
     }
@@ -376,22 +390,26 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Loading value) loading,
-    required TResult Function(ShowAccountDetails value) showAccountDetails,
-    required TResult Function(Error value) error,
+  Result map<Result extends Object>({
+    @required Result loading(Loading value),
+    @required Result showAccountDetails(ShowAccountDetails value),
+    @required Result error(Error value),
   }) {
+    assert(loading != null);
+    assert(showAccountDetails != null);
+    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Loading value)? loading,
-    TResult Function(ShowAccountDetails value)? showAccountDetails,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result loading(Loading value),
+    Result showAccountDetails(ShowAccountDetails value),
+    Result error(Error value),
+    @required Result orElse(),
   }) {
+    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -402,7 +420,6 @@ class _$Error implements Error {
 abstract class Error implements MyAddressState {
   const factory Error(String errorMessage) = _$Error;
 
-  String get errorMessage => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
+  String get errorMessage;
+  $ErrorCopyWith<Error> get copyWith;
 }

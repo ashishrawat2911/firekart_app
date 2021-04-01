@@ -12,23 +12,23 @@ class AddressCardCubit extends Cubit<AddressCardState> {
   deleteAddress(AccountDetails accountDetails, Address address) {
     emit(AddressCardState.editLoading());
 
-    accountDetails.addresses!.remove(address);
+    accountDetails.addresses.remove(address);
     _saveData(accountDetails);
   }
 
   setAsDefault(AccountDetails accountDetails, int cardIndex) {
     emit(AddressCardState.setDefaultLoading());
-    accountDetails.addresses![cardIndex].isDefault = true;
-    List.generate(accountDetails.addresses!.length, (index) {
+    accountDetails.addresses[cardIndex].isDefault = true;
+    List.generate(accountDetails.addresses.length, (index) {
       if (cardIndex != index) {
-        accountDetails.addresses![index].isDefault = false;
+        accountDetails.addresses[index].isDefault = false;
       }
     });
     _saveData(accountDetails);
   }
 
   _saveData(AccountDetails accountDetails) {
-    _firebaseRepo!.addUserDetails(accountDetails).then((value) {
+    _firebaseRepo.addUserDetails(accountDetails).then((value) {
       emit(AddressCardState.successful());
     }).catchError((e) {
       emit(AddressCardState.error(e.toString()));
