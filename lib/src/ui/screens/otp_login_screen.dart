@@ -11,16 +11,16 @@ import 'package:fluttercommerce/src/ui/common/commom_text_field.dart';
 import 'package:fluttercommerce/src/ui/common/common_app_loader.dart';
 import 'package:fluttercommerce/src/ui/common/common_button.dart';
 
-class OTPLoginScreen extends StatefulWidget {
+class OtpLoginScreen extends StatefulWidget {
   final String phoneNumber;
 
-  OTPLoginScreen({this.phoneNumber});
+  OtpLoginScreen({this.phoneNumber});
 
   @override
-  _OTPLoginScreenState createState() => _OTPLoginScreenState();
+  _OtpLoginScreenState createState() => _OtpLoginScreenState();
 }
 
-class _OTPLoginScreenState extends State<OTPLoginScreen> {
+class _OtpLoginScreenState extends State<OtpLoginScreen> {
   var otpLoginCubit = AppInjector.get<OtpLoginCubit>();
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
@@ -137,8 +137,8 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
                       onButtonDisabled: () {},
                       loginSuccessFull: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.checkStatusScreen, (route) => false,
-                            arguments: true);
+                            Routes.checkStatusScreen,(route) => false,
+                            arguments: CheckStatusScreenArguments(checkForAccountStatusOnly: true));
                       },
                       codeCountDown: (String value) {
                         print(value);
