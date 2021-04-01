@@ -3,14 +3,14 @@ import 'dart:math' as math show sin, pi;
 import 'package:flutter/material.dart';
 
 class DotProgressIndicator extends StatefulWidget {
-  final Color? color;
+  final Color color;
   final double size;
-  final IndexedWidgetBuilder? itemBuilder;
+  final IndexedWidgetBuilder itemBuilder;
   final Duration duration;
-  final AnimationController? controller;
+  final AnimationController controller;
 
   const DotProgressIndicator({
-    Key? key,
+    Key key,
     this.color,
     this.size = 48.0 / 2,
     this.itemBuilder,
@@ -29,7 +29,7 @@ class DotProgressIndicator extends StatefulWidget {
 
 class _DotProgressIndicatorState extends State<DotProgressIndicator>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  AnimationController _controller;
 
   @override
   void initState() {
@@ -67,21 +67,21 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
   }
 
   Widget _itemBuilder(int index) => widget.itemBuilder != null
-      ? widget.itemBuilder!(context, index)
+      ? widget.itemBuilder(context, index)
       : DecoratedBox(
           decoration:
               BoxDecoration(color: widget.color, shape: BoxShape.circle));
 }
 
 class DelayTween extends Tween<double> {
-  DelayTween({double? begin, double? end, this.delay})
+  DelayTween({double begin, double end, this.delay})
       : super(begin: begin, end: end);
 
-  final double? delay;
+  final double delay;
 
   @override
   double lerp(double t) =>
-      super.lerp((math.sin((t - delay!) * 2 * math.pi) + 1) / 2);
+      super.lerp((math.sin((t - delay) * 2 * math.pi) + 1) / 2);
 
   @override
   double evaluate(Animation<double> animation) => lerp(animation.value);

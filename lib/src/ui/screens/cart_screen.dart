@@ -10,7 +10,7 @@ import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
-import 'package:fluttercommerce/src/routes/routers.dart';
+import 'package:fluttercommerce/src/routes/router.gr.dart';
 import 'package:fluttercommerce/src/ui/common/action_text.dart';
 import 'package:fluttercommerce/src/ui/common/cart_item_card.dart';
 import 'package:fluttercommerce/src/ui/common/common_button.dart';
@@ -204,7 +204,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                         Navigator.pushNamed(context, Routes.addAddressScreen,
                             arguments: AddAddressScreenArguments(
                               newAddress: true,
-                              accountDetails: (accountProvider.accountDetails)!,
+                              accountDetails: accountProvider.accountDetails,
                             ));
                       } else {
                         Navigator.of(context).pushNamed(Routes.myAddressScreen,
@@ -255,10 +255,10 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             ),
           ),
           BlocConsumer<PaymentCubit, PaymentState>(
-            cubit: paymentCubit!,
+            cubit: paymentCubit,
             listener: (BuildContext context, PaymentState state) {
               if (state is PaymentSuccessful) {
-                placeOrderCubit!.placeOrder(
+                placeOrderCubit.placeOrder(
                   cartItemStatus,
                   state.response,
                 );
@@ -266,7 +266,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             },
             builder: (BuildContext context, PaymentState paymentState) {
               return BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
-                cubit: placeOrderCubit!,
+                cubit: placeOrderCubit,
                 listener: (BuildContext context, PlaceOrderState state) {
                   state.when(
                       orderPlacedInProgress: () {},
@@ -292,9 +292,9 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                             : false,
                     margin: EdgeInsets.only(right: 20),
                     onTap: () {
-                      var addressProvider = AppInjector.get<AccountProvider>()!;
+                      var addressProvider = AppInjector.get<AccountProvider>();
                       if (addressProvider.addressSelected != null) {
-                        paymentCubit!.openCheckout(cartItemStatus.priceInCart);
+                        paymentCubit.openCheckout(cartItemStatus.priceInCart);
                       } else {
                         showSnackBar(title: StringsConstants.noAddressSelected);
                       }

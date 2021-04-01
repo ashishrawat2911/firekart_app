@@ -23,7 +23,7 @@ class ProductDataCubit extends Cubit<ResultState<List<ProductModel>>> {
         emit(ResultState.error(error: StringsConstants.connectionNotAvailable));
         return;
       }
-      String? condition;
+      String condition;
       switch (productData) {
         case ProductData.DealOfTheDay:
           condition = "deal_of_the_day";
@@ -35,7 +35,7 @@ class ProductDataCubit extends Cubit<ResultState<List<ProductModel>>> {
           condition = "top_products";
           break;
       }
-      List<ProductModel> productList = await repo!.getProductsData(condition);
+      List<ProductModel> productList = await repo.getProductsData(condition);
       emit(ResultState.data(data: productList));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));

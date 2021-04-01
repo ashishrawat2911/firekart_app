@@ -6,12 +6,12 @@ import 'package:fluttercommerce/src/bloc/base_states/result_state/result_state.d
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/models/product_model.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
-import 'package:fluttercommerce/src/routes/routers.dart';
+import 'package:fluttercommerce/src/routes/router.gr.dart';
 import 'package:fluttercommerce/src/ui/common/common_app_loader.dart';
 import 'package:fluttercommerce/src/ui/common/product_card.dart';
 
 class AllProductListScreen extends StatefulWidget {
-  final String? productCondition;
+  final String productCondition;
 
   AllProductListScreen(this.productCondition);
 
@@ -25,7 +25,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
 
   @override
   void initState() {
-    allProductsCubit!.fetchProducts(widget.productCondition);
+    allProductsCubit.fetchProducts(widget.productCondition);
     if (widget.productCondition == null) {
       controller.addListener(_scrollListener);
     }
@@ -36,7 +36,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
     if (controller.offset >= controller.position.maxScrollExtent &&
         !controller.position.outOfRange) {
       print("at the end of list");
-      allProductsCubit!.fetchNextList(widget.productCondition);
+      allProductsCubit.fetchNextList(widget.productCondition);
     }
   }
 
@@ -57,12 +57,11 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           )
         ],
       ),
-      body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>?>>(
-        cubit: allProductsCubit!,
+      body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
+        cubit: allProductsCubit,
         listener:
-            (BuildContext context, ResultState<List<ProductModel>?> state) {},
-        builder:
-            (BuildContext context, ResultState<List<ProductModel>?> state) {
+            (BuildContext context, ResultState<List<ProductModel>> state) {},
+        builder: (BuildContext context, ResultState<List<ProductModel>> state) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
@@ -73,7 +72,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
             errorWidget: (String error) {
               return Container();
             },
-            dataWidget: (List<ProductModel>? value) {
+            dataWidget: (List<ProductModel> value) {
               return dataWidget(value);
             },
           );
@@ -82,10 +81,10 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
     );
   }
 
-  Widget dataWidget(List<ProductModel>? productList) {
+  Widget dataWidget(List<ProductModel> productList) {
     return GridView.builder(
       controller: controller,
-      itemCount: productList!.length,
+      itemCount: productList.length,
       padding: EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 30),
       itemBuilder: (BuildContext context, int index) {
         return ProductCard(productList[index]);

@@ -13,8 +13,8 @@ import 'package:fluttercommerce/src/ui/common/common_app_loader.dart';
 enum AddButton { Add, Minus }
 
 class CartItemCard extends StatefulWidget {
-  final CartModel? cartModel;
-  final EdgeInsets? margin;
+  final CartModel cartModel;
+  final EdgeInsets margin;
 
   CartItemCard({this.margin, this.cartModel});
 
@@ -27,7 +27,7 @@ class _CartItemCardState extends State<CartItemCard> {
 
   @override
   void initState() {
-    cartItemCubit!.initCartValues(widget.cartModel!.numOfItems as int);
+    cartItemCubit.initCartValues(widget.cartModel.numOfItems);
     super.initState();
   }
 
@@ -48,7 +48,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CachedNetworkImage(
-                        imageUrl: widget.cartModel!.image!,
+                        imageUrl: widget.cartModel.image,
                         height: 68,
                         width: 68,
                         fit: BoxFit.fill,
@@ -60,7 +60,7 @@ class _CartItemCardState extends State<CartItemCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.cartModel!.name!,
+                            widget.cartModel.name,
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 15,
@@ -70,7 +70,7 @@ class _CartItemCardState extends State<CartItemCard> {
                             height: 10,
                           ),
                           Text(
-                            "${widget.cartModel!.currency}${widget.cartModel!.currentPrice} / ${widget.cartModel!.quantityPerUnit} ${widget.cartModel!.unit}",
+                            "${widget.cartModel.currency}${widget.cartModel.currentPrice} / ${widget.cartModel.quantityPerUnit} ${widget.cartModel.unit}",
                             style: TextStyle(
                                 fontSize: 14, color: AppColors.color81819A),
                           ),
@@ -79,7 +79,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     ],
                   ),
                   BlocBuilder<CartItemCubit, CartItemState>(
-                    cubit: cartItemCubit!,
+                    cubit: cartItemCubit,
                     builder: (BuildContext context, CartItemState state) {
                       if (state is CartDeleteLoading) {
                         return CommonAppLoader(
@@ -91,7 +91,7 @@ class _CartItemCardState extends State<CartItemCard> {
                         child: ActionText(
                           StringsConstants.deleteCaps,
                           onTap: () {
-                            cartItemCubit!.deleteItem(widget.cartModel);
+                            cartItemCubit.deleteItem(widget.cartModel);
                           },
                         ),
                       );
@@ -103,7 +103,7 @@ class _CartItemCardState extends State<CartItemCard> {
                 height: 26,
               ),
               BlocBuilder<CartItemCubit, CartItemState>(
-                cubit: cartItemCubit!,
+                cubit: cartItemCubit,
                 builder: (BuildContext context, CartItemState state) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,9 +117,9 @@ class _CartItemCardState extends State<CartItemCard> {
                                 state is CartDataLoading
                                     ? null
                                     : () {
-                                        cartItemCubit!.updateCartValues(
+                                        cartItemCubit.updateCartValues(
                                             widget.cartModel,
-                                            widget.cartModel!.numOfItems as int?,
+                                            widget.cartModel.numOfItems,
                                             false);
                                       }),
                             Expanded(
@@ -130,7 +130,7 @@ class _CartItemCardState extends State<CartItemCard> {
                                             strokeWidth: 3,
                                           )
                                         : Text(
-                                            "${widget.cartModel!.numOfItems}",
+                                            "${widget.cartModel.numOfItems}",
                                             style: TextStyle(
                                               color: AppColors.black,
                                               fontSize: 14,
@@ -141,16 +141,16 @@ class _CartItemCardState extends State<CartItemCard> {
                                 state is CartDataLoading
                                     ? null
                                     : () {
-                                        cartItemCubit!.updateCartValues(
+                                        cartItemCubit.updateCartValues(
                                             widget.cartModel,
-                                            widget.cartModel!.numOfItems as int?,
+                                            widget.cartModel.numOfItems,
                                             true);
                                       })
                           ],
                         ),
                       ),
                       Text(
-                        "${widget.cartModel!.currency}${widget.cartModel!.currentPrice! * widget.cartModel!.numOfItems!}",
+                        "${widget.cartModel.currency}${widget.cartModel.currentPrice * widget.cartModel.numOfItems}",
                         style: TextStyle(
                           color: AppColors.black,
                           fontSize: 14,
@@ -167,7 +167,7 @@ class _CartItemCardState extends State<CartItemCard> {
     );
   }
 
-  Widget addButton(bool isAdd, VoidCallback? onTap) => GestureDetector(
+  Widget addButton(bool isAdd, VoidCallback onTap) => GestureDetector(
         onTap: onTap,
         behavior: HitTestBehavior.opaque,
         child: Container(

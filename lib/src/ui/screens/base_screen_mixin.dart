@@ -28,9 +28,9 @@ mixin BaseScreenMixin {
     }
   }
 
-  showSnackBar({required String title}) {
-    scaffoldKey.currentState!.hideCurrentSnackBar();
-    scaffoldKey.currentState!.showSnackBar(new SnackBar(
+  showSnackBar({@required String title}) {
+    scaffoldKey.currentState.hideCurrentSnackBar();
+    scaffoldKey.currentState.showSnackBar(new SnackBar(
       content: Text(title),
       backgroundColor: AppColors.primaryColor,
       duration: Duration(milliseconds: 1000),
@@ -41,7 +41,7 @@ mixin BaseScreenMixin {
       {int duration = 1,
       int gravity = 0,
       double backgroundRadius = 20,
-      Border? border}) {
+      Border border}) {
     Fluttertoast.showToast(
       msg: msg,
       toastLength: Toast.LENGTH_SHORT,

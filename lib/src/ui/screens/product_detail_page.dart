@@ -29,8 +29,8 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   @override
   void initState() {
     super.initState();
-    addToCartCubit!.checkItemInCart(widget.productModel!.productId!);
-    addToCartCubit!.listenToProduct(widget.productModel!.productId);
+    addToCartCubit.checkItemInCart(widget.productModel.productId);
+    addToCartCubit.listenToProduct(widget.productModel.productId);
   }
 
   @override
@@ -40,13 +40,13 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       floatingActionButton: CommonViewCartOverlay(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        title: Text(widget.productModel.name!),
+        title: Text(widget.productModel.name),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             CachedNetworkImage(
-              imageUrl: widget.productModel.image!,
+              imageUrl: widget.productModel.image,
               fit: BoxFit.fill,
             ),
             Container(
@@ -55,13 +55,13 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    widget.productModel.name!,
+                    widget.productModel.name,
                     style: AppTextStyles.medium22Black,
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  Text(widget.productModel.description!),
+                  Text(widget.productModel.description),
                   SizedBox(
                     height: 10,
                   ),
@@ -76,7 +76,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         width: 10,
                       ),
                       BlocConsumer<AddToCartCubit, AddToCartState>(
-                        cubit: addToCartCubit!,
+                        cubit: addToCartCubit,
                         builder: (BuildContext context, AddToCartState state) {
                           return addCartView(state);
                         },
@@ -103,7 +103,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   Widget addCartView(AddToCartState state) {
     int cartValue = 0;
     if (state is ShowCartValue) {
-      cartValue = state.noOfItems as int;
+      cartValue = state.noOfItems;
     }
     return AnimatedCrossFade(
         firstChild: addButton(state),
@@ -117,7 +117,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                   state is CartDataLoading
                       ? null
                       : () {
-                          addToCartCubit!.updateCartValues(
+                          addToCartCubit.updateCartValues(
                               widget.productModel, cartValue, false);
                         }),
               Expanded(
@@ -140,7 +140,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                   state is CartDataLoading
                       ? null
                       : () {
-                          addToCartCubit!.updateCartValues(
+                          addToCartCubit.updateCartValues(
                               widget.productModel, cartValue, true);
                         })
             ],
@@ -159,7 +159,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     return AnimatedCrossFade(
       firstChild: InkWell(
         onTap: () {
-          addToCartCubit!.addToCart(widget.productModel);
+          addToCartCubit.addToCart(widget.productModel);
         },
         child: Container(
           height: 30,
@@ -188,7 +188,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     );
   }
 
-  Widget changeCartValues(bool isAdd, VoidCallback? onTap) => GestureDetector(
+  Widget changeCartValues(bool isAdd, VoidCallback onTap) => GestureDetector(
         onTap: onTap,
         behavior: HitTestBehavior.opaque,
         child: Container(

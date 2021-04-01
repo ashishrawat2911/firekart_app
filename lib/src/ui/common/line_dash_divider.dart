@@ -3,7 +3,7 @@ import 'package:fluttercommerce/src/res/app_colors.dart';
 
 class LineDashDivider extends StatelessWidget {
   final double height;
-  final Color? color;
+  final Color color;
 
   const LineDashDivider({this.height = 1, this.color});
 
