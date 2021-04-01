@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/src/core/utils/validator.dart';
 import 'package:fluttercommerce/src/bloc/phone_login/phone_login.dart';
+import 'package:fluttercommerce/src/core/utils/validator.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/styles.dart';
@@ -137,7 +137,8 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_formKey.currentState.validate()) {
       Navigator.of(context)
           .pushNamed(Routes.oTPLoginScreen,
-              arguments: (phoneNumberController.text))
+              arguments: OTPLoginScreenArguments(
+                  phoneNumber: (phoneNumberController.text)))
           .then((value) {
         if (value != null && value) {
           phoneNumberController.clear();
