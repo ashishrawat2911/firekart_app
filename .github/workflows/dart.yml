@@ -19,7 +19,7 @@ jobs:
         flutter-version: '1.22.4'
     - run: flutter pub get
 #    - run: flutter test
-    - run: flutter build ios --release --no-codesign
+#     - run: flutter build ios --release --no-codesign
     - run: flutter build apk
 
 
