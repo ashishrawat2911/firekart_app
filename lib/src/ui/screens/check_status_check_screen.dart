@@ -49,7 +49,7 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
           Navigator.of(context).pushReplacementNamed(Routes.mainHomeScreen);
         } else {
           Navigator.of(context).pushReplacementNamed(Routes.addUserDetailScreen,
-              arguments: true);
+              arguments: AddUserDetailScreenArguments(newAddress: true));
         }
       } else {
         Navigator.of(context).pushReplacementNamed(Routes.loginScreen);

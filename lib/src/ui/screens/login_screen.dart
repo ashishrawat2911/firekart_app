@@ -136,9 +136,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void onButtonTap() {
     if (_formKey.currentState.validate()) {
       Navigator.of(context)
-          .pushNamed(Routes.oTPLoginScreen,
-              arguments: OTPLoginScreenArguments(
-                  phoneNumber: (phoneNumberController.text)))
+          .pushNamed(Routes.otpLoginScreen,
+              arguments: OtpLoginScreenArguments(
+                  phoneNumber: phoneNumberController.text))
           .then((value) {
         if (value != null && value) {
           phoneNumberController.clear();

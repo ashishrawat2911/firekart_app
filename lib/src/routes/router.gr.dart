@@ -30,7 +30,7 @@ class Routes {
   static const String checkStatusScreen = '/check-status-screen';
   static const String mainHomeScreen = '/main-home-screen';
   static const String loginScreen = '/login-screen';
-  static const String oTPLoginScreen = '/o-tp-login-screen';
+  static const String otpLoginScreen = '/otp-login-screen';
   static const String productDetailPage = '/product-detail-page';
   static const String addUserDetailScreen = '/add-user-detail-screen';
   static const String cartScreen = '/cart-screen';
@@ -44,7 +44,7 @@ class Routes {
     checkStatusScreen,
     mainHomeScreen,
     loginScreen,
-    oTPLoginScreen,
+    otpLoginScreen,
     productDetailPage,
     addUserDetailScreen,
     cartScreen,
@@ -64,7 +64,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.checkStatusScreen, page: CheckStatusScreen),
     RouteDef(Routes.mainHomeScreen, page: MainHomeScreen),
     RouteDef(Routes.loginScreen, page: LoginScreen),
-    RouteDef(Routes.oTPLoginScreen, page: OTPLoginScreen),
+    RouteDef(Routes.otpLoginScreen, page: OtpLoginScreen),
     RouteDef(Routes.productDetailPage, page: ProductDetailPage),
     RouteDef(Routes.addUserDetailScreen, page: AddUserDetailScreen),
     RouteDef(Routes.cartScreen, page: CartScreen),
@@ -105,12 +105,12 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    OTPLoginScreen: (data) {
-      final args = data.getArgs<OTPLoginScreenArguments>(
-        orElse: () => OTPLoginScreenArguments(),
+    OtpLoginScreen: (data) {
+      final args = data.getArgs<OtpLoginScreenArguments>(
+        orElse: () => OtpLoginScreenArguments(),
       );
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => OTPLoginScreen(phoneNumber: args.phoneNumber),
+        builder: (context) => OtpLoginScreen(phoneNumber: args.phoneNumber),
         settings: data,
       );
     },
@@ -163,7 +163,7 @@ class AppRouter extends RouterBase {
         builder: (context) => AddAddressScreen(
           args.newAddress,
           args.accountDetails,
-          args.editAddress,
+          editAddress: args.editAddress,
         ),
         settings: data,
       );
@@ -187,10 +187,10 @@ class CheckStatusScreenArguments {
   CheckStatusScreenArguments({this.checkForAccountStatusOnly = false});
 }
 
-/// OTPLoginScreen arguments holder class
-class OTPLoginScreenArguments {
+/// OtpLoginScreen arguments holder class
+class OtpLoginScreenArguments {
   final String phoneNumber;
-  OTPLoginScreenArguments({this.phoneNumber});
+  OtpLoginScreenArguments({this.phoneNumber});
 }
 
 /// ProductDetailPage arguments holder class
@@ -225,5 +225,5 @@ class AddAddressScreenArguments {
   AddAddressScreenArguments(
       {@required this.newAddress,
       @required this.accountDetails,
-      @required this.editAddress});
+      this.editAddress});
 }

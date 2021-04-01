@@ -29,7 +29,7 @@ import 'package:fluttercommerce/src/ui/screens/splash_screen.dart';
     CupertinoRoute(page: CheckStatusScreen),
     CupertinoRoute(page: MainHomeScreen),
     CupertinoRoute(page: LoginScreen),
-    CupertinoRoute(page: OTPLoginScreen),
+    CupertinoRoute(page: OtpLoginScreen),
     CupertinoRoute(
       page: ProductDetailPage,
     ),

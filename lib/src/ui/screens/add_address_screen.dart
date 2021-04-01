@@ -15,7 +15,7 @@ class AddAddressScreen extends StatefulWidget {
   final AccountDetails accountDetails;
   final Address editAddress;
 
-  AddAddressScreen(this.newAddress, this.accountDetails, this.editAddress);
+  AddAddressScreen(this.newAddress, this.accountDetails, {this.editAddress});
 
   @override
   _AddAddressScreenState createState() => _AddAddressScreenState();
