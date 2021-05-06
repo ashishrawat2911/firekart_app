@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fluttercommerce/src/core/utils/connectivity.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 typedef _onConnectionChanged = void Function(bool value);
 mixin BaseScreenMixin {

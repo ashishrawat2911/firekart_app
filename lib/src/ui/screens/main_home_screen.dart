@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/src/bloc/cart_status/cart_status_bloc.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/models/account_details_model.dart';
 import 'package:fluttercommerce/src/models/cartModel_model.dart';
 import 'package:fluttercommerce/src/notifiers/account_provider.dart';
-import 'package:fluttercommerce/src/notifiers/cart_status_provider.dart';
 import 'package:fluttercommerce/src/notifiers/main_screen_provider.dart';
 import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
@@ -27,8 +28,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   var mainScreenProvider = AppInjector.get<MainScreenProvider>();
   var firebaseRepo = AppInjector.get<FirestoreRepository>();
   var authRepo = AppInjector.get<AuthRepository>();
-  var cartStatusProvider = AppInjector.get<CartStatusProvider>();
+  var cartStatusCubit = AppInjector.get<CartStatusCubit>();
   var accountProvider = AppInjector.get<AccountProvider>();
+
   @override
   void initState() {
     super.initState();
@@ -40,13 +42,13 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     firebaseRepo.cartStatusListen(await authRepo.getUid()).listen((event) {
       var noOfItemsInCart = event?.documents?.length ?? 0;
       if (noOfItemsInCart > 0) {
-        cartStatusProvider.cartItems =
+        cartStatusCubit.cartItems =
             List<CartModel>.generate(event?.documents?.length ?? 0, (index) {
           DocumentSnapshot documentSnapshot = event.documents[index];
           return CartModel.fromJson(documentSnapshot);
         });
       } else {
-        cartStatusProvider.cartItems = [];
+        cartStatusCubit.cartItems = [];
       }
     });
   }
@@ -102,10 +104,11 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   icon: Stack(
                     children: <Widget>[
                       Center(child: Icon(Icons.shopping_cart)),
-                      ProviderNotifier<CartStatusProvider>(
-                        child: (CartStatusProvider value) {
+                      BlocBuilder<CartStatusCubit, List<CartModel>>(
+                        cubit: cartStatusCubit,
+                        builder: (context, state) {
                           return Visibility(
-                            visible: value.noOfItemsInCart > 0,
+                            visible: cartStatusCubit.noOfItemsInCart > 0,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20),
                               child: Align(
@@ -115,7 +118,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                   maxRadius: 7,
                                   backgroundColor: AppColors.color6EBA49,
                                   child: Text(
-                                    "${value.noOfItemsInCart}",
+                                    "${cartStatusCubit.noOfItemsInCart}",
                                     style: AppTextStyles.normal9White,
                                   ),
                                 ),

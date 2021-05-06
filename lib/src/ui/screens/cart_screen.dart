@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/src/bloc/cart_status/cart_status_bloc.dart';
 import 'package:fluttercommerce/src/bloc/payment/payment.dart';
 import 'package:fluttercommerce/src/bloc/place_order/place_order_cubit.dart';
 import 'package:fluttercommerce/src/bloc/place_order/place_order_state.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
+import 'package:fluttercommerce/src/models/cartModel_model.dart';
 import 'package:fluttercommerce/src/notifiers/account_provider.dart';
-import 'package:fluttercommerce/src/notifiers/cart_status_provider.dart';
 import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
@@ -24,6 +25,7 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
   var paymentCubit = AppInjector.get<PaymentCubit>();
+  var cartStatusCubit = AppInjector.get<CartStatusCubit>();
   var placeOrderCubit = AppInjector.get<PlaceOrderCubit>();
 
   @override
@@ -33,8 +35,9 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderNotifier<CartStatusProvider>(
-      child: (CartStatusProvider cartItemStatus) {
+    return BlocBuilder<CartStatusCubit, List<CartModel>>(
+      cubit: cartStatusCubit,
+      builder: (context, state) {
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: AppColors.colorF8F8F8,
@@ -42,18 +45,15 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             title: Text(StringsConstants.cart),
             elevation: 1,
           ),
-          body: cartItemStatus.noOfItemsInCart > 0
-              ? cartView(cartItemStatus)
-              : Container(),
+          body: state.noOfItemsInCart > 0 ? cartView(state) : Container(),
           bottomNavigationBar: Visibility(
-              visible: cartItemStatus.noOfItemsInCart > 0,
-              child: checkOut(cartItemStatus)),
+              visible: state.noOfItemsInCart > 0, child: checkOut(state)),
         );
       },
     );
   }
 
-  Widget cartView(CartStatusProvider cartItemStatus) {
+  Widget cartView(List<CartModel> state) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -63,16 +63,15 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
               Container(
                 //  margin: EdgeInsets.only(bottom: 20),
                 child: Column(
-                  children: List<Widget>.generate(
-                      cartItemStatus.cartItems.length, (index) {
+                  children: List<Widget>.generate(state.length, (index) {
                     return CartItemCard(
-                      cartModel: cartItemStatus.cartItems[index],
+                      cartModel: state[index],
                       margin: EdgeInsets.only(bottom: 20),
                     );
                   }),
                 ),
               ),
-              billDetails(cartItemStatus),
+              billDetails(state),
               SizedBox(
                 height: 20,
               ),
@@ -115,7 +114,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
     ));
   }
 
-  Widget billDetails(CartStatusProvider cartItemStatus) {
+  Widget billDetails(List<CartModel> state) {
     Widget priceRow(String title, String price, {bool isFinal = false}) {
       return Column(
         children: [
@@ -171,8 +170,8 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay,
-              "${cartItemStatus.currency}${cartItemStatus.priceInCart}",
+          priceRow(
+              StringsConstants.toPay, "${state.currency}${state.priceInCart}",
               isFinal: true),
         ],
       ),
@@ -230,7 +229,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
     );
   }
 
-  Widget checkOut(CartStatusProvider cartItemStatus) {
+  Widget checkOut(List<CartModel> state) {
     return Container(
       height: 94,
       color: AppColors.white,
@@ -245,7 +244,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "${cartItemStatus.currency} ${cartItemStatus.priceInCart}",
+                      "${state.currency} ${state.priceInCart}",
                       style: AppTextStyles.medium15Black,
                     ),
                     ActionText(StringsConstants.viewDetailedBillCaps)
@@ -256,11 +255,11 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
           ),
           BlocConsumer<PaymentCubit, PaymentState>(
             cubit: paymentCubit,
-            listener: (BuildContext context, PaymentState state) {
-              if (state is PaymentSuccessful) {
+            listener: (BuildContext context, PaymentState paymentState) {
+              if (paymentState is PaymentSuccessful) {
                 placeOrderCubit.placeOrder(
-                  cartItemStatus,
-                  state.response,
+                  state,
+                  paymentState.response,
                 );
               }
             },
@@ -294,7 +293,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                     onTap: () {
                       var addressProvider = AppInjector.get<AccountProvider>();
                       if (addressProvider.addressSelected != null) {
-                        paymentCubit.openCheckout(cartItemStatus.priceInCart);
+                        paymentCubit.openCheckout(state.priceInCart);
                       } else {
                         showSnackBar(title: StringsConstants.noAddressSelected);
                       }
