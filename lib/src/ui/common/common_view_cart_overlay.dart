@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/src/notifiers/cart_status_provider.dart';
-import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/src/bloc/cart_status/cart_status_bloc.dart';
+import 'package:fluttercommerce/src/di/app_injector.dart';
+import 'package:fluttercommerce/src/models/cartModel_model.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
@@ -9,8 +11,9 @@ import 'package:fluttercommerce/src/routes/router.gr.dart';
 class CommonViewCartOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ProviderNotifier<CartStatusProvider>(
-      child: (CartStatusProvider value) {
+    return BlocBuilder<CartStatusCubit, List<CartModel>>(
+      cubit: AppInjector.get(),
+      builder: (context, state) {
         return AnimatedCrossFade(
           duration: Duration(microseconds: 3000),
           firstChild: Container(
@@ -24,7 +27,7 @@ class CommonViewCartOverlay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "${value.noOfItemsInCart} item${value.noOfItemsInCart > 1 ? "s" : ""} | ${value.currency}${value.priceInCart}",
+                  "${state.noOfItemsInCart} item${state.noOfItemsInCart > 1 ? "s" : ""} | ${state.currency}${state.priceInCart}",
                   style: AppTextStyles.medium16White,
                 ),
                 SizedBox(
@@ -51,7 +54,7 @@ class CommonViewCartOverlay extends StatelessWidget {
             ),
           ),
           secondChild: SizedBox(),
-          crossFadeState: value.noOfItemsInCart > 0
+          crossFadeState: state.noOfItemsInCart > 0
               ? CrossFadeState.showFirst
               : CrossFadeState.showSecond,
         );
