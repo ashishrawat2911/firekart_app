@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/src/bloc/address_card/address_card.dart';
 import 'package:fluttercommerce/src/bloc/address_card/address_card_state.dart';
 import 'package:fluttercommerce/src/bloc/my_address/my_address.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/models/account_details_model.dart';
-import 'package:fluttercommerce/src/notifiers/account_provider.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
@@ -135,8 +135,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             child: InkWell(
               onTap: widget.selectedAddress
                   ? () {
-                      var accountProvider = AppInjector.get<AccountProvider>();
-                      accountProvider.addressSelected =
+                      var accountDetailsCubit =
+                          AppInjector.get<AccountDetailsCubit>();
+                      accountDetailsCubit.selectedAddress =
                           accountDetails.addresses[index];
                       Navigator.of(context).pop();
                     }

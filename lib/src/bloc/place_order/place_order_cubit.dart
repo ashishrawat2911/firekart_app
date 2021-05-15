@@ -3,24 +3,25 @@ import 'package:fluttercommerce/src/bloc/cart_status/cart_status_bloc.dart';
 import 'package:fluttercommerce/src/bloc/place_order/place_order.dart';
 import 'package:fluttercommerce/src/core/utils/connectivity.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
+import 'package:fluttercommerce/src/models/account_details_model.dart';
 import 'package:fluttercommerce/src/models/cartModel_model.dart';
 import 'package:fluttercommerce/src/models/order_model.dart';
-import 'package:fluttercommerce/src/notifiers/account_provider.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PlaceOrderCubit extends Cubit<PlaceOrderState> {
   var firebaseRepo = AppInjector.get<FirestoreRepository>();
-  var accountProvider = AppInjector.get<AccountProvider>();
 
   PlaceOrderCubit() : super(PlaceOrderState.idle());
 
-  placeOrder(List<CartModel> cartModel, PaymentSuccessResponse response) async {
+  placeOrder(List<CartModel> cartModel, PaymentSuccessResponse response,
+      Address orderAddress) async {
     emit(PlaceOrderState.orderPlacedInProgress());
     if (await ConnectionStatus.getInstance().checkConnection()) {
       try {
-        await firebaseRepo.placeOrder(_orderFromCartList(cartModel, response));
+        await firebaseRepo
+            .placeOrder(_orderFromCartList(cartModel, response, orderAddress));
         await firebaseRepo.emptyCart();
         emit(PlaceOrderState.orderSuccessfullyPlaced());
       } catch (e) {
@@ -31,8 +32,8 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
     }
   }
 
-  OrderModel _orderFromCartList(
-      List<CartModel> cartModel, PaymentSuccessResponse response) {
+  OrderModel _orderFromCartList(List<CartModel> cartModel,
+      PaymentSuccessResponse response, Address orderAddress) {
     var cartItems = cartModel;
 
     List<OrderItem> getOrderItems() {
@@ -51,13 +52,14 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
     }
 
     OrderModel orderModel = OrderModel(
-        orderId:
-            "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
-        orderItems: getOrderItems(),
-        paymentId: response.paymentId,
-        signature: response.signature,
-        price: cartModel.priceInCart,
-        orderAddress: accountProvider.addressSelected);
+      orderId:
+          "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
+      orderItems: getOrderItems(),
+      paymentId: response.paymentId,
+      signature: response.signature,
+      price: cartModel.priceInCart,
+      orderAddress: orderAddress,
+    );
     print(orderModel);
     return orderModel;
   }

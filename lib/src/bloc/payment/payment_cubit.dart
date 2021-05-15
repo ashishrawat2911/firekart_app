@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:fluttercommerce/src/bloc/payment/payment.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
   var _razorPay;
