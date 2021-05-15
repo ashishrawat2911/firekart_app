@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:fluttercommerce/src/bloc/base_states/result_state/result_state.dart';
 
 typedef ResultErrorWidget<NetworkExceptions> = Widget Function(

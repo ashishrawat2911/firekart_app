@@ -49,6 +49,7 @@ mixin _$AddAddressState {
     @required Result error(String message),
     @required Result successful(),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result idle(),
@@ -57,6 +58,7 @@ mixin _$AddAddressState {
     Result successful(),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result idle(Idle value),
@@ -64,6 +66,7 @@ mixin _$AddAddressState {
     @required Result error(AddressCardError value),
     @required Result successful(Successful value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result idle(Idle value),
@@ -87,6 +90,7 @@ class _$AddAddressStateCopyWithImpl<$Res>
   _$AddAddressStateCopyWithImpl(this._value, this._then);
 
   final AddAddressState _value;
+
   // ignore: unused_field
   final $Res Function(AddAddressState) _then;
 }
@@ -299,6 +303,7 @@ abstract class $AddressCardErrorCopyWith<$Res> {
   factory $AddressCardErrorCopyWith(
           AddressCardError value, $Res Function(AddressCardError) then) =
       _$AddressCardErrorCopyWithImpl<$Res>;
+
   $Res call({String message});
 }
 
@@ -418,6 +423,7 @@ abstract class AddressCardError implements AddAddressState {
   const factory AddressCardError(String message) = _$AddressCardError;
 
   String get message;
+
   $AddressCardErrorCopyWith<AddressCardError> get copyWith;
 }
 

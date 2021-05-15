@@ -20,5 +20,6 @@ abstract class CartItemState with _$CartItemState {
 
   const factory CartItemState.deleteCartError(String errorMessage) =
       DeleteCartError;
+
   const factory CartItemState.itemDeleted() = ItemDeleted;
 }

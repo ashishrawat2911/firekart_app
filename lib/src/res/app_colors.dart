@@ -56,5 +56,6 @@ class AppColors {
   static Color get colorEC615C => HexColor("#EC615C");
 
   static Color get color00A056 => HexColor("#00A056");
+
   static Color get color96C160 => HexColor("#96C160");
 }

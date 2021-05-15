@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/src/bloc/bottom_bar/bottom_bar_cubit.dart';
 import 'package:fluttercommerce/src/bloc/cart_status/cart_status_bloc.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
-import 'package:fluttercommerce/src/models/account_details_model.dart';
 import 'package:fluttercommerce/src/models/cartModel_model.dart';
-import 'package:fluttercommerce/src/notifiers/account_provider.dart';
-import 'package:fluttercommerce/src/notifiers/main_screen_provider.dart';
-import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
@@ -25,11 +23,11 @@ class MainHomeScreen extends StatefulWidget {
 }
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
-  var mainScreenProvider = AppInjector.get<MainScreenProvider>();
+  var bottomBarCubit = AppInjector.get<BottomBarCubit>();
   var firebaseRepo = AppInjector.get<FirestoreRepository>();
   var authRepo = AppInjector.get<AuthRepository>();
   var cartStatusCubit = AppInjector.get<CartStatusCubit>();
-  var accountProvider = AppInjector.get<AccountProvider>();
+  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
 
   @override
   void initState() {
@@ -54,39 +52,21 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   }
 
   void listenToAccountDetails() async {
-//    accountProvider.firebaseUser = await authRepo.getCurrentUser();
-    firebaseRepo.streamUserDetails(await authRepo.getUid()).listen((event) {
-      AccountDetails accountDetails = AccountDetails.fromDocument(event);
-      accountDetails.addresses = accountDetails.addresses.reversed.toList();
-
-      Address address;
-      List.generate(accountDetails.addresses.length, (index) {
-        Address add = accountDetails.addresses[index];
-        if (add.isDefault) {
-          address = add;
-        }
-      });
-      if (address == null && accountDetails.addresses.isNotEmpty) {
-        address = accountDetails.addresses[0];
-        accountProvider.addressSelected = address;
-      } else {
-        accountProvider.addressSelected = address;
-      }
-      accountProvider.accountDetails = accountDetails;
-    });
+    firebaseRepo.streamUserDetails(await authRepo.getUid()).listen((event) {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return ProviderNotifier<MainScreenProvider>(
-      child: (MainScreenProvider mainScreenProvider) {
+    return BlocBuilder<BottomBarCubit, int>(
+      cubit: bottomBarCubit,
+      builder: (context, state) {
         return Scaffold(
           body: [
             HomePageScreen(),
             SearchItemScreen(),
             CartScreen(),
             AccountScreen(),
-          ][mainScreenProvider.bottomBarIndex],
+          ][state],
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             //  backgroundColor: AppColors.primaryColor,
@@ -135,9 +115,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   title: Text(StringsConstants.account)),
             ],
             onTap: (index) {
-              mainScreenProvider.bottomBarIndex = index;
+              bottomBarCubit.bottomBarIndex = index;
             },
-            currentIndex: mainScreenProvider.bottomBarIndex,
+            currentIndex: state,
           ),
         );
       },

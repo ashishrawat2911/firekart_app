@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_state.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
-import 'package:fluttercommerce/src/notifiers/account_provider.dart';
-import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
@@ -14,6 +15,8 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,17 +32,18 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        ProviderNotifier<AccountProvider>(
-                          child: (AccountProvider value) {
+                        BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
+                          cubit: accountDetailsCubit,
+                          builder: (context, accountDetailState) {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  value.accountDetails.name,
+                                  accountDetailState.accountDetails.name,
                                   style: AppTextStyles.medium22Black,
                                 ),
                                 Text(
-                                  value.accountDetails.phoneNumber,
+                                  accountDetailState.accountDetails.phoneNumber,
                                   style: AppTextStyles.normal14Color4C4C6F,
                                 ),
                               ],
