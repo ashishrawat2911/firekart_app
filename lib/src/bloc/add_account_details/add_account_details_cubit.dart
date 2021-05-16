@@ -7,23 +7,22 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
-  var _firebaseRepo = AppInjector.get<FirestoreRepository>();
-  var _authRepo = AppInjector.get<AuthRepository>();
-
-  Validator _validator = Validator();
-
-  AddAccountDetailsCubit() : super(AddAccountDetailsState.idle());
+  AddAccountDetailsCubit() : super(const AddAccountDetailsState.idle());
+  final _firebaseRepo = AppInjector.get<FirestoreRepository>();
+  final _authRepo = AppInjector.get<AuthRepository>();
+  final Validator _validator = Validator();
   AccountDetails _accountDetails;
 
-  validateButton(String name) {
+  void validateButton(String name) {
     if (_validator.validateName(name) == null) {
-      emit(ButtonEnabled());
-    } else
-      emit(ButtonDisabled());
+      emit(const ButtonEnabled());
+    } else {
+      emit(const ButtonDisabled());
+    }
   }
 
-  loadPreviousData() async {
-    emit(AddAccountDetailsState.loading());
+  Future<void> loadPreviousData() async {
+    emit(const AddAccountDetailsState.loading());
     _accountDetails = await _firebaseRepo.fetchUserDetails();
     emit(AddAccountDetailsState.editData(_accountDetails));
     validateButton(_accountDetails.name);

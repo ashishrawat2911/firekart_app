@@ -5,13 +5,13 @@ import 'package:fluttercommerce/src/res/app_assets.dart';
 import 'package:fluttercommerce/src/routes/router.gr.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key key}) : super(key: key);
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // AppRepository appRepository = AppRepository();
-
   @override
   void initState() {
     super.initState();
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> startTime() async {
-    var _duration = new Duration(milliseconds: 1500);
+    const _duration = Duration(milliseconds: 1500);
     Timer(_duration, navigationPage);
   }
 

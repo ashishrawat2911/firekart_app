@@ -8,20 +8,21 @@ typedef ReturnWidget = Widget Function();
 typedef ResultDataWidget<T> = Widget Function(T value);
 
 class ResultStateBuilder<T> extends StatelessWidget {
-  final ResultState<T> state;
-  final ResultDataWidget<T> dataWidget;
-  final ResultLoadingWidget loadingWidget;
-  final ReturnWidget idleWidget;
-  final ResultErrorWidget<String> errorWidget;
-  final bool showLoadingInitially;
-
   ResultStateBuilder(
       {@required this.state,
       @required this.dataWidget,
       @required this.loadingWidget,
       @required this.errorWidget,
       this.idleWidget,
-      this.showLoadingInitially = true});
+      this.showLoadingInitially = true,
+      Key key})
+      : super(key: key);
+  final ResultState<T> state;
+  final ResultDataWidget<T> dataWidget;
+  final ResultLoadingWidget loadingWidget;
+  final ReturnWidget idleWidget;
+  final ResultErrorWidget<String> errorWidget;
+  final bool showLoadingInitially;
 
   @override
   Widget build(BuildContext context) {
