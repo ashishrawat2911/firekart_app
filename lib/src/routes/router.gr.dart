@@ -135,9 +135,12 @@ class AppRouter extends RouterBase {
       );
     },
     AllProductListScreen: (data) {
-      final args = data.getArgs<AllProductListScreenArguments>(nullOk: false);
+      final args = data.getArgs<AllProductListScreenArguments>(
+        orElse: () => AllProductListScreenArguments(),
+      );
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => AllProductListScreen(args.productCondition),
+        builder: (context) =>
+            AllProductListScreen(productCondition: args.productCondition),
         settings: data,
       );
     },
@@ -208,7 +211,7 @@ class AddUserDetailScreenArguments {
 /// AllProductListScreen arguments holder class
 class AllProductListScreenArguments {
   final String productCondition;
-  AllProductListScreenArguments({@required this.productCondition});
+  AllProductListScreenArguments({this.productCondition});
 }
 
 /// MyAddressScreen arguments holder class

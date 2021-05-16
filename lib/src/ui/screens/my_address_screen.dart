@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/src/bloc/address_card/address_card.dart';
 import 'package:fluttercommerce/src/bloc/address_card/address_card_state.dart';
 import 'package:fluttercommerce/src/bloc/my_address/my_address.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/models/account_details_model.dart';
-import 'package:fluttercommerce/src/notifiers/account_provider.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
@@ -87,10 +87,11 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 21,
             ),
-            ...List<Widget>.generate(accountDetails.addresses.length, (index) {
+            ...List<Widget>.generate(accountDetails.addresses.length,
+                (int index) {
               return addressCard(accountDetails, index);
             })
           ],
@@ -100,8 +101,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   Widget addressCard(AccountDetails accountDetails, index) {
-    var addressCardCubit = AppInjector.get<AddressCardCubit>();
-    Address address = accountDetails.addresses[index];
+    final AddressCardCubit addressCardCubit =
+        AppInjector.get<AddressCardCubit>();
+    final Address address = accountDetails.addresses[index];
     Widget data(IconData iconData, String text) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,12 +112,12 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             iconData,
             color: AppColors.color81819A,
           ),
-          SizedBox(
+          const SizedBox(
             width: 12,
           ),
           Expanded(
               child: Text(
-            "$text",
+            text,
             style: AppTextStyles.normal12Color81819A,
           ))
         ],
@@ -125,9 +127,12 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
     return BlocConsumer<AddressCardCubit, AddressCardState>(
       cubit: addressCardCubit,
       listener: (context, state) {
-        state.when(successful: () {
-          myAddressCubit.fetchAccountDetails();
-        });
+        state.maybeWhen(
+          successful: () {
+            myAddressCubit.fetchAccountDetails();
+          },
+          orElse: () {},
+        );
       },
       builder: (BuildContext context, AddressCardState state) {
         return Container(
@@ -135,26 +140,27 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             child: InkWell(
               onTap: widget.selectedAddress
                   ? () {
-                      var accountProvider = AppInjector.get<AccountProvider>();
-                      accountProvider.addressSelected =
+                      final AccountDetailsCubit accountDetailsCubit =
+                          AppInjector.get<AccountDetailsCubit>();
+                      accountDetailsCubit.selectedAddress =
                           accountDetails.addresses[index];
                       Navigator.of(context).pop();
                     }
                   : null,
               child: Card(
                 child: Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: Column(
                     children: [
                       Row(
-                        children: [
+                        children: <Widget>[
                           Text(
                             address.name,
                             style: AppTextStyles.medium14Black,
                           ),
                           Container(
-                            margin: EdgeInsets.only(left: 20),
-                            padding: EdgeInsets.only(left: 10, right: 10),
+                            margin: const EdgeInsets.only(left: 20),
+                            padding: const EdgeInsets.only(left: 10, right: 10),
                             height: 20,
                             width: address.isDefault ? null : 0,
                             alignment: Alignment.center,
@@ -168,16 +174,16 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 33,
                       ),
                       data(Icons.phone, address.phoneNumber),
-                      SizedBox(
+                      const SizedBox(
                         height: 23,
                       ),
                       data(Icons.place,
                           "${address.address} ${address.city} ${address.state} ${address.pincode}"),
-                      SizedBox(
+                      const SizedBox(
                         height: 33,
                       ),
                       Row(
@@ -203,7 +209,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                   });
                                 },
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 30,
                               ),
                               state is EditLoading

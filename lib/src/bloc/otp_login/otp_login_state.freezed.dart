@@ -83,6 +83,7 @@ mixin _$OtpLoginState {
     @required Result loginSuccessFull(),
     @required Result showError(String error),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result idle(),
@@ -96,6 +97,7 @@ mixin _$OtpLoginState {
     Result showError(String error),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result idle(Idle value),
@@ -108,6 +110,7 @@ mixin _$OtpLoginState {
     @required Result loginSuccessFull(LoginSuccessful value),
     @required Result showError(ShowError value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result idle(Idle value),
@@ -136,6 +139,7 @@ class _$OtpLoginStateCopyWithImpl<$Res>
   _$OtpLoginStateCopyWithImpl(this._value, this._then);
 
   final OtpLoginState _value;
+
   // ignore: unused_field
   final $Res Function(OtpLoginState) _then;
 }
@@ -275,6 +279,7 @@ abstract class $CodeCountDownCopyWith<$Res> {
   factory $CodeCountDownCopyWith(
           CodeCountDown value, $Res Function(CodeCountDown) then) =
       _$CodeCountDownCopyWithImpl<$Res>;
+
   $Res call({String value});
 }
 
@@ -424,6 +429,7 @@ abstract class CodeCountDown implements OtpLoginState {
   const factory CodeCountDown(String value) = _$CodeCountDown;
 
   String get value;
+
   $CodeCountDownCopyWith<CodeCountDown> get copyWith;
 }
 
@@ -964,6 +970,7 @@ abstract class $AutoFetchOtpCopyWith<$Res> {
   factory $AutoFetchOtpCopyWith(
           AutoFetchOtp value, $Res Function(AutoFetchOtp) then) =
       _$AutoFetchOtpCopyWithImpl<$Res>;
+
   $Res call({String otp});
 }
 
@@ -1112,6 +1119,7 @@ abstract class AutoFetchOtp implements OtpLoginState {
   const factory AutoFetchOtp(String otp) = _$AutoFetchOtp;
 
   String get otp;
+
   $AutoFetchOtpCopyWith<AutoFetchOtp> get copyWith;
 }
 
@@ -1252,6 +1260,7 @@ abstract class LoginSuccessful implements OtpLoginState {
 abstract class $ShowErrorCopyWith<$Res> {
   factory $ShowErrorCopyWith(ShowError value, $Res Function(ShowError) then) =
       _$ShowErrorCopyWithImpl<$Res>;
+
   $Res call({String error});
 }
 
@@ -1399,5 +1408,6 @@ abstract class ShowError implements OtpLoginState {
   const factory ShowError(String error) = _$ShowError;
 
   String get error;
+
   $ShowErrorCopyWith<ShowError> get copyWith;
 }

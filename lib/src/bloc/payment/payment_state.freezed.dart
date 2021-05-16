@@ -51,6 +51,7 @@ mixin _$PaymentState {
     @required Result paymentError(String errorMessage),
     @required Result paymentSuccessful(PaymentSuccessResponse response),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result idle(),
@@ -59,6 +60,7 @@ mixin _$PaymentState {
     Result paymentSuccessful(PaymentSuccessResponse response),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result idle(Idle value),
@@ -66,6 +68,7 @@ mixin _$PaymentState {
     @required Result paymentError(PaymentError value),
     @required Result paymentSuccessful(PaymentSuccessful value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result idle(Idle value),
@@ -88,6 +91,7 @@ class _$PaymentStateCopyWithImpl<$Res> implements $PaymentStateCopyWith<$Res> {
   _$PaymentStateCopyWithImpl(this._value, this._then);
 
   final PaymentState _value;
+
   // ignore: unused_field
   final $Res Function(PaymentState) _then;
 }
@@ -300,6 +304,7 @@ abstract class $PaymentErrorCopyWith<$Res> {
   factory $PaymentErrorCopyWith(
           PaymentError value, $Res Function(PaymentError) then) =
       _$PaymentErrorCopyWithImpl<$Res>;
+
   $Res call({String errorMessage});
 }
 
@@ -419,6 +424,7 @@ abstract class PaymentError implements PaymentState {
   const factory PaymentError(String errorMessage) = _$PaymentError;
 
   String get errorMessage;
+
   $PaymentErrorCopyWith<PaymentError> get copyWith;
 }
 
@@ -427,6 +433,7 @@ abstract class $PaymentSuccessfulCopyWith<$Res> {
   factory $PaymentSuccessfulCopyWith(
           PaymentSuccessful value, $Res Function(PaymentSuccessful) then) =
       _$PaymentSuccessfulCopyWithImpl<$Res>;
+
   $Res call({PaymentSuccessResponse response});
 }
 
@@ -550,5 +557,6 @@ abstract class PaymentSuccessful implements PaymentState {
       _$PaymentSuccessful;
 
   PaymentSuccessResponse get response;
+
   $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith;
 }

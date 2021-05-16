@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 
 class Styles {

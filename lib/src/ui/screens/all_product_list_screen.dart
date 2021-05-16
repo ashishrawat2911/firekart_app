@@ -13,7 +13,7 @@ import 'package:fluttercommerce/src/ui/common/product_card.dart';
 class AllProductListScreen extends StatefulWidget {
   final String productCondition;
 
-  AllProductListScreen(this.productCondition);
+  AllProductListScreen({this.productCondition});
 
   @override
   _AllProductListScreenState createState() => _AllProductListScreenState();

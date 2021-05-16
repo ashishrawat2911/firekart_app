@@ -14,9 +14,9 @@ import 'package:fluttercommerce/src/ui/common/common_view_cart_overlay.dart';
 import 'package:fluttercommerce/src/ui/screens/base_screen_mixin.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  final ProductModel productModel;
+  const ProductDetailPage(this.productModel, {Key key}) : super(key: key);
 
-  ProductDetailPage(this.productModel);
+  final ProductModel productModel;
 
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
@@ -50,7 +50,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               fit: BoxFit.fill,
             ),
             Container(
-              margin: EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -58,11 +58,11 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     widget.productModel.name,
                     style: AppTextStyles.medium22Black,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(widget.productModel.description),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -72,7 +72,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         "${widget.productModel.currency}${widget.productModel.currentPrice} / ${widget.productModel.quantityPerUnit} ${widget.productModel.unit}",
                         style: AppTextStyles.medium16Black,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       BlocConsumer<AddToCartCubit, AddToCartState>(
@@ -152,7 +152,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                 state is DeleteCartError)
             ? CrossFadeState.showSecond
             : CrossFadeState.showFirst,
-        duration: Duration(milliseconds: 100));
+        duration: const Duration(milliseconds: 100));
   }
 
   Widget addButton(AddToCartState state) {
@@ -184,7 +184,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossFadeState: state is AddToCardLoading
           ? CrossFadeState.showSecond
           : CrossFadeState.showFirst,
-      duration: Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 100),
     );
   }
 
