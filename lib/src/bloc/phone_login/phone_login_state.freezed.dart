@@ -55,6 +55,7 @@ mixin _$PhoneLoginState {
     @required Result phoneLoading(),
     @required Result showError(String error),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result idle(),
@@ -64,6 +65,7 @@ mixin _$PhoneLoginState {
     Result showError(String error),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result idle(Idle value),
@@ -72,6 +74,7 @@ mixin _$PhoneLoginState {
     @required Result phoneLoading(PhoneLoading value),
     @required Result showError(ShowError value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result idle(Idle value),
@@ -96,6 +99,7 @@ class _$PhoneLoginStateCopyWithImpl<$Res>
   _$PhoneLoginStateCopyWithImpl(this._value, this._then);
 
   final PhoneLoginState _value;
+
   // ignore: unused_field
   final $Res Function(PhoneLoginState) _then;
 }
@@ -537,6 +541,7 @@ abstract class PhoneLoading implements PhoneLoginState {
 abstract class $ShowErrorCopyWith<$Res> {
   factory $ShowErrorCopyWith(ShowError value, $Res Function(ShowError) then) =
       _$ShowErrorCopyWithImpl<$Res>;
+
   $Res call({String error});
 }
 
@@ -660,5 +665,6 @@ abstract class ShowError implements PhoneLoginState {
   const factory ShowError(String error) = _$ShowError;
 
   String get error;
+
   $ShowErrorCopyWith<ShowError> get copyWith;
 }

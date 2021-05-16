@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/src/res/app_colors.dart';
 
 class CommonAppLoader extends StatelessWidget {
   final double size;

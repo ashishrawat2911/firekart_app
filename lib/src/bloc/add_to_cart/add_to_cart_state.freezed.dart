@@ -74,6 +74,7 @@ mixin _$AddToCartState {
     @required Result updateCartError(String errorMessage, int cartValue),
     @required Result deleteCartError(String errorMessage),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result addToCardLoading(),
@@ -85,6 +86,7 @@ mixin _$AddToCartState {
     Result deleteCartError(String errorMessage),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result addToCardLoading(AddToCardLoading value),
@@ -95,6 +97,7 @@ mixin _$AddToCartState {
     @required Result updateCartError(UpdateCartError value),
     @required Result deleteCartError(DeleteCartError value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result addToCardLoading(AddToCardLoading value),
@@ -121,6 +124,7 @@ class _$AddToCartStateCopyWithImpl<$Res>
   _$AddToCartStateCopyWithImpl(this._value, this._then);
 
   final AddToCartState _value;
+
   // ignore: unused_field
   final $Res Function(AddToCartState) _then;
 }
@@ -493,6 +497,7 @@ abstract class $ShowCartValueCopyWith<$Res> {
   factory $ShowCartValueCopyWith(
           ShowCartValue value, $Res Function(ShowCartValue) then) =
       _$ShowCartValueCopyWithImpl<$Res>;
+
   $Res call({num noOfItems});
 }
 
@@ -631,6 +636,7 @@ abstract class ShowCartValue implements AddToCartState {
   const factory ShowCartValue(num noOfItems) = _$ShowCartValue;
 
   num get noOfItems;
+
   $ShowCartValueCopyWith<ShowCartValue> get copyWith;
 }
 
@@ -639,6 +645,7 @@ abstract class $AddToCartErrorCopyWith<$Res> {
   factory $AddToCartErrorCopyWith(
           AddToCartError value, $Res Function(AddToCartError) then) =
       _$AddToCartErrorCopyWithImpl<$Res>;
+
   $Res call({String errorMessage});
 }
 
@@ -777,6 +784,7 @@ abstract class AddToCartError implements AddToCartState {
   const factory AddToCartError(String errorMessage) = _$AddToCartError;
 
   String get errorMessage;
+
   $AddToCartErrorCopyWith<AddToCartError> get copyWith;
 }
 
@@ -785,6 +793,7 @@ abstract class $UpdateCartErrorCopyWith<$Res> {
   factory $UpdateCartErrorCopyWith(
           UpdateCartError value, $Res Function(UpdateCartError) then) =
       _$UpdateCartErrorCopyWithImpl<$Res>;
+
   $Res call({String errorMessage, int cartValue});
 }
 
@@ -935,7 +944,9 @@ abstract class UpdateCartError implements AddToCartState {
       _$UpdateCartError;
 
   String get errorMessage;
+
   int get cartValue;
+
   $UpdateCartErrorCopyWith<UpdateCartError> get copyWith;
 }
 
@@ -944,6 +955,7 @@ abstract class $DeleteCartErrorCopyWith<$Res> {
   factory $DeleteCartErrorCopyWith(
           DeleteCartError value, $Res Function(DeleteCartError) then) =
       _$DeleteCartErrorCopyWithImpl<$Res>;
+
   $Res call({String errorMessage});
 }
 
@@ -1082,5 +1094,6 @@ abstract class DeleteCartError implements AddToCartState {
   const factory DeleteCartError(String errorMessage) = _$DeleteCartError;
 
   String get errorMessage;
+
   $DeleteCartErrorCopyWith<DeleteCartError> get copyWith;
 }

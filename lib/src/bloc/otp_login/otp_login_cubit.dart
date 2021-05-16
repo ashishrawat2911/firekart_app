@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/src/bloc/otp_login/otp_login_state.dart';
-import 'package:fluttercommerce/src/core/utils/firebase_error.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 

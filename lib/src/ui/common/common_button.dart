@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttercommerce/src/ui/common/dot_progress_indicator.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
+import 'package:fluttercommerce/src/ui/common/dot_progress_indicator.dart';
 
 class CommonButton extends StatelessWidget {
   final String title;

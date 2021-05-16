@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/src/bloc/cart_status/cart_status_bloc.dart';
 import 'package:fluttercommerce/src/bloc/payment/payment.dart';
 import 'package:fluttercommerce/src/bloc/place_order/place_order_cubit.dart';
 import 'package:fluttercommerce/src/bloc/place_order/place_order_state.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_state.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
-import 'package:fluttercommerce/src/notifiers/account_provider.dart';
-import 'package:fluttercommerce/src/notifiers/cart_status_provider.dart';
-import 'package:fluttercommerce/src/notifiers/provider_notifier.dart';
+import 'package:fluttercommerce/src/models/cartModel_model.dart';
 import 'package:fluttercommerce/src/res/app_colors.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:fluttercommerce/src/res/text_styles.dart';
@@ -24,7 +25,11 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
   var paymentCubit = AppInjector.get<PaymentCubit>();
+  var cartStatusCubit = AppInjector.get<CartStatusCubit>();
   var placeOrderCubit = AppInjector.get<PlaceOrderCubit>();
+  var selectedAddressCubit = AppInjector.get<AccountDetailsCubit>();
+  final AccountDetailsCubit accountDetailsCubit =
+      AppInjector.get<AccountDetailsCubit>();
 
   @override
   void initState() {
@@ -33,27 +38,26 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderNotifier<CartStatusProvider>(
-      child: (CartStatusProvider cartItemStatus) {
+    return BlocBuilder<CartStatusCubit, List<CartModel>>(
+      cubit: cartStatusCubit,
+      builder: (context, state) {
+        print('Cart screen ${state.noOfItemsInCart}');
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: AppColors.colorF8F8F8,
           appBar: AppBar(
-            title: Text(StringsConstants.cart),
+            title: const Text(StringsConstants.cart),
             elevation: 1,
           ),
-          body: cartItemStatus.noOfItemsInCart > 0
-              ? cartView(cartItemStatus)
-              : Container(),
+          body: state.noOfItemsInCart > 0 ? cartView(state) : Container(),
           bottomNavigationBar: Visibility(
-              visible: cartItemStatus.noOfItemsInCart > 0,
-              child: checkOut(cartItemStatus)),
+              visible: state.noOfItemsInCart > 0, child: checkOut(state)),
         );
       },
     );
   }
 
-  Widget cartView(CartStatusProvider cartItemStatus) {
+  Widget cartView(List<CartModel> state) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -63,16 +67,15 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
               Container(
                 //  margin: EdgeInsets.only(bottom: 20),
                 child: Column(
-                  children: List<Widget>.generate(
-                      cartItemStatus.cartItems.length, (index) {
+                  children: List<Widget>.generate(state.length, (index) {
                     return CartItemCard(
-                      cartModel: cartItemStatus.cartItems[index],
+                      cartModel: state[index],
                       margin: EdgeInsets.only(bottom: 20),
                     );
                   }),
                 ),
               ),
-              billDetails(cartItemStatus),
+              billDetails(state),
               SizedBox(
                 height: 20,
               ),
@@ -115,7 +118,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
     ));
   }
 
-  Widget billDetails(CartStatusProvider cartItemStatus) {
+  Widget billDetails(List<CartModel> state) {
     Widget priceRow(String title, String price, {bool isFinal = false}) {
       return Column(
         children: [
@@ -171,8 +174,8 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay,
-              "${cartItemStatus.currency}${cartItemStatus.priceInCart}",
+          priceRow(
+              StringsConstants.toPay, "${state.currency}${state.priceInCart}",
               isFinal: true),
         ],
       ),
@@ -180,11 +183,12 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
   }
 
   Widget deliverTo() {
-    return ProviderNotifier<AccountProvider>(
-      child: (AccountProvider accountProvider) {
+    return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
+      cubit: selectedAddressCubit,
+      builder: (BuildContext context, AccountDetailsState accountDetailState) {
         return CommonCard(
             child: Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -196,15 +200,15 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                     style: AppTextStyles.medium14Black,
                   ),
                   ActionText(
-                    accountProvider.addressSelected == null
+                    accountDetailState.selectedAddress == null
                         ? StringsConstants.addNewCaps
                         : StringsConstants.changeTextCapital,
                     onTap: () {
-                      if (accountProvider.addressSelected == null) {
+                      if (accountDetailState.selectedAddress == null) {
                         Navigator.pushNamed(context, Routes.addAddressScreen,
                             arguments: AddAddressScreenArguments(
                               newAddress: true,
-                              accountDetails: accountProvider.accountDetails,
+                              accountDetails: accountDetailState.accountDetails,
                             ));
                       } else {
                         Navigator.of(context).pushNamed(Routes.myAddressScreen,
@@ -215,11 +219,11 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
-                accountProvider.addressSelected?.wholeAddress() ??
+                accountDetailState.selectedAddress?.wholeAddress() ??
                     StringsConstants.noAddressFound,
                 style: AppTextStyles.medium12Color81819A,
               ),
@@ -230,7 +234,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
     );
   }
 
-  Widget checkOut(CartStatusProvider cartItemStatus) {
+  Widget checkOut(List<CartModel> state) {
     return Container(
       height: 94,
       color: AppColors.white,
@@ -245,7 +249,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "${cartItemStatus.currency} ${cartItemStatus.priceInCart}",
+                      "${state.currency} ${state.priceInCart}",
                       style: AppTextStyles.medium15Black,
                     ),
                     ActionText(StringsConstants.viewDetailedBillCaps)
@@ -254,50 +258,61 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
               ),
             ),
           ),
-          BlocConsumer<PaymentCubit, PaymentState>(
-            cubit: paymentCubit,
-            listener: (BuildContext context, PaymentState state) {
-              if (state is PaymentSuccessful) {
-                placeOrderCubit.placeOrder(
-                  cartItemStatus,
-                  state.response,
-                );
-              }
-            },
-            builder: (BuildContext context, PaymentState paymentState) {
-              return BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
-                cubit: placeOrderCubit,
-                listener: (BuildContext context, PlaceOrderState state) {
-                  state.when(
-                      orderPlacedInProgress: () {},
-                      idle: () {},
-                      orderNotPlaced: (String message) {},
-                      orderSuccessfullyPlaced: () {
-                        if (Navigator.canPop(context)) {
-                          Navigator.of(context)
-                              .pushReplacementNamed(Routes.myOrdersScreen);
-                        }
-                      });
+          BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
+            cubit: accountDetailsCubit,
+            builder: (context, accountDetailsState) {
+              return BlocConsumer<PaymentCubit, PaymentState>(
+                cubit: paymentCubit,
+                listener: (BuildContext context, PaymentState paymentState) {
+                  if (paymentState is PaymentSuccessful) {
+                    placeOrderCubit.placeOrder(
+                      state,
+                      paymentState.response,
+                      accountDetailsState.selectedAddress,
+                    );
+                  }
                 },
-                builder:
-                    (BuildContext context, PlaceOrderState placeOrderState) {
-                  return CommonButton(
-                    title: StringsConstants.makePayment,
-                    width: 190,
-                    height: 50,
-                    replaceWithIndicator:
-                        (placeOrderState is OrderPlacedInProgress ||
-                                paymentState is PaymentButtonLoading)
-                            ? true
-                            : false,
-                    margin: EdgeInsets.only(right: 20),
-                    onTap: () {
-                      var addressProvider = AppInjector.get<AccountProvider>();
-                      if (addressProvider.addressSelected != null) {
-                        paymentCubit.openCheckout(cartItemStatus.priceInCart);
-                      } else {
-                        showSnackBar(title: StringsConstants.noAddressSelected);
-                      }
+                builder: (BuildContext context, PaymentState paymentState) {
+                  return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
+                    cubit: accountDetailsCubit,
+                    builder: (BuildContext context,
+                        AccountDetailsState accountDetailsState) {
+                      return BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
+                        cubit: placeOrderCubit,
+                        listener:
+                            (BuildContext context, PlaceOrderState state) {
+                          state.when(
+                              orderPlacedInProgress: () {},
+                              idle: () {},
+                              orderNotPlaced: (String message) {},
+                              orderSuccessfullyPlaced: () {
+                                if (Navigator.canPop(context)) {
+                                  Navigator.of(context).pushReplacementNamed(
+                                      Routes.myOrdersScreen);
+                                }
+                              });
+                        },
+                        builder: (BuildContext context,
+                            PlaceOrderState placeOrderState) {
+                          return CommonButton(
+                            title: StringsConstants.makePayment,
+                            width: 190,
+                            height: 50,
+                            replaceWithIndicator:
+                                placeOrderState is OrderPlacedInProgress ||
+                                    paymentState is PaymentButtonLoading,
+                            margin: const EdgeInsets.only(right: 20),
+                            onTap: () {
+                              if (accountDetailsState.selectedAddress != null) {
+                                paymentCubit.openCheckout(state.priceInCart);
+                              } else {
+                                showSnackBar(
+                                    title: StringsConstants.noAddressSelected);
+                              }
+                            },
+                          );
+                        },
+                      );
                     },
                   );
                 },

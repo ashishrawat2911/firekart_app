@@ -14,7 +14,7 @@ import 'package:fluttercommerce/src/ui/common/common_button.dart';
 class OtpLoginScreen extends StatefulWidget {
   final String phoneNumber;
 
-  OtpLoginScreen({this.phoneNumber});
+  OtpLoginScreen({this.phoneNumber,Key key}):super(key: key);
 
   @override
   _OtpLoginScreenState createState() => _OtpLoginScreenState();
@@ -38,7 +38,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -59,6 +59,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
 //            floatingActionButton: _floatingActionButton(),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
+              // ignore: avoid_unnecessary_containers
               body: Container(
                 child: Column(
                   children: <Widget>[_loginCard()],
@@ -85,14 +86,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 StringsConstants.mobileVerification,
                 style: AppTextStyles.medium20Color20203E,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 StringsConstants.mobileVerificationDesc,
                 style: AppTextStyles.normal14Black,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -108,7 +109,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomTextField(
@@ -117,7 +118,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 validator: validator.validate6DigitCode,
                 keyboardType: TextInputType.phone,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
@@ -137,8 +138,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                       onButtonDisabled: () {},
                       loginSuccessFull: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.checkStatusScreen,(route) => false,
-                            arguments: CheckStatusScreenArguments(checkForAccountStatusOnly: true));
+                            Routes.checkStatusScreen, (route) => false,
+                            arguments: CheckStatusScreenArguments(
+                                checkForAccountStatusOnly: true));
                       },
                       codeCountDown: (String value) {
                         print(value);
@@ -159,29 +161,30 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     title: StringsConstants.confirmOtp,
                     height: 50,
                     isEnabled: isButtonEnabled(),
-                    replaceWithIndicator:
-                        state is ConfirmOtpLoading ? true : false,
+                    replaceWithIndicator: state is ConfirmOtpLoading,
                     onTap: () {
                       onButtonTap();
                     },
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
                 cubit: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {},
                 builder: (BuildContext context, OtpLoginState state) {
-                  if (state is ResendOtpLoading) return CommonAppLoader();
+                  if (state is ResendOtpLoading) {
+                    return CommonAppLoader();
+                  }
                   return Text(
                     StringsConstants.resendOtp,
                     style: AppTextStyles.normal14PrimaryColor,
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
@@ -193,7 +196,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   Navigator.of(context).pop();
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],

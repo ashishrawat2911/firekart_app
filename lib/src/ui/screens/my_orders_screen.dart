@@ -162,7 +162,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   width: 46,
                   fit: BoxFit.fill,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Column(
@@ -172,7 +172,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                       orderItem.name,
                       style: AppTextStyles.normal14Black,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
