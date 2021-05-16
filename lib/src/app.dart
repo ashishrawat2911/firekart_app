@@ -4,6 +4,9 @@ import 'package:fluttercommerce/src/routes/router.gr.dart';
 import 'package:fluttercommerce/src/ui/screens/splash_screen.dart';
 
 class App extends StatefulWidget {
+
+  const App({Key key}):super(key: key);
+
   @override
   _AppState createState() => _AppState();
 }
