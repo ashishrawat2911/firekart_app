@@ -45,9 +45,10 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           DocumentSnapshot documentSnapshot = event.documents[index];
           return CartModel.fromJson(documentSnapshot);
         });
-      } else {
-        cartStatusCubit.cartItems = [];
       }
+      // else {
+      //   cartStatusCubit.cartItems = [];
+      // }
     });
   }
 

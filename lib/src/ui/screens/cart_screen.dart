@@ -41,11 +41,12 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
     return BlocBuilder<CartStatusCubit, List<CartModel>>(
       cubit: cartStatusCubit,
       builder: (context, state) {
+        print('Cart screen ${state.noOfItemsInCart}');
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: AppColors.colorF8F8F8,
           appBar: AppBar(
-            title: Text(StringsConstants.cart),
+            title: const Text(StringsConstants.cart),
             elevation: 1,
           ),
           body: state.noOfItemsInCart > 0 ? cartView(state) : Container(),
