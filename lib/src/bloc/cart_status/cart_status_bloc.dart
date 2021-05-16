@@ -22,11 +22,11 @@ class CartStatusCubit extends Cubit<List<CartModel>> {
 }
 
 extension CartStatus on List<CartModel> {
-  int get noOfItemsInCart => this.length;
+  int get noOfItemsInCart => length;
 
   num get priceInCart {
     num price = 0;
-    List.generate(this.length, (index) {
+    List.generate(length, (index) {
       price = price + (this[index].currentPrice * this[index].numOfItems);
     });
     return price;

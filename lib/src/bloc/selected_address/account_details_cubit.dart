@@ -34,15 +34,15 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
         AccountDetails.fromDocument(documentSnapshot);
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
     Address address;
-    List<void>.generate(state.accountDetails.addresses.length, (int index) {
-      final Address add = state.accountDetails.addresses[index];
+    List.generate(accountDetails?.addresses?.length, (int index) {
+      final Address add = accountDetails.addresses[index];
       if (add.isDefault) {
         address = add;
       }
     });
 
-    if (address == null && state.accountDetails.addresses.isNotEmpty) {
-      address = state.accountDetails.addresses[0];
+    if (address == null && accountDetails.addresses.isNotEmpty) {
+      address = accountDetails.addresses[0];
     }
     emit(state.copyWith(
       accountDetails: accountDetails,
