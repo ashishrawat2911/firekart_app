@@ -67,7 +67,7 @@ class AppInjector {
     _injector.registerFactory(() => AddAddressCubit());
     _injector.registerFactory(() => AddressCardCubit());
     _injector.registerFactory(() => MyOrdersCubit());
-    _injector.registerFactory(() => CartStatusCubit());
+    _injector.registerLazySingleton(() => CartStatusCubit());
     _injector.registerFactory(() => BottomBarCubit());
     _injector.registerLazySingleton(() => AccountDetailsCubit());
   }
