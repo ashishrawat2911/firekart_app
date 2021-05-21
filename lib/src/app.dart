@@ -27,7 +27,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter(),
       initialRoute: Routes.splashScreen,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
