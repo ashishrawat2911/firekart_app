@@ -3,6 +3,7 @@ import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/res/app_theme.dart';
 import 'package:fluttercommerce/src/routes/router.gr.dart';
+import 'package:fluttercommerce/src/ui/screens/SearchScreen.dart';
 import 'package:fluttercommerce/src/ui/screens/splash_screen.dart';
 
 class App extends StatefulWidget {
@@ -27,7 +28,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter(),
       initialRoute: Routes.splashScreen,
-      home: const SplashScreen(),
+      home:  SearchItemScreen(),
     );
   }
 }
