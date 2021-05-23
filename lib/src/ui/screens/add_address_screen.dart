@@ -78,7 +78,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   Visibility(
                     visible: widget.newAddress,
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 30),
+                      margin: const EdgeInsets.only(bottom: 30),
                       child: Text(
                         StringsConstants.addNewAddress,
                         style: AppTextStyles.medium14Black,
@@ -98,7 +98,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     },
                     // containerHeight: 50,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CustomTextField(
@@ -207,7 +207,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   BlocConsumer<AddAddressCubit, AddAddressState>(
@@ -242,12 +242,13 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState.validate()) {
-      Address address = Address(
+      final Address address = Address(
           name: nameEditingController.text,
           address: addressEditingController.text,
           city: cityEditingController.text,
           isDefault: setAsDefault,
           pincode: pincodeEditingController.text,
+          //todo add the country picker
           phoneNumber: "+91${phoneEditingController.text}",
           state: stateEditingController.text);
       addAddressCubit.saveAddress(widget.accountDetails, address);
