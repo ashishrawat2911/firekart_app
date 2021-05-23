@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/src/bloc/phone_login/phone_login.dart';
@@ -20,6 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController phoneNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+
+  ValueNotifier<String> phoneNumberNotifier = ValueNotifier('+91');
 
   @override
   void initState() {
@@ -89,11 +92,27 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              CustomTextField(
-                textEditingController: phoneNumberController,
-                hint: StringsConstants.mobileNumber,
-                validator: validator.validateMobile,
-                keyboardType: TextInputType.phone,
+              Row(
+                children: [
+                  CountryCodePicker(
+                    onChanged: (value) {
+                      phoneNumberNotifier.value = value.dialCode;
+                    },
+                    initialSelection: 'IN',
+                    favorite: ['+91', 'IN'],
+                    showCountryOnly: false,
+                    showOnlyCountryWhenClosed: false,
+                    alignLeft: false,
+                  ),
+                  Expanded(
+                    child: CustomTextField(
+                      textEditingController: phoneNumberController,
+                      hint: StringsConstants.mobileNumber,
+                      validator: validator.validateMobile,
+                      keyboardType: TextInputType.phone,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 20,
@@ -138,7 +157,8 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.of(context)
           .pushNamed(Routes.otpLoginScreen,
               arguments: OtpLoginScreenArguments(
-                  phoneNumber: phoneNumberController.text))
+                  phoneNumber:
+                      phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
         if (value != null && value) {
           phoneNumberController.clear();
