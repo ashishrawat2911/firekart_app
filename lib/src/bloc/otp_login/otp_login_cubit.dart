@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/src/bloc/otp_login/otp_login_state.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/repository/auth_repository.dart';
 
@@ -10,6 +11,7 @@ import 'otp_login.dart';
 
 class OtpLoginCubit extends Cubit<OtpLoginState> {
   AuthRepository authRepository = AppInjector.get<AuthRepository>();
+  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
 
   OtpLoginCubit() : super(OtpLoginState.onButtonDisabled());
   String _verificationId;
@@ -49,11 +51,12 @@ class OtpLoginCubit extends Cubit<OtpLoginState> {
     _login(_credential);
   }
 
-  _login(AuthCredential authCred) {
+  _login(AuthCredential authCred) async {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     try {
-      firebaseAuth.signInWithCredential(authCred);
+      await firebaseAuth.signInWithCredential(authCred);
       emit(OtpLoginState.loginSuccessFull());
+      accountDetailsCubit.streamAccountDetails();
     } catch (e) {
       emit(OtpLoginState.showError(e));
     }
