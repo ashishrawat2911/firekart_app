@@ -9,12 +9,12 @@ import 'auth_repository.dart';
 
 class FirestoreRepository {
   var authRepo = AppInjector.get<AuthRepository>();
-  Firestore _firestore = Firestore.instance;
+  final Firestore _firestore = Firestore.instance;
 
   Future<List<DocumentSnapshot>> getAllProducts(
       [DocumentSnapshot documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
-    var query = _firestore.collection("products").limit(20).orderBy("name");
+    final query = _firestore.collection("products").limit(20).orderBy("name");
 
     if (documentSnapshot != null) {
       documentList =

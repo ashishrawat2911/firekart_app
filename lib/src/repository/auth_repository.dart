@@ -15,7 +15,7 @@ class AuthRepository {
     try {
       return firebaseAuth
           .verifyPhoneNumber(
-              phoneNumber: "+91$phoneNumber",
+              phoneNumber: phoneNumber,
               timeout: Duration(seconds: 60),
               verificationCompleted: verificationCompleted,
               verificationFailed: verificationFailed,
