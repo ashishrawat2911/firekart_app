@@ -5,10 +5,10 @@ import com.ecommerce.app.exception.AppException;
 import com.ecommerce.app.exception.ResourceNotFoundException;
 import com.ecommerce.app.models.dto.OTPSentResponse;
 import com.ecommerce.app.models.dto.UserResponseDTO;
+import com.ecommerce.app.models.dto.request.UserAddDetailRequestDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
 import com.ecommerce.app.models.dto.response.UserFileUploadResponseDTO;
 import com.ecommerce.app.models.entity.AccountVerification;
-import com.ecommerce.app.models.entity.Address;
 import com.ecommerce.app.models.entity.UserEntity;
 import com.ecommerce.app.repository.AccountVerificationRepository;
 import com.ecommerce.app.repository.UserRepository;
@@ -21,9 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -122,6 +120,12 @@ public class UserServiceImpl implements UserService {
         return otpSentResponse;
     }
 
+    @Override
+    public UserResponseDTO addUserDetails(String phoneNumber, UserAddDetailRequestDTO requestDTO) throws Exception {
+        UserEntity user = getUserByPhoneNumber(phoneNumber);
+        user.setName(requestDTO.getName());
+        return userResponseDTOFromUser(user);
+    }
 
 
     @Override
