@@ -10,24 +10,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @Configuration
-    public class ObjectMapperAutoConfiguration implements WebMvcConfigurer {
+public class ObjectMapperAutoConfiguration implements WebMvcConfigurer {
 
-        @Override
-        public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-            ObjectMapper objectMapper = null;
-            for (HttpMessageConverter converter : converters) {
-                if (converter instanceof MappingJackson2HttpMessageConverter ) {
-                    MappingJackson2HttpMessageConverter jacksonConverter =
-                            ((MappingJackson2HttpMessageConverter) converter);
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        ObjectMapper objectMapper = null;
+        for (HttpMessageConverter converter : converters) {
+            if (converter instanceof MappingJackson2HttpMessageConverter) {
+                MappingJackson2HttpMessageConverter jacksonConverter =
+                        ((MappingJackson2HttpMessageConverter) converter);
 
-                    if (objectMapper == null) {
-                        objectMapper = jacksonConverter.getObjectMapper();
-                        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
-                    } else {
-                        jacksonConverter.setObjectMapper(objectMapper);
+                if (objectMapper == null) {
+                    objectMapper = jacksonConverter.getObjectMapper();
+                    objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+                } else {
+                    jacksonConverter.setObjectMapper(objectMapper);
 
-                    }
                 }
             }
         }
     }
+}

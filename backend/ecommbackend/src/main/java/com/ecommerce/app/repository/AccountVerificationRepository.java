@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccountVerificationRepository extends JpaRepository<AccountVerification, Long> {
-//    @Query(value = "select otp from acct_verification where phone_number=:phone_number and is_deleted=0 and is_expired=0 order by updated_at DESC limit 1", nativeQuery = true)
     @Query(value = "select otp from acct_verification where phone_number=:phone_number and is_deleted=0 and is_expired=0 order by id DESC limit 1", nativeQuery = true)
     int getOTPByPhoneNumber(@Param("phone_number") String phoneNumber);
 }
