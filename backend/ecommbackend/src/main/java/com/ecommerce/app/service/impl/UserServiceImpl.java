@@ -122,29 +122,6 @@ public class UserServiceImpl implements UserService {
         return otpSentResponse;
     }
 
-    @Override
-    public List<Address> getAddress(String phoneNumber) throws Exception {
-        UserEntity user = getUserByPhoneNumber(phoneNumber);
-        if (user.getUserAddress() == null) {
-            throw new ResourceNotFoundException(ApiStatusConstants.ADDRESS_NOT_FOUND);
-        }
-        return user.getUserAddress();
-    }
-
-    @Override
-    public List<Address> addAddress(String phoneNumber, Address address) throws Exception {
-        List<Address> addresses = new ArrayList<Address>();
-        UserEntity user = getUserByPhoneNumber(phoneNumber);
-        if (user.getUserAddress() == null) {
-
-        } else {
-            addresses = user.getUserAddress();
-        }
-        addresses.add(address);
-        user.setUserAddress(addresses);
-        save(user);
-        return addresses;
-    }
 
 
     @Override
