@@ -3,6 +3,7 @@ package com.ecommerce.app.service;
 
 import com.ecommerce.app.models.dto.OTPSentResponse;
 import com.ecommerce.app.models.dto.UserResponseDTO;
+import com.ecommerce.app.models.dto.request.UserAddDetailRequestDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
 import com.ecommerce.app.models.dto.response.UserFileUploadResponseDTO;
 import com.ecommerce.app.models.entity.Address;
@@ -29,4 +30,5 @@ public interface UserService {
 
     OTPSentResponse login(String phoneNumber) throws Exception;
 
-    }
+    UserResponseDTO addUserDetails(String phoneNumber, UserAddDetailRequestDTO requestDTO) throws Exception;
+}

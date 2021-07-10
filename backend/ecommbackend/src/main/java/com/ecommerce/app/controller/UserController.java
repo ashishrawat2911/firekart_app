@@ -2,6 +2,7 @@ package com.ecommerce.app.controller;
 
 import com.ecommerce.app.models.dto.OTPSentResponse;
 import com.ecommerce.app.models.dto.UserResponseDTO;
+import com.ecommerce.app.models.dto.request.UserAddDetailRequestDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
 import com.ecommerce.app.models.dto.response.UserFileUploadResponseDTO;
 import com.ecommerce.app.service.UserService;
@@ -56,6 +57,12 @@ public class UserController {
     public ResponseEntity editUser(@RequestBody UserDetailUpdateRequestDTO detailUpdateRequest, @RequestParam(value = "phone_number", required = true) String phoneNumber)
             throws Exception {
         return responseUtil.successResponse(userService.editUser(phoneNumber, detailUpdateRequest));
+    }
+
+    @RequestMapping(value = "add_user_details", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity addUserDetails(@RequestBody UserAddDetailRequestDTO requestDTO, @RequestParam(value = "phone_number", required = true) String phoneNumber)
+            throws Exception {
+        return responseUtil.successResponse(userService.addUserDetails(phoneNumber, requestDTO));
     }
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.PUT, produces = "application/json")
