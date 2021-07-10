@@ -17,8 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@DynamicInsert
-@DynamicUpdate
 @Table(name = "users")
 @Entity(name = "users")
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"handler", "hibernate_lazy_initializer"})
@@ -26,7 +24,6 @@ import java.util.List;
 public class UserEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @Basic(optional = false)
     @Column(name = "user_id")
     private String userId;
 

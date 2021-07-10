@@ -1,6 +1,7 @@
 package com.ecommerce.app.service.impl;
 
 import com.ecommerce.app.constants.ApiStatusConstants;
+import com.ecommerce.app.exception.AppException;
 import com.ecommerce.app.exception.ResourceNotFoundException;
 import com.ecommerce.app.models.dto.OTPSentResponse;
 import com.ecommerce.app.models.dto.UserResponseDTO;
@@ -135,6 +136,7 @@ public class UserServiceImpl implements UserService {
         List<Address> addresses = new ArrayList<Address>();
         UserEntity user = getUserByPhoneNumber(phoneNumber);
         if (user.getUserAddress() == null) {
+
         } else {
             addresses = user.getUserAddress();
         }
@@ -151,23 +153,19 @@ public class UserServiceImpl implements UserService {
         if (!verified) {
             throw new Exception("Incorrect OTP :" + otp);
         }
-        UserEntity existedUser = null;
+        UserEntity existedUser;
+        UserResponseDTO userResponseDTO;
         try {
             existedUser
                     = getUserByPhoneNumber(phoneNumber);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        UserResponseDTO userResponseDTO = new UserResponseDTO();
-        if (existedUser != null) {
             userResponseDTO = userResponseDTOFromUser(existedUser);
-        } else {
+        } catch (AppException e) {
             UserEntity user = new UserEntity();
             user.setPhoneNumber(phoneNumber);
             user.setUserId(UniqueID.getUUID());
             user.setDeviceId(deviceId);
             user = save(user);
-            userResponseDTO.setPhoneNumber(phoneNumber);
+            userResponseDTO = userResponseDTOFromUser(user);
             userResponseDTO.setNewUser(true);
         }
         return userResponseDTO;
