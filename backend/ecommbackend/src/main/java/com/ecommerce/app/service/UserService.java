@@ -29,7 +29,4 @@ public interface UserService {
 
     OTPSentResponse login(String phoneNumber) throws Exception;
 
-    List<Address> getAddress(String phoneNumber) throws Exception;
-
-    List<Address> addAddress(String phoneNumber, Address address) throws Exception;
-}
+    }

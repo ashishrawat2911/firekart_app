@@ -4,7 +4,6 @@ import com.ecommerce.app.models.dto.OTPSentResponse;
 import com.ecommerce.app.models.dto.UserResponseDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
 import com.ecommerce.app.models.dto.response.UserFileUploadResponseDTO;
-import com.ecommerce.app.models.entity.Address;
 import com.ecommerce.app.service.UserService;
 import com.ecommerce.app.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +23,6 @@ public class UserController {
     @Autowired
     ResponseUtil responseUtil;
 
-//    @RequestMapping(path = ApiNameConstants.REGISTER, method = RequestMethod.POST)
-//    @ApiOperation(value = "Register User", notes = "")
-//    ResponseEntity<UserResponseDTO> registerUser(@RequestBody UserRegisterRequestDTO userRegisterRequestDTO) throws Exception {
-//        UserResponseDTO userResponseDTO = userService.registerUser(userRegisterRequestDTO);
-//        return responseUtil.successResponse(userResponseDTO);
-//    }
 
     @RequestMapping(path = "/login", method = RequestMethod.GET, produces = "application/json", params = "phone_number")
     ResponseEntity loginUser(@RequestParam("phone_number") String phoneNumber) throws Exception {
@@ -71,17 +64,5 @@ public class UserController {
             @RequestParam(value = "phone_number") String phoneNumber
     ) throws Exception {
         return responseUtil.successResponse(userService.uploadUserPhoto(artifact, phoneNumber));
-    }
-
-    @RequestMapping(value = "/address", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity getAllAddress(@RequestParam("phone_number") String phoneNumber)
-            throws Exception {
-        return responseUtil.successResponse(userService.getAddress(phoneNumber));
-    }
-
-    @PostMapping(value = "/address", produces = "application/json")
-    public ResponseEntity addAddress(@RequestBody Address address, @RequestParam("phone_number") String phoneNumber)
-            throws Exception {
-        return responseUtil.successResponse(userService.addAddress(phoneNumber,address));
     }
 }

@@ -38,5 +38,8 @@ public class ApiStatusConstants {
 
     static final public String RESTAURANTS_NOT_FOUND = "Restaurants not found";
     public static final String FILE_UPLOADED_SUCCESS = "File uploaded successfully";
-    public static final String ADDRESS_NOT_FOUND = "Address not fount";
+
+    public static final String ADDRESS_NOT_FOUND = "Address not found";
+    public static final String DEFAULT_ADDRESS_SET = "Default Address Set";
+
 }
