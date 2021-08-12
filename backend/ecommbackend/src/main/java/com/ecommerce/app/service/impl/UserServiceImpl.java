@@ -28,7 +28,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private AccountVerificationRepository accountVerification;
+    private AccountVerificationRepository accountVerificationRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
         accountVerification.setIncorrectAttempts(1);
         accountVerification.setPhoneNumber(phoneNumber);
         accountVerification.setVerifyStatus(false);
-        this.accountVerification.save(accountVerification);
+        this.accountVerificationRepository.save(accountVerification);
         fireOTPToMobile(phoneNumber, otp);
     }
 
@@ -62,6 +62,7 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new ResourceNotFoundException(ApiStatusConstants.ERR_USER_NOT_EXIST);
         }
+        System.out.print(user);
         return user;
     }
 
@@ -130,7 +131,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDTO verifyOTP(String phoneNumber, String otp, String deviceId) throws Exception {
-        boolean verified = otp.equalsIgnoreCase(String.valueOf(accountVerification.getOTPByPhoneNumber(phoneNumber)));
+        boolean verified = otp.equalsIgnoreCase(String.valueOf(accountVerificationRepository.getOTPByPhoneNumber(phoneNumber)));
         if (!verified) {
             throw new Exception("Incorrect OTP :" + otp);
         }
