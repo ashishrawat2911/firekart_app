@@ -1,10 +1,8 @@
 package com.ecommerce.app.models.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ecommerce.app.models.entity.converter.JpaConverterJson;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;

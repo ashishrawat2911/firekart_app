@@ -4,7 +4,6 @@ import com.ecommerce.app.models.dto.OTPSentResponse;
 import com.ecommerce.app.models.dto.UserResponseDTO;
 import com.ecommerce.app.models.dto.request.UserAddDetailRequestDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
-import com.ecommerce.app.models.dto.response.UserFileUploadResponseDTO;
 import com.ecommerce.app.service.UserService;
 import com.ecommerce.app.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +65,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity<UserFileUploadResponseDTO> uploadFile(
+    public ResponseEntity uploadFile(
             @RequestParam(value = "file") MultipartFile artifact,
             @RequestParam(value = "phone_number") String phoneNumber
     ) throws Exception {
