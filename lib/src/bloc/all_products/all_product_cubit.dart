@@ -7,15 +7,14 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
-  var _firebaseRepo = AppInjector.get<FirestoreRepository>();
-  var _authRepo = AppInjector.get<AuthRepository>();
+  AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
 
-  AllProductCubit() : super(ResultState.idle());
+  final FirestoreRepository _firebaseRepo;
   List<DocumentSnapshot> documents;
   List<ProductModel> productList;
 
-  fetchProducts([String condition]) async {
-    emit(ResultState.loading());
+  Future<void> fetchProducts([String condition]) async {
+    emit(const ResultState.loading());
     try {
       if (condition == null) {
         documents = await _firebaseRepo.getAllProducts();
@@ -34,9 +33,9 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
     }
   }
 
-  fetchNextList([String condition]) async {
+  Future<void> fetchNextList([String condition]) async {
     try {
-      List<DocumentSnapshot> docs =
+      final List<DocumentSnapshot> docs =
           await _firebaseRepo.getAllProducts(documents[documents.length - 1]);
 
       documents.addAll(docs);

@@ -6,9 +6,9 @@ import 'package:fluttercommerce/src/models/order_model.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class MyOrdersCubit extends Cubit<ResultState<List<OrderModel>>> {
-  var firebaseRepo = AppInjector.get<FirestoreRepository>();
+  FirestoreRepository firebaseRepo;
 
-  MyOrdersCubit() : super(ResultState.idle());
+  MyOrdersCubit(this.firebaseRepo) : super(ResultState.idle());
   List<DocumentSnapshot> _documents;
   List<OrderModel> _orderList;
 

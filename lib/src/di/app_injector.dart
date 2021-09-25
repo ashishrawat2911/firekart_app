@@ -22,11 +22,11 @@ import 'package:get_it/get_it.dart';
 GetIt _injector = GetIt.I;
 
 class AppInjector {
-  static final AppInjector _singleton = AppInjector._internal();
-
   factory AppInjector() => _singleton;
 
   AppInjector._internal();
+
+  static final AppInjector _singleton = AppInjector._internal();
 
   static T get<T>({String instanceName, dynamic param1, dynamic param2}) =>
       _injector<T>(instanceName: instanceName, param1: param1, param2: param2);
@@ -36,19 +36,22 @@ class AppInjector {
   static const String onSale = "on_sale";
 
   static void create() {
-    _initCubits();
     _initRepos();
+    _initCubits();
     _initNotifiers();
   }
 
-  static _initRepos() {
+  static void _initRepos() {
     _injector.registerFactory(() => FirestoreRepository());
     _injector.registerFactory(() => AuthRepository());
   }
 
-  static _initCubits() {
+  static void _initCubits() {
+    final firebaseRepo = _injector<FirestoreRepository>();
+    final authRepo = _injector<AuthRepository>();
+
     _injector.registerFactory(() => PhoneLoginCubit());
-    _injector.registerFactory(() => OtpLoginCubit());
+    _injector.registerFactory(() => OtpLoginCubit(authRepo));
 
     _injector.registerFactory(() => ProductDataCubit(),
         instanceName: dealOfTheDay);
@@ -56,20 +59,22 @@ class AppInjector {
         instanceName: topProducts);
     _injector.registerFactory(() => ProductDataCubit(), instanceName: onSale);
 
-    _injector.registerFactory(() => AddToCartCubit());
-    _injector.registerFactory(() => AddAccountDetailsCubit());
-    _injector.registerFactory(() => ProductSearchCubit());
-    _injector.registerFactory(() => CartItemCubit());
+    _injector.registerFactory(() => AddToCartCubit(firebaseRepo, authRepo));
+    _injector
+        .registerFactory(() => AddAccountDetailsCubit(firebaseRepo, authRepo));
+    _injector.registerFactory(() => ProductSearchCubit(firebaseRepo));
+    _injector.registerFactory(() => CartItemCubit(firebaseRepo));
     _injector.registerFactory(() => PaymentCubit());
-    _injector.registerFactory(() => PlaceOrderCubit());
-    _injector.registerFactory(() => AllProductCubit());
-    _injector.registerFactory(() => MyAddressCubit());
-    _injector.registerFactory(() => AddAddressCubit());
-    _injector.registerFactory(() => AddressCardCubit());
-    _injector.registerFactory(() => MyOrdersCubit());
+    _injector.registerFactory(() => PlaceOrderCubit(firebaseRepo));
+    _injector.registerFactory(() => AllProductCubit(firebaseRepo));
+    _injector.registerFactory(() => MyAddressCubit(firebaseRepo));
+    _injector.registerFactory(() => AddAddressCubit(firebaseRepo));
+    _injector.registerFactory(() => AddressCardCubit(firebaseRepo));
+    _injector.registerFactory(() => MyOrdersCubit(firebaseRepo));
     _injector.registerLazySingleton(() => CartStatusCubit());
     _injector.registerFactory(() => BottomBarCubit());
-    _injector.registerLazySingleton(() => AccountDetailsCubit());
+    _injector.registerLazySingleton(
+        () => AccountDetailsCubit(firebaseRepo, authRepo));
   }
 
   static void _initNotifiers() {}

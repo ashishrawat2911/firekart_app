@@ -7,16 +7,12 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class MyAddressCubit extends Cubit<MyAddressState> {
-  var firebaseRepo = AppInjector.get<FirestoreRepository>();
-  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
-  var authRepo = AppInjector.get<AuthRepository>();
+  FirestoreRepository firebaseRepo;
 
-  MyAddressCubit() : super(MyAddressState.loading());
+  MyAddressCubit(this.firebaseRepo) : super(MyAddressState.loading());
 
-  listenToAccountDetails() async {
-    accountDetailsCubit.listen((state) {
-      emit(MyAddressState.showAccountDetails(state.accountDetails));
-    });
+  listenToAccountDetails(AccountDetails accountDetails) async {
+    emit(MyAddressState.showAccountDetails(accountDetails));
   }
 
   fetchAccountDetails() async {

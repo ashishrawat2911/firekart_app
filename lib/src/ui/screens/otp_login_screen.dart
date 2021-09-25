@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/src/bloc/otp_login/otp_login.dart';
+import 'package:fluttercommerce/src/bloc/selected_address/account_details_cubit.dart';
 import 'package:fluttercommerce/src/core/utils/validator.dart';
 import 'package:fluttercommerce/src/di/app_injector.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
@@ -14,7 +15,7 @@ import 'package:fluttercommerce/src/ui/common/common_button.dart';
 class OtpLoginScreen extends StatefulWidget {
   final String phoneNumber;
 
-  OtpLoginScreen({this.phoneNumber,Key key}):super(key: key);
+  OtpLoginScreen({this.phoneNumber, Key key}) : super(key: key);
 
   @override
   _OtpLoginScreenState createState() => _OtpLoginScreenState();
@@ -24,7 +25,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   var otpLoginCubit = AppInjector.get<OtpLoginCubit>();
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
 
   @override
   void initState() {
@@ -137,6 +139,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                       },
                       onButtonDisabled: () {},
                       loginSuccessFull: () {
+                        accountDetailsCubit.streamAccountDetails();
+
                         Navigator.of(context).pushNamedAndRemoveUntil(
                             Routes.checkStatusScreen, (route) => false,
                             arguments: CheckStatusScreenArguments(

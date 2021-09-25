@@ -10,10 +10,9 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'otp_login.dart';
 
 class OtpLoginCubit extends Cubit<OtpLoginState> {
-  AuthRepository authRepository = AppInjector.get<AuthRepository>();
-  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
+  OtpLoginCubit(this.authRepository) : super(OtpLoginState.onButtonDisabled());
+  AuthRepository authRepository;
 
-  OtpLoginCubit() : super(OtpLoginState.onButtonDisabled());
   String _verificationId;
 
   validateButton(String otp) {
@@ -56,7 +55,6 @@ class OtpLoginCubit extends Cubit<OtpLoginState> {
     try {
       await firebaseAuth.signInWithCredential(authCred);
       emit(OtpLoginState.loginSuccessFull());
-      accountDetailsCubit.streamAccountDetails();
     } catch (e) {
       emit(OtpLoginState.showError(e));
     }

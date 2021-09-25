@@ -6,9 +6,9 @@ import 'package:fluttercommerce/src/models/product_model.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class ProductSearchCubit extends Cubit<ProductSearchState> {
-  var firebaseRepo = AppInjector.get<FirestoreRepository>();
+  FirestoreRepository firebaseRepo;
 
-  ProductSearchCubit() : super(Idle());
+  ProductSearchCubit(this.firebaseRepo) : super(Idle());
 
   searchProduct(String query) async {
     emit(ProductSearchState.loading());
