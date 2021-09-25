@@ -23,15 +23,12 @@ class AppTheme {
         indicatorSize: TabBarIndicatorSize.tab,
       ),
       appBarTheme: AppBarTheme(
-          color: AppColors.white,
-          brightness: Brightness.light,
-          elevation: 0,
-          iconTheme: IconThemeData(color: AppColors.primaryColor),
-          textTheme: TextTheme(
-            title: AppTextStyles.medium18PrimaryColor,
-          )),
-//        snackBarTheme:
-//            SnackBarThemeData(backgroundColor: AppColors.primaryColor)
+        color: AppColors.white,
+        brightness: Brightness.light,
+        elevation: 0,
+        iconTheme: IconThemeData(color: AppColors.primaryColor),
+        titleTextStyle: AppTextStyles.medium18PrimaryColor,
+      ),
     );
   }
 }

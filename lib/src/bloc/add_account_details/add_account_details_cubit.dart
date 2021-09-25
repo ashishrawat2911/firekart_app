@@ -7,9 +7,12 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
-  AddAccountDetailsCubit() : super(const AddAccountDetailsState.idle());
-  final _firebaseRepo = AppInjector.get<FirestoreRepository>();
-  final _authRepo = AppInjector.get<AuthRepository>();
+  FirestoreRepository _firebaseRepo;
+
+  AuthRepository _authRepo;
+
+  AddAccountDetailsCubit(this._firebaseRepo, this._authRepo)
+      : super(const AddAccountDetailsState.idle());
   final Validator _validator = Validator();
   AccountDetails _accountDetails;
 

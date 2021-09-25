@@ -24,11 +24,14 @@ class MyAddressScreen extends StatefulWidget {
 
 class _MyAddressScreenState extends State<MyAddressScreen> {
   MyAddressCubit myAddressCubit = AppInjector.get<MyAddressCubit>();
+  var accountDetailsCubit = AppInjector.get<AccountDetailsCubit>();
 
   @override
   void initState() {
     super.initState();
-    myAddressCubit.listenToAccountDetails();
+    accountDetailsCubit.listen((state) {
+      myAddressCubit.listenToAccountDetails(state.accountDetails);
+    });
     myAddressCubit.fetchAccountDetails();
   }
 

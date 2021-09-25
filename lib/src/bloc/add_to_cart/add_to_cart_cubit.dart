@@ -9,18 +9,19 @@ import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 import 'package:fluttercommerce/src/res/string_constants.dart';
 
 class AddToCartCubit extends Cubit<AddToCartState> {
-  var _firebaseRepo = AppInjector.get<FirestoreRepository>();
-  var _authRepo = AppInjector.get<AuthRepository>();
+  AddToCartCubit(this._firebaseRepo, this._authRepo) : super(ShowAddButton());
 
-  AddToCartCubit() : super(ShowAddButton());
+  final FirestoreRepository _firebaseRepo;
+  final AuthRepository _authRepo;
 
-  listenToProduct(String productId) async {
+  Future<void> listenToProduct(String productId) async {
     _firebaseRepo.cartStatusListen(await _authRepo.getUid()).listen((event) {
       checkItemInCart(productId, isListening: true);
     });
   }
 
-  checkItemInCart(String productId, {bool isListening = false}) async {
+  Future<void> checkItemInCart(String productId,
+      {bool isListening = false}) async {
     if (!isListening) {
       emit(AddToCardLoading());
     }
@@ -32,7 +33,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
     }
   }
 
-  addToCart(ProductModel productModel) async {
+  Future<void> addToCart(ProductModel productModel) async {
     emit(AddToCardLoading());
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
       emit(AddToCartError(StringsConstants.connectionNotAvailable));
@@ -46,10 +47,10 @@ class AddToCartCubit extends Cubit<AddToCartState> {
     });
   }
 
-  updateCartValues(
+  Future<void> updateCartValues(
       ProductModel productModel, int cartValue, bool shouldIncrease) async {
-    int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
-    emit(CartDataLoading());
+    final int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
+    emit(const CartDataLoading());
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
@@ -57,7 +58,8 @@ class AddToCartCubit extends Cubit<AddToCartState> {
             StringsConstants.connectionNotAvailable, cartValue));
         return;
       }
-      CartModel cartModel = CartModel.fromProduct(productModel, newCartValue);
+      final CartModel cartModel =
+          CartModel.fromProduct(productModel, newCartValue);
       _firebaseRepo.addProductToCart(cartModel).then((value) {
         emit(ShowCartValue(newCartValue));
       }).catchError((e) {
@@ -65,11 +67,11 @@ class AddToCartCubit extends Cubit<AddToCartState> {
       });
     } else {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        emit(DeleteCartError(StringsConstants.connectionNotAvailable));
+        emit(const DeleteCartError(StringsConstants.connectionNotAvailable));
         return;
       }
       _firebaseRepo.delProductFromCart(productModel.productId).then((value) {
-        emit(ShowAddButton());
+        emit(const ShowAddButton());
       }).catchError((e) {
         emit(DeleteCartError(e.toString()));
       });
