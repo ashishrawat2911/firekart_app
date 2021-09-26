@@ -7,10 +7,9 @@ import 'package:fluttercommerce/src/repository/auth_repository.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class AddAddressCubit extends Cubit<AddAddressState> {
-  var _firebaseRepo = AppInjector.get<FirestoreRepository>();
-  var _authRepo = AppInjector.get<AuthRepository>();
+  FirestoreRepository _firebaseRepo ;
 
-  AddAddressCubit() : super(Idle());
+  AddAddressCubit(this._firebaseRepo) : super(Idle());
 
   saveAddress(AccountDetails accountDetails, Address address) {
     emit(ButtonLoading());

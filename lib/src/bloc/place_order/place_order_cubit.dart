@@ -11,9 +11,9 @@ import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PlaceOrderCubit extends Cubit<PlaceOrderState> {
-  var firebaseRepo = AppInjector.get<FirestoreRepository>();
+  FirestoreRepository firebaseRepo;
 
-  PlaceOrderCubit() : super(PlaceOrderState.idle());
+  PlaceOrderCubit(this.firebaseRepo) : super(PlaceOrderState.idle());
 
   placeOrder(List<CartModel> cartModel, PaymentSuccessResponse response,
       Address orderAddress) async {
