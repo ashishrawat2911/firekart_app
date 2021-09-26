@@ -5,19 +5,19 @@ import 'package:fluttercommerce/src/models/account_details_model.dart';
 import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 
 class AddressCardCubit extends Cubit<AddressCardState> {
-  var _firebaseRepo = AppInjector.get<FirestoreRepository>();
+  AddressCardCubit(this._firebaseRepo) : super(AddressCardState.idle());
 
-  AddressCardCubit() : super(AddressCardState.idle());
+  final FirestoreRepository _firebaseRepo;
 
-  deleteAddress(AccountDetails accountDetails, Address address) {
-    emit(AddressCardState.editLoading());
+  void deleteAddress(AccountDetails accountDetails, Address address) {
+    emit(const AddressCardState.editLoading());
 
     accountDetails.addresses.remove(address);
     _saveData(accountDetails);
   }
 
-  setAsDefault(AccountDetails accountDetails, int cardIndex) {
-    emit(AddressCardState.setDefaultLoading());
+  void setAsDefault(AccountDetails accountDetails, int cardIndex) {
+    emit(const AddressCardState.setDefaultLoading());
     accountDetails.addresses[cardIndex].isDefault = true;
     List.generate(accountDetails.addresses.length, (index) {
       if (cardIndex != index) {
@@ -27,9 +27,9 @@ class AddressCardCubit extends Cubit<AddressCardState> {
     _saveData(accountDetails);
   }
 
-  _saveData(AccountDetails accountDetails) {
+  void _saveData(AccountDetails accountDetails) {
     _firebaseRepo.addUserDetails(accountDetails).then((value) {
-      emit(AddressCardState.successful());
+      emit(const AddressCardState.successful());
     }).catchError((e) {
       emit(AddressCardState.error(e.toString()));
     });

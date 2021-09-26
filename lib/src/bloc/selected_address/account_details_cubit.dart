@@ -8,12 +8,14 @@ import 'package:fluttercommerce/src/repository/firestore_repository.dart';
 import 'account_details_state.dart';
 
 class AccountDetailsCubit extends Cubit<AccountDetailsState> {
-  AccountDetailsCubit() : super(AccountDetailsState()) {
+  FirestoreRepository firebaseRepo;
+
+  AuthRepository authRepo;
+
+  AccountDetailsCubit(this.firebaseRepo, this.authRepo)
+      : super(AccountDetailsState()) {
     streamAccountDetails();
   }
-
-  FirestoreRepository firebaseRepo = AppInjector.get<FirestoreRepository>();
-  AuthRepository authRepo = AppInjector.get<AuthRepository>();
 
   Future<void> streamAccountDetails() async {
     firebaseRepo

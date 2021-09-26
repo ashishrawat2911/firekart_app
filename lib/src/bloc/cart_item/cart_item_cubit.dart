@@ -8,15 +8,15 @@ import 'package:fluttercommerce/src/res/string_constants.dart';
 import 'cart_item_state.dart';
 
 class CartItemCubit extends Cubit<CartItemState> {
-  var _firebaseRepo = AppInjector.get<FirestoreRepository>();
+  CartItemCubit(this._firebaseRepo) : super(const Idle());
 
-  CartItemCubit() : super(Idle());
+  final FirestoreRepository _firebaseRepo;
 
-  initCartValues(int cartValue) {
+  void initCartValues(int cartValue) {
     emit(ShowCartValue(cartValue));
   }
 
-  updateCartValues(
+  Future<void> updateCartValues(
       CartModel cartModel, int cartValue, bool shouldIncrease) async {
     int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
     emit(CartDataLoading());
@@ -37,16 +37,17 @@ class CartItemCubit extends Cubit<CartItemState> {
     }
   }
 
-  deleteItem(CartModel cartModel, {bool deleteExternally = true}) async {
+  Future<void> deleteItem(CartModel cartModel,
+      {bool deleteExternally = true}) async {
     if (deleteExternally) {
-      emit(CartDeleteLoading());
+      emit(const CartDeleteLoading());
     }
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
-      emit(DeleteCartError(StringsConstants.connectionNotAvailable));
+      emit(const DeleteCartError(StringsConstants.connectionNotAvailable));
       return;
     }
     _firebaseRepo.delProductFromCart(cartModel.productId).then((value) {
-      emit(ItemDeleted());
+      emit(const ItemDeleted());
     }).catchError((e) {
       emit(DeleteCartError(e.toString()));
     });

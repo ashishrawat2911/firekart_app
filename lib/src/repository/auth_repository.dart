@@ -16,7 +16,7 @@ class AuthRepository {
       return firebaseAuth
           .verifyPhoneNumber(
               phoneNumber: phoneNumber,
-              timeout: Duration(seconds: 60),
+              timeout: const Duration(seconds: 60),
               verificationCompleted: verificationCompleted,
               verificationFailed: verificationFailed,
               codeSent: codeSent,
@@ -31,7 +31,7 @@ class AuthRepository {
     }
   }
 
-  setAccountDetails({String displayName, String photoUrl}) async {
+  Future<void> setAccountDetails({String displayName, String photoUrl}) async {
     UserUpdateInfo updateInfo = UserUpdateInfo();
     updateInfo.displayName = displayName;
     updateInfo.photoUrl = photoUrl;
@@ -39,7 +39,7 @@ class AuthRepository {
   }
 
   Future<String> getUid() async {
-    FirebaseUser user = await firebaseAuth.currentUser();
+    final FirebaseUser user = await firebaseAuth.currentUser();
     return user.uid;
   }
 
@@ -48,7 +48,7 @@ class AuthRepository {
   }
 
   Future<FirebaseUser> getCurrentUser() async {
-    FirebaseUser user = await firebaseAuth.currentUser();
+    final FirebaseUser user = await firebaseAuth.currentUser();
     return user;
   }
 
@@ -58,7 +58,7 @@ class AuthRepository {
 
   Future<bool> checkUserLoggedInStatus() async {
     try {
-      FirebaseUser user = await getCurrentUser();
+      final FirebaseUser user = await getCurrentUser();
       if (user == null) {
         return false;
       } else
