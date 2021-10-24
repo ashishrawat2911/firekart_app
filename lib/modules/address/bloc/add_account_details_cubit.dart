@@ -36,9 +36,9 @@ class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
     }
     _accountDetails.name = name;
     _accountDetails.phoneNumber = await _authRepo.getPhoneNumber();
-    emit(AddAccountDetailsState.saveDataLoading());
+    emit(const AddAccountDetailsState.saveDataLoading());
     await _firebaseRepo.addUserDetails(_accountDetails);
     await _authRepo.setAccountDetails(displayName: _accountDetails.name);
-    emit(AddAccountDetailsState.successful());
+    emit(const AddAccountDetailsState.successful());
   }
 }
