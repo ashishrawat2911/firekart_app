@@ -8,22 +8,21 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../models/account_details_model.dart';
-import '../models/product_model.dart';
-import '../ui/screens/SearchScreen.dart';
-import '../ui/screens/add_address_screen.dart';
-import '../ui/screens/add_user_detail_screen.dart';
-import '../ui/screens/all_product_list_screen.dart';
-import '../ui/screens/cart_screen.dart';
-import '../ui/screens/check_status_check_screen.dart';
-import '../ui/screens/login_screen.dart';
-import '../ui/screens/main_home_screen.dart';
-import '../ui/screens/my_address_screen.dart';
-import '../ui/screens/my_orders_screen.dart';
-import '../ui/screens/otp_login_screen.dart';
-import '../ui/screens/product_detail_page.dart';
-import '../ui/screens/splash_screen.dart';
+import 'package:fluttercommerce/modules/address/screen/add_address_screen.dart';
+import 'package:fluttercommerce/modules/address/screen/my_address_screen.dart';
+import 'package:fluttercommerce/modules/checkout/screen/cart_screen.dart';
+import 'package:fluttercommerce/modules/common/models/account_details_model.dart';
+import 'package:fluttercommerce/modules/common/models/product_model.dart';
+import 'package:fluttercommerce/modules/home/screen/main_home_screen.dart';
+import 'package:fluttercommerce/modules/init/check_status_check_screen.dart';
+import 'package:fluttercommerce/modules/init/splash_screen.dart';
+import 'package:fluttercommerce/modules/login/screen/login_screen.dart';
+import 'package:fluttercommerce/modules/login/screen/otp_login_screen.dart';
+import 'package:fluttercommerce/modules/order/screen/my_orders_screen.dart';
+import 'package:fluttercommerce/modules/product/screen/all_product_list_screen.dart';
+import 'package:fluttercommerce/modules/product/screen/product_detail_page.dart';
+import 'package:fluttercommerce/modules/search/screen/SearchScreen.dart';
+import 'package:fluttercommerce/modules/user/screen/add_user_detail_screen.dart';
 
 class Routes {
   static const String splashScreen = '/';
