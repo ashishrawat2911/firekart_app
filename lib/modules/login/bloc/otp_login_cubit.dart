@@ -34,20 +34,20 @@ class OtpLoginCubit extends Cubit<OtpLoginState> {
 //          emit(OtpLoginState.showError(FirebaseErrors.checkAuthError(authException.message)));
       emit(OtpLoginState.showError(authException.message));
     }, verificationCompleted: (AuthCredential auth) {
-      emit(OtpLoginState.autoFetchOtp("******"));
+      emit(const OtpLoginState.autoFetchOtp("******"));
       _login(auth);
     });
   }
 
   loginWithOtp(String smsCode) {
-    emit(OtpLoginState.confirmOtpLoading());
+    emit(const OtpLoginState.confirmOtpLoading());
     var _credential = PhoneAuthProvider.getCredential(
         verificationId: _verificationId, smsCode: smsCode);
     _login(_credential);
   }
 
   _login(AuthCredential authCred) async {
-    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     try {
       await firebaseAuth.signInWithCredential(authCred);
       emit(OtpLoginState.loginSuccessFull());
