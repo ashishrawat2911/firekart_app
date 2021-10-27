@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/modules/init/splash_screen.dart';
+import 'package:fluttercommerce/modules/init/screen/splash_screen.dart';
 import 'package:fluttercommerce/modules/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:fluttercommerce/res/app_theme.dart';
@@ -15,7 +15,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   void initState() {
-    var accountDetailsCubit = DI.container<AccountDetailsCubit>();
+    final accountDetailsCubit = DI.container<AccountDetailsCubit>();
     accountDetailsCubit.streamAccountDetails();
     super.initState();
   }

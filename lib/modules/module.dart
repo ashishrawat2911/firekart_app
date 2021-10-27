@@ -4,4 +4,6 @@ abstract class Module {
   get di => DI.container;
 
   void registerDependencies();
+
+  void registerViewModel() {}
 }
