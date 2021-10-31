@@ -8,6 +8,7 @@ import 'package:fluttercommerce/modules/product/product_module.dart';
 import 'package:fluttercommerce/modules/search/search_module.dart';
 
 import 'home/home_module.dart';
+import 'init/initial_module.dart';
 
 class ModuleInit {
   ModuleInit._();
@@ -17,6 +18,7 @@ class ModuleInit {
     AppModule(),
 
     HomeModule(),
+    InitialModule(),
     AddressModule(),
     CheckoutModule(),
     LoginModule(),
