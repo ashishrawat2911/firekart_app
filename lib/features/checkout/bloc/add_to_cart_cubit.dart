@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
 import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/state/add_to_cart_state.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
@@ -69,7 +69,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         emit(const DeleteCartError(StringsConstants.connectionNotAvailable));
         return;
       }
-      _firebaseRepo.delProductFromCart(productModel.productId).then((value) {
+      _firebaseRepo.delProductFromCart(productModel.productId!).then((value) {
         emit(const ShowAddButton());
       }).catchError((e) {
         emit(DeleteCartError(e.toString()));

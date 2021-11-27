@@ -26,15 +26,16 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<CheckStatusBloc, CheckStatusState>(
-      cubit: checkStatusBloc,
+      bloc: checkStatusBloc,
       listener: (context, state) {
         if (state is NavigateToMainHomeState) {
-          Navigator.of(context).pushReplacementNamed(Routes.mainHomeScreen);
+          Navigator.of(context).pushReplacementNamed(MainHomeScreenRoute.name);
         } else if (state is NavigateToAddUserState) {
-          Navigator.of(context).pushReplacementNamed(Routes.addUserDetailScreen,
-              arguments: AddUserDetailScreenArguments(newAddress: true));
+          Navigator.of(context).pushReplacementNamed(
+              AddUserDetailScreenRoute.name,
+              arguments: AddUserDetailScreenRouteArgs(newAddress: true));
         } else if (state is NavigateToLoginState) {
-          Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
+          Navigator.of(context).pushReplacementNamed(LoginScreenRoute.name);
         }
       },
       child: const Scaffold(

@@ -8,9 +8,9 @@ import 'package:fluttercommerce/features/common/widgets/product_card.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
 import 'package:fluttercommerce/features/home/bloc/home_page_cubit.dart';
 import 'package:fluttercommerce/features/home/home_module.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/res/text_styles.dart';
+import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -50,7 +50,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            Navigator.of(context).pushNamed(Routes.allProductListScreen);
+            Navigator.of(context).pushNamed(AllProductListScreenRoute.name);
           },
           label: Text(
             StringsConstants.viewAllProducts,
@@ -79,9 +79,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
   }
 
-  Widget productDataBuilder(Cubit cubit, String title) {
+  Widget productDataBuilder(ProductDataCubit cubit, String title) {
     return BlocBuilder<ProductDataCubit, ResultState<List<ProductModel>>>(
-      cubit: cubit,
+      bloc: cubit,
       builder: (BuildContext context, ResultState<List<ProductModel>> state) {
         return ResultStateBuilder(
           state: state,
@@ -101,8 +101,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   productLoader() {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       enabled: true,
       child: Container(
         margin: EdgeInsets.only(left: 10, right: 10),
@@ -196,7 +196,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   child: ActionText(
                     StringsConstants.viewAllCaps,
                     onTap: () {
-                      String condition;
+                      late String condition;
                       if (title == StringsConstants.dealOfTheDay) {
                         condition = "deal_of_the_day";
                       } else if (title == StringsConstants.topProducts) {
@@ -205,8 +205,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         condition = "on_sale";
                       }
                       Navigator.of(context).pushNamed(
-                          Routes.allProductListScreen,
-                          arguments: condition);
+                          AllProductListScreenRoute.name,
+                          arguments: AllProductListScreenRouteArgs(
+                              productCondition: condition));
                     },
                   ))
             ],

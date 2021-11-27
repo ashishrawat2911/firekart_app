@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'result_state.dart';
 
@@ -9,42 +9,39 @@ part of 'result_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ResultStateTearOff {
   const _$ResultStateTearOff();
 
-// ignore: unused_element
   Idle<T> idle<T>() {
     return Idle<T>();
   }
 
-// ignore: unused_element
   Loading<T> loading<T>() {
     return Loading<T>();
   }
 
-// ignore: unused_element
   ReLoading<T> reLoading<T>() {
     return ReLoading<T>();
   }
 
-// ignore: unused_element
-  Data<T> data<T>({@required T data}) {
+  Data<T> data<T>({required T data}) {
     return Data<T>(
       data: data,
     );
   }
 
-// ignore: unused_element
-  Error<T> error<T>({@required String error}) {
+  Error<T> error<T>({required String error}) {
     return Error<T>(
       error: error,
     );
   }
 
-// ignore: unused_element
   UnNotifiedError<T> unNotifiedError<T>(
-      {@required T data, @required String error}) {
+      {required T data, required String error}) {
     return UnNotifiedError<T>(
       data: data,
       error: error,
@@ -53,52 +50,52 @@ class _$ResultStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ResultState = _$ResultStateTearOff();
 
 /// @nodoc
 mixin _$ResultState<T> {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
-  });
-
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
-  });
-
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
-  });
-
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -114,7 +111,6 @@ class _$ResultStateCopyWithImpl<T, $Res>
   _$ResultStateCopyWithImpl(this._value, this._then);
 
   final ResultState<T> _value;
-
   // ignore: unused_field
   final $Res Function(ResultState<T>) _then;
 }
@@ -160,35 +156,28 @@ class _$Idle<T> with DiagnosticableTreeMixin implements Idle<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -197,35 +186,28 @@ class _$Idle<T> with DiagnosticableTreeMixin implements Idle<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -278,35 +260,28 @@ class _$Loading<T> with DiagnosticableTreeMixin implements Loading<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -315,35 +290,28 @@ class _$Loading<T> with DiagnosticableTreeMixin implements Loading<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -399,35 +367,28 @@ class _$ReLoading<T> with DiagnosticableTreeMixin implements ReLoading<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return reLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reLoading != null) {
       return reLoading();
     }
@@ -436,35 +397,28 @@ class _$ReLoading<T> with DiagnosticableTreeMixin implements ReLoading<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return reLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reLoading != null) {
       return reLoading(this);
     }
@@ -480,7 +434,6 @@ abstract class ReLoading<T> implements ResultState<T> {
 abstract class $DataCopyWith<T, $Res> {
   factory $DataCopyWith(Data<T> value, $Res Function(Data<T>) then) =
       _$DataCopyWithImpl<T, $Res>;
-
   $Res call({T data});
 }
 
@@ -495,17 +448,20 @@ class _$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object? data = freezed,
   }) {
     return _then(Data<T>(
-      data: data == freezed ? _value.data : data as T,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
 class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
-  const _$Data({@required this.data}) : assert(data != null);
+  const _$Data({required this.data});
 
   @override
   final T data;
@@ -535,41 +491,35 @@ class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
 
+  @JsonKey(ignore: true)
   @override
   $DataCopyWith<T, Data<T>> get copyWith =>
       _$DataCopyWithImpl<T, Data<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return data(this.data);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (data != null) {
       return data(this.data);
     }
@@ -578,35 +528,28 @@ class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return data(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (data != null) {
       return data(this);
     }
@@ -615,18 +558,17 @@ class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
 }
 
 abstract class Data<T> implements ResultState<T> {
-  const factory Data({@required T data}) = _$Data<T>;
+  const factory Data({required T data}) = _$Data<T>;
 
-  T get data;
-
-  $DataCopyWith<T, Data<T>> get copyWith;
+  T get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DataCopyWith<T, Data<T>> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ErrorCopyWith<T, $Res> {
   factory $ErrorCopyWith(Error<T> value, $Res Function(Error<T>) then) =
       _$ErrorCopyWithImpl<T, $Res>;
-
   $Res call({String error});
 }
 
@@ -641,17 +583,20 @@ class _$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(Error<T>(
-      error: error == freezed ? _value.error : error as String,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
-  const _$Error({@required this.error}) : assert(error != null);
+  const _$Error({required this.error});
 
   @override
   final String error;
@@ -681,41 +626,35 @@ class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $ErrorCopyWith<T, Error<T>> get copyWith =>
       _$ErrorCopyWithImpl<T, Error<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -724,35 +663,28 @@ class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -761,11 +693,12 @@ class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
 }
 
 abstract class Error<T> implements ResultState<T> {
-  const factory Error({@required String error}) = _$Error<T>;
+  const factory Error({required String error}) = _$Error<T>;
 
-  String get error;
-
-  $ErrorCopyWith<T, Error<T>> get copyWith;
+  String get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ErrorCopyWith<T, Error<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -773,7 +706,6 @@ abstract class $UnNotifiedErrorCopyWith<T, $Res> {
   factory $UnNotifiedErrorCopyWith(
           UnNotifiedError<T> value, $Res Function(UnNotifiedError<T>) then) =
       _$UnNotifiedErrorCopyWithImpl<T, $Res>;
-
   $Res call({T data, String error});
 }
 
@@ -790,12 +722,18 @@ class _$UnNotifiedErrorCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object data = freezed,
-    Object error = freezed,
+    Object? data = freezed,
+    Object? error = freezed,
   }) {
     return _then(UnNotifiedError<T>(
-      data: data == freezed ? _value.data : data as T,
-      error: error == freezed ? _value.error : error as String,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -804,9 +742,7 @@ class _$UnNotifiedErrorCopyWithImpl<T, $Res>
 class _$UnNotifiedError<T>
     with DiagnosticableTreeMixin
     implements UnNotifiedError<T> {
-  const _$UnNotifiedError({@required this.data, @required this.error})
-      : assert(data != null),
-        assert(error != null);
+  const _$UnNotifiedError({required this.data, required this.error});
 
   @override
   final T data;
@@ -843,41 +779,35 @@ class _$UnNotifiedError<T>
       const DeepCollectionEquality().hash(data) ^
       const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $UnNotifiedErrorCopyWith<T, UnNotifiedError<T>> get copyWith =>
       _$UnNotifiedErrorCopyWithImpl<T, UnNotifiedError<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result loading(),
-    @required Result reLoading(),
-    @required Result data(T data),
-    @required Result error(String error),
-    @required Result unNotifiedError(T data, String error),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() reLoading,
+    required TResult Function(T data) data,
+    required TResult Function(String error) error,
+    required TResult Function(T data, String error) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return unNotifiedError(this.data, this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result loading(),
-    Result reLoading(),
-    Result data(T data),
-    Result error(String error),
-    Result unNotifiedError(T data, String error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? reLoading,
+    TResult Function(T data)? data,
+    TResult Function(String error)? error,
+    TResult Function(T data, String error)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unNotifiedError != null) {
       return unNotifiedError(this.data, this.error);
     }
@@ -886,35 +816,28 @@ class _$UnNotifiedError<T>
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle<T> value),
-    @required Result loading(Loading<T> value),
-    @required Result reLoading(ReLoading<T> value),
-    @required Result data(Data<T> value),
-    @required Result error(Error<T> value),
-    @required Result unNotifiedError(UnNotifiedError<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle<T> value) idle,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ReLoading<T> value) reLoading,
+    required TResult Function(Data<T> value) data,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) {
-    assert(idle != null);
-    assert(loading != null);
-    assert(reLoading != null);
-    assert(data != null);
-    assert(error != null);
-    assert(unNotifiedError != null);
     return unNotifiedError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle<T> value),
-    Result loading(Loading<T> value),
-    Result reLoading(ReLoading<T> value),
-    Result data(Data<T> value),
-    Result error(Error<T> value),
-    Result unNotifiedError(UnNotifiedError<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle<T> value)? idle,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ReLoading<T> value)? reLoading,
+    TResult Function(Data<T> value)? data,
+    TResult Function(Error<T> value)? error,
+    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unNotifiedError != null) {
       return unNotifiedError(this);
     }
@@ -923,12 +846,12 @@ class _$UnNotifiedError<T>
 }
 
 abstract class UnNotifiedError<T> implements ResultState<T> {
-  const factory UnNotifiedError({@required T data, @required String error}) =
+  const factory UnNotifiedError({required T data, required String error}) =
       _$UnNotifiedError<T>;
 
-  T get data;
-
-  String get error;
-
-  $UnNotifiedErrorCopyWith<T, UnNotifiedError<T>> get copyWith;
+  T get data => throw _privateConstructorUsedError;
+  String get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UnNotifiedErrorCopyWith<T, UnNotifiedError<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

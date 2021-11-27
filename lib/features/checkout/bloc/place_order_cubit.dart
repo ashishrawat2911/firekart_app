@@ -3,7 +3,7 @@ import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/checkout/state/place_order_state.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
@@ -54,8 +54,8 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
       orderId:
           "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
       orderItems: getOrderItems(),
-      paymentId: response.paymentId,
-      signature: response.signature,
+      paymentId: response.paymentId!,
+      signature: response.signature!,
       price: cartModel.priceInCart,
       orderAddress: orderAddress,
     );

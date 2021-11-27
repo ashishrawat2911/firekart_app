@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 
 class CartStatusCubit extends Cubit<List<CartModel>> {
   CartStatusCubit() : super([]);
@@ -14,7 +14,7 @@ class CartStatusCubit extends Cubit<List<CartModel>> {
     return price;
   }
 
-  String get currency => noOfItemsInCart > 0 ? state[0]?.currency : "";
+  String get currency => noOfItemsInCart > 0 ? state[0].currency : "";
 
   set cartItems(List<CartModel> value) {
     emit(value);
@@ -32,5 +32,5 @@ extension CartStatus on List<CartModel> {
     return price;
   }
 
-  String get currency => noOfItemsInCart > 0 ? this[0]?.currency : "";
+  String get currency => noOfItemsInCart > 0 ? this[0].currency : "";
 }

@@ -5,7 +5,7 @@ import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
 import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/checkout/screen/cart_screen.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/home/bloc/bottom_bar_cubit.dart';
 import 'package:fluttercommerce/features/home/screen/home_page.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
@@ -59,7 +59,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomBarCubit, int>(
-      cubit: bottomBarCubit,
+      bloc : bottomBarCubit,
       builder: (context, state) {
         return Scaffold(
           body: [
@@ -86,7 +86,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                     children: <Widget>[
                       Center(child: Icon(Icons.shopping_cart)),
                       BlocBuilder<CartStatusCubit, List<CartModel>>(
-                        cubit: cartStatusCubit,
+                        bloc : cartStatusCubit,
                         builder: (context, state) {
                           return Visibility(
                             visible: cartStatusCubit.noOfItemsInCart > 0,

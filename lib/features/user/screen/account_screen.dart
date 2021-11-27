@@ -33,17 +33,17 @@ class _AccountScreenState extends State<AccountScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-                          cubit: accountDetailsCubit,
+                          bloc : accountDetailsCubit,
                           builder: (context, accountDetailState) {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  accountDetailState.accountDetails.name,
+                                  accountDetailState.accountDetails!.name,
                                   style: AppTextStyles.medium22Black,
                                 ),
                                 Text(
-                                  accountDetailState.accountDetails.phoneNumber,
+                                  accountDetailState.accountDetails!.phoneNumber,
                                   style: AppTextStyles.normal14Color4C4C6F,
                                 ),
                               ],
@@ -57,8 +57,8 @@ class _AccountScreenState extends State<AccountScreen> {
                           StringsConstants.editCaps,
                           onTap: () {
                             Navigator.of(context).pushNamed(
-                                Routes.addUserDetailScreen,
-                                arguments: AddUserDetailScreenArguments(
+                                AddUserDetailScreenRoute.name,
+                                arguments: AddUserDetailScreenRouteArgs(
                                     newAddress: false));
                           },
                         ),
@@ -70,14 +70,14 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.myOrders),
                     leading: Icon(Icons.shopping_basket),
                     onTap: () {
-                      Navigator.of(context).pushNamed(Routes.myOrdersScreen);
+                      Navigator.of(context).pushNamed(MyOrdersScreenRoute.name);
                     },
                   ),
                   ListTile(
                     title: Text(StringsConstants.myAddress),
                     leading: Icon(Icons.place),
                     onTap: () {
-                      Navigator.of(context).pushNamed(Routes.myAddressScreen);
+                      Navigator.of(context).pushNamed(MyAddressScreenRoute.name);
                     },
                   ),
                   Divider(),
@@ -89,7 +89,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           .logoutUser()
                           .then((value) {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.loginScreen, (route) => false);
+                            LoginScreenRoute.name, (route) => false);
                       });
                     },
                   ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CheckAdaptability {
+  CheckAdaptability._();
+
   static ScreenSize checkScreenSize(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.of(context).size.width;
 
     if (width < 800) {
       return Small();
@@ -13,11 +15,11 @@ class CheckAdaptability {
     }
   }
 
-  static onScreenChange(BuildContext context,
-      {VoidCallback onSmallScreen,
-      VoidCallback onMediumScreen,
-      VoidCallback onLargeScreen}) {
-    double width = MediaQuery.of(context).size.width;
+  static void onScreenChange(BuildContext context,
+      {VoidCallback? onSmallScreen,
+      VoidCallback? onMediumScreen,
+      VoidCallback? onLargeScreen}) {
+    final double width = MediaQuery.of(context).size.width;
 
     if (width < 800) {
       if (onSmallScreen != null) onSmallScreen();

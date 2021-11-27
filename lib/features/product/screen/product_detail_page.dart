@@ -14,7 +14,7 @@ import 'package:fluttercommerce/res/text_styles.dart';
 import 'package:fluttercommerce/di/di.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  const ProductDetailPage(this.productModel, {Key key}) : super(key: key);
+  const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);
 
   final ProductModel productModel;
 
@@ -29,8 +29,8 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   @override
   void initState() {
     super.initState();
-    addToCartCubit.checkItemInCart(widget.productModel.productId);
-    addToCartCubit.listenToProduct(widget.productModel.productId);
+    addToCartCubit.checkItemInCart(widget.productModel.productId!);
+    addToCartCubit.listenToProduct(widget.productModel.productId!);
   }
 
   @override
@@ -40,7 +40,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       floatingActionButton: CommonViewCartOverlay(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        title: Text(widget.productModel.name),
+        title: Text(widget.productModel.name!),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -55,13 +55,13 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    widget.productModel.name,
+                    widget.productModel.name!,
                     style: AppTextStyles.medium22Black,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(widget.productModel.description),
+                  Text(widget.productModel.description!),
                   const SizedBox(
                     height: 10,
                   ),
@@ -76,7 +76,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         width: 10,
                       ),
                       BlocConsumer<AddToCartCubit, AddToCartState>(
-                        cubit: addToCartCubit,
+                        bloc : addToCartCubit,
                         builder: (BuildContext context, AddToCartState state) {
                           return addCartView(state);
                         },
@@ -103,7 +103,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   Widget addCartView(AddToCartState state) {
     int cartValue = 0;
     if (state is ShowCartValue) {
-      cartValue = state.noOfItems;
+      cartValue = state.noOfItems as int;
     }
     return AnimatedCrossFade(
         firstChild: addButton(state),
@@ -115,7 +115,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               changeCartValues(
                   false,
                   state is CartDataLoading
-                      ? null
+                      ? (){}
                       : () {
                           addToCartCubit.updateCartValues(
                               widget.productModel, cartValue, false);
@@ -138,7 +138,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               changeCartValues(
                   true,
                   state is CartDataLoading
-                      ? null
+                      ? (){}
                       : () {
                           addToCartCubit.updateCartValues(
                               widget.productModel, cartValue, true);

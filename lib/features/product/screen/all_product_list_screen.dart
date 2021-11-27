@@ -11,7 +11,7 @@ import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/di/di.dart';
 
 class AllProductListScreen extends StatefulWidget {
-  final String productCondition;
+  final String? productCondition;
 
   AllProductListScreen({this.productCondition});
 
@@ -48,7 +48,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         actions: <Widget>[
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(Routes.searchItemScreen);
+              Navigator.of(context).pushNamed(SearchItemScreenRoute.name);
             },
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -58,7 +58,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         ],
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
-        cubit: allProductsCubit,
+        bloc : allProductsCubit,
         listener:
             (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {

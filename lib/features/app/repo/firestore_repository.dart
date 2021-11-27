@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 
 import 'auth_repository.dart';
-import 'package:fluttercommerce/di/di.dart';
 
 class FirestoreRepository {
   var authRepo = DI.container<AuthRepository>();
   final Firestore _firestore = Firestore.instance;
 
   Future<List<DocumentSnapshot>> getAllProducts(
-      [DocumentSnapshot documentSnapshot]) async {
+      [DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     final query = _firestore.collection("products").limit(20).orderBy("name");
 
@@ -27,7 +27,7 @@ class FirestoreRepository {
   }
 
   Future<List<DocumentSnapshot>> getAllOrders(
-      [DocumentSnapshot documentSnapshot]) async {
+      [DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     var query = _firestore
         .collection("users")
@@ -89,14 +89,14 @@ class FirestoreRepository {
 
   Future<int> checkItemInCart(String productId) async {
     try {
-      DocumentSnapshot documentSnapshot = await _firestore
+      final DocumentSnapshot documentSnapshot = await _firestore
           .collection("users")
           .document(await authRepo.getUid())
           .collection("cart")
           .document(productId)
           .get();
       if (documentSnapshot.exists) {
-        return documentSnapshot["no_of_items"] as num;
+        return documentSnapshot["no_of_items"] as int;
       } else {
         return 0;
       }

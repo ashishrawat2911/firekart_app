@@ -43,7 +43,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         title: Text(StringsConstants.myOrders),
       ),
       body: BlocBuilder<MyOrdersCubit, ResultState<List<OrderModel>>>(
-        cubit: ordersCubit,
+        bloc : ordersCubit,
         builder: (BuildContext context, ResultState<List<OrderModel>> state) {
           return ResultStateBuilder(
             state: state,
@@ -88,7 +88,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               ),
                               Text(
                                 getOrderedTime(
-                                    orderList[orderListIndex].orderedAt),
+                                    orderList[orderListIndex].orderedAt!),
                                 style: AppTextStyles.medium14Black,
                               )
                             ],
@@ -97,9 +97,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                       ],
                     ),
                     ...List<Widget>.generate(
-                        orderList[orderListIndex].orderItems.length,
+                        orderList[orderListIndex].orderItems!.length,
                         (index) => orderCard(
-                            orderList[orderListIndex].orderItems[index])),
+                            orderList[orderListIndex].orderItems![index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -128,7 +128,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               width: 10,
                             ),
                             getOrderStatusIcon(
-                                orderList[orderListIndex].orderStatus)
+                                orderList[orderListIndex].orderStatus!)
                           ],
                         )
                       ],
@@ -169,7 +169,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      orderItem.name,
+                      orderItem.name!,
                       style: AppTextStyles.normal14Black,
                     ),
                     const SizedBox(
@@ -187,7 +187,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               height: 10,
             ),
             Text(
-              "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
+              "${orderItem.noOfItems} item${orderItem.noOfItems! > 1 ? "s" : ""}",
               style: AppTextStyles.normal14Color81819A,
             ),
           ],

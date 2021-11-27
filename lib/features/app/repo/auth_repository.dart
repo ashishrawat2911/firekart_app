@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class AuthRepository {
@@ -7,10 +6,10 @@ class AuthRepository {
 
   Future<bool> sendCode(
     String phoneNumber, {
-    @required PhoneVerificationCompleted verificationCompleted,
-    @required PhoneVerificationFailed verificationFailed,
-    @required PhoneCodeSent codeSent,
-    @required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
+    required PhoneVerificationCompleted verificationCompleted,
+    required PhoneVerificationFailed verificationFailed,
+    required PhoneCodeSent codeSent,
+    required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
   }) async {
     try {
       return firebaseAuth
@@ -31,7 +30,10 @@ class AuthRepository {
     }
   }
 
-  Future<void> setAccountDetails({String displayName, String photoUrl}) async {
+  Future<void> setAccountDetails({
+    String? displayName,
+    String? photoUrl,
+  }) async {
     UserUpdateInfo updateInfo = UserUpdateInfo();
     updateInfo.displayName = displayName;
     updateInfo.photoUrl = photoUrl;
