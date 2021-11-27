@@ -4,10 +4,6 @@ part 'account_details_model.g.dart';
 
 @JsonSerializable()
 class AccountDetails {
-  String name;
-  String phoneNumber;
-  List<Address> addresses;
-
   AccountDetails({
     required this.name,
     required this.phoneNumber,
@@ -15,20 +11,15 @@ class AccountDetails {
   });
 
   factory AccountDetails.fromDocument(json) => _$AccountDetailsFromJson(json);
+  String name;
+  String phoneNumber;
+  List<Address> addresses;
 
   Map<String, dynamic> toJson() => _$AccountDetailsToJson(this);
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Address {
-  String name;
-  String pincode;
-  String address;
-  String city;
-  String state;
-  String phoneNumber;
-  bool isDefault;
-
   Address(
       {required this.name,
       required this.pincode,
@@ -39,6 +30,13 @@ class Address {
       this.isDefault = false});
 
   factory Address.fromDocument(json) => _$AddressFromJson(json);
+  String name;
+  String pincode;
+  String address;
+  String city;
+  String state;
+  String phoneNumber;
+  bool isDefault;
 
   Map<String, dynamic> toJson() => _$AddressToJson(this);
 

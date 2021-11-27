@@ -2,16 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/checkout/bloc/add_to_cart_cubit.dart';
 import 'package:fluttercommerce/features/checkout/state/add_to_cart_state.dart';
 import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_view_cart_overlay.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
         child: Column(
           children: <Widget>[
             CachedNetworkImage(
-              imageUrl: widget.productModel.image,
+              imageUrl: widget.productModel.image!,
               fit: BoxFit.fill,
             ),
             Container(
@@ -76,7 +76,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         width: 10,
                       ),
                       BlocConsumer<AddToCartCubit, AddToCartState>(
-                        bloc : addToCartCubit,
+                        bloc: addToCartCubit,
                         builder: (BuildContext context, AddToCartState state) {
                           return addCartView(state);
                         },
@@ -115,7 +115,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               changeCartValues(
                   false,
                   state is CartDataLoading
-                      ? (){}
+                      ? () {}
                       : () {
                           addToCartCubit.updateCartValues(
                               widget.productModel, cartValue, false);
@@ -138,7 +138,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               changeCartValues(
                   true,
                   state is CartDataLoading
-                      ? (){}
+                      ? () {}
                       : () {
                           addToCartCubit.updateCartValues(
                               widget.productModel, cartValue, true);

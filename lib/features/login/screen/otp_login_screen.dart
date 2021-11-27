@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/utils/validator.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/login/bloc/otp_login_cubit.dart';
 import 'package:fluttercommerce/features/login/state/otp_login_state.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/styles.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/styles.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class OtpLoginScreen extends StatefulWidget {
-  final String? phoneNumber;
-
   OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
+
+  final String? phoneNumber;
 
   @override
   _OtpLoginScreenState createState() => _OtpLoginScreenState();
@@ -58,15 +58,10 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              // backgroundColor: Styles.transparent,
-//            floatingActionButton: _floatingActionButton(),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
-              // ignore: avoid_unnecessary_containers
-              body: Container(
-                child: Column(
-                  children: <Widget>[_loginCard()],
-                ),
+              body: Column(
+                children: <Widget>[_loginCard()],
               ),
             ),
           ),
@@ -125,48 +120,28 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
-                bloc : otpLoginCubit,
+                bloc: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {
-                  state.when(
-                      idle: () {},
-                      confirmOtpLoading: () {},
-                      autoFetchOtp: (String otp) {
-                        otpNumberController.text = otp;
-                      },
-                      onButtonEnabled: () {},
-                      resendOtpLoading: () {},
-                      showError: (String error) {
-                        print(error);
-                      },
-                      onButtonDisabled: () {},
-                      loginSuccessFull: () {
-                        accountDetailsCubit.streamAccountDetails();
+                  if (state.otp != null) {
+                    otpNumberController.text = state.otp!;
+                  }
+                  if (state.loginSuccessFull) {
+                    accountDetailsCubit.streamAccountDetails();
 
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            CheckStatusScreenRoute.name, (route) => false,
-                            arguments: CheckStatusScreenRouteArgs(
-                                checkForAccountStatusOnly: true));
-                      },
-                      codeCountDown: (String value) {
-                        print(value);
-                      });
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      CheckStatusScreenRoute.name,
+                      (route) => false,
+                      arguments: const CheckStatusScreenRouteArgs(
+                          checkForAccountStatusOnly: true),
+                    );
+                  }
                 },
                 builder: (BuildContext context, OtpLoginState state) {
-                  bool isButtonEnabled() {
-                    if (state is ButtonEnabled) {
-                      return true;
-                    } else if (state is ButtonDisabled) {
-                      return false;
-                    } else {
-                      return true;
-                    }
-                  }
-
                   return CommonButton(
                     title: StringsConstants.confirmOtp,
                     height: 50,
-                    isEnabled: isButtonEnabled(),
-                    replaceWithIndicator: state is ConfirmOtpLoading,
+                    isEnabled: state.isButtonEnabled,
+                    replaceWithIndicator: state.confirmOtpLoading,
                     onTap: () {
                       onButtonTap();
                     },
@@ -177,15 +152,20 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
-                bloc : otpLoginCubit,
+                bloc: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {},
                 builder: (BuildContext context, OtpLoginState state) {
-                  if (state is ResendOtpLoading) {
+                  if (state.resendOtpLoading) {
                     return CommonAppLoader();
                   }
-                  return Text(
-                    StringsConstants.resendOtp,
-                    style: AppTextStyles.normal14PrimaryColor,
+                  return GestureDetector(
+                    onTap: () {
+                      onButtonTap(isResend: false);
+                    },
+                    child: Text(
+                      StringsConstants.resendOtp,
+                      style: AppTextStyles.normal14PrimaryColor,
+                    ),
                   );
                 },
               ),
@@ -211,9 +191,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
     );
   }
 
-  void onButtonTap() {
+  void onButtonTap({bool isResend = false}) {
     if (_formKey.currentState!.validate()) {
-      otpLoginCubit.loginWithOtp(otpNumberController.text.trim());
+      otpLoginCubit.loginWithOtp(otpNumberController.text.trim(), isResend);
     }
   }
 }

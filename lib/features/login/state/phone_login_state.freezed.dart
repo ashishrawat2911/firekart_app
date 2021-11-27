@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'phone_login_state.dart';
 
@@ -53,6 +54,17 @@ mixin _$PhoneLoginState {
     required TResult Function(String error) showError,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -63,6 +75,7 @@ mixin _$PhoneLoginState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -72,6 +85,17 @@ mixin _$PhoneLoginState {
     required TResult Function(ShowError value) showError,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -97,6 +121,7 @@ class _$PhoneLoginStateCopyWithImpl<$Res>
   _$PhoneLoginStateCopyWithImpl(this._value, this._then);
 
   final PhoneLoginState _value;
+
   // ignore: unused_field
   final $Res Function(PhoneLoginState) _then;
 }
@@ -118,6 +143,7 @@ class _$IdleCopyWithImpl<$Res> extends _$PhoneLoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Idle implements Idle {
   const _$Idle();
 
@@ -128,7 +154,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -144,6 +171,18 @@ class _$Idle implements Idle {
     required TResult Function(String error) showError,
   }) {
     return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+  }) {
+    return idle?.call();
   }
 
   @override
@@ -172,6 +211,18 @@ class _$Idle implements Idle {
     required TResult Function(ShowError value) showError,
   }) {
     return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+  }) {
+    return idle?.call(this);
   }
 
   @override
@@ -215,6 +266,7 @@ class _$ButtonEnabledCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ButtonEnabled implements ButtonEnabled {
   const _$ButtonEnabled();
 
@@ -225,7 +277,8 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ButtonEnabled);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ButtonEnabled);
   }
 
   @override
@@ -241,6 +294,18 @@ class _$ButtonEnabled implements ButtonEnabled {
     required TResult Function(String error) showError,
   }) {
     return onButtonEnabled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+  }) {
+    return onButtonEnabled?.call();
   }
 
   @override
@@ -269,6 +334,18 @@ class _$ButtonEnabled implements ButtonEnabled {
     required TResult Function(ShowError value) showError,
   }) {
     return onButtonEnabled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+  }) {
+    return onButtonEnabled?.call(this);
   }
 
   @override
@@ -312,6 +389,7 @@ class _$ButtonDisabledCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ButtonDisabled implements ButtonDisabled {
   const _$ButtonDisabled();
 
@@ -322,7 +400,8 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ButtonDisabled);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ButtonDisabled);
   }
 
   @override
@@ -338,6 +417,18 @@ class _$ButtonDisabled implements ButtonDisabled {
     required TResult Function(String error) showError,
   }) {
     return onButtonDisabled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+  }) {
+    return onButtonDisabled?.call();
   }
 
   @override
@@ -366,6 +457,18 @@ class _$ButtonDisabled implements ButtonDisabled {
     required TResult Function(ShowError value) showError,
   }) {
     return onButtonDisabled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+  }) {
+    return onButtonDisabled?.call(this);
   }
 
   @override
@@ -409,6 +512,7 @@ class _$PhoneLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$PhoneLoading implements PhoneLoading {
   const _$PhoneLoading();
 
@@ -419,7 +523,8 @@ class _$PhoneLoading implements PhoneLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is PhoneLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is PhoneLoading);
   }
 
   @override
@@ -435,6 +540,18 @@ class _$PhoneLoading implements PhoneLoading {
     required TResult Function(String error) showError,
   }) {
     return phoneLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+  }) {
+    return phoneLoading?.call();
   }
 
   @override
@@ -467,6 +584,18 @@ class _$PhoneLoading implements PhoneLoading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+  }) {
+    return phoneLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(ButtonEnabled value)? onButtonEnabled,
@@ -490,6 +619,7 @@ abstract class PhoneLoading implements PhoneLoginState {
 abstract class $ShowErrorCopyWith<$Res> {
   factory $ShowErrorCopyWith(ShowError value, $Res Function(ShowError) then) =
       _$ShowErrorCopyWithImpl<$Res>;
+
   $Res call({String error});
 }
 
@@ -516,6 +646,7 @@ class _$ShowErrorCopyWithImpl<$Res> extends _$PhoneLoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowError implements ShowError {
   const _$ShowError(this.error);
 
@@ -530,14 +661,13 @@ class _$ShowError implements ShowError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ShowError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+        (other.runtimeType == runtimeType &&
+            other is ShowError &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
@@ -554,6 +684,18 @@ class _$ShowError implements ShowError {
     required TResult Function(String error) showError,
   }) {
     return showError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? phoneLoading,
+    TResult Function(String error)? showError,
+  }) {
+    return showError?.call(error);
   }
 
   @override
@@ -586,6 +728,18 @@ class _$ShowError implements ShowError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(PhoneLoading value)? phoneLoading,
+    TResult Function(ShowError value)? showError,
+  }) {
+    return showError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(ButtonEnabled value)? onButtonEnabled,
@@ -604,7 +758,8 @@ class _$ShowError implements ShowError {
 abstract class ShowError implements PhoneLoginState {
   const factory ShowError(String error) = _$ShowError;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
+
   @JsonKey(ignore: true)
   $ShowErrorCopyWith<ShowError> get copyWith =>
       throw _privateConstructorUsedError;

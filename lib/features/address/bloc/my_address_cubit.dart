@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/address/state/my_address_state.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 class MyAddressCubit extends Cubit<MyAddressState> {
-  FirestoreRepository firebaseRepo;
+  FirebaseManager firebaseRepo;
 
   MyAddressCubit(this.firebaseRepo) : super(MyAddressState.loading());
 

@@ -1,20 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/state/add_to_cart_state.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
 
 class AddToCartCubit extends Cubit<AddToCartState> {
-  AddToCartCubit(this._firebaseRepo, this._authRepo) : super(ShowAddButton());
+  AddToCartCubit(this._firebaseRepo) : super(ShowAddButton());
 
-  final FirestoreRepository _firebaseRepo;
-  final AuthRepository _authRepo;
+  final FirebaseManager _firebaseRepo;
 
   Future<void> listenToProduct(String productId) async {
-    _firebaseRepo.cartStatusListen(await _authRepo.getUid()).listen((event) {
+    _firebaseRepo
+        .cartStatusListen(await _firebaseRepo.getUid())
+        .listen((event) {
       checkItemInCart(productId, isListening: true);
     });
   }

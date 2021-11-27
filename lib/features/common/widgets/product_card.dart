@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel productModel;
@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1.5,
                 child: CachedNetworkImage(
-                  imageUrl: productModel.image,
+                  imageUrl: productModel.image!,
                   fit: BoxFit.fitWidth,
                 ),
               ),

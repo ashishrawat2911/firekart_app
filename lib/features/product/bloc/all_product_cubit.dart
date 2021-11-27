@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 
 class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
   AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
 
-  final FirestoreRepository _firebaseRepo;
+  final FirebaseManager _firebaseRepo;
   List<DocumentSnapshot>? documents;
   List<ProductModel>? productList;
 
@@ -19,8 +19,8 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
       } else {
         documents = await _firebaseRepo.getAllProductsData(condition);
       }
-      productList = List<ProductModel>.generate(
-          documents!.length, (index) => ProductModel.fromJson(documents![index]));
+      productList = List<ProductModel>.generate(documents!.length,
+          (index) => ProductModel.fromJson(documents![index]));
       List.generate(productList!.length, (index) {
         print(productList![index].name);
       });
@@ -37,8 +37,8 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
           await _firebaseRepo.getAllProducts(documents![documents!.length - 1]);
 
       documents!.addAll(docs);
-      productList = List<ProductModel>.generate(
-          documents!.length, (index) => ProductModel.fromJson(documents![index]));
+      productList = List<ProductModel>.generate(documents!.length,
+          (index) => ProductModel.fromJson(documents![index]));
       List.generate(productList!.length, (index) {
         print(productList![index].name);
       });
@@ -46,7 +46,8 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
       emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       print(e);
-      emit(ResultState.unNotifiedError(error: e.toString(), data: productList!));
+      emit(
+          ResultState.unNotifiedError(error: e.toString(), data: productList!));
     }
   }
 }

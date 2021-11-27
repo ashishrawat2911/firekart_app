@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class CommonExpandedWidget extends StatefulWidget {
   final Color? backgroundColor;

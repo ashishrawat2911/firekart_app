@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'my_address_state.dart';
 
@@ -46,6 +47,13 @@ mixin _$MyAddressState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(AccountDetails accountDetails)? showAccountDetails,
+    TResult Function(String errorMessage)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(AccountDetails accountDetails)? showAccountDetails,
@@ -58,6 +66,13 @@ mixin _$MyAddressState {
     required TResult Function(Loading value) loading,
     required TResult Function(ShowAccountDetails value) showAccountDetails,
     required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(ShowAccountDetails value)? showAccountDetails,
+    TResult Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,6 +119,7 @@ class _$LoadingCopyWithImpl<$Res> extends _$MyAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   const _$Loading();
 
@@ -114,7 +130,8 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Loading);
   }
 
   @override
@@ -128,6 +145,16 @@ class _$Loading implements Loading {
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(AccountDetails accountDetails)? showAccountDetails,
+    TResult Function(String errorMessage)? error,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -152,6 +179,16 @@ class _$Loading implements Loading {
     required TResult Function(Error value) error,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(ShowAccountDetails value)? showAccountDetails,
+    TResult Function(Error value)? error,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -206,6 +243,7 @@ class _$ShowAccountDetailsCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowAccountDetails implements ShowAccountDetails {
   const _$ShowAccountDetails(this.accountDetails);
 
@@ -220,16 +258,14 @@ class _$ShowAccountDetails implements ShowAccountDetails {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ShowAccountDetails &&
+        (other.runtimeType == runtimeType &&
+            other is ShowAccountDetails &&
             (identical(other.accountDetails, accountDetails) ||
-                const DeepCollectionEquality()
-                    .equals(other.accountDetails, accountDetails)));
+                other.accountDetails == accountDetails));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(accountDetails);
+  int get hashCode => Object.hash(runtimeType, accountDetails);
 
   @JsonKey(ignore: true)
   @override
@@ -244,6 +280,16 @@ class _$ShowAccountDetails implements ShowAccountDetails {
     required TResult Function(String errorMessage) error,
   }) {
     return showAccountDetails(accountDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(AccountDetails accountDetails)? showAccountDetails,
+    TResult Function(String errorMessage)? error,
+  }) {
+    return showAccountDetails?.call(accountDetails);
   }
 
   @override
@@ -272,6 +318,16 @@ class _$ShowAccountDetails implements ShowAccountDetails {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(ShowAccountDetails value)? showAccountDetails,
+    TResult Function(Error value)? error,
+  }) {
+    return showAccountDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
     TResult Function(ShowAccountDetails value)? showAccountDetails,
@@ -289,7 +345,7 @@ abstract class ShowAccountDetails implements MyAddressState {
   const factory ShowAccountDetails(AccountDetails accountDetails) =
       _$ShowAccountDetails;
 
-  AccountDetails get accountDetails => throw _privateConstructorUsedError;
+  AccountDetails get accountDetails;
   @JsonKey(ignore: true)
   $ShowAccountDetailsCopyWith<ShowAccountDetails> get copyWith =>
       throw _privateConstructorUsedError;
@@ -325,6 +381,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$MyAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error(this.errorMessage);
 
@@ -339,15 +396,14 @@ class _$Error implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Error &&
+        (other.runtimeType == runtimeType &&
+            other is Error &&
             (identical(other.errorMessage, errorMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorMessage, errorMessage)));
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -362,6 +418,16 @@ class _$Error implements Error {
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(AccountDetails accountDetails)? showAccountDetails,
+    TResult Function(String errorMessage)? error,
+  }) {
+    return error?.call(errorMessage);
   }
 
   @override
@@ -390,6 +456,16 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(ShowAccountDetails value)? showAccountDetails,
+    TResult Function(Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
     TResult Function(ShowAccountDetails value)? showAccountDetails,
@@ -406,7 +482,7 @@ class _$Error implements Error {
 abstract class Error implements MyAddressState {
   const factory Error(String errorMessage) = _$Error;
 
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMessage;
   @JsonKey(ignore: true)
   $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
 }

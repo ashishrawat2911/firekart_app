@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class CommonCard extends StatelessWidget {
   final Widget child;

@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/state/cart_item_state.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
 
 class CartItemCubit extends Cubit<CartItemState> {
   CartItemCubit(this._firebaseRepo) : super(const Idle());
 
-  final FirestoreRepository _firebaseRepo;
+  final FirebaseManager _firebaseRepo;
 
   void initCartValues(num cartValue) {
     emit(ShowCartValue(cartValue));

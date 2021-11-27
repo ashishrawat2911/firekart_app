@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/product_card.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
 import 'package:fluttercommerce/features/product/bloc/all_product_cubit.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class AllProductListScreen extends StatefulWidget {
   final String? productCondition;
@@ -58,7 +58,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         ],
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
-        bloc : allProductsCubit,
+        bloc: allProductsCubit,
         listener:
             (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {

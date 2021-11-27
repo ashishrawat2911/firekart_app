@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'place_order_state.dart';
 
@@ -49,6 +50,14 @@ mixin _$PlaceOrderState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? orderPlacedInProgress,
+    TResult Function()? orderSuccessfullyPlaced,
+    TResult Function(String message)? orderNotPlaced,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? orderPlacedInProgress,
@@ -65,6 +74,14 @@ mixin _$PlaceOrderState {
     required TResult Function(OrderSuccessfullyPlaced value)
         orderSuccessfullyPlaced,
     required TResult Function(OrderNotPlaced value) orderNotPlaced,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(OrderPlacedInProgress value)? orderPlacedInProgress,
+    TResult Function(OrderSuccessfullyPlaced value)? orderSuccessfullyPlaced,
+    TResult Function(OrderNotPlaced value)? orderNotPlaced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -112,6 +129,7 @@ class _$IdleCopyWithImpl<$Res> extends _$PlaceOrderStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Idle implements Idle {
   const _$Idle();
 
@@ -122,7 +140,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -137,6 +156,17 @@ class _$Idle implements Idle {
     required TResult Function(String message) orderNotPlaced,
   }) {
     return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? orderPlacedInProgress,
+    TResult Function()? orderSuccessfullyPlaced,
+    TResult Function(String message)? orderNotPlaced,
+  }) {
+    return idle?.call();
   }
 
   @override
@@ -165,6 +195,17 @@ class _$Idle implements Idle {
     required TResult Function(OrderNotPlaced value) orderNotPlaced,
   }) {
     return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(OrderPlacedInProgress value)? orderPlacedInProgress,
+    TResult Function(OrderSuccessfullyPlaced value)? orderSuccessfullyPlaced,
+    TResult Function(OrderNotPlaced value)? orderNotPlaced,
+  }) {
+    return idle?.call(this);
   }
 
   @override
@@ -207,6 +248,7 @@ class _$OrderPlacedInProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$OrderPlacedInProgress implements OrderPlacedInProgress {
   const _$OrderPlacedInProgress();
 
@@ -217,7 +259,8 @@ class _$OrderPlacedInProgress implements OrderPlacedInProgress {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is OrderPlacedInProgress);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is OrderPlacedInProgress);
   }
 
   @override
@@ -232,6 +275,17 @@ class _$OrderPlacedInProgress implements OrderPlacedInProgress {
     required TResult Function(String message) orderNotPlaced,
   }) {
     return orderPlacedInProgress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? orderPlacedInProgress,
+    TResult Function()? orderSuccessfullyPlaced,
+    TResult Function(String message)? orderNotPlaced,
+  }) {
+    return orderPlacedInProgress?.call();
   }
 
   @override
@@ -260,6 +314,17 @@ class _$OrderPlacedInProgress implements OrderPlacedInProgress {
     required TResult Function(OrderNotPlaced value) orderNotPlaced,
   }) {
     return orderPlacedInProgress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(OrderPlacedInProgress value)? orderPlacedInProgress,
+    TResult Function(OrderSuccessfullyPlaced value)? orderSuccessfullyPlaced,
+    TResult Function(OrderNotPlaced value)? orderNotPlaced,
+  }) {
+    return orderPlacedInProgress?.call(this);
   }
 
   @override
@@ -302,6 +367,7 @@ class _$OrderSuccessfullyPlacedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$OrderSuccessfullyPlaced implements OrderSuccessfullyPlaced {
   const _$OrderSuccessfullyPlaced();
 
@@ -312,7 +378,8 @@ class _$OrderSuccessfullyPlaced implements OrderSuccessfullyPlaced {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is OrderSuccessfullyPlaced);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is OrderSuccessfullyPlaced);
   }
 
   @override
@@ -327,6 +394,17 @@ class _$OrderSuccessfullyPlaced implements OrderSuccessfullyPlaced {
     required TResult Function(String message) orderNotPlaced,
   }) {
     return orderSuccessfullyPlaced();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? orderPlacedInProgress,
+    TResult Function()? orderSuccessfullyPlaced,
+    TResult Function(String message)? orderNotPlaced,
+  }) {
+    return orderSuccessfullyPlaced?.call();
   }
 
   @override
@@ -355,6 +433,17 @@ class _$OrderSuccessfullyPlaced implements OrderSuccessfullyPlaced {
     required TResult Function(OrderNotPlaced value) orderNotPlaced,
   }) {
     return orderSuccessfullyPlaced(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(OrderPlacedInProgress value)? orderPlacedInProgress,
+    TResult Function(OrderSuccessfullyPlaced value)? orderSuccessfullyPlaced,
+    TResult Function(OrderNotPlaced value)? orderNotPlaced,
+  }) {
+    return orderSuccessfullyPlaced?.call(this);
   }
 
   @override
@@ -410,6 +499,7 @@ class _$OrderNotPlacedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$OrderNotPlaced implements OrderNotPlaced {
   const _$OrderNotPlaced(this.message);
 
@@ -424,14 +514,13 @@ class _$OrderNotPlaced implements OrderNotPlaced {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OrderNotPlaced &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is OrderNotPlaced &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -447,6 +536,17 @@ class _$OrderNotPlaced implements OrderNotPlaced {
     required TResult Function(String message) orderNotPlaced,
   }) {
     return orderNotPlaced(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? orderPlacedInProgress,
+    TResult Function()? orderSuccessfullyPlaced,
+    TResult Function(String message)? orderNotPlaced,
+  }) {
+    return orderNotPlaced?.call(message);
   }
 
   @override
@@ -479,6 +579,17 @@ class _$OrderNotPlaced implements OrderNotPlaced {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(OrderPlacedInProgress value)? orderPlacedInProgress,
+    TResult Function(OrderSuccessfullyPlaced value)? orderSuccessfullyPlaced,
+    TResult Function(OrderNotPlaced value)? orderNotPlaced,
+  }) {
+    return orderNotPlaced?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(OrderPlacedInProgress value)? orderPlacedInProgress,
@@ -496,7 +607,7 @@ class _$OrderNotPlaced implements OrderNotPlaced {
 abstract class OrderNotPlaced implements PlaceOrderState {
   const factory OrderNotPlaced(String message) = _$OrderNotPlaced;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   $OrderNotPlacedCopyWith<OrderNotPlaced> get copyWith =>
       throw _privateConstructorUsedError;

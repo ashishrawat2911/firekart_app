@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/address/bloc/add_address_cubit.dart';
 import 'package:fluttercommerce/features/address/state/add_address_state.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 class AddAddressScreen extends StatefulWidget {
   final bool newAddress;
@@ -213,7 +213,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     height: 50,
                   ),
                   BlocConsumer<AddAddressCubit, AddAddressState>(
-                    bloc : addAddressCubit,
+                    bloc: addAddressCubit,
                     listener: (BuildContext context, AddAddressState state) {
                       if (state is Successful) {
                         Navigator.of(context).pop(true);

@@ -1,16 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/checkout/state/place_order_state.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PlaceOrderCubit extends Cubit<PlaceOrderState> {
-  FirestoreRepository firebaseRepo;
+  FirebaseManager firebaseRepo;
 
   PlaceOrderCubit(this.firebaseRepo) : super(PlaceOrderState.idle());
 

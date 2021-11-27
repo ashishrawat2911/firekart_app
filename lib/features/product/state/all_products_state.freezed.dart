@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'all_products_state.dart';
 
@@ -31,17 +32,32 @@ mixin _$AllProductState {
     required TResult Function() productLoading,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? productLoading,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? productLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProductLoading value) productLoading,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProductLoading value)? productLoading,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProductLoading value)? productLoading,
@@ -63,6 +79,7 @@ class _$AllProductStateCopyWithImpl<$Res>
   _$AllProductStateCopyWithImpl(this._value, this._then);
 
   final AllProductState _value;
+
   // ignore: unused_field
   final $Res Function(AllProductState) _then;
 }
@@ -87,6 +104,7 @@ class _$ProductLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ProductLoading implements ProductLoading {
   const _$ProductLoading();
 
@@ -97,7 +115,8 @@ class _$ProductLoading implements ProductLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ProductLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ProductLoading);
   }
 
   @override
@@ -109,6 +128,14 @@ class _$ProductLoading implements ProductLoading {
     required TResult Function() productLoading,
   }) {
     return productLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? productLoading,
+  }) {
+    return productLoading?.call();
   }
 
   @override
@@ -129,6 +156,14 @@ class _$ProductLoading implements ProductLoading {
     required TResult Function(ProductLoading value) productLoading,
   }) {
     return productLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProductLoading value)? productLoading,
+  }) {
+    return productLoading?.call(this);
   }
 
   @override

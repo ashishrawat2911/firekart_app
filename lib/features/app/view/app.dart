@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/res/app_theme.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/res/app_theme.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
