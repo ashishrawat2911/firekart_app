@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 typedef _onConnectionChanged = void Function(bool value);

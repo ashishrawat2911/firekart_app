@@ -1,18 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/checkout/screen/cart_screen.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/home/bloc/bottom_bar_cubit.dart';
 import 'package:fluttercommerce/features/home/screen/home_page.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 import '../../search/screen/SearchScreen.dart';
 import '../../user/screen/account_screen.dart';
@@ -24,8 +23,7 @@ class MainHomeScreen extends StatefulWidget {
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
   var bottomBarCubit = DI.container<BottomBarCubit>();
-  var firebaseRepo = DI.container<FirestoreRepository>();
-  var authRepo = DI.container<AuthRepository>();
+  var firebaseRepo = DI.container<FirebaseManager>();
   var cartStatusCubit = DI.container<CartStatusCubit>();
   var accountDetailsCubit = DI.container<AccountDetailsCubit>();
 
@@ -37,12 +35,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   }
 
   listenToCartValues() async {
-    firebaseRepo.cartStatusListen(await authRepo.getUid()).listen((event) {
-      var noOfItemsInCart = event?.documents?.length ?? 0;
+    firebaseRepo.cartStatusListen(await firebaseRepo.getUid()).listen((event) {
+      var noOfItemsInCart = event.docs.length ?? 0;
       if (noOfItemsInCart > 0) {
         cartStatusCubit.cartItems =
-            List<CartModel>.generate(event?.documents?.length ?? 0, (index) {
-          DocumentSnapshot documentSnapshot = event.documents[index];
+            List<CartModel>.generate(event.docs.length ?? 0, (index) {
+          DocumentSnapshot documentSnapshot = event.docs[index];
           return CartModel.fromJson(documentSnapshot);
         });
       }
@@ -53,13 +51,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   }
 
   void listenToAccountDetails() async {
-    firebaseRepo.streamUserDetails(await authRepo.getUid()).listen((event) {});
+    firebaseRepo
+        .streamUserDetails(await firebaseRepo.getUid())
+        .listen((event) {});
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomBarCubit, int>(
-      bloc : bottomBarCubit,
+      bloc: bottomBarCubit,
       builder: (context, state) {
         return Scaffold(
           body: [
@@ -86,7 +86,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                     children: <Widget>[
                       Center(child: Icon(Icons.shopping_cart)),
                       BlocBuilder<CartStatusCubit, List<CartModel>>(
-                        bloc : cartStatusCubit,
+                        bloc: cartStatusCubit,
                         builder: (context, state) {
                           return Visibility(
                             visible: cartStatusCubit.noOfItemsInCart > 0,

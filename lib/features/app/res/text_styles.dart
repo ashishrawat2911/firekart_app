@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/painting.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class AppTextStyles {
   AppTextStyles._();

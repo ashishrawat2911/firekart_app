@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/core/basescreen.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/view/base_screen.dart';
 import 'package:fluttercommerce/features/init/bloc/splash_bloc.dart';
 import 'package:fluttercommerce/features/init/state/splash_state.dart';
-import 'package:fluttercommerce/res/app_assets.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/res/app_assets.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
   SplashScreen({Key? key}) : super(key: key);

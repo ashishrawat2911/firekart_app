@@ -1,24 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 import '../state/account_details_state.dart';
 
 class AccountDetailsCubit extends Cubit<AccountDetailsState> {
-  FirestoreRepository firebaseRepo;
+  FirebaseManager firebaseRepo;
 
-  AuthRepository authRepo;
-
-  AccountDetailsCubit(this.firebaseRepo, this.authRepo)
-      : super(AccountDetailsState()) {
+  AccountDetailsCubit(this.firebaseRepo) : super(AccountDetailsState()) {
     streamAccountDetails();
   }
 
   Future<void> streamAccountDetails() async {
     firebaseRepo
-        .streamUserDetails(await authRepo.getUid())
+        .streamUserDetails(await firebaseRepo.getUid())
         .listen((DocumentSnapshot event) {
       _addDetails(event);
     });
@@ -35,7 +31,7 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
         AccountDetails.fromDocument(documentSnapshot);
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
     Address? address;
-    List.generate(accountDetails?.addresses?.length??0, (int index) {
+    List.generate(accountDetails.addresses.length ?? 0, (int index) {
       final Address add = accountDetails.addresses[index];
       if (add.isDefault) {
         address = add;

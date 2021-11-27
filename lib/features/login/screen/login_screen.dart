@@ -5,10 +5,10 @@ import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/styles.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/styles.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 import '../bloc/phone_login_cubit.dart';
 import '../state/phone_login_state.dart';

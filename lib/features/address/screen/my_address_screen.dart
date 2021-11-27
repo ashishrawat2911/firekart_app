@@ -9,10 +9,10 @@ import 'package:fluttercommerce/features/common/models/account_details_model.dar
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class MyAddressScreen extends StatefulWidget {
   final bool selectedAddress;

@@ -8,9 +8,9 @@ import 'package:fluttercommerce/features/common/widgets/product_card.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
 import 'package:fluttercommerce/features/home/bloc/home_page_cubit.dart';
 import 'package:fluttercommerce/features/home/home_module.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomePageScreen extends StatefulWidget {

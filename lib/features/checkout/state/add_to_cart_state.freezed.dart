@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'add_to_cart_state.dart';
 
@@ -72,6 +73,17 @@ mixin _$AddToCartState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? addToCardLoading,
     TResult Function()? showAddButton,
@@ -92,6 +104,17 @@ mixin _$AddToCartState {
     required TResult Function(AddToCartError value) addToCartError,
     required TResult Function(UpdateCartError value) updateCartError,
     required TResult Function(DeleteCartError value) deleteCartError,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -145,6 +168,7 @@ class _$AddToCardLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AddToCardLoading implements AddToCardLoading {
   const _$AddToCardLoading();
 
@@ -155,7 +179,8 @@ class _$AddToCardLoading implements AddToCardLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AddToCardLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AddToCardLoading);
   }
 
   @override
@@ -174,6 +199,20 @@ class _$AddToCardLoading implements AddToCardLoading {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return addToCardLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return addToCardLoading?.call();
   }
 
   @override
@@ -206,6 +245,20 @@ class _$AddToCardLoading implements AddToCardLoading {
     required TResult Function(DeleteCartError value) deleteCartError,
   }) {
     return addToCardLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return addToCardLoading?.call(this);
   }
 
   @override
@@ -251,6 +304,7 @@ class _$ShowAddButtonCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowAddButton implements ShowAddButton {
   const _$ShowAddButton();
 
@@ -261,7 +315,8 @@ class _$ShowAddButton implements ShowAddButton {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ShowAddButton);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ShowAddButton);
   }
 
   @override
@@ -280,6 +335,20 @@ class _$ShowAddButton implements ShowAddButton {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return showAddButton();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return showAddButton?.call();
   }
 
   @override
@@ -312,6 +381,20 @@ class _$ShowAddButton implements ShowAddButton {
     required TResult Function(DeleteCartError value) deleteCartError,
   }) {
     return showAddButton(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return showAddButton?.call(this);
   }
 
   @override
@@ -357,6 +440,7 @@ class _$CartDataLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$CartDataLoading implements CartDataLoading {
   const _$CartDataLoading();
 
@@ -367,7 +451,8 @@ class _$CartDataLoading implements CartDataLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CartDataLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is CartDataLoading);
   }
 
   @override
@@ -386,6 +471,20 @@ class _$CartDataLoading implements CartDataLoading {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return cartDataLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return cartDataLoading?.call();
   }
 
   @override
@@ -418,6 +517,20 @@ class _$CartDataLoading implements CartDataLoading {
     required TResult Function(DeleteCartError value) deleteCartError,
   }) {
     return cartDataLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return cartDataLoading?.call(this);
   }
 
   @override
@@ -476,6 +589,7 @@ class _$ShowCartValueCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowCartValue implements ShowCartValue {
   const _$ShowCartValue(this.noOfItems);
 
@@ -490,15 +604,14 @@ class _$ShowCartValue implements ShowCartValue {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ShowCartValue &&
+        (other.runtimeType == runtimeType &&
+            other is ShowCartValue &&
             (identical(other.noOfItems, noOfItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.noOfItems, noOfItems)));
+                other.noOfItems == noOfItems));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(noOfItems);
+  int get hashCode => Object.hash(runtimeType, noOfItems);
 
   @JsonKey(ignore: true)
   @override
@@ -518,6 +631,20 @@ class _$ShowCartValue implements ShowCartValue {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return showCartValue(noOfItems);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return showCartValue?.call(noOfItems);
   }
 
   @override
@@ -554,6 +681,20 @@ class _$ShowCartValue implements ShowCartValue {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return showCartValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddToCardLoading value)? addToCardLoading,
     TResult Function(ShowAddButton value)? showAddButton,
@@ -574,7 +715,7 @@ class _$ShowCartValue implements ShowCartValue {
 abstract class ShowCartValue implements AddToCartState {
   const factory ShowCartValue(num noOfItems) = _$ShowCartValue;
 
-  num get noOfItems => throw _privateConstructorUsedError;
+  num get noOfItems;
   @JsonKey(ignore: true)
   $ShowCartValueCopyWith<ShowCartValue> get copyWith =>
       throw _privateConstructorUsedError;
@@ -613,6 +754,7 @@ class _$AddToCartErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AddToCartError implements AddToCartError {
   const _$AddToCartError(this.errorMessage);
 
@@ -627,15 +769,14 @@ class _$AddToCartError implements AddToCartError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AddToCartError &&
+        (other.runtimeType == runtimeType &&
+            other is AddToCartError &&
             (identical(other.errorMessage, errorMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorMessage, errorMessage)));
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -655,6 +796,20 @@ class _$AddToCartError implements AddToCartError {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return addToCartError(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return addToCartError?.call(errorMessage);
   }
 
   @override
@@ -691,6 +846,20 @@ class _$AddToCartError implements AddToCartError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return addToCartError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddToCardLoading value)? addToCardLoading,
     TResult Function(ShowAddButton value)? showAddButton,
@@ -711,7 +880,7 @@ class _$AddToCartError implements AddToCartError {
 abstract class AddToCartError implements AddToCartState {
   const factory AddToCartError(String errorMessage) = _$AddToCartError;
 
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMessage;
   @JsonKey(ignore: true)
   $AddToCartErrorCopyWith<AddToCartError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -755,6 +924,7 @@ class _$UpdateCartErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UpdateCartError implements UpdateCartError {
   const _$UpdateCartError(this.errorMessage, this.cartValue);
 
@@ -771,20 +941,16 @@ class _$UpdateCartError implements UpdateCartError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UpdateCartError &&
+        (other.runtimeType == runtimeType &&
+            other is UpdateCartError &&
             (identical(other.errorMessage, errorMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorMessage, errorMessage)) &&
+                other.errorMessage == errorMessage) &&
             (identical(other.cartValue, cartValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.cartValue, cartValue)));
+                other.cartValue == cartValue));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(errorMessage) ^
-      const DeepCollectionEquality().hash(cartValue);
+  int get hashCode => Object.hash(runtimeType, errorMessage, cartValue);
 
   @JsonKey(ignore: true)
   @override
@@ -804,6 +970,20 @@ class _$UpdateCartError implements UpdateCartError {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return updateCartError(errorMessage, cartValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return updateCartError?.call(errorMessage, cartValue);
   }
 
   @override
@@ -840,6 +1020,20 @@ class _$UpdateCartError implements UpdateCartError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return updateCartError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddToCardLoading value)? addToCardLoading,
     TResult Function(ShowAddButton value)? showAddButton,
@@ -861,8 +1055,8 @@ abstract class UpdateCartError implements AddToCartState {
   const factory UpdateCartError(String errorMessage, int cartValue) =
       _$UpdateCartError;
 
-  String get errorMessage => throw _privateConstructorUsedError;
-  int get cartValue => throw _privateConstructorUsedError;
+  String get errorMessage;
+  int get cartValue;
   @JsonKey(ignore: true)
   $UpdateCartErrorCopyWith<UpdateCartError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -901,6 +1095,7 @@ class _$DeleteCartErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$DeleteCartError implements DeleteCartError {
   const _$DeleteCartError(this.errorMessage);
 
@@ -915,15 +1110,14 @@ class _$DeleteCartError implements DeleteCartError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is DeleteCartError &&
+        (other.runtimeType == runtimeType &&
+            other is DeleteCartError &&
             (identical(other.errorMessage, errorMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorMessage, errorMessage)));
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -943,6 +1137,20 @@ class _$DeleteCartError implements DeleteCartError {
     required TResult Function(String errorMessage) deleteCartError,
   }) {
     return deleteCartError(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? addToCardLoading,
+    TResult Function()? showAddButton,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function(String errorMessage)? deleteCartError,
+  }) {
+    return deleteCartError?.call(errorMessage);
   }
 
   @override
@@ -979,6 +1187,20 @@ class _$DeleteCartError implements DeleteCartError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddToCardLoading value)? addToCardLoading,
+    TResult Function(ShowAddButton value)? showAddButton,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(DeleteCartError value)? deleteCartError,
+  }) {
+    return deleteCartError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddToCardLoading value)? addToCardLoading,
     TResult Function(ShowAddButton value)? showAddButton,
@@ -999,7 +1221,7 @@ class _$DeleteCartError implements DeleteCartError {
 abstract class DeleteCartError implements AddToCartState {
   const factory DeleteCartError(String errorMessage) = _$DeleteCartError;
 
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMessage;
   @JsonKey(ignore: true)
   $DeleteCartErrorCopyWith<DeleteCartError> get copyWith =>
       throw _privateConstructorUsedError;

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'address_card_state.dart';
 
@@ -53,6 +54,17 @@ mixin _$AddressCardState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -63,6 +75,7 @@ mixin _$AddressCardState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -72,6 +85,17 @@ mixin _$AddressCardState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(Successful value)? successful,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -97,6 +121,7 @@ class _$AddressCardStateCopyWithImpl<$Res>
   _$AddressCardStateCopyWithImpl(this._value, this._then);
 
   final AddressCardState _value;
+
   // ignore: unused_field
   final $Res Function(AddressCardState) _then;
 }
@@ -118,6 +143,7 @@ class _$IdleCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Idle implements Idle {
   const _$Idle();
 
@@ -128,7 +154,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -144,6 +171,18 @@ class _$Idle implements Idle {
     required TResult Function() successful,
   }) {
     return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return idle?.call();
   }
 
   @override
@@ -172,6 +211,18 @@ class _$Idle implements Idle {
     required TResult Function(Successful value) successful,
   }) {
     return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return idle?.call(this);
   }
 
   @override
@@ -215,6 +266,7 @@ class _$EditLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$EditLoading implements EditLoading {
   const _$EditLoading();
 
@@ -225,7 +277,8 @@ class _$EditLoading implements EditLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is EditLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is EditLoading);
   }
 
   @override
@@ -241,6 +294,18 @@ class _$EditLoading implements EditLoading {
     required TResult Function() successful,
   }) {
     return editLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return editLoading?.call();
   }
 
   @override
@@ -269,6 +334,18 @@ class _$EditLoading implements EditLoading {
     required TResult Function(Successful value) successful,
   }) {
     return editLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return editLoading?.call(this);
   }
 
   @override
@@ -312,6 +389,7 @@ class _$SetDefaultLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$SetDefaultLoading implements SetDefaultLoading {
   const _$SetDefaultLoading();
 
@@ -322,7 +400,8 @@ class _$SetDefaultLoading implements SetDefaultLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SetDefaultLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SetDefaultLoading);
   }
 
   @override
@@ -338,6 +417,18 @@ class _$SetDefaultLoading implements SetDefaultLoading {
     required TResult Function() successful,
   }) {
     return setDefaultLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return setDefaultLoading?.call();
   }
 
   @override
@@ -370,6 +461,18 @@ class _$SetDefaultLoading implements SetDefaultLoading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return setDefaultLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(EditLoading value)? editLoading,
@@ -393,6 +496,7 @@ abstract class SetDefaultLoading implements AddressCardState {
 abstract class $ErrorCopyWith<$Res> {
   factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
       _$ErrorCopyWithImpl<$Res>;
+
   $Res call({String message});
 }
 
@@ -419,6 +523,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error(this.message);
 
@@ -433,14 +538,13 @@ class _$Error implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Error &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is Error &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -457,6 +561,18 @@ class _$Error implements Error {
     required TResult Function() successful,
   }) {
     return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return error?.call(message);
   }
 
   @override
@@ -489,6 +605,18 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(EditLoading value)? editLoading,
@@ -507,7 +635,8 @@ class _$Error implements Error {
 abstract class Error implements AddressCardState {
   const factory Error(String message) = _$Error;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
+
   @JsonKey(ignore: true)
   $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
 }
@@ -531,6 +660,7 @@ class _$SuccessfulCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Successful implements Successful {
   const _$Successful();
 
@@ -541,7 +671,8 @@ class _$Successful implements Successful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Successful);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Successful);
   }
 
   @override
@@ -557,6 +688,18 @@ class _$Successful implements Successful {
     required TResult Function() successful,
   }) {
     return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? editLoading,
+    TResult Function()? setDefaultLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return successful?.call();
   }
 
   @override
@@ -585,6 +728,18 @@ class _$Successful implements Successful {
     required TResult Function(Successful value) successful,
   }) {
     return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditLoading value)? editLoading,
+    TResult Function(SetDefaultLoading value)? setDefaultLoading,
+    TResult Function(Error value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return successful?.call(this);
   }
 
   @override

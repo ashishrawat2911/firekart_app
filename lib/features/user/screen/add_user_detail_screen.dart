@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/address/bloc/add_account_details_cubit.dart';
 import 'package:fluttercommerce/features/address/state/add_account_details_state.dart';
@@ -7,10 +8,9 @@ import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class AddUserDetailScreen extends StatefulWidget {
   const AddUserDetailScreen(this.newAddress, {Key? key}) : super(key: key);
@@ -50,11 +50,12 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
             "${widget.newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: BlocConsumer<AddAccountDetailsCubit, AddAccountDetailsState>(
-        bloc : addAddressCubit,
+        bloc: addAddressCubit,
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              Navigator.of(context).pushReplacementNamed(MainHomeScreenRoute.name);
+              Navigator.of(context)
+                  .pushReplacementNamed(MainHomeScreenRoute.name);
             } else {
               Navigator.of(context).pop();
             }
@@ -90,7 +91,8 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ActionText(StringsConstants.manageAddress, onTap: () {
-                        Navigator.of(context).pushNamed(MyAddressScreenRoute.name);
+                        Navigator.of(context)
+                            .pushNamed(MyAddressScreenRoute.name);
                       }),
                     ],
                   ),

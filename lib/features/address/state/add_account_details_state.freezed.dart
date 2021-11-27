@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'add_account_details_state.dart';
 
@@ -64,6 +65,17 @@ mixin _$AddAccountDetailsState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function(AccountDetails accountDetails)? editData,
@@ -84,6 +96,17 @@ mixin _$AddAccountDetailsState {
     required TResult Function(ButtonDisabled value) onButtonDisabled,
     required TResult Function(SaveDataLoading value) saveDataLoading,
     required TResult Function(Successful value) successful,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -135,6 +158,7 @@ class _$IdleCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Idle implements Idle {
   const _$Idle();
 
@@ -145,7 +169,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -163,6 +188,20 @@ class _$Idle implements Idle {
     required TResult Function() successful,
   }) {
     return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return idle?.call();
   }
 
   @override
@@ -195,6 +234,20 @@ class _$Idle implements Idle {
     required TResult Function(Successful value) successful,
   }) {
     return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return idle?.call(this);
   }
 
   @override
@@ -251,6 +304,7 @@ class _$EditDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$EditData implements EditData {
   const _$EditData(this.accountDetails);
 
@@ -265,16 +319,14 @@ class _$EditData implements EditData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is EditData &&
+        (other.runtimeType == runtimeType &&
+            other is EditData &&
             (identical(other.accountDetails, accountDetails) ||
-                const DeepCollectionEquality()
-                    .equals(other.accountDetails, accountDetails)));
+                other.accountDetails == accountDetails));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(accountDetails);
+  int get hashCode => Object.hash(runtimeType, accountDetails);
 
   @JsonKey(ignore: true)
   @override
@@ -293,6 +345,20 @@ class _$EditData implements EditData {
     required TResult Function() successful,
   }) {
     return editData(accountDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return editData?.call(accountDetails);
   }
 
   @override
@@ -329,6 +395,20 @@ class _$EditData implements EditData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return editData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(EditData value)? editData,
@@ -349,7 +429,7 @@ class _$EditData implements EditData {
 abstract class EditData implements AddAccountDetailsState {
   const factory EditData(AccountDetails accountDetails) = _$EditData;
 
-  AccountDetails get accountDetails => throw _privateConstructorUsedError;
+  AccountDetails get accountDetails;
   @JsonKey(ignore: true)
   $EditDataCopyWith<EditData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -373,6 +453,7 @@ class _$LoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   const _$Loading();
 
@@ -383,7 +464,8 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Loading);
   }
 
   @override
@@ -401,6 +483,20 @@ class _$Loading implements Loading {
     required TResult Function() successful,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -433,6 +529,20 @@ class _$Loading implements Loading {
     required TResult Function(Successful value) successful,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -478,6 +588,7 @@ class _$ButtonEnabledCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ButtonEnabled implements ButtonEnabled {
   const _$ButtonEnabled();
 
@@ -488,7 +599,8 @@ class _$ButtonEnabled implements ButtonEnabled {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ButtonEnabled);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ButtonEnabled);
   }
 
   @override
@@ -506,6 +618,20 @@ class _$ButtonEnabled implements ButtonEnabled {
     required TResult Function() successful,
   }) {
     return onButtonEnabled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return onButtonEnabled?.call();
   }
 
   @override
@@ -538,6 +664,20 @@ class _$ButtonEnabled implements ButtonEnabled {
     required TResult Function(Successful value) successful,
   }) {
     return onButtonEnabled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return onButtonEnabled?.call(this);
   }
 
   @override
@@ -583,6 +723,7 @@ class _$ButtonDisabledCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ButtonDisabled implements ButtonDisabled {
   const _$ButtonDisabled();
 
@@ -593,7 +734,8 @@ class _$ButtonDisabled implements ButtonDisabled {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ButtonDisabled);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ButtonDisabled);
   }
 
   @override
@@ -611,6 +753,20 @@ class _$ButtonDisabled implements ButtonDisabled {
     required TResult Function() successful,
   }) {
     return onButtonDisabled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return onButtonDisabled?.call();
   }
 
   @override
@@ -643,6 +799,20 @@ class _$ButtonDisabled implements ButtonDisabled {
     required TResult Function(Successful value) successful,
   }) {
     return onButtonDisabled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return onButtonDisabled?.call(this);
   }
 
   @override
@@ -688,6 +858,7 @@ class _$SaveDataLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$SaveDataLoading implements SaveDataLoading {
   const _$SaveDataLoading();
 
@@ -698,7 +869,8 @@ class _$SaveDataLoading implements SaveDataLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SaveDataLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SaveDataLoading);
   }
 
   @override
@@ -716,6 +888,20 @@ class _$SaveDataLoading implements SaveDataLoading {
     required TResult Function() successful,
   }) {
     return saveDataLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return saveDataLoading?.call();
   }
 
   @override
@@ -748,6 +934,20 @@ class _$SaveDataLoading implements SaveDataLoading {
     required TResult Function(Successful value) successful,
   }) {
     return saveDataLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return saveDataLoading?.call(this);
   }
 
   @override
@@ -792,6 +992,7 @@ class _$SuccessfulCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Successful implements Successful {
   const _$Successful();
 
@@ -802,7 +1003,8 @@ class _$Successful implements Successful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Successful);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Successful);
   }
 
   @override
@@ -820,6 +1022,20 @@ class _$Successful implements Successful {
     required TResult Function() successful,
   }) {
     return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function()? loading,
+    TResult Function()? onButtonEnabled,
+    TResult Function()? onButtonDisabled,
+    TResult Function()? saveDataLoading,
+    TResult Function()? successful,
+  }) {
+    return successful?.call();
   }
 
   @override
@@ -852,6 +1068,20 @@ class _$Successful implements Successful {
     required TResult Function(Successful value) successful,
   }) {
     return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(EditData value)? editData,
+    TResult Function(Loading value)? loading,
+    TResult Function(ButtonEnabled value)? onButtonEnabled,
+    TResult Function(ButtonDisabled value)? onButtonDisabled,
+    TResult Function(SaveDataLoading value)? saveDataLoading,
+    TResult Function(Successful value)? successful,
+  }) {
+    return successful?.call(this);
   }
 
   @override

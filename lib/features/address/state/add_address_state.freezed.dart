@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'add_address_state.dart';
 
@@ -48,6 +49,16 @@ mixin _$AddAddressState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? buttonLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -57,6 +68,7 @@ mixin _$AddAddressState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -65,6 +77,16 @@ mixin _$AddAddressState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonLoading value)? buttonLoading,
+    TResult Function(AddressCardError value)? error,
+    TResult Function(Successful value)? successful,
+  }) =>
+      throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -89,6 +111,7 @@ class _$AddAddressStateCopyWithImpl<$Res>
   _$AddAddressStateCopyWithImpl(this._value, this._then);
 
   final AddAddressState _value;
+
   // ignore: unused_field
   final $Res Function(AddAddressState) _then;
 }
@@ -110,6 +133,7 @@ class _$IdleCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Idle implements Idle {
   const _$Idle();
 
@@ -120,7 +144,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -135,6 +160,17 @@ class _$Idle implements Idle {
     required TResult Function() successful,
   }) {
     return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? buttonLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return idle?.call();
   }
 
   @override
@@ -161,6 +197,17 @@ class _$Idle implements Idle {
     required TResult Function(Successful value) successful,
   }) {
     return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonLoading value)? buttonLoading,
+    TResult Function(AddressCardError value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return idle?.call(this);
   }
 
   @override
@@ -203,6 +250,7 @@ class _$ButtonLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ButtonLoading implements ButtonLoading {
   const _$ButtonLoading();
 
@@ -213,7 +261,8 @@ class _$ButtonLoading implements ButtonLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ButtonLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ButtonLoading);
   }
 
   @override
@@ -228,6 +277,17 @@ class _$ButtonLoading implements ButtonLoading {
     required TResult Function() successful,
   }) {
     return buttonLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? buttonLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return buttonLoading?.call();
   }
 
   @override
@@ -258,6 +318,17 @@ class _$ButtonLoading implements ButtonLoading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonLoading value)? buttonLoading,
+    TResult Function(AddressCardError value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return buttonLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(ButtonLoading value)? buttonLoading,
@@ -281,6 +352,7 @@ abstract class $AddressCardErrorCopyWith<$Res> {
   factory $AddressCardErrorCopyWith(
           AddressCardError value, $Res Function(AddressCardError) then) =
       _$AddressCardErrorCopyWithImpl<$Res>;
+
   $Res call({String message});
 }
 
@@ -309,6 +381,7 @@ class _$AddressCardErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AddressCardError implements AddressCardError {
   const _$AddressCardError(this.message);
 
@@ -323,14 +396,13 @@ class _$AddressCardError implements AddressCardError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AddressCardError &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is AddressCardError &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -346,6 +418,17 @@ class _$AddressCardError implements AddressCardError {
     required TResult Function() successful,
   }) {
     return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? buttonLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return error?.call(message);
   }
 
   @override
@@ -376,6 +459,17 @@ class _$AddressCardError implements AddressCardError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonLoading value)? buttonLoading,
+    TResult Function(AddressCardError value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(ButtonLoading value)? buttonLoading,
@@ -393,7 +487,8 @@ class _$AddressCardError implements AddressCardError {
 abstract class AddressCardError implements AddAddressState {
   const factory AddressCardError(String message) = _$AddressCardError;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
+
   @JsonKey(ignore: true)
   $AddressCardErrorCopyWith<AddressCardError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -417,6 +512,7 @@ class _$SuccessfulCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Successful implements Successful {
   const _$Successful();
 
@@ -427,7 +523,8 @@ class _$Successful implements Successful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Successful);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Successful);
   }
 
   @override
@@ -442,6 +539,17 @@ class _$Successful implements Successful {
     required TResult Function() successful,
   }) {
     return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? buttonLoading,
+    TResult Function(String message)? error,
+    TResult Function()? successful,
+  }) {
+    return successful?.call();
   }
 
   @override
@@ -468,6 +576,17 @@ class _$Successful implements Successful {
     required TResult Function(Successful value) successful,
   }) {
     return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(ButtonLoading value)? buttonLoading,
+    TResult Function(AddressCardError value)? error,
+    TResult Function(Successful value)? successful,
+  }) {
+    return successful?.call(this);
   }
 
   @override

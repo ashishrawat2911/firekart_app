@@ -8,8 +8,8 @@ import 'package:fluttercommerce/features/checkout/state/cart_item_state.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
 
 enum AddButton { Add, Minus }
 
@@ -28,7 +28,7 @@ class _CartItemCardState extends State<CartItemCard> {
 
   @override
   void initState() {
-    cartItemCubit.initCartValues(widget.cartModel!.numOfItems!);
+    cartItemCubit.initCartValues(widget.cartModel!.numOfItems);
     super.initState();
   }
 

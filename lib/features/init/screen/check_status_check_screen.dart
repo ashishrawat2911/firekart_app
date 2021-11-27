@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/init/bloc/check_status_bloc.dart';
 import 'package:fluttercommerce/features/init/state/check_status_state.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class CheckStatusScreen extends StatefulWidget {
   final bool checkForAccountStatusOnly;

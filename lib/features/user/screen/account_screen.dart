@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
+import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/features/order/state/account_details_state.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class AccountScreen extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-                          bloc : accountDetailsCubit,
+                          bloc: accountDetailsCubit,
                           builder: (context, accountDetailState) {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                   style: AppTextStyles.medium22Black,
                                 ),
                                 Text(
-                                  accountDetailState.accountDetails!.phoneNumber,
+                                  accountDetailState
+                                      .accountDetails!.phoneNumber,
                                   style: AppTextStyles.normal14Color4C4C6F,
                                 ),
                               ],
@@ -77,7 +78,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.myAddress),
                     leading: Icon(Icons.place),
                     onTap: () {
-                      Navigator.of(context).pushNamed(MyAddressScreenRoute.name);
+                      Navigator.of(context)
+                          .pushNamed(MyAddressScreenRoute.name);
                     },
                   ),
                   Divider(),
@@ -85,7 +87,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.logout),
                     leading: Icon(Icons.exit_to_app),
                     onTap: () {
-                      DI.container<AuthRepository>()
+                      DI
+                          .container<FirebaseManager>()
                           .logoutUser()
                           .then((value) {
                         Navigator.of(context).pushNamedAndRemoveUntil(

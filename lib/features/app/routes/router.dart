@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:fluttercommerce/features/address/screen/add_address_screen.dart';
 import 'package:fluttercommerce/features/address/screen/my_address_screen.dart';
 import 'package:fluttercommerce/features/checkout/screen/cart_screen.dart';
@@ -11,7 +12,6 @@ import 'package:fluttercommerce/features/product/screen/all_product_list_screen.
 import 'package:fluttercommerce/features/product/screen/product_detail_page.dart';
 import 'package:fluttercommerce/features/search/screen/SearchScreen.dart';
 import 'package:fluttercommerce/features/user/screen/add_user_detail_screen.dart';
-import 'package:auto_route/annotations.dart';
 /*
 * Run this command in terminal
 * flutter packages pub run build_runner build
@@ -29,9 +29,7 @@ import 'package:auto_route/annotations.dart';
     CupertinoRoute(page: MainHomeScreen),
     CupertinoRoute(page: LoginScreen),
     CupertinoRoute(page: OtpLoginScreen),
-    CupertinoRoute(
-      page: ProductDetailPage,
-    ),
+    CupertinoRoute(page: ProductDetailPage),
     CupertinoRoute(page: AddUserDetailScreen),
     CupertinoRoute(page: CartScreen),
     CupertinoRoute(page: AllProductListScreen),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/res/hex_color.dart';
+import 'package:fluttercommerce/features/app/res/hex_color.dart';
 
 class AppColors {
   AppColors._();

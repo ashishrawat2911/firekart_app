@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 import 'font_family.dart';
 

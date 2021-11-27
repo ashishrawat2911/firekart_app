@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/utils/date_time_util.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
 import 'package:fluttercommerce/features/order/bloc/my_orders_cubit.dart';
-import 'package:fluttercommerce/res/app_colors.dart';
-import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/core/utils/date_time_util.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 class MyOrdersScreen extends StatefulWidget {
   @override
@@ -43,7 +43,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         title: Text(StringsConstants.myOrders),
       ),
       body: BlocBuilder<MyOrdersCubit, ResultState<List<OrderModel>>>(
-        bloc : ordersCubit,
+        bloc: ordersCubit,
         builder: (BuildContext context, ResultState<List<OrderModel>> state) {
           return ResultStateBuilder(
             state: state,
@@ -157,7 +157,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             Row(
               children: [
                 CachedNetworkImage(
-                  imageUrl: orderItem.image,
+                  imageUrl: orderItem.image!,
                   height: 46,
                   width: 46,
                   fit: BoxFit.fill,

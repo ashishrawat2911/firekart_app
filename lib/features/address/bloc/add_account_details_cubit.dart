@@ -1,16 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/address/state/add_account_details_state.dart';
-import 'package:fluttercommerce/features/app/repo/auth_repository.dart';
-import 'package:fluttercommerce/features/app/repo/firestore_repository.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
+import 'package:fluttercommerce/features/address/state/add_account_details_state.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
-  AddAccountDetailsCubit(this._firebaseRepo, this._authRepo)
+  AddAccountDetailsCubit(this._firebaseRepo)
       : super(const AddAccountDetailsState.idle());
 
-  final FirestoreRepository _firebaseRepo;
-  final AuthRepository _authRepo;
+  final FirebaseManager _firebaseRepo;
   final Validator _validator = Validator();
 
   void validateButton(String name) {
@@ -30,11 +28,11 @@ class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
     final AccountDetails _accountDetails = AccountDetails(
-        name: name, phoneNumber: await _authRepo.getPhoneNumber());
+        name: name, phoneNumber: await _firebaseRepo.getPhoneNumber()!);
 
     emit(const AddAccountDetailsState.saveDataLoading());
     await _firebaseRepo.addUserDetails(_accountDetails);
-    await _authRepo.setAccountDetails(displayName: _accountDetails.name);
+    await _firebaseRepo.setAccountDetails(displayName: _accountDetails.name);
     emit(const AddAccountDetailsState.successful());
   }
 }

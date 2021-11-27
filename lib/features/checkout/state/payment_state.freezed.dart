@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'payment_state.dart';
 
@@ -52,6 +53,14 @@ mixin _$PaymentState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
@@ -66,6 +75,14 @@ mixin _$PaymentState {
     required TResult Function(PaymentButtonLoading value) paymentButtonLoading,
     required TResult Function(PaymentError value) paymentError,
     required TResult Function(PaymentSuccessful value) paymentSuccessful,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -112,6 +129,7 @@ class _$IdleCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Idle implements Idle {
   const _$Idle();
 
@@ -122,7 +140,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -138,6 +157,17 @@ class _$Idle implements Idle {
         paymentSuccessful,
   }) {
     return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+  }) {
+    return idle?.call();
   }
 
   @override
@@ -164,6 +194,17 @@ class _$Idle implements Idle {
     required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) {
     return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+  }) {
+    return idle?.call(this);
   }
 
   @override
@@ -206,6 +247,7 @@ class _$PaymentButtonLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$PaymentButtonLoading implements PaymentButtonLoading {
   const _$PaymentButtonLoading();
 
@@ -216,7 +258,8 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is PaymentButtonLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is PaymentButtonLoading);
   }
 
   @override
@@ -232,6 +275,17 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
         paymentSuccessful,
   }) {
     return paymentButtonLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+  }) {
+    return paymentButtonLoading?.call();
   }
 
   @override
@@ -258,6 +312,17 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
     required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) {
     return paymentButtonLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+  }) {
+    return paymentButtonLoading?.call(this);
   }
 
   @override
@@ -312,6 +377,7 @@ class _$PaymentErrorCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$PaymentError implements PaymentError {
   const _$PaymentError(this.errorMessage);
 
@@ -326,15 +392,14 @@ class _$PaymentError implements PaymentError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is PaymentError &&
+        (other.runtimeType == runtimeType &&
+            other is PaymentError &&
             (identical(other.errorMessage, errorMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorMessage, errorMessage)));
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -351,6 +416,17 @@ class _$PaymentError implements PaymentError {
         paymentSuccessful,
   }) {
     return paymentError(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+  }) {
+    return paymentError?.call(errorMessage);
   }
 
   @override
@@ -381,6 +457,17 @@ class _$PaymentError implements PaymentError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+  }) {
+    return paymentError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
@@ -398,7 +485,7 @@ class _$PaymentError implements PaymentError {
 abstract class PaymentError implements PaymentState {
   const factory PaymentError(String errorMessage) = _$PaymentError;
 
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMessage;
   @JsonKey(ignore: true)
   $PaymentErrorCopyWith<PaymentError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -437,6 +524,7 @@ class _$PaymentSuccessfulCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$PaymentSuccessful implements PaymentSuccessful {
   const _$PaymentSuccessful(this.response);
 
@@ -451,15 +539,14 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is PaymentSuccessful &&
+        (other.runtimeType == runtimeType &&
+            other is PaymentSuccessful &&
             (identical(other.response, response) ||
-                const DeepCollectionEquality()
-                    .equals(other.response, response)));
+                other.response == response));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
+  int get hashCode => Object.hash(runtimeType, response);
 
   @JsonKey(ignore: true)
   @override
@@ -476,6 +563,17 @@ class _$PaymentSuccessful implements PaymentSuccessful {
         paymentSuccessful,
   }) {
     return paymentSuccessful(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+  }) {
+    return paymentSuccessful?.call(response);
   }
 
   @override
@@ -506,6 +604,17 @@ class _$PaymentSuccessful implements PaymentSuccessful {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+  }) {
+    return paymentSuccessful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
     TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
@@ -524,7 +633,7 @@ abstract class PaymentSuccessful implements PaymentState {
   const factory PaymentSuccessful(PaymentSuccessResponse response) =
       _$PaymentSuccessful;
 
-  PaymentSuccessResponse get response => throw _privateConstructorUsedError;
+  PaymentSuccessResponse get response;
   @JsonKey(ignore: true)
   $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith =>
       throw _privateConstructorUsedError;
