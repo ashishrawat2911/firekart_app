@@ -30,8 +30,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   @override
   void initState() {
     super.initState();
-    accountDetailsCubit.listen((state) {
-      myAddressCubit.listenToAccountDetails(state.accountDetails);
+    accountDetailsCubit.stream.listen((state) {
+      myAddressCubit.listenToAccountDetails(state.accountDetails!);
     });
     myAddressCubit.fetchAccountDetails();
   }
@@ -45,7 +45,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
               ? StringsConstants.selectAddress
               : StringsConstants.myAddress)),
       body: BlocConsumer<MyAddressCubit, MyAddressState>(
-        cubit: myAddressCubit,
+        bloc: myAddressCubit,
         listener: (BuildContext context, MyAddressState state) {},
         builder: (BuildContext context, MyAddressState state) {
           return state.map(showAccountDetails: (ShowAccountDetails value) {
@@ -105,8 +105,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   Widget addressCard(AccountDetails accountDetails, index) {
-    final AddressCardCubit addressCardCubit =
-        DI.container<AddressCardCubit>();
+    final AddressCardCubit addressCardCubit = DI.container<AddressCardCubit>();
     final Address address = accountDetails.addresses[index];
     Widget data(IconData iconData, String text) {
       return Row(
@@ -129,7 +128,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
     }
 
     return BlocConsumer<AddressCardCubit, AddressCardState>(
-      cubit: addressCardCubit,
+      bloc: addressCardCubit,
       listener: (context, state) {
         state.maybeWhen(
           successful: () {
@@ -140,7 +139,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       },
       builder: (BuildContext context, AddressCardState state) {
         return Container(
-            margin: EdgeInsets.only(left: 15, right: 15, bottom: 30),
+            margin: const EdgeInsets.only(left: 15, right: 15, bottom: 30),
             child: InkWell(
               onTap: widget.selectedAddress
                   ? () {
@@ -199,8 +198,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                 StringsConstants.editCaps,
                                 onTap: () {
                                   Navigator.pushNamed(
-                                          context, Routes.addAddressScreen,
-                                          arguments: AddAddressScreenArguments(
+                                          context, AddAddressScreenRoute.name,
+                                          arguments: AddAddressScreenRouteArgs(
                                               newAddress: false,
                                               accountDetails: accountDetails,
                                               editAddress: address))
@@ -216,17 +215,18 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                               const SizedBox(
                                 width: 30,
                               ),
-                              state is EditLoading
-                                  ? CommonAppLoader(
-                                      size: 20,
-                                    )
-                                  : ActionText(
-                                      StringsConstants.deleteCaps,
-                                      onTap: () {
-                                        addressCardCubit.deleteAddress(
-                                            accountDetails, address);
-                                      },
-                                    ),
+                              if (state is EditLoading)
+                                CommonAppLoader(
+                                  size: 20,
+                                )
+                              else
+                                ActionText(
+                                  StringsConstants.deleteCaps,
+                                  onTap: () {
+                                    addressCardCubit.deleteAddress(
+                                        accountDetails, address);
+                                  },
+                                ),
                             ],
                           ),
                           Visibility(
@@ -266,7 +266,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             "No Address Found",
             style: AppTextStyles.medium18Black,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           ActionText(
@@ -281,8 +281,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   addNewNavigation(AccountDetails accountDetails) {
-    Navigator.pushNamed(context, Routes.addAddressScreen,
-            arguments: AddAddressScreenArguments(
+    Navigator.pushNamed(context, AddAddressScreenRoute.name,
+            arguments: AddAddressScreenRouteArgs(
                 newAddress: true, accountDetails: accountDetails))
         .then((value) {
       if (value != null && value is bool && value) {

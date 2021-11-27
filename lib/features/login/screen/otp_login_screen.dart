@@ -14,9 +14,9 @@ import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 
 class OtpLoginScreen extends StatefulWidget {
-  final String phoneNumber;
+  final String? phoneNumber;
 
-  OtpLoginScreen({this.phoneNumber, Key key}) : super(key: key);
+  OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
 
   @override
   _OtpLoginScreenState createState() => _OtpLoginScreenState();
@@ -32,7 +32,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   @override
   void initState() {
     super.initState();
-    otpLoginCubit.sendOtp(widget.phoneNumber);
+    otpLoginCubit.sendOtp(widget.phoneNumber!);
     otpNumberController.addListener(() {
       print(otpNumberController.text);
       otpLoginCubit.validateButton(otpNumberController.text);
@@ -125,7 +125,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
-                cubit: otpLoginCubit,
+                bloc : otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {
                   state.when(
                       idle: () {},
@@ -143,8 +143,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                         accountDetailsCubit.streamAccountDetails();
 
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.checkStatusScreen, (route) => false,
-                            arguments: CheckStatusScreenArguments(
+                            CheckStatusScreenRoute.name, (route) => false,
+                            arguments: CheckStatusScreenRouteArgs(
                                 checkForAccountStatusOnly: true));
                       },
                       codeCountDown: (String value) {
@@ -177,7 +177,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginCubit, OtpLoginState>(
-                cubit: otpLoginCubit,
+                bloc : otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {},
                 builder: (BuildContext context, OtpLoginState state) {
                   if (state is ResendOtpLoading) {
@@ -212,7 +212,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       otpLoginCubit.loginWithOtp(otpNumberController.text.trim());
     }
   }

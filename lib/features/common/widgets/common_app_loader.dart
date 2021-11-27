@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CommonAppLoader extends StatelessWidget {
-  final double size;
+  final double? size;
   final double strokeWidth;
 
   CommonAppLoader({this.size, this.strokeWidth = 4.0});

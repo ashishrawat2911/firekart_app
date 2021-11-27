@@ -5,45 +5,45 @@ import 'package:fluttercommerce/res/app_colors.dart';
 // ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
   @override
-  final Key key;
-  final String hint;
-  final String label;
-  final String initialValue;
-  final TextEditingController textEditingController;
+  final Key? key;
+  final String? hint;
+  final String? label;
+  final String? initialValue;
+  final TextEditingController? textEditingController;
   final TextInputType keyboardType;
   final errorText;
   final bool obscureText;
   final bool isEnabled;
   final TextCapitalization textCapitalization;
-  final FormFieldValidator<String> validator;
-  final List<TextInputFormatter> inputFormatters;
+  final FormFieldValidator<String>? validator;
+  final List<TextInputFormatter>? inputFormatters;
   final bool numberInputFormatter;
-  final int maxLength;
+  final int? maxLength;
   final int maxLines;
-  final Widget suffix;
-  final Widget prefix;
-  final TextStyle hintStyle;
-  final TextStyle labelStyle;
-  final TextStyle errorStyle;
-  final TextStyle style;
+  final Widget? suffix;
+  final Widget? prefix;
+  final TextStyle? hintStyle;
+  final TextStyle? labelStyle;
+  final TextStyle? errorStyle;
+  final TextStyle? style;
   final bool isValidatorRequired;
-  final FocusNode focusNode;
-  final FocusNode nextFocusNode;
+  final FocusNode? focusNode;
+  final FocusNode? nextFocusNode;
   final context;
-  final Color fillColor;
+  final Color? fillColor;
   final bool autoFocus;
-  final TextInputAction textInputAction;
-  final ValueChanged<String> onSubmitted;
-  final ValueChanged<String> onChanged;
+  final TextInputAction? textInputAction;
+  final ValueChanged<String>? onSubmitted;
+  final ValueChanged<String>? onChanged;
   final bool inputFormat;
-  final double borderRadius;
-  final double containerHeight;
-  final double elivation;
-  final double contentPadding;
-  final Color errorBorderColor;
+  final double? borderRadius;
+  final double? containerHeight;
+  final double? elivation;
+  final double? contentPadding;
+  final Color? errorBorderColor;
 
-  final Color enabledBorderColor;
-  final double enabledBorderWidth;
+  final Color? enabledBorderColor;
+  final double? enabledBorderWidth;
 
   CustomTextField({
     this.textEditingController,
@@ -126,7 +126,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         validator: widget.isValidatorRequired
             ? widget.validator ??
                 (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return widget.errorText;
                   } else {
                     return value;
@@ -137,19 +137,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onFieldSubmitted: widget.onSubmitted ??
             (term) {
               _fieldFocusChange(
-                  widget.context, widget.focusNode, widget.nextFocusNode);
+                  widget.context, widget.focusNode!, widget.nextFocusNode!);
             },
         decoration: InputDecoration(
           contentPadding: widget.contentPadding != null
               ? EdgeInsets.symmetric(
-                  horizontal: widget.contentPadding, vertical: 2)
+                  horizontal: widget.contentPadding!, vertical: 2)
               : null,
           fillColor: widget.fillColor ?? AppColors.colorF6F5F8,
           filled: true,
           hintText: widget.hint,
           suffixIcon: widget.suffix,
           prefixIcon: widget.prefix,
-          hintStyle: widget.hint.length < 30
+          hintStyle: widget.hint!.length < 30
               ? widget.hintStyle
               : TextStyle(fontSize: 15, color: AppColors.color969696),
           errorStyle: widget.errorStyle ??
@@ -168,7 +168,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           enabledBorder: OutlineInputBorder(
             //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(
-                color: widget.enabledBorderColor,
+                color: widget.enabledBorderColor!,
                 width: widget.enabledBorderWidth ?? 1.0),
           ),
 //          errorBorder: OutlineInputBorder(

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'payment_state.dart';
 
@@ -9,28 +9,27 @@ part of 'payment_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$PaymentStateTearOff {
   const _$PaymentStateTearOff();
 
-// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
-// ignore: unused_element
   PaymentButtonLoading paymentButtonLoading() {
     return const PaymentButtonLoading();
   }
 
-// ignore: unused_element
   PaymentError paymentError(String errorMessage) {
     return PaymentError(
       errorMessage,
     );
   }
 
-// ignore: unused_element
   PaymentSuccessful paymentSuccessful(PaymentSuccessResponse response) {
     return PaymentSuccessful(
       response,
@@ -39,44 +38,45 @@ class _$PaymentStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PaymentState = _$PaymentStateTearOff();
 
 /// @nodoc
 mixin _$PaymentState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result paymentButtonLoading(),
-    @required Result paymentError(String errorMessage),
-    @required Result paymentSuccessful(PaymentSuccessResponse response),
-  });
-
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() paymentButtonLoading,
+    required TResult Function(String errorMessage) paymentError,
+    required TResult Function(PaymentSuccessResponse response)
+        paymentSuccessful,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result paymentButtonLoading(),
-    Result paymentError(String errorMessage),
-    Result paymentSuccessful(PaymentSuccessResponse response),
-    @required Result orElse(),
-  });
-
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result paymentButtonLoading(PaymentButtonLoading value),
-    @required Result paymentError(PaymentError value),
-    @required Result paymentSuccessful(PaymentSuccessful value),
-  });
-
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(PaymentButtonLoading value) paymentButtonLoading,
+    required TResult Function(PaymentError value) paymentError,
+    required TResult Function(PaymentSuccessful value) paymentSuccessful,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result paymentButtonLoading(PaymentButtonLoading value),
-    Result paymentError(PaymentError value),
-    Result paymentSuccessful(PaymentSuccessful value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -91,7 +91,6 @@ class _$PaymentStateCopyWithImpl<$Res> implements $PaymentStateCopyWith<$Res> {
   _$PaymentStateCopyWithImpl(this._value, this._then);
 
   final PaymentState _value;
-
   // ignore: unused_field
   final $Res Function(PaymentState) _then;
 }
@@ -131,29 +130,25 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result paymentButtonLoading(),
-    @required Result paymentError(String errorMessage),
-    @required Result paymentSuccessful(PaymentSuccessResponse response),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() paymentButtonLoading,
+    required TResult Function(String errorMessage) paymentError,
+    required TResult Function(PaymentSuccessResponse response)
+        paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result paymentButtonLoading(),
-    Result paymentError(String errorMessage),
-    Result paymentSuccessful(PaymentSuccessResponse response),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -162,29 +157,24 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result paymentButtonLoading(PaymentButtonLoading value),
-    @required Result paymentError(PaymentError value),
-    @required Result paymentSuccessful(PaymentSuccessful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(PaymentButtonLoading value) paymentButtonLoading,
+    required TResult Function(PaymentError value) paymentError,
+    required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result paymentButtonLoading(PaymentButtonLoading value),
-    Result paymentError(PaymentError value),
-    Result paymentSuccessful(PaymentSuccessful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -234,29 +224,25 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result paymentButtonLoading(),
-    @required Result paymentError(String errorMessage),
-    @required Result paymentSuccessful(PaymentSuccessResponse response),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() paymentButtonLoading,
+    required TResult Function(String errorMessage) paymentError,
+    required TResult Function(PaymentSuccessResponse response)
+        paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return paymentButtonLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result paymentButtonLoading(),
-    Result paymentError(String errorMessage),
-    Result paymentSuccessful(PaymentSuccessResponse response),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (paymentButtonLoading != null) {
       return paymentButtonLoading();
     }
@@ -265,29 +251,24 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result paymentButtonLoading(PaymentButtonLoading value),
-    @required Result paymentError(PaymentError value),
-    @required Result paymentSuccessful(PaymentSuccessful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(PaymentButtonLoading value) paymentButtonLoading,
+    required TResult Function(PaymentError value) paymentError,
+    required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return paymentButtonLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result paymentButtonLoading(PaymentButtonLoading value),
-    Result paymentError(PaymentError value),
-    Result paymentSuccessful(PaymentSuccessful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (paymentButtonLoading != null) {
       return paymentButtonLoading(this);
     }
@@ -304,7 +285,6 @@ abstract class $PaymentErrorCopyWith<$Res> {
   factory $PaymentErrorCopyWith(
           PaymentError value, $Res Function(PaymentError) then) =
       _$PaymentErrorCopyWithImpl<$Res>;
-
   $Res call({String errorMessage});
 }
 
@@ -320,17 +300,20 @@ class _$PaymentErrorCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object errorMessage = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(PaymentError(
-      errorMessage == freezed ? _value.errorMessage : errorMessage as String,
+      errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$PaymentError implements PaymentError {
-  const _$PaymentError(this.errorMessage) : assert(errorMessage != null);
+  const _$PaymentError(this.errorMessage);
 
   @override
   final String errorMessage;
@@ -353,35 +336,32 @@ class _$PaymentError implements PaymentError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
 
+  @JsonKey(ignore: true)
   @override
   $PaymentErrorCopyWith<PaymentError> get copyWith =>
       _$PaymentErrorCopyWithImpl<PaymentError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result paymentButtonLoading(),
-    @required Result paymentError(String errorMessage),
-    @required Result paymentSuccessful(PaymentSuccessResponse response),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() paymentButtonLoading,
+    required TResult Function(String errorMessage) paymentError,
+    required TResult Function(PaymentSuccessResponse response)
+        paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return paymentError(errorMessage);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result paymentButtonLoading(),
-    Result paymentError(String errorMessage),
-    Result paymentSuccessful(PaymentSuccessResponse response),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (paymentError != null) {
       return paymentError(errorMessage);
     }
@@ -390,29 +370,24 @@ class _$PaymentError implements PaymentError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result paymentButtonLoading(PaymentButtonLoading value),
-    @required Result paymentError(PaymentError value),
-    @required Result paymentSuccessful(PaymentSuccessful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(PaymentButtonLoading value) paymentButtonLoading,
+    required TResult Function(PaymentError value) paymentError,
+    required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return paymentError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result paymentButtonLoading(PaymentButtonLoading value),
-    Result paymentError(PaymentError value),
-    Result paymentSuccessful(PaymentSuccessful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (paymentError != null) {
       return paymentError(this);
     }
@@ -423,9 +398,10 @@ class _$PaymentError implements PaymentError {
 abstract class PaymentError implements PaymentState {
   const factory PaymentError(String errorMessage) = _$PaymentError;
 
-  String get errorMessage;
-
-  $PaymentErrorCopyWith<PaymentError> get copyWith;
+  String get errorMessage => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PaymentErrorCopyWith<PaymentError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -433,7 +409,6 @@ abstract class $PaymentSuccessfulCopyWith<$Res> {
   factory $PaymentSuccessfulCopyWith(
           PaymentSuccessful value, $Res Function(PaymentSuccessful) then) =
       _$PaymentSuccessfulCopyWithImpl<$Res>;
-
   $Res call({PaymentSuccessResponse response});
 }
 
@@ -450,19 +425,20 @@ class _$PaymentSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object response = freezed,
+    Object? response = freezed,
   }) {
     return _then(PaymentSuccessful(
       response == freezed
           ? _value.response
-          : response as PaymentSuccessResponse,
+          : response // ignore: cast_nullable_to_non_nullable
+              as PaymentSuccessResponse,
     ));
   }
 }
 
 /// @nodoc
 class _$PaymentSuccessful implements PaymentSuccessful {
-  const _$PaymentSuccessful(this.response) : assert(response != null);
+  const _$PaymentSuccessful(this.response);
 
   @override
   final PaymentSuccessResponse response;
@@ -485,35 +461,32 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
 
+  @JsonKey(ignore: true)
   @override
   $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith =>
       _$PaymentSuccessfulCopyWithImpl<PaymentSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result paymentButtonLoading(),
-    @required Result paymentError(String errorMessage),
-    @required Result paymentSuccessful(PaymentSuccessResponse response),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() paymentButtonLoading,
+    required TResult Function(String errorMessage) paymentError,
+    required TResult Function(PaymentSuccessResponse response)
+        paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return paymentSuccessful(response);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result paymentButtonLoading(),
-    Result paymentError(String errorMessage),
-    Result paymentSuccessful(PaymentSuccessResponse response),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? paymentButtonLoading,
+    TResult Function(String errorMessage)? paymentError,
+    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (paymentSuccessful != null) {
       return paymentSuccessful(response);
     }
@@ -522,29 +495,24 @@ class _$PaymentSuccessful implements PaymentSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result paymentButtonLoading(PaymentButtonLoading value),
-    @required Result paymentError(PaymentError value),
-    @required Result paymentSuccessful(PaymentSuccessful value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(PaymentButtonLoading value) paymentButtonLoading,
+    required TResult Function(PaymentError value) paymentError,
+    required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) {
-    assert(idle != null);
-    assert(paymentButtonLoading != null);
-    assert(paymentError != null);
-    assert(paymentSuccessful != null);
     return paymentSuccessful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result paymentButtonLoading(PaymentButtonLoading value),
-    Result paymentError(PaymentError value),
-    Result paymentSuccessful(PaymentSuccessful value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult Function(PaymentError value)? paymentError,
+    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (paymentSuccessful != null) {
       return paymentSuccessful(this);
     }
@@ -556,7 +524,8 @@ abstract class PaymentSuccessful implements PaymentState {
   const factory PaymentSuccessful(PaymentSuccessResponse response) =
       _$PaymentSuccessful;
 
-  PaymentSuccessResponse get response;
-
-  $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith;
+  PaymentSuccessResponse get response => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }

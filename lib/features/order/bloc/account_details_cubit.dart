@@ -34,8 +34,8 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
     final AccountDetails accountDetails =
         AccountDetails.fromDocument(documentSnapshot);
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
-    Address address;
-    List.generate(accountDetails?.addresses?.length, (int index) {
+    Address? address;
+    List.generate(accountDetails?.addresses?.length??0, (int index) {
       final Address add = accountDetails.addresses[index];
       if (add.isDefault) {
         address = add;

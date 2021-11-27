@@ -2,22 +2,22 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_item_cubit.dart';
 import 'package:fluttercommerce/features/checkout/state/cart_item_state.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/res/app_colors.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
-import 'package:fluttercommerce/di/di.dart';
 
 enum AddButton { Add, Minus }
 
 class CartItemCard extends StatefulWidget {
-  final CartModel cartModel;
-  final EdgeInsets margin;
+  final CartModel? cartModel;
+  final EdgeInsets? margin;
 
-  CartItemCard({this.margin, this.cartModel});
+  CartItemCard({this.margin, required this.cartModel});
 
   @override
   _CartItemCardState createState() => _CartItemCardState();
@@ -28,7 +28,7 @@ class _CartItemCardState extends State<CartItemCard> {
 
   @override
   void initState() {
-    cartItemCubit.initCartValues(widget.cartModel.numOfItems);
+    cartItemCubit.initCartValues(widget.cartModel!.numOfItems!);
     super.initState();
   }
 
@@ -49,7 +49,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CachedNetworkImage(
-                        imageUrl: widget.cartModel.image,
+                        imageUrl: widget.cartModel!.image,
                         height: 68,
                         width: 68,
                         fit: BoxFit.fill,
@@ -61,7 +61,7 @@ class _CartItemCardState extends State<CartItemCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.cartModel.name,
+                            widget.cartModel!.name,
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 15,
@@ -71,7 +71,7 @@ class _CartItemCardState extends State<CartItemCard> {
                             height: 10,
                           ),
                           Text(
-                            "${widget.cartModel.currency}${widget.cartModel.currentPrice} / ${widget.cartModel.quantityPerUnit} ${widget.cartModel.unit}",
+                            "${widget.cartModel!.currency}${widget.cartModel!.currentPrice} / ${widget.cartModel!.quantityPerUnit} ${widget.cartModel!.unit}",
                             style: TextStyle(
                                 fontSize: 14, color: AppColors.color81819A),
                           ),
@@ -80,7 +80,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     ],
                   ),
                   BlocBuilder<CartItemCubit, CartItemState>(
-                    cubit: cartItemCubit,
+                    bloc: cartItemCubit,
                     builder: (BuildContext context, CartItemState state) {
                       if (state is CartDeleteLoading) {
                         return CommonAppLoader(
@@ -92,7 +92,7 @@ class _CartItemCardState extends State<CartItemCard> {
                         child: ActionText(
                           StringsConstants.deleteCaps,
                           onTap: () {
-                            cartItemCubit.deleteItem(widget.cartModel);
+                            cartItemCubit.deleteItem(widget.cartModel!);
                           },
                         ),
                       );
@@ -104,7 +104,7 @@ class _CartItemCardState extends State<CartItemCard> {
                 height: 26,
               ),
               BlocBuilder<CartItemCubit, CartItemState>(
-                cubit: cartItemCubit,
+                bloc: cartItemCubit,
                 builder: (BuildContext context, CartItemState state) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,11 +116,11 @@ class _CartItemCardState extends State<CartItemCard> {
                             addButton(
                                 false,
                                 state is CartDataLoading
-                                    ? null
+                                    ? () {}
                                     : () {
                                         cartItemCubit.updateCartValues(
-                                            widget.cartModel,
-                                            widget.cartModel.numOfItems,
+                                            widget.cartModel!,
+                                            widget.cartModel!.numOfItems,
                                             false);
                                       }),
                             Expanded(
@@ -131,7 +131,7 @@ class _CartItemCardState extends State<CartItemCard> {
                                             strokeWidth: 3,
                                           )
                                         : Text(
-                                            "${widget.cartModel.numOfItems}",
+                                            "${widget.cartModel!.numOfItems}",
                                             style: TextStyle(
                                               color: AppColors.black,
                                               fontSize: 14,
@@ -140,18 +140,18 @@ class _CartItemCardState extends State<CartItemCard> {
                             addButton(
                                 true,
                                 state is CartDataLoading
-                                    ? null
+                                    ? () {}
                                     : () {
                                         cartItemCubit.updateCartValues(
-                                            widget.cartModel,
-                                            widget.cartModel.numOfItems,
+                                            widget.cartModel!,
+                                            widget.cartModel!.numOfItems,
                                             true);
                                       })
                           ],
                         ),
                       ),
                       Text(
-                        "${widget.cartModel.currency}${widget.cartModel.currentPrice * widget.cartModel.numOfItems}",
+                        "${widget.cartModel!.currency}${widget.cartModel!.currentPrice * widget.cartModel!.numOfItems}",
                         style: TextStyle(
                           color: AppColors.black,
                           fontSize: 14,

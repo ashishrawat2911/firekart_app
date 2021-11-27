@@ -9,7 +9,7 @@ class OtpLoginCubit extends Cubit<OtpLoginState> {
   OtpLoginCubit(this.authRepository) : super(OtpLoginState.onButtonDisabled());
   AuthRepository authRepository;
 
-  String _verificationId;
+  String? _verificationId;
 
   validateButton(String otp) {
     if (otp.length == 6) {
@@ -21,7 +21,7 @@ class OtpLoginCubit extends Cubit<OtpLoginState> {
 
   sendOtp(String phoneNumber) async {
     authRepository.sendCode(phoneNumber,
-        codeSent: (String verificationId, [int forceResendingToken]) async {
+        codeSent: (String verificationId, [int? forceResendingToken]) async {
       _verificationId = verificationId;
       Timer.periodic(Duration(seconds: 60), (timer) {
         emit(OtpLoginState.codeCountDown(
@@ -52,7 +52,7 @@ class OtpLoginCubit extends Cubit<OtpLoginState> {
       await firebaseAuth.signInWithCredential(authCred);
       emit(OtpLoginState.loginSuccessFull());
     } catch (e) {
-      emit(OtpLoginState.showError(e));
+      emit(OtpLoginState.showError(e.toString()));
     }
   }
 }

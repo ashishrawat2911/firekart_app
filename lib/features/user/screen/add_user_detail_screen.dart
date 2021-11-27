@@ -13,9 +13,9 @@ import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 
 class AddUserDetailScreen extends StatefulWidget {
-  final bool newAddress;
+  const AddUserDetailScreen(this.newAddress, {Key? key}) : super(key: key);
 
-  AddUserDetailScreen(this.newAddress);
+  final bool newAddress;
 
   @override
   _AddUserDetailScreenState createState() => _AddUserDetailScreenState();
@@ -27,7 +27,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
   TextEditingController nameEditingController = TextEditingController();
   FocusNode nameFocusNode = FocusNode();
   FocusNode phoneFocusNode = FocusNode();
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   Validator validator = Validator();
 
   @override
@@ -50,11 +50,11 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
             "${widget.newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: BlocConsumer<AddAccountDetailsCubit, AddAccountDetailsState>(
-        cubit: addAddressCubit,
+        bloc : addAddressCubit,
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              Navigator.of(context).pushReplacementNamed(Routes.mainHomeScreen);
+              Navigator.of(context).pushReplacementNamed(MainHomeScreenRoute.name);
             } else {
               Navigator.of(context).pop();
             }
@@ -85,12 +85,12 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
               Visibility(
                 visible: !widget.newAddress,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 20),
+                  margin: const EdgeInsets.only(bottom: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ActionText(StringsConstants.manageAddress, onTap: () {
-                        Navigator.of(context).pushNamed(Routes.myAddressScreen);
+                        Navigator.of(context).pushNamed(MyAddressScreenRoute.name);
                       }),
                     ],
                   ),
@@ -109,7 +109,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
                 },
                 // containerHeight: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CommonButton(
@@ -141,7 +141,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       addAddressCubit.saveData(nameEditingController.text,
           isEdit: widget.newAddress);
     }

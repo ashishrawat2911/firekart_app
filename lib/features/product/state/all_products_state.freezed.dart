@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'all_products_state.dart';
 
@@ -9,43 +9,45 @@ part of 'all_products_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AllProductStateTearOff {
   const _$AllProductStateTearOff();
 
-// ignore: unused_element
   ProductLoading productLoading() {
     return const ProductLoading();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AllProductState = _$AllProductStateTearOff();
 
 /// @nodoc
 mixin _$AllProductState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result productLoading(),
-  });
-
+  TResult when<TResult extends Object?>({
+    required TResult Function() productLoading,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result productLoading(),
-    @required Result orElse(),
-  });
-
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? productLoading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result productLoading(ProductLoading value),
-  });
-
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProductLoading value) productLoading,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result productLoading(ProductLoading value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProductLoading value)? productLoading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,7 +63,6 @@ class _$AllProductStateCopyWithImpl<$Res>
   _$AllProductStateCopyWithImpl(this._value, this._then);
 
   final AllProductState _value;
-
   // ignore: unused_field
   final $Res Function(AllProductState) _then;
 }
@@ -104,20 +105,18 @@ class _$ProductLoading implements ProductLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result productLoading(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() productLoading,
   }) {
-    assert(productLoading != null);
     return productLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result productLoading(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? productLoading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (productLoading != null) {
       return productLoading();
     }
@@ -126,20 +125,18 @@ class _$ProductLoading implements ProductLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result productLoading(ProductLoading value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProductLoading value) productLoading,
   }) {
-    assert(productLoading != null);
     return productLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result productLoading(ProductLoading value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProductLoading value)? productLoading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (productLoading != null) {
       return productLoading(this);
     }

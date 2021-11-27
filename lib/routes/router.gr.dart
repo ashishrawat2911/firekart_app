@@ -4,236 +4,300 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:flutter/material.dart' as _i15;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:fluttercommerce/features/address/screen/add_address_screen.dart';
-import 'package:fluttercommerce/features/address/screen/my_address_screen.dart';
-import 'package:fluttercommerce/features/checkout/screen/cart_screen.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/features/home/screen/main_home_screen.dart';
-import 'package:fluttercommerce/features/init/screen/check_status_check_screen.dart';
-import 'package:fluttercommerce/features/init/screen/splash_screen.dart';
-import 'package:fluttercommerce/features/login/screen/login_screen.dart';
-import 'package:fluttercommerce/features/login/screen/otp_login_screen.dart';
-import 'package:fluttercommerce/features/order/screen/my_orders_screen.dart';
-import 'package:fluttercommerce/features/product/screen/all_product_list_screen.dart';
-import 'package:fluttercommerce/features/product/screen/product_detail_page.dart';
-import 'package:fluttercommerce/features/search/screen/SearchScreen.dart';
-import 'package:fluttercommerce/features/user/screen/add_user_detail_screen.dart';
+import '../features/address/screen/add_address_screen.dart' as _i13;
+import '../features/address/screen/my_address_screen.dart' as _i12;
+import '../features/checkout/screen/cart_screen.dart' as _i9;
+import '../features/common/models/account_details_model.dart' as _i17;
+import '../features/common/models/product_model.dart' as _i16;
+import '../features/home/screen/main_home_screen.dart' as _i4;
+import '../features/init/screen/check_status_check_screen.dart' as _i3;
+import '../features/init/screen/splash_screen.dart' as _i2;
+import '../features/login/screen/login_screen.dart' as _i5;
+import '../features/login/screen/otp_login_screen.dart' as _i6;
+import '../features/order/screen/my_orders_screen.dart' as _i14;
+import '../features/product/screen/all_product_list_screen.dart' as _i10;
+import '../features/product/screen/product_detail_page.dart' as _i7;
+import '../features/search/screen/SearchScreen.dart' as _i11;
+import '../features/user/screen/add_user_detail_screen.dart' as _i8;
 
-class Routes {
-  static const String splashScreen = '/';
-  static const String checkStatusScreen = '/check-status-screen';
-  static const String mainHomeScreen = '/main-home-screen';
-  static const String loginScreen = '/login-screen';
-  static const String otpLoginScreen = '/otp-login-screen';
-  static const String productDetailPage = '/product-detail-page';
-  static const String addUserDetailScreen = '/add-user-detail-screen';
-  static const String cartScreen = '/cart-screen';
-  static const String allProductListScreen = '/all-product-list-screen';
-  static const String searchItemScreen = '/search-item-screen';
-  static const String myAddressScreen = '/my-address-screen';
-  static const String addAddressScreen = '/add-address-screen';
-  static const String myOrdersScreen = '/my-orders-screen';
-  static const all = <String>{
-    splashScreen,
-    checkStatusScreen,
-    mainHomeScreen,
-    loginScreen,
-    otpLoginScreen,
-    productDetailPage,
-    addUserDetailScreen,
-    cartScreen,
-    allProductListScreen,
-    searchItemScreen,
-    myAddressScreen,
-    addAddressScreen,
-    myOrdersScreen,
-  };
-}
-
-class AppRouter extends RouterBase {
-  @override
-  List<RouteDef> get routes => _routes;
-  final _routes = <RouteDef>[
-    RouteDef(Routes.splashScreen, page: SplashScreen),
-    RouteDef(Routes.checkStatusScreen, page: CheckStatusScreen),
-    RouteDef(Routes.mainHomeScreen, page: MainHomeScreen),
-    RouteDef(Routes.loginScreen, page: LoginScreen),
-    RouteDef(Routes.otpLoginScreen, page: OtpLoginScreen),
-    RouteDef(Routes.productDetailPage, page: ProductDetailPage),
-    RouteDef(Routes.addUserDetailScreen, page: AddUserDetailScreen),
-    RouteDef(Routes.cartScreen, page: CartScreen),
-    RouteDef(Routes.allProductListScreen, page: AllProductListScreen),
-    RouteDef(Routes.searchItemScreen, page: SearchItemScreen),
-    RouteDef(Routes.myAddressScreen, page: MyAddressScreen),
-    RouteDef(Routes.addAddressScreen, page: AddAddressScreen),
-    RouteDef(Routes.myOrdersScreen, page: MyOrdersScreen),
-  ];
+class AppRouter extends _i1.RootStackRouter {
+  AppRouter();
 
   @override
-  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
-  final _pagesMap = <Type, AutoRouteFactory>{
-    SplashScreen: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => SplashScreen(),
-        settings: data,
-      );
+  final Map<String, _i1.PageFactory> pagesMap = {
+    SplashScreenRoute.name: (entry) {
+      var args = entry.routeData
+          .argsAs<SplashScreenRouteArgs>(orElse: () => SplashScreenRouteArgs());
+      return _i1.CupertinoPageX(
+          entry: entry, child: _i2.SplashScreen(key: args.key));
     },
-    CheckStatusScreen: (data) {
-      final args = data.getArgs<CheckStatusScreenArguments>(
-        orElse: () => CheckStatusScreenArguments(),
-      );
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => CheckStatusScreen(
-            checkForAccountStatusOnly: args.checkForAccountStatusOnly),
-        settings: data,
-      );
+    CheckStatusScreenRoute.name: (entry) {
+      var args = entry.routeData.argsAs<CheckStatusScreenRouteArgs>(
+          orElse: () => CheckStatusScreenRouteArgs());
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child: _i3.CheckStatusScreen(
+              checkForAccountStatusOnly: args.checkForAccountStatusOnly));
     },
-    MainHomeScreen: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => MainHomeScreen(),
-        settings: data,
-      );
+    MainHomeScreenRoute.name: (entry) {
+      return _i1.CupertinoPageX(entry: entry, child: _i4.MainHomeScreen());
     },
-    LoginScreen: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => LoginScreen(),
-        settings: data,
-      );
+    LoginScreenRoute.name: (entry) {
+      return _i1.CupertinoPageX(entry: entry, child: _i5.LoginScreen());
     },
-    OtpLoginScreen: (data) {
-      final args = data.getArgs<OtpLoginScreenArguments>(
-        orElse: () => OtpLoginScreenArguments(),
-      );
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => OtpLoginScreen(phoneNumber: args.phoneNumber),
-        settings: data,
-      );
+    OtpLoginScreenRoute.name: (entry) {
+      var args = entry.routeData.argsAs<OtpLoginScreenRouteArgs>(
+          orElse: () => OtpLoginScreenRouteArgs());
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child:
+              _i6.OtpLoginScreen(phoneNumber: args.phoneNumber, key: args.key));
     },
-    ProductDetailPage: (data) {
-      final args = data.getArgs<ProductDetailPageArguments>(nullOk: false);
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => ProductDetailPage(args.productModel),
-        settings: data,
-      );
+    ProductDetailPageRoute.name: (entry) {
+      var args = entry.routeData.argsAs<ProductDetailPageRouteArgs>();
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child: _i7.ProductDetailPage(args.productModel, key: args.key));
     },
-    AddUserDetailScreen: (data) {
-      final args = data.getArgs<AddUserDetailScreenArguments>(nullOk: false);
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => AddUserDetailScreen(args.newAddress),
-        settings: data,
-      );
+    AddUserDetailScreenRoute.name: (entry) {
+      var args = entry.routeData.argsAs<AddUserDetailScreenRouteArgs>();
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child: _i8.AddUserDetailScreen(args.newAddress, key: args.key));
     },
-    CartScreen: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => CartScreen(),
-        settings: data,
-      );
+    CartScreenRoute.name: (entry) {
+      return _i1.CupertinoPageX(entry: entry, child: _i9.CartScreen());
     },
-    AllProductListScreen: (data) {
-      final args = data.getArgs<AllProductListScreenArguments>(
-        orElse: () => AllProductListScreenArguments(),
-      );
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) =>
-            AllProductListScreen(productCondition: args.productCondition),
-        settings: data,
-      );
+    AllProductListScreenRoute.name: (entry) {
+      var args = entry.routeData.argsAs<AllProductListScreenRouteArgs>(
+          orElse: () => AllProductListScreenRouteArgs());
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child: _i10.AllProductListScreen(
+              productCondition: args.productCondition));
     },
-    SearchItemScreen: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => SearchItemScreen(),
-        settings: data,
-      );
+    SearchItemScreenRoute.name: (entry) {
+      return _i1.CupertinoPageX(entry: entry, child: _i11.SearchItemScreen());
     },
-    MyAddressScreen: (data) {
-      final args = data.getArgs<MyAddressScreenArguments>(
-        orElse: () => MyAddressScreenArguments(),
-      );
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) =>
-            MyAddressScreen(selectedAddress: args.selectedAddress),
-        settings: data,
-      );
+    MyAddressScreenRoute.name: (entry) {
+      var args = entry.routeData.argsAs<MyAddressScreenRouteArgs>(
+          orElse: () => MyAddressScreenRouteArgs());
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child: _i12.MyAddressScreen(selectedAddress: args.selectedAddress));
     },
-    AddAddressScreen: (data) {
-      final args = data.getArgs<AddAddressScreenArguments>(nullOk: false);
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => AddAddressScreen(
-          args.newAddress,
-          args.accountDetails,
-          editAddress: args.editAddress,
-        ),
-        settings: data,
-      );
+    AddAddressScreenRoute.name: (entry) {
+      var args = entry.routeData.argsAs<AddAddressScreenRouteArgs>();
+      return _i1.CupertinoPageX(
+          entry: entry,
+          child: _i13.AddAddressScreen(args.newAddress, args.accountDetails,
+              editAddress: args.editAddress));
     },
-    MyOrdersScreen: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => MyOrdersScreen(),
-        settings: data,
-      );
-    },
+    MyOrdersScreenRoute.name: (entry) {
+      return _i1.CupertinoPageX(entry: entry, child: _i14.MyOrdersScreen());
+    }
   };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(SplashScreenRoute.name, path: '/'),
+        _i1.RouteConfig(CheckStatusScreenRoute.name,
+            path: '/check-status-screen'),
+        _i1.RouteConfig(MainHomeScreenRoute.name, path: '/main-home-screen'),
+        _i1.RouteConfig(LoginScreenRoute.name, path: '/login-screen'),
+        _i1.RouteConfig(OtpLoginScreenRoute.name, path: '/otp-login-screen'),
+        _i1.RouteConfig(ProductDetailPageRoute.name,
+            path: '/product-detail-page'),
+        _i1.RouteConfig(AddUserDetailScreenRoute.name,
+            path: '/add-user-detail-screen'),
+        _i1.RouteConfig(CartScreenRoute.name, path: '/cart-screen'),
+        _i1.RouteConfig(AllProductListScreenRoute.name,
+            path: '/all-product-list-screen'),
+        _i1.RouteConfig(SearchItemScreenRoute.name,
+            path: '/search-item-screen'),
+        _i1.RouteConfig(MyAddressScreenRoute.name, path: '/my-address-screen'),
+        _i1.RouteConfig(AddAddressScreenRoute.name,
+            path: '/add-address-screen'),
+        _i1.RouteConfig(MyOrdersScreenRoute.name, path: '/my-orders-screen')
+      ];
 }
 
-/// ************************************************************************
-/// Arguments holder classes
-/// *************************************************************************
+class SplashScreenRoute extends _i1.PageRouteInfo<SplashScreenRouteArgs> {
+  SplashScreenRoute({_i15.Key? key})
+      : super(name, path: '/', args: SplashScreenRouteArgs(key: key));
 
-/// CheckStatusScreen arguments holder class
-class CheckStatusScreenArguments {
+  static const String name = 'SplashScreenRoute';
+}
+
+class SplashScreenRouteArgs {
+  const SplashScreenRouteArgs({this.key});
+
+  final _i15.Key? key;
+}
+
+class CheckStatusScreenRoute
+    extends _i1.PageRouteInfo<CheckStatusScreenRouteArgs> {
+  CheckStatusScreenRoute({bool checkForAccountStatusOnly})
+      : super(name,
+            path: '/check-status-screen',
+            args: CheckStatusScreenRouteArgs(
+                checkForAccountStatusOnly: checkForAccountStatusOnly));
+
+  static const String name = 'CheckStatusScreenRoute';
+}
+
+class CheckStatusScreenRouteArgs {
+  const CheckStatusScreenRouteArgs({this.checkForAccountStatusOnly});
+
   final bool checkForAccountStatusOnly;
-
-  CheckStatusScreenArguments({this.checkForAccountStatusOnly = false});
 }
 
-/// OtpLoginScreen arguments holder class
-class OtpLoginScreenArguments {
-  final String phoneNumber;
+class MainHomeScreenRoute extends _i1.PageRouteInfo {
+  const MainHomeScreenRoute() : super(name, path: '/main-home-screen');
 
-  OtpLoginScreenArguments({this.phoneNumber});
+  static const String name = 'MainHomeScreenRoute';
 }
 
-/// ProductDetailPage arguments holder class
-class ProductDetailPageArguments {
-  final ProductModel productModel;
+class LoginScreenRoute extends _i1.PageRouteInfo {
+  const LoginScreenRoute() : super(name, path: '/login-screen');
 
-  ProductDetailPageArguments({@required this.productModel});
+  static const String name = 'LoginScreenRoute';
 }
 
-/// AddUserDetailScreen arguments holder class
-class AddUserDetailScreenArguments {
+class OtpLoginScreenRoute extends _i1.PageRouteInfo<OtpLoginScreenRouteArgs> {
+  OtpLoginScreenRoute({String? phoneNumber, _i15.Key? key})
+      : super(name,
+            path: '/otp-login-screen',
+            args: OtpLoginScreenRouteArgs(phoneNumber: phoneNumber, key: key));
+
+  static const String name = 'OtpLoginScreenRoute';
+}
+
+class OtpLoginScreenRouteArgs {
+  const OtpLoginScreenRouteArgs({this.phoneNumber, this.key});
+
+  final String? phoneNumber;
+
+  final _i15.Key? key;
+}
+
+class ProductDetailPageRoute
+    extends _i1.PageRouteInfo<ProductDetailPageRouteArgs> {
+  ProductDetailPageRoute(
+      {required _i16.ProductModel productModel, _i15.Key? key})
+      : super(name,
+            path: '/product-detail-page',
+            args: ProductDetailPageRouteArgs(
+                productModel: productModel, key: key));
+
+  static const String name = 'ProductDetailPageRoute';
+}
+
+class ProductDetailPageRouteArgs {
+  const ProductDetailPageRouteArgs({required this.productModel, this.key});
+
+  final _i16.ProductModel productModel;
+
+  final _i15.Key? key;
+}
+
+class AddUserDetailScreenRoute
+    extends _i1.PageRouteInfo<AddUserDetailScreenRouteArgs> {
+  AddUserDetailScreenRoute({required bool newAddress, _i15.Key? key})
+      : super(name,
+            path: '/add-user-detail-screen',
+            args:
+                AddUserDetailScreenRouteArgs(newAddress: newAddress, key: key));
+
+  static const String name = 'AddUserDetailScreenRoute';
+}
+
+class AddUserDetailScreenRouteArgs {
+  const AddUserDetailScreenRouteArgs({required this.newAddress, this.key});
+
   final bool newAddress;
 
-  AddUserDetailScreenArguments({@required this.newAddress});
+  final _i15.Key? key;
 }
 
-/// AllProductListScreen arguments holder class
-class AllProductListScreenArguments {
-  final String productCondition;
+class CartScreenRoute extends _i1.PageRouteInfo {
+  const CartScreenRoute() : super(name, path: '/cart-screen');
 
-  AllProductListScreenArguments({this.productCondition});
+  static const String name = 'CartScreenRoute';
 }
 
-/// MyAddressScreen arguments holder class
-class MyAddressScreenArguments {
+class AllProductListScreenRoute
+    extends _i1.PageRouteInfo<AllProductListScreenRouteArgs> {
+  AllProductListScreenRoute({String? productCondition})
+      : super(name,
+            path: '/all-product-list-screen',
+            args: AllProductListScreenRouteArgs(
+                productCondition: productCondition));
+
+  static const String name = 'AllProductListScreenRoute';
+}
+
+class AllProductListScreenRouteArgs {
+  const AllProductListScreenRouteArgs({this.productCondition});
+
+  final String? productCondition;
+}
+
+class SearchItemScreenRoute extends _i1.PageRouteInfo {
+  const SearchItemScreenRoute() : super(name, path: '/search-item-screen');
+
+  static const String name = 'SearchItemScreenRoute';
+}
+
+class MyAddressScreenRoute extends _i1.PageRouteInfo<MyAddressScreenRouteArgs> {
+  MyAddressScreenRoute({bool selectedAddress})
+      : super(name,
+            path: '/my-address-screen',
+            args: MyAddressScreenRouteArgs(selectedAddress: selectedAddress));
+
+  static const String name = 'MyAddressScreenRoute';
+}
+
+class MyAddressScreenRouteArgs {
+  const MyAddressScreenRouteArgs({this.selectedAddress});
+
   final bool selectedAddress;
-
-  MyAddressScreenArguments({this.selectedAddress = false});
 }
 
-/// AddAddressScreen arguments holder class
-class AddAddressScreenArguments {
-  final bool newAddress;
-  final AccountDetails accountDetails;
-  final Address editAddress;
+class AddAddressScreenRoute
+    extends _i1.PageRouteInfo<AddAddressScreenRouteArgs> {
+  AddAddressScreenRoute(
+      {required bool newAddress,
+      required _i17.AccountDetails accountDetails,
+      _i17.Address? editAddress})
+      : super(name,
+            path: '/add-address-screen',
+            args: AddAddressScreenRouteArgs(
+                newAddress: newAddress,
+                accountDetails: accountDetails,
+                editAddress: editAddress));
 
-  AddAddressScreenArguments(
-      {@required this.newAddress,
-      @required this.accountDetails,
+  static const String name = 'AddAddressScreenRoute';
+}
+
+class AddAddressScreenRouteArgs {
+  const AddAddressScreenRouteArgs(
+      {required this.newAddress,
+      required this.accountDetails,
       this.editAddress});
+
+  final bool newAddress;
+
+  final _i17.AccountDetails accountDetails;
+
+  final _i17.Address? editAddress;
+}
+
+class MyOrdersScreenRoute extends _i1.PageRouteInfo {
+  const MyOrdersScreenRoute() : super(name, path: '/my-orders-screen');
+
+  static const String name = 'MyOrdersScreenRoute';
 }

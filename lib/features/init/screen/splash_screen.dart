@@ -8,7 +8,7 @@ import 'package:fluttercommerce/res/app_assets.dart';
 import 'package:fluttercommerce/routes/router.gr.dart';
 
 class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
-  SplashScreen({Key key}) : super(key: key);
+  SplashScreen({Key? key}) : super(key: key);
 
   @override
   void initState(SplashBloc bloc) {
@@ -20,7 +20,7 @@ class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
   void listener(BuildContext context, SplashState state) {
     super.listener(context, state);
     if (state is SplashSuccessState) {
-      Navigator.pushReplacementNamed(context, Routes.checkStatusScreen);
+      Navigator.pushReplacementNamed(context, CheckStatusScreenRoute.name);
     }
   }
 

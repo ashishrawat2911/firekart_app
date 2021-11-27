@@ -14,7 +14,7 @@ import 'package:fluttercommerce/core/utils/validator.dart';
 class AddAddressScreen extends StatefulWidget {
   final bool newAddress;
   final AccountDetails accountDetails;
-  final Address editAddress;
+  final Address? editAddress;
 
   AddAddressScreen(this.newAddress, this.accountDetails, {this.editAddress});
 
@@ -41,16 +41,15 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   FocusNode phoneFocusNode = FocusNode();
   Validator validator = Validator();
 
-  bool setAsDefault;
+  bool setAsDefault = false;
 
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    setAsDefault = false;
     if (widget.editAddress != null) {
-      Address address = widget.editAddress;
+      final Address address = widget.editAddress!;
       nameEditingController.text = address.name;
       pincodeEditingController.text = address.pincode;
       addressEditingController.text = address.address;
@@ -124,7 +123,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     focusNode: addressFocusNode,
                     nextFocusNode: cityFocusNode,
                     validator: (val) {
-                      if (val.isEmpty) {
+                      if ((val ?? '').isEmpty) {
                         return "Address is Required";
                       } else
                         return null;
@@ -136,7 +135,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     },
                     // containerHeight: 50,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CustomTextField(
@@ -152,7 +151,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     },
                     // containerHeight: 50,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CustomTextField(
@@ -168,7 +167,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     },
                     // containerHeight: 50,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CustomTextField(
@@ -184,7 +183,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     },
                     // containerHeight: 50,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Row(
@@ -194,9 +193,11 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                             void Function(void Function()) setState) {
                           return Checkbox(
                             value: setAsDefault,
-                            onChanged: (bool value) {
+                            onChanged: (bool? value) {
                               setState(() {
-                                setAsDefault = value;
+                                if (value != null) {
+                                  setAsDefault = value;
+                                }
                               });
                             },
                           );
@@ -212,7 +213,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     height: 50,
                   ),
                   BlocConsumer<AddAddressCubit, AddAddressState>(
-                    cubit: addAddressCubit,
+                    bloc : addAddressCubit,
                     listener: (BuildContext context, AddAddressState state) {
                       if (state is Successful) {
                         Navigator.of(context).pop(true);
@@ -225,7 +226,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                         height: 50,
                         replaceWithIndicator: state is ButtonLoading,
                         //isDisabled:
-                        margin: EdgeInsets.only(bottom: 40),
+                        margin: const EdgeInsets.only(bottom: 40),
                         onTap: () {
                           onButtonTap();
                         },
@@ -242,7 +243,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       final Address address = Address(
           name: nameEditingController.text,
           address: addressEditingController.text,

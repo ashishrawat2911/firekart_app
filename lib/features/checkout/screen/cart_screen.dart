@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/checkout/bloc/payment_cubit.dart';
 import 'package:fluttercommerce/features/checkout/bloc/place_order_cubit.dart';
 import 'package:fluttercommerce/features/checkout/state/payment_state.dart';
 import 'package:fluttercommerce/features/checkout/state/place_order_state.dart';
 import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/cart_item_card.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/common/widgets/common_card.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/features/order/state/account_details_state.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:fluttercommerce/res/app_colors.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/routes/router.gr.dart';
 
 class CartScreen extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartStatusCubit, List<CartModel>>(
-      cubit: cartStatusCubit,
+      bloc: cartStatusCubit,
       builder: (context, state) {
         print('Cart screen ${state.noOfItemsInCart}');
         return Scaffold(
@@ -185,7 +185,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 
   Widget deliverTo() {
     return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-      cubit: selectedAddressCubit,
+      bloc: selectedAddressCubit,
       builder: (BuildContext context, AccountDetailsState accountDetailState) {
         return CommonCard(
             child: Container(
@@ -206,14 +206,16 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                         : StringsConstants.changeTextCapital,
                     onTap: () {
                       if (accountDetailState.selectedAddress == null) {
-                        Navigator.pushNamed(context, Routes.addAddressScreen,
-                            arguments: AddAddressScreenArguments(
+                        Navigator.pushNamed(context, AddAddressScreenRoute.name,
+                            arguments: AddAddressScreenRouteArgs(
                               newAddress: true,
-                              accountDetails: accountDetailState.accountDetails,
+                              accountDetails:
+                                  accountDetailState.accountDetails!,
                             ));
                       } else {
-                        Navigator.of(context).pushNamed(Routes.myAddressScreen,
-                            arguments: MyAddressScreenArguments(
+                        Navigator.of(context).pushNamed(
+                            MyAddressScreenRoute.name,
+                            arguments: MyAddressScreenRouteArgs(
                                 selectedAddress: true));
                       }
                     },
@@ -260,26 +262,26 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             ),
           ),
           BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-            cubit: accountDetailsCubit,
+            bloc: accountDetailsCubit,
             builder: (context, accountDetailsState) {
               return BlocConsumer<PaymentCubit, PaymentState>(
-                cubit: paymentCubit,
+                bloc: paymentCubit,
                 listener: (BuildContext context, PaymentState paymentState) {
                   if (paymentState is PaymentSuccessful) {
                     placeOrderCubit.placeOrder(
                       state,
                       paymentState.response,
-                      accountDetailsState.selectedAddress,
+                      accountDetailsState.selectedAddress!,
                     );
                   }
                 },
                 builder: (BuildContext context, PaymentState paymentState) {
                   return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-                    cubit: accountDetailsCubit,
+                    bloc: accountDetailsCubit,
                     builder: (BuildContext context,
                         AccountDetailsState accountDetailsState) {
                       return BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
-                        cubit: placeOrderCubit,
+                        bloc: placeOrderCubit,
                         listener:
                             (BuildContext context, PlaceOrderState state) {
                           state.when(
@@ -289,7 +291,8 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                               orderSuccessfullyPlaced: () {
                                 if (Navigator.canPop(context)) {
                                   Navigator.of(context).pushReplacementNamed(
-                                      Routes.myOrdersScreen);
+                                    MyOrdersScreenRoute.name,
+                                  );
                                 }
                               });
                         },

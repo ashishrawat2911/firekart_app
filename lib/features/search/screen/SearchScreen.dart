@@ -27,7 +27,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
           },
         ),
         body: BlocBuilder<ProductSearchCubit, ProductSearchState>(
-          cubit: productSearchCubit,
+          bloc : productSearchCubit,
           builder: (BuildContext context, ProductSearchState state) {
             return state.when(idle: () {
               return Container();

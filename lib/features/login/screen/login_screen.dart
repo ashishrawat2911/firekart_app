@@ -1,14 +1,14 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/utils/validator.dart';
+import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
 import 'package:fluttercommerce/res/styles.dart';
 import 'package:fluttercommerce/res/text_styles.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/routes/router.gr.dart';
 
 import '../bloc/phone_login_cubit.dart';
 import '../state/phone_login_state.dart';
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   CountryCodePicker(
                     onChanged: (value) {
-                      phoneNumberNotifier.value = value.dialCode;
+                      phoneNumberNotifier.value = value.dialCode!;
                     },
                     initialSelection: 'IN',
                     favorite: ['+91', 'IN'],
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               BlocConsumer<PhoneLoginCubit, PhoneLoginState>(
-                cubit: phoneLoginCubit,
+                bloc: phoneLoginCubit,
                 listener: (BuildContext context, PhoneLoginState state) {},
                 builder: (BuildContext context, PhoneLoginState state) {
                   bool isButtonEnabled() {
@@ -155,14 +155,14 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void onButtonTap() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       Navigator.of(context)
-          .pushNamed(Routes.otpLoginScreen,
-              arguments: OtpLoginScreenArguments(
+          .pushNamed(OtpLoginScreenRoute.name,
+              arguments: OtpLoginScreenRouteArgs(
                   phoneNumber:
                       phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
-        if (value != null && value) {
+        if (value != null && value as bool) {
           phoneNumberController.clear();
         }
       });

@@ -1,15 +1,19 @@
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'order_model.g.dart';
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class OrderModel {
-  String orderId;
-  num price;
-  List<OrderItem> orderItems;
-  String orderedAt;
-  String orderStatus;
-  String currency;
-  String paymentId;
-  String signature;
-  Address orderAddress;
+  String? orderId;
+  num? price;
+  List<OrderItem>? orderItems;
+  String? orderedAt;
+  String? orderStatus;
+  String? currency;
+  String? paymentId;
+  String? signature;
+  Address? orderAddress;
 
   OrderModel(
       {this.orderId,
@@ -22,32 +26,9 @@ class OrderModel {
       this.signature,
       this.orderAddress});
 
-  factory OrderModel.fromJson(json) {
-    return OrderModel(
-        orderId: json['order_id'] as String,
-        price: json['price'] as num,
-        orderStatus: json['order_status'] as String,
-        orderedAt: json['ordered_at'] as String,
-        currency: json['currency'] as String,
-        paymentId: json['payment_id'] as String,
-        signature: json['signature'] as String,
-        orderAddress: Address.fromDocument(json['order_address']),
-        orderItems: (json['order_items'] as List)
-            ?.map((e) => e == null ? null : OrderItem.fromJson(e))
-            ?.toList());
-  }
+  factory OrderModel.fromJson(json) => _$OrderModelFromJson(json);
 
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'order_id': orderId,
-        'price': price,
-        'ordered_at': DateTime.now().toIso8601String(),
-        "order_status": "Ordered",
-        "currency": orderItems[0].currency,
-        "payment_id": paymentId,
-        "signature": signature,
-        "order_address": orderAddress.toJson(),
-        'order_items': List<dynamic>.from(orderItems.map((x) => x.toJson())),
-      };
+  Map<String, dynamic> toJson() => _$OrderModelToJson(this);
 
   @override
   String toString() {
@@ -55,14 +36,15 @@ class OrderModel {
   }
 }
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class OrderItem {
-  String productId;
-  String image;
-  String name;
-  String unit;
-  String currency;
-  num price;
-  num noOfItems;
+  String? productId;
+  String? image;
+  String? name;
+  String? unit;
+  String? currency;
+  num? price;
+  num? noOfItems;
 
   OrderItem(
       {this.productId,

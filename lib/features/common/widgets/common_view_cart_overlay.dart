@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
-import 'package:fluttercommerce/features/common/models/cartModel_model.dart';
+import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:fluttercommerce/res/app_colors.dart';
 import 'package:fluttercommerce/res/string_constants.dart';
@@ -12,7 +12,7 @@ class CommonViewCartOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartStatusCubit, List<CartModel>>(
-      cubit: DI.container(),
+      bloc : DI.container(),
       builder: (context, state) {
         return AnimatedCrossFade(
           duration: Duration(microseconds: 3000),
@@ -35,7 +35,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(Routes.cartScreen);
+                    Navigator.of(context).pushNamed(CartScreenRoute.name);
                   },
                   child: Row(
                     children: <Widget>[

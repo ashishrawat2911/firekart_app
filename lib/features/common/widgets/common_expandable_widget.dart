@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/res/app_colors.dart';
 
 class CommonExpandedWidget extends StatefulWidget {
-  final Color backgroundColor;
-  final String title;
-  final TextStyle titleStyle;
-  final EdgeInsets margin;
-  final VoidCallback voidCallbackScroll;
-  final List<Widget> children;
-  final Color color;
+  final Color? backgroundColor;
+  final String? title;
+  final TextStyle? titleStyle;
+  final EdgeInsets? margin;
+  final VoidCallback? voidCallbackScroll;
+  final List<Widget>? children;
+  final Color? color;
 
   CommonExpandedWidget(
       {this.backgroundColor,
@@ -27,8 +27,8 @@ class CommonExpandedWidget extends StatefulWidget {
 
 class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController animationController;
+  late Animation<double> animation;
+  late AnimationController animationController;
   bool isOpened = false;
 
   @override
@@ -55,7 +55,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
             SizedBox(
               height: 23,
             ),
-            ...widget.children,
+            ...?widget.children,
           ],
         ),
       ),
@@ -67,7 +67,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
         behavior: HitTestBehavior.opaque,
         onTap: () {
           if (isOpened) {
-            if (widget.voidCallbackScroll != null) widget.voidCallbackScroll();
+            if (widget.voidCallbackScroll != null) widget.voidCallbackScroll!();
             animationController.forward();
           } else {
             animationController.reverse();
@@ -83,7 +83,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
             children: [
               Expanded(
                 child: Text(
-                  widget.title,
+                  widget.title!,
                   style: widget.titleStyle,
                 ),
               ),

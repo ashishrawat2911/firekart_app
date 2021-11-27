@@ -2,8 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 
+abstract class StateManager<S> extends Cubit<S> {
+  StateManager(S state) : super(state);
+
+  set state(S value) {
+    emit(value);
+  }
+}
+
 @immutable
-abstract class BaseScreen<C extends Cubit<S>, S> extends StatelessWidget {
+abstract class BaseScreen<C extends StateManager<S>, S>
+    extends StatelessWidget {
   BaseScreen({Key? key}) : super(key: key) {
     initState(bloc);
   }
@@ -36,7 +45,7 @@ abstract class BaseScreen<C extends Cubit<S>, S> extends StatelessWidget {
   }
 }
 
-class AScreenCubit extends Cubit<int> {
+class AScreenCubit extends StateManager<int> {
   AScreenCubit() : super(0);
 }
 

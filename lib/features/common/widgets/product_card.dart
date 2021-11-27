@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/routes/router.gr.dart';
 import 'package:fluttercommerce/res/text_styles.dart';
+import 'package:fluttercommerce/routes/router.gr.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel productModel;
@@ -14,8 +14,12 @@ class ProductCard extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: () {
-        Navigator.of(context).pushNamed(Routes.productDetailPage,
-            arguments: ProductDetailPageArguments(productModel: productModel));
+        Navigator.of(context).pushNamed(
+          ProductDetailPageRoute.name,
+          arguments: ProductDetailPageRouteArgs(
+            productModel: productModel,
+          ),
+        );
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -43,7 +47,7 @@ class ProductCard extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    productModel.name,
+                    productModel.name!,
                     style: AppTextStyles.medium14Black,
                   ),
                   SizedBox(

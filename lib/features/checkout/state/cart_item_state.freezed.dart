@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'cart_item_state.dart';
 
@@ -9,35 +9,33 @@ part of 'cart_item_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$CartItemStateTearOff {
   const _$CartItemStateTearOff();
 
-// ignore: unused_element
   Idle idle() {
     return const Idle();
   }
 
-// ignore: unused_element
   CartDataLoading cartDataLoading() {
     return const CartDataLoading();
   }
 
-// ignore: unused_element
   ShowCartValue showCartValue(num noOfItems) {
     return ShowCartValue(
       noOfItems,
     );
   }
 
-// ignore: unused_element
   AddToCartError addToCartError(String errorMessage) {
     return AddToCartError(
       errorMessage,
     );
   }
 
-// ignore: unused_element
   UpdateCartError updateCartError(String errorMessage, int cartValue) {
     return UpdateCartError(
       errorMessage,
@@ -45,79 +43,77 @@ class _$CartItemStateTearOff {
     );
   }
 
-// ignore: unused_element
   CartDeleteLoading cartDeleteLoading() {
     return const CartDeleteLoading();
   }
 
-// ignore: unused_element
   DeleteCartError deleteCartError(String errorMessage) {
     return DeleteCartError(
       errorMessage,
     );
   }
 
-// ignore: unused_element
   ItemDeleted itemDeleted() {
     return const ItemDeleted();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CartItemState = _$CartItemStateTearOff();
 
 /// @nodoc
 mixin _$CartItemState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
-  });
-
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
-  });
-
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
-  });
-
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -133,7 +129,6 @@ class _$CartItemStateCopyWithImpl<$Res>
   _$CartItemStateCopyWithImpl(this._value, this._then);
 
   final CartItemState _value;
-
   // ignore: unused_field
   final $Res Function(CartItemState) _then;
 }
@@ -173,41 +168,33 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return idle();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle();
     }
@@ -216,41 +203,32 @@ class _$Idle implements Idle {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return idle(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idle != null) {
       return idle(this);
     }
@@ -300,41 +278,33 @@ class _$CartDataLoading implements CartDataLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return cartDataLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cartDataLoading != null) {
       return cartDataLoading();
     }
@@ -343,41 +313,32 @@ class _$CartDataLoading implements CartDataLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return cartDataLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cartDataLoading != null) {
       return cartDataLoading(this);
     }
@@ -394,7 +355,6 @@ abstract class $ShowCartValueCopyWith<$Res> {
   factory $ShowCartValueCopyWith(
           ShowCartValue value, $Res Function(ShowCartValue) then) =
       _$ShowCartValueCopyWithImpl<$Res>;
-
   $Res call({num noOfItems});
 }
 
@@ -411,17 +371,20 @@ class _$ShowCartValueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object noOfItems = freezed,
+    Object? noOfItems = freezed,
   }) {
     return _then(ShowCartValue(
-      noOfItems == freezed ? _value.noOfItems : noOfItems as num,
+      noOfItems == freezed
+          ? _value.noOfItems
+          : noOfItems // ignore: cast_nullable_to_non_nullable
+              as num,
     ));
   }
 }
 
 /// @nodoc
 class _$ShowCartValue implements ShowCartValue {
-  const _$ShowCartValue(this.noOfItems) : assert(noOfItems != null);
+  const _$ShowCartValue(this.noOfItems);
 
   @override
   final num noOfItems;
@@ -444,47 +407,40 @@ class _$ShowCartValue implements ShowCartValue {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(noOfItems);
 
+  @JsonKey(ignore: true)
   @override
   $ShowCartValueCopyWith<ShowCartValue> get copyWith =>
       _$ShowCartValueCopyWithImpl<ShowCartValue>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return showCartValue(noOfItems);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showCartValue != null) {
       return showCartValue(noOfItems);
     }
@@ -493,41 +449,32 @@ class _$ShowCartValue implements ShowCartValue {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return showCartValue(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showCartValue != null) {
       return showCartValue(this);
     }
@@ -538,9 +485,10 @@ class _$ShowCartValue implements ShowCartValue {
 abstract class ShowCartValue implements CartItemState {
   const factory ShowCartValue(num noOfItems) = _$ShowCartValue;
 
-  num get noOfItems;
-
-  $ShowCartValueCopyWith<ShowCartValue> get copyWith;
+  num get noOfItems => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ShowCartValueCopyWith<ShowCartValue> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -548,7 +496,6 @@ abstract class $AddToCartErrorCopyWith<$Res> {
   factory $AddToCartErrorCopyWith(
           AddToCartError value, $Res Function(AddToCartError) then) =
       _$AddToCartErrorCopyWithImpl<$Res>;
-
   $Res call({String errorMessage});
 }
 
@@ -565,17 +512,20 @@ class _$AddToCartErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object errorMessage = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(AddToCartError(
-      errorMessage == freezed ? _value.errorMessage : errorMessage as String,
+      errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$AddToCartError implements AddToCartError {
-  const _$AddToCartError(this.errorMessage) : assert(errorMessage != null);
+  const _$AddToCartError(this.errorMessage);
 
   @override
   final String errorMessage;
@@ -598,47 +548,40 @@ class _$AddToCartError implements AddToCartError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
 
+  @JsonKey(ignore: true)
   @override
   $AddToCartErrorCopyWith<AddToCartError> get copyWith =>
       _$AddToCartErrorCopyWithImpl<AddToCartError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return addToCartError(errorMessage);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addToCartError != null) {
       return addToCartError(errorMessage);
     }
@@ -647,41 +590,32 @@ class _$AddToCartError implements AddToCartError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return addToCartError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addToCartError != null) {
       return addToCartError(this);
     }
@@ -692,9 +626,10 @@ class _$AddToCartError implements AddToCartError {
 abstract class AddToCartError implements CartItemState {
   const factory AddToCartError(String errorMessage) = _$AddToCartError;
 
-  String get errorMessage;
-
-  $AddToCartErrorCopyWith<AddToCartError> get copyWith;
+  String get errorMessage => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AddToCartErrorCopyWith<AddToCartError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -702,7 +637,6 @@ abstract class $UpdateCartErrorCopyWith<$Res> {
   factory $UpdateCartErrorCopyWith(
           UpdateCartError value, $Res Function(UpdateCartError) then) =
       _$UpdateCartErrorCopyWithImpl<$Res>;
-
   $Res call({String errorMessage, int cartValue});
 }
 
@@ -719,21 +653,25 @@ class _$UpdateCartErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object errorMessage = freezed,
-    Object cartValue = freezed,
+    Object? errorMessage = freezed,
+    Object? cartValue = freezed,
   }) {
     return _then(UpdateCartError(
-      errorMessage == freezed ? _value.errorMessage : errorMessage as String,
-      cartValue == freezed ? _value.cartValue : cartValue as int,
+      errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      cartValue == freezed
+          ? _value.cartValue
+          : cartValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 class _$UpdateCartError implements UpdateCartError {
-  const _$UpdateCartError(this.errorMessage, this.cartValue)
-      : assert(errorMessage != null),
-        assert(cartValue != null);
+  const _$UpdateCartError(this.errorMessage, this.cartValue);
 
   @override
   final String errorMessage;
@@ -763,47 +701,40 @@ class _$UpdateCartError implements UpdateCartError {
       const DeepCollectionEquality().hash(errorMessage) ^
       const DeepCollectionEquality().hash(cartValue);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateCartErrorCopyWith<UpdateCartError> get copyWith =>
       _$UpdateCartErrorCopyWithImpl<UpdateCartError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return updateCartError(errorMessage, cartValue);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updateCartError != null) {
       return updateCartError(errorMessage, cartValue);
     }
@@ -812,41 +743,32 @@ class _$UpdateCartError implements UpdateCartError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return updateCartError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updateCartError != null) {
       return updateCartError(this);
     }
@@ -858,11 +780,11 @@ abstract class UpdateCartError implements CartItemState {
   const factory UpdateCartError(String errorMessage, int cartValue) =
       _$UpdateCartError;
 
-  String get errorMessage;
-
-  int get cartValue;
-
-  $UpdateCartErrorCopyWith<UpdateCartError> get copyWith;
+  String get errorMessage => throw _privateConstructorUsedError;
+  int get cartValue => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateCartErrorCopyWith<UpdateCartError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -903,41 +825,33 @@ class _$CartDeleteLoading implements CartDeleteLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return cartDeleteLoading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cartDeleteLoading != null) {
       return cartDeleteLoading();
     }
@@ -946,41 +860,32 @@ class _$CartDeleteLoading implements CartDeleteLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return cartDeleteLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cartDeleteLoading != null) {
       return cartDeleteLoading(this);
     }
@@ -997,7 +902,6 @@ abstract class $DeleteCartErrorCopyWith<$Res> {
   factory $DeleteCartErrorCopyWith(
           DeleteCartError value, $Res Function(DeleteCartError) then) =
       _$DeleteCartErrorCopyWithImpl<$Res>;
-
   $Res call({String errorMessage});
 }
 
@@ -1014,17 +918,20 @@ class _$DeleteCartErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object errorMessage = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(DeleteCartError(
-      errorMessage == freezed ? _value.errorMessage : errorMessage as String,
+      errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$DeleteCartError implements DeleteCartError {
-  const _$DeleteCartError(this.errorMessage) : assert(errorMessage != null);
+  const _$DeleteCartError(this.errorMessage);
 
   @override
   final String errorMessage;
@@ -1047,47 +954,40 @@ class _$DeleteCartError implements DeleteCartError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
 
+  @JsonKey(ignore: true)
   @override
   $DeleteCartErrorCopyWith<DeleteCartError> get copyWith =>
       _$DeleteCartErrorCopyWithImpl<DeleteCartError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return deleteCartError(errorMessage);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteCartError != null) {
       return deleteCartError(errorMessage);
     }
@@ -1096,41 +996,32 @@ class _$DeleteCartError implements DeleteCartError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return deleteCartError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteCartError != null) {
       return deleteCartError(this);
     }
@@ -1141,9 +1032,10 @@ class _$DeleteCartError implements DeleteCartError {
 abstract class DeleteCartError implements CartItemState {
   const factory DeleteCartError(String errorMessage) = _$DeleteCartError;
 
-  String get errorMessage;
-
-  $DeleteCartErrorCopyWith<DeleteCartError> get copyWith;
+  String get errorMessage => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DeleteCartErrorCopyWith<DeleteCartError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1183,41 +1075,33 @@ class _$ItemDeleted implements ItemDeleted {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result idle(),
-    @required Result cartDataLoading(),
-    @required Result showCartValue(num noOfItems),
-    @required Result addToCartError(String errorMessage),
-    @required Result updateCartError(String errorMessage, int cartValue),
-    @required Result cartDeleteLoading(),
-    @required Result deleteCartError(String errorMessage),
-    @required Result itemDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() cartDataLoading,
+    required TResult Function(num noOfItems) showCartValue,
+    required TResult Function(String errorMessage) addToCartError,
+    required TResult Function(String errorMessage, int cartValue)
+        updateCartError,
+    required TResult Function() cartDeleteLoading,
+    required TResult Function(String errorMessage) deleteCartError,
+    required TResult Function() itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return itemDeleted();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result idle(),
-    Result cartDataLoading(),
-    Result showCartValue(num noOfItems),
-    Result addToCartError(String errorMessage),
-    Result updateCartError(String errorMessage, int cartValue),
-    Result cartDeleteLoading(),
-    Result deleteCartError(String errorMessage),
-    Result itemDeleted(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? cartDataLoading,
+    TResult Function(num noOfItems)? showCartValue,
+    TResult Function(String errorMessage)? addToCartError,
+    TResult Function(String errorMessage, int cartValue)? updateCartError,
+    TResult Function()? cartDeleteLoading,
+    TResult Function(String errorMessage)? deleteCartError,
+    TResult Function()? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (itemDeleted != null) {
       return itemDeleted();
     }
@@ -1226,41 +1110,32 @@ class _$ItemDeleted implements ItemDeleted {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result idle(Idle value),
-    @required Result cartDataLoading(CartDataLoading value),
-    @required Result showCartValue(ShowCartValue value),
-    @required Result addToCartError(AddToCartError value),
-    @required Result updateCartError(UpdateCartError value),
-    @required Result cartDeleteLoading(CartDeleteLoading value),
-    @required Result deleteCartError(DeleteCartError value),
-    @required Result itemDeleted(ItemDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(CartDataLoading value) cartDataLoading,
+    required TResult Function(ShowCartValue value) showCartValue,
+    required TResult Function(AddToCartError value) addToCartError,
+    required TResult Function(UpdateCartError value) updateCartError,
+    required TResult Function(CartDeleteLoading value) cartDeleteLoading,
+    required TResult Function(DeleteCartError value) deleteCartError,
+    required TResult Function(ItemDeleted value) itemDeleted,
   }) {
-    assert(idle != null);
-    assert(cartDataLoading != null);
-    assert(showCartValue != null);
-    assert(addToCartError != null);
-    assert(updateCartError != null);
-    assert(cartDeleteLoading != null);
-    assert(deleteCartError != null);
-    assert(itemDeleted != null);
     return itemDeleted(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result idle(Idle value),
-    Result cartDataLoading(CartDataLoading value),
-    Result showCartValue(ShowCartValue value),
-    Result addToCartError(AddToCartError value),
-    Result updateCartError(UpdateCartError value),
-    Result cartDeleteLoading(CartDeleteLoading value),
-    Result deleteCartError(DeleteCartError value),
-    Result itemDeleted(ItemDeleted value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(CartDataLoading value)? cartDataLoading,
+    TResult Function(ShowCartValue value)? showCartValue,
+    TResult Function(AddToCartError value)? addToCartError,
+    TResult Function(UpdateCartError value)? updateCartError,
+    TResult Function(CartDeleteLoading value)? cartDeleteLoading,
+    TResult Function(DeleteCartError value)? deleteCartError,
+    TResult Function(ItemDeleted value)? itemDeleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (itemDeleted != null) {
       return itemDeleted(this);
     }

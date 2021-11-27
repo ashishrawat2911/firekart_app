@@ -8,10 +8,10 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
   AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
 
   final FirestoreRepository _firebaseRepo;
-  List<DocumentSnapshot> documents;
-  List<ProductModel> productList;
+  List<DocumentSnapshot>? documents;
+  List<ProductModel>? productList;
 
-  Future<void> fetchProducts([String condition]) async {
+  Future<void> fetchProducts([String? condition]) async {
     emit(const ResultState.loading());
     try {
       if (condition == null) {
@@ -20,33 +20,33 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
         documents = await _firebaseRepo.getAllProductsData(condition);
       }
       productList = List<ProductModel>.generate(
-          documents.length, (index) => ProductModel.fromJson(documents[index]));
-      List.generate(productList.length, (index) {
-        print(productList[index].name);
+          documents!.length, (index) => ProductModel.fromJson(documents![index]));
+      List.generate(productList!.length, (index) {
+        print(productList![index].name);
       });
-      print(productList.length);
-      emit(ResultState.data(data: productList.toSet().toList()));
+      print(productList!.length);
+      emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
     }
   }
 
-  Future<void> fetchNextList([String condition]) async {
+  Future<void> fetchNextList([String? condition]) async {
     try {
       final List<DocumentSnapshot> docs =
-          await _firebaseRepo.getAllProducts(documents[documents.length - 1]);
+          await _firebaseRepo.getAllProducts(documents![documents!.length - 1]);
 
-      documents.addAll(docs);
+      documents!.addAll(docs);
       productList = List<ProductModel>.generate(
-          documents.length, (index) => ProductModel.fromJson(documents[index]));
-      List.generate(productList.length, (index) {
-        print(productList[index].name);
+          documents!.length, (index) => ProductModel.fromJson(documents![index]));
+      List.generate(productList!.length, (index) {
+        print(productList![index].name);
       });
-      print(productList.length);
-      emit(ResultState.data(data: productList.toSet().toList()));
+      print(productList!.length);
+      emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       print(e);
-      emit(ResultState.unNotifiedError(error: e.toString(), data: productList));
+      emit(ResultState.unNotifiedError(error: e.toString(), data: productList!));
     }
   }
 }

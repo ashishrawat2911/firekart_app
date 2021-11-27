@@ -3,14 +3,14 @@ import 'dart:math' as math show sin, pi;
 import 'package:flutter/material.dart';
 
 class DotProgressIndicator extends StatefulWidget {
-  final Color color;
-  final double size;
-  final IndexedWidgetBuilder itemBuilder;
+  final Color? color;
+  final double? size;
+  final IndexedWidgetBuilder? itemBuilder;
   final Duration duration;
-  final AnimationController controller;
+  final AnimationController? controller;
 
   const DotProgressIndicator({
-    Key key,
+    Key? key,
     this.color,
     this.size = 48.0 / 2,
     this.itemBuilder,
@@ -29,12 +29,11 @@ class DotProgressIndicator extends StatefulWidget {
 
 class _DotProgressIndicatorState extends State<DotProgressIndicator>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
-
     _controller = (widget.controller ??
         AnimationController(vsync: this, duration: widget.duration))
       ..repeat();
@@ -50,7 +49,7 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox.fromSize(
-        size: Size(widget.size * 2, widget.size),
+        size: Size(widget.size! * 2, widget.size!),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(3, (i) {
@@ -58,7 +57,8 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
               scale: DelayTween(begin: 0.0, end: 1.0, delay: i * .2)
                   .animate(_controller),
               child: SizedBox.fromSize(
-                  size: Size.square(widget.size * 0.5), child: _itemBuilder(i)),
+                  size: Size.square(widget.size! * 0.5),
+                  child: _itemBuilder(i)),
             );
           }),
         ),
@@ -67,21 +67,21 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
   }
 
   Widget _itemBuilder(int index) => widget.itemBuilder != null
-      ? widget.itemBuilder(context, index)
+      ? widget.itemBuilder!(context, index)
       : DecoratedBox(
           decoration:
               BoxDecoration(color: widget.color, shape: BoxShape.circle));
 }
 
 class DelayTween extends Tween<double> {
-  DelayTween({double begin, double end, this.delay})
+  DelayTween({double? begin, double? end, this.delay})
       : super(begin: begin, end: end);
 
-  final double delay;
+  final double? delay;
 
   @override
   double lerp(double t) =>
-      super.lerp((math.sin((t - delay) * 2 * math.pi) + 1) / 2);
+      super.lerp((math.sin((t - delay!) * 2 * math.pi) + 1) / 2);
 
   @override
   double evaluate(Animation<double> animation) => lerp(animation.value);

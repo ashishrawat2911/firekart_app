@@ -1,35 +1,25 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'account_details_model.g.dart';
+
+@JsonSerializable()
 class AccountDetails {
   String name;
   String phoneNumber;
-  List<Address> addresses = [];
+  List<Address> addresses;
 
-  AccountDetails({this.name, this.phoneNumber, this.addresses});
+  AccountDetails({
+    required this.name,
+    required this.phoneNumber,
+    this.addresses = const [],
+  });
 
-  AccountDetails.fromDocument(json) {
-    name = json['name'];
-    phoneNumber = json['phone_number'];
-    if (json['addresses'] != null) {
-      addresses = new List<Address>();
-      print(json["addresses"]);
-      addresses = (json['addresses'] as List)
-          ?.map((e) => e == null ? null : Address.fromDocument(e))
-          ?.toList();
-    } else {
-      addresses = [];
-    }
-  }
+  factory AccountDetails.fromDocument(json) => _$AccountDetailsFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['phone_number'] = this.phoneNumber;
-    if (this.addresses != null) {
-      data['addresses'] = this.addresses.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$AccountDetailsToJson(this);
 }
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Address {
   String name;
   String pincode;
@@ -40,35 +30,17 @@ class Address {
   bool isDefault;
 
   Address(
-      {this.name,
-      this.pincode,
-      this.address,
-      this.city,
-      this.state,
-      this.phoneNumber,
+      {required this.name,
+      required this.pincode,
+      required this.address,
+      required this.city,
+      required this.state,
+      required this.phoneNumber,
       this.isDefault = false});
 
-  Address.fromDocument(json) {
-    name = json['name'];
-    pincode = json['pincode'];
-    address = json['address'];
-    city = json['city'];
-    state = json['state'];
-    phoneNumber = json['phone_number'];
-    isDefault = json['is_default'] ?? false;
-  }
+  factory Address.fromDocument(json) => _$AddressFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['pincode'] = this.pincode;
-    data['address'] = this.address;
-    data['city'] = this.city;
-    data['state'] = this.state;
-    data['phone_number'] = this.phoneNumber;
-    data['is_default'] = this.isDefault;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$AddressToJson(this);
 
   String wholeAddress() {
     return "$address $city $state $pincode";
