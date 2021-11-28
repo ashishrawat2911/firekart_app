@@ -29,7 +29,7 @@ class Address {
       required this.phoneNumber,
       this.isDefault = false});
 
-  factory Address.fromDocument(json) => _$AddressFromJson(json);
+  factory Address.fromJson(json) => _$AddressFromJson(json);
   String name;
   String pincode;
   String address;
