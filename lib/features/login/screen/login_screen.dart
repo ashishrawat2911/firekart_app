@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
-import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/styles.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
+import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 
 import '../bloc/phone_login_cubit.dart';
 import '../state/phone_login_state.dart';
@@ -123,21 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 bloc: phoneLoginCubit,
                 listener: (BuildContext context, PhoneLoginState state) {},
                 builder: (BuildContext context, PhoneLoginState state) {
-                  bool isButtonEnabled() {
-                    if (state is ButtonEnabled) {
-                      return true;
-                    } else if (state is ButtonDisabled) {
-                      return false;
-                    } else {
-                      return true;
-                    }
-                  }
-
                   return CommonButton(
                     title: StringsConstants.continueText,
                     height: 50,
-                    isEnabled: isButtonEnabled(),
-                    replaceWithIndicator: state is PhoneLoading ? true : false,
+                    isEnabled: state.isButtonEnabled,
+                    replaceWithIndicator: state.phoneLoading,
                     onTap: () {
                       onButtonTap();
                     },
@@ -156,8 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      Navigator.of(context)
-          .pushNamed(OtpLoginScreenRoute.name,
+      NavigationHandler.navigate(OtpLoginScreenRoute.name,
               arguments: OtpLoginScreenRouteArgs(
                   phoneNumber:
                       phoneNumberNotifier.value + phoneNumberController.text))

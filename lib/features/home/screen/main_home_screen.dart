@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
-import 'package:fluttercommerce/features/checkout/screen/cart_screen.dart';
+import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
+import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/home/bloc/bottom_bar_cubit.dart';
 import 'package:fluttercommerce/features/home/screen/home_page.dart';
@@ -13,7 +13,7 @@ import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
-import '../../search/screen/SearchScreen.dart';
+import 'SearchScreen.dart';
 import '../../user/screen/account_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {

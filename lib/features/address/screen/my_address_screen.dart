@@ -5,6 +5,7 @@ import 'package:fluttercommerce/features/address/bloc/address_card_cubit.dart';
 import 'package:fluttercommerce/features/address/bloc/my_address_cubit.dart';
 import 'package:fluttercommerce/features/address/state/address_card_state.dart';
 import 'package:fluttercommerce/features/address/state/my_address_state.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
@@ -147,7 +148,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                           DI.container<AccountDetailsCubit>();
                       accountDetailsCubit.selectedAddress =
                           accountDetails.addresses[index];
-                      Navigator.of(context).pop();
+                      NavigationHandler.pop();
                     }
                   : null,
               child: Card(

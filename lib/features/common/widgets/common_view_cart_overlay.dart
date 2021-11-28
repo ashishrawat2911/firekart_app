@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
@@ -35,7 +36,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(CartScreenRoute.name);
+                    NavigationHandler.navigate( CartScreenRoute.name);
                   },
                   child: Row(
                     children: <Widget>[

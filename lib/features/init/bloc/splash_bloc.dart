@@ -1,14 +1,19 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/init/state/splash_state.dart';
 
-class SplashBloc extends Cubit<SplashState> {
+class SplashBloc extends StateManager<SplashState> {
   SplashBloc() : super(SplashInitialState());
 
   void startSplash() {
     const _duration = Duration(milliseconds: 1500);
     Timer(_duration, () {
+      NavigationHandler.navigate(
+         CheckStatusScreenRoute.name,
+        navigationType: NavigationType.PushReplacement,
+      );
       emit(SplashSuccessState());
     });
   }

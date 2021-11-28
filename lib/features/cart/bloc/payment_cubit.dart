@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/checkout/state/payment_state.dart';
+import 'package:fluttercommerce/features/cart/state/payment_state.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {

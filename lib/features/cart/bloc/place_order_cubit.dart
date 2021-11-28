@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
-import 'package:fluttercommerce/features/checkout/state/place_order_state.dart';
+import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
+import 'package:fluttercommerce/features/cart/state/place_order_state.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';

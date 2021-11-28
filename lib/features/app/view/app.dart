@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
+import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
 import 'package:fluttercommerce/features/app/res/app_theme.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/module_init.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -14,19 +15,26 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   void initState() {
-    final accountDetailsCubit = DI.container<AccountDetailsCubit>();
-    accountDetailsCubit.streamAccountDetails();
+    DI.container<GlobalListener>().refreshListener(
+          GlobalListenerConstants.accountDetails,
+          '',
+        );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final _appRouter = AppRouter();
     return MaterialApp.router(
       theme: AppTheme.appTheme(),
       debugShowCheckedModeBanner: false,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
+      routerDelegate: NavigationHandler.routerDelegate,
+      routeInformationParser: NavigationHandler.routeInformationParser,
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    ModuleInit.closeModules();
   }
 }

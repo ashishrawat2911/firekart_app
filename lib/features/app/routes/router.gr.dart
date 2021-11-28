@@ -13,10 +13,11 @@ import 'package:flutter/material.dart' as _i15;
 
 import '../../address/screen/add_address_screen.dart' as _i12;
 import '../../address/screen/my_address_screen.dart' as _i11;
-import '../../checkout/screen/cart_screen.dart' as _i8;
+import '../../cart/screen/cart_screen.dart' as _i8;
 import '../../common/models/account_details_model.dart' as _i17;
 import '../../common/models/product_model.dart' as _i16;
 import '../../home/screen/main_home_screen.dart' as _i3;
+import '../../home/screen/SearchScreen.dart' as _i10;
 import '../../init/screen/check_status_check_screen.dart' as _i2;
 import '../../init/screen/splash_screen.dart' as _i1;
 import '../../login/screen/login_screen.dart' as _i4;
@@ -24,7 +25,6 @@ import '../../login/screen/otp_login_screen.dart' as _i5;
 import '../../order/screen/my_orders_screen.dart' as _i13;
 import '../../product/screen/all_product_list_screen.dart' as _i9;
 import '../../product/screen/product_detail_page.dart' as _i6;
-import '../../search/screen/SearchScreen.dart' as _i10;
 import '../../user/screen/add_user_detail_screen.dart' as _i7;
 
 class AppRouter extends _i14.RootStackRouter {

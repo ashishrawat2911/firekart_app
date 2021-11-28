@@ -23,7 +23,6 @@ class _$OtpLoginStateTearOff {
       bool confirmOtpLoading = false,
       bool resendOtpLoading = false,
       String? otp,
-      bool loginSuccessFull = false,
       String? error}) {
     return _OtpLoginState(
       codeCountDown: codeCountDown,
@@ -31,7 +30,6 @@ class _$OtpLoginStateTearOff {
       confirmOtpLoading: confirmOtpLoading,
       resendOtpLoading: resendOtpLoading,
       otp: otp,
-      loginSuccessFull: loginSuccessFull,
       error: error,
     );
   }
@@ -47,7 +45,6 @@ mixin _$OtpLoginState {
   bool get confirmOtpLoading => throw _privateConstructorUsedError;
   bool get resendOtpLoading => throw _privateConstructorUsedError;
   String? get otp => throw _privateConstructorUsedError;
-  bool get loginSuccessFull => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -66,7 +63,6 @@ abstract class $OtpLoginStateCopyWith<$Res> {
       bool confirmOtpLoading,
       bool resendOtpLoading,
       String? otp,
-      bool loginSuccessFull,
       String? error});
 }
 
@@ -86,7 +82,6 @@ class _$OtpLoginStateCopyWithImpl<$Res>
     Object? confirmOtpLoading = freezed,
     Object? resendOtpLoading = freezed,
     Object? otp = freezed,
-    Object? loginSuccessFull = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -110,10 +105,6 @@ class _$OtpLoginStateCopyWithImpl<$Res>
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
               as String?,
-      loginSuccessFull: loginSuccessFull == freezed
-          ? _value.loginSuccessFull
-          : loginSuccessFull // ignore: cast_nullable_to_non_nullable
-              as bool,
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -135,7 +126,6 @@ abstract class _$OtpLoginStateCopyWith<$Res>
       bool confirmOtpLoading,
       bool resendOtpLoading,
       String? otp,
-      bool loginSuccessFull,
       String? error});
 }
 
@@ -157,7 +147,6 @@ class __$OtpLoginStateCopyWithImpl<$Res>
     Object? confirmOtpLoading = freezed,
     Object? resendOtpLoading = freezed,
     Object? otp = freezed,
-    Object? loginSuccessFull = freezed,
     Object? error = freezed,
   }) {
     return _then(_OtpLoginState(
@@ -181,10 +170,6 @@ class __$OtpLoginStateCopyWithImpl<$Res>
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
               as String?,
-      loginSuccessFull: loginSuccessFull == freezed
-          ? _value.loginSuccessFull
-          : loginSuccessFull // ignore: cast_nullable_to_non_nullable
-              as bool,
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -202,7 +187,6 @@ class _$_OtpLoginState implements _OtpLoginState {
       this.confirmOtpLoading = false,
       this.resendOtpLoading = false,
       this.otp,
-      this.loginSuccessFull = false,
       this.error});
 
   @override
@@ -218,15 +202,12 @@ class _$_OtpLoginState implements _OtpLoginState {
   final bool resendOtpLoading;
   @override
   final String? otp;
-  @JsonKey(defaultValue: false)
-  @override
-  final bool loginSuccessFull;
   @override
   final String? error;
 
   @override
   String toString() {
-    return 'OtpLoginState(codeCountDown: $codeCountDown, isButtonEnabled: $isButtonEnabled, confirmOtpLoading: $confirmOtpLoading, resendOtpLoading: $resendOtpLoading, otp: $otp, loginSuccessFull: $loginSuccessFull, error: $error)';
+    return 'OtpLoginState(codeCountDown: $codeCountDown, isButtonEnabled: $isButtonEnabled, confirmOtpLoading: $confirmOtpLoading, resendOtpLoading: $resendOtpLoading, otp: $otp, error: $error)';
   }
 
   @override
@@ -243,14 +224,12 @@ class _$_OtpLoginState implements _OtpLoginState {
             (identical(other.resendOtpLoading, resendOtpLoading) ||
                 other.resendOtpLoading == resendOtpLoading) &&
             (identical(other.otp, otp) || other.otp == otp) &&
-            (identical(other.loginSuccessFull, loginSuccessFull) ||
-                other.loginSuccessFull == loginSuccessFull) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, codeCountDown, isButtonEnabled,
-      confirmOtpLoading, resendOtpLoading, otp, loginSuccessFull, error);
+      confirmOtpLoading, resendOtpLoading, otp, error);
 
   @JsonKey(ignore: true)
   @override
@@ -265,7 +244,6 @@ abstract class _OtpLoginState implements OtpLoginState {
       bool confirmOtpLoading,
       bool resendOtpLoading,
       String? otp,
-      bool loginSuccessFull,
       String? error}) = _$_OtpLoginState;
 
   @override
@@ -278,8 +256,6 @@ abstract class _OtpLoginState implements OtpLoginState {
   bool get resendOtpLoading;
   @override
   String? get otp;
-  @override
-  bool get loginSuccessFull;
   @override
   String? get error;
   @override

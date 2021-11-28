@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/features/search/state/product_search_state.dart';
+import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 
 class ProductSearchCubit extends Cubit<ProductSearchState> {
   FirebaseManager firebaseRepo;

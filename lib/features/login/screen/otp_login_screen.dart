@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/styles.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/login/bloc/otp_login_cubit.dart';
 import 'package:fluttercommerce/features/login/state/otp_login_state.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/styles.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class OtpLoginScreen extends StatefulWidget {
   OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
@@ -102,7 +102,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                       style: AppTextStyles.normal14PrimaryColor,
                     ),
                     onTap: () {
-                      Navigator.of(context).pop(true);
+                      NavigationHandler.pop(true);
                     },
                   ),
                 ],
@@ -124,16 +124,6 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 listener: (BuildContext context, OtpLoginState state) {
                   if (state.otp != null) {
                     otpNumberController.text = state.otp!;
-                  }
-                  if (state.loginSuccessFull) {
-                    accountDetailsCubit.streamAccountDetails();
-
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                      CheckStatusScreenRoute.name,
-                      (route) => false,
-                      arguments: const CheckStatusScreenRouteArgs(
-                          checkForAccountStatusOnly: true),
-                    );
                   }
                 },
                 builder: (BuildContext context, OtpLoginState state) {
@@ -178,7 +168,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   style: AppTextStyles.normal14PrimaryColor,
                 ),
                 onTap: () {
-                  Navigator.of(context).pop();
+                  NavigationHandler.pop();
                 },
               ),
               const SizedBox(

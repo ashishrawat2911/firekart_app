@@ -10,7 +10,6 @@ abstract class OtpLoginState with _$OtpLoginState {
     @Default(false) bool confirmOtpLoading,
     @Default(false) bool resendOtpLoading,
     String? otp,
-    @Default(false) bool loginSuccessFull,
     String? error,
   }) = _OtpLoginState;
 }

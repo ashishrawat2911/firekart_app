@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/features/order/state/account_details_state.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class AccountScreen extends StatefulWidget {
   @override
@@ -57,8 +58,8 @@ class _AccountScreenState extends State<AccountScreen> {
                         ActionText(
                           StringsConstants.editCaps,
                           onTap: () {
-                            Navigator.of(context).pushNamed(
-                                AddUserDetailScreenRoute.name,
+                            NavigationHandler.navigate(
+                                 AddUserDetailScreenRoute.name,
                                 arguments: AddUserDetailScreenRouteArgs(
                                     newAddress: false));
                           },
@@ -71,15 +72,16 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.myOrders),
                     leading: Icon(Icons.shopping_basket),
                     onTap: () {
-                      Navigator.of(context).pushNamed(MyOrdersScreenRoute.name);
+                      NavigationHandler.navigate(
+                           MyOrdersScreenRoute.name);
                     },
                   ),
                   ListTile(
                     title: Text(StringsConstants.myAddress),
                     leading: Icon(Icons.place),
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(MyAddressScreenRoute.name);
+                      NavigationHandler.navigate(
+                           MyAddressScreenRoute.name);
                     },
                   ),
                   Divider(),
@@ -91,8 +93,10 @@ class _AccountScreenState extends State<AccountScreen> {
                           .container<FirebaseManager>()
                           .logoutUser()
                           .then((value) {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            LoginScreenRoute.name, (route) => false);
+                        NavigationHandler.navigate(
+                             LoginScreenRoute.name,
+                            navigationType: NavigationType.PushAndPopUntil,
+                            predicate: (route) => false);
                       });
                     },
                   ),
