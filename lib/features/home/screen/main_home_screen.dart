@@ -13,7 +13,7 @@ import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
-import 'SearchScreen.dart';
+import 'search_screen.dart';
 import '../../user/screen/account_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
@@ -63,7 +63,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       builder: (context, state) {
         return Scaffold(
           body: [
-            HomePageScreen(),
+            DashboardScreen(),
             SearchItemScreen(),
             CartScreen(),
             AccountScreen(),

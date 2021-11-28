@@ -17,7 +17,7 @@ import '../../cart/screen/cart_screen.dart' as _i8;
 import '../../common/models/account_details_model.dart' as _i17;
 import '../../common/models/product_model.dart' as _i16;
 import '../../home/screen/main_home_screen.dart' as _i3;
-import '../../home/screen/SearchScreen.dart' as _i10;
+import '../../home/screen/search_screen.dart' as _i10;
 import '../../init/screen/check_status_check_screen.dart' as _i2;
 import '../../init/screen/splash_screen.dart' as _i1;
 import '../../login/screen/login_screen.dart' as _i4;

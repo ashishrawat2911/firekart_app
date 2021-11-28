@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
 import 'package:fluttercommerce/features/app/res/app_theme.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/module_init.dart';
 
 class App extends StatefulWidget {

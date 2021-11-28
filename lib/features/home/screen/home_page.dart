@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
@@ -11,15 +11,15 @@ import 'package:fluttercommerce/features/home/bloc/home_page_cubit.dart';
 import 'package:fluttercommerce/features/home/home_module.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:shimmer/shimmer.dart';
 
-class HomePageScreen extends StatefulWidget {
+class DashboardScreen extends StatefulWidget {
   @override
-  _HomePageScreenState createState() => _HomePageScreenState();
+  _DashboardScreenState createState() => _DashboardScreenState();
 }
 
-class _HomePageScreenState extends State<HomePageScreen> {
+class _DashboardScreenState extends State<DashboardScreen> {
   ProductDataCubit dealsDayCubit =
       DI.container<ProductDataCubit>(instanceName: HomeModule.dealOfTheDay);
   ProductDataCubit topProductsCubit =
@@ -51,7 +51,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            NavigationHandler.navigate( AllProductListScreenRoute.name);
+            NavigationHandler.navigateTo( AllProductListScreenRoute.name);
           },
           label: Text(
             StringsConstants.viewAllProducts,
@@ -205,7 +205,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigate( 
+                      NavigationHandler.navigateTo( 
                           AllProductListScreenRoute.name,
                           arguments: AllProductListScreenRouteArgs(
                               productCondition: condition));

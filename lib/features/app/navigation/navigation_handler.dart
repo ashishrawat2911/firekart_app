@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 
-export 'package:fluttercommerce/features/app/routes/router.gr.dart';
+export 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 
 enum NavigationType { Push, PushReplacement, PopUntil, Pop, PushAndPopUntil }
 
@@ -19,7 +19,7 @@ class NavigationHandler extends Navigator {
 
   static NavigatorState get _navigator => _navigatorKey.currentState!;
 
-  static Future<dynamic> navigate(
+  static Future<dynamic> navigateTo(
     String routeName, {
     NavigationType navigationType = NavigationType.Push,
     Object? arguments,

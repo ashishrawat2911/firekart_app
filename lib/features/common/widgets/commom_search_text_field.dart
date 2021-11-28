@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   final String? hint;

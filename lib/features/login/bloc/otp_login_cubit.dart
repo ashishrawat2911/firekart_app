@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/login/state/otp_login_state.dart';
 
@@ -66,7 +66,7 @@ class OtpLoginCubit extends StateManager<OtpLoginState> {
 
       _globalListener.refreshListener(
           GlobalListenerConstants.accountDetails, '');
-      NavigationHandler.navigate(
+      NavigationHandler.navigateTo(
         CheckStatusScreenRoute.name,
         navigationType: NavigationType.PushAndPopUntil,
         predicate: (route) => false,

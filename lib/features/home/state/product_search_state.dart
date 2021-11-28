@@ -5,12 +5,10 @@ part 'product_search_state.freezed.dart';
 
 @freezed
 abstract class ProductSearchState with _$ProductSearchState {
-  const factory ProductSearchState.idle() = Idle;
-
-  const factory ProductSearchState.productList(List<ProductModel> productList) =
-      ProductList;
-
-  const factory ProductSearchState.loading() = Loading;
-
-  const factory ProductSearchState.error() = Error;
+  const factory ProductSearchState({
+    @Default([]) List<ProductModel> productList,
+    @Default(false) bool loading,
+    String? otp,
+    String? error,
+  }) = _ProductSearchState;
 }

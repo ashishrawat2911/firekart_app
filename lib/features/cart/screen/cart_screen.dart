@@ -4,8 +4,8 @@ import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/cart/bloc/payment_cubit.dart';
 import 'package:fluttercommerce/features/cart/bloc/place_order_cubit.dart';
@@ -214,7 +214,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                                   accountDetailState.accountDetails!,
                             ));
                       } else {
-                        NavigationHandler.navigate(
+                        NavigationHandler.navigateTo(
                            MyAddressScreenRoute.name,
                           arguments: const MyAddressScreenRouteArgs(
                             selectedAddress: true,
@@ -293,7 +293,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                               orderNotPlaced: (String message) {},
                               orderSuccessfullyPlaced: () {
                                 if (Navigator.canPop(context)) {
-                                  NavigationHandler.navigate(
+                                  NavigationHandler.navigateTo(
                                      MyOrdersScreenRoute.name,
                                     navigationType:
                                         NavigationType.PushReplacement,
