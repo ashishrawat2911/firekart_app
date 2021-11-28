@@ -4,8 +4,15 @@
 // utility that Flutter provides. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
+import 'package:fluttercommerce/features/init/screen/splash_screen.dart';
+import 'package:fluttercommerce/features/module_init.dart';
+import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/init/bloc/splash_bloc.dart';
+import 'dart:async';
 
 void main() {
-  print("matcher");
-}
+  DI.container..registerFactory(() => SplashBloc());
 
+  SplashScreen screen = SplashScreen();
+  print(screen.currentState);
+}
