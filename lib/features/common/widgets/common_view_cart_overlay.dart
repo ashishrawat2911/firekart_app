@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 
 class CommonViewCartOverlay extends StatelessWidget {
   @override
@@ -36,7 +36,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    NavigationHandler.navigate( CartScreenRoute.name);
+                    NavigationHandler.navigateTo( CartScreenRoute.name);
                   },
                   child: Row(
                     children: <Widget>[

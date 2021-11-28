@@ -1,28 +1,29 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 
-class ProductSearchCubit extends Cubit<ProductSearchState> {
+class ProductSearchCubit extends StateManager<ProductSearchState> {
+  ProductSearchCubit(this.firebaseRepo) : super(const ProductSearchState());
+
   FirebaseManager firebaseRepo;
 
-  ProductSearchCubit(this.firebaseRepo) : super(Idle());
-
-  searchProduct(String query) async {
-    emit(ProductSearchState.loading());
+  void searchProduct(String query) async {
+    state = state.copyWith(loading: true);
     try {
       var productSnapshot = await firebaseRepo.searchProducts(query);
 
-      List<ProductModel> list =
+      final List<ProductModel> list =
           List<ProductModel>.generate(productSnapshot.length, (index) {
-        ProductModel productModel =
+        final ProductModel productModel =
             ProductModel.fromJson(productSnapshot[index]);
         return productModel;
       });
-      emit(ProductSearchState.productList(list));
+
+      state.copyWith(productList: list);
     } catch (e) {
-      print(e.toString());
-      emit(ProductSearchState.error());
+      state.copyWith(error: '');
     }
+    state = state.copyWith(loading: false);
   }
 }

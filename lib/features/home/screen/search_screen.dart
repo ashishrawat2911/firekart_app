@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_search_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/product_card.dart';
 import 'package:fluttercommerce/features/home/bloc/product_search_cubit.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
 
 class SearchItemScreen extends StatefulWidget {
   @override
@@ -29,17 +29,14 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
         body: BlocBuilder<ProductSearchCubit, ProductSearchState>(
           bloc: productSearchCubit,
           builder: (BuildContext context, ProductSearchState state) {
-            return state.when(idle: () {
-              return Container();
-            }, error: () {
-              return Container();
-            }, loading: () {
+            if (state.loading) {
               return Center(
                 child: CommonAppLoader(),
               );
-            }, productList: (List<ProductModel> productList) {
-              return productView(productList);
-            });
+            } else if (state.productList != null) {
+              return productView(state.productList);
+            }
+            return Container();
           },
         ));
   }

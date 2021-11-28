@@ -4,8 +4,8 @@ import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/features/order/state/account_details_state.dart';
@@ -58,7 +58,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         ActionText(
                           StringsConstants.editCaps,
                           onTap: () {
-                            NavigationHandler.navigate(
+                            NavigationHandler.navigateTo(
                                  AddUserDetailScreenRoute.name,
                                 arguments: AddUserDetailScreenRouteArgs(
                                     newAddress: false));
@@ -72,7 +72,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.myOrders),
                     leading: Icon(Icons.shopping_basket),
                     onTap: () {
-                      NavigationHandler.navigate(
+                      NavigationHandler.navigateTo(
                            MyOrdersScreenRoute.name);
                     },
                   ),
@@ -80,7 +80,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     title: Text(StringsConstants.myAddress),
                     leading: Icon(Icons.place),
                     onTap: () {
-                      NavigationHandler.navigate(
+                      NavigationHandler.navigateTo(
                            MyAddressScreenRoute.name);
                     },
                   ),
@@ -93,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           .container<FirebaseManager>()
                           .logoutUser()
                           .then((value) {
-                        NavigationHandler.navigate(
+                        NavigationHandler.navigateTo(
                              LoginScreenRoute.name,
                             navigationType: NavigationType.PushAndPopUntil,
                             predicate: (route) => false);

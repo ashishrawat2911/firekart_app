@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:fluttercommerce/features/address/screen/add_address_screen.dart';
 import 'package:fluttercommerce/features/address/screen/my_address_screen.dart';
 import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
-import 'package:fluttercommerce/features/home/screen/SearchScreen.dart';
+import 'package:fluttercommerce/features/home/screen/search_screen.dart';
 import 'package:fluttercommerce/features/home/screen/main_home_screen.dart';
 import 'package:fluttercommerce/features/init/screen/check_status_check_screen.dart';
 import 'package:fluttercommerce/features/init/screen/splash_screen.dart';

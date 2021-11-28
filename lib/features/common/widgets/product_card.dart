@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
@@ -15,7 +15,7 @@ class ProductCard extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: () {
-        NavigationHandler.navigate(
+        NavigationHandler.navigateTo(
            ProductDetailPageRoute.name,
           arguments: ProductDetailPageRouteArgs(
             productModel: productModel,

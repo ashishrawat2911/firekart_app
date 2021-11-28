@@ -6,8 +6,8 @@ import 'package:fluttercommerce/features/address/bloc/add_account_details_cubit.
 import 'package:fluttercommerce/features/address/state/add_account_details_state.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
@@ -55,7 +55,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              NavigationHandler.navigate(
+              NavigationHandler.navigateTo(
                    MainHomeScreenRoute.name,
                   navigationType: NavigationType.PushReplacement);
             } else {
@@ -93,7 +93,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ActionText(StringsConstants.manageAddress, onTap: () {
-                        NavigationHandler.navigate(
+                        NavigationHandler.navigateTo(
                              MyAddressScreenRoute.name);
                       }),
                     ],

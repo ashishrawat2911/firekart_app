@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
@@ -49,7 +49,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         actions: <Widget>[
           InkWell(
             onTap: () {
-              NavigationHandler.navigate( SearchItemScreenRoute.name);
+              NavigationHandler.navigateTo( SearchItemScreenRoute.name);
             },
             child: Padding(
               padding: const EdgeInsets.all(16.0),
