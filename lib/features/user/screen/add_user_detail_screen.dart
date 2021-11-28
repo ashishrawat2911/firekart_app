@@ -4,13 +4,14 @@ import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/address/bloc/add_account_details_cubit.dart';
 import 'package:fluttercommerce/features/address/state/add_account_details_state.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class AddUserDetailScreen extends StatefulWidget {
   const AddUserDetailScreen(this.newAddress, {Key? key}) : super(key: key);
@@ -54,10 +55,11 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              Navigator.of(context)
-                  .pushReplacementNamed(MainHomeScreenRoute.name);
+              NavigationHandler.navigate(
+                   MainHomeScreenRoute.name,
+                  navigationType: NavigationType.PushReplacement);
             } else {
-              Navigator.of(context).pop();
+              NavigationHandler.pop();
             }
           }
           if (state is EditData) {
@@ -91,8 +93,8 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ActionText(StringsConstants.manageAddress, onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(MyAddressScreenRoute.name);
+                        NavigationHandler.navigate(
+                             MyAddressScreenRoute.name);
                       }),
                     ],
                   ),

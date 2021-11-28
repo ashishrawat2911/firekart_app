@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   final String? hint;
@@ -129,7 +130,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
                         if (widget.onClosePressed != null) {
                           widget.onClosePressed!();
                         }
-                        Navigator.of(context).pop();
+                        NavigationHandler.pop();
                       } else {
                         textEditingController.clear();
                         widget.onTextChanged("");

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
@@ -50,7 +51,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            Navigator.of(context).pushNamed(AllProductListScreenRoute.name);
+            NavigationHandler.navigate( AllProductListScreenRoute.name);
           },
           label: Text(
             StringsConstants.viewAllProducts,
@@ -204,7 +205,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      Navigator.of(context).pushNamed(
+                      NavigationHandler.navigate( 
                           AllProductListScreenRoute.name,
                           arguments: AllProductListScreenRouteArgs(
                               productCondition: condition));

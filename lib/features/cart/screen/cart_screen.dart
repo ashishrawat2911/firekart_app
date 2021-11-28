@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/checkout/bloc/cart_status_bloc.dart';
-import 'package:fluttercommerce/features/checkout/bloc/payment_cubit.dart';
-import 'package:fluttercommerce/features/checkout/bloc/place_order_cubit.dart';
-import 'package:fluttercommerce/features/checkout/state/payment_state.dart';
-import 'package:fluttercommerce/features/checkout/state/place_order_state.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/routes/router.gr.dart';
+import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
+import 'package:fluttercommerce/features/cart/bloc/payment_cubit.dart';
+import 'package:fluttercommerce/features/cart/bloc/place_order_cubit.dart';
+import 'package:fluttercommerce/features/cart/state/payment_state.dart';
+import 'package:fluttercommerce/features/cart/state/place_order_state.dart';
 import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
@@ -14,10 +19,6 @@ import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/common/widgets/common_card.dart';
 import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/features/order/state/account_details_state.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/routes/router.gr.dart';
 
 class CartScreen extends StatefulWidget {
   @override
@@ -213,10 +214,12 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                                   accountDetailState.accountDetails!,
                             ));
                       } else {
-                        Navigator.of(context).pushNamed(
-                            MyAddressScreenRoute.name,
-                            arguments: MyAddressScreenRouteArgs(
-                                selectedAddress: true));
+                        NavigationHandler.navigate(
+                           MyAddressScreenRoute.name,
+                          arguments: const MyAddressScreenRouteArgs(
+                            selectedAddress: true,
+                          ),
+                        );
                       }
                     },
                   )
@@ -290,8 +293,10 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                               orderNotPlaced: (String message) {},
                               orderSuccessfullyPlaced: () {
                                 if (Navigator.canPop(context)) {
-                                  Navigator.of(context).pushReplacementNamed(
-                                    MyOrdersScreenRoute.name,
+                                  NavigationHandler.navigate(
+                                     MyOrdersScreenRoute.name,
+                                    navigationType:
+                                        NavigationType.PushReplacement,
                                   );
                                 }
                               });

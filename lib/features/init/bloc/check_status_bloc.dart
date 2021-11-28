@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/init/state/check_status_state.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 
-class CheckStatusBloc extends Cubit<CheckStatusState> {
-  CheckStatusBloc(this.firebaseRepo) : super(InitialState());
+class CheckStatusBloc extends Cubit<int> {
+  CheckStatusBloc(this.firebaseRepo) : super(0);
   FirebaseManager firebaseRepo;
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {
@@ -13,12 +13,20 @@ class CheckStatusBloc extends Cubit<CheckStatusState> {
       if (checkForAccountStatusOnly || status) {
         final isUserDataPresent = await firebaseRepo.checkUserDetail();
         if (isUserDataPresent) {
-          emit(NavigateToMainHomeState());
+          NavigationHandler.navigate(
+            MainHomeScreenRoute.name,
+            navigationType: NavigationType.PushReplacement,
+          );
         } else {
-          emit(NavigateToAddUserState());
+          NavigationHandler.navigate(AddUserDetailScreenRoute.name,
+              navigationType: NavigationType.PushReplacement,
+              arguments: const AddUserDetailScreenRouteArgs(newAddress: true));
         }
       } else {
-        emit(NavigateToLoginState());
+        NavigationHandler.navigate(
+          LoginScreenRoute.name,
+          navigationType: NavigationType.PushReplacement,
+        );
       }
     });
   }

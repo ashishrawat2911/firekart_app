@@ -2,12 +2,16 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
+import 'package:fluttercommerce/features/app/routes/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/login/state/otp_login_state.dart';
 
 class OtpLoginCubit extends StateManager<OtpLoginState> {
-  OtpLoginCubit(this._firebaseManager) : super(const OtpLoginState());
+  OtpLoginCubit(this._firebaseManager, this._globalListener)
+      : super(const OtpLoginState());
   final FirebaseManager _firebaseManager;
+  final GlobalListener _globalListener;
 
   String? _verificationId;
 
@@ -59,7 +63,16 @@ class OtpLoginCubit extends StateManager<OtpLoginState> {
     final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     try {
       await firebaseAuth.signInWithCredential(authCred);
-      state = state.copyWith(loginSuccessFull: true);
+
+      _globalListener.refreshListener(
+          GlobalListenerConstants.accountDetails, '');
+      NavigationHandler.navigate(
+        CheckStatusScreenRoute.name,
+        navigationType: NavigationType.PushAndPopUntil,
+        predicate: (route) => false,
+        arguments:
+            const CheckStatusScreenRouteArgs(checkForAccountStatusOnly: true),
+      );
     } catch (e) {
       state = state.copyWith(error: e.toString());
     } finally {
