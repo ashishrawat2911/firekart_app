@@ -11,7 +11,7 @@ class SplashBloc extends StateManager<SplashState> {
     const _duration = Duration(milliseconds: 1500);
     Timer(_duration, () {
       NavigationHandler.navigateTo(
-         CheckStatusScreenRoute.name,
+        CheckStatusScreenRoute(),
         navigationType: NavigationType.PushReplacement,
       );
       emit(SplashSuccessState());

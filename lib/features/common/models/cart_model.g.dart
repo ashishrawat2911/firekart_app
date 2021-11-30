@@ -14,7 +14,7 @@ CartModel _$CartModelFromJson(Map<String, dynamic> json) => CartModel(
       currency: json['currency'] as String,
       currentPrice: json['current_price'] as num,
       quantityPerUnit: json['quantity_per_unit'] as num,
-      numOfItems: json['num_of_items'] as int,
+      numOfItems: json['num_of_items'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$CartModelToJson(CartModel instance) => <String, dynamic>{

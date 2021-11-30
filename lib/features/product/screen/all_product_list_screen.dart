@@ -34,8 +34,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent &&
-        !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
       print("at the end of list");
       allProductsCubit.fetchNextList(widget.productCondition);
     }
@@ -49,7 +48,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         actions: <Widget>[
           InkWell(
             onTap: () {
-              NavigationHandler.navigateTo( SearchItemScreenRoute.name);
+              NavigationHandler.navigateTo(SearchItemScreenRoute());
             },
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -60,8 +59,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
         bloc: allProductsCubit,
-        listener:
-            (BuildContext context, ResultState<List<ProductModel>> state) {},
+        listener: (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {
           return ResultStateBuilder(
             state: state,
