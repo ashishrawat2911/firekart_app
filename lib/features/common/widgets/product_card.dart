@@ -16,8 +16,7 @@ class ProductCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       onTap: () {
         NavigationHandler.navigateTo(
-           ProductDetailPageRoute.name,
-          arguments: ProductDetailPageRouteArgs(
+          ProductDetailPageRoute(
             productModel: productModel,
           ),
         );
@@ -29,10 +28,9 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               child: AspectRatio(
-                aspectRatio: 1.5,
+                aspectRatio: 1.6,
                 child: CachedNetworkImage(
                   imageUrl: productModel.image!,
                   fit: BoxFit.fitWidth,

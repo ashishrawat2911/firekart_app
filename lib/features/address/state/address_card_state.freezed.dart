@@ -54,7 +54,6 @@ mixin _$AddressCardState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
@@ -64,7 +63,6 @@ mixin _$AddressCardState {
     TResult Function()? successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -75,7 +73,6 @@ mixin _$AddressCardState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -85,7 +82,6 @@ mixin _$AddressCardState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -95,7 +91,6 @@ mixin _$AddressCardState {
     TResult Function(Successful value)? successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -121,7 +116,6 @@ class _$AddressCardStateCopyWithImpl<$Res>
   _$AddressCardStateCopyWithImpl(this._value, this._then);
 
   final AddressCardState _value;
-
   // ignore: unused_field
   final $Res Function(AddressCardState) _then;
 }
@@ -496,7 +490,6 @@ abstract class SetDefaultLoading implements AddressCardState {
 abstract class $ErrorCopyWith<$Res> {
   factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
       _$ErrorCopyWithImpl<$Res>;
-
   $Res call({String message});
 }
 
@@ -636,7 +629,6 @@ abstract class Error implements AddressCardState {
   const factory Error(String message) = _$Error;
 
   String get message;
-
   @JsonKey(ignore: true)
   $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
 }

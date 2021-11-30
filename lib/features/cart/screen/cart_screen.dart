@@ -30,8 +30,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
   var cartStatusCubit = DI.container<CartStatusCubit>();
   var placeOrderCubit = DI.container<PlaceOrderCubit>();
   var selectedAddressCubit = DI.container<AccountDetailsCubit>();
-  final AccountDetailsCubit accountDetailsCubit =
-      DI.container<AccountDetailsCubit>();
+  final AccountDetailsCubit accountDetailsCubit = DI.container<AccountDetailsCubit>();
 
   @override
   void initState() {
@@ -52,8 +51,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             elevation: 1,
           ),
           body: state.noOfItemsInCart > 0 ? cartView(state) : Container(),
-          bottomNavigationBar: Visibility(
-              visible: state.noOfItemsInCart > 0, child: checkOut(state)),
+          bottomNavigationBar: Visibility(visible: state.noOfItemsInCart > 0, child: checkOut(state)),
         );
       },
     );
@@ -129,17 +127,12 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             children: [
               Text(
                 "$title",
-                style: TextStyle(
-                    color: AppColors.color20203E,
-                    fontSize: 14,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                style:
+                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 "$price",
-                style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 16,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -176,9 +169,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(
-              StringsConstants.toPay, "${state.currency}${state.priceInCart}",
-              isFinal: true),
+          priceRow(StringsConstants.toPay, "${state.currency}${state.priceInCart}", isFinal: true),
         ],
       ),
     ));
@@ -207,16 +198,13 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                         : StringsConstants.changeTextCapital,
                     onTap: () {
                       if (accountDetailState.selectedAddress == null) {
-                        Navigator.pushNamed(context, AddAddressScreenRoute.name,
-                            arguments: AddAddressScreenRouteArgs(
+                        NavigationHandler.navigateTo (AddAddressScreenRoute(
                               newAddress: true,
-                              accountDetails:
-                                  accountDetailState.accountDetails!,
+                              accountDetails: accountDetailState.accountDetails!,
                             ));
                       } else {
                         NavigationHandler.navigateTo(
-                           MyAddressScreenRoute.name,
-                          arguments: const MyAddressScreenRouteArgs(
+                          MyAddressScreenRoute(
                             selectedAddress: true,
                           ),
                         );
@@ -229,8 +217,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                 height: 20,
               ),
               Text(
-                accountDetailState.selectedAddress?.wholeAddress() ??
-                    StringsConstants.noAddressFound,
+                accountDetailState.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
                 style: AppTextStyles.medium12Color81819A,
               ),
             ],
@@ -281,12 +268,10 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                 builder: (BuildContext context, PaymentState paymentState) {
                   return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
                     bloc: accountDetailsCubit,
-                    builder: (BuildContext context,
-                        AccountDetailsState accountDetailsState) {
+                    builder: (BuildContext context, AccountDetailsState accountDetailsState) {
                       return BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
                         bloc: placeOrderCubit,
-                        listener:
-                            (BuildContext context, PlaceOrderState state) {
+                        listener: (BuildContext context, PlaceOrderState state) {
                           state.when(
                               orderPlacedInProgress: () {},
                               idle: () {},
@@ -294,29 +279,25 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                               orderSuccessfullyPlaced: () {
                                 if (Navigator.canPop(context)) {
                                   NavigationHandler.navigateTo(
-                                     MyOrdersScreenRoute.name,
-                                    navigationType:
-                                        NavigationType.PushReplacement,
+                                    const MyOrdersScreenRoute(),
+                                    navigationType: NavigationType.PushReplacement,
                                   );
                                 }
                               });
                         },
-                        builder: (BuildContext context,
-                            PlaceOrderState placeOrderState) {
+                        builder: (BuildContext context, PlaceOrderState placeOrderState) {
                           return CommonButton(
                             title: StringsConstants.makePayment,
                             width: 190,
                             height: 50,
                             replaceWithIndicator:
-                                placeOrderState is OrderPlacedInProgress ||
-                                    paymentState is PaymentButtonLoading,
+                                placeOrderState is OrderPlacedInProgress || paymentState is PaymentButtonLoading,
                             margin: const EdgeInsets.only(right: 20),
                             onTap: () {
                               if (accountDetailsState.selectedAddress != null) {
                                 paymentCubit.openCheckout(state.priceInCart);
                               } else {
-                                showSnackBar(
-                                    title: StringsConstants.noAddressSelected);
+                                showSnackBar(title: StringsConstants.noAddressSelected);
                               }
                             },
                           );

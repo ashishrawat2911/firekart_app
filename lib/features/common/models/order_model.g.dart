@@ -19,7 +19,7 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       signature: json['signature'] as String?,
       orderAddress: json['order_address'] == null
           ? null
-          : Address.fromJson(json['order_address'] as Map<String, dynamic>),
+          : Address.fromJson(json['order_address']),
     );
 
 Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
