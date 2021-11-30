@@ -47,17 +47,14 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: Text(
-            "${widget.newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+        title: Text("${widget.newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: BlocConsumer<AddAccountDetailsCubit, AddAccountDetailsState>(
         bloc: addAddressCubit,
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              NavigationHandler.navigateTo(
-                   MainHomeScreenRoute.name,
-                  navigationType: NavigationType.PushReplacement);
+              NavigationHandler.navigateTo(MainHomeScreenRoute(), navigationType: NavigationType.PushReplacement);
             } else {
               NavigationHandler.pop();
             }
@@ -93,8 +90,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ActionText(StringsConstants.manageAddress, onTap: () {
-                        NavigationHandler.navigateTo(
-                             MyAddressScreenRoute.name);
+                        NavigationHandler.navigateTo(MyAddressScreenRoute());
                       }),
                     ],
                   ),
@@ -146,8 +142,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      addAddressCubit.saveData(nameEditingController.text,
-          isEdit: widget.newAddress);
+      addAddressCubit.saveData(nameEditingController.text, isEdit: widget.newAddress);
     }
   }
 }

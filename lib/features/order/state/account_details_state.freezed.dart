@@ -32,7 +32,6 @@ const $AccountDetailsState = _$AccountDetailsStateTearOff();
 /// @nodoc
 mixin _$AccountDetailsState {
   AccountDetails? get accountDetails => throw _privateConstructorUsedError;
-
   Address? get selectedAddress => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -45,7 +44,6 @@ abstract class $AccountDetailsStateCopyWith<$Res> {
   factory $AccountDetailsStateCopyWith(
           AccountDetailsState value, $Res Function(AccountDetailsState) then) =
       _$AccountDetailsStateCopyWithImpl<$Res>;
-
   $Res call({AccountDetails? accountDetails, Address? selectedAddress});
 }
 
@@ -55,7 +53,6 @@ class _$AccountDetailsStateCopyWithImpl<$Res>
   _$AccountDetailsStateCopyWithImpl(this._value, this._then);
 
   final AccountDetailsState _value;
-
   // ignore: unused_field
   final $Res Function(AccountDetailsState) _then;
 
@@ -83,7 +80,6 @@ abstract class _$AccountDetailsStateCopyWith<$Res>
   factory _$AccountDetailsStateCopyWith(_AccountDetailsState value,
           $Res Function(_AccountDetailsState) then) =
       __$AccountDetailsStateCopyWithImpl<$Res>;
-
   @override
   $Res call({AccountDetails? accountDetails, Address? selectedAddress});
 }
@@ -160,10 +156,8 @@ abstract class _AccountDetailsState implements AccountDetailsState {
 
   @override
   AccountDetails? get accountDetails;
-
   @override
   Address? get selectedAddress;
-
   @override
   @JsonKey(ignore: true)
   _$AccountDetailsStateCopyWith<_AccountDetailsState> get copyWith =>

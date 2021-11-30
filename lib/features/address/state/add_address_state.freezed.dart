@@ -49,7 +49,6 @@ mixin _$AddAddressState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
@@ -58,7 +57,6 @@ mixin _$AddAddressState {
     TResult Function()? successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -68,7 +66,6 @@ mixin _$AddAddressState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -77,7 +74,6 @@ mixin _$AddAddressState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -86,7 +82,6 @@ mixin _$AddAddressState {
     TResult Function(Successful value)? successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -111,7 +106,6 @@ class _$AddAddressStateCopyWithImpl<$Res>
   _$AddAddressStateCopyWithImpl(this._value, this._then);
 
   final AddAddressState _value;
-
   // ignore: unused_field
   final $Res Function(AddAddressState) _then;
 }
@@ -352,7 +346,6 @@ abstract class $AddressCardErrorCopyWith<$Res> {
   factory $AddressCardErrorCopyWith(
           AddressCardError value, $Res Function(AddressCardError) then) =
       _$AddressCardErrorCopyWithImpl<$Res>;
-
   $Res call({String message});
 }
 
@@ -488,7 +481,6 @@ abstract class AddressCardError implements AddAddressState {
   const factory AddressCardError(String message) = _$AddressCardError;
 
   String get message;
-
   @JsonKey(ignore: true)
   $AddressCardErrorCopyWith<AddressCardError> get copyWith =>
       throw _privateConstructorUsedError;

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
 import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
@@ -36,12 +37,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
 
   listenToCartValues() async {
     firebaseRepo.cartStatusListen(await firebaseRepo.getUid()).listen((event) {
-      var noOfItemsInCart = event.docs.length ?? 0;
+      var noOfItemsInCart = event.docs.length;
       if (noOfItemsInCart > 0) {
         cartStatusCubit.cartItems =
-            List<CartModel>.generate(event.docs.length ?? 0, (index) {
+            List<CartModel>.generate(event.docs.length, (index) {
           DocumentSnapshot documentSnapshot = event.docs[index];
-          return CartModel.fromJson(documentSnapshot);
+          return CartModel.fromJson(documentSnapshot.data());
         });
       }
       // else {
@@ -51,6 +52,10 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   }
 
   void listenToAccountDetails() async {
+    DI.container<GlobalListener>().refreshListener(
+      GlobalListenerConstants.accountDetails,
+      '',
+    );
     firebaseRepo
         .streamUserDetails(await firebaseRepo.getUid())
         .listen((event) {});

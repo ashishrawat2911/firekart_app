@@ -20,12 +20,9 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  ProductDataCubit dealsDayCubit =
-      DI.container<ProductDataCubit>(instanceName: HomeModule.dealOfTheDay);
-  ProductDataCubit topProductsCubit =
-      DI.container<ProductDataCubit>(instanceName: HomeModule.topProducts);
-  ProductDataCubit onSaleCubit =
-      DI.container<ProductDataCubit>(instanceName: HomeModule.onSale);
+  ProductDataCubit dealsDayCubit = DI.container<ProductDataCubit>(instanceName: HomeModule.dealOfTheDay);
+  ProductDataCubit topProductsCubit = DI.container<ProductDataCubit>(instanceName: HomeModule.topProducts);
+  ProductDataCubit onSaleCubit = DI.container<ProductDataCubit>(instanceName: HomeModule.onSale);
 
   @override
   void initState() {
@@ -51,7 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            NavigationHandler.navigateTo( AllProductListScreenRoute.name);
+            NavigationHandler.navigateTo(AllProductListScreenRoute());
           },
           label: Text(
             StringsConstants.viewAllProducts,
@@ -68,8 +65,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
               productDataBuilder(dealsDayCubit, StringsConstants.dealOfTheDay),
               productDataBuilder(onSaleCubit, StringsConstants.onSale),
-              productDataBuilder(
-                  topProductsCubit, StringsConstants.topProducts),
+              productDataBuilder(topProductsCubit, StringsConstants.topProducts),
               SizedBox(
                 height: 20,
               )
@@ -119,16 +115,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             6,
             (index) {
               return Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -205,10 +198,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigateTo( 
-                          AllProductListScreenRoute.name,
-                          arguments: AllProductListScreenRouteArgs(
-                              productCondition: condition));
+                      NavigationHandler.navigateTo(AllProductListScreenRoute(productCondition: condition));
                     },
                   ))
             ],

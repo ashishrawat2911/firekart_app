@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 
-class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
+class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
   AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
 
   final FirebaseManager _firebaseRepo;
@@ -20,7 +21,7 @@ class AllProductCubit extends Cubit<ResultState<List<ProductModel>>> {
         documents = await _firebaseRepo.getAllProductsData(condition);
       }
       productList = List<ProductModel>.generate(documents!.length,
-          (index) => ProductModel.fromJson(documents![index]));
+          (index) => ProductModel.fromJson(documents![index].data()));
       List.generate(productList!.length, (index) {
         print(productList![index].name);
       });

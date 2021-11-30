@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 part 'payment_state.freezed.dart';
 
@@ -11,6 +10,5 @@ abstract class PaymentState {
 
   const factory PaymentState.paymentError(String errorMessage) = PaymentError;
 
-  const factory PaymentState.paymentSuccessful(
-      PaymentSuccessResponse response) = PaymentSuccessful;
+  const factory PaymentState.paymentSuccessful(String response) = PaymentSuccessful;
 }

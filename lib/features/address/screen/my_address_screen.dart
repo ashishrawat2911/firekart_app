@@ -42,9 +42,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
     return Scaffold(
       appBar: AppBar(
           elevation: 1,
-          title: Text(widget.selectedAddress
-              ? StringsConstants.selectAddress
-              : StringsConstants.myAddress)),
+          title: Text(widget.selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
       body: BlocConsumer<MyAddressCubit, MyAddressState>(
         bloc: myAddressCubit,
         listener: (BuildContext context, MyAddressState state) {},
@@ -95,8 +93,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             const SizedBox(
               height: 21,
             ),
-            ...List<Widget>.generate(accountDetails.addresses.length,
-                (int index) {
+            ...List<Widget>.generate(accountDetails.addresses.length, (int index) {
               return addressCard(accountDetails, index);
             })
           ],
@@ -144,10 +141,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             child: InkWell(
               onTap: widget.selectedAddress
                   ? () {
-                      final AccountDetailsCubit accountDetailsCubit =
-                          DI.container<AccountDetailsCubit>();
-                      accountDetailsCubit.selectedAddress =
-                          accountDetails.addresses[index];
+                      final AccountDetailsCubit accountDetailsCubit = DI.container<AccountDetailsCubit>();
+                      accountDetailsCubit.selectedAddress = accountDetails.addresses[index];
                       NavigationHandler.pop();
                     }
                   : null,
@@ -168,9 +163,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                             height: 20,
                             width: address.isDefault ? null : 0,
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: AppColors.color6EBA49,
-                                borderRadius: BorderRadius.circular(4)),
+                            decoration:
+                                BoxDecoration(color: AppColors.color6EBA49, borderRadius: BorderRadius.circular(4)),
                             child: Text(
                               StringsConstants.defaultCaps,
                               style: AppTextStyles.medium14White,
@@ -185,8 +179,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                       const SizedBox(
                         height: 23,
                       ),
-                      data(Icons.place,
-                          "${address.address} ${address.city} ${address.state} ${address.pincode}"),
+                      data(Icons.place, "${address.address} ${address.city} ${address.state} ${address.pincode}"),
                       const SizedBox(
                         height: 33,
                       ),
@@ -198,16 +191,10 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                               ActionText(
                                 StringsConstants.editCaps,
                                 onTap: () {
-                                  Navigator.pushNamed(
-                                          context, AddAddressScreenRoute.name,
-                                          arguments: AddAddressScreenRouteArgs(
-                                              newAddress: false,
-                                              accountDetails: accountDetails,
-                                              editAddress: address))
+                                  NavigationHandler.navigateTo(AddAddressScreenRoute(
+                                          newAddress: false, accountDetails: accountDetails, editAddress: address))
                                       .then((value) {
-                                    if (value != null &&
-                                        value is bool &&
-                                        value) {
+                                    if (value != null && value is bool && value) {
                                       myAddressCubit.fetchAccountDetails();
                                     }
                                   });
@@ -224,8 +211,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                 ActionText(
                                   StringsConstants.deleteCaps,
                                   onTap: () {
-                                    addressCardCubit.deleteAddress(
-                                        accountDetails, address);
+                                    addressCardCubit.deleteAddress(accountDetails, address);
                                   },
                                 ),
                             ],
@@ -241,8 +227,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                     : ActionText(
                                         StringsConstants.setAsDefaultCaps,
                                         onTap: () {
-                                          addressCardCubit.setAsDefault(
-                                              accountDetails, index);
+                                          addressCardCubit.setAsDefault(accountDetails, index);
                                         },
                                       )),
                           )
@@ -282,10 +267,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   addNewNavigation(AccountDetails accountDetails) {
-    Navigator.pushNamed(context, AddAddressScreenRoute.name,
-            arguments: AddAddressScreenRouteArgs(
-                newAddress: true, accountDetails: accountDetails))
-        .then((value) {
+    NavigationHandler.navigateTo(AddAddressScreenRoute(newAddress: true, accountDetails: accountDetails)).then((value) {
       if (value != null && value is bool && value) {
         myAddressCubit.fetchAccountDetails();
       }
