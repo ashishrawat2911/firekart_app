@@ -2,7 +2,9 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'account_details_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(
+  explicitToJson: true,
+)
 class AccountDetails {
   AccountDetails({
     required this.name,
@@ -12,7 +14,7 @@ class AccountDetails {
 
   factory AccountDetails.fromDocument(json) => _$AccountDetailsFromJson(json);
   String name;
-  String phoneNumber;
+  String? phoneNumber;
   List<Address> addresses;
 
   Map<String, dynamic> toJson() => _$AccountDetailsToJson(this);
@@ -42,5 +44,9 @@ class Address {
 
   String wholeAddress() {
     return "$address $city $state $pincode";
+  }
+  @override
+  String toString() {
+    return 'Address{name: $name, pincode: $pincode, address: $address, city: $city, state: $state, phoneNumber: $phoneNumber, isDefault: $isDefault}';
   }
 }

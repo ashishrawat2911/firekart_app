@@ -31,7 +31,7 @@ class _$PaymentStateTearOff {
     );
   }
 
-  PaymentSuccessful paymentSuccessful(PaymentSuccessResponse response) {
+  PaymentSuccessful paymentSuccessful(String response) {
     return PaymentSuccessful(
       response,
     );
@@ -48,8 +48,7 @@ mixin _$PaymentState {
     required TResult Function() idle,
     required TResult Function() paymentButtonLoading,
     required TResult Function(String errorMessage) paymentError,
-    required TResult Function(PaymentSuccessResponse response)
-        paymentSuccessful,
+    required TResult Function(String response) paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +56,7 @@ mixin _$PaymentState {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +64,7 @@ mixin _$PaymentState {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,8 +152,7 @@ class _$Idle implements Idle {
     required TResult Function() idle,
     required TResult Function() paymentButtonLoading,
     required TResult Function(String errorMessage) paymentError,
-    required TResult Function(PaymentSuccessResponse response)
-        paymentSuccessful,
+    required TResult Function(String response) paymentSuccessful,
   }) {
     return idle();
   }
@@ -165,7 +163,7 @@ class _$Idle implements Idle {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
   }) {
     return idle?.call();
   }
@@ -176,7 +174,7 @@ class _$Idle implements Idle {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -271,8 +269,7 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
     required TResult Function() idle,
     required TResult Function() paymentButtonLoading,
     required TResult Function(String errorMessage) paymentError,
-    required TResult Function(PaymentSuccessResponse response)
-        paymentSuccessful,
+    required TResult Function(String response) paymentSuccessful,
   }) {
     return paymentButtonLoading();
   }
@@ -283,7 +280,7 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
   }) {
     return paymentButtonLoading?.call();
   }
@@ -294,7 +291,7 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
     required TResult orElse(),
   }) {
     if (paymentButtonLoading != null) {
@@ -412,8 +409,7 @@ class _$PaymentError implements PaymentError {
     required TResult Function() idle,
     required TResult Function() paymentButtonLoading,
     required TResult Function(String errorMessage) paymentError,
-    required TResult Function(PaymentSuccessResponse response)
-        paymentSuccessful,
+    required TResult Function(String response) paymentSuccessful,
   }) {
     return paymentError(errorMessage);
   }
@@ -424,7 +420,7 @@ class _$PaymentError implements PaymentError {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
   }) {
     return paymentError?.call(errorMessage);
   }
@@ -435,7 +431,7 @@ class _$PaymentError implements PaymentError {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
     required TResult orElse(),
   }) {
     if (paymentError != null) {
@@ -496,7 +492,7 @@ abstract class $PaymentSuccessfulCopyWith<$Res> {
   factory $PaymentSuccessfulCopyWith(
           PaymentSuccessful value, $Res Function(PaymentSuccessful) then) =
       _$PaymentSuccessfulCopyWithImpl<$Res>;
-  $Res call({PaymentSuccessResponse response});
+  $Res call({String response});
 }
 
 /// @nodoc
@@ -518,7 +514,7 @@ class _$PaymentSuccessfulCopyWithImpl<$Res>
       response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as PaymentSuccessResponse,
+              as String,
     ));
   }
 }
@@ -529,7 +525,7 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   const _$PaymentSuccessful(this.response);
 
   @override
-  final PaymentSuccessResponse response;
+  final String response;
 
   @override
   String toString() {
@@ -559,8 +555,7 @@ class _$PaymentSuccessful implements PaymentSuccessful {
     required TResult Function() idle,
     required TResult Function() paymentButtonLoading,
     required TResult Function(String errorMessage) paymentError,
-    required TResult Function(PaymentSuccessResponse response)
-        paymentSuccessful,
+    required TResult Function(String response) paymentSuccessful,
   }) {
     return paymentSuccessful(response);
   }
@@ -571,7 +566,7 @@ class _$PaymentSuccessful implements PaymentSuccessful {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
   }) {
     return paymentSuccessful?.call(response);
   }
@@ -582,7 +577,7 @@ class _$PaymentSuccessful implements PaymentSuccessful {
     TResult Function()? idle,
     TResult Function()? paymentButtonLoading,
     TResult Function(String errorMessage)? paymentError,
-    TResult Function(PaymentSuccessResponse response)? paymentSuccessful,
+    TResult Function(String response)? paymentSuccessful,
     required TResult orElse(),
   }) {
     if (paymentSuccessful != null) {
@@ -630,10 +625,9 @@ class _$PaymentSuccessful implements PaymentSuccessful {
 }
 
 abstract class PaymentSuccessful implements PaymentState {
-  const factory PaymentSuccessful(PaymentSuccessResponse response) =
-      _$PaymentSuccessful;
+  const factory PaymentSuccessful(String response) = _$PaymentSuccessful;
 
-  PaymentSuccessResponse get response;
+  String get response;
   @JsonKey(ignore: true)
   $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith =>
       throw _privateConstructorUsedError;

@@ -12,6 +12,7 @@ class CartModel {
   String currency;
   num currentPrice;
   num quantityPerUnit;
+  @JsonKey(defaultValue: 0)
   int numOfItems;
 
   CartModel({

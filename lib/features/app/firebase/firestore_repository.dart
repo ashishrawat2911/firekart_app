@@ -6,24 +6,18 @@ import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 
-mixin FirebaseM {
+mixin FirebaseMixin {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final firebaseAuth = FirebaseAuth.instance;
 
-  CollectionReference get productCollection =>
-      _firestore.collection("products");
+  CollectionReference get productCollection => _firestore.collection("products");
 
-  CollectionReference get orderCollection =>
-      _firestore.collection("users").doc(getUid()).collection("orders");
+  CollectionReference get orderCollection => _firestore.collection("users").doc(getUid()).collection("orders");
 
-  DocumentReference get accountDetailDoc => _firestore
-      .collection("users")
-      .doc(getUid())
-      .collection("account")
-      .doc("details");
+  DocumentReference get accountDetailDoc =>
+      _firestore.collection("users").doc(getUid()).collection("account").doc("details");
 
-  CollectionReference get cartCollection =>
-      _firestore.collection("users").doc(getUid()).collection("cart");
+  CollectionReference get cartCollection => _firestore.collection("users").doc(getUid()).collection("cart");
 
   String getUid() {
     return getCurrentUser()!.uid;
@@ -43,7 +37,7 @@ mixin FirebaseM {
   }
 }
 
-class FirebaseManager with FirebaseM {
+class FirebaseManager with FirebaseMixin {
   Future<bool> sendCode(
     String phoneNumber, {
     required PhoneVerificationCompleted verificationCompleted,
@@ -59,7 +53,7 @@ class FirebaseManager with FirebaseM {
               verificationCompleted: verificationCompleted,
               verificationFailed: verificationFailed,
               codeSent: codeSent,
-              codeAutoRetrievalTimeout: codeAutoRetrievalTimeout)
+              codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,)
           .then((value) {
         return true;
       }).catchError((e) {
@@ -74,8 +68,7 @@ class FirebaseManager with FirebaseM {
     String? displayName,
     String? photoUrl,
   }) async {
-    (await getCurrentUser())!
-        .updateProfile(displayName: displayName, photoURL: photoUrl);
+    (await getCurrentUser())!.updateProfile(displayName: displayName, photoURL: photoUrl);
   }
 
   Future<bool> checkUserLoggedInStatus() async {
@@ -90,28 +83,23 @@ class FirebaseManager with FirebaseM {
     }
   }
 
-  Future<List<DocumentSnapshot>> getAllProducts(
-      [DocumentSnapshot? documentSnapshot]) async {
+  Future<List<DocumentSnapshot>> getAllProducts([DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     final query = productCollection.limit(20).orderBy("name");
 
     if (documentSnapshot != null) {
-      documentList =
-          (await query.startAfterDocument(documentSnapshot).get()).docs;
+      documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
     } else {
       documentList = (await query.get()).docs;
     }
     return documentList;
   }
 
-  Future<List<DocumentSnapshot>> getAllOrders(
-      [DocumentSnapshot? documentSnapshot]) async {
+  Future<List<DocumentSnapshot>> getAllOrders([DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
-    var query =
-        orderCollection.limit(20).orderBy("ordered_at", descending: true);
+    var query = orderCollection.limit(20).orderBy("ordered_at", descending: true);
     if (documentSnapshot != null) {
-      documentList =
-          (await query.startAfterDocument(documentSnapshot).get()).docs;
+      documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
     } else {
       documentList = (await query.get()).docs;
     }
@@ -119,19 +107,15 @@ class FirebaseManager with FirebaseM {
   }
 
   Future<List<DocumentSnapshot>> searchProducts(String query) async {
-    List<DocumentSnapshot> documentList = (await _firestore
-            .collection("products")
-            .where("name_search", arrayContains: query)
-            .get())
-        .docs;
+    List<DocumentSnapshot> documentList =
+        (await _firestore.collection("products").where("name_search", arrayContains: query).get()).docs;
     return documentList;
   }
 
   Future<List<ProductModel>> getProductsData(String condition) async {
-    List<DocumentSnapshot> docList =
-        (await productCollection.where(condition, isEqualTo: true).get()).docs;
+    List<DocumentSnapshot> docList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
     return List.generate(docList.length, (index) {
-      return ProductModel.fromJson(docList[index]);
+      return ProductModel.fromJson(docList[index].data());
     });
   }
 
@@ -139,20 +123,18 @@ class FirebaseManager with FirebaseM {
     String condition,
   ) async {
     print(condition);
-    List<DocumentSnapshot> documentList =
-        (await productCollection.where(condition, isEqualTo: true).get()).docs;
+    List<DocumentSnapshot> documentList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
     return documentList;
   }
 
   Future<AccountDetails> getAllFaq() async {
     DocumentSnapshot document = await accountDetailDoc.get();
-    return AccountDetails.fromDocument(document);
+    return AccountDetails.fromDocument(document.data());
   }
 
   Future<int> checkItemInCart(String productId) async {
     try {
-      final DocumentSnapshot documentSnapshot =
-          await cartCollection.doc(productId).get();
+      final DocumentSnapshot documentSnapshot = await cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
         return documentSnapshot["no_of_items"] as int;
       } else {
@@ -164,23 +146,17 @@ class FirebaseManager with FirebaseM {
   }
 
   Future<void> addProductToCart(CartModel cartModel) async {
-    return await cartCollection
-        .doc(cartModel.productId)
-        .set(cartModel.toJson());
+    return cartCollection.doc(cartModel.productId).set(cartModel.toJson());
   }
 
   Future<void> delProductFromCart(String productId) async {
-    return await cartCollection.doc(productId).delete();
+    return cartCollection.doc(productId).delete();
   }
 
   Future<bool> checkUserDetail() async {
     try {
-      DocumentSnapshot documentSnapshot = await _firestore
-          .collection("users")
-          .doc(getUid())
-          .collection("account")
-          .doc("details")
-          .get();
+      final DocumentSnapshot documentSnapshot =
+          await _firestore.collection("users").doc(getUid()).collection("account").doc("details").get();
       if (documentSnapshot.exists) {
         return true;
       } else {
@@ -192,11 +168,11 @@ class FirebaseManager with FirebaseM {
   }
 
   Future<void> addUserDetails(AccountDetails accountDetails) async {
-    return await accountDetailDoc.set(accountDetails.toJson());
+    return accountDetailDoc.set(accountDetails.toJson());
   }
 
   Future<AccountDetails> fetchUserDetails() async {
-    return AccountDetails.fromDocument(await accountDetailDoc.get());
+    return AccountDetails.fromDocument((await accountDetailDoc.get()).data());
   }
 
   Stream<DocumentSnapshot> streamUserDetails(String uID) {
@@ -208,14 +184,12 @@ class FirebaseManager with FirebaseM {
   }
 
   Future<void> placeOrder(OrderModel orderModel) async {
-    return await orderCollection
-        .doc(orderModel.orderId)
-        .set(orderModel.toJson());
+    return orderCollection.doc(orderModel.orderId).set(orderModel.toJson());
   }
 
   Future<void> emptyCart() async {
-    return await cartCollection.get().then((snapshot) {
-      for (DocumentSnapshot doc in snapshot.docs) {
+    return cartCollection.get().then((snapshot) {
+      for (final DocumentSnapshot doc in snapshot.docs) {
         doc.reference.delete();
       }
     });
