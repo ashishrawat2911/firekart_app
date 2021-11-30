@@ -26,7 +26,7 @@ dependencies:
   firebase_crashlytics: ^2.3.0
   firebase_auth: ^3.2.0
   firebase_core: ^1.10.0
-  razorpay_flutter: ^1.2.7
+#  razorpay_flutter: ^1.2.7
   country_code_picker: ^2.0.2
 
 dev_dependencies:

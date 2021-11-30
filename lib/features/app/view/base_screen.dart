@@ -22,6 +22,7 @@ abstract class BaseScreen<C extends StateManager<S>, S> extends StatelessWidget 
   Widget build(BuildContext context) {
     print('$this Widget Build');
     return BlocConsumer<C, S>(
+      bloc: bloc,
       builder: (context, state) {
         return buildView(context, bloc, state);
       },

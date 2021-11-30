@@ -15,13 +15,12 @@ class CrashlyticsService {
     fullDeviceLog();
   }
 
-  static void recordError(dynamic exception, StackTrace stack,
-      {dynamic context}) {
+  void recordError(dynamic exception, StackTrace stack, {dynamic context}) {
     FirebaseCrashlytics.instance.recordError(exception, stack);
-    // fullDeviceLog();
+    fullDeviceLog();
   }
 
-  void fullDeviceLog() async {
+  Future<void> fullDeviceLog() async {
     final isLoggedIn = await _firebaseManager.checkUserLoggedInStatus();
     final String packageName = (await PackageInfo.fromPlatform()).packageName;
     final StringBuffer stringBuffer = StringBuffer("");

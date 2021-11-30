@@ -7,14 +7,13 @@ import 'package:fluttercommerce/features/common/models/account_details_model.dar
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PlaceOrderCubit extends Cubit<PlaceOrderState> {
   FirebaseManager firebaseRepo;
 
   PlaceOrderCubit(this.firebaseRepo) : super(PlaceOrderState.idle());
 
-  placeOrder(List<CartModel> cartModel, PaymentSuccessResponse response,
+  placeOrder(List<CartModel> cartModel, String response,
       Address orderAddress) async {
     emit(PlaceOrderState.orderPlacedInProgress());
     if (await ConnectionStatus.getInstance().checkConnection()) {
@@ -32,7 +31,7 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
   }
 
   OrderModel _orderFromCartList(List<CartModel> cartModel,
-      PaymentSuccessResponse response, Address orderAddress) {
+      String response, Address orderAddress) {
     var cartItems = cartModel;
 
     List<OrderItem> getOrderItems() {
@@ -54,8 +53,8 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
       orderId:
           "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
       orderItems: getOrderItems(),
-      paymentId: response.paymentId!,
-      signature: response.signature!,
+      paymentId: 'response.paymentId!',
+      signature: 'response.signature!',
       price: cartModel.priceInCart,
       orderAddress: orderAddress,
     );

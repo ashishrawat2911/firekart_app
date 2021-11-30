@@ -2,11 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 import '../state/account_details_state.dart';
 
-class AccountDetailsCubit extends Cubit<AccountDetailsState> {
+class AccountDetailsCubit extends StateManager<AccountDetailsState> {
   AccountDetailsCubit(
     this.firebaseRepo,
     this.globalListener,
@@ -37,10 +38,10 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
 
   void _addDetails(DocumentSnapshot documentSnapshot) {
     final AccountDetails accountDetails =
-        AccountDetails.fromDocument(documentSnapshot);
+        AccountDetails.fromDocument(documentSnapshot.data());
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
     Address? address;
-    List.generate(accountDetails.addresses.length ?? 0, (int index) {
+    List.generate(accountDetails.addresses.length, (int index) {
       final Address add = accountDetails.addresses[index];
       if (add.isDefault) {
         address = add;

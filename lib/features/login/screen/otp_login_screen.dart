@@ -150,7 +150,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   }
                   return GestureDetector(
                     onTap: () {
-                      onButtonTap(isResend: false);
+                      otpLoginCubit.sendOtp(widget.phoneNumber!);
                     },
                     child: Text(
                       StringsConstants.resendOtp,

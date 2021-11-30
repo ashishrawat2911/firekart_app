@@ -9,9 +9,9 @@ part of 'account_details_model.dart';
 AccountDetails _$AccountDetailsFromJson(Map<String, dynamic> json) =>
     AccountDetails(
       name: json['name'] as String,
-      phoneNumber: json['phoneNumber'] as String,
+      phoneNumber: json['phoneNumber'] as String?,
       addresses: (json['addresses'] as List<dynamic>?)
-              ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => Address.fromJson(e))
               .toList() ??
           const [],
     );
@@ -20,7 +20,7 @@ Map<String, dynamic> _$AccountDetailsToJson(AccountDetails instance) =>
     <String, dynamic>{
       'name': instance.name,
       'phoneNumber': instance.phoneNumber,
-      'addresses': instance.addresses,
+      'addresses': instance.addresses.map((e) => e.toJson()).toList(),
     };
 
 Address _$AddressFromJson(Map<String, dynamic> json) => Address(
