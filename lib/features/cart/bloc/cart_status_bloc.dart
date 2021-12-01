@@ -1,8 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 
 class CartStatusCubit extends Cubit<List<CartModel>> {
-  CartStatusCubit() : super([]);
+  CartStatusCubit() : super([]) {
+    globalListener.registerListener<List<CartModel>>(GlobalListenerConstants.cartItems).listen((event) {
+      cartItems = event;
+    });
+  }
+
+  var globalListener = DI.container<GlobalListener>();
 
   int get noOfItemsInCart => state.length;
 

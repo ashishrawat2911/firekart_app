@@ -35,7 +35,7 @@ class OtpLoginCubit extends StateManager<OtpLoginState> {
       _verificationId = verificationId;
       state = state.copyWith(error: '');
     }, verificationFailed: (authException) {
-      SnackBarHandler.showSnackBar(title: authException.message);
+      MessageHandler.showSnackBar(title: authException.message);
       state = state.copyWith(error: authException.message);
       print(authException.message);
     }, verificationCompleted: (AuthCredential auth) {
@@ -70,7 +70,7 @@ class OtpLoginCubit extends StateManager<OtpLoginState> {
         predicate: (route) => false,
       );
     } catch (e) {
-      SnackBarHandler.showSnackBar(title: e.toString());
+      MessageHandler.showSnackBar(title: e.toString());
       state = state.copyWith(error: e.toString());
     } finally {
       state = state.copyWith(

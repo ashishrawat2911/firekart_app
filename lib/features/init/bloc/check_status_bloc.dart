@@ -13,7 +13,7 @@ class CheckStatusBloc extends Cubit<int> {
         final isUserDataPresent = await firebaseRepo.checkUserDetail();
         if (isUserDataPresent) {
           NavigationHandler.navigateTo(
-            MainHomeScreenRoute(),
+            HomeScreenRoute(),
             navigationType: NavigationType.PushReplacement,
           );
         } else {

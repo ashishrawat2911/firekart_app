@@ -16,7 +16,7 @@ import '../../address/screen/my_address_screen.dart' as _i11;
 import '../../cart/screen/cart_screen.dart' as _i8;
 import '../../common/models/account_details_model.dart' as _i17;
 import '../../common/models/product_model.dart' as _i16;
-import '../../home/screen/main_home_screen.dart' as _i3;
+import '../../home/screen/home_screen.dart' as _i3;
 import '../../home/screen/search_screen.dart' as _i10;
 import '../../init/screen/check_status_check_screen.dart' as _i2;
 import '../../init/screen/splash_screen.dart' as _i1;
@@ -47,9 +47,11 @@ class AppRouter extends _i14.RootStackRouter {
           child: _i2.CheckStatusScreen(
               checkForAccountStatusOnly: args.checkForAccountStatusOnly));
     },
-    MainHomeScreenRoute.name: (routeData) {
+    HomeScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<HomeScreenRouteArgs>(
+          orElse: () => const HomeScreenRouteArgs());
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i3.MainHomeScreen());
+          routeData: routeData, child: _i3.HomeScreen(key: args.key));
     },
     LoginScreenRoute.name: (routeData) {
       return _i14.CupertinoPageX<dynamic>(
@@ -116,7 +118,7 @@ class AppRouter extends _i14.RootStackRouter {
         _i14.RouteConfig(SplashScreenRoute.name, path: '/'),
         _i14.RouteConfig(CheckStatusScreenRoute.name,
             path: '/check-status-screen'),
-        _i14.RouteConfig(MainHomeScreenRoute.name, path: '/main-home-screen'),
+        _i14.RouteConfig(HomeScreenRoute.name, path: '/home-screen'),
         _i14.RouteConfig(LoginScreenRoute.name, path: '/login-screen'),
         _i14.RouteConfig(OtpLoginScreenRoute.name, path: '/otp-login-screen'),
         _i14.RouteConfig(ProductDetailPageRoute.name,
@@ -177,11 +179,23 @@ class CheckStatusScreenRouteArgs {
   }
 }
 
-/// generated route for [_i3.MainHomeScreen]
-class MainHomeScreenRoute extends _i14.PageRouteInfo<void> {
-  const MainHomeScreenRoute() : super(name, path: '/main-home-screen');
+/// generated route for [_i3.HomeScreen]
+class HomeScreenRoute extends _i14.PageRouteInfo<HomeScreenRouteArgs> {
+  HomeScreenRoute({_i15.Key? key})
+      : super(name, path: '/home-screen', args: HomeScreenRouteArgs(key: key));
 
-  static const String name = 'MainHomeScreenRoute';
+  static const String name = 'HomeScreenRoute';
+}
+
+class HomeScreenRouteArgs {
+  const HomeScreenRouteArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'HomeScreenRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for [_i4.LoginScreen]

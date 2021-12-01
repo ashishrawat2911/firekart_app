@@ -54,7 +54,7 @@ class _AddUserDetailScreenState extends State<AddUserDetailScreen> {
         listener: (BuildContext context, AddAccountDetailsState state) {
           if (state is Successful) {
             if (widget.newAddress) {
-              NavigationHandler.navigateTo(MainHomeScreenRoute(), navigationType: NavigationType.PushReplacement);
+              NavigationHandler.navigateTo(HomeScreenRoute(), navigationType: NavigationType.PushReplacement);
             } else {
               NavigationHandler.pop();
             }
