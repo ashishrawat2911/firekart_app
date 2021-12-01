@@ -16,6 +16,7 @@ class GlobalListenerConstants {
   GlobalListenerConstants._();
 
   static const String accountDetails = 'accountDetails';
+  static const String cartItems = 'CartItems';
 }
 
 class GlobalListenerImpl extends GlobalListener {

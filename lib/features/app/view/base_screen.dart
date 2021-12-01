@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 
-@immutable
 abstract class BaseScreen<C extends StateManager<S>, S> extends StatelessWidget {
   BaseScreen({Key? key}) : super(key: key) {
     initState(bloc);

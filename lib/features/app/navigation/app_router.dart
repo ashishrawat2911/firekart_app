@@ -3,7 +3,7 @@ import 'package:fluttercommerce/features/address/screen/add_address_screen.dart'
 import 'package:fluttercommerce/features/address/screen/my_address_screen.dart';
 import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
 import 'package:fluttercommerce/features/home/screen/search_screen.dart';
-import 'package:fluttercommerce/features/home/screen/main_home_screen.dart';
+import 'package:fluttercommerce/features/home/screen/home_screen.dart';
 import 'package:fluttercommerce/features/init/screen/check_status_check_screen.dart';
 import 'package:fluttercommerce/features/init/screen/splash_screen.dart';
 import 'package:fluttercommerce/features/login/screen/login_screen.dart';
@@ -27,7 +27,7 @@ import 'package:fluttercommerce/features/user/screen/add_user_detail_screen.dart
   routes: [
     CupertinoRoute(page: SplashScreen, initial: true),
     CupertinoRoute(page: CheckStatusScreen),
-    CupertinoRoute(page: MainHomeScreen),
+    CupertinoRoute(page: HomeScreen),
     CupertinoRoute(page: LoginScreen),
     CupertinoRoute(page: OtpLoginScreen),
     CupertinoRoute(page: ProductDetailPage),

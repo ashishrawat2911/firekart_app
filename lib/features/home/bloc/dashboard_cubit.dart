@@ -7,8 +7,8 @@ import 'package:fluttercommerce/features/app/res/string_constants.dart';
 
 enum ProductData { DealOfTheDay, OnSale, TopProducts }
 
-class ProductDataCubit extends Cubit<ResultState<List<ProductModel>>> {
-  ProductDataCubit(this._firebaseManager) : super(const ResultState.idle());
+class DashboardCubit extends Cubit<ResultState<List<ProductModel>>> {
+  DashboardCubit(this._firebaseManager) : super(const ResultState.idle());
 
   final FirebaseManager _firebaseManager;
 

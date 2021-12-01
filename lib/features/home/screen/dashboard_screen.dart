@@ -7,7 +7,7 @@ import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/product_card.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
-import 'package:fluttercommerce/features/home/bloc/home_page_cubit.dart';
+import 'package:fluttercommerce/features/home/bloc/dashboard_cubit.dart';
 import 'package:fluttercommerce/features/home/home_module.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
@@ -20,9 +20,9 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  ProductDataCubit dealsDayCubit = DI.container<ProductDataCubit>(instanceName: HomeModule.dealOfTheDay);
-  ProductDataCubit topProductsCubit = DI.container<ProductDataCubit>(instanceName: HomeModule.topProducts);
-  ProductDataCubit onSaleCubit = DI.container<ProductDataCubit>(instanceName: HomeModule.onSale);
+  DashboardCubit dealsDayCubit = DI.container<DashboardCubit>(instanceName: HomeModule.dealOfTheDay);
+  DashboardCubit topProductsCubit = DI.container<DashboardCubit>(instanceName: HomeModule.topProducts);
+  DashboardCubit onSaleCubit = DI.container<DashboardCubit>(instanceName: HomeModule.onSale);
 
   @override
   void initState() {
@@ -76,8 +76,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget productDataBuilder(ProductDataCubit cubit, String title) {
-    return BlocBuilder<ProductDataCubit, ResultState<List<ProductModel>>>(
+  Widget productDataBuilder(DashboardCubit cubit, String title) {
+    return BlocBuilder<DashboardCubit, ResultState<List<ProductModel>>>(
       bloc: cubit,
       builder: (BuildContext context, ResultState<List<ProductModel>> state) {
         return ResultStateBuilder(

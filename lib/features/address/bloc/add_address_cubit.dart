@@ -22,7 +22,7 @@ class AddAddressCubit extends StateManager<AddAddressState> {
     _firebaseRepo.addUserDetails(accountDetails).then((value) {
       emit(AddAddressState.successful());
     }).catchError((e) {
-      SnackBarHandler.showSnackBar(title: e.toString());
+      MessageHandler.showSnackBar(title: e.toString());
       emit(AddAddressState.error(e.toString()));
     });
   }

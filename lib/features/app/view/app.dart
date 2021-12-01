@@ -27,7 +27,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       routerDelegate: NavigationHandler.routerDelegate,
       routeInformationParser: NavigationHandler.routeInformationParser,
-      scaffoldMessengerKey: SnackBarHandler.scaffoldMessengerKey,
+      scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
     );
   }
 

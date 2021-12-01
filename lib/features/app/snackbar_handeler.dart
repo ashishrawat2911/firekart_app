@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
-class SnackBarHandler {
+class MessageHandler {
+  MessageHandler();
+
   static var scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
   static void showSnackBar({@required String? title}) {
