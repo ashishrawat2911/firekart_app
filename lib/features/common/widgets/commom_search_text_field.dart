@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   final String? hint;
@@ -11,11 +11,7 @@ class CommonSearchTextField extends StatefulWidget {
   final FocusNode? focusNode;
 
   CommonSearchTextField(
-      {@required this.hint,
-      this.onSubmitted,
-      this.onChanged,
-      this.textEditingController,
-      this.focusNode});
+      {@required this.hint, this.onSubmitted, this.onChanged, this.textEditingController, this.focusNode});
 
   @override
   _CommonSearchTextFieldState createState() => _CommonSearchTextFieldState();
@@ -69,11 +65,7 @@ class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
   final VoidCallback? onClosePressed;
   final String? hintText;
 
-  CommonSearchBar(
-      {required this.onTextChanged,
-      this.hintText,
-      this.onBackPressed,
-      this.onClosePressed});
+  CommonSearchBar({required this.onTextChanged, this.hintText, this.onBackPressed, this.onClosePressed});
 
   @override
   _CommonSearchBarState createState() => _CommonSearchBarState();

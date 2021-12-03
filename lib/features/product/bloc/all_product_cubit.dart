@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
@@ -20,8 +19,8 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
       } else {
         documents = await _firebaseRepo.getAllProductsData(condition);
       }
-      productList = List<ProductModel>.generate(documents!.length,
-          (index) => ProductModel.fromJson(documents![index].data()));
+      productList =
+          List<ProductModel>.generate(documents!.length, (index) => ProductModel.fromJson(documents![index].data()));
       List.generate(productList!.length, (index) {
         print(productList![index].name);
       });
@@ -34,12 +33,10 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
 
   Future<void> fetchNextList([String? condition]) async {
     try {
-      final List<DocumentSnapshot> docs =
-          await _firebaseRepo.getAllProducts(documents![documents!.length - 1]);
+      final List<DocumentSnapshot> docs = await _firebaseRepo.getAllProducts(documents![documents!.length - 1]);
 
       documents!.addAll(docs);
-      productList = List<ProductModel>.generate(documents!.length,
-          (index) => ProductModel.fromJson(documents![index]));
+      productList = List<ProductModel>.generate(documents!.length, (index) => ProductModel.fromJson(documents![index]));
       List.generate(productList!.length, (index) {
         print(productList![index].name);
       });
@@ -47,8 +44,7 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
       emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       print(e);
-      emit(
-          ResultState.unNotifiedError(error: e.toString(), data: productList!));
+      emit(ResultState.unNotifiedError(error: e.toString(), data: productList!));
     }
   }
 }

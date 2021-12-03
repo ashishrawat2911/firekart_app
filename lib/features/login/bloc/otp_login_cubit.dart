@@ -63,7 +63,6 @@ class OtpLoginCubit extends StateManager<OtpLoginState> {
     try {
       await firebaseAuth.signInWithCredential(authCred);
 
-      _globalListener.refreshListener(GlobalListenerConstants.accountDetails, '');
       NavigationHandler.navigateTo(
         CheckStatusScreenRoute(checkForAccountStatusOnly: true),
         navigationType: NavigationType.PushAndPopUntil,

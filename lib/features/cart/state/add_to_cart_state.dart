@@ -12,12 +12,9 @@ abstract class AddToCartState with _$AddToCartState {
 
   const factory AddToCartState.showCartValue(num noOfItems) = ShowCartValue;
 
-  const factory AddToCartState.addToCartError(String errorMessage) =
-      AddToCartError;
+  const factory AddToCartState.addToCartError(String errorMessage) = AddToCartError;
 
-  const factory AddToCartState.updateCartError(
-      String errorMessage, int cartValue) = UpdateCartError;
+  const factory AddToCartState.updateCartError(String errorMessage, int cartValue) = UpdateCartError;
 
-  const factory AddToCartState.deleteCartError(String errorMessage) =
-      DeleteCartError;
+  const factory AddToCartState.deleteCartError(String errorMessage) = DeleteCartError;
 }

@@ -4,10 +4,10 @@ import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/address/bloc/add_address_cubit.dart';
 import 'package:fluttercommerce/features/address/state/add_address_state.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
@@ -190,8 +190,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   Row(
                     children: [
                       StatefulBuilder(
-                        builder: (BuildContext context,
-                            void Function(void Function()) setState) {
+                        builder: (BuildContext context, void Function(void Function()) setState) {
                           return Checkbox(
                             value: setAsDefault,
                             onChanged: (bool? value) {

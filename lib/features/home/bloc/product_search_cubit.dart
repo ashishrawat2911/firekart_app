@@ -13,10 +13,8 @@ class ProductSearchCubit extends StateManager<ProductSearchState> {
     try {
       var productSnapshot = await firebaseRepo.searchProducts(query);
 
-      final List<ProductModel> list =
-          List<ProductModel>.generate(productSnapshot.length, (index) {
-        final ProductModel productModel =
-            ProductModel.fromJson(productSnapshot[index]);
+      final List<ProductModel> list = List<ProductModel>.generate(productSnapshot.length, (index) {
+        final ProductModel productModel = ProductModel.fromJson(productSnapshot[index]);
         return productModel;
       });
 

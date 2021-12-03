@@ -7,8 +7,7 @@ part 'my_address_state.freezed.dart';
 abstract class MyAddressState with _$MyAddressState {
   const factory MyAddressState.loading() = Loading;
 
-  const factory MyAddressState.showAccountDetails(
-      AccountDetails accountDetails) = ShowAccountDetails;
+  const factory MyAddressState.showAccountDetails(AccountDetails accountDetails) = ShowAccountDetails;
 
   const factory MyAddressState.error(String errorMessage) = Error;
 }

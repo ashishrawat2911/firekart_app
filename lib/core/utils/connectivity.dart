@@ -17,8 +17,7 @@ class ConnectionStatus {
   bool hasConnection = false;
 
   //This is how we'll allow subscribing to connection changes
-  StreamController<bool> connectionChangeController =
-      new StreamController.broadcast();
+  StreamController<bool> connectionChangeController = new StreamController.broadcast();
 
   //flutter_connectivity
   final Connectivity _connectivity = Connectivity();

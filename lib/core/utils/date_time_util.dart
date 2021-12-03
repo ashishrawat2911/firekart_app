@@ -13,8 +13,7 @@ String formatCurrentDateTime() {
 
 String getTimeFromTimeStamp(String timestamp) {
   try {
-    var dateTime =
-        DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp) * 1000);
+    var dateTime = DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp) * 1000);
 
     var day = dateTime.day;
     var month = getMonthFromMonthNumber(dateTime.month);

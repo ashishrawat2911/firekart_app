@@ -45,6 +45,7 @@ class Address {
   String wholeAddress() {
     return "$address $city $state $pincode";
   }
+
   @override
   String toString() {
     return 'Address{name: $name, pincode: $pincode, address: $address, city: $city, state: $state, phoneNumber: $phoneNumber, isDefault: $isDefault}';

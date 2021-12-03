@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttercommerce/features/common/widgets/dot_progress_indicator.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/common/widgets/dot_progress_indicator.dart';
 
 class CommonButton extends StatelessWidget {
   final String title;
@@ -46,8 +46,7 @@ class CommonButton extends StatelessWidget {
         width: width,
         margin: margin,
         child: MaterialButton(
-          disabledColor:
-              AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
+          disabledColor: AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
           onPressed: (!replaceWithIndicator && isEnabled)
               ? () {
@@ -60,8 +59,7 @@ class CommonButton extends StatelessWidget {
           elevation: elevation ?? 0,
           highlightColor: Colors.transparent,
           focusElevation: 0,
-          color: buttonColor ??
-              AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
+          color: buttonColor ?? AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
           child: Center(
             child: hasForwardIcon
                 ? Row(

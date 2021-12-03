@@ -5,48 +5,34 @@ import 'package:fluttercommerce/features/address/bloc/address_card_cubit.dart';
 import 'package:fluttercommerce/features/address/bloc/my_address_cubit.dart';
 import 'package:fluttercommerce/features/address/state/address_card_state.dart';
 import 'package:fluttercommerce/features/address/state/my_address_state.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/widgets/action_text.dart';
-import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
-import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
+import 'package:fluttercommerce/features/app/view/base_screen.dart';
+import 'package:fluttercommerce/features/common/models/account_details_model.dart';
+import 'package:fluttercommerce/features/common/widgets/action_text.dart';
+import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 
-class MyAddressScreen extends StatefulWidget {
+class MyAddressScreen extends BaseScreen<MyAddressCubit, MyAddressState> {
   final bool selectedAddress;
 
   MyAddressScreen({this.selectedAddress = false});
 
   @override
-  _MyAddressScreenState createState() => _MyAddressScreenState();
-}
-
-class _MyAddressScreenState extends State<MyAddressScreen> {
-  MyAddressCubit myAddressCubit = DI.container<MyAddressCubit>();
-  var accountDetailsCubit = DI.container<AccountDetailsCubit>();
-
-  @override
-  void initState() {
-    super.initState();
-    accountDetailsCubit.stream.listen((state) {
-      myAddressCubit.listenToAccountDetails(state.accountDetails!);
-    });
-    myAddressCubit.fetchAccountDetails();
+  void initState(bloc) {
+    super.initState(bloc);
+    bloc.fetchAccountDetails();
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildView(BuildContext context, bloc, state) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 1,
-          title: Text(widget.selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
-      body: BlocConsumer<MyAddressCubit, MyAddressState>(
-        bloc: myAddressCubit,
-        listener: (BuildContext context, MyAddressState state) {},
-        builder: (BuildContext context, MyAddressState state) {
+          elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
+      body: Builder(
+        builder: (BuildContext context) {
           return state.map(showAccountDetails: (ShowAccountDetails value) {
             if (value.accountDetails.addresses.isEmpty) {
               return noAddressesFound(value.accountDetails);
@@ -130,7 +116,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       listener: (context, state) {
         state.maybeWhen(
           successful: () {
-            myAddressCubit.fetchAccountDetails();
+            bloc.fetchAccountDetails();
           },
           orElse: () {},
         );
@@ -139,11 +125,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
         return Container(
             margin: const EdgeInsets.only(left: 15, right: 15, bottom: 30),
             child: InkWell(
-              onTap: widget.selectedAddress
+              onTap: selectedAddress
                   ? () {
-                      final AccountDetailsCubit accountDetailsCubit = DI.container<AccountDetailsCubit>();
-                      accountDetailsCubit.selectedAddress = accountDetails.addresses[index];
-                      NavigationHandler.pop();
+                      NavigationHandler.pop(accountDetails.addresses[index]);
                     }
                   : null,
               child: Card(
@@ -195,7 +179,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                           newAddress: false, accountDetails: accountDetails, editAddress: address))
                                       .then((value) {
                                     if (value != null && value is bool && value) {
-                                      myAddressCubit.fetchAccountDetails();
+                                      bloc.fetchAccountDetails();
                                     }
                                   });
                                 },
@@ -269,7 +253,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   addNewNavigation(AccountDetails accountDetails) {
     NavigationHandler.navigateTo(AddAddressScreenRoute(newAddress: true, accountDetails: accountDetails)).then((value) {
       if (value != null && value is bool && value) {
-        myAddressCubit.fetchAccountDetails();
+        bloc.fetchAccountDetails();
       }
     });
   }

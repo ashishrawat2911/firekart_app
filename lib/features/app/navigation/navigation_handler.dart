@@ -42,4 +42,8 @@ class NavigationHandler {
   static Future<dynamic> pop([Object? arguments]) async {
     return _appRouter.pop(arguments);
   }
+
+  static bool canNavigateBack() {
+    return _appRouter.canNavigateBack;
+  }
 }

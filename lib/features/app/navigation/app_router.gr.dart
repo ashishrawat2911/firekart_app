@@ -78,8 +78,10 @@ class AppRouter extends _i14.RootStackRouter {
           child: _i7.AddUserDetailScreen(args.newAddress, key: args.key));
     },
     CartScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<CartScreenRouteArgs>(
+          orElse: () => const CartScreenRouteArgs());
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i8.CartScreen());
+          routeData: routeData, child: _i8.CartScreen(key: args.key));
     },
     AllProductListScreenRoute.name: (routeData) {
       final args = routeData.argsAs<AllProductListScreenRouteArgs>(
@@ -280,10 +282,22 @@ class AddUserDetailScreenRouteArgs {
 }
 
 /// generated route for [_i8.CartScreen]
-class CartScreenRoute extends _i14.PageRouteInfo<void> {
-  const CartScreenRoute() : super(name, path: '/cart-screen');
+class CartScreenRoute extends _i14.PageRouteInfo<CartScreenRouteArgs> {
+  CartScreenRoute({_i15.Key? key})
+      : super(name, path: '/cart-screen', args: CartScreenRouteArgs(key: key));
 
   static const String name = 'CartScreenRoute';
+}
+
+class CartScreenRouteArgs {
+  const CartScreenRouteArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'CartScreenRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for [_i9.AllProductListScreen]

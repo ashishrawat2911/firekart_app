@@ -29,8 +29,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent &&
-        !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
       print("at the end of list");
       ordersCubit.fetchNextList();
     }
@@ -87,8 +86,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.normal12Color81819A,
                               ),
                               Text(
-                                getOrderedTime(
-                                    orderList[orderListIndex].orderedAt!),
+                                getOrderedTime(orderList[orderListIndex].orderedAt!),
                                 style: AppTextStyles.medium14Black,
                               )
                             ],
@@ -96,10 +94,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(
-                        orderList[orderListIndex].orderItems!.length,
-                        (index) => orderCard(
-                            orderList[orderListIndex].orderItems![index])),
+                    ...List<Widget>.generate(orderList[orderListIndex].orderItems!.length,
+                        (index) => orderCard(orderList[orderListIndex].orderItems![index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -127,8 +123,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(
-                                orderList[orderListIndex].orderStatus!)
+                            getOrderStatusIcon(orderList[orderListIndex].orderStatus!)
                           ],
                         )
                       ],
