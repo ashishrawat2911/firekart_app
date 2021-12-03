@@ -13,7 +13,7 @@ class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
     bloc.startSplash();
   }
 
- @override
+  @override
   void listener(BuildContext context, SplashState state) {
     super.listener(context, state);
   }

@@ -91,8 +91,7 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  void _fieldFocusChange(
-      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+  void _fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
     currentFocus.unfocus();
     if (nextFocus == null) {
       nextFocus.unfocus();
@@ -136,22 +135,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onChanged: widget.onChanged,
         onFieldSubmitted: widget.onSubmitted ??
             (term) {
-              _fieldFocusChange(
-                  widget.context, widget.focusNode!, widget.nextFocusNode!);
+              _fieldFocusChange(widget.context, widget.focusNode!, widget.nextFocusNode!);
             },
         decoration: InputDecoration(
           contentPadding: widget.contentPadding != null
-              ? EdgeInsets.symmetric(
-                  horizontal: widget.contentPadding!, vertical: 2)
+              ? EdgeInsets.symmetric(horizontal: widget.contentPadding!, vertical: 2)
               : null,
           fillColor: widget.fillColor ?? AppColors.colorF6F5F8,
           filled: true,
           hintText: widget.hint,
           suffixIcon: widget.suffix,
           prefixIcon: widget.prefix,
-          hintStyle: widget.hint!.length < 30
-              ? widget.hintStyle
-              : TextStyle(fontSize: 15, color: AppColors.color969696),
+          hintStyle:
+              widget.hint!.length < 30 ? widget.hintStyle : TextStyle(fontSize: 15, color: AppColors.color969696),
           errorStyle: widget.errorStyle ??
               TextStyle(
                   // color: AppColors.errorRed,
@@ -167,9 +163,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           enabledBorder: OutlineInputBorder(
             //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
-            borderSide: BorderSide(
-                color: widget.enabledBorderColor!,
-                width: widget.enabledBorderWidth ?? 1.0),
+            borderSide: BorderSide(color: widget.enabledBorderColor!, width: widget.enabledBorderWidth ?? 1.0),
           ),
 //          errorBorder: OutlineInputBorder(
 //              //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),

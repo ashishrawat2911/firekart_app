@@ -18,10 +18,7 @@ class _$ProductSearchStateTearOff {
   const _$ProductSearchStateTearOff();
 
   _ProductSearchState call(
-      {List<ProductModel> productList = const [],
-      bool loading = false,
-      String? otp,
-      String? error}) {
+      {List<ProductModel> productList = const [], bool loading = false, String? otp, String? error}) {
     return _ProductSearchState(
       productList: productList,
       loading: loading,
@@ -37,33 +34,31 @@ const $ProductSearchState = _$ProductSearchStateTearOff();
 /// @nodoc
 mixin _$ProductSearchState {
   List<ProductModel> get productList => throw _privateConstructorUsedError;
+
   bool get loading => throw _privateConstructorUsedError;
+
   String? get otp => throw _privateConstructorUsedError;
+
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ProductSearchStateCopyWith<ProductSearchState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ProductSearchStateCopyWith<ProductSearchState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ProductSearchStateCopyWith<$Res> {
-  factory $ProductSearchStateCopyWith(
-          ProductSearchState value, $Res Function(ProductSearchState) then) =
+  factory $ProductSearchStateCopyWith(ProductSearchState value, $Res Function(ProductSearchState) then) =
       _$ProductSearchStateCopyWithImpl<$Res>;
-  $Res call(
-      {List<ProductModel> productList,
-      bool loading,
-      String? otp,
-      String? error});
+
+  $Res call({List<ProductModel> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
-class _$ProductSearchStateCopyWithImpl<$Res>
-    implements $ProductSearchStateCopyWith<$Res> {
+class _$ProductSearchStateCopyWithImpl<$Res> implements $ProductSearchStateCopyWith<$Res> {
   _$ProductSearchStateCopyWithImpl(this._value, this._then);
 
   final ProductSearchState _value;
+
   // ignore: unused_field
   final $Res Function(ProductSearchState) _then;
 
@@ -96,25 +91,18 @@ class _$ProductSearchStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ProductSearchStateCopyWith<$Res>
-    implements $ProductSearchStateCopyWith<$Res> {
-  factory _$ProductSearchStateCopyWith(
-          _ProductSearchState value, $Res Function(_ProductSearchState) then) =
+abstract class _$ProductSearchStateCopyWith<$Res> implements $ProductSearchStateCopyWith<$Res> {
+  factory _$ProductSearchStateCopyWith(_ProductSearchState value, $Res Function(_ProductSearchState) then) =
       __$ProductSearchStateCopyWithImpl<$Res>;
+
   @override
-  $Res call(
-      {List<ProductModel> productList,
-      bool loading,
-      String? otp,
-      String? error});
+  $Res call({List<ProductModel> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
-class __$ProductSearchStateCopyWithImpl<$Res>
-    extends _$ProductSearchStateCopyWithImpl<$Res>
+class __$ProductSearchStateCopyWithImpl<$Res> extends _$ProductSearchStateCopyWithImpl<$Res>
     implements _$ProductSearchStateCopyWith<$Res> {
-  __$ProductSearchStateCopyWithImpl(
-      _ProductSearchState _value, $Res Function(_ProductSearchState) _then)
+  __$ProductSearchStateCopyWithImpl(_ProductSearchState _value, $Res Function(_ProductSearchState) _then)
       : super(_value, (v) => _then(v as _ProductSearchState));
 
   @override
@@ -151,11 +139,7 @@ class __$ProductSearchStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProductSearchState implements _ProductSearchState {
-  const _$_ProductSearchState(
-      {this.productList = const [],
-      this.loading = false,
-      this.otp,
-      this.error});
+  const _$_ProductSearchState({this.productList = const [], this.loading = false, this.otp, this.error});
 
   @JsonKey(defaultValue: const [])
   @override
@@ -178,16 +162,14 @@ class _$_ProductSearchState implements _ProductSearchState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ProductSearchState &&
-            const DeepCollectionEquality()
-                .equals(other.productList, productList) &&
+            const DeepCollectionEquality().equals(other.productList, productList) &&
             (identical(other.loading, loading) || other.loading == loading) &&
             (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(productList), loading, otp, error);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(productList), loading, otp, error);
 
   @JsonKey(ignore: true)
   @override
@@ -196,22 +178,22 @@ class _$_ProductSearchState implements _ProductSearchState {
 }
 
 abstract class _ProductSearchState implements ProductSearchState {
-  const factory _ProductSearchState(
-      {List<ProductModel> productList,
-      bool loading,
-      String? otp,
-      String? error}) = _$_ProductSearchState;
+  const factory _ProductSearchState({List<ProductModel> productList, bool loading, String? otp, String? error}) =
+      _$_ProductSearchState;
 
   @override
   List<ProductModel> get productList;
+
   @override
   bool get loading;
+
   @override
   String? get otp;
+
   @override
   String? get error;
+
   @override
   @JsonKey(ignore: true)
-  _$ProductSearchStateCopyWith<_ProductSearchState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$ProductSearchStateCopyWith<_ProductSearchState> get copyWith => throw _privateConstructorUsedError;
 }

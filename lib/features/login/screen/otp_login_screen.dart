@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/styles.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/login/bloc/otp_login_cubit.dart';
 import 'package:fluttercommerce/features/login/state/otp_login_state.dart';
-import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
 
 class OtpLoginScreen extends StatefulWidget {
   OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
@@ -27,7 +26,6 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  var accountDetailsCubit = DI.container<AccountDetailsCubit>();
 
   @override
   void initState() {
@@ -58,8 +56,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),

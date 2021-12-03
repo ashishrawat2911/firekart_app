@@ -5,8 +5,7 @@ import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart'
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
-  AddAccountDetailsCubit(this._firebaseRepo)
-      : super(const AddAccountDetailsState.idle());
+  AddAccountDetailsCubit(this._firebaseRepo) : super(const AddAccountDetailsState.idle());
 
   final FirebaseManager _firebaseRepo;
   final Validator _validator = Validator();
@@ -27,8 +26,8 @@ class AddAccountDetailsCubit extends Cubit<AddAccountDetailsState> {
   }
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
-    final AccountDetails _accountDetails = AccountDetails(
-        name: name, phoneNumber: await _firebaseRepo.getPhoneNumber()!);
+    final AccountDetails _accountDetails =
+        AccountDetails(name: name, phoneNumber: await _firebaseRepo.getPhoneNumber()!);
 
     emit(const AddAccountDetailsState.saveDataLoading());
     await _firebaseRepo.addUserDetails(_accountDetails);

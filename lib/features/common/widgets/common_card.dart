@@ -11,13 +11,7 @@ class CommonCard extends StatelessWidget {
   final Color? color;
 
   CommonCard(
-      {required this.child,
-      this.margin,
-      this.borderRadius,
-      this.elevation,
-      this.padding,
-      this.onTap,
-      this.color})
+      {required this.child, this.margin, this.borderRadius, this.elevation, this.padding, this.onTap, this.color})
       : assert(child != null);
 
   @override

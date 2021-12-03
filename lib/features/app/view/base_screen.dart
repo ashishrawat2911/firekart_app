@@ -14,7 +14,7 @@ abstract class BaseScreen<C extends StateManager<S>, S> extends StatelessWidget 
 
   @mustCallSuper
   void initState(C bloc) {
-    print('initState');
+    print('$this initState');
   }
 
   @override
@@ -33,8 +33,6 @@ abstract class BaseScreen<C extends StateManager<S>, S> extends StatelessWidget 
 
   @mustCallSuper
   void listener(BuildContext context, S state) {
-    print('state listener $state');
+    print('$this listener $state');
   }
 }
-
-

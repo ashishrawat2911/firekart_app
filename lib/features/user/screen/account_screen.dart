@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
+import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
+import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
+import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
-import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/features/order/state/account_details_state.dart';
 
 class AccountScreen extends StatefulWidget {
+  const AccountScreen({Key? key}) : super(key: key);
+
   @override
   _AccountScreenState createState() => _AccountScreenState();
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  var accountDetailsCubit = DI.container<AccountDetailsCubit>();
+  AccountDetails? accountDetails;
+
+  @override
+  void initState() {
+    super.initState();
+    DI.container<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
+      setState(() {
+        accountDetails = event;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,25 +43,22 @@ class _AccountScreenState extends State<AccountScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-                        bloc: accountDetailsCubit,
-                        builder: (context, accountDetailState) {
-                          if (accountDetailState.accountDetails == null) return Container();
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                accountDetailState.accountDetails!.name,
-                                style: AppTextStyles.medium22Black,
-                              ),
-                              Text(
-                                accountDetailState.accountDetails!.phoneNumber??'',
-                                style: AppTextStyles.normal14Color4C4C6F,
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+                      if (accountDetails == null)
+                        Container()
+                      else
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              accountDetails!.name,
+                              style: AppTextStyles.medium22Black,
+                            ),
+                            Text(
+                              accountDetails!.phoneNumber ?? '',
+                              style: AppTextStyles.normal14Color4C4C6F,
+                            ),
+                          ],
+                        ),
                       SizedBox(
                         height: 10,
                       ),

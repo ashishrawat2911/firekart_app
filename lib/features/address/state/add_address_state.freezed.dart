@@ -49,6 +49,7 @@ mixin _$AddAddressState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
@@ -57,6 +58,7 @@ mixin _$AddAddressState {
     TResult Function()? successful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -66,6 +68,7 @@ mixin _$AddAddressState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -74,6 +77,7 @@ mixin _$AddAddressState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -82,6 +86,7 @@ mixin _$AddAddressState {
     TResult Function(Successful value)? successful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -95,32 +100,28 @@ mixin _$AddAddressState {
 
 /// @nodoc
 abstract class $AddAddressStateCopyWith<$Res> {
-  factory $AddAddressStateCopyWith(
-          AddAddressState value, $Res Function(AddAddressState) then) =
+  factory $AddAddressStateCopyWith(AddAddressState value, $Res Function(AddAddressState) then) =
       _$AddAddressStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AddAddressStateCopyWithImpl<$Res>
-    implements $AddAddressStateCopyWith<$Res> {
+class _$AddAddressStateCopyWithImpl<$Res> implements $AddAddressStateCopyWith<$Res> {
   _$AddAddressStateCopyWithImpl(this._value, this._then);
 
   final AddAddressState _value;
+
   // ignore: unused_field
   final $Res Function(AddAddressState) _then;
 }
 
 /// @nodoc
 abstract class $IdleCopyWith<$Res> {
-  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) =
-      _$IdleCopyWithImpl<$Res>;
+  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) = _$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IdleCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res>
-    implements $IdleCopyWith<$Res> {
-  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then)
-      : super(_value, (v) => _then(v as Idle));
+class _$IdleCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res> implements $IdleCopyWith<$Res> {
+  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then) : super(_value, (v) => _then(v as Idle));
 
   @override
   Idle get _value => super._value as Idle;
@@ -138,8 +139,7 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Idle);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -226,17 +226,14 @@ abstract class Idle implements AddAddressState {
 
 /// @nodoc
 abstract class $ButtonLoadingCopyWith<$Res> {
-  factory $ButtonLoadingCopyWith(
-          ButtonLoading value, $Res Function(ButtonLoading) then) =
+  factory $ButtonLoadingCopyWith(ButtonLoading value, $Res Function(ButtonLoading) then) =
       _$ButtonLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ButtonLoadingCopyWithImpl<$Res>
-    extends _$AddAddressStateCopyWithImpl<$Res>
+class _$ButtonLoadingCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res>
     implements $ButtonLoadingCopyWith<$Res> {
-  _$ButtonLoadingCopyWithImpl(
-      ButtonLoading _value, $Res Function(ButtonLoading) _then)
+  _$ButtonLoadingCopyWithImpl(ButtonLoading _value, $Res Function(ButtonLoading) _then)
       : super(_value, (v) => _then(v as ButtonLoading));
 
   @override
@@ -255,8 +252,7 @@ class _$ButtonLoading implements ButtonLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ButtonLoading);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is ButtonLoading);
   }
 
   @override
@@ -343,18 +339,16 @@ abstract class ButtonLoading implements AddAddressState {
 
 /// @nodoc
 abstract class $AddressCardErrorCopyWith<$Res> {
-  factory $AddressCardErrorCopyWith(
-          AddressCardError value, $Res Function(AddressCardError) then) =
+  factory $AddressCardErrorCopyWith(AddressCardError value, $Res Function(AddressCardError) then) =
       _$AddressCardErrorCopyWithImpl<$Res>;
+
   $Res call({String message});
 }
 
 /// @nodoc
-class _$AddressCardErrorCopyWithImpl<$Res>
-    extends _$AddAddressStateCopyWithImpl<$Res>
+class _$AddressCardErrorCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res>
     implements $AddressCardErrorCopyWith<$Res> {
-  _$AddressCardErrorCopyWithImpl(
-      AddressCardError _value, $Res Function(AddressCardError) _then)
+  _$AddressCardErrorCopyWithImpl(AddressCardError _value, $Res Function(AddressCardError) _then)
       : super(_value, (v) => _then(v as AddressCardError));
 
   @override
@@ -481,21 +475,18 @@ abstract class AddressCardError implements AddAddressState {
   const factory AddressCardError(String message) = _$AddressCardError;
 
   String get message;
+
   @JsonKey(ignore: true)
-  $AddressCardErrorCopyWith<AddressCardError> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AddressCardErrorCopyWith<AddressCardError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SuccessfulCopyWith<$Res> {
-  factory $SuccessfulCopyWith(
-          Successful value, $Res Function(Successful) then) =
-      _$SuccessfulCopyWithImpl<$Res>;
+  factory $SuccessfulCopyWith(Successful value, $Res Function(Successful) then) = _$SuccessfulCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SuccessfulCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res>
-    implements $SuccessfulCopyWith<$Res> {
+class _$SuccessfulCopyWithImpl<$Res> extends _$AddAddressStateCopyWithImpl<$Res> implements $SuccessfulCopyWith<$Res> {
   _$SuccessfulCopyWithImpl(Successful _value, $Res Function(Successful) _then)
       : super(_value, (v) => _then(v as Successful));
 
@@ -515,8 +506,7 @@ class _$Successful implements Successful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Successful);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is Successful);
   }
 
   @override

@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
 
 class AddToCartCubit extends Cubit<AddToCartState> {
   AddToCartCubit(this._firebaseRepo) : super(ShowAddButton());
@@ -12,15 +12,12 @@ class AddToCartCubit extends Cubit<AddToCartState> {
   final FirebaseManager _firebaseRepo;
 
   Future<void> listenToProduct(String productId) async {
-    _firebaseRepo
-        .cartStatusListen(await _firebaseRepo.getUid())
-        .listen((event) {
+    _firebaseRepo.cartStatusListen(await _firebaseRepo.getUid()).listen((event) {
       checkItemInCart(productId, isListening: true);
     });
   }
 
-  Future<void> checkItemInCart(String productId,
-      {bool isListening = false}) async {
+  Future<void> checkItemInCart(String productId, {bool isListening = false}) async {
     if (!isListening) {
       emit(AddToCardLoading());
     }
@@ -46,19 +43,16 @@ class AddToCartCubit extends Cubit<AddToCartState> {
     });
   }
 
-  Future<void> updateCartValues(
-      ProductModel productModel, int cartValue, bool shouldIncrease) async {
+  Future<void> updateCartValues(ProductModel productModel, int cartValue, bool shouldIncrease) async {
     final int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
     emit(const CartDataLoading());
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        emit(UpdateCartError(
-            StringsConstants.connectionNotAvailable, cartValue));
+        emit(UpdateCartError(StringsConstants.connectionNotAvailable, cartValue));
         return;
       }
-      final CartModel cartModel =
-          CartModel.fromProduct(productModel, newCartValue);
+      final CartModel cartModel = CartModel.fromProduct(productModel, newCartValue);
       _firebaseRepo.addProductToCart(cartModel).then((value) {
         emit(ShowCartValue(newCartValue));
       }).catchError((e) {

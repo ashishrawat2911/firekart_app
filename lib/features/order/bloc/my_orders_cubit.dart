@@ -28,11 +28,9 @@ class MyOrdersCubit extends Cubit<ResultState<List<OrderModel>>> {
 
   fetchNextList() async {
     try {
-      List<DocumentSnapshot> docs =
-          await firebaseRepo.getAllOrders(_documents![_documents!.length - 1]);
+      List<DocumentSnapshot> docs = await firebaseRepo.getAllOrders(_documents![_documents!.length - 1]);
       _documents!.addAll(docs);
-      _orderList = List<OrderModel>.generate(_documents!.length,
-          (index) => OrderModel.fromJson(_documents![index]));
+      _orderList = List<OrderModel>.generate(_documents!.length, (index) => OrderModel.fromJson(_documents![index]));
       emit(ResultState.data(data: _orderList!.toSet().toList()));
     } catch (e) {
       print(e);

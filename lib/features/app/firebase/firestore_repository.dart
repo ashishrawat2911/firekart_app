@@ -48,12 +48,13 @@ class FirebaseManager with FirebaseMixin {
     try {
       return firebaseAuth
           .verifyPhoneNumber(
-              phoneNumber: phoneNumber,
-              timeout: const Duration(seconds: 60),
-              verificationCompleted: verificationCompleted,
-              verificationFailed: verificationFailed,
-              codeSent: codeSent,
-              codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,)
+        phoneNumber: phoneNumber,
+        timeout: const Duration(seconds: 60),
+        verificationCompleted: verificationCompleted,
+        verificationFailed: verificationFailed,
+        codeSent: codeSent,
+        codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
+      )
           .then((value) {
         return true;
       }).catchError((e) {

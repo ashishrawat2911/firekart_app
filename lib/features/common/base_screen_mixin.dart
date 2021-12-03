@@ -38,10 +38,7 @@ mixin BaseScreenMixin {
   }
 
   showToast(String msg, BuildContext context,
-      {int duration = 1,
-      int gravity = 0,
-      double backgroundRadius = 20,
-      Border? border}) {
+      {int duration = 1, int gravity = 0, double backgroundRadius = 20, Border? border}) {
     Fluttertoast.showToast(
       msg: msg,
       toastLength: Toast.LENGTH_SHORT,

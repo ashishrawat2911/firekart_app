@@ -1,9 +1,9 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/address/state/my_address_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
-class MyAddressCubit extends Cubit<MyAddressState> {
+class MyAddressCubit extends StateManager<MyAddressState> {
   FirebaseManager firebaseRepo;
 
   MyAddressCubit(this.firebaseRepo) : super(MyAddressState.loading());

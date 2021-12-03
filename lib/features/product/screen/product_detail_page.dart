@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/cart/bloc/add_to_cart_cubit.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
 import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_view_cart_overlay.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);
@@ -22,8 +22,7 @@ class ProductDetailPage extends StatefulWidget {
   _ProductDetailPageState createState() => _ProductDetailPageState();
 }
 
-class _ProductDetailPageState extends State<ProductDetailPage>
-    with BaseScreenMixin {
+class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMixin {
   var addToCartCubit = DI.container<AddToCartCubit>();
 
   @override
@@ -117,8 +116,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                   state is CartDataLoading
                       ? () {}
                       : () {
-                          addToCartCubit.updateCartValues(
-                              widget.productModel, cartValue, false);
+                          addToCartCubit.updateCartValues(widget.productModel, cartValue, false);
                         }),
               Expanded(
                   child: state is CartDataLoading
@@ -140,18 +138,15 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                   state is CartDataLoading
                       ? () {}
                       : () {
-                          addToCartCubit.updateCartValues(
-                              widget.productModel, cartValue, true);
+                          addToCartCubit.updateCartValues(widget.productModel, cartValue, true);
                         })
             ],
           ),
         ),
-        crossFadeState: (state is ShowCartValue ||
-                state is CartDataLoading ||
-                state is UpdateCartError ||
-                state is DeleteCartError)
-            ? CrossFadeState.showSecond
-            : CrossFadeState.showFirst,
+        crossFadeState:
+            (state is ShowCartValue || state is CartDataLoading || state is UpdateCartError || state is DeleteCartError)
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 100));
   }
 
@@ -165,8 +160,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
           height: 30,
           width: 70,
           alignment: Alignment.center,
-          decoration: BoxDecoration(
-              border: Border.all(width: 1, color: AppColors.colorC4C4C4)),
+          decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.colorC4C4C4)),
           child: Text(
             StringsConstants.add,
             style: AppTextStyles.normal12PrimaryColor,
@@ -181,9 +175,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             size: 20,
             strokeWidth: 3,
           ))),
-      crossFadeState: state is AddToCardLoading
-          ? CrossFadeState.showSecond
-          : CrossFadeState.showFirst,
+      crossFadeState: state is AddToCardLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 100),
     );
   }
@@ -195,9 +187,8 @@ class _ProductDetailPageState extends State<ProductDetailPage>
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,
