@@ -47,10 +47,8 @@ class AppRouter extends _i14.RootStackRouter {
               checkForAccountStatusOnly: args.checkForAccountStatusOnly));
     },
     HomeScreenRoute.name: (routeData) {
-      final args = routeData.argsAs<HomeScreenRouteArgs>(
-          orElse: () => const HomeScreenRouteArgs());
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i3.HomeScreen(key: args.key));
+          routeData: routeData, child: const _i3.HomeScreen());
     },
     LoginScreenRoute.name: (routeData) {
       return _i14.CupertinoPageX<dynamic>(
@@ -77,10 +75,8 @@ class AppRouter extends _i14.RootStackRouter {
           child: _i7.AddUserDetailScreen(args.newAddress, key: args.key));
     },
     CartScreenRoute.name: (routeData) {
-      final args = routeData.argsAs<CartScreenRouteArgs>(
-          orElse: () => const CartScreenRouteArgs());
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i8.CartScreen(key: args.key));
+          routeData: routeData, child: const _i8.CartScreen());
     },
     AllProductListScreenRoute.name: (routeData) {
       final args = routeData.argsAs<AllProductListScreenRouteArgs>(
@@ -92,7 +88,7 @@ class AppRouter extends _i14.RootStackRouter {
     },
     SearchItemScreenRoute.name: (routeData) {
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i10.SearchItemScreen());
+          routeData: routeData, child: const _i10.SearchItemScreen());
     },
     MyAddressScreenRoute.name: (routeData) {
       final args = routeData.argsAs<MyAddressScreenRouteArgs>(
@@ -170,22 +166,10 @@ class CheckStatusScreenRouteArgs {
 }
 
 /// generated route for [_i3.HomeScreen]
-class HomeScreenRoute extends _i14.PageRouteInfo<HomeScreenRouteArgs> {
-  HomeScreenRoute({_i15.Key? key})
-      : super(name, path: '/home-screen', args: HomeScreenRouteArgs(key: key));
+class HomeScreenRoute extends _i14.PageRouteInfo<void> {
+  const HomeScreenRoute() : super(name, path: '/home-screen');
 
   static const String name = 'HomeScreenRoute';
-}
-
-class HomeScreenRouteArgs {
-  const HomeScreenRouteArgs({this.key});
-
-  final _i15.Key? key;
-
-  @override
-  String toString() {
-    return 'HomeScreenRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for [_i4.LoginScreen]
@@ -270,22 +254,10 @@ class AddUserDetailScreenRouteArgs {
 }
 
 /// generated route for [_i8.CartScreen]
-class CartScreenRoute extends _i14.PageRouteInfo<CartScreenRouteArgs> {
-  CartScreenRoute({_i15.Key? key})
-      : super(name, path: '/cart-screen', args: CartScreenRouteArgs(key: key));
+class CartScreenRoute extends _i14.PageRouteInfo<void> {
+  const CartScreenRoute() : super(name, path: '/cart-screen');
 
   static const String name = 'CartScreenRoute';
-}
-
-class CartScreenRouteArgs {
-  const CartScreenRouteArgs({this.key});
-
-  final _i15.Key? key;
-
-  @override
-  String toString() {
-    return 'CartScreenRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for [_i9.AllProductListScreen]

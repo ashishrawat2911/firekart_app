@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/view/base_screen.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_cubit.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
@@ -10,8 +10,8 @@ import 'package:fluttercommerce/features/common/widgets/cart_item_card.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/common/widgets/common_card.dart';
 
-class CartScreen extends BaseScreen<CartCubit, CartState> {
-  CartScreen({Key? key}) : super(key: key);
+class CartScreen extends StateManagerWidget<CartCubit, CartState> {
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   void initState(viewModel) {

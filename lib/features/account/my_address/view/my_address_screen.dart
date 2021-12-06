@@ -6,12 +6,12 @@ import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart'
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/view/base_screen.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 
-class MyAddressScreen extends BaseScreen<MyAddressViewModel, MyAddressState> {
+class MyAddressScreen extends StateManagerWidget<MyAddressViewModel, MyAddressState> {
   const MyAddressScreen({Key? key, this.selectedAddress = false}) : super(key: key);
 
   final bool selectedAddress;

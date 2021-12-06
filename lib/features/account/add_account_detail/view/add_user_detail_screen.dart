@@ -6,13 +6,13 @@ import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/view/base_screen.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 
-class AddUserDetailScreen extends BaseScreen<AddAccountDetailsViewModel, AddAccountDetailsState> {
+class AddUserDetailScreen extends StateManagerWidget<AddAccountDetailsViewModel, AddAccountDetailsState> {
   AddUserDetailScreen(this.newAddress, {Key? key}) : super(key: key);
 
   final bool newAddress;
