@@ -67,7 +67,7 @@ class AppRouter extends _i14.RootStackRouter {
       final args = routeData.argsAs<ProductDetailPageRouteArgs>();
       return _i14.CupertinoPageX<dynamic>(
           routeData: routeData,
-          child: _i6.ProductDetailPage(args.productModel));
+          child: _i6.ProductDetailPage(args.productModel, key: args.key));
     },
     AddUserDetailScreenRoute.name: (routeData) {
       final args = routeData.argsAs<AddUserDetailScreenRouteArgs>();
@@ -206,22 +206,26 @@ class OtpLoginScreenRouteArgs {
 /// generated route for [_i6.ProductDetailPage]
 class ProductDetailPageRoute
     extends _i14.PageRouteInfo<ProductDetailPageRouteArgs> {
-  ProductDetailPageRoute({required _i17.ProductModel productModel})
+  ProductDetailPageRoute(
+      {required _i17.ProductModel productModel, _i16.Key? key})
       : super(name,
             path: '/product-detail-page',
-            args: ProductDetailPageRouteArgs(productModel: productModel));
+            args: ProductDetailPageRouteArgs(
+                productModel: productModel, key: key));
 
   static const String name = 'ProductDetailPageRoute';
 }
 
 class ProductDetailPageRouteArgs {
-  const ProductDetailPageRouteArgs({required this.productModel});
+  const ProductDetailPageRouteArgs({required this.productModel, this.key});
 
   final _i17.ProductModel productModel;
 
+  final _i16.Key? key;
+
   @override
   String toString() {
-    return 'ProductDetailPageRouteArgs{productModel: $productModel}';
+    return 'ProductDetailPageRouteArgs{productModel: $productModel, key: $key}';
   }
 }
 
