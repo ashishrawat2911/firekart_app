@@ -1,51 +1,41 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
-import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_view_cart_overlay.dart';
+import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';
 
-class ProductDetailPage extends StatefulWidget {
-  const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);
+class ProductDetailPage extends StateManagerWidget<ProductViewModel, AddToCartState> {
+  const ProductDetailPage(this.productModel);
 
   final ProductModel productModel;
 
   @override
-  _ProductDetailPageState createState() => _ProductDetailPageState();
-}
-
-class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMixin {
-  var addToCartCubit = DI.container<ProductViewModel>();
-
-  @override
-  void initState() {
-    super.initState();
-    addToCartCubit.checkItemInCart(widget.productModel.productId!);
-    addToCartCubit.listenToProduct(widget.productModel.productId!);
+  void initState(viewModel) {
+    super.initState(viewModel);
+    viewModel.checkItemInCart(productModel.productId!);
+    viewModel.listenToProduct(productModel.productId!);
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildView(BuildContext context, ProductViewModel viewModel, AddToCartState state) {
     return Scaffold(
-      key: scaffoldKey,
       floatingActionButton: CommonViewCartOverlay(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        title: Text(widget.productModel.name!),
+        title: Text(productModel.name!),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             CachedNetworkImage(
-              imageUrl: widget.productModel.image!,
+              imageUrl: productModel.image!,
               fit: BoxFit.fill,
             ),
             Container(
@@ -54,13 +44,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    widget.productModel.name!,
+                    productModel.name!,
                     style: AppTextStyles.t33,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(widget.productModel.description!),
+                  Text(productModel.description!),
                   const SizedBox(
                     height: 10,
                   ),
@@ -68,26 +58,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "${widget.productModel.currency}${widget.productModel.currentPrice} / ${widget.productModel.quantityPerUnit} ${widget.productModel.unit}",
+                        "${productModel.currency}${productModel.currentPrice} / ${productModel.quantityPerUnit} ${productModel.unit}",
                         style: AppTextStyles.t5,
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      BlocConsumer<ProductViewModel, AddToCartState>(
-                        bloc: addToCartCubit,
-                        builder: (BuildContext context, AddToCartState state) {
-                          return addCartView(state);
-                        },
-                        listener: (BuildContext context, AddToCartState state) {
-                          if (state is AddToCartError) {
-                            showSnackBar(title: state.errorMessage);
-                          }
-                          if (state is DeleteCartError) {
-                            showSnackBar(title: state.errorMessage);
-                          }
-                        },
-                      )
+                      addCartView(state, viewModel),
                     ],
                   ),
                 ],
@@ -99,13 +76,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
     );
   }
 
-  Widget addCartView(AddToCartState state) {
+  Widget addCartView(AddToCartState state, ProductViewModel viewModel) {
     int cartValue = 0;
-    if (state is ShowCartValue) {
-      cartValue = state.noOfItems as int;
-    }
+    cartValue = state.noOfItems as int;
     return AnimatedCrossFade(
-        firstChild: addButton(state),
+        firstChild: addButton(state, viewModel),
         secondChild: SizedBox(
           height: 30,
           width: 110,
@@ -113,13 +88,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
             children: [
               changeCartValues(
                   false,
-                  state is CartDataLoading
+                  state.cartDataLoading
                       ? () {}
                       : () {
-                          addToCartCubit.updateCartValues(widget.productModel, cartValue, false);
+                          viewModel.updateCartValues(productModel, cartValue, false);
                         }),
               Expanded(
-                  child: state is CartDataLoading
+                  child: state.cartDataLoading
                       ? Center(
                           child: CommonAppLoader(
                           size: 20,
@@ -135,26 +110,23 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
                         ))),
               changeCartValues(
                   true,
-                  state is CartDataLoading
+                  state.cartDataLoading
                       ? () {}
                       : () {
-                          addToCartCubit.updateCartValues(widget.productModel, cartValue, true);
+                          viewModel.updateCartValues(productModel, cartValue, true);
                         })
             ],
           ),
         ),
-        crossFadeState:
-            (state is ShowCartValue || state is CartDataLoading || state is UpdateCartError || state is DeleteCartError)
-                ? CrossFadeState.showSecond
-                : CrossFadeState.showFirst,
+        crossFadeState: (state.cartDataLoading) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 100));
   }
 
-  Widget addButton(AddToCartState state) {
+  Widget addButton(AddToCartState state, ProductViewModel viewModel) {
     return AnimatedCrossFade(
       firstChild: InkWell(
         onTap: () {
-          addToCartCubit.addToCart(widget.productModel);
+          viewModel.addToCart(productModel);
         },
         child: Container(
           height: 30,
@@ -175,7 +147,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
             size: 20,
             strokeWidth: 3,
           ))),
-      crossFadeState: state is AddToCardLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+      crossFadeState: state.addToCardLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 100),
     );
   }
