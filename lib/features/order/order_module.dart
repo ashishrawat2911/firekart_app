@@ -1,6 +1,6 @@
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
+import 'package:fluttercommerce/core/global_listener/global_listener.dart';
 import 'package:fluttercommerce/features/module.dart';
 import 'package:fluttercommerce/features/order/bloc/my_orders_cubit.dart';
 

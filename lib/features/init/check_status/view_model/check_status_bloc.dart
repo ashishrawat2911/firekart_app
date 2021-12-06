@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 
 class CheckStatusBloc extends Cubit<int> {
   CheckStatusBloc(this.firebaseRepo) : super(0);

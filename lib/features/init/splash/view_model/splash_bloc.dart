@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/init/splash/state/splash_state.dart';
 
 class SplashViewModel extends StateManager<SplashState> {

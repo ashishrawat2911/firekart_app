@@ -11,7 +11,7 @@ class MessageHandler {
     scaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: Text(title!),
       backgroundColor: AppColors.primaryColor,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     ));
   }
 }

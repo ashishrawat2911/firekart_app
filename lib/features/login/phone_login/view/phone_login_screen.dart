@@ -1,26 +1,28 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/styles.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 
-import '../bloc/phone_login_cubit.dart';
 import '../state/phone_login_state.dart';
+import '../view_model/phone_login_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var phoneLoginCubit = DI.container<PhoneLoginCubit>();
+  var phoneLoginCubit = DI.container<PhoneLoginViewModel>();
   TextEditingController phoneNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
@@ -119,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              BlocConsumer<PhoneLoginCubit, PhoneLoginState>(
+              BlocConsumer<PhoneLoginViewModel, PhoneLoginState>(
                 bloc: phoneLoginCubit,
                 listener: (BuildContext context, PhoneLoginState state) {},
                 builder: (BuildContext context, PhoneLoginState state) {

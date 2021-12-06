@@ -6,7 +6,7 @@ import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/cart/bloc/add_to_cart_cubit.dart';
+import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
 import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
@@ -23,7 +23,7 @@ class ProductDetailPage extends StatefulWidget {
 }
 
 class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMixin {
-  var addToCartCubit = DI.container<AddToCartCubit>();
+  var addToCartCubit = DI.container<ProductViewModel>();
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
                       const SizedBox(
                         width: 10,
                       ),
-                      BlocConsumer<AddToCartCubit, AddToCartState>(
+                      BlocConsumer<ProductViewModel, AddToCartState>(
                         bloc: addToCartCubit,
                         builder: (BuildContext context, AddToCartState state) {
                           return addCartView(state);

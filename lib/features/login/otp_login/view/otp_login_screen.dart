@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/styles.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/features/login/bloc/otp_login_cubit.dart';
-import 'package:fluttercommerce/features/login/state/otp_login_state.dart';
+import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
+import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
 
 class OtpLoginScreen extends StatefulWidget {
   OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class OtpLoginScreen extends StatefulWidget {
 }
 
 class _OtpLoginScreenState extends State<OtpLoginScreen> {
-  var otpLoginCubit = DI.container<OtpLoginCubit>();
+  var otpLoginCubit = DI.container<OtpLoginViewModel>();
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -116,7 +116,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              BlocConsumer<OtpLoginCubit, OtpLoginState>(
+              BlocConsumer<OtpLoginViewModel, OtpLoginState>(
                 bloc: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {
                   if (state.otp != null) {
@@ -138,7 +138,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              BlocConsumer<OtpLoginCubit, OtpLoginState>(
+              BlocConsumer<OtpLoginViewModel, OtpLoginState>(
                 bloc: otpLoginCubit,
                 listener: (BuildContext context, OtpLoginState state) {},
                 builder: (BuildContext context, OtpLoginState state) {
