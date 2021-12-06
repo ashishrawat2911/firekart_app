@@ -82,7 +82,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                       margin: const EdgeInsets.only(bottom: 30),
                       child: Text(
                         StringsConstants.addNewAddress,
-                        style: AppTextStyles.medium14Black,
+                        style: AppTextStyles.t1,
                       ),
                     ),
                   ),
@@ -205,7 +205,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                       ),
                       Text(
                         StringsConstants.setAsDefaultCaps,
-                        style: AppTextStyles.medium14Black,
+                        style: AppTextStyles.t1,
                       )
                     ],
                   ),
