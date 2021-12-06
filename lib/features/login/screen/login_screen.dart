@@ -82,14 +82,14 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               Text(
                 StringsConstants.login,
-                style: AppTextStyles.medium20Color20203E,
+                style: AppTextStyles.t27,
               ),
               SizedBox(
                 height: 20,
               ),
               Text(
                 StringsConstants.phoneLoginText,
-                style: AppTextStyles.normal14Black,
+                style: AppTextStyles.t18,
               ),
               SizedBox(
                 height: 20,

@@ -27,7 +27,7 @@ class AppTheme {
         brightness: Brightness.light,
         elevation: 0,
         iconTheme: IconThemeData(color: AppColors.primaryColor),
-        titleTextStyle: AppTextStyles.medium18PrimaryColor,
+        titleTextStyle: AppTextStyles.t26,
       ),
     );
   }

@@ -13,14 +13,11 @@ class HomeModule extends Module {
 
   @override
   void registerDependencies() {
-    final firebaseRepo = DI.container<FirebaseManager>();
-    final globalListener = DI.container<GlobalListener>();
-
     DI.container
-      ..registerFactory(() => HomeScreenCubit(firebaseRepo, globalListener))
-      ..registerFactory(() => DashboardCubit(firebaseRepo), instanceName: dealOfTheDay)
-      ..registerFactory(() => DashboardCubit(firebaseRepo), instanceName: topProducts)
-      ..registerFactory(() => DashboardCubit(firebaseRepo), instanceName: onSale);
-    DI.container.registerFactory(() => ProductSearchCubit(firebaseRepo));
+      ..registerFactory(() => HomeScreenCubit(resolve<FirebaseManager>(), resolve<GlobalListener>()))
+      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()), instanceName: dealOfTheDay)
+      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()), instanceName: topProducts)
+      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()), instanceName: onSale)
+      ..registerFactory(() => ProductSearchCubit(resolve<FirebaseManager>()));
   }
 }

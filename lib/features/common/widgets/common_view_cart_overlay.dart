@@ -25,7 +25,7 @@ class CommonViewCartOverlay extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "${state.cartList.noOfItemsInCart} item${state.cartList.noOfItemsInCart > 1 ? "s" : ""} | ${state.cartList.currency}${state.cartList.priceInCart}",
-                  style: AppTextStyles.medium16White,
+                  style: AppTextStyles.t16,
                 ),
                 const SizedBox(
                   width: 10,
@@ -42,7 +42,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                       ),
                       Text(
                         StringsConstants.viewCart,
-                        style: AppTextStyles.medium16White,
+                        style: AppTextStyles.t16,
                       ),
                     ],
                   ),

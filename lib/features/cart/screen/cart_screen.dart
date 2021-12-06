@@ -155,7 +155,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
         children: [
           Text(
             StringsConstants.billDetails,
-            style: AppTextStyles.medium14Black,
+            style: AppTextStyles.t1,
           ),
           SizedBox(
             height: 20,
@@ -185,7 +185,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
             children: [
               Text(
                 StringsConstants.deliverTo,
-                style: AppTextStyles.medium14Black,
+                style: AppTextStyles.t1,
               ),
               ActionText(
                 state.selectedAddress == null
@@ -203,7 +203,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
           Text(
             state.selectedAddress?.wholeAddress() ??
                 StringsConstants.noAddressFound,
-            style: AppTextStyles.medium12Color81819A,
+            style: AppTextStyles.t12,
           ),
         ],
       ),
@@ -226,7 +226,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
                   children: [
                     Text(
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
-                      style: AppTextStyles.medium15Black,
+                      style: AppTextStyles.t4,
                     ),
                     ActionText(StringsConstants.viewDetailedBillCaps)
                   ],

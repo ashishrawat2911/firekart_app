@@ -70,7 +70,7 @@ class MyAddressScreen extends BaseScreen<MyAddressViewModel, MyAddressState> {
                 children: [
                   Text(
                     "${accountDetails.addresses.length} ${StringsConstants.savedAddresses}",
-                    style: AppTextStyles.medium12Color81819A,
+                    style: AppTextStyles.t12,
                   ),
                   ActionText(
                     StringsConstants.addNewCaps,
@@ -115,7 +115,7 @@ class MyAddressScreen extends BaseScreen<MyAddressViewModel, MyAddressState> {
           Expanded(
               child: Text(
             text,
-            style: AppTextStyles.normal12Color81819A,
+            style: AppTextStyles.t14,
           ))
         ],
       );
@@ -149,7 +149,7 @@ class MyAddressScreen extends BaseScreen<MyAddressViewModel, MyAddressState> {
                         children: <Widget>[
                           Text(
                             address.name,
-                            style: AppTextStyles.medium14Black,
+                            style: AppTextStyles.t1,
                           ),
                           Container(
                             margin: const EdgeInsets.only(left: 20),
@@ -162,7 +162,7 @@ class MyAddressScreen extends BaseScreen<MyAddressViewModel, MyAddressState> {
                                 borderRadius: BorderRadius.circular(4)),
                             child: Text(
                               StringsConstants.defaultCaps,
-                              style: AppTextStyles.medium14White,
+                              style: AppTextStyles.t15,
                             ),
                           )
                         ],
@@ -254,7 +254,7 @@ class MyAddressScreen extends BaseScreen<MyAddressViewModel, MyAddressState> {
         children: <Widget>[
           Text(
             "No Address Found",
-            style: AppTextStyles.medium18Black,
+            style: AppTextStyles.t6,
           ),
           const SizedBox(
             height: 20,

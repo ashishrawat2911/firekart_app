@@ -83,11 +83,11 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             children: [
                               Text(
                                 StringsConstants.orderedOnCaps,
-                                style: AppTextStyles.normal12Color81819A,
+                                style: AppTextStyles.t14,
                               ),
                               Text(
                                 getOrderedTime(orderList[orderListIndex].orderedAt!),
-                                style: AppTextStyles.medium14Black,
+                                style: AppTextStyles.t1,
                               )
                             ],
                           ),
@@ -103,14 +103,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               StringsConstants.totalCaps,
-                              style: AppTextStyles.normal12Color81819A,
+                              style: AppTextStyles.t14,
                             ),
                             SizedBox(
                               width: 13,
                             ),
                             Text(
                               "${orderList[orderListIndex].currency} ${orderList[orderListIndex].price}",
-                              style: AppTextStyles.normal14Black,
+                              style: AppTextStyles.t18,
                             )
                           ],
                         ),
@@ -118,7 +118,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               "${orderList[orderListIndex].orderStatus}",
-                              style: AppTextStyles.normal14Color81819A,
+                              style: AppTextStyles.t19,
                             ),
                             SizedBox(
                               width: 10,
@@ -165,14 +165,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   children: [
                     Text(
                       orderItem.name!,
-                      style: AppTextStyles.normal14Black,
+                      style: AppTextStyles.t18,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
                       "${orderItem.currency} ${orderItem.price} / ${orderItem.unit}",
-                      style: AppTextStyles.normal14Color81819A,
+                      style: AppTextStyles.t19,
                     ),
                   ],
                 )
@@ -183,7 +183,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             ),
             Text(
               "${orderItem.noOfItems} item${orderItem.noOfItems! > 1 ? "s" : ""}",
-              style: AppTextStyles.normal14Color81819A,
+              style: AppTextStyles.t19,
             ),
           ],
         ),
