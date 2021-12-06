@@ -8,9 +8,8 @@ import 'bloc/splash_bloc.dart';
 class InitialModule extends Module {
   @override
   void registerDependencies() {
-    final firebaseRepo = DI.container<FirebaseManager>();
     DI.container
       ..registerFactory(() => SplashBloc())
-      ..registerFactory(() => CheckStatusBloc(firebaseRepo));
+      ..registerFactory(() => CheckStatusBloc(resolve<FirebaseManager>()));
   }
 }

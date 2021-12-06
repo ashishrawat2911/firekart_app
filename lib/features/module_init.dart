@@ -28,6 +28,7 @@ class ModuleInit {
   static void registerModules() {
     for (final module in _modules) {
       module.registerDependencies();
+      module.registerGlobalListeners();
     }
   }
 

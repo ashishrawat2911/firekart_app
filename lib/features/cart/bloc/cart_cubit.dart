@@ -11,9 +11,7 @@ import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 
 class CartCubit extends StateManager<CartState> {
-  CartCubit(this.firebaseRepo, this.globalListener) : super(const CartState()) {
-
-  }
+  CartCubit(this.firebaseRepo, this.globalListener) : super(const CartState());
 
   AccountDetails? accountDetails;
 

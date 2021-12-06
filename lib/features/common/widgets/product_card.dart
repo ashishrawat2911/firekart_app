@@ -47,7 +47,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     productModel.name!,
-                    style: AppTextStyles.medium14Black,
+                    style: AppTextStyles.t1,
                   ),
                   SizedBox(
                     height: 5,
@@ -56,14 +56,14 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${productModel.currency}${productModel.currentPrice}",
-                        style: AppTextStyles.normal12Black,
+                        style: AppTextStyles.t8,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         "${productModel.currency}${productModel.actualPrice}",
-                        style: AppTextStyles.normal12Color81819AStroke,
+                        style: AppTextStyles.t13,
                       ),
                     ],
                   ),
@@ -72,7 +72,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     "${productModel.quantityPerUnit}${productModel.unit}",
-                    style: AppTextStyles.normal12Color81819A,
+                    style: AppTextStyles.t14,
                   ),
                 ],
               ),

@@ -78,7 +78,7 @@ class AddAddressScreen
                       margin: const EdgeInsets.only(bottom: 30),
                       child: Text(
                         StringsConstants.addNewAddress,
-                        style: AppTextStyles.medium14Black,
+                        style: AppTextStyles.t1,
                       ),
                     ),
                   ),
@@ -202,7 +202,7 @@ class AddAddressScreen
                       ),
                       Text(
                         StringsConstants.setAsDefaultCaps,
-                        style: AppTextStyles.medium14Black,
+                        style: AppTextStyles.t1,
                       )
                     ],
                   ),

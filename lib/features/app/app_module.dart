@@ -7,24 +7,24 @@ import 'package:fluttercommerce/features/module.dart';
 class AppModule extends Module {
   @override
   void registerDependencies() {
-    DI.container.registerFactory(() => FirebaseManager());
-    final firebaseManager = DI.container<FirebaseManager>();
-    DI.container.registerFactory(() => CrashlyticsService(firebaseManager));
-    DI.container.registerSingleton<GlobalListener>(GlobalListenerImpl());
-    registerGlobalListeners();
+    DI.container
+      ..registerFactory(() => FirebaseManager())
+      ..registerFactory(() => CrashlyticsService(
+            resolve<FirebaseManager>(),
+          ))
+      ..registerSingleton<GlobalListener>(GlobalListenerImpl());
   }
-
-  Future<void> register() async {}
 
   @override
   void close() {
     super.close();
-    DI.container<GlobalListener>().close();
+    resolve<GlobalListener>().close();
   }
 
+  @override
   void registerGlobalListeners() {
-    final globalListener = DI.container<GlobalListener>();
-    globalListener.registerListener(GlobalListenerConstants.cartList);
-    globalListener.registerListener(GlobalListenerConstants.accountDetails);
+    resolve<GlobalListener>()
+      ..registerListener(GlobalListenerConstants.cartList)
+      ..registerListener(GlobalListenerConstants.accountDetails);
   }
 }

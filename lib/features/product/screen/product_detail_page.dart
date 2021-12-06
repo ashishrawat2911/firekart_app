@@ -55,7 +55,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
                 children: <Widget>[
                   Text(
                     widget.productModel.name!,
-                    style: AppTextStyles.medium22Black,
+                    style: AppTextStyles.t33,
                   ),
                   const SizedBox(
                     height: 10,
@@ -69,7 +69,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
                     children: <Widget>[
                       Text(
                         "${widget.productModel.currency}${widget.productModel.currentPrice} / ${widget.productModel.quantityPerUnit} ${widget.productModel.unit}",
-                        style: AppTextStyles.medium16Black,
+                        style: AppTextStyles.t5,
                       ),
                       const SizedBox(
                         width: 10,
@@ -163,7 +163,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> with BaseScreenMi
           decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.colorC4C4C4)),
           child: Text(
             StringsConstants.add,
-            style: AppTextStyles.normal12PrimaryColor,
+            style: AppTextStyles.t35,
           ),
         ),
       ),
