@@ -15,6 +15,8 @@ import 'package:fluttercommerce/features/home/home_module.dart';
 import 'package:shimmer/shimmer.dart';
 
 class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({Key? key}) : super(key: key);
+
   @override
   _DashboardScreenState createState() => _DashboardScreenState();
 }

@@ -3,27 +3,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 
-abstract class BaseScreen<C extends StateManager<S>, S> extends StatefulWidget {
-  const BaseScreen({Key? key}) : super(key: key);
+abstract class StateManagerWidget<C extends StateManager<S>, S> extends StatefulWidget {
+  const StateManagerWidget({Key? key}) : super(key: key);
 
   @mustCallSuper
   void initState(C viewModel) {
-    print('$this initState');
+    print('$this InitState');
   }
 
   @mustCallSuper
   void stateListener(BuildContext context, S state) {
-    print('$this listener $state');
+    print('$this Listener $state');
   }
 
   Widget buildView(BuildContext context, C viewModel, S state);
 
   @override
-  _BaseScreenState createState() => _BaseScreenState();
+  _StateManagerWidgetState createState() => _StateManagerWidgetState();
 }
 
-class _BaseScreenState<C extends StateManager<S>, S>
-    extends State<BaseScreen<C, S>> {
+class _StateManagerWidgetState<C extends StateManager<S>, S>
+    extends State<StateManagerWidget<C, S>> {
   final C viewModel = DI.container<C>();
 
   @override

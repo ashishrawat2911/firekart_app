@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_assets.dart';
-import 'package:fluttercommerce/features/app/view/base_screen.dart';
+import 'package:fluttercommerce/features/app/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/init/splash/view_model/splash_bloc.dart';
 import 'package:fluttercommerce/features/init/splash/state/splash_state.dart';
 
-class SplashScreen extends BaseScreen<SplashViewModel, SplashState> {
+class SplashScreen extends StateManagerWidget<SplashViewModel, SplashState> {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override

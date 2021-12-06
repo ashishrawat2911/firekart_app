@@ -10,6 +10,8 @@ import 'package:fluttercommerce/features/home/bloc/product_search_cubit.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 
 class SearchItemScreen extends StatefulWidget {
+  const SearchItemScreen({Key? key}) : super(key: key);
+
   @override
   _SearchItemScreenState createState() => _SearchItemScreenState();
 }
