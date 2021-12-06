@@ -8,7 +8,7 @@ import 'package:fluttercommerce/features/home/bloc/home_cubit.dart';
 import 'package:fluttercommerce/features/home/screen/dashboard_screen.dart';
 import 'package:fluttercommerce/features/home/state/home_state.dart';
 
-import '../../user/screen/account_screen.dart';
+import '../../account/account/view/account_screen.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends BaseScreen<HomeScreenCubit, HomeState> {

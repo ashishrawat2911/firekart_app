@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_assets.dart';
 import 'package:fluttercommerce/features/app/view/base_screen.dart';
-import 'package:fluttercommerce/features/init/bloc/splash_bloc.dart';
-import 'package:fluttercommerce/features/init/state/splash_state.dart';
+import 'package:fluttercommerce/features/init/splash/view_model/splash_bloc.dart';
+import 'package:fluttercommerce/features/init/splash/state/splash_state.dart';
 
-class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
+class SplashScreen extends BaseScreen<SplashViewModel, SplashState> {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
@@ -19,7 +19,7 @@ class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
   }
 
   @override
-  Widget buildView(BuildContext context, SplashBloc bloc, SplashState state) {
+  Widget buildView(BuildContext context, SplashViewModel bloc, SplashState state) {
     return Scaffold(
       //  backgroundColor: AppColors.backGroundColor,
       body: Center(

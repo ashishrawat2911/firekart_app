@@ -14,16 +14,16 @@ import 'package:flutter/material.dart' as _i15;
 import '../../account/add_account_detail/view/add_user_detail_screen.dart'
     as _i7;
 import '../../account/add_address/view/add_address_screen.dart' as _i12;
-import '../../account/screen/my_address_screen.dart' as _i11;
+import '../../account/my_address/view/my_address_screen.dart' as _i11;
 import '../../cart/screen/cart_screen.dart' as _i8;
 import '../../common/models/account_details_model.dart' as _i17;
 import '../../common/models/product_model.dart' as _i16;
 import '../../home/screen/home_screen.dart' as _i3;
 import '../../home/screen/search_screen.dart' as _i10;
-import '../../init/screen/check_status_check_screen.dart' as _i2;
-import '../../init/screen/splash_screen.dart' as _i1;
-import '../../login/screen/login_screen.dart' as _i4;
+import '../../init/check_status/view/check_status_check_screen.dart' as _i2;
+import '../../init/splash/view/splash_screen.dart' as _i1;
 import '../../login/screen/otp_login_screen.dart' as _i5;
+import '../../login/screen/phone_login_screen.dart' as _i4;
 import '../../order/screen/my_orders_screen.dart' as _i13;
 import '../../product/screen/all_product_list_screen.dart' as _i9;
 import '../../product/screen/product_detail_page.dart' as _i6;
@@ -35,10 +35,8 @@ class AppRouter extends _i14.RootStackRouter {
   @override
   final Map<String, _i14.PageFactory> pagesMap = {
     SplashScreenRoute.name: (routeData) {
-      final args = routeData.argsAs<SplashScreenRouteArgs>(
-          orElse: () => const SplashScreenRouteArgs());
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i1.SplashScreen(key: args.key));
+          routeData: routeData, child: const _i1.SplashScreen());
     },
     CheckStatusScreenRoute.name: (routeData) {
       final args = routeData.argsAs<CheckStatusScreenRouteArgs>(
@@ -101,14 +99,15 @@ class AppRouter extends _i14.RootStackRouter {
           orElse: () => const MyAddressScreenRouteArgs());
       return _i14.CupertinoPageX<dynamic>(
           routeData: routeData,
-          child: _i11.MyAddressScreen(selectedAddress: args.selectedAddress));
+          child: _i11.MyAddressScreen(
+              key: args.key, selectedAddress: args.selectedAddress));
     },
     AddAddressScreenRoute.name: (routeData) {
       final args = routeData.argsAs<AddAddressScreenRouteArgs>();
       return _i14.CupertinoPageX<dynamic>(
           routeData: routeData,
           child: _i12.AddAddressScreen(args.newAddress, args.accountDetails,
-              editAddress: args.editAddress));
+              key: args.key, editAddress: args.editAddress));
     },
     MyOrdersScreenRoute.name: (routeData) {
       return _i14.CupertinoPageX<dynamic>(
@@ -141,22 +140,10 @@ class AppRouter extends _i14.RootStackRouter {
 }
 
 /// generated route for [_i1.SplashScreen]
-class SplashScreenRoute extends _i14.PageRouteInfo<SplashScreenRouteArgs> {
-  SplashScreenRoute({_i15.Key? key})
-      : super(name, path: '/', args: SplashScreenRouteArgs(key: key));
+class SplashScreenRoute extends _i14.PageRouteInfo<void> {
+  const SplashScreenRoute() : super(name, path: '/');
 
   static const String name = 'SplashScreenRoute';
-}
-
-class SplashScreenRouteArgs {
-  const SplashScreenRouteArgs({this.key});
-
-  final _i15.Key? key;
-
-  @override
-  String toString() {
-    return 'SplashScreenRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for [_i2.CheckStatusScreen]
@@ -334,22 +321,25 @@ class SearchItemScreenRoute extends _i14.PageRouteInfo<void> {
 /// generated route for [_i11.MyAddressScreen]
 class MyAddressScreenRoute
     extends _i14.PageRouteInfo<MyAddressScreenRouteArgs> {
-  MyAddressScreenRoute({bool selectedAddress = false})
+  MyAddressScreenRoute({_i15.Key? key, bool selectedAddress = false})
       : super(name,
             path: '/my-address-screen',
-            args: MyAddressScreenRouteArgs(selectedAddress: selectedAddress));
+            args: MyAddressScreenRouteArgs(
+                key: key, selectedAddress: selectedAddress));
 
   static const String name = 'MyAddressScreenRoute';
 }
 
 class MyAddressScreenRouteArgs {
-  const MyAddressScreenRouteArgs({this.selectedAddress = false});
+  const MyAddressScreenRouteArgs({this.key, this.selectedAddress = false});
+
+  final _i15.Key? key;
 
   final bool selectedAddress;
 
   @override
   String toString() {
-    return 'MyAddressScreenRouteArgs{selectedAddress: $selectedAddress}';
+    return 'MyAddressScreenRouteArgs{key: $key, selectedAddress: $selectedAddress}';
   }
 }
 
@@ -359,12 +349,14 @@ class AddAddressScreenRoute
   AddAddressScreenRoute(
       {required bool newAddress,
       required _i17.AccountDetails accountDetails,
+      _i15.Key? key,
       _i17.Address? editAddress})
       : super(name,
             path: '/add-address-screen',
             args: AddAddressScreenRouteArgs(
                 newAddress: newAddress,
                 accountDetails: accountDetails,
+                key: key,
                 editAddress: editAddress));
 
   static const String name = 'AddAddressScreenRoute';
@@ -374,17 +366,20 @@ class AddAddressScreenRouteArgs {
   const AddAddressScreenRouteArgs(
       {required this.newAddress,
       required this.accountDetails,
+      this.key,
       this.editAddress});
 
   final bool newAddress;
 
   final _i17.AccountDetails accountDetails;
 
+  final _i15.Key? key;
+
   final _i17.Address? editAddress;
 
   @override
   String toString() {
-    return 'AddAddressScreenRouteArgs{newAddress: $newAddress, accountDetails: $accountDetails, editAddress: $editAddress}';
+    return 'AddAddressScreenRouteArgs{newAddress: $newAddress, accountDetails: $accountDetails, key: $key, editAddress: $editAddress}';
   }
 }
 
