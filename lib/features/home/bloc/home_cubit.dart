@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttercommerce/core/global_listener/global_listener.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
+import 'package:fluttercommerce/features/app/res/global_listener_constants.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/home/state/home_state.dart';

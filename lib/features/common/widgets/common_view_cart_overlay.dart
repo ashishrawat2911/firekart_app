@@ -8,6 +8,8 @@ import 'package:fluttercommerce/features/cart/bloc/cart_cubit.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
 
 class CommonViewCartOverlay extends StatelessWidget {
+  const CommonViewCartOverlay({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(

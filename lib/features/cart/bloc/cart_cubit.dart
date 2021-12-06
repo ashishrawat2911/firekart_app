@@ -1,10 +1,11 @@
+import 'package:fluttercommerce/core/global_listener/global_listener.dart';
+import 'package:fluttercommerce/core/message_handler/message_handler.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/res/global_listener_constants.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/snackbar_handeler.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';

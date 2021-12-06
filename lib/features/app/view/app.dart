@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/app_theme.dart';
-import 'package:fluttercommerce/features/app/snackbar_handeler.dart';
+import 'package:fluttercommerce/core/message_handler/message_handler.dart';
 import 'package:fluttercommerce/features/module_init.dart';
 
 class App extends StatefulWidget {

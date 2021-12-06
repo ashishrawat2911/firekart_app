@@ -6,8 +6,8 @@ import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
 import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 
-class AddToCartCubit extends Cubit<AddToCartState> {
-  AddToCartCubit(this._firebaseRepo) : super(ShowAddButton());
+class ProductViewModel extends Cubit<AddToCartState> {
+  ProductViewModel(this._firebaseRepo) : super(ShowAddButton());
 
   final FirebaseManager _firebaseRepo;
 

@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_account_detail/state/add_account_details_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {

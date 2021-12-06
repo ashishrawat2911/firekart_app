@@ -1,8 +1,8 @@
 import 'package:fluttercommerce/features/account/add_address/state/add_address_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/snackbar_handeler.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/message_handler/message_handler.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 class AddAddressViewModel extends StateManager<AddAddressState> {

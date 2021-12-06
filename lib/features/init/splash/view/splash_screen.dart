@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_assets.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_view_manager.dart';
+import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/init/splash/view_model/splash_bloc.dart';
 import 'package:fluttercommerce/features/init/splash/state/splash_state.dart';
 

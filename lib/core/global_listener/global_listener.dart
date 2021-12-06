@@ -12,13 +12,6 @@ abstract class GlobalListener {
   void close();
 }
 
-class GlobalListenerConstants {
-  GlobalListenerConstants._();
-
-  static const String accountDetails = 'accountDetails';
-  static const String cartList = 'cartList';
-}
-
 class GlobalListenerImpl extends GlobalListener {
   Map<String, StreamController> listeners = {};
   Map<String, dynamic> lastData = {};
