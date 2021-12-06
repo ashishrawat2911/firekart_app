@@ -4,9 +4,9 @@ import 'package:fluttercommerce/features/account/my_address/view/my_address_scre
 import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
 import 'package:fluttercommerce/features/home/screen/home_screen.dart';
 import 'package:fluttercommerce/features/home/screen/search_screen.dart';
-import 'package:fluttercommerce/features/init/screen/check_status_check_screen.dart';
-import 'package:fluttercommerce/features/init/screen/splash_screen.dart';
-import 'package:fluttercommerce/features/login/screen/login_screen.dart';
+import 'package:fluttercommerce/features/init/check_status/view/check_status_check_screen.dart';
+import 'package:fluttercommerce/features/init/splash/view/splash_screen.dart';
+import 'package:fluttercommerce/features/login/screen/phone_login_screen.dart';
 import 'package:fluttercommerce/features/login/screen/otp_login_screen.dart';
 import 'package:fluttercommerce/features/order/screen/my_orders_screen.dart';
 import 'package:fluttercommerce/features/product/screen/all_product_list_screen.dart';
