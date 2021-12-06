@@ -12,7 +12,7 @@ import 'package:fluttercommerce/features/common/widgets/common_view_cart_overlay
 import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';
 
 class ProductDetailPage extends StateManagerWidget<ProductViewModel, AddToCartState> {
-  const ProductDetailPage(this.productModel);
+  const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);
 
   final ProductModel productModel;
 
@@ -26,7 +26,7 @@ class ProductDetailPage extends StateManagerWidget<ProductViewModel, AddToCartSt
   @override
   Widget buildView(BuildContext context, ProductViewModel viewModel, AddToCartState state) {
     return Scaffold(
-      floatingActionButton: CommonViewCartOverlay(),
+      floatingActionButton: const CommonViewCartOverlay(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         title: Text(productModel.name!),
