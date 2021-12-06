@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/features/address/address_module.dart';
+import 'package:fluttercommerce/features/account/account_module.dart';
 import 'package:fluttercommerce/features/app/app_module.dart';
 import 'package:fluttercommerce/features/cart/checkout_module.dart';
 import 'package:fluttercommerce/features/login/login_module.dart';

@@ -5,7 +5,6 @@ import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/app/view/base_screen.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_cubit.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/cart_item_card.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
@@ -15,25 +14,29 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
   CartScreen({Key? key}) : super(key: key);
 
   @override
-  void initState(CartCubit bloc) {
-    super.initState(bloc);
-    bloc.init();
+  void initState(viewModel) {
+    super.initState(viewModel);
+    viewModel.init();
   }
 
   @override
-  Widget buildView(BuildContext context, bloc, state) {
+  Widget buildView(BuildContext context, viewModel, state) {
     return Scaffold(
       backgroundColor: AppColors.colorF8F8F8,
       appBar: AppBar(
         title: const Text(StringsConstants.cart),
         elevation: 1,
       ),
-      body: state.cartList.noOfItemsInCart > 0 ? cartView(state) : Container(),
-      bottomNavigationBar: Visibility(visible: state.cartList.noOfItemsInCart > 0, child: checkOut(state)),
+      body: state.cartList.noOfItemsInCart > 0
+          ? cartView(state, viewModel)
+          : Container(),
+      bottomNavigationBar: Visibility(
+          visible: state.cartList.noOfItemsInCart > 0,
+          child: checkOut(state, viewModel)),
     );
   }
 
-  Widget cartView(CartState state) {
+  Widget cartView(CartState state, CartCubit viewModel) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -43,19 +46,20 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
               Container(
                 //  margin: EdgeInsets.only(bottom: 20),
                 child: Column(
-                  children: List<Widget>.generate(state.cartList.length, (index) {
+                  children:
+                      List<Widget>.generate(state.cartList.length, (index) {
                     return CartItemCard(
                       cartModel: state.cartList[index],
                       index: index,
                       cartDataLoading: state.cartItemDataLoading,
                       onDecrement: (value) {
-                        bloc.updateCartValues(index, true);
+                        viewModel.updateCartValues(index, true);
                       },
                       onDeleted: (value) {
-                        bloc.deleteItem(index);
+                        viewModel.deleteItem(index);
                       },
                       onIncrement: (value) {
-                        bloc.updateCartValues(index, true);
+                        viewModel.updateCartValues(index, true);
                       },
                       margin: EdgeInsets.only(bottom: 20),
                     );
@@ -66,7 +70,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
               SizedBox(
                 height: 20,
               ),
-              deliverTo(state),
+              deliverTo(state, viewModel),
               SizedBox(
                 height: 50,
               ),
@@ -114,12 +118,17 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
             children: [
               Text(
                 "$title",
-                style:
-                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.color20203E,
+                    fontSize: 14,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 "$price",
-                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.black,
+                    fontSize: 16,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -156,13 +165,15 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay, "${state.cartList.currency}${state.cartList.priceInCart}", isFinal: true),
+          priceRow(StringsConstants.toPay,
+              "${state.cartList.currency}${state.cartList.priceInCart}",
+              isFinal: true),
         ],
       ),
     ));
   }
 
-  Widget deliverTo(CartState state) {
+  Widget deliverTo(CartState state, CartCubit viewModel) {
     return CommonCard(
         child: Container(
       margin: const EdgeInsets.all(20),
@@ -177,9 +188,11 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
                 style: AppTextStyles.medium14Black,
               ),
               ActionText(
-                state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
+                state.selectedAddress == null
+                    ? StringsConstants.addNewCaps
+                    : StringsConstants.changeTextCapital,
                 onTap: () {
-                  bloc.selectOrChangeAddress();
+                  viewModel.selectOrChangeAddress();
                 },
               )
             ],
@@ -188,7 +201,8 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
             height: 20,
           ),
           Text(
-            state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
+            state.selectedAddress?.wholeAddress() ??
+                StringsConstants.noAddressFound,
             style: AppTextStyles.medium12Color81819A,
           ),
         ],
@@ -196,7 +210,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
     ));
   }
 
-  Widget checkOut(CartState state) {
+  Widget checkOut(CartState state, CartCubit viewModel) {
     return Container(
       height: 94,
       color: AppColors.white,
@@ -226,7 +240,7 @@ class CartScreen extends BaseScreen<CartCubit, CartState> {
             height: 50,
             replaceWithIndicator: state.orderInProgress,
             margin: const EdgeInsets.only(right: 20),
-            onTap: bloc.placeOrder,
+            onTap: viewModel.placeOrder,
           )
         ],
       ),

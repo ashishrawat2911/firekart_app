@@ -5,17 +5,17 @@ import 'package:fluttercommerce/features/init/bloc/splash_bloc.dart';
 import 'package:fluttercommerce/features/init/state/splash_state.dart';
 
 class SplashScreen extends BaseScreen<SplashBloc, SplashState> {
-  SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  void initState(SplashBloc bloc) {
-    super.initState(bloc);
-    bloc.startSplash();
+  void initState(viewModel) {
+    super.initState(viewModel);
+    viewModel.startSplash();
   }
 
   @override
-  void listener(BuildContext context, SplashState state) {
-    super.listener(context, state);
+  void stateListener(BuildContext context, SplashState state) {
+    super.stateListener(context, state);
   }
 
   @override

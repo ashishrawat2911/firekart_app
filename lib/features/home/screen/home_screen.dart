@@ -15,13 +15,14 @@ class HomeScreen extends BaseScreen<HomeScreenCubit, HomeState> {
   HomeScreen({Key? key}) : super(key: key);
 
   @override
-  void initState(bloc) {
-    super.initState(bloc);
-    bloc.init();
+  void initState(viewModel) {
+    super.initState(viewModel);
+    viewModel.init();
   }
 
   @override
-  Widget buildView(BuildContext context, HomeScreenCubit bloc, HomeState state) {
+  Widget buildView(
+      BuildContext context, HomeScreenCubit viewModel, HomeState state) {
     return Scaffold(
       body: [
         DashboardScreen(),
@@ -37,8 +38,10 @@ class HomeScreen extends BaseScreen<HomeScreenCubit, HomeState> {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         items: [
-          const BottomNavigationBarItem(icon: Icon(Icons.home), title: Text(StringsConstants.home)),
-          const BottomNavigationBarItem(icon: Icon(Icons.search), title: Text(StringsConstants.search)),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.home), title: Text(StringsConstants.home)),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.search), title: Text(StringsConstants.search)),
           BottomNavigationBarItem(
               icon: Stack(
                 children: <Widget>[
@@ -64,10 +67,11 @@ class HomeScreen extends BaseScreen<HomeScreenCubit, HomeState> {
                 ],
               ),
               title: const Text(StringsConstants.cart)),
-          const BottomNavigationBarItem(icon: Icon(Icons.person), title: Text(StringsConstants.account)),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.person), title: Text(StringsConstants.account)),
         ],
         onTap: (index) {
-          bloc.bottomBarIndex = index;
+          viewModel.bottomBarIndex = index;
         },
         currentIndex: state.bottomIndex,
       ),
