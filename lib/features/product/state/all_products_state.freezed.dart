@@ -32,32 +32,27 @@ mixin _$AllProductState {
     required TResult Function() productLoading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? productLoading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? productLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProductLoading value) productLoading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProductLoading value)? productLoading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProductLoading value)? productLoading,
@@ -68,30 +63,34 @@ mixin _$AllProductState {
 
 /// @nodoc
 abstract class $AllProductStateCopyWith<$Res> {
-  factory $AllProductStateCopyWith(AllProductState value, $Res Function(AllProductState) then) =
+  factory $AllProductStateCopyWith(
+          AllProductState value, $Res Function(AllProductState) then) =
       _$AllProductStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AllProductStateCopyWithImpl<$Res> implements $AllProductStateCopyWith<$Res> {
+class _$AllProductStateCopyWithImpl<$Res>
+    implements $AllProductStateCopyWith<$Res> {
   _$AllProductStateCopyWithImpl(this._value, this._then);
 
   final AllProductState _value;
-
   // ignore: unused_field
   final $Res Function(AllProductState) _then;
 }
 
 /// @nodoc
 abstract class $ProductLoadingCopyWith<$Res> {
-  factory $ProductLoadingCopyWith(ProductLoading value, $Res Function(ProductLoading) then) =
+  factory $ProductLoadingCopyWith(
+          ProductLoading value, $Res Function(ProductLoading) then) =
       _$ProductLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProductLoadingCopyWithImpl<$Res> extends _$AllProductStateCopyWithImpl<$Res>
+class _$ProductLoadingCopyWithImpl<$Res>
+    extends _$AllProductStateCopyWithImpl<$Res>
     implements $ProductLoadingCopyWith<$Res> {
-  _$ProductLoadingCopyWithImpl(ProductLoading _value, $Res Function(ProductLoading) _then)
+  _$ProductLoadingCopyWithImpl(
+      ProductLoading _value, $Res Function(ProductLoading) _then)
       : super(_value, (v) => _then(v as ProductLoading));
 
   @override
@@ -110,7 +109,8 @@ class _$ProductLoading implements ProductLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is ProductLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ProductLoading);
   }
 
   @override

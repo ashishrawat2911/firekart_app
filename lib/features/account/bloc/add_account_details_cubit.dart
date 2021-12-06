@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/features/address/state/add_account_details_state.dart';
+import 'package:fluttercommerce/features/account/state/add_account_details_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 

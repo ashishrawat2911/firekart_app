@@ -1,56 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/address/bloc/add_address_cubit.dart';
-import 'package:fluttercommerce/features/address/state/add_address_state.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/account/add_address/state/add_address_state.dart';
+import 'package:fluttercommerce/features/account/add_address/view_model/add_address_view_model.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:fluttercommerce/features/app/view/base_screen.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 
-class AddAddressScreen extends StatefulWidget {
+class AddAddressScreen
+    extends BaseScreen<AddAddressViewModel, AddAddressState> {
+  AddAddressScreen(this.newAddress, this.accountDetails,
+      {Key? key, this.editAddress})
+      : super(key: key);
   final bool newAddress;
   final AccountDetails accountDetails;
   final Address? editAddress;
 
-  AddAddressScreen(this.newAddress, this.accountDetails, {this.editAddress});
+  final TextEditingController nameEditingController = TextEditingController();
+  final TextEditingController emailEditingController = TextEditingController();
+  final TextEditingController pincodeEditingController =
+      TextEditingController();
+  final TextEditingController addressEditingController =
+      TextEditingController();
+  final TextEditingController cityEditingController = TextEditingController();
+  final TextEditingController stateEditingController = TextEditingController();
+  final TextEditingController phoneEditingController = TextEditingController();
 
-  @override
-  _AddAddressScreenState createState() => _AddAddressScreenState();
-}
-
-class _AddAddressScreenState extends State<AddAddressScreen> {
-  var addAddressCubit = DI.container<AddAddressCubit>();
-  TextEditingController nameEditingController = TextEditingController();
-  TextEditingController emailEditingController = TextEditingController();
-  TextEditingController pincodeEditingController = TextEditingController();
-  TextEditingController addressEditingController = TextEditingController();
-  TextEditingController cityEditingController = TextEditingController();
-  TextEditingController stateEditingController = TextEditingController();
-  TextEditingController phoneEditingController = TextEditingController();
-
-  FocusNode nameFocusNode = FocusNode();
-  FocusNode emailFocusNode = FocusNode();
-  FocusNode pincodeFocusNode = FocusNode();
-  FocusNode addressFocusNode = FocusNode();
-  FocusNode cityFocusNode = FocusNode();
-  FocusNode stateFocusNode = FocusNode();
-  FocusNode phoneFocusNode = FocusNode();
-  Validator validator = Validator();
+  final FocusNode nameFocusNode = FocusNode();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode pincodeFocusNode = FocusNode();
+  final FocusNode addressFocusNode = FocusNode();
+  final FocusNode cityFocusNode = FocusNode();
+  final FocusNode stateFocusNode = FocusNode();
+  final FocusNode phoneFocusNode = FocusNode();
+  final Validator validator = Validator();
 
   bool setAsDefault = false;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
-  void initState() {
-    super.initState();
-    if (widget.editAddress != null) {
-      final Address address = widget.editAddress!;
+  void initState(viewModel) {
+    super.initState(viewModel);
+    if (editAddress != null) {
+      final Address address = editAddress!;
       nameEditingController.text = address.name;
       pincodeEditingController.text = address.pincode;
       addressEditingController.text = address.address;
@@ -61,11 +57,11 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildView(BuildContext context, viewModel, state) {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: Text("${widget.newAddress ? "Add" : "Edit"} Address"),
+        title: Text("${newAddress ? "Add" : "Edit"} Address"),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -77,7 +73,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Visibility(
-                    visible: widget.newAddress,
+                    visible: newAddress,
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 30),
                       child: Text(
@@ -190,7 +186,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   Row(
                     children: [
                       StatefulBuilder(
-                        builder: (BuildContext context, void Function(void Function()) setState) {
+                        builder: (BuildContext context,
+                            void Function(void Function()) setState) {
                           return Checkbox(
                             value: setAsDefault,
                             onChanged: (bool? value) {
@@ -212,25 +209,14 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   const SizedBox(
                     height: 50,
                   ),
-                  BlocConsumer<AddAddressCubit, AddAddressState>(
-                    bloc: addAddressCubit,
-                    listener: (BuildContext context, AddAddressState state) {
-                      if (state is Successful) {
-                        NavigationHandler.pop(true);
-                      }
-                    },
-                    builder: (BuildContext context, AddAddressState state) {
-                      return CommonButton(
-                        title: StringsConstants.save,
-                        titleColor: AppColors.white,
-                        height: 50,
-                        replaceWithIndicator: state is ButtonLoading,
-                        //isDisabled:
-                        margin: const EdgeInsets.only(bottom: 40),
-                        onTap: () {
-                          onButtonTap();
-                        },
-                      );
+                  CommonButton(
+                    title: StringsConstants.save,
+                    titleColor: AppColors.white,
+                    height: 50,
+                    replaceWithIndicator: state.buttonLoading,
+                    margin: const EdgeInsets.only(bottom: 40),
+                    onTap: () {
+                      onButtonTap(viewModel);
                     },
                   ),
                 ],
@@ -242,7 +228,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
     );
   }
 
-  void onButtonTap() {
+  void onButtonTap(AddAddressViewModel viewModel) {
     if (_formKey.currentState!.validate()) {
       final Address address = Address(
           name: nameEditingController.text,
@@ -253,7 +239,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
           //todo add the country picker
           phoneNumber: "+91${phoneEditingController.text}",
           state: stateEditingController.text);
-      addAddressCubit.saveAddress(widget.accountDetails, address);
+      viewModel.saveAddress(accountDetails, address);
     }
   }
 }

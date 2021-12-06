@@ -1,20 +1,21 @@
-import 'package:fluttercommerce/features/address/state/my_address_state.dart';
+import 'package:fluttercommerce/features/account/state/my_address_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
-class MyAddressCubit extends StateManager<MyAddressState> {
+class MyAddressViewModel extends StateManager<MyAddressState> {
   FirebaseManager firebaseRepo;
 
-  MyAddressCubit(this.firebaseRepo) : super(MyAddressState.loading());
+  MyAddressViewModel(this.firebaseRepo) : super(const MyAddressState.loading());
 
-  listenToAccountDetails(AccountDetails accountDetails) async {
+  Future<void> listenToAccountDetails(AccountDetails accountDetails) async {
     emit(MyAddressState.showAccountDetails(accountDetails));
   }
 
-  fetchAccountDetails() async {
+  Future<void> fetchAccountDetails() async {
     try {
-      AccountDetails accountDetails = await firebaseRepo.fetchUserDetails();
+      final AccountDetails accountDetails =
+          await firebaseRepo.fetchUserDetails();
       accountDetails.addresses = accountDetails.addresses.reversed.toList();
       emit(MyAddressState.showAccountDetails(accountDetails));
     } catch (e) {

@@ -54,7 +54,6 @@ mixin _$AddressCardState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
@@ -64,7 +63,6 @@ mixin _$AddressCardState {
     TResult Function()? successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -75,7 +73,6 @@ mixin _$AddressCardState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -85,7 +82,6 @@ mixin _$AddressCardState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -95,7 +91,6 @@ mixin _$AddressCardState {
     TResult Function(Successful value)? successful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -110,28 +105,32 @@ mixin _$AddressCardState {
 
 /// @nodoc
 abstract class $AddressCardStateCopyWith<$Res> {
-  factory $AddressCardStateCopyWith(AddressCardState value, $Res Function(AddressCardState) then) =
+  factory $AddressCardStateCopyWith(
+          AddressCardState value, $Res Function(AddressCardState) then) =
       _$AddressCardStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AddressCardStateCopyWithImpl<$Res> implements $AddressCardStateCopyWith<$Res> {
+class _$AddressCardStateCopyWithImpl<$Res>
+    implements $AddressCardStateCopyWith<$Res> {
   _$AddressCardStateCopyWithImpl(this._value, this._then);
 
   final AddressCardState _value;
-
   // ignore: unused_field
   final $Res Function(AddressCardState) _then;
 }
 
 /// @nodoc
 abstract class $IdleCopyWith<$Res> {
-  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) = _$IdleCopyWithImpl<$Res>;
+  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) =
+      _$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IdleCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res> implements $IdleCopyWith<$Res> {
-  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then) : super(_value, (v) => _then(v as Idle));
+class _$IdleCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
+    implements $IdleCopyWith<$Res> {
+  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then)
+      : super(_value, (v) => _then(v as Idle));
 
   @override
   Idle get _value => super._value as Idle;
@@ -149,7 +148,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -242,13 +242,17 @@ abstract class Idle implements AddressCardState {
 
 /// @nodoc
 abstract class $EditLoadingCopyWith<$Res> {
-  factory $EditLoadingCopyWith(EditLoading value, $Res Function(EditLoading) then) = _$EditLoadingCopyWithImpl<$Res>;
+  factory $EditLoadingCopyWith(
+          EditLoading value, $Res Function(EditLoading) then) =
+      _$EditLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$EditLoadingCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
+class _$EditLoadingCopyWithImpl<$Res>
+    extends _$AddressCardStateCopyWithImpl<$Res>
     implements $EditLoadingCopyWith<$Res> {
-  _$EditLoadingCopyWithImpl(EditLoading _value, $Res Function(EditLoading) _then)
+  _$EditLoadingCopyWithImpl(
+      EditLoading _value, $Res Function(EditLoading) _then)
       : super(_value, (v) => _then(v as EditLoading));
 
   @override
@@ -267,7 +271,8 @@ class _$EditLoading implements EditLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is EditLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is EditLoading);
   }
 
   @override
@@ -360,14 +365,17 @@ abstract class EditLoading implements AddressCardState {
 
 /// @nodoc
 abstract class $SetDefaultLoadingCopyWith<$Res> {
-  factory $SetDefaultLoadingCopyWith(SetDefaultLoading value, $Res Function(SetDefaultLoading) then) =
+  factory $SetDefaultLoadingCopyWith(
+          SetDefaultLoading value, $Res Function(SetDefaultLoading) then) =
       _$SetDefaultLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SetDefaultLoadingCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
+class _$SetDefaultLoadingCopyWithImpl<$Res>
+    extends _$AddressCardStateCopyWithImpl<$Res>
     implements $SetDefaultLoadingCopyWith<$Res> {
-  _$SetDefaultLoadingCopyWithImpl(SetDefaultLoading _value, $Res Function(SetDefaultLoading) _then)
+  _$SetDefaultLoadingCopyWithImpl(
+      SetDefaultLoading _value, $Res Function(SetDefaultLoading) _then)
       : super(_value, (v) => _then(v as SetDefaultLoading));
 
   @override
@@ -386,7 +394,8 @@ class _$SetDefaultLoading implements SetDefaultLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is SetDefaultLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SetDefaultLoading);
   }
 
   @override
@@ -479,14 +488,16 @@ abstract class SetDefaultLoading implements AddressCardState {
 
 /// @nodoc
 abstract class $ErrorCopyWith<$Res> {
-  factory $ErrorCopyWith(Error value, $Res Function(Error) then) = _$ErrorCopyWithImpl<$Res>;
-
+  factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
+      _$ErrorCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res> implements $ErrorCopyWith<$Res> {
-  _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then) : super(_value, (v) => _then(v as Error));
+class _$ErrorCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
+    implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
+      : super(_value, (v) => _then(v as Error));
 
   @override
   Error get _value => super._value as Error;
@@ -530,7 +541,8 @@ class _$Error implements Error {
 
   @JsonKey(ignore: true)
   @override
-  $ErrorCopyWith<Error> get copyWith => _$ErrorCopyWithImpl<Error>(this, _$identity);
+  $ErrorCopyWith<Error> get copyWith =>
+      _$ErrorCopyWithImpl<Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -617,18 +629,21 @@ abstract class Error implements AddressCardState {
   const factory Error(String message) = _$Error;
 
   String get message;
-
   @JsonKey(ignore: true)
   $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SuccessfulCopyWith<$Res> {
-  factory $SuccessfulCopyWith(Successful value, $Res Function(Successful) then) = _$SuccessfulCopyWithImpl<$Res>;
+  factory $SuccessfulCopyWith(
+          Successful value, $Res Function(Successful) then) =
+      _$SuccessfulCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SuccessfulCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res> implements $SuccessfulCopyWith<$Res> {
+class _$SuccessfulCopyWithImpl<$Res>
+    extends _$AddressCardStateCopyWithImpl<$Res>
+    implements $SuccessfulCopyWith<$Res> {
   _$SuccessfulCopyWithImpl(Successful _value, $Res Function(Successful) _then)
       : super(_value, (v) => _then(v as Successful));
 
@@ -648,7 +663,8 @@ class _$Successful implements Successful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is Successful);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Successful);
   }
 
   @override

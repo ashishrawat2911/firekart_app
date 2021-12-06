@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/address/state/address_card_state.dart';
+import 'package:fluttercommerce/features/account/state/address_card_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
