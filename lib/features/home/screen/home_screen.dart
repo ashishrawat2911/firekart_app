@@ -55,7 +55,7 @@ class HomeScreen extends BaseScreen<HomeScreenCubit, HomeState> {
                           backgroundColor: AppColors.color6EBA49,
                           child: Text(
                             "${state.noOfItemsInCart}",
-                            style: AppTextStyles.normal9White,
+                            style: AppTextStyles.t10,
                           ),
                         ),
                       ),

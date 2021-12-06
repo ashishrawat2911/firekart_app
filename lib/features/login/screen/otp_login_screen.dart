@@ -79,14 +79,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             children: <Widget>[
               Text(
                 StringsConstants.mobileVerification,
-                style: AppTextStyles.medium20Color20203E,
+                style: AppTextStyles.t27,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 StringsConstants.mobileVerificationDesc,
-                style: AppTextStyles.normal14Black,
+                style: AppTextStyles.t18,
               ),
               const SizedBox(
                 height: 20,
@@ -96,7 +96,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   InkWell(
                     child: Text(
                       StringsConstants.changeNumber,
-                      style: AppTextStyles.normal14PrimaryColor,
+                      style: AppTextStyles.t29,
                     ),
                     onTap: () {
                       NavigationHandler.pop(true);
@@ -151,7 +151,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     },
                     child: Text(
                       StringsConstants.resendOtp,
-                      style: AppTextStyles.normal14PrimaryColor,
+                      style: AppTextStyles.t29,
                     ),
                   );
                 },
@@ -162,7 +162,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               InkWell(
                 child: Text(
                   StringsConstants.goBack,
-                  style: AppTextStyles.normal14PrimaryColor,
+                  style: AppTextStyles.t29,
                 ),
                 onTap: () {
                   NavigationHandler.pop();

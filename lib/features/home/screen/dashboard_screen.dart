@@ -43,7 +43,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         automaticallyImplyLeading: false,
         title: Text(
           StringsConstants.products,
-          style: AppTextStyles.medium20Black,
+          style: AppTextStyles.t3,
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -52,7 +52,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           },
           label: Text(
             StringsConstants.viewAllProducts,
-            style: AppTextStyles.medium14White,
+            style: AppTextStyles.t15,
           )),
       body: RefreshIndicator(
         onRefresh: () => fetchProductData(),
@@ -183,7 +183,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: <Widget>[
               Text(
                 title,
-                style: AppTextStyles.medium20Color20203E,
+                style: AppTextStyles.t27,
               ),
               Container(
                   margin: EdgeInsets.only(right: 16),
