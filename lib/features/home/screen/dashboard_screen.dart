@@ -59,16 +59,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: RefreshIndicator(
         onRefresh: () => fetchProductData(),
         child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               productDataBuilder(dealsDayCubit, StringsConstants.dealOfTheDay),
               productDataBuilder(onSaleCubit, StringsConstants.onSale),
               productDataBuilder(topProductsCubit, StringsConstants.topProducts),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               )
             ],
@@ -123,7 +123,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -132,28 +132,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(5),
+                      margin: const EdgeInsets.all(5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+                        children: const <Widget>[
                           SizedBox(
                             height: 5,
                           ),
-                          Container(
+                          SizedBox(
                             height: 20,
                             width: 50,
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Container(
+                          SizedBox(
                             height: 20,
                             width: 50,
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          Container(
+                          SizedBox(
                             height: 20,
                             width: 50,
                           ),
@@ -205,25 +205,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ))
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Container(
-            child: GridView.count(
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(bottom: 10, right: 10),
-              crossAxisCount: 3,
-              shrinkWrap: true,
-              mainAxisSpacing: 10,
-              childAspectRatio: 0.7,
-              crossAxisSpacing: 10,
-              children: List.generate(
-                products.length > 6 ? 6 : products.length,
-                (index) => ProductCard(products[index]),
-              ),
+          GridView.count(
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.only(bottom: 10, right: 10),
+            crossAxisCount: 3,
+            shrinkWrap: true,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.7,
+            crossAxisSpacing: 10,
+            children: List.generate(
+              products.length > 6 ? 6 : products.length,
+              (index) => ProductCard(products[index]),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
         ],

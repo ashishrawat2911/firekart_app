@@ -10,6 +10,6 @@ class InitialModule extends Module {
   void registerDependencies() {
     DI.container
       ..registerFactory(() => SplashViewModel())
-      ..registerFactory(() => CheckStatusBloc(resolve<FirebaseManager>()));
+      ..registerFactory(() => CheckStatusBloc(DI.container<FirebaseManager>()));
   }
 }
