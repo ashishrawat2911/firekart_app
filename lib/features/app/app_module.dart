@@ -11,7 +11,7 @@ class AppModule extends Module {
     DI.container
       ..registerFactory(() => FirebaseManager())
       ..registerFactory(() => CrashlyticsService(
-            resolve<FirebaseManager>(),
+        DI.container<FirebaseManager>(),
           ))
       ..registerSingleton<GlobalListener>(GlobalListenerImpl());
   }
@@ -19,12 +19,12 @@ class AppModule extends Module {
   @override
   void close() {
     super.close();
-    resolve<GlobalListener>().close();
+    DI.container<GlobalListener>().close();
   }
 
   @override
   void registerGlobalListeners() {
-    resolve<GlobalListener>()
+    DI.container<GlobalListener>()
       ..registerListener(GlobalListenerConstants.cartList)
       ..registerListener(GlobalListenerConstants.accountDetails);
   }
