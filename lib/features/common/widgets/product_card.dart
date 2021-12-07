@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductModel productModel;
+  const ProductCard(this.productModel, {Key? key}) : super(key: key);
 
-  ProductCard(this.productModel);
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,8 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(
@@ -47,7 +48,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     productModel.name!,
-                    style: AppTextStyles.medium14Black,
+                    style: AppTextStyles.t1,
                   ),
                   SizedBox(
                     height: 5,
@@ -56,14 +57,14 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${productModel.currency}${productModel.currentPrice}",
-                        style: AppTextStyles.normal12Black,
+                        style: AppTextStyles.t8,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         "${productModel.currency}${productModel.actualPrice}",
-                        style: AppTextStyles.normal12Color81819AStroke,
+                        style: AppTextStyles.t13,
                       ),
                     ],
                   ),
@@ -72,7 +73,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     "${productModel.quantityPerUnit}${productModel.unit}",
-                    style: AppTextStyles.normal12Color81819A,
+                    style: AppTextStyles.t14,
                   ),
                 ],
               ),

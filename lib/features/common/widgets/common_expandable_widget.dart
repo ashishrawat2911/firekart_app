@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class CommonExpandedWidget extends StatefulWidget {
+  const CommonExpandedWidget(
+      {Key? key, this.backgroundColor,
+      this.title,
+      this.titleStyle,
+      this.voidCallbackScroll,
+      this.children,
+      this.margin,
+      this.color}) : super(key: key);
   final Color? backgroundColor;
   final String? title;
   final TextStyle? titleStyle;
@@ -11,15 +19,6 @@ class CommonExpandedWidget extends StatefulWidget {
   final VoidCallback? voidCallbackScroll;
   final List<Widget>? children;
   final Color? color;
-
-  CommonExpandedWidget(
-      {this.backgroundColor,
-      this.title,
-      this.titleStyle,
-      this.voidCallbackScroll,
-      this.children,
-      this.margin,
-      this.color});
 
   @override
   _CommonExpandedWidgetState createState() => _CommonExpandedWidgetState();
@@ -62,7 +61,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
     );
   }
 
-  topRow() {
+  GestureDetector topRow() {
     return GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {

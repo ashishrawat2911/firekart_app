@@ -1,19 +1,17 @@
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
-import 'package:fluttercommerce/features/login/bloc/otp_login_cubit.dart';
+import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
 import 'package:fluttercommerce/features/module.dart';
 
-import 'bloc/phone_login_cubit.dart';
+import 'phone_login/view_model/phone_login_view_model.dart';
 
 class LoginModule extends Module {
   @override
   void registerDependencies() {
     final firebaseManager = DI.container<FirebaseManager>();
-    final globalListener = DI.container<GlobalListener>();
 
     DI.container
-      ..registerFactory(() => PhoneLoginCubit())
-      ..registerFactory(() => OtpLoginCubit(firebaseManager, globalListener));
+      ..registerFactory(() => PhoneLoginViewModel())
+      ..registerFactory(() => OtpLoginViewModel(firebaseManager));
   }
 }

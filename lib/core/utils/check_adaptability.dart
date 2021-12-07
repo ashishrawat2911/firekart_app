@@ -22,11 +22,17 @@ class CheckAdaptability {
     final double width = MediaQuery.of(context).size.width;
 
     if (width < 800) {
-      if (onSmallScreen != null) onSmallScreen();
+      if (onSmallScreen != null) {
+        onSmallScreen();
+      }
     } else if (width >= 800 && width <= 1200) {
-      if (onMediumScreen != null) onMediumScreen();
+      if (onMediumScreen != null) {
+        onMediumScreen();
+      }
     } else {
-      if (onLargeScreen != null) onLargeScreen();
+      if (onLargeScreen != null) {
+        onLargeScreen();
+      }
     }
   }
 }
