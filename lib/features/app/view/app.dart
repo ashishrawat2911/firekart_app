@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/global_listener/global_listener.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/app_theme.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/snackbar_handeler.dart';
+import 'package:fluttercommerce/core/message_handler/message_handler.dart';
 import 'package:fluttercommerce/features/module_init.dart';
 
 class App extends StatefulWidget {
@@ -16,7 +14,6 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   void initState() {
-
     super.initState();
   }
 
@@ -27,7 +24,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       routerDelegate: NavigationHandler.routerDelegate,
       routeInformationParser: NavigationHandler.routeInformationParser,
-      scaffoldMessengerKey: SnackBarHandler.scaffoldMessengerKey,
+      scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
     );
   }
 

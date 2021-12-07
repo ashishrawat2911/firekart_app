@@ -5,6 +5,8 @@ import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'font_family.dart';
 
 class AppTheme {
+  AppTheme();
+
   static ThemeData appTheme() {
     return ThemeData(
       fontFamily: AppFonts.poppins,
@@ -13,7 +15,6 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.white,
       cardTheme: CardTheme(elevation: 1, margin: EdgeInsets.only()),
       indicatorColor: AppColors.primaryColor,
-      accentColor: AppColors.primaryColor,
       buttonTheme: ButtonThemeData(),
       tabBarTheme: TabBarTheme(
         labelColor: AppColors.black,
@@ -27,8 +28,8 @@ class AppTheme {
         brightness: Brightness.light,
         elevation: 0,
         iconTheme: IconThemeData(color: AppColors.primaryColor),
-        titleTextStyle: AppTextStyles.medium18PrimaryColor,
-      ),
+        titleTextStyle: AppTextStyles.t26,
+      ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
     );
   }
 }

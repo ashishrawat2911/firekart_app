@@ -6,163 +6,162 @@ import 'package:fluttercommerce/features/app/res/app_colors.dart';
 class AppTextStyles {
   AppTextStyles._();
 
-  /*
-  App TextStyle name
-
-  fontWeight+fontSize+fontStyle+ColorName
-
-  */
-  static TextStyle get medium14Black => TextStyle(
+  static TextStyle get t1 => TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w500,
         fontSize: 14,
       );
 
-  static TextStyle get medium28Black => TextStyle(
+  static TextStyle get t2 => TextStyle(
         fontSize: 28,
         color: AppColors.black,
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle get medium20Black => TextStyle(
+  static TextStyle get t3 => TextStyle(
         fontSize: 20,
         color: AppColors.black,
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle get medium15Black => TextStyle(
+  static TextStyle get t4 => TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w500,
         fontSize: 15,
       );
 
-  static TextStyle get medium16Black => TextStyle(
+  static TextStyle get t5 => TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w500,
         fontSize: 16,
       );
 
-  static TextStyle get medium18Black => TextStyle(
+  static TextStyle get t6 => TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
 
-  static TextStyle get normal12Black => TextStyle(
+  static TextStyle get t7 => TextStyle(
+        fontSize: 12,
+        color: AppColors.primaryColor,
+      );
+
+  static TextStyle get t8 => TextStyle(
         color: AppColors.black,
         fontSize: 12,
       );
 
-  static TextStyle get normal12White => TextStyle(
+  static TextStyle get t9 => TextStyle(
         color: AppColors.white,
         fontSize: 12,
       );
 
-  static TextStyle get normal9White => TextStyle(
+  static TextStyle get t10 => TextStyle(
         color: AppColors.white,
         fontSize: 9,
       );
 
-  static TextStyle get medium12Black => TextStyle(
+  static TextStyle get t11 => TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w500,
         fontSize: 12,
       );
 
-  static TextStyle get medium12Color81819A => TextStyle(
+  static TextStyle get t12 => TextStyle(
         color: AppColors.color81819A,
         fontSize: 12,
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle get normal12Color81819AStroke => TextStyle(
+  static TextStyle get t13 => TextStyle(
       color: AppColors.color81819A,
       fontSize: 12,
       decoration: TextDecoration.lineThrough);
 
-  static TextStyle get normal12Color81819A => TextStyle(
+  static TextStyle get t14 => TextStyle(
         color: AppColors.color81819A,
         fontSize: 12,
       );
 
-  static TextStyle get medium14White => TextStyle(
+  static TextStyle get t15 => TextStyle(
       color: AppColors.white, fontSize: 12, fontWeight: FontWeight.w500);
 
-  static TextStyle get medium16White => TextStyle(
+  static TextStyle get t16 => TextStyle(
       color: AppColors.white, fontSize: 16, fontWeight: FontWeight.w500);
 
-  static TextStyle get normal20Black => TextStyle(
+  static TextStyle get t17 => TextStyle(
         color: AppColors.black,
         fontSize: 20,
       );
 
-  static TextStyle get normal14Black => TextStyle(
+  static TextStyle get t18 => TextStyle(
         color: AppColors.black,
         fontSize: 14,
       );
 
-  static TextStyle get normal14Color81819A => TextStyle(
+  static TextStyle get t19 => TextStyle(
         fontSize: 14,
         color: AppColors.color81819A,
       );
 
-  static TextStyle get normal16Black => TextStyle(
+  static TextStyle get t20 => TextStyle(
         color: AppColors.black,
         fontSize: 16,
       );
 
-  static TextStyle get medium20PrimaryColor => TextStyle(
+  static TextStyle get t21 => TextStyle(
         fontSize: 20,
         color: AppColors.primaryColor,
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle get medium16Color5EB15A => TextStyle(
+  static TextStyle get t22 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16,
         color: AppColors.color5EB15A,
       );
 
-  static TextStyle get normal16Color20203E => TextStyle(
+  static TextStyle get t23 => TextStyle(
         fontSize: 16,
         color: AppColors.color20203E,
       );
 
-  static TextStyle get medium18Color20203E => TextStyle(
+  static TextStyle get t24 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 18,
         color: AppColors.color20203E,
       );
 
-  static TextStyle get medium16PrimaryColor => TextStyle(
+  static TextStyle get t25 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16,
         color: AppColors.primaryColor,
       );
 
-  static TextStyle get medium18PrimaryColor => TextStyle(
+  static TextStyle get t26 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 18,
         color: AppColors.primaryColor,
       );
 
-  static TextStyle get medium20Color20203E => TextStyle(
+  static TextStyle get t27 => TextStyle(
         fontSize: 20,
         color: AppColors.color20203E,
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle get normal14Color4C4C6F => TextStyle(
+  static TextStyle get t28 => TextStyle(
         fontSize: 14,
         color: AppColors.color4C4C6F,
       );
 
-  static TextStyle get normal14PrimaryColor => TextStyle(
+  static TextStyle get t29 => TextStyle(
         fontSize: 14,
         color: AppColors.primaryColor,
       );
 
-  static TextStyle get bold16Color4C4C6F => TextStyle(
+  static TextStyle get t30 => TextStyle(
       fontSize: 16, color: AppColors.color4C4C6F, fontWeight: FontWeight.w600);
 
   static TextStyle get normal16Color4C4C6F => TextStyle(
@@ -170,54 +169,29 @@ class AppTextStyles {
         color: AppColors.color4C4C6F,
       );
 
-  static TextStyle get normal12Color4C4C6F => TextStyle(
+  static TextStyle get t31 => TextStyle(
         fontSize: 12,
         color: AppColors.color4C4C6F,
       );
 
-  static TextStyle get medium16Color20203E => TextStyle(
+  static TextStyle get t32 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16,
         color: AppColors.color20203E,
       );
 
-  static TextStyle get medium22Black => TextStyle(
+  static TextStyle get t33 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 22,
         color: AppColors.black,
       );
 
-  static TextStyle get normal16Color8E8E92 => TextStyle(
+  static TextStyle get t34 => TextStyle(
         color: AppColors.color8E8E92,
         fontSize: 16,
       );
 
-  static TextStyle get normal12PrimaryColor => TextStyle(
-        fontSize: 12,
-        color: AppColors.primaryColor,
-      );
-
-  static TextStyle get normal18Color81819A => TextStyle(
-        fontSize: 18,
-        color: AppColors.color81819A,
-      );
-
-  static TextStyle get normal18PrimaryColor => TextStyle(
-        fontSize: 18,
-        color: AppColors.primaryColor,
-      );
-
-  static TextStyle get normal16Color5EB15A => TextStyle(
-        fontSize: 16,
-        color: AppColors.color5EB15A,
-      );
-
-  static TextStyle get medium14PrimaryColor => TextStyle(
-        fontSize: 14,
-        color: AppColors.primaryColor,
-      );
-
-  static TextStyle get medium12PrimaryColor => TextStyle(
+  static TextStyle get t35 => TextStyle(
         fontSize: 12,
         color: AppColors.primaryColor,
       );

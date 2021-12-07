@@ -1,63 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/app/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
-import 'package:fluttercommerce/features/cart/bloc/cart_status_bloc.dart';
-import 'package:fluttercommerce/features/cart/bloc/payment_cubit.dart';
-import 'package:fluttercommerce/features/cart/bloc/place_order_cubit.dart';
-import 'package:fluttercommerce/features/cart/state/payment_state.dart';
-import 'package:fluttercommerce/features/cart/state/place_order_state.dart';
-import 'package:fluttercommerce/features/common/base_screen_mixin.dart';
-import 'package:fluttercommerce/features/common/models/cart_model.dart';
+import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
+import 'package:fluttercommerce/features/cart/bloc/cart_cubit.dart';
+import 'package:fluttercommerce/features/cart/state/cart_state.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/cart_item_card.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/common/widgets/common_card.dart';
-import 'package:fluttercommerce/features/order/bloc/account_details_cubit.dart';
-import 'package:fluttercommerce/features/order/state/account_details_state.dart';
 
-class CartScreen extends StatefulWidget {
-  @override
-  _CartScreenState createState() => _CartScreenState();
-}
-
-class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
-  var paymentCubit = DI.container<PaymentCubit>();
-  var cartStatusCubit = DI.container<CartStatusCubit>();
-  var placeOrderCubit = DI.container<PlaceOrderCubit>();
-  var selectedAddressCubit = DI.container<AccountDetailsCubit>();
-  final AccountDetailsCubit accountDetailsCubit = DI.container<AccountDetailsCubit>();
+class CartScreen extends StateManagerWidget<CartCubit, CartState> {
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
-  void initState() {
-    super.initState();
+  void initState(viewModel) {
+    super.initState(viewModel);
+    viewModel.init();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<CartStatusCubit, List<CartModel>>(
-      bloc: cartStatusCubit,
-      builder: (context, state) {
-        print('Cart screen ${state.noOfItemsInCart}');
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: AppColors.colorF8F8F8,
-          appBar: AppBar(
-            title: const Text(StringsConstants.cart),
-            elevation: 1,
-          ),
-          body: state.noOfItemsInCart > 0 ? cartView(state) : Container(),
-          bottomNavigationBar: Visibility(visible: state.noOfItemsInCart > 0, child: checkOut(state)),
-        );
-      },
+  Widget buildView(BuildContext context, viewModel, state) {
+    return Scaffold(
+      backgroundColor: AppColors.colorF8F8F8,
+      appBar: AppBar(
+        title: const Text(StringsConstants.cart),
+        elevation: 1,
+      ),
+      body: state.cartList.noOfItemsInCart > 0
+          ? cartView(state, viewModel)
+          : Container(),
+      bottomNavigationBar: Visibility(
+          visible: state.cartList.noOfItemsInCart > 0,
+          child: checkOut(state, viewModel)),
     );
   }
 
-  Widget cartView(List<CartModel> state) {
+  Widget cartView(CartState state, CartCubit viewModel) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -67,9 +46,21 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
               Container(
                 //  margin: EdgeInsets.only(bottom: 20),
                 child: Column(
-                  children: List<Widget>.generate(state.length, (index) {
+                  children:
+                      List<Widget>.generate(state.cartList.length, (index) {
                     return CartItemCard(
-                      cartModel: state[index],
+                      cartModel: state.cartList[index],
+                      index: index,
+                      cartDataLoading: state.cartItemDataLoading,
+                      onDecrement: (value) {
+                        viewModel.updateCartValues(index, true);
+                      },
+                      onDeleted: (value) {
+                        viewModel.deleteItem(index);
+                      },
+                      onIncrement: (value) {
+                        viewModel.updateCartValues(index, true);
+                      },
                       margin: EdgeInsets.only(bottom: 20),
                     );
                   }),
@@ -79,7 +70,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
               SizedBox(
                 height: 20,
               ),
-              deliverTo(),
+              deliverTo(state, viewModel),
               SizedBox(
                 height: 50,
               ),
@@ -118,7 +109,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
     ));
   }
 
-  Widget billDetails(List<CartModel> state) {
+  Widget billDetails(CartState state) {
     Widget priceRow(String title, String price, {bool isFinal = false}) {
       return Column(
         children: [
@@ -126,13 +117,18 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "$title",
-                style:
-                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
+                title,
+                style: TextStyle(
+                    color: AppColors.color20203E,
+                    fontSize: 14,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
-                "$price",
-                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
+                price,
+                style: TextStyle(
+                    color: AppColors.black,
+                    fontSize: 16,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -159,7 +155,7 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
         children: [
           Text(
             StringsConstants.billDetails,
-            style: AppTextStyles.medium14Black,
+            style: AppTextStyles.t1,
           ),
           SizedBox(
             height: 20,
@@ -169,65 +165,52 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay, "${state.currency}${state.priceInCart}", isFinal: true),
+          priceRow(StringsConstants.toPay,
+              "${state.cartList.currency}${state.cartList.priceInCart}",
+              isFinal: true),
         ],
       ),
     ));
   }
 
-  Widget deliverTo() {
-    return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-      bloc: selectedAddressCubit,
-      builder: (BuildContext context, AccountDetailsState accountDetailState) {
-        return CommonCard(
-            child: Container(
-          margin: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+  Widget deliverTo(CartState state, CartCubit viewModel) {
+    return CommonCard(
+        child: Container(
+      margin: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    StringsConstants.deliverTo,
-                    style: AppTextStyles.medium14Black,
-                  ),
-                  ActionText(
-                    accountDetailState.selectedAddress == null
-                        ? StringsConstants.addNewCaps
-                        : StringsConstants.changeTextCapital,
-                    onTap: () {
-                      if (accountDetailState.selectedAddress == null) {
-                        NavigationHandler.navigateTo (AddAddressScreenRoute(
-                              newAddress: true,
-                              accountDetails: accountDetailState.accountDetails!,
-                            ));
-                      } else {
-                        NavigationHandler.navigateTo(
-                          MyAddressScreenRoute(
-                            selectedAddress: true,
-                          ),
-                        );
-                      }
-                    },
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
               Text(
-                accountDetailState.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
-                style: AppTextStyles.medium12Color81819A,
+                StringsConstants.deliverTo,
+                style: AppTextStyles.t1,
               ),
+              ActionText(
+                state.selectedAddress == null
+                    ? StringsConstants.addNewCaps
+                    : StringsConstants.changeTextCapital,
+                onTap: () {
+                  viewModel.selectOrChangeAddress();
+                },
+              )
             ],
           ),
-        ));
-      },
-    );
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            state.selectedAddress?.wholeAddress() ??
+                StringsConstants.noAddressFound,
+            style: AppTextStyles.t12,
+          ),
+        ],
+      ),
+    ));
   }
 
-  Widget checkOut(List<CartModel> state) {
+  Widget checkOut(CartState state, CartCubit viewModel) {
     return Container(
       height: 94,
       color: AppColors.white,
@@ -242,8 +225,8 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "${state.currency} ${state.priceInCart}",
-                      style: AppTextStyles.medium15Black,
+                      "${state.cartList.currency} ${state.cartList.priceInCart}",
+                      style: AppTextStyles.t4,
                     ),
                     ActionText(StringsConstants.viewDetailedBillCaps)
                   ],
@@ -251,63 +234,13 @@ class _CartScreenState extends State<CartScreen> with BaseScreenMixin {
               ),
             ),
           ),
-          BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-            bloc: accountDetailsCubit,
-            builder: (context, accountDetailsState) {
-              return BlocConsumer<PaymentCubit, PaymentState>(
-                bloc: paymentCubit,
-                listener: (BuildContext context, PaymentState paymentState) {
-                  if (paymentState is PaymentSuccessful) {
-                    placeOrderCubit.placeOrder(
-                      state,
-                      paymentState.response,
-                      accountDetailsState.selectedAddress!,
-                    );
-                  }
-                },
-                builder: (BuildContext context, PaymentState paymentState) {
-                  return BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-                    bloc: accountDetailsCubit,
-                    builder: (BuildContext context, AccountDetailsState accountDetailsState) {
-                      return BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
-                        bloc: placeOrderCubit,
-                        listener: (BuildContext context, PlaceOrderState state) {
-                          state.when(
-                              orderPlacedInProgress: () {},
-                              idle: () {},
-                              orderNotPlaced: (String message) {},
-                              orderSuccessfullyPlaced: () {
-                                if (Navigator.canPop(context)) {
-                                  NavigationHandler.navigateTo(
-                                    const MyOrdersScreenRoute(),
-                                    navigationType: NavigationType.PushReplacement,
-                                  );
-                                }
-                              });
-                        },
-                        builder: (BuildContext context, PlaceOrderState placeOrderState) {
-                          return CommonButton(
-                            title: StringsConstants.makePayment,
-                            width: 190,
-                            height: 50,
-                            replaceWithIndicator:
-                                placeOrderState is OrderPlacedInProgress || paymentState is PaymentButtonLoading,
-                            margin: const EdgeInsets.only(right: 20),
-                            onTap: () {
-                              if (accountDetailsState.selectedAddress != null) {
-                                paymentCubit.openCheckout(state.priceInCart);
-                              } else {
-                                showSnackBar(title: StringsConstants.noAddressSelected);
-                              }
-                            },
-                          );
-                        },
-                      );
-                    },
-                  );
-                },
-              );
-            },
+          CommonButton(
+            title: StringsConstants.makePayment,
+            width: 190,
+            height: 50,
+            replaceWithIndicator: state.orderInProgress,
+            margin: const EdgeInsets.only(right: 20),
+            onTap: viewModel.placeOrder,
           )
         ],
       ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppScrollBehavior extends ScrollBehavior {
   @override
   ScrollPhysics getScrollPhysics(BuildContext context) =>
-      ClampingScrollPhysics();
+      const ClampingScrollPhysics();
 
   @override
   Widget buildViewportChrome(

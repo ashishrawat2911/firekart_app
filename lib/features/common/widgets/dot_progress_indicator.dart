@@ -3,12 +3,6 @@ import 'dart:math' as math show sin, pi;
 import 'package:flutter/material.dart';
 
 class DotProgressIndicator extends StatefulWidget {
-  final Color? color;
-  final double? size;
-  final IndexedWidgetBuilder? itemBuilder;
-  final Duration duration;
-  final AnimationController? controller;
-
   const DotProgressIndicator({
     Key? key,
     this.color,
@@ -22,6 +16,11 @@ class DotProgressIndicator extends StatefulWidget {
             'You should specify either a itemBuilder or a color'),
         assert(size != null),
         super(key: key);
+  final Color? color;
+  final double? size;
+  final IndexedWidgetBuilder? itemBuilder;
+  final Duration duration;
+  final AnimationController? controller;
 
   @override
   _DotProgressIndicatorState createState() => _DotProgressIndicatorState();

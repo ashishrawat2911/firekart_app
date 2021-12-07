@@ -1,5 +1,5 @@
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/state_manager/state_manager.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 

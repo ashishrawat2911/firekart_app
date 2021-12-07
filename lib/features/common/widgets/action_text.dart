@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class ActionText extends StatelessWidget {
+  const ActionText(this.title, {Key? key, this.onTap}) : super(key: key);
   final String title;
   final VoidCallback? onTap;
-
-  ActionText(this.title, {this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class ActionText extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Text(
-        "$title",
+        title,
         style: actionTextStyle,
       ),
     );
