@@ -19,7 +19,8 @@ class SplashScreen extends StateManagerWidget<SplashViewModel, SplashState> {
   }
 
   @override
-  Widget buildView(BuildContext context, SplashViewModel bloc, SplashState state) {
+  Widget buildView(
+      BuildContext context, SplashViewModel bloc, SplashState state) {
     return Scaffold(
       //  backgroundColor: AppColors.backGroundColor,
       body: Center(

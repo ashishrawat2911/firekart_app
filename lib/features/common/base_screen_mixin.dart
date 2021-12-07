@@ -8,7 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 typedef _onConnectionChanged = void Function(bool value);
 mixin BaseScreenMixin {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
 
@@ -30,7 +30,7 @@ mixin BaseScreenMixin {
 
   showSnackBar({@required String? title}) {
     scaffoldKey.currentState!.hideCurrentSnackBar();
-    scaffoldKey.currentState!.showSnackBar(new SnackBar(
+    scaffoldKey.currentState!.showSnackBar(SnackBar(
       content: Text(title!),
       backgroundColor: AppColors.primaryColor,
       duration: Duration(milliseconds: 1000),
@@ -38,7 +38,10 @@ mixin BaseScreenMixin {
   }
 
   showToast(String msg, BuildContext context,
-      {int duration = 1, int gravity = 0, double backgroundRadius = 20, Border? border}) {
+      {int duration = 1,
+      int gravity = 0,
+      double backgroundRadius = 20,
+      Border? border}) {
     Fluttertoast.showToast(
       msg: msg,
       toastLength: Toast.LENGTH_SHORT,

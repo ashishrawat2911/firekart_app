@@ -21,7 +21,8 @@ class HomeScreen extends StateManagerWidget<HomeScreenCubit, HomeState> {
   }
 
   @override
-  Widget buildView(BuildContext context, HomeScreenCubit viewModel, HomeState state) {
+  Widget buildView(
+      BuildContext context, HomeScreenCubit viewModel, HomeState state) {
     return Scaffold(
       body: [
         const DashboardScreen(),
@@ -37,8 +38,10 @@ class HomeScreen extends StateManagerWidget<HomeScreenCubit, HomeState> {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         items: [
-          const BottomNavigationBarItem(icon: Icon(Icons.home), title: Text(StringsConstants.home)),
-          const BottomNavigationBarItem(icon: Icon(Icons.search), title: Text(StringsConstants.search)),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.home), title: Text(StringsConstants.home)),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.search), title: Text(StringsConstants.search)),
           BottomNavigationBarItem(
               icon: Stack(
                 children: <Widget>[
@@ -64,7 +67,8 @@ class HomeScreen extends StateManagerWidget<HomeScreenCubit, HomeState> {
                 ],
               ),
               title: const Text(StringsConstants.cart)),
-          const BottomNavigationBarItem(icon: Icon(Icons.person), title: Text(StringsConstants.account)),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.person), title: Text(StringsConstants.account)),
         ],
         onTap: (index) {
           viewModel.bottomBarIndex = index;

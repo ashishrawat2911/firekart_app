@@ -46,7 +46,14 @@ class OrderItem {
   num? price;
   num? noOfItems;
 
-  OrderItem({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
+  OrderItem(
+      {this.productId,
+      this.image,
+      this.name,
+      this.unit,
+      this.currency,
+      this.price,
+      this.noOfItems});
 
   factory OrderItem.fromJson(json) {
     return OrderItem(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CommonAppLoader extends StatelessWidget {
+  const CommonAppLoader({Key? key, this.size, this.strokeWidth = 4.0}) : super(key: key);
   final double? size;
-  final double strokeWidth;
 
-  CommonAppLoader({this.size, this.strokeWidth = 4.0});
+  final double strokeWidth;
 
   @override
   Widget build(BuildContext context) {

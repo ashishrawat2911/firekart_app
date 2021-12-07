@@ -7,7 +7,8 @@ class CheckStatusBloc extends Cubit<int> {
   FirebaseManager firebaseRepo;
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {
-    Future.delayed(Duration(seconds: checkForAccountStatusOnly ? 2 : 0), () async {
+    Future.delayed(Duration(seconds: checkForAccountStatusOnly ? 2 : 0),
+        () async {
       final status = await firebaseRepo.checkUserLoggedInStatus();
       if (checkForAccountStatusOnly || status) {
         final isUserDataPresent = await firebaseRepo.checkUserDetail();

@@ -74,17 +74,21 @@ class AppTextStyles {
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle get t13 =>
-      TextStyle(color: AppColors.color81819A, fontSize: 12, decoration: TextDecoration.lineThrough);
+  static TextStyle get t13 => TextStyle(
+      color: AppColors.color81819A,
+      fontSize: 12,
+      decoration: TextDecoration.lineThrough);
 
   static TextStyle get t14 => TextStyle(
         color: AppColors.color81819A,
         fontSize: 12,
       );
 
-  static TextStyle get t15 => TextStyle(color: AppColors.white, fontSize: 12, fontWeight: FontWeight.w500);
+  static TextStyle get t15 => TextStyle(
+      color: AppColors.white, fontSize: 12, fontWeight: FontWeight.w500);
 
-  static TextStyle get t16 => TextStyle(color: AppColors.white, fontSize: 16, fontWeight: FontWeight.w500);
+  static TextStyle get t16 => TextStyle(
+      color: AppColors.white, fontSize: 16, fontWeight: FontWeight.w500);
 
   static TextStyle get t17 => TextStyle(
         color: AppColors.black,
@@ -157,7 +161,8 @@ class AppTextStyles {
         color: AppColors.primaryColor,
       );
 
-  static TextStyle get t30 => TextStyle(fontSize: 16, color: AppColors.color4C4C6F, fontWeight: FontWeight.w600);
+  static TextStyle get t30 => TextStyle(
+      fontSize: 16, color: AppColors.color4C4C6F, fontWeight: FontWeight.w600);
 
   static TextStyle get normal16Color4C4C6F => TextStyle(
         fontSize: 16,

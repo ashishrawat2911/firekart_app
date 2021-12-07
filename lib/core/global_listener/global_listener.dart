@@ -33,9 +33,6 @@ class GlobalListenerImpl extends GlobalListener {
       listeners.containsKey(listenerKey),
       'Listener is not registered! Please register it',
     );
-    listeners[listenerKey]!.stream.last.then((value) {
-      return listen;
-    });
     if (lastData.containsKey(listenerKey)) {
       listen(lastData[listenerKey]);
     }

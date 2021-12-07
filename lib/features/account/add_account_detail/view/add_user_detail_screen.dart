@@ -12,7 +12,8 @@ import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 
-class AddUserDetailScreen extends StateManagerWidget<AddAccountDetailsViewModel, AddAccountDetailsState> {
+class AddUserDetailScreen extends StateManagerWidget<AddAccountDetailsViewModel,
+    AddAccountDetailsState> {
   AddUserDetailScreen(this.newAddress, {Key? key}) : super(key: key);
 
   final bool newAddress;
@@ -44,11 +45,13 @@ class AddUserDetailScreen extends StateManagerWidget<AddAccountDetailsViewModel,
   }
 
   @override
-  Widget buildView(BuildContext context, AddAccountDetailsViewModel viewModel, AddAccountDetailsState state) {
+  Widget buildView(BuildContext context, AddAccountDetailsViewModel viewModel,
+      AddAccountDetailsState state) {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: Text("${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+        title: Text(
+            "${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: Builder(builder: (BuildContext context) {
         if (state is Loading) {
@@ -60,7 +63,8 @@ class AddUserDetailScreen extends StateManagerWidget<AddAccountDetailsViewModel,
     );
   }
 
-  Widget saveDataView(AddAccountDetailsState state, BuildContext context, AddAccountDetailsViewModel viewModel) {
+  Widget saveDataView(AddAccountDetailsState state, BuildContext context,
+      AddAccountDetailsViewModel viewModel) {
     return SingleChildScrollView(
       child: Form(
         key: _formKey,

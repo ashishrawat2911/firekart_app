@@ -17,7 +17,8 @@ class DashboardCubit extends Cubit<ResultState<List<ProductModel>>> {
 
     try {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        emit(const ResultState.error(error: StringsConstants.connectionNotAvailable));
+        emit(const ResultState.error(
+            error: StringsConstants.connectionNotAvailable));
         return;
       }
       String condition;
@@ -32,7 +33,8 @@ class DashboardCubit extends Cubit<ResultState<List<ProductModel>>> {
           condition = "top_products";
           break;
       }
-      List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
+      List<ProductModel> productList =
+          await _firebaseManager.getProductsData(condition);
       emit(ResultState.data(data: productList));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));

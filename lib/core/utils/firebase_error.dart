@@ -1,5 +1,5 @@
 class FirebaseErrors {
-  static String checkAuthError(String error) {
+   String checkAuthError(String error) {
     if (error.contains("ERROR_USER_NOT_FOUND")) {
       return "User not found\nPlease try again!";
     } else if (error.contains("ERROR_USER_DISABLED")) {

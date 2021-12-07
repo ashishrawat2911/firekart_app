@@ -8,8 +8,7 @@ class OrderModule extends Module {
   @override
   void registerDependencies() {
     final firebaseRepo = DI.container<FirebaseManager>();
-    final globalListener = DI.container<GlobalListener>();
 
-    DI.container..registerFactory(() => MyOrdersCubit(firebaseRepo));
+    DI.container.registerFactory(() => MyOrdersCubit(firebaseRepo));
   }
 }

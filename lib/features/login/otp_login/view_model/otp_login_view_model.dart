@@ -1,19 +1,17 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/core/global_listener/global_listener.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/message_handler/message_handler.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/state_manager/state_manager.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
 
 class OtpLoginViewModel extends StateManager<OtpLoginState> {
-  OtpLoginViewModel(this._firebaseManager, this._globalListener) : super(const OtpLoginState());
+  OtpLoginViewModel(this._firebaseManager) : super(const OtpLoginState());
   final FirebaseManager _firebaseManager;
-  final GlobalListener _globalListener;
 
-  String? _verificationId;
+  late String _verificationId;
 
   void validateButton(String otp) {
     if (otp.length == 6) {
@@ -54,7 +52,7 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
       resendOtpLoading: isResend,
     );
 
-    final _credential = PhoneAuthProvider.credential(verificationId: _verificationId!, smsCode: smsCode);
+    final _credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: smsCode);
     _login(_credential);
   }
 

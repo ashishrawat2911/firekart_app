@@ -23,7 +23,8 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     super.initState();
-    DI.container<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
+    DI.container<GlobalListener>().listen<AccountDetails>(
+        GlobalListenerConstants.accountDetails, (event) {
       setState(() {
         accountDetails = event;
       });
@@ -66,7 +67,8 @@ class _AccountScreenState extends State<AccountScreen> {
                       ActionText(
                         StringsConstants.editCaps,
                         onTap: () {
-                          NavigationHandler.navigateTo(AddUserDetailScreenRoute(newAddress: false));
+                          NavigationHandler.navigateTo(
+                              AddUserDetailScreenRoute(newAddress: false));
                         },
                       ),
                     ],
@@ -94,7 +96,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   onTap: () {
                     DI.container<FirebaseManager>().logoutUser().then((value) {
                       NavigationHandler.navigateTo(LoginScreenRoute(),
-                          navigationType: NavigationType.PushAndPopUntil, predicate: (route) => false);
+                          navigationType: NavigationType.PushAndPopUntil,
+                          predicate: (route) => false);
                     });
                   },
                 ),

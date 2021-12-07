@@ -117,14 +117,14 @@ class CartScreen extends StateManagerWidget<CartCubit, CartState> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "$title",
+                title,
                 style: TextStyle(
                     color: AppColors.color20203E,
                     fontSize: 14,
                     fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
-                "$price",
+                price,
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 16,

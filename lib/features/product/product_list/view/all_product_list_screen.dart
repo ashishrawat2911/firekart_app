@@ -12,9 +12,9 @@ import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart'
 import 'package:fluttercommerce/features/product/product_list/view_model/all_product_cubit.dart';
 
 class AllProductListScreen extends StatefulWidget {
-  final String? productCondition;
+  const AllProductListScreen({Key? key, this.productCondition}) : super(key: key);
 
-  AllProductListScreen({this.productCondition});
+  final String? productCondition;
 
   @override
   _AllProductListScreenState createState() => _AllProductListScreenState();
@@ -34,7 +34,8 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent &&
+        !controller.position.outOfRange) {
       print("at the end of list");
       allProductsCubit.fetchNextList(widget.productCondition);
     }
@@ -59,7 +60,8 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
         bloc: allProductsCubit,
-        listener: (BuildContext context, ResultState<List<ProductModel>> state) {},
+        listener:
+            (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {
           return ResultStateBuilder(
             state: state,
