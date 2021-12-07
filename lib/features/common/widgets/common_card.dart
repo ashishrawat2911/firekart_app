@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class CommonCard extends StatelessWidget {
+  const CommonCard(
+      {Key? key, required this.child,
+      this.margin,
+      this.borderRadius,
+      this.elevation,
+      this.padding,
+      this.onTap,
+      this.color})
+      : assert(child != null), super(key: key);
   final Widget child;
   final EdgeInsets? margin;
   final EdgeInsets? padding;
@@ -9,10 +18,6 @@ class CommonCard extends StatelessWidget {
   final double? elevation;
   final VoidCallback? onTap;
   final Color? color;
-
-  CommonCard(
-      {required this.child, this.margin, this.borderRadius, this.elevation, this.padding, this.onTap, this.color})
-      : assert(child != null);
 
   @override
   Widget build(BuildContext context) {

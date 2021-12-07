@@ -6,9 +6,9 @@ import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductModel productModel;
+  const ProductCard(this.productModel, {Key? key}) : super(key: key);
 
-  ProductCard(this.productModel);
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,8 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(

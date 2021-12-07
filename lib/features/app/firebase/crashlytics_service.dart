@@ -28,7 +28,7 @@ class CrashlyticsService {
     stringBuffer.write("Package Name : $packageName");
     stringBuffer.write("Date of Error : ${DateTime.now()}");
     if (isLoggedIn) {
-      final currentUser = await _firebaseManager.getCurrentUser();
+      final currentUser = _firebaseManager.getCurrentUser();
       stringBuffer.write("Name : ${currentUser!.displayName!}");
       stringBuffer.write("Phone Number : ${currentUser.phoneNumber}");
       stringBuffer.write("UID : ${currentUser.uid}");

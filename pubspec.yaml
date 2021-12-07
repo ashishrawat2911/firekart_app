@@ -18,7 +18,6 @@ dependencies:
   json_annotation: ^4.3.0
   shimmer: ^2.0.0
   package_info: ^2.0.2
-  fluttertoast: ^8.0.8
   smooth_page_indicator: ^1.0.0+2
   freezed: ^1.0.0
   flutter_bloc: ^8.0.0

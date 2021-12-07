@@ -14,10 +14,14 @@ class HomeModule extends Module {
   @override
   void registerDependencies() {
     DI.container
-      ..registerFactory(() => HomeScreenCubit(resolve<FirebaseManager>(), resolve<GlobalListener>()))
-      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()), instanceName: dealOfTheDay)
-      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()), instanceName: topProducts)
-      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()), instanceName: onSale)
+      ..registerFactory(() => HomeScreenCubit(
+          resolve<FirebaseManager>(), resolve<GlobalListener>()))
+      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()),
+          instanceName: dealOfTheDay)
+      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()),
+          instanceName: topProducts)
+      ..registerFactory(() => DashboardCubit(resolve<FirebaseManager>()),
+          instanceName: onSale)
       ..registerFactory(() => ProductSearchCubit(resolve<FirebaseManager>()));
   }
 }

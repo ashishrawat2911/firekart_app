@@ -15,5 +15,6 @@ abstract class ResultState<T> with _$ResultState<T> {
 
   const factory ResultState.error({required String error}) = Error<T>;
 
-  const factory ResultState.unNotifiedError({required T data, required String error}) = UnNotifiedError<T>;
+  const factory ResultState.unNotifiedError(
+      {required T data, required String error}) = UnNotifiedError<T>;
 }

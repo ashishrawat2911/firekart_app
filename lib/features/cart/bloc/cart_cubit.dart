@@ -28,7 +28,9 @@ class CartCubit extends StateManager<CartState> {
   num get priceInCart {
     num price = 0;
     List.generate(state.cartList.length, (index) {
-      price = price + (state.cartList[index].currentPrice * state.cartList[index].numOfItems);
+      price = price +
+          (state.cartList[index].currentPrice *
+              state.cartList[index].numOfItems);
     });
     return price;
   }
@@ -48,7 +50,8 @@ class CartCubit extends StateManager<CartState> {
     state = state.copyWith(orderInProgress: true);
     if (await ConnectionStatus.getInstance().checkConnection()) {
       try {
-        await firebaseRepo.placeOrder(_orderFromCartList(state.cartList, state.selectedAddress!));
+        await firebaseRepo.placeOrder(
+            _orderFromCartList(state.cartList, state.selectedAddress!));
         await firebaseRepo.emptyCart();
         if (NavigationHandler.canNavigateBack()) {
           NavigationHandler.navigateTo(
@@ -60,12 +63,14 @@ class CartCubit extends StateManager<CartState> {
         MessageHandler.showSnackBar(title: e.toString());
       }
     } else {
-      MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+      MessageHandler.showSnackBar(
+          title: StringsConstants.connectionNotAvailable);
     }
     state = state.copyWith(orderInProgress: false);
   }
 
-  OrderModel _orderFromCartList(List<CartModel> cartModel, Address orderAddress) {
+  OrderModel _orderFromCartList(
+      List<CartModel> cartModel, Address orderAddress) {
     final cartItems = cartModel;
 
     List<OrderItem> getOrderItems() {
@@ -84,7 +89,8 @@ class CartCubit extends StateManager<CartState> {
     }
 
     final OrderModel orderModel = OrderModel(
-      orderId: "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
+      orderId:
+          "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
       orderItems: getOrderItems(),
       paymentId: 'response.paymentId!',
       signature: 'response.signature!',
@@ -140,13 +146,16 @@ class CartCubit extends StateManager<CartState> {
   Future<void> updateCartValues(int index, bool shouldIncrease) async {
     final cart = state.cartList[index];
 
-    final int newCartValue = shouldIncrease ? cart.numOfItems + 1 : cart.numOfItems - 1;
+    final int newCartValue =
+        shouldIncrease ? cart.numOfItems + 1 : cart.numOfItems - 1;
 
-    state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, isLoading: true));
+    state = state.copyWith(
+        cartItemDataLoading: CartDataLoading(index: index, isLoading: true));
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+        MessageHandler.showSnackBar(
+            title: StringsConstants.connectionNotAvailable);
         return;
       }
 
@@ -162,16 +171,20 @@ class CartCubit extends StateManager<CartState> {
     } else {
       deleteItem(index, deleteExternally: false);
     }
-    state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, isLoading: false));
+    state = state.copyWith(
+        cartItemDataLoading: CartDataLoading(index: index, isLoading: false));
   }
 
   Future<void> deleteItem(int index, {bool deleteExternally = true}) async {
     final CartModel cartModel = state.cartList[index];
     if (deleteExternally) {
-      state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, deleteLoading: true));
+      state = state.copyWith(
+          cartItemDataLoading:
+              CartDataLoading(index: index, deleteLoading: true));
     }
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
-      MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+      MessageHandler.showSnackBar(
+          title: StringsConstants.connectionNotAvailable);
       return;
     }
     firebaseRepo.delProductFromCart(cartModel.productId).then((value) {
@@ -180,14 +193,18 @@ class CartCubit extends StateManager<CartState> {
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());
     });
-    state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, deleteLoading: false));
+    state = state.copyWith(
+        cartItemDataLoading:
+            CartDataLoading(index: index, deleteLoading: false));
   }
 
   void init() {
-    globalListener.listen<List<CartModel>>(GlobalListenerConstants.cartList, (value) {
+    globalListener.listen<List<CartModel>>(GlobalListenerConstants.cartList,
+        (value) {
       state = state.copyWith(cartList: value);
     });
-    globalListener.listen<AccountDetails>(GlobalListenerConstants.accountDetails, (value) {
+    globalListener.listen<AccountDetails>(
+        GlobalListenerConstants.accountDetails, (value) {
       addAccountDetails(value);
     });
   }

@@ -56,7 +56,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),

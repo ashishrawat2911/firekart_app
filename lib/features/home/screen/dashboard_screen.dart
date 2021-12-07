@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
@@ -32,7 +32,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     super.initState();
   }
 
-  fetchProductData() async {
+  Future<void> fetchProductData() async {
     dealsDayCubit.fetchProductData(ProductData.DealOfTheDay);
     topProductsCubit.fetchProductData(ProductData.OnSale);
     onSaleCubit.fetchProductData(ProductData.TopProducts);
@@ -98,7 +98,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  productLoader() {
+  Shimmer productLoader() {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300]!,
       highlightColor: Colors.grey[100]!,

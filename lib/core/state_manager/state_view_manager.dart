@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/core/state_manager/state_manager.dart';
+import 'package:fluttercommerce/di/di.dart';
 
-abstract class StateManagerWidget<C extends StateManager<S>, S> extends StatefulWidget {
+abstract class StateManagerWidget<C extends StateManager<S>, S>
+    extends StatefulWidget {
   const StateManagerWidget({Key? key}) : super(key: key);
 
   @mustCallSuper

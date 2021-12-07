@@ -45,6 +45,7 @@ class AppRouter extends _i14.RootStackRouter {
       return _i14.CupertinoPageX<dynamic>(
           routeData: routeData,
           child: _i2.CheckStatusScreen(
+              key: args.key,
               checkForAccountStatusOnly: args.checkForAccountStatusOnly));
     },
     HomeScreenRoute.name: (routeData) {
@@ -85,7 +86,7 @@ class AppRouter extends _i14.RootStackRouter {
       return _i14.CupertinoPageX<dynamic>(
           routeData: routeData,
           child: _i9.AllProductListScreen(
-              productCondition: args.productCondition));
+              key: args.key, productCondition: args.productCondition));
     },
     SearchItemScreenRoute.name: (routeData) {
       return _i14.CupertinoPageX<dynamic>(
@@ -108,7 +109,7 @@ class AppRouter extends _i14.RootStackRouter {
     },
     MyOrdersScreenRoute.name: (routeData) {
       return _i14.CupertinoPageX<dynamic>(
-          routeData: routeData, child: _i13.MyOrdersScreen());
+          routeData: routeData, child: const _i13.MyOrdersScreen());
     }
   };
 
@@ -146,23 +147,28 @@ class SplashScreenRoute extends _i14.PageRouteInfo<void> {
 /// generated route for [_i2.CheckStatusScreen]
 class CheckStatusScreenRoute
     extends _i14.PageRouteInfo<CheckStatusScreenRouteArgs> {
-  CheckStatusScreenRoute({bool checkForAccountStatusOnly = false})
+  CheckStatusScreenRoute(
+      {_i16.Key? key, bool checkForAccountStatusOnly = false})
       : super(name,
             path: '/check-status-screen',
             args: CheckStatusScreenRouteArgs(
+                key: key,
                 checkForAccountStatusOnly: checkForAccountStatusOnly));
 
   static const String name = 'CheckStatusScreenRoute';
 }
 
 class CheckStatusScreenRouteArgs {
-  const CheckStatusScreenRouteArgs({this.checkForAccountStatusOnly = false});
+  const CheckStatusScreenRouteArgs(
+      {this.key, this.checkForAccountStatusOnly = false});
+
+  final _i16.Key? key;
 
   final bool checkForAccountStatusOnly;
 
   @override
   String toString() {
-    return 'CheckStatusScreenRouteArgs{checkForAccountStatusOnly: $checkForAccountStatusOnly}';
+    return 'CheckStatusScreenRouteArgs{key: $key, checkForAccountStatusOnly: $checkForAccountStatusOnly}';
   }
 }
 
@@ -264,23 +270,25 @@ class CartScreenRoute extends _i14.PageRouteInfo<void> {
 /// generated route for [_i9.AllProductListScreen]
 class AllProductListScreenRoute
     extends _i14.PageRouteInfo<AllProductListScreenRouteArgs> {
-  AllProductListScreenRoute({String? productCondition})
+  AllProductListScreenRoute({_i16.Key? key, String? productCondition})
       : super(name,
             path: '/all-product-list-screen',
             args: AllProductListScreenRouteArgs(
-                productCondition: productCondition));
+                key: key, productCondition: productCondition));
 
   static const String name = 'AllProductListScreenRoute';
 }
 
 class AllProductListScreenRouteArgs {
-  const AllProductListScreenRouteArgs({this.productCondition});
+  const AllProductListScreenRouteArgs({this.key, this.productCondition});
+
+  final _i16.Key? key;
 
   final String? productCondition;
 
   @override
   String toString() {
-    return 'AllProductListScreenRouteArgs{productCondition: $productCondition}';
+    return 'AllProductListScreenRouteArgs{key: $key, productCondition: $productCondition}';
   }
 }
 

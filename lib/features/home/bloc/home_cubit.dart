@@ -8,7 +8,8 @@ import 'package:fluttercommerce/features/common/models/cart_model.dart';
 import 'package:fluttercommerce/features/home/state/home_state.dart';
 
 class HomeScreenCubit extends StateManager<HomeState> {
-  HomeScreenCubit(this.firebaseRepo, this.globalListener) : super(const HomeState());
+  HomeScreenCubit(this.firebaseRepo, this.globalListener)
+      : super(const HomeState());
 
   final FirebaseManager firebaseRepo;
   final GlobalListener globalListener;
@@ -40,7 +41,8 @@ class HomeScreenCubit extends StateManager<HomeState> {
   }
 
   void _addDetails(DocumentSnapshot documentSnapshot) {
-    final AccountDetails accountDetails = AccountDetails.fromDocument(documentSnapshot.data());
+    final AccountDetails accountDetails =
+        AccountDetails.fromDocument(documentSnapshot.data());
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
 
     globalListener.refreshListener(

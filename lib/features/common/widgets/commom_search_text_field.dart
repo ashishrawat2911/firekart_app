@@ -4,14 +4,14 @@ import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 class CommonSearchTextField extends StatefulWidget {
+  const CommonSearchTextField(
+      {Key? key, @required this.hint, this.onSubmitted, this.onChanged, this.textEditingController, this.focusNode})
+      : super(key: key);
   final String? hint;
   final ValueChanged<String>? onSubmitted;
   final ValueChanged<String>? onChanged;
   final TextEditingController? textEditingController;
   final FocusNode? focusNode;
-
-  CommonSearchTextField(
-      {@required this.hint, this.onSubmitted, this.onChanged, this.textEditingController, this.focusNode});
 
   @override
   _CommonSearchTextFieldState createState() => _CommonSearchTextFieldState();
@@ -60,18 +60,18 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
 }
 
 class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
+  const CommonSearchBar({Key? key, required this.onTextChanged, this.hintText, this.onBackPressed, this.onClosePressed})
+      : super(key: key);
   final ValueChanged<String> onTextChanged;
   final VoidCallback? onBackPressed;
   final VoidCallback? onClosePressed;
   final String? hintText;
 
-  CommonSearchBar({required this.onTextChanged, this.hintText, this.onBackPressed, this.onClosePressed});
-
   @override
   _CommonSearchBarState createState() => _CommonSearchBarState();
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 class _CommonSearchBarState extends State<CommonSearchBar> {
@@ -84,7 +84,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
     super.initState();
     textEditingController.addListener(() {
       setState(() {
-        if (textEditingController.text.length > 0) {
+        if (textEditingController.text.isNotEmpty) {
           showCross = true;
         } else {
           showCross = false;

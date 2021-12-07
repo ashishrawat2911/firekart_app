@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_address/state/add_address_state.dart';
 import 'package:fluttercommerce/features/account/add_address/view_model/add_address_view_model.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 
-class AddAddressScreen
-    extends StateManagerWidget<AddAddressViewModel, AddAddressState> {
-  AddAddressScreen(this.newAddress, this.accountDetails,
-      {Key? key, this.editAddress})
-      : super(key: key);
+class AddAddressScreen extends StateManagerWidget<AddAddressViewModel, AddAddressState> {
+  AddAddressScreen(this.newAddress, this.accountDetails, {Key? key, this.editAddress}) : super(key: key);
   final bool newAddress;
   final AccountDetails accountDetails;
   final Address? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
   final TextEditingController emailEditingController = TextEditingController();
-  final TextEditingController pincodeEditingController =
-      TextEditingController();
-  final TextEditingController addressEditingController =
-      TextEditingController();
+  final TextEditingController pincodeEditingController = TextEditingController();
+  final TextEditingController addressEditingController = TextEditingController();
   final TextEditingController cityEditingController = TextEditingController();
   final TextEditingController stateEditingController = TextEditingController();
   final TextEditingController phoneEditingController = TextEditingController();
@@ -38,13 +33,14 @@ class AddAddressScreen
   final FocusNode phoneFocusNode = FocusNode();
   final Validator validator = Validator();
 
-  bool setAsDefault = false;
+  late bool setAsDefault;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState(viewModel) {
     super.initState(viewModel);
+    setAsDefault = false;
     if (editAddress != null) {
       final Address address = editAddress!;
       nameEditingController.text = address.name;
@@ -186,8 +182,7 @@ class AddAddressScreen
                   Row(
                     children: [
                       StatefulBuilder(
-                        builder: (BuildContext context,
-                            void Function(void Function()) setState) {
+                        builder: (BuildContext context, void Function(void Function()) setState) {
                           return Checkbox(
                             value: setAsDefault,
                             onChanged: (bool? value) {
