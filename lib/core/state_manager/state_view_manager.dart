@@ -3,35 +3,32 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/di/di.dart';
 
-abstract class StateManagerWidget<C extends StateManager<S>, S>
-    extends StatefulWidget {
-  const StateManagerWidget({Key? key}) : super(key: key);
+class StateViewManager<C extends StateManager<S>, S> extends StatefulWidget {
+  const StateViewManager({
+    Key? key,
+    required this.builder,
+    this.initState,
+    this.stateListener,
+  }) : super(key: key);
 
-  @mustCallSuper
-  void initState(C viewModel) {
-    print('$this InitState');
-  }
-
-  @mustCallSuper
-  void stateListener(BuildContext context, S state) {
-    print('$this Listener $state');
-  }
-
-  Widget buildView(BuildContext context, C viewModel, S state);
+  final void Function(C viewModel)? initState;
+  final Widget Function(BuildContext context, C viewModel, S state) builder;
+  final void Function(BuildContext context, S state)? stateListener;
 
   @override
-  _StateManagerWidgetState createState() => _StateManagerWidgetState();
+  _StateViewManagerState createState() => _StateViewManagerState();
 }
 
-class _StateManagerWidgetState<C extends StateManager<S>, S>
-    extends State<StateManagerWidget<C, S>> {
+class _StateViewManagerState<C extends StateManager<S>, S> extends State<StateViewManager<C, S>> {
   final C viewModel = DI.container<C>();
 
   @override
   @mustCallSuper
   void initState() {
     super.initState();
-    widget.initState(viewModel);
+    if (widget.initState != null) {
+      widget.initState!(viewModel);
+    }
   }
 
   @override
@@ -40,9 +37,9 @@ class _StateManagerWidgetState<C extends StateManager<S>, S>
     return BlocConsumer<C, S>(
       bloc: viewModel,
       builder: (context, state) {
-        return widget.buildView(context, viewModel, state);
+        return widget.builder(context, viewModel, state);
       },
-      listener: widget.stateListener,
+      listener: widget.stateListener ?? (_, __) {},
     );
   }
 }

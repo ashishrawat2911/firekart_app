@@ -7,17 +7,11 @@ import 'package:fluttercommerce/features/home/bloc/product_search_cubit.dart';
 import 'package:fluttercommerce/features/module.dart';
 
 class HomeModule extends Module {
-  static const String dealOfTheDay = "deal_of_the_day";
-  static const String topProducts = "top_products";
-  static const String onSale = "on_sale";
-
   @override
   void registerDependencies() {
     DI.container
       ..registerFactory(() => HomeScreenCubit(DI.container<FirebaseManager>(), DI.container<GlobalListener>()))
-      ..registerFactory(() => DashboardCubit(DI.container<FirebaseManager>()), instanceName: dealOfTheDay)
-      ..registerFactory(() => DashboardCubit(DI.container<FirebaseManager>()), instanceName: topProducts)
-      ..registerFactory(() => DashboardCubit(DI.container<FirebaseManager>()), instanceName: onSale)
+      ..registerFactory(() => DashboardCubit(DI.container<FirebaseManager>()))
       ..registerFactory(() => ProductSearchCubit(DI.container<FirebaseManager>()));
   }
 }

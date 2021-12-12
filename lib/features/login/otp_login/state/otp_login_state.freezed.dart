@@ -215,21 +215,27 @@ class _$_OtpLoginState implements _OtpLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OtpLoginState &&
-            (identical(other.codeCountDown, codeCountDown) ||
-                other.codeCountDown == codeCountDown) &&
-            (identical(other.isButtonEnabled, isButtonEnabled) ||
-                other.isButtonEnabled == isButtonEnabled) &&
-            (identical(other.confirmOtpLoading, confirmOtpLoading) ||
-                other.confirmOtpLoading == confirmOtpLoading) &&
-            (identical(other.resendOtpLoading, resendOtpLoading) ||
-                other.resendOtpLoading == resendOtpLoading) &&
-            (identical(other.otp, otp) || other.otp == otp) &&
-            (identical(other.error, error) || other.error == error));
+            const DeepCollectionEquality()
+                .equals(other.codeCountDown, codeCountDown) &&
+            const DeepCollectionEquality()
+                .equals(other.isButtonEnabled, isButtonEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other.confirmOtpLoading, confirmOtpLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.resendOtpLoading, resendOtpLoading) &&
+            const DeepCollectionEquality().equals(other.otp, otp) &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, codeCountDown, isButtonEnabled,
-      confirmOtpLoading, resendOtpLoading, otp, error);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(codeCountDown),
+      const DeepCollectionEquality().hash(isButtonEnabled),
+      const DeepCollectionEquality().hash(confirmOtpLoading),
+      const DeepCollectionEquality().hash(resendOtpLoading),
+      const DeepCollectionEquality().hash(otp),
+      const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override

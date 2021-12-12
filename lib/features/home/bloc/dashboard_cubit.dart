@@ -1,43 +1,72 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/core/utils/connectivity.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
+import 'package:fluttercommerce/features/home/state/dashboard_state.dart';
 
 enum ProductData { DealOfTheDay, OnSale, TopProducts }
 
-class DashboardCubit extends Cubit<ResultState<List<ProductModel>>> {
-  DashboardCubit(this._firebaseManager) : super(const ResultState.idle());
+class DashboardCubit extends StateManager<DashboardState> {
+  DashboardCubit(this._firebaseManager) : super(DashboardState());
 
   final FirebaseManager _firebaseManager;
 
-  fetchProductData(ProductData productData) async {
-    emit(const Loading());
-
+  Future<void> fetchProductData(ProductData productData) async {
+    String condition;
+    switch (productData) {
+      case ProductData.DealOfTheDay:
+        state = state.copyWith(dealOfTheDay: const Loading());
+        condition = "deal_of_the_day";
+        break;
+      case ProductData.OnSale:
+        state = state.copyWith(onSale: const Loading());
+        condition = "on_sale";
+        break;
+      case ProductData.TopProducts:
+        state = state.copyWith(topProducts: const Loading());
+        condition = "top_products";
+        break;
+    }
     try {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        emit(const ResultState.error(
-            error: StringsConstants.connectionNotAvailable));
+        onErrorState(productData, StringsConstants.connectionNotAvailable);
         return;
       }
-      String condition;
+
+      List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
+
+      final resultState = ResultState.data(data: productList);
+
       switch (productData) {
         case ProductData.DealOfTheDay:
-          condition = "deal_of_the_day";
+          state = state.copyWith(dealOfTheDay: resultState);
           break;
         case ProductData.OnSale:
-          condition = "on_sale";
+          state = state.copyWith(onSale: resultState);
           break;
         case ProductData.TopProducts:
-          condition = "top_products";
+          state = state.copyWith(topProducts: resultState);
           break;
       }
-      List<ProductModel> productList =
-          await _firebaseManager.getProductsData(condition);
-      emit(ResultState.data(data: productList));
     } catch (e) {
-      emit(ResultState.error(error: e.toString()));
+      onErrorState(productData, e.toString());
+    }
+  }
+
+  void onErrorState(ProductData productData, String error) {
+    final errorState = ResultState<List<ProductModel>>.error(error: error);
+    switch (productData) {
+      case ProductData.DealOfTheDay:
+        state = state.copyWith(dealOfTheDay: errorState);
+        break;
+      case ProductData.OnSale:
+        state = state.copyWith(onSale: errorState);
+        break;
+      case ProductData.TopProducts:
+        state = state.copyWith(topProducts: errorState);
+        break;
     }
   }
 }
