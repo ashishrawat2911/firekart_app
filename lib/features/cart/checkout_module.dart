@@ -8,8 +8,9 @@ import 'bloc/cart_cubit.dart';
 class CheckoutModule extends Module {
   @override
   void registerDependencies() {
-    final firebaseRepo = DI.container<FirebaseManager>();
-    final globalListener = DI.container<GlobalListener>();
-    DI.container.registerSingleton(CartCubit(firebaseRepo, globalListener));
+    DI.container.registerSingleton((container) => CartCubit(
+          container.get<FirebaseManager>(),
+          container.get<GlobalListener>(),
+        ));
   }
 }

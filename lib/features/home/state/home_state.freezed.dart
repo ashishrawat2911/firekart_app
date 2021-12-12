@@ -149,17 +149,20 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HomeState &&
-            (identical(other.bottomIndex, bottomIndex) ||
-                other.bottomIndex == bottomIndex) &&
-            (identical(other.noOfItemsInCart, noOfItemsInCart) ||
-                other.noOfItemsInCart == noOfItemsInCart) &&
-            (identical(other.accountDetails, accountDetails) ||
-                other.accountDetails == accountDetails));
+            const DeepCollectionEquality()
+                .equals(other.bottomIndex, bottomIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.noOfItemsInCart, noOfItemsInCart) &&
+            const DeepCollectionEquality()
+                .equals(other.accountDetails, accountDetails));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, bottomIndex, noOfItemsInCart, accountDetails);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bottomIndex),
+      const DeepCollectionEquality().hash(noOfItemsInCart),
+      const DeepCollectionEquality().hash(accountDetails));
 
   @JsonKey(ignore: true)
   @override
