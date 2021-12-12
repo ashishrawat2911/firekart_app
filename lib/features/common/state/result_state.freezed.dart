@@ -752,11 +752,12 @@ class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Error<T> &&
-            (identical(other.error, error) || other.error == error));
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
@@ -928,12 +929,14 @@ class _$UnNotifiedError<T>
         (other.runtimeType == runtimeType &&
             other is UnNotifiedError<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
-            (identical(other.error, error) || other.error == error));
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(data), error);
+      runtimeType,
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override

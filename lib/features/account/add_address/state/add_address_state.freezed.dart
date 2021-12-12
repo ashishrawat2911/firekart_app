@@ -119,12 +119,13 @@ class _$_AddAddressState implements _AddAddressState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AddAddressState &&
-            (identical(other.buttonLoading, buttonLoading) ||
-                other.buttonLoading == buttonLoading));
+            const DeepCollectionEquality()
+                .equals(other.buttonLoading, buttonLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, buttonLoading);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(buttonLoading));
 
   @JsonKey(ignore: true)
   @override

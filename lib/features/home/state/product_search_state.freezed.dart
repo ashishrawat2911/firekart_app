@@ -180,14 +180,18 @@ class _$_ProductSearchState implements _ProductSearchState {
             other is _ProductSearchState &&
             const DeepCollectionEquality()
                 .equals(other.productList, productList) &&
-            (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.otp, otp) || other.otp == otp) &&
-            (identical(other.error, error) || other.error == error));
+            const DeepCollectionEquality().equals(other.loading, loading) &&
+            const DeepCollectionEquality().equals(other.otp, otp) &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(productList), loading, otp, error);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(productList),
+      const DeepCollectionEquality().hash(loading),
+      const DeepCollectionEquality().hash(otp),
+      const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
