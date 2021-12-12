@@ -178,18 +178,22 @@ class _$_PhoneLoginState implements _PhoneLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PhoneLoginState &&
-            (identical(other.codeCountDown, codeCountDown) ||
-                other.codeCountDown == codeCountDown) &&
-            (identical(other.isButtonEnabled, isButtonEnabled) ||
-                other.isButtonEnabled == isButtonEnabled) &&
-            (identical(other.phoneLoading, phoneLoading) ||
-                other.phoneLoading == phoneLoading) &&
-            (identical(other.error, error) || other.error == error));
+            const DeepCollectionEquality()
+                .equals(other.codeCountDown, codeCountDown) &&
+            const DeepCollectionEquality()
+                .equals(other.isButtonEnabled, isButtonEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneLoading, phoneLoading) &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, codeCountDown, isButtonEnabled, phoneLoading, error);
+      runtimeType,
+      const DeepCollectionEquality().hash(codeCountDown),
+      const DeepCollectionEquality().hash(isButtonEnabled),
+      const DeepCollectionEquality().hash(phoneLoading),
+      const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override

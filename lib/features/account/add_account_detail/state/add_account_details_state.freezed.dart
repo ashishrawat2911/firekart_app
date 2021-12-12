@@ -321,12 +321,13 @@ class _$EditData implements EditData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is EditData &&
-            (identical(other.accountDetails, accountDetails) ||
-                other.accountDetails == accountDetails));
+            const DeepCollectionEquality()
+                .equals(other.accountDetails, accountDetails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, accountDetails);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(accountDetails));
 
   @JsonKey(ignore: true)
   @override

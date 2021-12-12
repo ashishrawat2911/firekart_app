@@ -198,14 +198,14 @@ class _$_MyAddressState implements _MyAddressState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MyAddressState &&
-            (identical(other.screenLoading, screenLoading) ||
-                other.screenLoading == screenLoading) &&
-            (identical(other.screenError, screenError) ||
-                other.screenError == screenError) &&
-            (identical(other.buttonLoading, buttonLoading) ||
-                other.buttonLoading == buttonLoading) &&
-            (identical(other.accountDetails, accountDetails) ||
-                other.accountDetails == accountDetails) &&
+            const DeepCollectionEquality()
+                .equals(other.screenLoading, screenLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.screenError, screenError) &&
+            const DeepCollectionEquality()
+                .equals(other.buttonLoading, buttonLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.accountDetails, accountDetails) &&
             const DeepCollectionEquality()
                 .equals(other.addressStates, addressStates));
   }
@@ -213,10 +213,10 @@ class _$_MyAddressState implements _MyAddressState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      screenLoading,
-      screenError,
-      buttonLoading,
-      accountDetails,
+      const DeepCollectionEquality().hash(screenLoading),
+      const DeepCollectionEquality().hash(screenError),
+      const DeepCollectionEquality().hash(buttonLoading),
+      const DeepCollectionEquality().hash(accountDetails),
       const DeepCollectionEquality().hash(addressStates));
 
   @JsonKey(ignore: true)
@@ -409,17 +409,21 @@ class _$_AddressCardState implements _AddressCardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AddressCardState &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.editLoading, editLoading) ||
-                other.editLoading == editLoading) &&
-            (identical(other.setDefaultLoading, setDefaultLoading) ||
-                other.setDefaultLoading == setDefaultLoading));
+            const DeepCollectionEquality().equals(other.index, index) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality()
+                .equals(other.editLoading, editLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.setDefaultLoading, setDefaultLoading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, index, address, editLoading, setDefaultLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(editLoading),
+      const DeepCollectionEquality().hash(setDefaultLoading));
 
   @JsonKey(ignore: true)
   @override

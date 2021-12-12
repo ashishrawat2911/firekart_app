@@ -180,19 +180,22 @@ class _$_AddToCartState implements _AddToCartState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AddToCartState &&
-            (identical(other.addToCardLoading, addToCardLoading) ||
-                other.addToCardLoading == addToCardLoading) &&
-            (identical(other.showAddButton, showAddButton) ||
-                other.showAddButton == showAddButton) &&
-            (identical(other.cartDataLoading, cartDataLoading) ||
-                other.cartDataLoading == cartDataLoading) &&
-            (identical(other.noOfItems, noOfItems) ||
-                other.noOfItems == noOfItems));
+            const DeepCollectionEquality()
+                .equals(other.addToCardLoading, addToCardLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.showAddButton, showAddButton) &&
+            const DeepCollectionEquality()
+                .equals(other.cartDataLoading, cartDataLoading) &&
+            const DeepCollectionEquality().equals(other.noOfItems, noOfItems));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, addToCardLoading, showAddButton, cartDataLoading, noOfItems);
+      runtimeType,
+      const DeepCollectionEquality().hash(addToCardLoading),
+      const DeepCollectionEquality().hash(showAddButton),
+      const DeepCollectionEquality().hash(cartDataLoading),
+      const DeepCollectionEquality().hash(noOfItems));
 
   @JsonKey(ignore: true)
   @override

@@ -10,15 +10,14 @@
 
 import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:flutter/material.dart' as _i15;
-import 'package:flutter/widgets.dart' as _i16;
 
 import '../../account/add_account_detail/view/add_user_detail_screen.dart'
     as _i7;
 import '../../account/add_address/view/add_address_screen.dart' as _i12;
 import '../../account/my_address/view/my_address_screen.dart' as _i11;
 import '../../cart/screen/cart_screen.dart' as _i8;
-import '../../common/models/account_details_model.dart' as _i18;
-import '../../common/models/product_model.dart' as _i17;
+import '../../common/models/account_details_model.dart' as _i17;
+import '../../common/models/product_model.dart' as _i16;
 import '../../home/screen/home_screen.dart' as _i3;
 import '../../home/screen/search_screen.dart' as _i10;
 import '../../init/check_status/view/check_status_check_screen.dart' as _i2;
@@ -148,7 +147,7 @@ class SplashScreenRoute extends _i14.PageRouteInfo<void> {
 class CheckStatusScreenRoute
     extends _i14.PageRouteInfo<CheckStatusScreenRouteArgs> {
   CheckStatusScreenRoute(
-      {_i16.Key? key, bool checkForAccountStatusOnly = false})
+      {_i15.Key? key, bool checkForAccountStatusOnly = false})
       : super(name,
             path: '/check-status-screen',
             args: CheckStatusScreenRouteArgs(
@@ -162,7 +161,7 @@ class CheckStatusScreenRouteArgs {
   const CheckStatusScreenRouteArgs(
       {this.key, this.checkForAccountStatusOnly = false});
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
   final bool checkForAccountStatusOnly;
 
@@ -188,7 +187,7 @@ class LoginScreenRoute extends _i14.PageRouteInfo<void> {
 
 /// generated route for [_i5.OtpLoginScreen]
 class OtpLoginScreenRoute extends _i14.PageRouteInfo<OtpLoginScreenRouteArgs> {
-  OtpLoginScreenRoute({String? phoneNumber, _i16.Key? key})
+  OtpLoginScreenRoute({String? phoneNumber, _i15.Key? key})
       : super(name,
             path: '/otp-login-screen',
             args: OtpLoginScreenRouteArgs(phoneNumber: phoneNumber, key: key));
@@ -201,7 +200,7 @@ class OtpLoginScreenRouteArgs {
 
   final String? phoneNumber;
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
   @override
   String toString() {
@@ -213,7 +212,7 @@ class OtpLoginScreenRouteArgs {
 class ProductDetailPageRoute
     extends _i14.PageRouteInfo<ProductDetailPageRouteArgs> {
   ProductDetailPageRoute(
-      {required _i17.ProductModel productModel, _i16.Key? key})
+      {required _i16.ProductModel productModel, _i15.Key? key})
       : super(name,
             path: '/product-detail-page',
             args: ProductDetailPageRouteArgs(
@@ -225,9 +224,9 @@ class ProductDetailPageRoute
 class ProductDetailPageRouteArgs {
   const ProductDetailPageRouteArgs({required this.productModel, this.key});
 
-  final _i17.ProductModel productModel;
+  final _i16.ProductModel productModel;
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
   @override
   String toString() {
@@ -238,7 +237,7 @@ class ProductDetailPageRouteArgs {
 /// generated route for [_i7.AddUserDetailScreen]
 class AddUserDetailScreenRoute
     extends _i14.PageRouteInfo<AddUserDetailScreenRouteArgs> {
-  AddUserDetailScreenRoute({required bool newAddress, _i16.Key? key})
+  AddUserDetailScreenRoute({required bool newAddress, _i15.Key? key})
       : super(name,
             path: '/add-user-detail-screen',
             args:
@@ -252,7 +251,7 @@ class AddUserDetailScreenRouteArgs {
 
   final bool newAddress;
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
   @override
   String toString() {
@@ -270,7 +269,7 @@ class CartScreenRoute extends _i14.PageRouteInfo<void> {
 /// generated route for [_i9.AllProductListScreen]
 class AllProductListScreenRoute
     extends _i14.PageRouteInfo<AllProductListScreenRouteArgs> {
-  AllProductListScreenRoute({_i16.Key? key, String? productCondition})
+  AllProductListScreenRoute({_i15.Key? key, String? productCondition})
       : super(name,
             path: '/all-product-list-screen',
             args: AllProductListScreenRouteArgs(
@@ -282,7 +281,7 @@ class AllProductListScreenRoute
 class AllProductListScreenRouteArgs {
   const AllProductListScreenRouteArgs({this.key, this.productCondition});
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
   final String? productCondition;
 
@@ -302,7 +301,7 @@ class SearchItemScreenRoute extends _i14.PageRouteInfo<void> {
 /// generated route for [_i11.MyAddressScreen]
 class MyAddressScreenRoute
     extends _i14.PageRouteInfo<MyAddressScreenRouteArgs> {
-  MyAddressScreenRoute({_i16.Key? key, bool selectedAddress = false})
+  MyAddressScreenRoute({_i15.Key? key, bool selectedAddress = false})
       : super(name,
             path: '/my-address-screen',
             args: MyAddressScreenRouteArgs(
@@ -314,7 +313,7 @@ class MyAddressScreenRoute
 class MyAddressScreenRouteArgs {
   const MyAddressScreenRouteArgs({this.key, this.selectedAddress = false});
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
   final bool selectedAddress;
 
@@ -329,9 +328,9 @@ class AddAddressScreenRoute
     extends _i14.PageRouteInfo<AddAddressScreenRouteArgs> {
   AddAddressScreenRoute(
       {required bool newAddress,
-      required _i18.AccountDetails accountDetails,
-      _i16.Key? key,
-      _i18.Address? editAddress})
+      required _i17.AccountDetails accountDetails,
+      _i15.Key? key,
+      _i17.Address? editAddress})
       : super(name,
             path: '/add-address-screen',
             args: AddAddressScreenRouteArgs(
@@ -352,11 +351,11 @@ class AddAddressScreenRouteArgs {
 
   final bool newAddress;
 
-  final _i18.AccountDetails accountDetails;
+  final _i17.AccountDetails accountDetails;
 
-  final _i16.Key? key;
+  final _i15.Key? key;
 
-  final _i18.Address? editAddress;
+  final _i17.Address? editAddress;
 
   @override
   String toString() {

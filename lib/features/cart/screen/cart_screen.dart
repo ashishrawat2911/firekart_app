@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_cubit.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
@@ -10,29 +10,27 @@ import 'package:fluttercommerce/features/common/widgets/cart_item_card.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
 import 'package:fluttercommerce/features/common/widgets/common_card.dart';
 
-class CartScreen extends StateManagerWidget<CartCubit, CartState> {
+class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
 
   @override
-  void initState(viewModel) {
-    super.initState(viewModel);
-    viewModel.init();
-  }
-
-  @override
-  Widget buildView(BuildContext context, viewModel, state) {
-    return Scaffold(
-      backgroundColor: AppColors.colorF8F8F8,
-      appBar: AppBar(
-        title: const Text(StringsConstants.cart),
-        elevation: 1,
-      ),
-      body: state.cartList.noOfItemsInCart > 0
-          ? cartView(state, viewModel)
-          : Container(),
-      bottomNavigationBar: Visibility(
-          visible: state.cartList.noOfItemsInCart > 0,
-          child: checkOut(state, viewModel)),
+  Widget build(BuildContext context) {
+    return StateViewManager<CartCubit, CartState>(
+      initState: (viewModel) {
+        viewModel.init();
+      },
+      builder: (context, viewModel, state) {
+        return Scaffold(
+          backgroundColor: AppColors.colorF8F8F8,
+          appBar: AppBar(
+            title: const Text(StringsConstants.cart),
+            elevation: 1,
+          ),
+          body: state.cartList.noOfItemsInCart > 0 ? cartView(state, viewModel) : Container(),
+          bottomNavigationBar:
+              Visibility(visible: state.cartList.noOfItemsInCart > 0, child: checkOut(state, viewModel)),
+        );
+      },
     );
   }
 
@@ -46,8 +44,7 @@ class CartScreen extends StateManagerWidget<CartCubit, CartState> {
               Container(
                 //  margin: EdgeInsets.only(bottom: 20),
                 child: Column(
-                  children:
-                      List<Widget>.generate(state.cartList.length, (index) {
+                  children: List<Widget>.generate(state.cartList.length, (index) {
                     return CartItemCard(
                       cartModel: state.cartList[index],
                       index: index,
@@ -118,17 +115,12 @@ class CartScreen extends StateManagerWidget<CartCubit, CartState> {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                    color: AppColors.color20203E,
-                    fontSize: 14,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                style:
+                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 price,
-                style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 16,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -165,9 +157,7 @@ class CartScreen extends StateManagerWidget<CartCubit, CartState> {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay,
-              "${state.cartList.currency}${state.cartList.priceInCart}",
-              isFinal: true),
+          priceRow(StringsConstants.toPay, "${state.cartList.currency}${state.cartList.priceInCart}", isFinal: true),
         ],
       ),
     ));
@@ -188,9 +178,7 @@ class CartScreen extends StateManagerWidget<CartCubit, CartState> {
                 style: AppTextStyles.t1,
               ),
               ActionText(
-                state.selectedAddress == null
-                    ? StringsConstants.addNewCaps
-                    : StringsConstants.changeTextCapital,
+                state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
                 onTap: () {
                   viewModel.selectOrChangeAddress();
                 },
@@ -201,8 +189,7 @@ class CartScreen extends StateManagerWidget<CartCubit, CartState> {
             height: 20,
           ),
           Text(
-            state.selectedAddress?.wholeAddress() ??
-                StringsConstants.noAddressFound,
+            state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
             style: AppTextStyles.t12,
           ),
         ],
