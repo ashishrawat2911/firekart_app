@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
@@ -11,90 +10,75 @@ import 'package:fluttercommerce/features/common/widgets/action_text.dart';
 import 'package:fluttercommerce/features/common/widgets/product_card.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
 import 'package:fluttercommerce/features/home/bloc/dashboard_cubit.dart';
-import 'package:fluttercommerce/features/home/home_module.dart';
+import 'package:fluttercommerce/features/home/state/dashboard_state.dart';
 import 'package:shimmer/shimmer.dart';
 
-class DashboardScreen extends StatefulWidget {
+class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
-  @override
-  _DashboardScreenState createState() => _DashboardScreenState();
-}
-
-class _DashboardScreenState extends State<DashboardScreen> {
-  DashboardCubit dealsDayCubit = DI.container<DashboardCubit>(instanceName: HomeModule.dealOfTheDay);
-  DashboardCubit topProductsCubit = DI.container<DashboardCubit>(instanceName: HomeModule.topProducts);
-  DashboardCubit onSaleCubit = DI.container<DashboardCubit>(instanceName: HomeModule.onSale);
-
-  @override
-  void initState() {
-    fetchProductData();
-    super.initState();
-  }
-
-  Future<void> fetchProductData() async {
-    dealsDayCubit.fetchProductData(ProductData.DealOfTheDay);
-    topProductsCubit.fetchProductData(ProductData.OnSale);
-    onSaleCubit.fetchProductData(ProductData.TopProducts);
+  Future<void> fetchProductData(DashboardCubit viewModel) async {
+    viewModel.fetchProductData(ProductData.DealOfTheDay);
+    viewModel.fetchProductData(ProductData.OnSale);
+    viewModel.fetchProductData(ProductData.TopProducts);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          StringsConstants.products,
-          style: AppTextStyles.t3,
+    return StateViewManager<DashboardCubit, DashboardState>(
+      initState: (viewModel) {
+        fetchProductData(viewModel);
+      },
+      builder: (context, viewModel, state) => Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text(
+            StringsConstants.products,
+            style: AppTextStyles.t3,
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            NavigationHandler.navigateTo(AllProductListScreenRoute());
-          },
-          label: Text(
-            StringsConstants.viewAllProducts,
-            style: AppTextStyles.t15,
-          )),
-      body: RefreshIndicator(
-        onRefresh: () => fetchProductData(),
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Column(
-            children: <Widget>[
-              const SizedBox(
-                height: 20,
-              ),
-              productDataBuilder(dealsDayCubit, StringsConstants.dealOfTheDay),
-              productDataBuilder(onSaleCubit, StringsConstants.onSale),
-              productDataBuilder(topProductsCubit, StringsConstants.topProducts),
-              const SizedBox(
-                height: 20,
-              )
-            ],
+        floatingActionButton: FloatingActionButton.extended(
+            onPressed: () {
+              NavigationHandler.navigateTo(AllProductListScreenRoute());
+            },
+            label: Text(
+              StringsConstants.viewAllProducts,
+              style: AppTextStyles.t15,
+            )),
+        body: RefreshIndicator(
+          onRefresh: () => fetchProductData(viewModel),
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: Column(
+              children: <Widget>[
+                const SizedBox(
+                  height: 20,
+                ),
+                productDataBuilder(state.dealOfTheDay, StringsConstants.dealOfTheDay),
+                productDataBuilder(state.onSale, StringsConstants.onSale),
+                productDataBuilder(state.topProducts, StringsConstants.topProducts),
+                const SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget productDataBuilder(DashboardCubit cubit, String title) {
-    return BlocBuilder<DashboardCubit, ResultState<List<ProductModel>>>(
-      bloc: cubit,
-      builder: (BuildContext context, ResultState<List<ProductModel>> state) {
-        return ResultStateBuilder(
-          state: state,
-          errorWidget: (String error) => Column(
-            children: <Widget>[
-              Center(child: Text(error)),
-            ],
-          ),
-          dataWidget: (List<ProductModel> value) {
-            return productsGrids(title, value);
-          },
-          loadingWidget: (bool isReloading) => productLoader(),
-        );
+  Widget productDataBuilder(ResultState<List<ProductModel>> resultState, String title) {
+    return ResultStateBuilder(
+      state: resultState,
+      errorWidget: (String error) => Column(
+        children: <Widget>[
+          Center(child: Text(error)),
+        ],
+      ),
+      dataWidget: (List<ProductModel> value) {
+        return productsGrids(title, value);
       },
+      loadingWidget: (bool isReloading) => productLoader(),
     );
   }
 
@@ -104,7 +88,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       highlightColor: Colors.grey[100]!,
       enabled: true,
       child: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
+        margin: const EdgeInsets.only(left: 10, right: 10),
         child: GridView.count(
           physics: NeverScrollableScrollPhysics(),
           padding: EdgeInsets.only(bottom: 10),
@@ -123,7 +107,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                      borderRadius:
+                          const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(

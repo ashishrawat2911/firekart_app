@@ -391,12 +391,13 @@ class _$PaymentError implements PaymentError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PaymentError &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            const DeepCollectionEquality()
+                .equals(other.errorMessage, errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorMessage);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(errorMessage));
 
   @JsonKey(ignore: true)
   @override
@@ -537,12 +538,12 @@ class _$PaymentSuccessful implements PaymentSuccessful {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PaymentSuccessful &&
-            (identical(other.response, response) ||
-                other.response == response));
+            const DeepCollectionEquality().equals(other.response, response));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, response);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(response));
 
   @JsonKey(ignore: true)
   @override

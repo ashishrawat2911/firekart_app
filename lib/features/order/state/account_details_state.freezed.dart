@@ -133,14 +133,17 @@ class _$_AccountDetailsState implements _AccountDetailsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AccountDetailsState &&
-            (identical(other.accountDetails, accountDetails) ||
-                other.accountDetails == accountDetails) &&
-            (identical(other.selectedAddress, selectedAddress) ||
-                other.selectedAddress == selectedAddress));
+            const DeepCollectionEquality()
+                .equals(other.accountDetails, accountDetails) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedAddress, selectedAddress));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, accountDetails, selectedAddress);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(accountDetails),
+      const DeepCollectionEquality().hash(selectedAddress));
 
   @JsonKey(ignore: true)
   @override

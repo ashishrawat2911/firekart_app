@@ -279,37 +279,35 @@ class _$_CartState implements _CartState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CartState &&
-            (identical(other.cartValue, cartValue) ||
-                other.cartValue == cartValue) &&
-            (identical(other.cartDataLoading, cartDataLoading) ||
-                other.cartDataLoading == cartDataLoading) &&
-            (identical(other.cartDeleteLoading, cartDeleteLoading) ||
-                other.cartDeleteLoading == cartDeleteLoading) &&
-            (identical(other.orderInProgress, orderInProgress) ||
-                other.orderInProgress == orderInProgress) &&
-            (identical(other.cartError, cartError) ||
-                other.cartError == cartError) &&
-            (identical(other.deleteCartError, deleteCartError) ||
-                other.deleteCartError == deleteCartError) &&
+            const DeepCollectionEquality().equals(other.cartValue, cartValue) &&
+            const DeepCollectionEquality()
+                .equals(other.cartDataLoading, cartDataLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.cartDeleteLoading, cartDeleteLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.orderInProgress, orderInProgress) &&
+            const DeepCollectionEquality().equals(other.cartError, cartError) &&
+            const DeepCollectionEquality()
+                .equals(other.deleteCartError, deleteCartError) &&
             const DeepCollectionEquality().equals(other.cartList, cartList) &&
-            (identical(other.selectedAddress, selectedAddress) ||
-                other.selectedAddress == selectedAddress) &&
-            (identical(other.cartItemDataLoading, cartItemDataLoading) ||
-                other.cartItemDataLoading == cartItemDataLoading));
+            const DeepCollectionEquality()
+                .equals(other.selectedAddress, selectedAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.cartItemDataLoading, cartItemDataLoading));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      cartValue,
-      cartDataLoading,
-      cartDeleteLoading,
-      orderInProgress,
-      cartError,
-      deleteCartError,
+      const DeepCollectionEquality().hash(cartValue),
+      const DeepCollectionEquality().hash(cartDataLoading),
+      const DeepCollectionEquality().hash(cartDeleteLoading),
+      const DeepCollectionEquality().hash(orderInProgress),
+      const DeepCollectionEquality().hash(cartError),
+      const DeepCollectionEquality().hash(deleteCartError),
       const DeepCollectionEquality().hash(cartList),
-      selectedAddress,
-      cartItemDataLoading);
+      const DeepCollectionEquality().hash(selectedAddress),
+      const DeepCollectionEquality().hash(cartItemDataLoading));
 
   @JsonKey(ignore: true)
   @override
@@ -491,15 +489,18 @@ class _$_CartDataLoading implements _CartDataLoading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CartDataLoading &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.deleteLoading, deleteLoading) ||
-                other.deleteLoading == deleteLoading));
+            const DeepCollectionEquality().equals(other.index, index) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.deleteLoading, deleteLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, isLoading, deleteLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(deleteLoading));
 
   @JsonKey(ignore: true)
   @override
