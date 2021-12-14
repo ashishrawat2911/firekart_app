@@ -61,7 +61,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             ),
                           ],
                         ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       ActionText(
@@ -74,10 +74,10 @@ class _AccountScreenState extends State<AccountScreen> {
                     ],
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 ListTile(
-                  title: Text(StringsConstants.myOrders),
-                  leading: Icon(Icons.shopping_basket),
+                  title: const Text(StringsConstants.myOrders),
+                  leading: const Icon(Icons.shopping_basket),
                   onTap: () {
                     NavigationHandler.navigateTo(MyOrdersScreenRoute());
                   },

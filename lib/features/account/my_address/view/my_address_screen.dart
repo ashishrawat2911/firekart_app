@@ -18,15 +18,16 @@ class MyAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<MyAddressViewModel, MyAddressState>(
-      initState: (viewModel) {
+    return StateProvider<MyAddressViewModel>(
+      onViewModelReady: (viewModel) {
         viewModel.fetchAccountDetails();
       },
-      builder: (context, viewModel, state) => Scaffold(
+      child: Scaffold(
         appBar: AppBar(
             elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
-        body: Builder(
-          builder: (BuildContext context) {
+        body: StateBuilder<MyAddressViewModel, MyAddressState>(
+          // buildWhen: (previous, current) => previous.accountDetails != current.accountDetails,
+          builder: (BuildContext context, viewModel, state) {
             if (state.addressStates.isEmpty) {
               return noAddressesFound(state.accountDetails!, viewModel);
             } else if (state.screenError != null) {
@@ -47,7 +48,7 @@ class MyAddressScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 22,
             ),
             Container(

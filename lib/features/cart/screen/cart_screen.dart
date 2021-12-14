@@ -38,30 +38,27 @@ class CartScreen extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(right: 10, left: 10, top: 21),
+          margin: const EdgeInsets.only(right: 10, left: 10, top: 21),
           child: Column(
             children: [
-              Container(
-                //  margin: EdgeInsets.only(bottom: 20),
-                child: Column(
-                  children: List<Widget>.generate(state.cartList.length, (index) {
-                    return CartItemCard(
-                      cartModel: state.cartList[index],
-                      index: index,
-                      cartDataLoading: state.cartItemDataLoading,
-                      onDecrement: (value) {
-                        viewModel.updateCartValues(index, true);
-                      },
-                      onDeleted: (value) {
-                        viewModel.deleteItem(index);
-                      },
-                      onIncrement: (value) {
-                        viewModel.updateCartValues(index, true);
-                      },
-                      margin: EdgeInsets.only(bottom: 20),
-                    );
-                  }),
-                ),
+              Column(
+                children: List<Widget>.generate(state.cartList.length, (index) {
+                  return CartItemCard(
+                    cartModel: state.cartList[index],
+                    index: index,
+                    cartDataLoading: state.cartItemDataLoading,
+                    onDecrement: (value) {
+                      viewModel.updateCartValues(index, true);
+                    },
+                    onDeleted: (value) {
+                      viewModel.deleteItem(index);
+                    },
+                    onIncrement: (value) {
+                      viewModel.updateCartValues(index, true);
+                    },
+                    margin: EdgeInsets.only(bottom: 20),
+                  );
+                }),
               ),
               billDetails(state),
               SizedBox(
