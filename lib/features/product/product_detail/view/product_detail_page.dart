@@ -18,8 +18,8 @@ class ProductDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<ProductViewModel, AddToCartState>(
-      initState: (viewModel) {
+    return StateBuilder<ProductViewModel, AddToCartState>(
+      onViewModelReady: (viewModel) {
         viewModel.checkItemInCart(productModel.productId!);
         viewModel.listenToProduct(productModel.productId!);
       },

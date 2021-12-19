@@ -25,8 +25,9 @@ class AddUserDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<AddAccountDetailsViewModel, AddAccountDetailsState>(
-      initState: (viewModel) {
+    return StateBuilder<AddAccountDetailsViewModel, AddAccountDetailsState>(
+      isProviderApplied: true,
+      onViewModelReady: (viewModel) {
         if (!newAddress) {
           viewModel.loadPreviousData();
         }
