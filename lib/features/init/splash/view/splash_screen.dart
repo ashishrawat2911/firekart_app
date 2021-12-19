@@ -9,8 +9,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<SplashViewModel, SplashState>(
-      initState: (viewModel) {
+    return StateBuilder<SplashViewModel, SplashState>(
+      onViewModelReady: (viewModel) {
         viewModel.startSplash();
       },
       builder: (context, viewModel, state) => Scaffold(
