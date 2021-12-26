@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/styles.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
 import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
+import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
 
 class OtpLoginScreen extends StatefulWidget {
   OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
@@ -56,8 +56,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),
@@ -70,9 +69,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
 
   Widget _loginCard() {
     return Card(
-      margin: EdgeInsets.only(top: 50, right: 16, left: 16),
+      margin: const EdgeInsets.only(top: 50, right: 16, left: 16),
       child: Container(
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
@@ -144,7 +143,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 listener: (BuildContext context, OtpLoginState state) {},
                 builder: (BuildContext context, OtpLoginState state) {
                   if (state.resendOtpLoading) {
-                    return CommonAppLoader();
+                    return const CommonAppLoader();
                   }
                   return GestureDetector(
                     onTap: () {

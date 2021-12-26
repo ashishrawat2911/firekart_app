@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/styles.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
@@ -59,8 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.transparent,
               // backgroundColor: Styles.transparent,
 //            floatingActionButton: _floatingActionButton(),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
               body: Container(
                 child: Column(
                   children: <Widget>[_loginCard()],
@@ -75,9 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _loginCard() {
     return Card(
-      margin: EdgeInsets.only(top: 50, right: 16, left: 16),
+      margin: const EdgeInsets.only(top: 50, right: 16, left: 16),
       child: Container(
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
@@ -87,14 +85,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 StringsConstants.login,
                 style: AppTextStyles.t27,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 StringsConstants.phoneLoginText,
                 style: AppTextStyles.t18,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -119,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               BlocConsumer<PhoneLoginViewModel, PhoneLoginState>(
@@ -137,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],
@@ -149,9 +147,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(OtpLoginScreenRoute(
-              phoneNumber:
-                  phoneNumberNotifier.value + phoneNumberController.text))
+      NavigationHandler.navigateTo(
+              OtpLoginScreenRoute(phoneNumber: phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
         if (value != null && value as bool) {
           phoneNumberController.clear();

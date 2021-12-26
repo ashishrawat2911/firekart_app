@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
@@ -28,8 +27,7 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(
@@ -39,18 +37,18 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(5),
+              margin: const EdgeInsets.all(5),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     productModel.name!,
                     style: AppTextStyles.t1,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -59,7 +57,7 @@ class ProductCard extends StatelessWidget {
                         "${productModel.currency}${productModel.currentPrice}",
                         style: AppTextStyles.t8,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -68,7 +66,7 @@ class ProductCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(

@@ -244,28 +244,28 @@ class _$_CartState implements _CartState {
       this.selectedAddress,
       this.cartItemDataLoading = const CartDataLoading()});
 
-  @JsonKey(defaultValue: 0)
+  @JsonKey()
   @override
   final int cartValue;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool cartDataLoading;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool cartDeleteLoading;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool orderInProgress;
   @override
   final String? cartError;
   @override
   final String? deleteCartError;
-  @JsonKey(defaultValue: const [])
+  @JsonKey()
   @override
   final List<CartModel> cartList;
   @override
   final Address? selectedAddress;
-  @JsonKey(defaultValue: const CartDataLoading())
+  @JsonKey()
   @override
   final CartDataLoading cartItemDataLoading;
 
@@ -469,13 +469,13 @@ class _$_CartDataLoading implements _CartDataLoading {
   const _$_CartDataLoading(
       {this.index = 0, this.isLoading = false, this.deleteLoading = false});
 
-  @JsonKey(defaultValue: 0)
+  @JsonKey()
   @override
   final int index;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isLoading;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool deleteLoading;
 

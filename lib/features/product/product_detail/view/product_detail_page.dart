@@ -94,7 +94,7 @@ class ProductDetailPage extends StatelessWidget {
                         }),
               Expanded(
                   child: state.cartDataLoading
-                      ? Center(
+                      ? const Center(
                           child: CommonAppLoader(
                           size: 20,
                           strokeWidth: 3,
@@ -138,7 +138,7 @@ class ProductDetailPage extends StatelessWidget {
           ),
         ),
       ),
-      secondChild: SizedBox(
+      secondChild: const SizedBox(
           height: 30,
           width: 110,
           child: Center(

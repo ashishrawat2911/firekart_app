@@ -11,7 +11,8 @@ import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 enum AddButton { Add, Minus }
 
 class CartItemCard extends StatelessWidget {
-   const CartItemCard({Key? key,
+  const CartItemCard({
+    Key? key,
     this.margin,
     required this.cartModel,
     required this.index,
@@ -36,7 +37,7 @@ class CartItemCard extends StatelessWidget {
       margin: margin,
       child: Card(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
@@ -52,7 +53,7 @@ class CartItemCard extends StatelessWidget {
                         width: 68,
                         fit: BoxFit.fill,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Column(
@@ -60,18 +61,14 @@ class CartItemCard extends StatelessWidget {
                         children: [
                           Text(
                             cartModel.name,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15,
-                                color: AppColors.black),
+                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: AppColors.black),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
                             "${cartModel.currency}${cartModel.currentPrice} / ${cartModel.quantityPerUnit} ${cartModel.unit}",
-                            style: TextStyle(
-                                fontSize: 14, color: AppColors.color81819A),
+                            style: TextStyle(fontSize: 14, color: AppColors.color81819A),
                           ),
                         ],
                       )
@@ -80,7 +77,7 @@ class CartItemCard extends StatelessWidget {
                   Builder(
                     builder: (BuildContext context) {
                       if (cartDataLoading.deleteLoading) {
-                        return CommonAppLoader(
+                        return const CommonAppLoader(
                           size: 20,
                         );
                       }
@@ -97,7 +94,7 @@ class CartItemCard extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 26,
               ),
               Row(
@@ -117,7 +114,7 @@ class CartItemCard extends StatelessWidget {
                         Expanded(
                             child: Center(
                                 child: cartDataLoading.isLoading
-                                    ? CommonAppLoader(
+                                    ? const CommonAppLoader(
                                         size: 20,
                                         strokeWidth: 3,
                                       )
@@ -161,9 +158,8 @@ class CartItemCard extends StatelessWidget {
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,

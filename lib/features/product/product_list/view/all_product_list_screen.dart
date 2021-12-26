@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
@@ -34,8 +34,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent &&
-        !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
       print("at the end of list");
       allProductsCubit.fetchNextList(widget.productCondition);
     }
@@ -45,28 +44,27 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(StringsConstants.allProducts),
+        title: const Text(StringsConstants.allProducts),
         actions: <Widget>[
           InkWell(
             onTap: () {
-              NavigationHandler.navigateTo(SearchItemScreenRoute());
+              NavigationHandler.navigateTo(const SearchItemScreenRoute());
             },
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Icon(Icons.search),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: const Icon(Icons.search),
             ),
           )
         ],
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
         bloc: allProductsCubit,
-        listener:
-            (BuildContext context, ResultState<List<ProductModel>> state) {},
+        listener: (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
-              return Center(
+              return const Center(
                 child: CommonAppLoader(),
               );
             },
@@ -86,11 +84,11 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
     return GridView.builder(
       controller: controller,
       itemCount: productList.length,
-      padding: EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 30),
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 30),
       itemBuilder: (BuildContext context, int index) {
         return ProductCard(productList[index]);
       },
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         mainAxisSpacing: 10,
         childAspectRatio: 0.7,
