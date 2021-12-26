@@ -11,7 +11,7 @@ class AppModule extends Module {
     DI.container
       ..registerFactory(() => FirebaseManager())
       ..registerFactory(() => CrashlyticsService(
-        DI.container<FirebaseManager>(),
+            DI.container<FirebaseManager>(),
           ))
       ..registerSingleton<GlobalListener>(GlobalListenerImpl());
   }

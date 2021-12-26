@@ -3,7 +3,6 @@ import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/account/my_address/state/my_address_state.dart';
 import 'package:fluttercommerce/features/account/my_address/view_model/my_address_view_model.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
@@ -52,7 +51,7 @@ class MyAddressScreen extends StatelessWidget {
               height: 22,
             ),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -181,7 +180,7 @@ class MyAddressScreen extends StatelessWidget {
                             width: 30,
                           ),
                           if (addressCardState.editLoading)
-                            CommonAppLoader(
+                            const CommonAppLoader(
                               size: 20,
                             )
                           else
@@ -196,9 +195,9 @@ class MyAddressScreen extends StatelessWidget {
                       Visibility(
                         visible: !addressCardState.address.isDefault,
                         child: Container(
-                            margin: EdgeInsets.only(left: 20),
+                            margin: const EdgeInsets.only(left: 20),
                             child: addressCardState.setDefaultLoading
-                                ? CommonAppLoader(
+                                ? const CommonAppLoader(
                                     size: 20,
                                   )
                                 : ActionText(

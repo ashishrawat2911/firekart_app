@@ -11,9 +11,7 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       image: json['image'] as String?,
       name: json['name'] as String?,
       unit: json['unit'] as String?,
-      categories: (json['categories'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+      categories: (json['categories'] as List<dynamic>?)?.map((e) => e as String).toList(),
       currency: json['currency'] as String?,
       dealOfTheDay: json['deal_of_the_day'] as bool?,
       topProducts: json['top_products'] as bool?,
@@ -23,13 +21,10 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       quantityPerUnit: json['quantity_per_unit'] as num?,
       description: json['description'] as String?,
       isProductAvailable: json['is_product_available'] as bool? ?? false,
-      nameSearch: (json['name_search'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+      nameSearch: (json['name_search'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ProductModelToJson(ProductModel instance) => <String, dynamic>{
       'product_id': instance.productId,
       'image': instance.image,
       'name': instance.name,

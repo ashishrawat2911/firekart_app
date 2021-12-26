@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/utils/date_time_util.dart';
 import 'package:fluttercommerce/di/di.dart';
+import 'package:fluttercommerce/features/app/res/app_colors.dart';
+import 'package:fluttercommerce/features/app/res/string_constants.dart';
+import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/common/models/order_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
 import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
 import 'package:fluttercommerce/features/order/bloc/my_orders_cubit.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
 class MyOrdersScreen extends StatefulWidget {
   const MyOrdersScreen({Key? key}) : super(key: key);
@@ -31,8 +31,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent &&
-        !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
       print("at the end of list");
       ordersCubit.fetchNextList();
     }
@@ -42,7 +41,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(StringsConstants.myOrders),
+        title: const Text(StringsConstants.myOrders),
       ),
       body: BlocBuilder<MyOrdersCubit, ResultState<List<OrderModel>>>(
         bloc: ordersCubit,
@@ -50,8 +49,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
-              return Center(
-                child: CommonAppLoader(),
+              return const Center(
+                child: const CommonAppLoader(),
               );
             },
             dataWidget: (List<OrderModel> value) {
@@ -74,7 +73,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         return Column(
           children: <Widget>[
             Container(
-                margin: EdgeInsets.only(top: 20, left: 16, right: 16),
+                margin: const EdgeInsets.only(top: 20, left: 16, right: 16),
                 child: Column(
                   children: [
                     Row(
@@ -89,8 +88,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.t14,
                               ),
                               Text(
-                                getOrderedTime(
-                                    orderList[orderListIndex].orderedAt!),
+                                getOrderedTime(orderList[orderListIndex].orderedAt!),
                                 style: AppTextStyles.t1,
                               )
                             ],
@@ -98,10 +96,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(
-                        orderList[orderListIndex].orderItems!.length,
-                        (index) => orderCard(
-                            orderList[orderListIndex].orderItems![index])),
+                    ...List<Widget>.generate(orderList[orderListIndex].orderItems!.length,
+                        (index) => orderCard(orderList[orderListIndex].orderItems![index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -111,7 +107,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               StringsConstants.totalCaps,
                               style: AppTextStyles.t14,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 13,
                             ),
                             Text(
@@ -126,21 +122,20 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               "${orderList[orderListIndex].orderStatus}",
                               style: AppTextStyles.t19,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(
-                                orderList[orderListIndex].orderStatus!)
+                            getOrderStatusIcon(orderList[orderListIndex].orderStatus!)
                           ],
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     )
                   ],
                 )),
-            (orderListIndex < orderList.length) ? Divider() : Container()
+            (orderListIndex < orderList.length) ? const Divider() : Container()
           ],
         );
       },
@@ -149,10 +144,10 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
 
   Widget orderCard(OrderItem orderItem) {
     return Container(
-      margin: EdgeInsets.only(top: 16, bottom: 20),
+      margin: const EdgeInsets.only(top: 16, bottom: 20),
       child: Card(
           child: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -185,7 +180,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
