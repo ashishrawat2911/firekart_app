@@ -5,13 +5,15 @@ import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class CommonExpandedWidget extends StatefulWidget {
   const CommonExpandedWidget(
-      {Key? key, this.backgroundColor,
+      {Key? key,
+      this.backgroundColor,
       this.title,
       this.titleStyle,
       this.voidCallbackScroll,
       this.children,
       this.margin,
-      this.color}) : super(key: key);
+      this.color})
+      : super(key: key);
   final Color? backgroundColor;
   final String? title;
   final TextStyle? titleStyle;
@@ -24,8 +26,7 @@ class CommonExpandedWidget extends StatefulWidget {
   _CommonExpandedWidgetState createState() => _CommonExpandedWidgetState();
 }
 
-class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
-    with SingleTickerProviderStateMixin {
+class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController animationController;
   bool isOpened = false;
@@ -33,8 +34,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
   @override
   void initState() {
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
     animation = Tween(begin: 0.0, end: pi).animate(animationController);
   }
 
@@ -43,15 +43,14 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
     return Container(
       margin: widget.margin,
       child: AnimatedCrossFade(
-        duration: Duration(milliseconds: 100),
-        crossFadeState:
-            !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        duration: const Duration(milliseconds: 100),
+        crossFadeState: !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         firstChild: topRow(),
         secondChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             topRow(),
-            SizedBox(
+            const SizedBox(
               height: 23,
             ),
             ...?widget.children,

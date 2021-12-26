@@ -10,20 +10,14 @@ mixin FirebaseMixin {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final firebaseAuth = FirebaseAuth.instance;
 
-  CollectionReference get productCollection =>
-      _firestore.collection("products");
+  CollectionReference get productCollection => _firestore.collection("products");
 
-  CollectionReference get orderCollection =>
-      _firestore.collection("users").doc(getUid()).collection("orders");
+  CollectionReference get orderCollection => _firestore.collection("users").doc(getUid()).collection("orders");
 
-  DocumentReference get accountDetailDoc => _firestore
-      .collection("users")
-      .doc(getUid())
-      .collection("account")
-      .doc("details");
+  DocumentReference get accountDetailDoc =>
+      _firestore.collection("users").doc(getUid()).collection("account").doc("details");
 
-  CollectionReference get cartCollection =>
-      _firestore.collection("users").doc(getUid()).collection("cart");
+  CollectionReference get cartCollection => _firestore.collection("users").doc(getUid()).collection("cart");
 
   String getUid() {
     return getCurrentUser()!.uid;
@@ -75,8 +69,7 @@ class FirebaseManager with FirebaseMixin {
     String? displayName,
     String? photoUrl,
   }) async {
-    (getCurrentUser())!
-        .updateProfile(displayName: displayName, photoURL: photoUrl);
+    (getCurrentUser())!.updateProfile(displayName: displayName, photoURL: photoUrl);
   }
 
   Future<bool> checkUserLoggedInStatus() async {
@@ -91,28 +84,23 @@ class FirebaseManager with FirebaseMixin {
     }
   }
 
-  Future<List<DocumentSnapshot>> getAllProducts(
-      [DocumentSnapshot? documentSnapshot]) async {
+  Future<List<DocumentSnapshot>> getAllProducts([DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     final query = productCollection.limit(20).orderBy("name");
 
     if (documentSnapshot != null) {
-      documentList =
-          (await query.startAfterDocument(documentSnapshot).get()).docs;
+      documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
     } else {
       documentList = (await query.get()).docs;
     }
     return documentList;
   }
 
-  Future<List<DocumentSnapshot>> getAllOrders(
-      [DocumentSnapshot? documentSnapshot]) async {
+  Future<List<DocumentSnapshot>> getAllOrders([DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
-    var query =
-        orderCollection.limit(20).orderBy("ordered_at", descending: true);
+    final query = orderCollection.limit(20).orderBy("ordered_at", descending: true);
     if (documentSnapshot != null) {
-      documentList =
-          (await query.startAfterDocument(documentSnapshot).get()).docs;
+      documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
     } else {
       documentList = (await query.get()).docs;
     }
@@ -120,17 +108,13 @@ class FirebaseManager with FirebaseMixin {
   }
 
   Future<List<DocumentSnapshot>> searchProducts(String query) async {
-    List<DocumentSnapshot> documentList = (await _firestore
-            .collection("products")
-            .where("name_search", arrayContains: query)
-            .get())
-        .docs;
+    final List<DocumentSnapshot> documentList =
+        (await _firestore.collection("products").where("name_search", arrayContains: query).get()).docs;
     return documentList;
   }
 
   Future<List<ProductModel>> getProductsData(String condition) async {
-    List<DocumentSnapshot> docList =
-        (await productCollection.where(condition, isEqualTo: true).get()).docs;
+    final List<DocumentSnapshot> docList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
     return List.generate(docList.length, (index) {
       return ProductModel.fromJson(docList[index].data());
     });
@@ -140,20 +124,18 @@ class FirebaseManager with FirebaseMixin {
     String condition,
   ) async {
     print(condition);
-    List<DocumentSnapshot> documentList =
-        (await productCollection.where(condition, isEqualTo: true).get()).docs;
+    final List<DocumentSnapshot> documentList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
     return documentList;
   }
 
   Future<AccountDetails> getAllFaq() async {
-    DocumentSnapshot document = await accountDetailDoc.get();
+    final DocumentSnapshot document = await accountDetailDoc.get();
     return AccountDetails.fromDocument(document.data());
   }
 
   Future<int> checkItemInCart(String productId) async {
     try {
-      final DocumentSnapshot documentSnapshot =
-          await cartCollection.doc(productId).get();
+      final DocumentSnapshot documentSnapshot = await cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
         return documentSnapshot["no_of_items"] as int;
       } else {
@@ -174,12 +156,8 @@ class FirebaseManager with FirebaseMixin {
 
   Future<bool> checkUserDetail() async {
     try {
-      final DocumentSnapshot documentSnapshot = await _firestore
-          .collection("users")
-          .doc(getUid())
-          .collection("account")
-          .doc("details")
-          .get();
+      final DocumentSnapshot documentSnapshot =
+          await _firestore.collection("users").doc(getUid()).collection("account").doc("details").get();
       if (documentSnapshot.exists) {
         return true;
       } else {

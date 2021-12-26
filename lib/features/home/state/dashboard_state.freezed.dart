@@ -179,13 +179,13 @@ class _$_DashboardState implements _DashboardState {
       this.onSale = const Idle(),
       this.topProducts = const Idle()});
 
-  @JsonKey(defaultValue: const Idle())
+  @JsonKey()
   @override
   final ResultState<List<ProductModel>> dealOfTheDay;
-  @JsonKey(defaultValue: const Idle())
+  @JsonKey()
   @override
   final ResultState<List<ProductModel>> onSale;
-  @JsonKey(defaultValue: const Idle())
+  @JsonKey()
   @override
   final ResultState<List<ProductModel>> topProducts;
 

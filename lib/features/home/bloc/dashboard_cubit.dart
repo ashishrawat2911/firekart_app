@@ -9,7 +9,7 @@ import 'package:fluttercommerce/features/home/state/dashboard_state.dart';
 enum ProductData { DealOfTheDay, OnSale, TopProducts }
 
 class DashboardCubit extends StateManager<DashboardState> {
-  DashboardCubit(this._firebaseManager) : super(DashboardState());
+  DashboardCubit(this._firebaseManager) : super(const DashboardState());
 
   final FirebaseManager _firebaseManager;
 
@@ -35,7 +35,7 @@ class DashboardCubit extends StateManager<DashboardState> {
         return;
       }
 
-      List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
+      final List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
 
       final resultState = ResultState.data(data: productList);
 
