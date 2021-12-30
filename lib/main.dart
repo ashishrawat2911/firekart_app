@@ -4,15 +4,15 @@ import 'package:core/core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/features/app/firebase/crashlytics_service.dart';
-import 'package:fluttercommerce/features/module_init.dart';
+import 'package:fluttercommerce/crashlytics_service.dart';
+import 'package:fluttercommerce/initializer.dart';
 
 import 'app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  ModuleInit.registerModules();
+  Initializer.registerModules();
   runZonedGuarded(() {
     BlocOverrides.runZoned(
       () {},

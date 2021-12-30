@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:navigation/navigation.dart';
 import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
-import 'package:network/network.dart';
 import 'package:fluttercommerce/features/home/bloc/dashboard_cubit.dart';
 import 'package:fluttercommerce/features/home/state/dashboard_state.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:navigation/navigation.dart';
+import 'package:network/network.dart';
 import 'package:widgets/widgets.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -48,11 +47,9 @@ class DashboardScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                productDataBuilder(
-                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
+                productDataBuilder(state.dealOfTheDay, StringsConstants.dealOfTheDay),
                 productDataBuilder(state.onSale, StringsConstants.onSale),
-                productDataBuilder(
-                    state.topProducts, StringsConstants.topProducts),
+                productDataBuilder(state.topProducts, StringsConstants.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -64,8 +61,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget productDataBuilder(
-      ResultState<List<ProductModel>> resultState, String title) {
+  Widget productDataBuilder(ResultState<List<ProductModel>> resultState, String title) {
     return ResultStateBuilder(
       state: resultState,
       errorWidget: (String error) => Column(
@@ -99,16 +95,14 @@ class DashboardScreen extends StatelessWidget {
             6,
             (index) {
               return Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
+                      borderRadius:
+                          const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -185,8 +179,7 @@ class DashboardScreen extends StatelessWidget {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigateTo(AllProductListScreenRoute(
-                          productCondition: condition));
+                      NavigationHandler.navigateTo(AllProductListScreenRoute(productCondition: condition));
                     },
                   ))
             ],

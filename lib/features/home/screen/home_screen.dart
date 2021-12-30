@@ -1,3 +1,4 @@
+import 'package:account/account.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
@@ -5,7 +6,6 @@ import 'package:fluttercommerce/features/home/bloc/home_cubit.dart';
 import 'package:fluttercommerce/features/home/screen/dashboard_screen.dart';
 import 'package:fluttercommerce/features/home/state/home_state.dart';
 
-import '../../account/account/view/account_screen.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatelessWidget {

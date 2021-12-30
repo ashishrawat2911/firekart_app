@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:fluttercommerce/features/app/firebase/crashlytics_service.dart';
+import 'package:fluttercommerce/crashlytics_service.dart';
 import 'package:network/network.dart';
 
 class GlobalModule extends Module {

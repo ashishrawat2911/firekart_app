@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "32.0.0"
+  account:
+    dependency: "direct main"
+    description:
+      path: "features/account"
+      relative: true
+    source: path
+    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:
@@ -366,7 +373,7 @@ packages:
     source: hosted
     version: "1.5.3"
   firebase_crashlytics:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: firebase_crashlytics
       url: "https://pub.dartlang.org"
@@ -506,6 +513,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
+  intro:
+    dependency: "direct main"
+    description:
+      path: "features/intro"
+      relative: true
+    source: path
+    version: "0.0.1"
   io:
     dependency: transitive
     description:
@@ -541,6 +555,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  login:
+    dependency: "direct main"
+    description:
+      path: "features/login"
+      relative: true
+    source: path
+    version: "0.0.1"
   matcher:
     dependency: transitive
     description:
@@ -759,7 +780,7 @@ packages:
     source: hosted
     version: "1.0.1"
   shimmer:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shimmer
       url: "https://pub.dartlang.org"
