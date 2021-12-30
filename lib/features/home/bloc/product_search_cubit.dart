@@ -1,5 +1,5 @@
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/core/state_manager/state_manager.dart';
+import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
 import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 
@@ -8,15 +8,13 @@ class ProductSearchCubit extends StateManager<ProductSearchState> {
 
   FirebaseManager firebaseRepo;
 
-  void searchProduct(String query) async {
+  Future<void> searchProduct(String query) async {
     state = state.copyWith(loading: true);
     try {
-      var productSnapshot = await firebaseRepo.searchProducts(query);
+      final productSnapshot = await firebaseRepo.searchProducts(query);
 
-      final List<ProductModel> list =
-          List<ProductModel>.generate(productSnapshot.length, (index) {
-        final ProductModel productModel =
-            ProductModel.fromJson(productSnapshot[index]);
+      final List<ProductModel> list = List<ProductModel>.generate(productSnapshot.length, (index) {
+        final ProductModel productModel = ProductModel.fromJson(productSnapshot[index]);
         return productModel;
       });
 

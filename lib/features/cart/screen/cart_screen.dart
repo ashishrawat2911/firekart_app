@@ -15,8 +15,8 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<CartCubit, CartState>(
-      initState: (viewModel) {
+    return StateBuilder<CartCubit, CartState>(
+      onViewModelReady: (viewModel) {
         viewModel.init();
       },
       builder: (context, viewModel, state) {
@@ -38,37 +38,34 @@ class CartScreen extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(right: 10, left: 10, top: 21),
+          margin: const EdgeInsets.only(right: 10, left: 10, top: 21),
           child: Column(
             children: [
-              Container(
-                //  margin: EdgeInsets.only(bottom: 20),
-                child: Column(
-                  children: List<Widget>.generate(state.cartList.length, (index) {
-                    return CartItemCard(
-                      cartModel: state.cartList[index],
-                      index: index,
-                      cartDataLoading: state.cartItemDataLoading,
-                      onDecrement: (value) {
-                        viewModel.updateCartValues(index, true);
-                      },
-                      onDeleted: (value) {
-                        viewModel.deleteItem(index);
-                      },
-                      onIncrement: (value) {
-                        viewModel.updateCartValues(index, true);
-                      },
-                      margin: EdgeInsets.only(bottom: 20),
-                    );
-                  }),
-                ),
+              Column(
+                children: List<Widget>.generate(state.cartList.length, (index) {
+                  return CartItemCard(
+                    cartModel: state.cartList[index],
+                    index: index,
+                    cartDataLoading: state.cartItemDataLoading,
+                    onDecrement: (value) {
+                      viewModel.updateCartValues(index, true);
+                    },
+                    onDeleted: (value) {
+                      viewModel.deleteItem(index);
+                    },
+                    onIncrement: (value) {
+                      viewModel.updateCartValues(index, true);
+                    },
+                    margin: const EdgeInsets.only(bottom: 20),
+                  );
+                }),
               ),
               billDetails(state),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               deliverTo(state, viewModel),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
             ],
@@ -81,7 +78,7 @@ class CartScreen extends StatelessWidget {
   Widget applyCoupon() {
     return CommonCard(
         child: Container(
-      margin: EdgeInsets.only(left: 20, right: 14, top: 17, bottom: 17),
+      margin: const EdgeInsets.only(left: 20, right: 14, top: 17, bottom: 17),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -91,10 +88,10 @@ class CartScreen extends StatelessWidget {
                 Icons.local_offer,
                 color: AppColors.color81819A,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
-              Text(StringsConstants.applyCoupon),
+              const Text(StringsConstants.applyCoupon),
             ],
           ),
           Icon(
@@ -128,10 +125,10 @@ class CartScreen extends StatelessWidget {
             visible: !isFinal,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Divider()
+                const Divider()
               ],
             ),
           )
@@ -141,7 +138,7 @@ class CartScreen extends StatelessWidget {
 
     return CommonCard(
         child: Container(
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -149,7 +146,7 @@ class CartScreen extends StatelessWidget {
             StringsConstants.billDetails,
             style: AppTextStyles.t1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
 //          priceRow(
@@ -215,7 +212,7 @@ class CartScreen extends StatelessWidget {
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
                       style: AppTextStyles.t4,
                     ),
-                    ActionText(StringsConstants.viewDetailedBillCaps)
+                    const ActionText(StringsConstants.viewDetailedBillCaps)
                   ],
                 ),
               ),

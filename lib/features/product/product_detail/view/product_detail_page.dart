@@ -18,8 +18,8 @@ class ProductDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<ProductViewModel, AddToCartState>(
-      initState: (viewModel) {
+    return StateBuilder<ProductViewModel, AddToCartState>(
+      onViewModelReady: (viewModel) {
         viewModel.checkItemInCart(productModel.productId!);
         viewModel.listenToProduct(productModel.productId!);
       },
@@ -94,7 +94,7 @@ class ProductDetailPage extends StatelessWidget {
                         }),
               Expanded(
                   child: state.cartDataLoading
-                      ? Center(
+                      ? const Center(
                           child: CommonAppLoader(
                           size: 20,
                           strokeWidth: 3,
@@ -138,7 +138,7 @@ class ProductDetailPage extends StatelessWidget {
           ),
         ),
       ),
-      secondChild: SizedBox(
+      secondChild: const SizedBox(
           height: 30,
           width: 110,
           child: Center(

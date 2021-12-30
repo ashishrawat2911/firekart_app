@@ -3,14 +3,16 @@ import 'package:fluttercommerce/features/app/res/app_colors.dart';
 
 class CommonCard extends StatelessWidget {
   const CommonCard(
-      {Key? key, required this.child,
+      {Key? key,
+      required this.child,
       this.margin,
       this.borderRadius,
       this.elevation,
       this.padding,
       this.onTap,
       this.color})
-      : assert(child != null), super(key: key);
+      : assert(child != null),
+        super(key: key);
   final Widget child;
   final EdgeInsets? margin;
   final EdgeInsets? padding;

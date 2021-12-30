@@ -4,7 +4,6 @@ import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_account_detail/state/add_account_details_state.dart';
 import 'package:fluttercommerce/features/account/add_account_detail/view_model/add_account_details_view_model.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/common/widgets/action_text.dart';
@@ -25,8 +24,9 @@ class AddUserDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<AddAccountDetailsViewModel, AddAccountDetailsState>(
-      initState: (viewModel) {
+    return StateBuilder<AddAccountDetailsViewModel, AddAccountDetailsState>(
+      isProviderApplied: true,
+      onViewModelReady: (viewModel) {
         if (!newAddress) {
           viewModel.loadPreviousData();
         }
@@ -47,7 +47,7 @@ class AddUserDetailScreen extends StatelessWidget {
         ),
         body: Builder(builder: (BuildContext context) {
           if (state is Loading) {
-            return Center(child: CommonAppLoader());
+            return const Center(child: CommonAppLoader());
           } else {
             return saveDataView(state, context, viewModel);
           }
@@ -61,7 +61,7 @@ class AddUserDetailScreen extends StatelessWidget {
       child: Form(
         key: _formKey,
         child: Container(
-          margin: EdgeInsets.all(16),
+          margin: const EdgeInsets.all(16),
           child: Column(
             children: <Widget>[
               Visibility(
@@ -99,8 +99,8 @@ class AddUserDetailScreen extends StatelessWidget {
                 titleColor: AppColors.white,
                 height: 50,
                 isEnabled: isButtonEnabled(state),
-                replaceWithIndicator: state is SaveDataLoading ? true : false,
-                margin: EdgeInsets.only(bottom: 40),
+                replaceWithIndicator: state is SaveDataLoading,
+                margin: const EdgeInsets.only(bottom: 40),
                 onTap: () {
                   onButtonTap(viewModel);
                 },

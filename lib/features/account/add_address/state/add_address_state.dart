@@ -6,5 +6,6 @@ part 'add_address_state.freezed.dart';
 abstract class AddAddressState with _$AddAddressState {
   const factory AddAddressState({
     @Default(false) bool buttonLoading,
+    @Default(false) bool setAsDefault,
   }) = _AddAddressState;
 }

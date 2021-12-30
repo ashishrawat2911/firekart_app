@@ -136,19 +136,21 @@ class AppRouter extends _i14.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.SplashScreen]
+/// generated route for
+/// [_i1.SplashScreen]
 class SplashScreenRoute extends _i14.PageRouteInfo<void> {
-  const SplashScreenRoute() : super(name, path: '/');
+  const SplashScreenRoute() : super(SplashScreenRoute.name, path: '/');
 
   static const String name = 'SplashScreenRoute';
 }
 
-/// generated route for [_i2.CheckStatusScreen]
+/// generated route for
+/// [_i2.CheckStatusScreen]
 class CheckStatusScreenRoute
     extends _i14.PageRouteInfo<CheckStatusScreenRouteArgs> {
   CheckStatusScreenRoute(
       {_i15.Key? key, bool checkForAccountStatusOnly = false})
-      : super(name,
+      : super(CheckStatusScreenRoute.name,
             path: '/check-status-screen',
             args: CheckStatusScreenRouteArgs(
                 key: key,
@@ -171,24 +173,28 @@ class CheckStatusScreenRouteArgs {
   }
 }
 
-/// generated route for [_i3.HomeScreen]
+/// generated route for
+/// [_i3.HomeScreen]
 class HomeScreenRoute extends _i14.PageRouteInfo<void> {
-  const HomeScreenRoute() : super(name, path: '/home-screen');
+  const HomeScreenRoute() : super(HomeScreenRoute.name, path: '/home-screen');
 
   static const String name = 'HomeScreenRoute';
 }
 
-/// generated route for [_i4.LoginScreen]
+/// generated route for
+/// [_i4.LoginScreen]
 class LoginScreenRoute extends _i14.PageRouteInfo<void> {
-  const LoginScreenRoute() : super(name, path: '/login-screen');
+  const LoginScreenRoute()
+      : super(LoginScreenRoute.name, path: '/login-screen');
 
   static const String name = 'LoginScreenRoute';
 }
 
-/// generated route for [_i5.OtpLoginScreen]
+/// generated route for
+/// [_i5.OtpLoginScreen]
 class OtpLoginScreenRoute extends _i14.PageRouteInfo<OtpLoginScreenRouteArgs> {
   OtpLoginScreenRoute({String? phoneNumber, _i15.Key? key})
-      : super(name,
+      : super(OtpLoginScreenRoute.name,
             path: '/otp-login-screen',
             args: OtpLoginScreenRouteArgs(phoneNumber: phoneNumber, key: key));
 
@@ -208,12 +214,13 @@ class OtpLoginScreenRouteArgs {
   }
 }
 
-/// generated route for [_i6.ProductDetailPage]
+/// generated route for
+/// [_i6.ProductDetailPage]
 class ProductDetailPageRoute
     extends _i14.PageRouteInfo<ProductDetailPageRouteArgs> {
   ProductDetailPageRoute(
       {required _i16.ProductModel productModel, _i15.Key? key})
-      : super(name,
+      : super(ProductDetailPageRoute.name,
             path: '/product-detail-page',
             args: ProductDetailPageRouteArgs(
                 productModel: productModel, key: key));
@@ -234,11 +241,12 @@ class ProductDetailPageRouteArgs {
   }
 }
 
-/// generated route for [_i7.AddUserDetailScreen]
+/// generated route for
+/// [_i7.AddUserDetailScreen]
 class AddUserDetailScreenRoute
     extends _i14.PageRouteInfo<AddUserDetailScreenRouteArgs> {
   AddUserDetailScreenRoute({required bool newAddress, _i15.Key? key})
-      : super(name,
+      : super(AddUserDetailScreenRoute.name,
             path: '/add-user-detail-screen',
             args:
                 AddUserDetailScreenRouteArgs(newAddress: newAddress, key: key));
@@ -259,18 +267,20 @@ class AddUserDetailScreenRouteArgs {
   }
 }
 
-/// generated route for [_i8.CartScreen]
+/// generated route for
+/// [_i8.CartScreen]
 class CartScreenRoute extends _i14.PageRouteInfo<void> {
-  const CartScreenRoute() : super(name, path: '/cart-screen');
+  const CartScreenRoute() : super(CartScreenRoute.name, path: '/cart-screen');
 
   static const String name = 'CartScreenRoute';
 }
 
-/// generated route for [_i9.AllProductListScreen]
+/// generated route for
+/// [_i9.AllProductListScreen]
 class AllProductListScreenRoute
     extends _i14.PageRouteInfo<AllProductListScreenRouteArgs> {
   AllProductListScreenRoute({_i15.Key? key, String? productCondition})
-      : super(name,
+      : super(AllProductListScreenRoute.name,
             path: '/all-product-list-screen',
             args: AllProductListScreenRouteArgs(
                 key: key, productCondition: productCondition));
@@ -291,18 +301,21 @@ class AllProductListScreenRouteArgs {
   }
 }
 
-/// generated route for [_i10.SearchItemScreen]
+/// generated route for
+/// [_i10.SearchItemScreen]
 class SearchItemScreenRoute extends _i14.PageRouteInfo<void> {
-  const SearchItemScreenRoute() : super(name, path: '/search-item-screen');
+  const SearchItemScreenRoute()
+      : super(SearchItemScreenRoute.name, path: '/search-item-screen');
 
   static const String name = 'SearchItemScreenRoute';
 }
 
-/// generated route for [_i11.MyAddressScreen]
+/// generated route for
+/// [_i11.MyAddressScreen]
 class MyAddressScreenRoute
     extends _i14.PageRouteInfo<MyAddressScreenRouteArgs> {
   MyAddressScreenRoute({_i15.Key? key, bool selectedAddress = false})
-      : super(name,
+      : super(MyAddressScreenRoute.name,
             path: '/my-address-screen',
             args: MyAddressScreenRouteArgs(
                 key: key, selectedAddress: selectedAddress));
@@ -323,7 +336,8 @@ class MyAddressScreenRouteArgs {
   }
 }
 
-/// generated route for [_i12.AddAddressScreen]
+/// generated route for
+/// [_i12.AddAddressScreen]
 class AddAddressScreenRoute
     extends _i14.PageRouteInfo<AddAddressScreenRouteArgs> {
   AddAddressScreenRoute(
@@ -331,7 +345,7 @@ class AddAddressScreenRoute
       required _i17.AccountDetails accountDetails,
       _i15.Key? key,
       _i17.Address? editAddress})
-      : super(name,
+      : super(AddAddressScreenRoute.name,
             path: '/add-address-screen',
             args: AddAddressScreenRouteArgs(
                 newAddress: newAddress,
@@ -363,9 +377,11 @@ class AddAddressScreenRouteArgs {
   }
 }
 
-/// generated route for [_i13.MyOrdersScreen]
+/// generated route for
+/// [_i13.MyOrdersScreen]
 class MyOrdersScreenRoute extends _i14.PageRouteInfo<void> {
-  const MyOrdersScreenRoute() : super(name, path: '/my-orders-screen');
+  const MyOrdersScreenRoute()
+      : super(MyOrdersScreenRoute.name, path: '/my-orders-screen');
 
   static const String name = 'MyOrdersScreenRoute';
 }
