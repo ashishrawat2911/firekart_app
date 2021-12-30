@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:network/network.dart';
 
@@ -66,7 +64,9 @@ class FirebaseManager with FirebaseMixin {
     String? displayName,
     String? photoUrl,
   }) async {
-    (getCurrentUser())!.updateProfile(displayName: displayName, photoURL: photoUrl);
+    (getCurrentUser())!
+      ..updatePhotoURL(photoUrl)
+      ..updateDisplayName(displayName);
   }
 
   Future<bool> checkUserLoggedInStatus() async {
@@ -74,8 +74,9 @@ class FirebaseManager with FirebaseMixin {
       final user = getCurrentUser();
       if (user == null) {
         return false;
-      } else
+      } else {
         return true;
+      }
     } catch (e) {
       return false;
     }
@@ -120,7 +121,6 @@ class FirebaseManager with FirebaseMixin {
   Future<List<DocumentSnapshot>> getAllProductsData(
     String condition,
   ) async {
-    print(condition);
     final List<DocumentSnapshot> documentList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
     return documentList;
   }

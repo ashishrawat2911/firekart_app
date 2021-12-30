@@ -1,14 +1,10 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation/navigation.dart';
-import 'package:core/src/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/account/my_address/state/my_address_state.dart';
 import 'package:fluttercommerce/features/account/my_address/view_model/my_address_view_model.dart';
-import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/core.dart';
-import 'package:network/src/models/account_details_model.dart';
-import 'package:widgets/src/action_text.dart';
-import 'package:widgets/src/common_app_loader.dart';
+import 'package:navigation/navigation.dart';
+import 'package:network/network.dart';
+import 'package:widgets/widgets.dart';
 
 class MyAddressScreen extends StatelessWidget {
   const MyAddressScreen({Key? key, this.selectedAddress = false})

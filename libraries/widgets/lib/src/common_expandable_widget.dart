@@ -77,7 +77,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
             isOpened = !isOpened;
           });
         },
-        child: Container(
+        child: SizedBox(
           height: 52,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

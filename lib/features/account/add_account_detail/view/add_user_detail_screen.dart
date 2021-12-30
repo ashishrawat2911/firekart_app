@@ -37,7 +37,8 @@ class AddUserDetailScreen extends StatelessWidget {
       builder: (context, viewModel, state) => Scaffold(
         appBar: AppBar(
           elevation: 1,
-          title: Text("${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+          title: Text(
+              "${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
         ),
         body: Builder(builder: (BuildContext context) {
           if (state is Loading) {
@@ -50,7 +51,8 @@ class AddUserDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget saveDataView(AddAccountDetailsState state, BuildContext context, AddAccountDetailsViewModel viewModel) {
+  Widget saveDataView(AddAccountDetailsState state, BuildContext context,
+      AddAccountDetailsViewModel viewModel) {
     return SingleChildScrollView(
       child: Form(
         key: _formKey,

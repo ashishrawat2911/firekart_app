@@ -10,6 +10,5 @@ abstract class StateManager<S> extends Cubit<S> {
   @override
   void onChange(Change<S> change) {
     super.onChange(change);
-    print(change);
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:core/core.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/init/splash/state/splash_state.dart';
 
 class SplashViewModel extends StateManager<SplashState> {
@@ -12,7 +12,7 @@ class SplashViewModel extends StateManager<SplashState> {
     Timer(_duration, () {
       NavigationHandler.navigateTo(
         CheckStatusScreenRoute(),
-        navigationType: NavigationType.PushReplacement,
+        navigationType: NavigationType.pushReplacement,
       );
       emit(SplashSuccessState());
     });

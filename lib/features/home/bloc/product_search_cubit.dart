@@ -1,4 +1,4 @@
-import 'package:core/src/state_manager/state_manager.dart';
+import 'package:core/core.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 import 'package:network/network.dart';
 
@@ -12,8 +12,10 @@ class ProductSearchCubit extends StateManager<ProductSearchState> {
     try {
       final productSnapshot = await firebaseRepo.searchProducts(query);
 
-      final List<ProductModel> list = List<ProductModel>.generate(productSnapshot.length, (index) {
-        final ProductModel productModel = ProductModel.fromJson(productSnapshot[index]);
+      final List<ProductModel> list =
+          List<ProductModel>.generate(productSnapshot.length, (index) {
+        final ProductModel productModel =
+            ProductModel.fromJson(productSnapshot[index]);
         return productModel;
       });
 

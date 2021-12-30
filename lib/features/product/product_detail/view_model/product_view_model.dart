@@ -1,8 +1,5 @@
-import 'package:core/src/message_handler/message_handler.dart';
-import 'package:core/src/state_manager/state_manager.dart';
-import 'package:core/src/utils/connectivity.dart';
+import 'package:core/core.dart';
 import 'package:network/network.dart';
-import 'package:core/src/res/string_constants.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
 
 class ProductViewModel extends StateManager<AddToCartState> {

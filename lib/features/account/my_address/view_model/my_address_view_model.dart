@@ -1,8 +1,6 @@
-import 'package:core/src/message_handler/message_handler.dart';
-import 'package:core/src/state_manager/state_manager.dart';
+import 'package:core/core.dart';
 import 'package:fluttercommerce/features/account/my_address/state/my_address_state.dart';
 import 'package:network/network.dart';
-import 'package:network/src/models/account_details_model.dart';
 
 class MyAddressViewModel extends StateManager<MyAddressState> {
   MyAddressViewModel(this.firebaseRepo) : super(const MyAddressState());

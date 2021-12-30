@@ -1,5 +1,3 @@
-import 'package:core/src/global_listener/global_listener.dart';
-import 'package:core/src/di/di.dart';
 import 'package:network/network.dart';
 import 'package:fluttercommerce/features/home/bloc/dashboard_cubit.dart';
 import 'package:fluttercommerce/features/home/bloc/home_cubit.dart';

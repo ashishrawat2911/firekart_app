@@ -1,5 +1,5 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:core/src/di/di.dart';
 import 'package:fluttercommerce/features/init/check_status/view_model/check_status_bloc.dart';
 
 class CheckStatusScreen extends StatefulWidget {

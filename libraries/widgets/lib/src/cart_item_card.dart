@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
 import 'package:network/network.dart';
 import 'package:widgets/src/action_text.dart';
 import 'package:widgets/src/common_app_loader.dart';
 
-enum AddButton { Add, Minus }
+enum AddButton { add, minus }
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard({
@@ -61,14 +59,18 @@ class CartItemCard extends StatelessWidget {
                         children: [
                           Text(
                             cartModel.name,
-                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: AppColors.black),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: AppColors.black),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           Text(
                             "${cartModel.currency}${cartModel.currentPrice} / ${cartModel.quantityPerUnit} ${cartModel.unit}",
-                            style: TextStyle(fontSize: 14, color: AppColors.color81819A),
+                            style: TextStyle(
+                                fontSize: 14, color: AppColors.color81819A),
                           ),
                         ],
                       )
@@ -158,8 +160,9 @@ class CartItemCard extends StatelessWidget {
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,

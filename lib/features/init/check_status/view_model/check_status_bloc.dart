@@ -15,18 +15,18 @@ class CheckStatusBloc extends Cubit<int> {
         if (isUserDataPresent) {
           NavigationHandler.navigateTo(
             const HomeScreenRoute(),
-            navigationType: NavigationType.PushReplacement,
+            navigationType: NavigationType.pushReplacement,
           );
         } else {
           NavigationHandler.navigateTo(
             AddUserDetailScreenRoute(newAddress: true),
-            navigationType: NavigationType.PushReplacement,
+            navigationType: NavigationType.pushReplacement,
           );
         }
       } else {
         NavigationHandler.navigateTo(
           const LoginScreenRoute(),
-          navigationType: NavigationType.PushReplacement,
+          navigationType: NavigationType.pushReplacement,
         );
       }
     });

@@ -1,14 +1,8 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:core/src/global_listener/global_listener.dart';
 import 'package:navigation/navigation.dart';
-
-import 'package:core/src/di/di.dart';
 import 'package:network/network.dart';
-import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/core.dart';
-import 'package:network/src/models/account_details_model.dart';
-import 'package:widgets/src/action_text.dart';
+import 'package:widgets/widgets.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -23,7 +17,8 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     super.initState();
-    DI.container<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
+    DI.container<GlobalListener>().listen<AccountDetails>(
+        GlobalListenerConstants.accountDetails, (event) {
       setState(() {
         accountDetails = event;
       });
@@ -65,7 +60,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     ActionText(
                       StringsConstants.editCaps,
                       onTap: () {
-                        NavigationHandler.navigateTo(AddUserDetailScreenRoute(newAddress: false));
+                        NavigationHandler.navigateTo(
+                            AddUserDetailScreenRoute(newAddress: false));
                       },
                     ),
                   ],
@@ -93,7 +89,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 onTap: () {
                   DI.container<FirebaseManager>().logoutUser().then((value) {
                     NavigationHandler.navigateTo(const LoginScreenRoute(),
-                        navigationType: NavigationType.PushAndPopUntil, predicate: (route) => false);
+                        navigationType: NavigationType.pushAndPopUntil,
+                        predicate: (route) => false);
                   });
                 },
               ),

@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:core/src/message_handler/message_handler.dart';
+import 'package:core/core.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/state_manager/state_manager.dart';
 import 'package:network/network.dart';
 import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
 
@@ -37,7 +35,6 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
     }, verificationFailed: (authException) {
       MessageHandler.showSnackBar(title: authException.message);
       state = state.copyWith(error: authException.message);
-      print(authException.message);
     }, verificationCompleted: (AuthCredential auth) {
       state = state.copyWith(otp: '******');
 
@@ -66,7 +63,7 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
 
       NavigationHandler.navigateTo(
         CheckStatusScreenRoute(checkForAccountStatusOnly: true),
-        navigationType: NavigationType.PushAndPopUntil,
+        navigationType: NavigationType.pushAndPopUntil,
         predicate: (route) => false,
       );
     } catch (e) {

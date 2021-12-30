@@ -1,8 +1,5 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:core/src/state_manager/state_view_manager.dart';
-import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/core.dart';
 import 'package:fluttercommerce/features/cart/screen/cart_screen.dart';
 import 'package:fluttercommerce/features/home/bloc/home_cubit.dart';
 import 'package:fluttercommerce/features/home/screen/dashboard_screen.dart';
@@ -35,10 +32,8 @@ class HomeScreen extends StatelessWidget {
           showSelectedLabels: true,
           showUnselectedLabels: true,
           items: [
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.home), title: Text(StringsConstants.home)),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.search), title: Text(StringsConstants.search)),
+            const BottomNavigationBarItem(icon: Icon(Icons.home), label: (StringsConstants.home)),
+            const BottomNavigationBarItem(icon: Icon(Icons.search), label: (StringsConstants.search)),
             BottomNavigationBarItem(
                 icon: Stack(
                   children: <Widget>[
@@ -63,10 +58,8 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                title: const Text(StringsConstants.cart)),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                title: Text(StringsConstants.account)),
+                label: (StringsConstants.cart)),
+            const BottomNavigationBarItem(icon: Icon(Icons.person), label: (StringsConstants.account)),
           ],
           onTap: (index) {
             viewModel.bottomBarIndex = index;

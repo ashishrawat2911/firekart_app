@@ -4,14 +4,12 @@ import 'package:core/core.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
-  @override
-  final Key? key;
   final String? hint;
   final String? label;
   final String? initialValue;
   final TextEditingController? textEditingController;
   final TextInputType keyboardType;
-  final errorText;
+  final String errorText;
   final bool obscureText;
   final bool isEnabled;
   final TextCapitalization textCapitalization;
@@ -29,7 +27,7 @@ class CustomTextField extends StatefulWidget {
   final bool isValidatorRequired;
   final FocusNode? focusNode;
   final FocusNode? nextFocusNode;
-  final context;
+  final BuildContext? context;
   final Color? fillColor;
   final bool autoFocus;
   final TextInputAction? textInputAction;
@@ -45,7 +43,7 @@ class CustomTextField extends StatefulWidget {
   final Color? enabledBorderColor;
   final double? enabledBorderWidth;
 
-  CustomTextField({
+  const CustomTextField({
     this.textEditingController,
     this.hint,
     this.label,
@@ -67,7 +65,7 @@ class CustomTextField extends StatefulWidget {
     this.context,
     this.textInputAction,
     this.autoFocus = false,
-    this.key,
+    final Key? key,
     this.onSubmitted,
     this.inputFormat = true,
     this.numberInputFormatter = false,
@@ -92,10 +90,10 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   void _fieldFocusChange(
-      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+      BuildContext context, FocusNode currentFocus, FocusNode? nextFocus) {
     currentFocus.unfocus();
     if (nextFocus == null) {
-      nextFocus.unfocus();
+      nextFocus?.unfocus();
     }
     FocusScope.of(context).requestFocus(nextFocus);
   }
@@ -137,7 +135,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onFieldSubmitted: widget.onSubmitted ??
             (term) {
               _fieldFocusChange(
-                  widget.context, widget.focusNode!, widget.nextFocusNode!);
+                  widget.context!, widget.focusNode!, widget.nextFocusNode!);
             },
         decoration: InputDecoration(
           contentPadding: widget.contentPadding != null

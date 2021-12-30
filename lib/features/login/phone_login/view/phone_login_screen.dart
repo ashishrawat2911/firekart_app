@@ -2,12 +2,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/utils/validator.dart';
-import 'package:core/src/di/di.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/src/res/styles.dart';
 import 'package:core/core.dart';
-import 'package:widgets/src/commom_text_field.dart';
 import 'package:widgets/widgets.dart';
 
 import '../state/phone_login_state.dart';
@@ -32,7 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     phoneNumberController.addListener(() {
-      print(phoneNumberController.text);
       phoneLoginCubit.validateButton(phoneNumberController.text);
     });
   }
@@ -60,10 +54,8 @@ class _LoginScreenState extends State<LoginScreen> {
 //            floatingActionButton: _floatingActionButton(),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
-              body: Container(
-                child: Column(
-                  children: <Widget>[_loginCard()],
-                ),
+              body: Column(
+                children: <Widget>[_loginCard()],
               ),
             ),
           ),
@@ -103,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       phoneNumberNotifier.value = value.dialCode!;
                     },
                     initialSelection: 'IN',
-                    favorite: ['+91', 'IN'],
+                    favorite: const ['+91', 'IN'],
                     showCountryOnly: false,
                     showOnlyCountryWhenClosed: false,
                     alignLeft: false,

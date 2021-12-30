@@ -1,14 +1,7 @@
-import 'package:core/src/global_listener/global_listener.dart';
-import 'package:core/src/message_handler/message_handler.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/state_manager/state_manager.dart';
-import 'package:core/src/utils/connectivity.dart';
 import 'package:network/network.dart';
 import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
-import 'package:network/src/models/account_details_model.dart';
-import 'package:network/src/models/order_model.dart';
 
 class CartCubit extends StateManager<CartState> {
   CartCubit(this.firebaseRepo, this.globalListener) : super(const CartState());
@@ -55,7 +48,7 @@ class CartCubit extends StateManager<CartState> {
         if (NavigationHandler.canNavigateBack()) {
           NavigationHandler.navigateTo(
             const MyOrdersScreenRoute(),
-            navigationType: NavigationType.PushReplacement,
+            navigationType: NavigationType.pushReplacement,
           );
         }
       } catch (e) {
@@ -96,7 +89,6 @@ class CartCubit extends StateManager<CartState> {
       price: cartModel.priceInCart,
       orderAddress: orderAddress,
     );
-    print(orderModel);
     return orderModel;
   }
 

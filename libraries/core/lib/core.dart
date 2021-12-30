@@ -25,3 +25,4 @@ export 'src/utils/date_time_util.dart';
 export 'src/utils/firebase_error.dart';
 export 'src/utils/url_launcher.dart';
 export 'src/utils/validator.dart';
+export 'src/state_manager/app_cubit_observer.dart';

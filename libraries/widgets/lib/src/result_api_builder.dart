@@ -8,7 +8,7 @@ typedef ReturnWidget = Widget Function();
 typedef ResultDataWidget<T> = Widget Function(T value);
 
 class ResultStateBuilder<T> extends StatelessWidget {
-  ResultStateBuilder(
+  const ResultStateBuilder(
       {required this.state,
       required this.dataWidget,
       required this.loadingWidget,
