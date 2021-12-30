@@ -5,8 +5,6 @@ name: my_project
 packages:
   - features/**
   - libraries/**
-#  core - navigation, common, Resources
-#  core -
 
 scripts:
   analyze:
@@ -53,4 +51,3 @@ scripts:
       melos checkout
       melos format
       melos generate
-      git commit -m 'Refactor'

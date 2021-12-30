@@ -16,6 +16,8 @@ dependencies:
   get_it: ^7.2.0
   flutter_bloc: ^8.0.0
   freezed: ^1.0.0
+  shimmer: ^2.0.0
+  firebase_crashlytics: ^2.3.0
 
 
 

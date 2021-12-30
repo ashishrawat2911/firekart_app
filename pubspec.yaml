@@ -18,13 +18,19 @@ dependencies:
   network:
     path: libraries/network
 
+#  Features
+  intro:
+    path: features/intro
+  account:
+    path: features/account
+  login:
+    path: features/login
+
   cupertino_icons: ^1.0.4
   cached_network_image: ^3.1.0+1
-  shimmer: ^2.0.0
   package_info: ^2.0.2
   smooth_page_indicator: ^1.0.0+2
   freezed: ^1.0.0
-  firebase_crashlytics: ^2.3.0
 
   #  razorpay_flutter: ^1.2.7
   country_code_picker: ^2.0.2

@@ -11,6 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   auto_route: ^3.1.3
+  intro:
+    path: ../../features/intro
+  account:
+    path: ../../features/account
+  login:
+    path: ../../features/login
+
   fluttercommerce:
     path: ../../../flutter_commerce
   core:
