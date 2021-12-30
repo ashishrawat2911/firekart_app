@@ -1,8 +1,8 @@
 import 'package:fluttercommerce/features/account/account_module.dart';
-import 'package:fluttercommerce/features/app/app_module.dart';
+import 'package:fluttercommerce/global_module.dart';
 import 'package:fluttercommerce/features/cart/checkout_module.dart';
 import 'package:fluttercommerce/features/login/login_module.dart';
-import 'package:fluttercommerce/features/module.dart';
+import 'package:core/core.dart';
 import 'package:fluttercommerce/features/order/order_module.dart';
 import 'package:fluttercommerce/features/product/product_module.dart';
 
@@ -14,7 +14,7 @@ class ModuleInit {
 
   static final _modules = <Module>[
     /// Should call first as App level configuration will be defined
-    AppModule(),
+    GlobalModule(),
 
     HomeModule(),
     InitialModule(),

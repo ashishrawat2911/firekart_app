@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/global_listener/global_listener.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/res/global_listener_constants.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/widgets/action_text.dart';
+import 'package:core/src/global_listener/global_listener.dart';
+import 'package:navigation/navigation.dart';
+
+import 'package:core/src/di/di.dart';
+import 'package:network/network.dart';
+import 'package:core/core.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/core.dart';
+import 'package:network/src/models/account_details_model.dart';
+import 'package:widgets/src/action_text.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);

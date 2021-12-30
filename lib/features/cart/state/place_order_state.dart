@@ -8,7 +8,8 @@ abstract class PlaceOrderState with _$PlaceOrderState {
 
   const factory PlaceOrderState.orderPlacedInProgress() = OrderPlacedInProgress;
 
-  const factory PlaceOrderState.orderSuccessfullyPlaced() = OrderSuccessfullyPlaced;
+  const factory PlaceOrderState.orderSuccessfullyPlaced() =
+      OrderSuccessfullyPlaced;
 
   const factory PlaceOrderState.orderNotPlaced(String message) = OrderNotPlaced;
 }

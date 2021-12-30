@@ -1,14 +1,13 @@
+import 'package:core/core.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/src/state_manager/state_view_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
 import 'package:fluttercommerce/features/cart/bloc/cart_cubit.dart';
 import 'package:fluttercommerce/features/cart/state/cart_state.dart';
-import 'package:fluttercommerce/features/common/widgets/action_text.dart';
-import 'package:fluttercommerce/features/common/widgets/cart_item_card.dart';
-import 'package:fluttercommerce/features/common/widgets/common_button.dart';
-import 'package:fluttercommerce/features/common/widgets/common_card.dart';
+import 'package:widgets/src/action_text.dart';
+import 'package:widgets/src/cart_item_card.dart';
+import 'package:widgets/widgets.dart';
+import 'package:widgets/src/common_card.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -124,11 +123,11 @@ class CartScreen extends StatelessWidget {
           Visibility(
             visible: !isFinal,
             child: Column(
-              children: [
-                const SizedBox(
+              children: const [
+                SizedBox(
                   height: 15,
                 ),
-                const Divider()
+                Divider()
               ],
             ),
           )

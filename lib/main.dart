@@ -1,14 +1,14 @@
 import 'dart:async';
 
+import 'package:core/src/di/di.dart';
+import 'package:core/src/state_manager/app_cubit_observer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/crashlytics_service.dart';
-import 'package:fluttercommerce/features/common/bloc/app_cubit_observer.dart';
 import 'package:fluttercommerce/features/module_init.dart';
 
-import 'features/app/view/app.dart';
+import 'app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ Future<void> main() async {
   runZonedGuarded(() {
     BlocOverrides.runZoned(
       () {},
-      blocObserver: MyBlocObserver(),
+      blocObserver: MyStateObserver(),
     );
     runApp(const App());
   }, (error, stack) {

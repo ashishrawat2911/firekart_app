@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/di/di.dart';
+import 'package:core/src/di/di.dart';
 import 'package:fluttercommerce/features/init/check_status/view_model/check_status_bloc.dart';
 
 class CheckStatusScreen extends StatefulWidget {
-  const CheckStatusScreen({Key? key, this.checkForAccountStatusOnly = false}) : super(key: key);
+  const CheckStatusScreen({Key? key, this.checkForAccountStatusOnly = false})
+      : super(key: key);
 
   final bool checkForAccountStatusOnly;
 

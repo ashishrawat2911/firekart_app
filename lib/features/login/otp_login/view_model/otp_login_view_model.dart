@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttercommerce/core/message_handler/message_handler.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:core/src/message_handler/message_handler.dart';
+import 'package:navigation/navigation.dart';
+import 'package:core/src/state_manager/state_manager.dart';
+import 'package:network/network.dart';
 import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
 
 class OtpLoginViewModel extends StateManager<OtpLoginState> {
@@ -22,11 +22,13 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
   }
 
   Future<void> sendOtp(String phoneNumber) async {
-    _firebaseManager.sendCode(phoneNumber, codeSent: (String verificationId, [int? forceResendingToken]) async {
+    _firebaseManager.sendCode(phoneNumber,
+        codeSent: (String verificationId, [int? forceResendingToken]) async {
       _verificationId = verificationId;
       Timer.periodic(const Duration(seconds: 60), (timer) {
         state = state.copyWith(
-          codeCountDown: "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
+          codeCountDown:
+              "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
         );
       });
     }, codeAutoRetrievalTimeout: (String verificationId) {
@@ -52,7 +54,8 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
       resendOtpLoading: isResend,
     );
 
-    final _credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: smsCode);
+    final _credential = PhoneAuthProvider.credential(
+        verificationId: _verificationId, smsCode: smsCode);
     _login(_credential);
   }
 

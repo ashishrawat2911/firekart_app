@@ -1,10 +1,9 @@
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
-import 'package:fluttercommerce/core/utils/connectivity.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/common/models/product_model.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/src/state_manager/state_manager.dart';
+import 'package:core/src/utils/connectivity.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:fluttercommerce/features/home/state/dashboard_state.dart';
+import 'package:network/network.dart';
 
 enum ProductData { DealOfTheDay, OnSale, TopProducts }
 

@@ -1,8 +1,8 @@
-import 'package:fluttercommerce/core/message_handler/message_handler.dart';
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
+import 'package:core/src/message_handler/message_handler.dart';
+import 'package:core/src/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/account/my_address/state/my_address_state.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
+import 'package:network/network.dart';
+import 'package:network/src/models/account_details_model.dart';
 
 class MyAddressViewModel extends StateManager<MyAddressState> {
   MyAddressViewModel(this.firebaseRepo) : super(const MyAddressState());
@@ -17,7 +17,8 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
     final List<AddressCardState> cardStates = [];
 
     for (int i = 0; i < accountDetails.addresses.length; i++) {
-      cardStates.add(AddressCardState(address: accountDetails.addresses[i], index: i));
+      cardStates.add(
+          AddressCardState(address: accountDetails.addresses[i], index: i));
     }
     state = state.copyWith(
       accountDetails: accountDetails,
@@ -28,7 +29,8 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
   Future<void> fetchAccountDetails() async {
     state = state.copyWith(screenLoading: true);
     try {
-      final AccountDetails accountDetails = await firebaseRepo.fetchUserDetails();
+      final AccountDetails accountDetails =
+          await firebaseRepo.fetchUserDetails();
       accountDetails.addresses = accountDetails.addresses.reversed.toList();
       setAddress(accountDetails);
     } catch (e) {

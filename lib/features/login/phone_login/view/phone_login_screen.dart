@@ -1,14 +1,14 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/styles.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
-import 'package:fluttercommerce/features/common/widgets/common_button.dart';
+import 'package:navigation/navigation.dart';
+import 'package:core/src/utils/validator.dart';
+import 'package:core/src/di/di.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/src/res/styles.dart';
+import 'package:core/core.dart';
+import 'package:widgets/src/commom_text_field.dart';
+import 'package:widgets/widgets.dart';
 
 import '../state/phone_login_state.dart';
 import '../view_model/phone_login_view_model.dart';
@@ -58,7 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.transparent,
               // backgroundColor: Styles.transparent,
 //            floatingActionButton: _floatingActionButton(),
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
               body: Container(
                 child: Column(
                   children: <Widget>[_loginCard()],
@@ -147,8 +148,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(
-              OtpLoginScreenRoute(phoneNumber: phoneNumberNotifier.value + phoneNumberController.text))
+      NavigationHandler.navigateTo(OtpLoginScreenRoute(
+              phoneNumber:
+                  phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
         if (value != null && value as bool) {
           phoneNumberController.clear();
