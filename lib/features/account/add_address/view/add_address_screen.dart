@@ -33,23 +33,19 @@ class AddAddressScreen extends StatelessWidget {
   final FocusNode phoneFocusNode = FocusNode();
   final Validator validator = Validator();
 
-  late bool setAsDefault;
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<AddAddressViewModel, AddAddressState>(
-      initState: (viewModel) {
-        setAsDefault = false;
+    return StateBuilder<AddAddressViewModel, AddAddressState>(
+      onViewModelReady: (viewModel) {
         if (editAddress != null) {
-          final Address address = editAddress!;
-          nameEditingController.text = address.name;
-          pincodeEditingController.text = address.pincode;
-          addressEditingController.text = address.address;
-          cityEditingController.text = address.city;
-          phoneEditingController.text = address.phoneNumber;
-          setAsDefault = address.isDefault;
+          nameEditingController.text = editAddress!.name;
+          pincodeEditingController.text = editAddress!.pincode;
+          addressEditingController.text = editAddress!.address;
+          cityEditingController.text = editAddress!.city;
+          phoneEditingController.text = editAddress!.phoneNumber;
+          viewModel.setDefault(editAddress!.isDefault);
         }
       },
       builder: (context, viewModel, state) => Scaffold(
@@ -60,7 +56,7 @@ class AddAddressScreen extends StatelessWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 30),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -105,7 +101,7 @@ class AddAddressScreen extends StatelessWidget {
                       },
                       // containerHeight: 50,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     CustomTextField(
@@ -182,13 +178,11 @@ class AddAddressScreen extends StatelessWidget {
                         StatefulBuilder(
                           builder: (BuildContext context, void Function(void Function()) setState) {
                             return Checkbox(
-                              value: setAsDefault,
+                              value: state.setAsDefault,
                               onChanged: (bool? value) {
-                                setState(() {
-                                  if (value != null) {
-                                    setAsDefault = value;
-                                  }
-                                });
+                                if (value != null) {
+                                  viewModel.setDefault(value);
+                                }
                               },
                             );
                           },
@@ -209,7 +203,7 @@ class AddAddressScreen extends StatelessWidget {
                       replaceWithIndicator: state.buttonLoading,
                       margin: const EdgeInsets.only(bottom: 40),
                       onTap: () {
-                        onButtonTap(viewModel);
+                        onButtonTap(viewModel, state);
                       },
                     ),
                   ],
@@ -222,13 +216,13 @@ class AddAddressScreen extends StatelessWidget {
     );
   }
 
-  void onButtonTap(AddAddressViewModel viewModel) {
+  void onButtonTap(AddAddressViewModel viewModel, AddAddressState state) {
     if (_formKey.currentState!.validate()) {
       final Address address = Address(
           name: nameEditingController.text,
           address: addressEditingController.text,
           city: cityEditingController.text,
-          isDefault: setAsDefault,
+          isDefault: state.setAsDefault,
           pincode: pincodeEditingController.text,
           //todo add the country picker
           phoneNumber: "+91${phoneEditingController.text}",

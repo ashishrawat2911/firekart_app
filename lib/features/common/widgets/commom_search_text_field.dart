@@ -31,7 +31,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
           style: AppTextStyles.t20,
           decoration: InputDecoration(
               hintText: widget.hint,
-              contentPadding: EdgeInsets.only(top: 25),
+              contentPadding: const EdgeInsets.only(top: 25),
               prefixIcon: Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Icon(
@@ -105,7 +105,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
         },
         decoration: InputDecoration(
             hintText: widget.hintText,
-            contentPadding: EdgeInsets.only(top: 25),
+            contentPadding: const EdgeInsets.only(top: 25),
             prefixIcon: Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: Icon(
@@ -116,7 +116,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
             suffixIcon: Visibility(
                 visible: showCross,
                 child: IconButton(
-                    icon: Icon(Icons.clear),
+                    icon: const Icon(Icons.clear),
                     onPressed: () {
                       if (textEditingController.text == "") {
                         if (widget.onClosePressed != null) {

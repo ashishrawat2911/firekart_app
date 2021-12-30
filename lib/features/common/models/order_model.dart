@@ -5,16 +5,6 @@ part 'order_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class OrderModel {
-  String? orderId;
-  num? price;
-  List<OrderItem>? orderItems;
-  String? orderedAt;
-  String? orderStatus;
-  String? currency;
-  String? paymentId;
-  String? signature;
-  Address? orderAddress;
-
   OrderModel(
       {this.orderId,
       this.price,
@@ -27,6 +17,15 @@ class OrderModel {
       this.orderAddress});
 
   factory OrderModel.fromJson(json) => _$OrderModelFromJson(json);
+  String? orderId;
+  num? price;
+  List<OrderItem>? orderItems;
+  String? orderedAt;
+  String? orderStatus;
+  String? currency;
+  String? paymentId;
+  String? signature;
+  Address? orderAddress;
 
   Map<String, dynamic> toJson() => _$OrderModelToJson(this);
 
@@ -38,22 +37,7 @@ class OrderModel {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class OrderItem {
-  String? productId;
-  String? image;
-  String? name;
-  String? unit;
-  String? currency;
-  num? price;
-  num? noOfItems;
-
-  OrderItem(
-      {this.productId,
-      this.image,
-      this.name,
-      this.unit,
-      this.currency,
-      this.price,
-      this.noOfItems});
+  OrderItem({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
 
   factory OrderItem.fromJson(json) {
     return OrderItem(
@@ -66,6 +50,16 @@ class OrderItem {
       noOfItems: json['no_of_items'] as num,
     );
   }
+
+  String? productId;
+  String? image;
+  String? name;
+  String? unit;
+  String? currency;
+  num? price;
+  num? noOfItems;
+
+
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'product_id': productId,

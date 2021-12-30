@@ -24,8 +24,8 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<DashboardCubit, DashboardState>(
-      initState: (viewModel) {
+    return StateBuilder<DashboardCubit, DashboardState>(
+      onViewModelReady: (viewModel) {
         fetchProductData(viewModel);
       },
       builder: (context, viewModel, state) => Scaffold(
@@ -90,8 +90,8 @@ class DashboardScreen extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(left: 10, right: 10),
         child: GridView.count(
-          physics: NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.only(bottom: 10),
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.only(bottom: 10),
           crossAxisCount: 3,
           shrinkWrap: true,
           mainAxisSpacing: 10,
@@ -158,11 +158,11 @@ class DashboardScreen extends StatelessWidget {
   Widget productsGrids(String title, List<ProductModel> products) {
     if (products == null) return Container();
     return Container(
-      margin: EdgeInsets.only(left: 16),
+      margin: const EdgeInsets.only(left: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
@@ -173,7 +173,7 @@ class DashboardScreen extends StatelessWidget {
                 style: AppTextStyles.t27,
               ),
               Container(
-                  margin: EdgeInsets.only(right: 16),
+                  margin: const EdgeInsets.only(right: 16),
                   child: ActionText(
                     StringsConstants.viewAllCaps,
                     onTap: () {

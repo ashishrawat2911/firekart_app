@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
 
@@ -13,23 +14,23 @@ class AppTheme {
       primaryColor: AppColors.primaryColor,
       backgroundColor: AppColors.backGroundColor,
       scaffoldBackgroundColor: AppColors.white,
-      cardTheme: CardTheme(elevation: 1, margin: EdgeInsets.only()),
+      cardTheme: const CardTheme(elevation: 1, margin: const EdgeInsets.only()),
       indicatorColor: AppColors.primaryColor,
-      buttonTheme: ButtonThemeData(),
+      buttonTheme: const ButtonThemeData(),
       tabBarTheme: TabBarTheme(
         labelColor: AppColors.black,
         // unselectedLabelColor: AppColors.color8897A4,
-        labelStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
-        unselectedLabelStyle: TextStyle(fontSize: 14),
+        labelStyle: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+        unselectedLabelStyle: const TextStyle(fontSize: 14),
         indicatorSize: TabBarIndicatorSize.tab,
       ),
       appBarTheme: AppBarTheme(
         color: AppColors.white,
-        brightness: Brightness.light,
         elevation: 0,
         iconTheme: IconThemeData(color: AppColors.primaryColor),
-        titleTextStyle: AppTextStyles.t26,
-      ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
+        titleTextStyle: AppTextStyles.t26, systemOverlayStyle: SystemUiOverlayStyle.dark,
+      ),
+      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
     );
   }
 }

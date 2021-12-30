@@ -91,8 +91,7 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  void _fieldFocusChange(
-      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+  void _fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
     currentFocus.unfocus();
     if (nextFocus == null) {
       nextFocus.unfocus();
@@ -106,7 +105,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       height: widget.containerHeight,
       alignment: Alignment.center,
       child: TextFormField(
-        maxLengthEnforcement: MaxLengthEnforcement.none, autovalidateMode: AutovalidateMode.disabled, enabled: widget.isEnabled,
+        maxLengthEnforcement: MaxLengthEnforcement.none,
+        autovalidateMode: AutovalidateMode.disabled,
+        enabled: widget.isEnabled,
         key: widget.key,
         autofocus: widget.autoFocus,
         textAlign: TextAlign.left,
@@ -134,24 +135,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onChanged: widget.onChanged,
         onFieldSubmitted: widget.onSubmitted ??
             (term) {
-              _fieldFocusChange(
-                  widget.context, widget.focusNode!, widget.nextFocusNode!);
+              _fieldFocusChange(widget.context, widget.focusNode!, widget.nextFocusNode!);
             },
         decoration: InputDecoration(
           contentPadding: widget.contentPadding != null
-              ? EdgeInsets.symmetric(
-                  horizontal: widget.contentPadding!, vertical: 2)
+              ? EdgeInsets.symmetric(horizontal: widget.contentPadding!, vertical: 2)
               : null,
           fillColor: widget.fillColor ?? AppColors.colorF6F5F8,
           filled: true,
           hintText: widget.hint,
           suffixIcon: widget.suffix,
           prefixIcon: widget.prefix,
-          hintStyle: widget.hint!.length < 30
-              ? widget.hintStyle
-              : TextStyle(fontSize: 15, color: AppColors.color969696),
+          hintStyle:
+              widget.hint!.length < 30 ? widget.hintStyle : TextStyle(fontSize: 15, color: AppColors.color969696),
           errorStyle: widget.errorStyle ??
-              TextStyle(
+              const TextStyle(
                   // color: AppColors.errorRed,
                   // fontSize: 0,
                   ),
@@ -159,15 +157,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
             // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(color: AppColors.white, width: 0.0),
           ),
-          disabledBorder: OutlineInputBorder(
+          disabledBorder: const OutlineInputBorder(
             // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(color: Colors.transparent, width: 0.0),
           ),
           enabledBorder: OutlineInputBorder(
             //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
-            borderSide: BorderSide(
-                color: widget.enabledBorderColor!,
-                width: widget.enabledBorderWidth ?? 1.0),
+            borderSide: BorderSide(color: widget.enabledBorderColor!, width: widget.enabledBorderWidth ?? 1.0),
           ),
 //          errorBorder: OutlineInputBorder(
 //              //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),

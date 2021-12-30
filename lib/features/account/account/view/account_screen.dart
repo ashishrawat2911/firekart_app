@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/global_listener/global_listener.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/di/di.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/core/global_listener/global_listener.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/features/app/res/global_listener_constants.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
@@ -23,8 +22,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     super.initState();
-    DI.container<GlobalListener>().listen<AccountDetails>(
-        GlobalListenerConstants.accountDetails, (event) {
+    DI.container<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
       setState(() {
         accountDetails = event;
       });
@@ -35,74 +33,70 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(left: 16, right: 16, top: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      if (accountDetails == null)
-                        Container()
-                      else
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              accountDetails!.name,
-                              style: AppTextStyles.t33,
-                            ),
-                            Text(
-                              accountDetails!.phoneNumber ?? '',
-                              style: AppTextStyles.t28,
-                            ),
-                          ],
-                        ),
-                      SizedBox(
-                        height: 10,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(left: 16, right: 16, top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    if (accountDetails == null)
+                      Container()
+                    else
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            accountDetails!.name,
+                            style: AppTextStyles.t33,
+                          ),
+                          Text(
+                            accountDetails!.phoneNumber ?? '',
+                            style: AppTextStyles.t28,
+                          ),
+                        ],
                       ),
-                      ActionText(
-                        StringsConstants.editCaps,
-                        onTap: () {
-                          NavigationHandler.navigateTo(
-                              AddUserDetailScreenRoute(newAddress: false));
-                        },
-                      ),
-                    ],
-                  ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ActionText(
+                      StringsConstants.editCaps,
+                      onTap: () {
+                        NavigationHandler.navigateTo(AddUserDetailScreenRoute(newAddress: false));
+                      },
+                    ),
+                  ],
                 ),
-                Divider(),
-                ListTile(
-                  title: Text(StringsConstants.myOrders),
-                  leading: Icon(Icons.shopping_basket),
-                  onTap: () {
-                    NavigationHandler.navigateTo(MyOrdersScreenRoute());
-                  },
-                ),
-                ListTile(
-                  title: Text(StringsConstants.myAddress),
-                  leading: Icon(Icons.place),
-                  onTap: () {
-                    NavigationHandler.navigateTo(MyAddressScreenRoute());
-                  },
-                ),
-                Divider(),
-                ListTile(
-                  title: Text(StringsConstants.logout),
-                  leading: Icon(Icons.exit_to_app),
-                  onTap: () {
-                    DI.container<FirebaseManager>().logoutUser().then((value) {
-                      NavigationHandler.navigateTo(LoginScreenRoute(),
-                          navigationType: NavigationType.PushAndPopUntil,
-                          predicate: (route) => false);
-                    });
-                  },
-                ),
-              ],
-            ),
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text(StringsConstants.myOrders),
+                leading: const Icon(Icons.shopping_basket),
+                onTap: () {
+                  NavigationHandler.navigateTo(const MyOrdersScreenRoute());
+                },
+              ),
+              ListTile(
+                title: const Text(StringsConstants.myAddress),
+                leading: const Icon(Icons.place),
+                onTap: () {
+                  NavigationHandler.navigateTo(MyAddressScreenRoute());
+                },
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text(StringsConstants.logout),
+                leading: const Icon(Icons.exit_to_app),
+                onTap: () {
+                  DI.container<FirebaseManager>().logoutUser().then((value) {
+                    NavigationHandler.navigateTo(const LoginScreenRoute(),
+                        navigationType: NavigationType.PushAndPopUntil, predicate: (route) => false);
+                  });
+                },
+              ),
+            ],
           ),
         ),
       ),

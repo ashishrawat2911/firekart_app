@@ -1,8 +1,8 @@
+import 'package:fluttercommerce/core/message_handler/message_handler.dart';
+import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
+import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/account/add_address/state/add_address_state.dart';
 import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/core/message_handler/message_handler.dart';
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/common/models/account_details_model.dart';
 
 class AddAddressViewModel extends StateManager<AddAddressState> {
@@ -10,8 +10,7 @@ class AddAddressViewModel extends StateManager<AddAddressState> {
 
   final FirebaseManager _firebaseRepo;
 
-  Future<void> saveAddress(
-      AccountDetails accountDetails, Address address) async {
+  Future<void> saveAddress(AccountDetails accountDetails, Address address) async {
     state = state.copyWith(buttonLoading: true);
 
     if (address.isDefault) {
@@ -27,5 +26,9 @@ class AddAddressViewModel extends StateManager<AddAddressState> {
     }).whenComplete(() {
       state = state.copyWith(buttonLoading: false);
     });
+  }
+
+  void setDefault(bool isDefault) {
+    state.copyWith(setAsDefault: isDefault);
   }
 }

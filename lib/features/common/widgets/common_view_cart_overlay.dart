@@ -21,9 +21,7 @@ class CommonViewCartOverlay extends StatelessWidget {
             height: 50,
             margin: const EdgeInsets.all(20),
             padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: AppColors.primaryColor,
-                borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(10)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -55,9 +53,7 @@ class CommonViewCartOverlay extends StatelessWidget {
             ),
           ),
           secondChild: const SizedBox(),
-          crossFadeState: state.cartList.noOfItemsInCart > 0
-              ? CrossFadeState.showFirst
-              : CrossFadeState.showSecond,
+          crossFadeState: state.cartList.noOfItemsInCart > 0 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         );
       },
     );

@@ -3,7 +3,6 @@ import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
 import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
 import 'package:fluttercommerce/features/account/my_address/state/my_address_state.dart';
 import 'package:fluttercommerce/features/account/my_address/view_model/my_address_view_model.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
 import 'package:fluttercommerce/features/app/res/app_colors.dart';
 import 'package:fluttercommerce/features/app/res/string_constants.dart';
 import 'package:fluttercommerce/features/app/res/text_styles.dart';
@@ -18,15 +17,16 @@ class MyAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateViewManager<MyAddressViewModel, MyAddressState>(
-      initState: (viewModel) {
+    return StateProvider<MyAddressViewModel>(
+      onViewModelReady: (viewModel) {
         viewModel.fetchAccountDetails();
       },
-      builder: (context, viewModel, state) => Scaffold(
+      child: Scaffold(
         appBar: AppBar(
             elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
-        body: Builder(
-          builder: (BuildContext context) {
+        body: StateBuilder<MyAddressViewModel, MyAddressState>(
+          // buildWhen: (previous, current) => previous.accountDetails != current.accountDetails,
+          builder: (BuildContext context, viewModel, state) {
             if (state.addressStates.isEmpty) {
               return noAddressesFound(state.accountDetails!, viewModel);
             } else if (state.screenError != null) {
@@ -47,11 +47,11 @@ class MyAddressScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 22,
             ),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -180,7 +180,7 @@ class MyAddressScreen extends StatelessWidget {
                             width: 30,
                           ),
                           if (addressCardState.editLoading)
-                            CommonAppLoader(
+                            const CommonAppLoader(
                               size: 20,
                             )
                           else
@@ -195,9 +195,9 @@ class MyAddressScreen extends StatelessWidget {
                       Visibility(
                         visible: !addressCardState.address.isDefault,
                         child: Container(
-                            margin: EdgeInsets.only(left: 20),
+                            margin: const EdgeInsets.only(left: 20),
                             child: addressCardState.setDefaultLoading
-                                ? CommonAppLoader(
+                                ? const CommonAppLoader(
                                     size: 20,
                                   )
                                 : ActionText(

@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AddAddressStateTearOff {
   const _$AddAddressStateTearOff();
 
-  _AddAddressState call({bool buttonLoading = false}) {
+  _AddAddressState call(
+      {bool buttonLoading = false, bool setAsDefault = false}) {
     return _AddAddressState(
       buttonLoading: buttonLoading,
+      setAsDefault: setAsDefault,
     );
   }
 }
@@ -30,6 +32,7 @@ const $AddAddressState = _$AddAddressStateTearOff();
 /// @nodoc
 mixin _$AddAddressState {
   bool get buttonLoading => throw _privateConstructorUsedError;
+  bool get setAsDefault => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddAddressStateCopyWith<AddAddressState> get copyWith =>
@@ -41,7 +44,7 @@ abstract class $AddAddressStateCopyWith<$Res> {
   factory $AddAddressStateCopyWith(
           AddAddressState value, $Res Function(AddAddressState) then) =
       _$AddAddressStateCopyWithImpl<$Res>;
-  $Res call({bool buttonLoading});
+  $Res call({bool buttonLoading, bool setAsDefault});
 }
 
 /// @nodoc
@@ -56,11 +59,16 @@ class _$AddAddressStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? buttonLoading = freezed,
+    Object? setAsDefault = freezed,
   }) {
     return _then(_value.copyWith(
       buttonLoading: buttonLoading == freezed
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      setAsDefault: setAsDefault == freezed
+          ? _value.setAsDefault
+          : setAsDefault // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -73,7 +81,7 @@ abstract class _$AddAddressStateCopyWith<$Res>
           _AddAddressState value, $Res Function(_AddAddressState) then) =
       __$AddAddressStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool buttonLoading});
+  $Res call({bool buttonLoading, bool setAsDefault});
 }
 
 /// @nodoc
@@ -90,11 +98,16 @@ class __$AddAddressStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? buttonLoading = freezed,
+    Object? setAsDefault = freezed,
   }) {
     return _then(_AddAddressState(
       buttonLoading: buttonLoading == freezed
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      setAsDefault: setAsDefault == freezed
+          ? _value.setAsDefault
+          : setAsDefault // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -103,15 +116,19 @@ class __$AddAddressStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AddAddressState implements _AddAddressState {
-  const _$_AddAddressState({this.buttonLoading = false});
+  const _$_AddAddressState(
+      {this.buttonLoading = false, this.setAsDefault = false});
 
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool buttonLoading;
+  @JsonKey()
+  @override
+  final bool setAsDefault;
 
   @override
   String toString() {
-    return 'AddAddressState(buttonLoading: $buttonLoading)';
+    return 'AddAddressState(buttonLoading: $buttonLoading, setAsDefault: $setAsDefault)';
   }
 
   @override
@@ -120,12 +137,16 @@ class _$_AddAddressState implements _AddAddressState {
         (other.runtimeType == runtimeType &&
             other is _AddAddressState &&
             const DeepCollectionEquality()
-                .equals(other.buttonLoading, buttonLoading));
+                .equals(other.buttonLoading, buttonLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.setAsDefault, setAsDefault));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(buttonLoading));
+      runtimeType,
+      const DeepCollectionEquality().hash(buttonLoading),
+      const DeepCollectionEquality().hash(setAsDefault));
 
   @JsonKey(ignore: true)
   @override
@@ -134,10 +155,13 @@ class _$_AddAddressState implements _AddAddressState {
 }
 
 abstract class _AddAddressState implements AddAddressState {
-  const factory _AddAddressState({bool buttonLoading}) = _$_AddAddressState;
+  const factory _AddAddressState({bool buttonLoading, bool setAsDefault}) =
+      _$_AddAddressState;
 
   @override
   bool get buttonLoading;
+  @override
+  bool get setAsDefault;
   @override
   @JsonKey(ignore: true)
   _$AddAddressStateCopyWith<_AddAddressState> get copyWith =>

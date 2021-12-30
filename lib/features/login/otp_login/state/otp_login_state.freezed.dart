@@ -41,22 +41,26 @@ const $OtpLoginState = _$OtpLoginStateTearOff();
 /// @nodoc
 mixin _$OtpLoginState {
   String? get codeCountDown => throw _privateConstructorUsedError;
+
   bool get isButtonEnabled => throw _privateConstructorUsedError;
+
   bool get confirmOtpLoading => throw _privateConstructorUsedError;
+
   bool get resendOtpLoading => throw _privateConstructorUsedError;
+
   String? get otp => throw _privateConstructorUsedError;
+
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $OtpLoginStateCopyWith<OtpLoginState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OtpLoginStateCopyWith<OtpLoginState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OtpLoginStateCopyWith<$Res> {
-  factory $OtpLoginStateCopyWith(
-          OtpLoginState value, $Res Function(OtpLoginState) then) =
+  factory $OtpLoginStateCopyWith(OtpLoginState value, $Res Function(OtpLoginState) then) =
       _$OtpLoginStateCopyWithImpl<$Res>;
+
   $Res call(
       {String? codeCountDown,
       bool isButtonEnabled,
@@ -67,11 +71,11 @@ abstract class $OtpLoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OtpLoginStateCopyWithImpl<$Res>
-    implements $OtpLoginStateCopyWith<$Res> {
+class _$OtpLoginStateCopyWithImpl<$Res> implements $OtpLoginStateCopyWith<$Res> {
   _$OtpLoginStateCopyWithImpl(this._value, this._then);
 
   final OtpLoginState _value;
+
   // ignore: unused_field
   final $Res Function(OtpLoginState) _then;
 
@@ -114,11 +118,10 @@ class _$OtpLoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$OtpLoginStateCopyWith<$Res>
-    implements $OtpLoginStateCopyWith<$Res> {
-  factory _$OtpLoginStateCopyWith(
-          _OtpLoginState value, $Res Function(_OtpLoginState) then) =
+abstract class _$OtpLoginStateCopyWith<$Res> implements $OtpLoginStateCopyWith<$Res> {
+  factory _$OtpLoginStateCopyWith(_OtpLoginState value, $Res Function(_OtpLoginState) then) =
       __$OtpLoginStateCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {String? codeCountDown,
@@ -130,11 +133,9 @@ abstract class _$OtpLoginStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$OtpLoginStateCopyWithImpl<$Res>
-    extends _$OtpLoginStateCopyWithImpl<$Res>
+class __$OtpLoginStateCopyWithImpl<$Res> extends _$OtpLoginStateCopyWithImpl<$Res>
     implements _$OtpLoginStateCopyWith<$Res> {
-  __$OtpLoginStateCopyWithImpl(
-      _OtpLoginState _value, $Res Function(_OtpLoginState) _then)
+  __$OtpLoginStateCopyWithImpl(_OtpLoginState _value, $Res Function(_OtpLoginState) _then)
       : super(_value, (v) => _then(v as _OtpLoginState));
 
   @override
@@ -191,13 +192,13 @@ class _$_OtpLoginState implements _OtpLoginState {
 
   @override
   final String? codeCountDown;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isButtonEnabled;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool confirmOtpLoading;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool resendOtpLoading;
   @override
@@ -215,14 +216,10 @@ class _$_OtpLoginState implements _OtpLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OtpLoginState &&
-            const DeepCollectionEquality()
-                .equals(other.codeCountDown, codeCountDown) &&
-            const DeepCollectionEquality()
-                .equals(other.isButtonEnabled, isButtonEnabled) &&
-            const DeepCollectionEquality()
-                .equals(other.confirmOtpLoading, confirmOtpLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.resendOtpLoading, resendOtpLoading) &&
+            const DeepCollectionEquality().equals(other.codeCountDown, codeCountDown) &&
+            const DeepCollectionEquality().equals(other.isButtonEnabled, isButtonEnabled) &&
+            const DeepCollectionEquality().equals(other.confirmOtpLoading, confirmOtpLoading) &&
+            const DeepCollectionEquality().equals(other.resendOtpLoading, resendOtpLoading) &&
             const DeepCollectionEquality().equals(other.otp, otp) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
@@ -254,18 +251,23 @@ abstract class _OtpLoginState implements OtpLoginState {
 
   @override
   String? get codeCountDown;
+
   @override
   bool get isButtonEnabled;
+
   @override
   bool get confirmOtpLoading;
+
   @override
   bool get resendOtpLoading;
+
   @override
   String? get otp;
+
   @override
   String? get error;
+
   @override
   @JsonKey(ignore: true)
-  _$OtpLoginStateCopyWith<_OtpLoginState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$OtpLoginStateCopyWith<_OtpLoginState> get copyWith => throw _privateConstructorUsedError;
 }

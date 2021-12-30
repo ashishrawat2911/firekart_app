@@ -9,12 +9,10 @@ enum NavigationType { Push, PushReplacement, PopUntil, PushAndPopUntil }
 class NavigationHandler {
   NavigationHandler();
 
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   static final _appRouter = AppRouter(navigatorKey);
 
-  static RouteInformationParser<Object> get routeInformationParser =>
-      _appRouter.defaultRouteParser();
+  static RouteInformationParser<Object> get routeInformationParser => _appRouter.defaultRouteParser();
 
   static RouterDelegate<Object> get routerDelegate => _appRouter.delegate();
 
@@ -33,7 +31,8 @@ class NavigationHandler {
       case NavigationType.PopUntil:
         return _appRouter.popUntilRouteWithName(route.routeName);
       case NavigationType.PushAndPopUntil:
-        _appRouter.navigate(route);
+        return _appRouter.navigate(route);
+        return _appRouter.replaceAll([route]);
       // return _navigator.pushNamedAndRemoveUntil(
       //   routeName,
       //   predicate!,

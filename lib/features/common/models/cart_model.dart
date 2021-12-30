@@ -5,16 +5,6 @@ part 'cart_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class CartModel {
-  String productId;
-  String image;
-  String name;
-  String unit;
-  String currency;
-  num currentPrice;
-  num quantityPerUnit;
-  @JsonKey(defaultValue: 0)
-  int numOfItems;
-
   CartModel({
     required this.productId,
     required this.image,
@@ -25,10 +15,6 @@ class CartModel {
     required this.quantityPerUnit,
     required this.numOfItems,
   });
-
-  factory CartModel.fromJson(json) => _$CartModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CartModelToJson(this);
 
   factory CartModel.fromProduct(ProductModel productModel, int numOfItems) {
     return CartModel(
@@ -41,4 +27,17 @@ class CartModel {
         quantityPerUnit: productModel.quantityPerUnit!,
         numOfItems: numOfItems);
   }
+
+  factory CartModel.fromJson(json) => _$CartModelFromJson(json);
+  String productId;
+  String image;
+  String name;
+  String unit;
+  String currency;
+  num currentPrice;
+  num quantityPerUnit;
+  @JsonKey(defaultValue: 0)
+  int numOfItems;
+
+  Map<String, dynamic> toJson() => _$CartModelToJson(this);
 }
