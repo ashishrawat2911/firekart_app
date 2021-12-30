@@ -11,8 +11,4 @@ import 'package:fluttercommerce/features/init/bloc/splash_bloc.dart';
 import 'dart:async';
 
 void main() {
-  DI.container..registerFactory(() => SplashBloc());
-
-  SplashScreen screen = SplashScreen();
-  print(screen.currentState);
 }
