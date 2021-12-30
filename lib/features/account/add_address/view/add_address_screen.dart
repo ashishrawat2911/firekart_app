@@ -1,13 +1,8 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:core/src/state_manager/state_view_manager.dart';
-import 'package:core/src/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_address/state/add_address_state.dart';
 import 'package:fluttercommerce/features/account/add_address/view_model/add_address_view_model.dart';
-import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/core.dart';
-import 'package:network/src/models/account_details_model.dart';
-import 'package:widgets/src/commom_text_field.dart';
+import 'package:network/network.dart';
 import 'package:widgets/widgets.dart';
 
 class AddAddressScreen extends StatelessWidget {
@@ -116,8 +111,9 @@ class AddAddressScreen extends StatelessWidget {
                       validator: (val) {
                         if ((val ?? '').isEmpty) {
                           return "Address is Required";
-                        } else
+                        } else {
                           return null;
+                        }
                       },
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,

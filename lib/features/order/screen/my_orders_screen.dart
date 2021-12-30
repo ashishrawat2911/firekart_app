@@ -1,16 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:core/src/utils/date_time_util.dart';
-import 'package:core/src/di/di.dart';
 import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/core.dart';
-import 'package:network/src/models/order_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
-import 'package:widgets/src/common_app_loader.dart';
-import 'package:widgets/src/result_api_builder.dart';
 import 'package:fluttercommerce/features/order/bloc/my_orders_cubit.dart';
+import 'package:network/network.dart';
+import 'package:widgets/widgets.dart';
 
 class MyOrdersScreen extends StatefulWidget {
   const MyOrdersScreen({Key? key}) : super(key: key);
@@ -33,7 +28,6 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   void _scrollListener() {
     if (controller.offset >= controller.position.maxScrollExtent &&
         !controller.position.outOfRange) {
-      print("at the end of list");
       ordersCubit.fetchNextList();
     }
   }
@@ -51,7 +45,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             state: state,
             loadingWidget: (bool isReloading) {
               return const Center(
-                child: const CommonAppLoader(),
+                child: CommonAppLoader(),
               );
             },
             dataWidget: (List<OrderModel> value) {

@@ -47,3 +47,10 @@ scripts:
     run: |
       flutter packages pub run build_runner build --delete-conflicting-outputs
       melos exec flutter packages pub run build_runner build --delete-conflicting-outputs
+  refactor:
+    run: |
+      melos analyze
+      melos checkout
+      melos format
+      melos generate
+      git commit -m 'Refactor'

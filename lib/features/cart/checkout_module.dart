@@ -1,5 +1,3 @@
-import 'package:core/src/global_listener/global_listener.dart';
-import 'package:core/src/di/di.dart';
 import 'package:network/network.dart';
 import 'package:core/core.dart';
 

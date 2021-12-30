@@ -34,7 +34,7 @@ import 'package:fluttercommerce/features/product/product_detail/view/product_det
     as _i6;
 import 'package:fluttercommerce/features/product/product_list/view/all_product_list_screen.dart'
     as _i9;
-import 'package:network/src/models/account_details_model.dart' as _i16;
+import 'package:network/network.dart' as _i16;
 
 class AppRouter extends _i14.RootStackRouter {
   AppRouter([_i15.GlobalKey<_i15.NavigatorState>? navigatorKey])
@@ -226,7 +226,8 @@ class OtpLoginScreenRouteArgs {
 /// [_i6.ProductDetailPage]
 class ProductDetailPageRoute
     extends _i14.PageRouteInfo<ProductDetailPageRouteArgs> {
-  ProductDetailPageRoute({required dynamic productModel, _i15.Key? key})
+  ProductDetailPageRoute(
+      {required _i16.ProductModel productModel, _i15.Key? key})
       : super(ProductDetailPageRoute.name,
             path: '/product-detail-page',
             args: ProductDetailPageRouteArgs(
@@ -238,7 +239,7 @@ class ProductDetailPageRoute
 class ProductDetailPageRouteArgs {
   const ProductDetailPageRouteArgs({required this.productModel, this.key});
 
-  final dynamic productModel;
+  final _i16.ProductModel productModel;
 
   final _i15.Key? key;
 

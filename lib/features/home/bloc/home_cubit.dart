@@ -1,9 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:core/src/global_listener/global_listener.dart';
-import 'package:core/src/state_manager/state_manager.dart';
 import 'package:network/network.dart';
 import 'package:core/core.dart';
-import 'package:network/src/models/account_details_model.dart';
 import 'package:fluttercommerce/features/home/state/home_state.dart';
 
 class HomeScreenCubit extends StateManager<HomeState> {

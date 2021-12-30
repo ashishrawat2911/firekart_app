@@ -1,7 +1,6 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:core/src/message_handler/message_handler.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/res/app_theme.dart';
 import 'package:fluttercommerce/features/module_init.dart';
 
 class App extends StatefulWidget {

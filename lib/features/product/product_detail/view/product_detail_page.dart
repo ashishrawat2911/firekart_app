@@ -1,15 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:core/src/state_manager/state_view_manager.dart';
-import 'package:core/core.dart';
-import 'package:core/src/res/string_constants.dart';
 import 'package:core/core.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
 import 'package:network/network.dart';
-import 'package:widgets/src/common_app_loader.dart';
-import 'package:widgets/src/common_view_cart_overlay.dart';
 import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';
+import 'package:widgets/widgets.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);

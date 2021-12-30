@@ -1,5 +1,5 @@
-import 'package:network/src/models/account_details_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:network/src/models/account_details_model.dart';
 
 part 'order_model.g.dart';
 
@@ -37,26 +37,11 @@ class OrderModel {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class OrderItem {
-  OrderItem(
-      {this.productId,
-      this.image,
-      this.name,
-      this.unit,
-      this.currency,
-      this.price,
-      this.noOfItems});
+  OrderItem({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
 
-  factory OrderItem.fromJson(json) {
-    return OrderItem(
-      productId: json['product_id'] as String,
-      image: json['image'] as String,
-      name: json['name'] as String,
-      unit: json['unit'] as String,
-      currency: json['currency'] as String,
-      price: json['price'] as num,
-      noOfItems: json['no_of_items'] as num,
-    );
-  }
+  factory OrderItem.fromJson(json) => _$OrderItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OrderItemToJson(this);
 
   String? productId;
   String? image;
@@ -65,16 +50,6 @@ class OrderItem {
   String? currency;
   num? price;
   num? noOfItems;
-
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'product_id': productId,
-        'image': image,
-        'name': name,
-        'unit': unit,
-        'currency': currency,
-        'price': price,
-        'no_of_items': noOfItems,
-      };
 
   @override
   String toString() {

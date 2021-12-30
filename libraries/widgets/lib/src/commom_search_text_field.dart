@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 import 'package:core/core.dart';
-import 'package:core/core.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   const CommonSearchTextField(

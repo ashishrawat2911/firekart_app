@@ -1,14 +1,11 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:core/src/di/di.dart';
-import 'package:core/src/res/string_constants.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
-import 'package:network/network.dart';
-import 'package:widgets/src/common_app_loader.dart';
-import 'package:widgets/src/product_card.dart';
-import 'package:widgets/src/result_api_builder.dart';
 import 'package:fluttercommerce/features/product/product_list/view_model/all_product_cubit.dart';
 import 'package:navigation/navigation.dart';
+import 'package:network/network.dart';
+import 'package:widgets/widgets.dart';
 
 class AllProductListScreen extends StatefulWidget {
   const AllProductListScreen({Key? key, this.productCondition}) : super(key: key);
@@ -34,7 +31,6 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
 
   void _scrollListener() {
     if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
-      print("at the end of list");
       allProductsCubit.fetchNextList(widget.productCondition);
     }
   }
@@ -51,7 +47,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
             },
             child: const Padding(
               padding: EdgeInsets.all(16.0),
-              child: const Icon(Icons.search),
+              child: Icon(Icons.search),
             ),
           )
         ],

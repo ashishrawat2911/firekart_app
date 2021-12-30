@@ -1,6 +1,5 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:core/src/state_manager/state_view_manager.dart';
-import 'package:core/src/res/app_assets.dart';
 import 'package:fluttercommerce/features/init/splash/state/splash_state.dart';
 import 'package:fluttercommerce/features/init/splash/view_model/splash_bloc.dart';
 

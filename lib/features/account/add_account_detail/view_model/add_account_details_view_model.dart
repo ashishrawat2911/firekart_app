@@ -1,9 +1,7 @@
+import 'package:core/core.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/state_manager/state_manager.dart';
-import 'package:core/src/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_account_detail/state/add_account_details_state.dart';
 import 'package:network/network.dart';
-import 'package:network/src/models/account_details_model.dart';
 
 class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
   AddAccountDetailsViewModel(this._firebaseRepo)
@@ -38,7 +36,7 @@ class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
 
     if (isEdit) {
       NavigationHandler.navigateTo(const HomeScreenRoute(),
-          navigationType: NavigationType.PushReplacement);
+          navigationType: NavigationType.pushReplacement);
     } else {
       NavigationHandler.pop();
     }

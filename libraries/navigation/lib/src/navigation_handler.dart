@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'app_router.gr.dart';
 
-enum NavigationType { Push, PushReplacement, PopUntil, PushAndPopUntil }
+enum NavigationType { push, pushReplacement, popUntil, pushAndPopUntil }
 
 class NavigationHandler {
   NavigationHandler();
@@ -21,19 +21,19 @@ class NavigationHandler {
 
   static Future<dynamic> navigateTo(
     PageRouteInfo route, {
-    NavigationType navigationType = NavigationType.Push,
+    NavigationType navigationType = NavigationType.push,
     RoutePredicate? predicate,
   }) async {
     switch (navigationType) {
-      case NavigationType.Push:
+      case NavigationType.push:
         return _appRouter.push(route);
-      case NavigationType.PushReplacement:
+      case NavigationType.pushReplacement:
         return _appRouter.replace(route);
-      case NavigationType.PopUntil:
+      case NavigationType.popUntil:
         return _appRouter.popUntilRouteWithName(route.routeName);
-      case NavigationType.PushAndPopUntil:
+      case NavigationType.pushAndPopUntil:
         return _appRouter.navigate(route);
-        return _appRouter.replaceAll([route]);
+        // return _appRouter.replaceAll([route]);
       // return _navigator.pushNamedAndRemoveUntil(
       //   routeName,
       //   predicate!,

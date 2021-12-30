@@ -1,4 +1,3 @@
-import 'package:core/src/di/di.dart';
 import 'package:network/network.dart';
 import 'package:core/core.dart';
 import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';

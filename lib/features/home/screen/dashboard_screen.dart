@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/state_manager/state_view_manager.dart';
-import 'package:core/src/res/string_constants.dart';
 import 'package:core/core.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:network/network.dart';
-import 'package:widgets/src/action_text.dart';
-import 'package:widgets/src/product_card.dart';
-import 'package:widgets/src/result_api_builder.dart';
 import 'package:fluttercommerce/features/home/bloc/dashboard_cubit.dart';
 import 'package:fluttercommerce/features/home/state/dashboard_state.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:widgets/widgets.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
   Future<void> fetchProductData(DashboardCubit viewModel) async {
-    viewModel.fetchProductData(ProductData.DealOfTheDay);
-    viewModel.fetchProductData(ProductData.OnSale);
-    viewModel.fetchProductData(ProductData.TopProducts);
+    viewModel.fetchProductData(ProductData.dealOfTheDay);
+    viewModel.fetchProductData(ProductData.onSale);
+    viewModel.fetchProductData(ProductData.topProducts);
   }
 
   @override

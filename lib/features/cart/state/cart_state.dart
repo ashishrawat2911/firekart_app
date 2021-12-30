@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:network/network.dart';
-import 'package:network/src/models/account_details_model.dart';
 
 part 'cart_state.freezed.dart';
 

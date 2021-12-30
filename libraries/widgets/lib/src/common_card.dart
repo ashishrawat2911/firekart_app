@@ -11,8 +11,7 @@ class CommonCard extends StatelessWidget {
       this.padding,
       this.onTap,
       this.color})
-      : assert(child != null),
-        super(key: key);
+      : super(key: key);
   final Widget child;
   final EdgeInsets? margin;
   final EdgeInsets? padding;
@@ -39,7 +38,7 @@ class CommonCard extends StatelessWidget {
               //  Theme.of(context).cardTheme.elevation,
               spreadRadius: elevation ?? 0.1,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),

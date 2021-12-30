@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/src/utils/validator.dart';
-import 'package:core/src/di/di.dart';
-import 'package:core/src/res/string_constants.dart';
-import 'package:core/src/res/styles.dart';
 import 'package:core/core.dart';
-import 'package:widgets/src/commom_text_field.dart';
-import 'package:widgets/src/common_app_loader.dart';
 import 'package:widgets/widgets.dart';
 import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
 import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
 
 class OtpLoginScreen extends StatefulWidget {
-  OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
+  const OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
 
   final String? phoneNumber;
 
@@ -32,7 +26,6 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
     super.initState();
     otpLoginCubit.sendOtp(widget.phoneNumber!);
     otpNumberController.addListener(() {
-      print(otpNumberController.text);
       otpLoginCubit.validateButton(otpNumberController.text);
     });
   }

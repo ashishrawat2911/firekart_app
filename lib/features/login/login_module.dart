@@ -1,4 +1,3 @@
-import 'package:core/src/di/di.dart';
 import 'package:network/network.dart';
 import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
 import 'package:core/core.dart';

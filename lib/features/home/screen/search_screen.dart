@@ -1,13 +1,10 @@
-import 'package:core/src/di/di.dart';
-import 'package:core/src/res/string_constants.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/features/home/bloc/product_search_cubit.dart';
 import 'package:fluttercommerce/features/home/state/product_search_state.dart';
 import 'package:network/network.dart';
-import 'package:widgets/src/commom_search_text_field.dart';
-import 'package:widgets/src/common_app_loader.dart';
-import 'package:widgets/src/product_card.dart';
+import 'package:widgets/widgets.dart';
 
 class SearchItemScreen extends StatefulWidget {
   const SearchItemScreen({Key? key}) : super(key: key);
@@ -32,7 +29,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
           bloc: productSearchCubit,
           builder: (BuildContext context, ProductSearchState state) {
             if (state.loading) {
-              return Center(
+              return const Center(
                 child: CommonAppLoader(),
               );
             } else if (state.productList != null) {
@@ -45,7 +42,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
 
   Widget productView(List<ProductModel> productList) {
     return GridView.count(
-      padding: EdgeInsets.only(bottom: 10, right: 16, left: 16, top: 20),
+      padding: const EdgeInsets.only(bottom: 10, right: 16, left: 16, top: 20),
       crossAxisCount: 3,
       shrinkWrap: true,
       mainAxisSpacing: 10,
