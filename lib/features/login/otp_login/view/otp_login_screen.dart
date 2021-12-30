@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/styles.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
-import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
-import 'package:fluttercommerce/features/common/widgets/common_button.dart';
+import 'package:navigation/navigation.dart';
+import 'package:core/src/utils/validator.dart';
+import 'package:core/src/di/di.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/src/res/styles.dart';
+import 'package:core/core.dart';
+import 'package:widgets/src/commom_text_field.dart';
+import 'package:widgets/src/common_app_loader.dart';
+import 'package:widgets/widgets.dart';
 import 'package:fluttercommerce/features/login/otp_login/state/otp_login_state.dart';
 import 'package:fluttercommerce/features/login/otp_login/view_model/otp_login_view_model.dart';
 
@@ -56,7 +56,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),

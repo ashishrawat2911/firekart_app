@@ -1,6 +1,6 @@
-import 'package:fluttercommerce/features/common/models/product_model.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:network/network.dart';
 
 part 'dashboard_state.freezed.dart';
 

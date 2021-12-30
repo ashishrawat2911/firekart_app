@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
+import 'package:core/src/state_manager/state_view_manager.dart';
+import 'package:core/core.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/core.dart';
 import 'package:fluttercommerce/features/cart/state/add_to_cart_state.dart';
-import 'package:fluttercommerce/features/common/models/product_model.dart';
-import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
-import 'package:fluttercommerce/features/common/widgets/common_view_cart_overlay.dart';
+import 'package:network/network.dart';
+import 'package:widgets/src/common_app_loader.dart';
+import 'package:widgets/src/common_view_cart_overlay.dart';
 import 'package:fluttercommerce/features/product/product_detail/view_model/product_view_model.dart';
 
 class ProductDetailPage extends StatelessWidget {
@@ -90,7 +90,8 @@ class ProductDetailPage extends StatelessWidget {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(productModel, cartValue, false);
+                          viewModel.updateCartValues(
+                              productModel, cartValue, false);
                         }),
               Expanded(
                   child: state.cartDataLoading
@@ -112,12 +113,15 @@ class ProductDetailPage extends StatelessWidget {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(productModel, cartValue, true);
+                          viewModel.updateCartValues(
+                              productModel, cartValue, true);
                         })
             ],
           ),
         ),
-        crossFadeState: (state.cartDataLoading) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        crossFadeState: (state.cartDataLoading)
+            ? CrossFadeState.showSecond
+            : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 100));
   }
 
@@ -131,7 +135,8 @@ class ProductDetailPage extends StatelessWidget {
           height: 30,
           width: 70,
           alignment: Alignment.center,
-          decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.colorC4C4C4)),
+          decoration: BoxDecoration(
+              border: Border.all(width: 1, color: AppColors.colorC4C4C4)),
           child: Text(
             StringsConstants.add,
             style: AppTextStyles.t35,
@@ -146,7 +151,9 @@ class ProductDetailPage extends StatelessWidget {
             size: 20,
             strokeWidth: 3,
           ))),
-      crossFadeState: state.addToCardLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+      crossFadeState: state.addToCardLoading
+          ? CrossFadeState.showSecond
+          : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 100),
     );
   }
@@ -158,8 +165,9 @@ class ProductDetailPage extends StatelessWidget {
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,

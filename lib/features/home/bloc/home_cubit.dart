@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fluttercommerce/core/global_listener/global_listener.dart';
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
-import 'package:fluttercommerce/features/app/res/global_listener_constants.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/models/cart_model.dart';
+import 'package:core/src/global_listener/global_listener.dart';
+import 'package:core/src/state_manager/state_manager.dart';
+import 'package:network/network.dart';
+import 'package:core/core.dart';
+import 'package:network/src/models/account_details_model.dart';
 import 'package:fluttercommerce/features/home/state/home_state.dart';
 
 class HomeScreenCubit extends StateManager<HomeState> {
-  HomeScreenCubit(this.firebaseRepo, this.globalListener) : super(const HomeState());
+  HomeScreenCubit(this.firebaseRepo, this.globalListener)
+      : super(const HomeState());
 
   final FirebaseManager firebaseRepo;
   final GlobalListener globalListener;
@@ -40,7 +40,8 @@ class HomeScreenCubit extends StateManager<HomeState> {
   }
 
   void _addDetails(DocumentSnapshot documentSnapshot) {
-    final AccountDetails accountDetails = AccountDetails.fromDocument(documentSnapshot.data());
+    final AccountDetails accountDetails =
+        AccountDetails.fromDocument(documentSnapshot.data());
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
 
     globalListener.refreshListener(

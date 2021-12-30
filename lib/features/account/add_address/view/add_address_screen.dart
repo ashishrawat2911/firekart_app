@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
+import 'package:core/src/state_manager/state_view_manager.dart';
+import 'package:core/src/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_address/state/add_address_state.dart';
 import 'package:fluttercommerce/features/account/add_address/view_model/add_address_view_model.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/app/res/text_styles.dart';
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
-import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
-import 'package:fluttercommerce/features/common/widgets/common_button.dart';
+import 'package:core/core.dart';
+import 'package:core/src/res/string_constants.dart';
+import 'package:core/core.dart';
+import 'package:network/src/models/account_details_model.dart';
+import 'package:widgets/src/commom_text_field.dart';
+import 'package:widgets/widgets.dart';
 
 class AddAddressScreen extends StatelessWidget {
-  AddAddressScreen(this.newAddress, this.accountDetails, {Key? key, this.editAddress}) : super(key: key);
+  AddAddressScreen(this.newAddress, this.accountDetails,
+      {Key? key, this.editAddress})
+      : super(key: key);
   final bool newAddress;
   final AccountDetails accountDetails;
   final Address? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
   final TextEditingController emailEditingController = TextEditingController();
-  final TextEditingController pincodeEditingController = TextEditingController();
-  final TextEditingController addressEditingController = TextEditingController();
+  final TextEditingController pincodeEditingController =
+      TextEditingController();
+  final TextEditingController addressEditingController =
+      TextEditingController();
   final TextEditingController cityEditingController = TextEditingController();
   final TextEditingController stateEditingController = TextEditingController();
   final TextEditingController phoneEditingController = TextEditingController();
@@ -176,7 +180,8 @@ class AddAddressScreen extends StatelessWidget {
                     Row(
                       children: [
                         StatefulBuilder(
-                          builder: (BuildContext context, void Function(void Function()) setState) {
+                          builder: (BuildContext context,
+                              void Function(void Function()) setState) {
                             return Checkbox(
                               value: state.setAsDefault,
                               onChanged: (bool? value) {

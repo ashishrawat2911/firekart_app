@@ -1,6 +1,6 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
-import 'package:fluttercommerce/features/app/firebase/firestore_repository.dart';
+import 'package:network/network.dart';
 import 'package:package_info/package_info.dart';
 
 class CrashlyticsService {

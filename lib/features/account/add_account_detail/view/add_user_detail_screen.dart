@@ -1,15 +1,9 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/core/state_manager/state_view_manager.dart';
-import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/features/account/add_account_detail/state/add_account_details_state.dart';
 import 'package:fluttercommerce/features/account/add_account_detail/view_model/add_account_details_view_model.dart';
-import 'package:fluttercommerce/features/app/res/app_colors.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/common/widgets/action_text.dart';
-import 'package:fluttercommerce/features/common/widgets/commom_text_field.dart';
-import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
-import 'package:fluttercommerce/features/common/widgets/common_button.dart';
+import 'package:navigation/navigation.dart';
+import 'package:widgets/widgets.dart';
 
 class AddUserDetailScreen extends StatelessWidget {
   AddUserDetailScreen(this.newAddress, {Key? key}) : super(key: key);

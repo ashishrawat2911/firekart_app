@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/core/navigation/navigation_handler.dart';
-import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/app/navigation/app_router.gr.dart';
-import 'package:fluttercommerce/features/app/res/string_constants.dart';
-import 'package:fluttercommerce/features/common/models/product_model.dart';
+import 'package:core/src/di/di.dart';
+import 'package:core/src/res/string_constants.dart';
 import 'package:fluttercommerce/features/common/state/result_state.dart';
-import 'package:fluttercommerce/features/common/widgets/common_app_loader.dart';
-import 'package:fluttercommerce/features/common/widgets/product_card.dart';
-import 'package:fluttercommerce/features/common/widgets/result_api_builder.dart';
+import 'package:network/network.dart';
+import 'package:widgets/src/common_app_loader.dart';
+import 'package:widgets/src/product_card.dart';
+import 'package:widgets/src/result_api_builder.dart';
 import 'package:fluttercommerce/features/product/product_list/view_model/all_product_cubit.dart';
+import 'package:navigation/navigation.dart';
 
 class AllProductListScreen extends StatefulWidget {
   const AllProductListScreen({Key? key, this.productCondition}) : super(key: key);

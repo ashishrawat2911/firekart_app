@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/features/common/models/account_details_model.dart';
+import 'package:network/src/models/account_details_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'add_account_details_state.freezed.dart';
@@ -7,7 +7,8 @@ part 'add_account_details_state.freezed.dart';
 abstract class AddAccountDetailsState with _$AddAccountDetailsState {
   const factory AddAccountDetailsState.idle() = Idle;
 
-  const factory AddAccountDetailsState.editData(AccountDetails accountDetails) = EditData;
+  const factory AddAccountDetailsState.editData(AccountDetails accountDetails) =
+      EditData;
 
   const factory AddAccountDetailsState.loading() = Loading;
 

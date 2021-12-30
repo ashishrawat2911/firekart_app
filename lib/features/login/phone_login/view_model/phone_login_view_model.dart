@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
+import 'package:core/src/state_manager/state_manager.dart';
 import 'package:fluttercommerce/features/login/phone_login/state/phone_login_state.dart';
 
 class PhoneLoginViewModel extends StateManager<PhoneLoginState> {
