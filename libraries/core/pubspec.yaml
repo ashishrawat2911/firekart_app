@@ -22,6 +22,7 @@ dependencies:
   package_info: ^2.0.2
   smooth_page_indicator: ^1.0.0+2
   country_code_picker: ^2.0.2
+  logger: ^1.1.0
 
 
 

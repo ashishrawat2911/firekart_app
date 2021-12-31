@@ -35,3 +35,4 @@ export 'src/utils/url_launcher.dart';
 export 'src/utils/validator.dart';
 export 'src/state/result_state.dart';
 export 'package:package_info/package_info.dart';
+export 'src/logger/app_logger.dart';
