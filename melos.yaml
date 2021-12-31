@@ -26,13 +26,12 @@ scripts:
   get:
     run: |
       flutter pub get
-      melos exec flutter pub get
+      melos bs
   checkout:
     run: |
       melos clean
-      melos exec melos clean
       melos get
-      melos exec melos get
+
   test:
     run: |
       flutter test --no-pub --coverage
