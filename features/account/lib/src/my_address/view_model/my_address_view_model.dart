@@ -3,9 +3,9 @@ import 'package:core/core.dart';
 import 'package:network/network.dart';
 
 class MyAddressViewModel extends StateManager<MyAddressState> {
-  MyAddressViewModel(this.firebaseRepo) : super(const MyAddressState());
+  MyAddressViewModel(this.firebaseManager) : super(const MyAddressState());
 
-  FirebaseManager firebaseRepo;
+  FirebaseManager firebaseManager;
 
   Future<void> listenToAccountDetails(AccountDetails accountDetails) async {
     setAddress(accountDetails);
@@ -19,21 +19,17 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
           AddressCardState(address: accountDetails.addresses[i], index: i));
     }
     state = state.copyWith(
-      accountDetails: accountDetails,
-      addressStates: cardStates,
-    );
+        accountDetails: accountDetails,
+        addressStates: cardStates,
+        screenLoading: false);
   }
 
   Future<void> fetchAccountDetails() async {
     state = state.copyWith(screenLoading: true);
-    try {
-      final AccountDetails accountDetails =
-          await firebaseRepo.fetchUserDetails();
-      accountDetails.addresses = accountDetails.addresses.reversed.toList();
-      setAddress(accountDetails);
-    } catch (e) {
-      state = state.copyWith(screenError: e.toString(), screenLoading: false);
-    }
+    final AccountDetails accountDetails =
+        await firebaseManager.fetchUserDetails();
+    accountDetails.addresses = accountDetails.addresses.reversed.toList();
+    setAddress(accountDetails);
     state = state.copyWith(screenLoading: false);
   }
 
@@ -60,7 +56,7 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
   }
 
   void _saveData(AccountDetails accountDetails) {
-    firebaseRepo.addUserDetails(accountDetails).then((value) {
+    firebaseManager.addUserDetails(accountDetails).then((value) {
       fetchAccountDetails();
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());

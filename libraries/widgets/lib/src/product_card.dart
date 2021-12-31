@@ -1,24 +1,37 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
+
+class ProductCardArgs {
+  final VoidCallback onTap;
+  final String name;
+  final String image;
+  final String currency;
+  final num currentPrice;
+  final num actualPrice;
+  final num quantityPerUnit;
+  final String unit;
+
+  ProductCardArgs(
+      {required this.onTap,
+      required this.name,
+      required this.image,
+      required this.currency,
+      required this.currentPrice,
+      required this.actualPrice,
+      required this.quantityPerUnit,
+      required this.unit});
+}
 
 class ProductCard extends StatelessWidget {
-  const ProductCard(this.productModel, {Key? key}) : super(key: key);
+  const ProductCard(this.productCardArgs, {Key? key}) : super(key: key);
 
-  final ProductModel productModel;
+  final ProductCardArgs productCardArgs;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
-      onTap: () {
-        NavigationHandler.navigateTo(
-          ProductDetailPageRoute(
-            productModel: productModel,
-          ),
-        );
-      },
+      onTap: productCardArgs.onTap,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: Colors.white,
@@ -31,7 +44,7 @@ class ProductCard extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(
-                  imageUrl: productModel.image!,
+                  imageUrl: productCardArgs.image,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -45,7 +58,7 @@ class ProductCard extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    productModel.name!,
+                    productCardArgs.name,
                     style: AppTextStyles.t1,
                   ),
                   const SizedBox(
@@ -54,14 +67,14 @@ class ProductCard extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "${productModel.currency}${productModel.currentPrice}",
+                        "${productCardArgs.currency}${productCardArgs.currentPrice}",
                         style: AppTextStyles.t8,
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
-                        "${productModel.currency}${productModel.actualPrice}",
+                        "${productCardArgs.currency}${productCardArgs.actualPrice}",
                         style: AppTextStyles.t13,
                       ),
                     ],
@@ -70,7 +83,7 @@ class ProductCard extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    "${productModel.quantityPerUnit}${productModel.unit}",
+                    "${productCardArgs.quantityPerUnit}${productCardArgs.unit}",
                     style: AppTextStyles.t14,
                   ),
                 ],

@@ -1,7 +1,7 @@
+import 'package:core/src/di/di.dart';
+import 'package:core/src/state_manager/state_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:core/src/state_manager/state_manager.dart';
-import 'package:core/src/di/di.dart';
 
 typedef OnViewModelReady<V> = void Function(V viewModel);
 typedef OnViewModelStateBuilder<V, S> = Widget Function(
@@ -32,9 +32,7 @@ class _StateProviderState<V extends StateManager>
   @override
   void initState() {
     super.initState();
-    if (widget.onViewModelReady != null) {
-      widget.onViewModelReady!(viewModel);
-    }
+    widget.onViewModelReady?.call(viewModel);
   }
 
   @override
@@ -99,22 +97,19 @@ class StateBuilder<V extends StateManager<S>, S> extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateProvider<V>(
       onViewModelReady: onViewModelReady,
-      child: child ?? stateBuilder(),
-    );
-  }
-
-  Widget stateBuilder() {
-    return BlocConsumer<V, S>(
-      builder: (context, state) {
-        return builder?.call(
-              context,
-              BlocProvider.of(context),
-              state,
-            ) ??
-            Container();
-      },
-      listener: stateListener ?? (_, __) {},
-      buildWhen: buildWhen,
+      child: child ??
+          BlocConsumer<V, S>(
+            builder: (context, state) {
+              return builder?.call(
+                    context,
+                    BlocProvider.of(context),
+                    state,
+                  ) ??
+                  Container();
+            },
+            listener: stateListener ?? (_, __) {},
+            buildWhen: buildWhen,
+          ),
     );
   }
 }

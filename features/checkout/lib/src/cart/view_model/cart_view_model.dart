@@ -3,8 +3,9 @@ import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 import 'package:core/core.dart';
 
-class CartCubit extends StateManager<CartState> {
-  CartCubit(this.firebaseRepo, this.globalListener) : super(const CartState());
+class CartViewModel extends StateManager<CartState> {
+  CartViewModel(this.firebaseRepo, this.globalListener)
+      : super(const CartState());
 
   AccountDetails? accountDetails;
 
@@ -201,3 +202,16 @@ class CartCubit extends StateManager<CartState> {
   }
 }
 
+extension CartStatus on List<CartModel> {
+  int get noOfItemsInCart => length;
+
+  num get priceInCart {
+    num price = 0;
+    List.generate(length, (index) {
+      price = price + (this[index].currentPrice * this[index].numOfItems);
+    });
+    return price;
+  }
+
+  String get currency => noOfItemsInCart > 0 ? this[0].currency : "";
+}

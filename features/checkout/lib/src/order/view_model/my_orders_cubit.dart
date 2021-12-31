@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network/network.dart';
 import 'package:core/core.dart';
 
@@ -26,9 +25,11 @@ class MyOrdersCubit extends Cubit<ResultState<List<OrderModel>>> {
 
   Future<void> fetchNextList() async {
     try {
-      final List<DocumentSnapshot> docs = await firebaseRepo.getAllOrders(_documents[_documents.length - 1]);
+      final List<DocumentSnapshot> docs =
+          await firebaseRepo.getAllOrders(_documents[_documents.length - 1]);
       _documents.addAll(docs);
-      _orderList = List<OrderModel>.generate(_documents.length, (index) => OrderModel.fromJson(_documents[index]));
+      _orderList = List<OrderModel>.generate(
+          _documents.length, (index) => OrderModel.fromJson(_documents[index]));
       emit(ResultState.data(data: _orderList.toSet().toList()));
     } catch (e) {
       emit(ResultState.unNotifiedError(error: e.toString(), data: _orderList));

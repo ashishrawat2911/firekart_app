@@ -46,9 +46,11 @@ class DashboardScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                productDataBuilder(state.dealOfTheDay, StringsConstants.dealOfTheDay),
+                productDataBuilder(
+                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
                 productDataBuilder(state.onSale, StringsConstants.onSale),
-                productDataBuilder(state.topProducts, StringsConstants.topProducts),
+                productDataBuilder(
+                    state.topProducts, StringsConstants.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -60,7 +62,8 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget productDataBuilder(ResultState<List<ProductModel>> resultState, String title) {
+  Widget productDataBuilder(
+      ResultState<List<ProductModel>> resultState, String title) {
     return ResultStateBuilder(
       state: resultState,
       errorWidget: (String error) => Column(
@@ -94,14 +97,16 @@ class DashboardScreen extends StatelessWidget {
             6,
             (index) {
               return Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius:
-                          const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -149,7 +154,7 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget productsGrids(String title, List<ProductModel> products) {
-    if (products == null) return Container();
+    // if (products == null) return Container();
     return Container(
       margin: const EdgeInsets.only(left: 16),
       child: Column(
@@ -178,7 +183,8 @@ class DashboardScreen extends StatelessWidget {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigateTo(AllProductListScreenRoute(productCondition: condition));
+                      NavigationHandler.navigateTo(AllProductListScreenRoute(
+                          productCondition: condition));
                     },
                   ))
             ],
@@ -196,7 +202,7 @@ class DashboardScreen extends StatelessWidget {
             crossAxisSpacing: 10,
             children: List.generate(
               products.length > 6 ? 6 : products.length,
-              (index) => ProductCard(products[index]),
+              (index) => ProductCard(productModelToArgs(products[index])),
             ),
           ),
           const SizedBox(
@@ -204,6 +210,25 @@ class DashboardScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  ProductCardArgs productModelToArgs(ProductModel productModel) {
+    return ProductCardArgs(
+      image: productModel.image!,
+      name: productModel.name!,
+      currency: productModel.currency!,
+      onTap: () {
+        NavigationHandler.navigateTo(
+          ProductDetailPageRoute(
+            productModel: productModel,
+          ),
+        );
+      },
+      actualPrice: productModel.actualPrice!,
+      currentPrice: productModel.currentPrice!,
+      quantityPerUnit: productModel.quantityPerUnit!,
+      unit: productModel.unit!,
     );
   }
 }

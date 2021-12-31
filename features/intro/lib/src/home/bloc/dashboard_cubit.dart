@@ -31,7 +31,8 @@ class DashboardCubit extends StateManager<DashboardState> {
         return;
       }
 
-      final List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
+      final List<ProductModel> productList =
+          await _firebaseManager.getProductsData(condition);
 
       final resultState = ResultState.data(data: productList);
 
