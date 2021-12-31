@@ -4,35 +4,35 @@ import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 
 class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
-  AddAccountDetailsViewModel(this._firebaseRepo)
+  AddAccountDetailsViewModel(this._firebaseManager)
       : super(const AddAccountDetailsState.idle());
 
-  final FirebaseManager _firebaseRepo;
+  final FirebaseManager _firebaseManager;
   final Validator _validator = Validator();
 
   void validateButton(String name) {
     if (_validator.validateName(name) == null) {
-      emit(const ButtonEnabled());
+      state = (const ButtonEnabled());
     } else {
-      emit(const ButtonDisabled());
+      state = (const ButtonDisabled());
     }
   }
 
   Future<void> loadPreviousData() async {
-    emit(const AddAccountDetailsState.loading());
+    state = (const AddAccountDetailsState.loading());
     final AccountDetails _accountDetails =
-        await _firebaseRepo.fetchUserDetails();
-    emit(AddAccountDetailsState.editData(_accountDetails));
+        await _firebaseManager.fetchUserDetails();
+    state = (AddAccountDetailsState.editData(_accountDetails));
     validateButton(_accountDetails.name);
   }
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
     final AccountDetails _accountDetails = AccountDetails(
-        name: name, phoneNumber: _firebaseRepo.getPhoneNumber()!);
+        name: name, phoneNumber: _firebaseManager.getPhoneNumber()!);
 
-    emit(const AddAccountDetailsState.saveDataLoading());
-    await _firebaseRepo.addUserDetails(_accountDetails);
-    await _firebaseRepo.setAccountDetails(displayName: _accountDetails.name);
+    state = (const AddAccountDetailsState.saveDataLoading());
+    await _firebaseManager.addUserDetails(_accountDetails);
+    await _firebaseManager.setAccountDetails(displayName: _accountDetails.name);
 
     if (isEdit) {
       NavigationHandler.navigateTo(const HomeScreenRoute(),
@@ -41,6 +41,6 @@ class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
       NavigationHandler.pop();
     }
 
-    // emit(const AddAccountDetailsState.successful());
+    // state =(const AddAccountDetailsState.successful());
   }
 }

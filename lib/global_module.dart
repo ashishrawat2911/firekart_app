@@ -9,7 +9,8 @@ class GlobalModule extends Module {
       ..registerFactory(() => CrashlyticsService(
             DI.container<FirebaseManager>(),
           ))
-      ..registerSingleton<GlobalListener>(GlobalListenerImpl());
+      ..registerSingleton<GlobalListener>(GlobalListenerImpl())
+      ..registerFactory(() => Validator());
   }
 
   @override

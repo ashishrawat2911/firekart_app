@@ -18,8 +18,7 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
       }
       productList = List<ProductModel>.generate(documents!.length,
           (index) => ProductModel.fromJson(documents![index].data()));
-      List.generate(productList!.length, (index) {
-      });
+      List.generate(productList!.length, (index) {});
       emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
@@ -34,8 +33,7 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
       documents!.addAll(docs);
       productList = List<ProductModel>.generate(documents!.length,
           (index) => ProductModel.fromJson(documents![index]));
-      List.generate(productList!.length, (index) {
-      });
+      List.generate(productList!.length, (index) {});
       emit(ResultState.data(data: productList!.toSet().toList()));
     } catch (e) {
       emit(

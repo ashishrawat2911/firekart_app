@@ -1,13 +1,13 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 import 'package:product/src/product/product_list/view_model/all_product_cubit.dart';
 import 'package:widgets/widgets.dart';
 
 class AllProductListScreen extends StatefulWidget {
-  const AllProductListScreen({Key? key, this.productCondition}) : super(key: key);
+  const AllProductListScreen({Key? key, this.productCondition})
+      : super(key: key);
 
   final String? productCondition;
 
@@ -29,7 +29,8 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent &&
+        !controller.position.outOfRange) {
       allProductsCubit.fetchNextList(widget.productCondition);
     }
   }
@@ -53,7 +54,8 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
         bloc: allProductsCubit,
-        listener: (BuildContext context, ResultState<List<ProductModel>> state) {},
+        listener:
+            (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {
           return ResultStateBuilder(
             state: state,
@@ -80,7 +82,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       itemCount: productList.length,
       padding: const EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 30),
       itemBuilder: (BuildContext context, int index) {
-        return ProductCard(productList[index]);
+        return ProductCard(productModelToArgs(productList[index]));
       },
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
@@ -88,6 +90,25 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         childAspectRatio: 0.7,
         crossAxisSpacing: 10,
       ),
+    );
+  }
+
+  ProductCardArgs productModelToArgs(ProductModel productModel) {
+    return ProductCardArgs(
+      image: productModel.image!,
+      name: productModel.name!,
+      currency: productModel.currency!,
+      onTap: () {
+        NavigationHandler.navigateTo(
+          ProductDetailPageRoute(
+            productModel: productModel,
+          ),
+        );
+      },
+      actualPrice: productModel.actualPrice!,
+      currentPrice: productModel.currentPrice!,
+      quantityPerUnit: productModel.quantityPerUnit!,
+      unit: productModel.unit!,
     );
   }
 }
