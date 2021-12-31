@@ -1,4 +1,4 @@
-import 'package:account/src/add_account_detail/state/add_account_details_state.dart';
+import 'package:account/src/add_account_detail/state/add_account_details_state.dart' as account_details_state;
 import 'package:account/src/add_account_detail/view_model/add_account_details_view_model.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class AddUserDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<AddAccountDetailsViewModel, AddAccountDetailsState>(
+    return StateBuilder<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
       isProviderApplied: true,
       onViewModelReady: (viewModel) {
         if (!newAddress) {
@@ -30,15 +30,14 @@ class AddUserDetailScreen extends StatelessWidget {
         });
       },
       stateListener: (context, state) {
-        if (state is EditData) {
+        if (state is account_details_state.EditData) {
           nameEditingController.text = state.accountDetails.name;
         }
       },
       builder: (context, viewModel, state) => Scaffold(
         appBar: AppBar(
           elevation: 1,
-          title: Text(
-              "${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+          title: Text("${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
         ),
         body: Builder(builder: (BuildContext context) {
           if (state is Loading) {
@@ -51,8 +50,7 @@ class AddUserDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget saveDataView(AddAccountDetailsState state, BuildContext context,
-      AddAccountDetailsViewModel viewModel) {
+  Widget saveDataView(account_details_state.AddAccountDetailsState state, BuildContext context, AddAccountDetailsViewModel viewModel) {
     return SingleChildScrollView(
       child: Form(
         key: _formKey,
@@ -95,7 +93,7 @@ class AddUserDetailScreen extends StatelessWidget {
                 titleColor: AppColors.white,
                 height: 50,
                 isEnabled: isButtonEnabled(state),
-                replaceWithIndicator: state is SaveDataLoading,
+                replaceWithIndicator: state is account_details_state.SaveDataLoading,
                 margin: const EdgeInsets.only(bottom: 40),
                 onTap: () {
                   onButtonTap(viewModel);
@@ -108,10 +106,10 @@ class AddUserDetailScreen extends StatelessWidget {
     );
   }
 
-  bool isButtonEnabled(AddAccountDetailsState state) {
-    if (state is ButtonEnabled) {
+  bool isButtonEnabled(account_details_state.AddAccountDetailsState state) {
+    if (state is account_details_state.ButtonEnabled) {
       return true;
-    } else if (state is ButtonDisabled) {
+    } else if (state is account_details_state.ButtonDisabled) {
       return false;
     } else {
       return false;
