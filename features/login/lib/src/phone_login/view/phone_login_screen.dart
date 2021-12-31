@@ -1,7 +1,6 @@
 import 'package:core/core.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigation/navigation.dart';
 import 'package:widgets/widgets.dart';
 
@@ -52,7 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.transparent,
               // backgroundColor: Styles.transparent,
 //            floatingActionButton: _floatingActionButton(),
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),
@@ -139,8 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(
-              OtpLoginScreenRoute(phoneNumber: phoneNumberNotifier.value + phoneNumberController.text))
+      NavigationHandler.navigateTo(OtpLoginScreenRoute(
+              phoneNumber:
+                  phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
         if (value != null && value as bool) {
           phoneNumberController.clear();

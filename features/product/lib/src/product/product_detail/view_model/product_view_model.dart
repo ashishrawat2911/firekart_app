@@ -13,7 +13,8 @@ class ProductViewModel extends StateManager<AddToCartState> {
     });
   }
 
-  Future<void> checkItemInCart(String productId, {bool isListening = false}) async {
+  Future<void> checkItemInCart(String productId,
+      {bool isListening = false}) async {
     if (!isListening) {
       state = state.copyWith(addToCardLoading: true);
     } else {
@@ -31,7 +32,8 @@ class ProductViewModel extends StateManager<AddToCartState> {
     state = state.copyWith(addToCardLoading: true);
 
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
-      MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+      MessageHandler.showSnackBar(
+          title: StringsConstants.connectionNotAvailable);
       return;
     }
     CartModel cartModel = CartModel.fromProduct(productModel, 1);
@@ -44,16 +46,19 @@ class ProductViewModel extends StateManager<AddToCartState> {
     });
   }
 
-  Future<void> updateCartValues(ProductModel productModel, int cartValue, bool shouldIncrease) async {
+  Future<void> updateCartValues(
+      ProductModel productModel, int cartValue, bool shouldIncrease) async {
     final int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
     state = state.copyWith(addToCardLoading: true);
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+        MessageHandler.showSnackBar(
+            title: StringsConstants.connectionNotAvailable);
         return;
       }
-      final CartModel cartModel = CartModel.fromProduct(productModel, newCartValue);
+      final CartModel cartModel =
+          CartModel.fromProduct(productModel, newCartValue);
       _firebaseRepo.addProductToCart(cartModel).then((value) {
         state = state.copyWith(noOfItems: newCartValue);
       }).catchError((e) {
@@ -63,7 +68,8 @@ class ProductViewModel extends StateManager<AddToCartState> {
       });
     } else {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+        MessageHandler.showSnackBar(
+            title: StringsConstants.connectionNotAvailable);
         return;
       }
       _firebaseRepo.delProductFromCart(productModel.productId!).then((value) {

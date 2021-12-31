@@ -34,5 +34,4 @@ export 'src/utils/firebase_error.dart';
 export 'src/utils/url_launcher.dart';
 export 'src/utils/validator.dart';
 export 'src/state/result_state.dart';
-export 'src/extensions/cart_extensions.dart';
-export 'src/crashlytics/crashlytics_service.dart';
+export 'package:package_info/package_info.dart';

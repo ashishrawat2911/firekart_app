@@ -1,7 +1,6 @@
-import 'package:checkout/src/order/bloc/my_orders_cubit.dart';
+import 'package:checkout/src/order/view_model/my_orders_cubit.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network/network.dart';
 import 'package:widgets/widgets.dart';
 
@@ -24,7 +23,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent &&
+        !controller.position.outOfRange) {
       ordersCubit.fetchNextList();
     }
   }
@@ -80,7 +80,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.t14,
                               ),
                               Text(
-                                getOrderedTime(orderList[orderListIndex].orderedAt!),
+                                getOrderedTime(
+                                    orderList[orderListIndex].orderedAt!),
                                 style: AppTextStyles.t1,
                               )
                             ],
@@ -88,8 +89,10 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(orderList[orderListIndex].orderItems!.length,
-                        (index) => orderCard(orderList[orderListIndex].orderItems![index])),
+                    ...List<Widget>.generate(
+                        orderList[orderListIndex].orderItems!.length,
+                        (index) => orderCard(
+                            orderList[orderListIndex].orderItems![index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -117,7 +120,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(orderList[orderListIndex].orderStatus!)
+                            getOrderStatusIcon(
+                                orderList[orderListIndex].orderStatus!)
                           ],
                         )
                       ],

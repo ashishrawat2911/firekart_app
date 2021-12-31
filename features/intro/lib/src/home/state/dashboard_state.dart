@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:network/network.dart';
 
 part 'dashboard_state.freezed.dart';

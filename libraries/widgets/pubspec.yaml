@@ -10,14 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #    TODO remove network from widgets
-  network:
-    path: ../network
   core:
     path: ../core
-    #    TODO remove navigation from widgets
-  navigation:
-    path: ../navigation
 
 dev_dependencies:
   flutter_test:

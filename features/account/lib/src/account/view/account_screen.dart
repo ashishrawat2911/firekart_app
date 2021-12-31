@@ -88,9 +88,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
                   DI.container<FirebaseManager>().logoutUser().then((value) {
-                    NavigationHandler.navigateTo(const LoginScreenRoute(),
-                        navigationType: NavigationType.pushAndPopUntil,
-                        predicate: (route) => false);
+                    NavigationHandler.navigateTo(
+                      const LoginScreenRoute(),
+                      navigationType: NavigationType.pushAndPopUntil,
+                    );
                   });
                 },
               ),

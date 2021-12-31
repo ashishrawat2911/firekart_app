@@ -14,8 +14,10 @@ class InitialModule extends Module {
       ..registerFactory(() => SplashViewModel())
       ..registerFactory(() => CheckStatusBloc(DI.container<FirebaseManager>()));
     DI.container
-      ..registerFactory(() => HomeScreenCubit(DI.container<FirebaseManager>(), DI.container<GlobalListener>()))
+      ..registerFactory(() => HomeScreenCubit(
+          DI.container<FirebaseManager>(), DI.container<GlobalListener>()))
       ..registerFactory(() => DashboardCubit(DI.container<FirebaseManager>()))
-      ..registerFactory(() => ProductSearchCubit(DI.container<FirebaseManager>()));
+      ..registerFactory(
+          () => ProductSearchCubit(DI.container<FirebaseManager>()));
   }
 }
