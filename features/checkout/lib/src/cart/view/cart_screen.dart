@@ -1,4 +1,4 @@
-import 'package:checkout/src/cart/bloc/cart_cubit.dart';
+import 'package:checkout/src/cart/view_model/cart_view_model.dart';
 import 'package:checkout/src/cart/state/cart_state.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<CartCubit, CartState>(
+    return StateBuilder<CartViewModel, CartState>(
       onViewModelReady: (viewModel) {
         viewModel.init();
       },
@@ -20,15 +20,18 @@ class CartScreen extends StatelessWidget {
             title: const Text(StringsConstants.cart),
             elevation: 1,
           ),
-          body: state.cartList.noOfItemsInCart > 0 ? cartView(state, viewModel) : Container(),
-          bottomNavigationBar:
-              Visibility(visible: state.cartList.noOfItemsInCart > 0, child: checkOut(state, viewModel)),
+          body: state.cartList.noOfItemsInCart > 0
+              ? cartView(state, viewModel)
+              : Container(),
+          bottomNavigationBar: Visibility(
+              visible: state.cartList.noOfItemsInCart > 0,
+              child: checkOut(state, viewModel)),
         );
       },
     );
   }
 
-  Widget cartView(CartState state, CartCubit viewModel) {
+  Widget cartView(CartState state, CartViewModel viewModel) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -37,9 +40,17 @@ class CartScreen extends StatelessWidget {
             children: [
               Column(
                 children: List<Widget>.generate(state.cartList.length, (index) {
+                  var cartModel = state.cartList[index];
                   return CartItemCard(
                     cartItemCardArgs: CartItemCardArgs(
-                      cartModel: state.cartList[index],
+                      name: cartModel.name,
+                      image: cartModel.image,
+                      itemCount: cartModel.numOfItems,
+                      price: '${cartModel.currency}${cartModel.currentPrice}',
+                      quantity:
+                          '${cartModel.quantityPerUnit} ${cartModel.unit}',
+                      totalPrice:
+                          "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
                       index: index,
                       deleteLoading: state.cartItemDataLoading.deleteLoading,
                       isLoading: state.cartItemDataLoading.isLoading,
@@ -109,12 +120,17 @@ class CartScreen extends StatelessWidget {
             children: [
               Text(
                 title,
-                style:
-                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.color20203E,
+                    fontSize: 14,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 price,
-                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.black,
+                    fontSize: 16,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -151,13 +167,15 @@ class CartScreen extends StatelessWidget {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay, "${state.cartList.currency}${state.cartList.priceInCart}", isFinal: true),
+          priceRow(StringsConstants.toPay,
+              "${state.cartList.currency}${state.cartList.priceInCart}",
+              isFinal: true),
         ],
       ),
     ));
   }
 
-  Widget deliverTo(CartState state, CartCubit viewModel) {
+  Widget deliverTo(CartState state, CartViewModel viewModel) {
     return CommonCard(
         child: Container(
       margin: const EdgeInsets.all(20),
@@ -172,7 +190,9 @@ class CartScreen extends StatelessWidget {
                 style: AppTextStyles.t1,
               ),
               ActionText(
-                state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
+                state.selectedAddress == null
+                    ? StringsConstants.addNewCaps
+                    : StringsConstants.changeTextCapital,
                 onTap: () {
                   viewModel.selectOrChangeAddress();
                 },
@@ -183,7 +203,8 @@ class CartScreen extends StatelessWidget {
             height: 20,
           ),
           Text(
-            state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
+            state.selectedAddress?.wholeAddress() ??
+                StringsConstants.noAddressFound,
             style: AppTextStyles.t12,
           ),
         ],
@@ -191,7 +212,7 @@ class CartScreen extends StatelessWidget {
     ));
   }
 
-  Widget checkOut(CartState state, CartCubit viewModel) {
+  Widget checkOut(CartState state, CartViewModel viewModel) {
     return Container(
       height: 94,
       color: AppColors.white,

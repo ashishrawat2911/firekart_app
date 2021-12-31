@@ -22,7 +22,7 @@ class NavigationHandler {
   static Future<dynamic> navigateTo(
     PageRouteInfo route, {
     NavigationType navigationType = NavigationType.push,
-    RoutePredicate? predicate,
+    @Deprecated('RoutePredicate is Deprecated') RoutePredicate? predicate,
   }) async {
     switch (navigationType) {
       case NavigationType.push:
@@ -32,12 +32,8 @@ class NavigationHandler {
       case NavigationType.popUntil:
         return _appRouter.popUntilRouteWithName(route.routeName);
       case NavigationType.pushAndPopUntil:
-        return _appRouter.navigate(route);
-        // return _appRouter.replaceAll([route]);
-      // return _navigator.pushNamedAndRemoveUntil(
-      //   routeName,
-      //   predicate!,
-      // );
+        _appRouter.popUntilRoot();
+        return _appRouter.replace(route);
     }
   }
 

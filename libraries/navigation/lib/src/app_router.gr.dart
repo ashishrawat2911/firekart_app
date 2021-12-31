@@ -10,12 +10,12 @@
 
 import 'package:account/account.dart' as _i4;
 import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:checkout/checkout.dart' as _i5;
+import 'package:checkout/checkout.dart' as _i3;
 import 'package:flutter/material.dart' as _i7;
 import 'package:intro/intro.dart' as _i1;
 import 'package:login/login.dart' as _i2;
 import 'package:network/network.dart' as _i8;
-import 'package:product/product.dart' as _i3;
+import 'package:product/product.dart' as _i5;
 
 class AppRouter extends _i6.RootStackRouter {
   AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
@@ -36,10 +36,6 @@ class AppRouter extends _i6.RootStackRouter {
               key: args.key,
               checkForAccountStatusOnly: args.checkForAccountStatusOnly));
     },
-    HomeScreenRoute.name: (routeData) {
-      return _i6.CupertinoPageX<dynamic>(
-          routeData: routeData, child: const _i1.HomeScreen());
-    },
     LoginScreenRoute.name: (routeData) {
       return _i6.CupertinoPageX<dynamic>(
           routeData: routeData, child: const _i2.LoginScreen());
@@ -52,11 +48,31 @@ class AppRouter extends _i6.RootStackRouter {
           child:
               _i2.OtpLoginScreen(phoneNumber: args.phoneNumber, key: args.key));
     },
+    HomeScreenRoute.name: (routeData) {
+      return _i6.CupertinoPageX<dynamic>(
+          routeData: routeData, child: const _i1.HomeScreen());
+    },
+    DashboardScreenRoute.name: (routeData) {
+      return _i6.CupertinoPageX<dynamic>(
+          routeData: routeData, child: const _i1.DashboardScreen());
+    },
+    CartScreenRoute.name: (routeData) {
+      return _i6.CupertinoPageX<dynamic>(
+          routeData: routeData, child: const _i3.CartScreen());
+    },
+    AccountScreenRoute.name: (routeData) {
+      return _i6.CupertinoPageX<dynamic>(
+          routeData: routeData, child: const _i4.AccountScreen());
+    },
+    SearchItemScreenRoute.name: (routeData) {
+      return _i6.CupertinoPageX<dynamic>(
+          routeData: routeData, child: const _i1.SearchItemScreen());
+    },
     ProductDetailPageRoute.name: (routeData) {
       final args = routeData.argsAs<ProductDetailPageRouteArgs>();
       return _i6.CupertinoPageX<dynamic>(
           routeData: routeData,
-          child: _i3.ProductDetailPage(args.productModel, key: args.key));
+          child: _i5.ProductDetailPage(args.productModel, key: args.key));
     },
     AddUserDetailScreenRoute.name: (routeData) {
       final args = routeData.argsAs<AddUserDetailScreenRouteArgs>();
@@ -64,21 +80,13 @@ class AppRouter extends _i6.RootStackRouter {
           routeData: routeData,
           child: _i4.AddUserDetailScreen(args.newAddress, key: args.key));
     },
-    CartScreenRoute.name: (routeData) {
-      return _i6.CupertinoPageX<dynamic>(
-          routeData: routeData, child: const _i5.CartScreen());
-    },
     AllProductListScreenRoute.name: (routeData) {
       final args = routeData.argsAs<AllProductListScreenRouteArgs>(
           orElse: () => const AllProductListScreenRouteArgs());
       return _i6.CupertinoPageX<dynamic>(
           routeData: routeData,
-          child: _i3.AllProductListScreen(
+          child: _i5.AllProductListScreen(
               key: args.key, productCondition: args.productCondition));
-    },
-    SearchItemScreenRoute.name: (routeData) {
-      return _i6.CupertinoPageX<dynamic>(
-          routeData: routeData, child: const _i1.SearchItemScreen());
     },
     MyAddressScreenRoute.name: (routeData) {
       final args = routeData.argsAs<MyAddressScreenRouteArgs>(
@@ -97,7 +105,7 @@ class AppRouter extends _i6.RootStackRouter {
     },
     MyOrdersScreenRoute.name: (routeData) {
       return _i6.CupertinoPageX<dynamic>(
-          routeData: routeData, child: const _i5.MyOrdersScreen());
+          routeData: routeData, child: const _i3.MyOrdersScreen());
     }
   };
 
@@ -106,18 +114,20 @@ class AppRouter extends _i6.RootStackRouter {
         _i6.RouteConfig(SplashScreenRoute.name, path: '/'),
         _i6.RouteConfig(CheckStatusScreenRoute.name,
             path: '/check-status-screen'),
-        _i6.RouteConfig(HomeScreenRoute.name, path: '/home-screen'),
         _i6.RouteConfig(LoginScreenRoute.name, path: '/login-screen'),
         _i6.RouteConfig(OtpLoginScreenRoute.name, path: '/otp-login-screen'),
+        _i6.RouteConfig(HomeScreenRoute.name, path: '/home-screen'),
+        _i6.RouteConfig(DashboardScreenRoute.name, path: '/dashboard-screen'),
+        _i6.RouteConfig(CartScreenRoute.name, path: '/cart-screen'),
+        _i6.RouteConfig(AccountScreenRoute.name, path: '/account-screen'),
+        _i6.RouteConfig(SearchItemScreenRoute.name,
+            path: '/search-item-screen'),
         _i6.RouteConfig(ProductDetailPageRoute.name,
             path: '/product-detail-page'),
         _i6.RouteConfig(AddUserDetailScreenRoute.name,
             path: '/add-user-detail-screen'),
-        _i6.RouteConfig(CartScreenRoute.name, path: '/cart-screen'),
         _i6.RouteConfig(AllProductListScreenRoute.name,
             path: '/all-product-list-screen'),
-        _i6.RouteConfig(SearchItemScreenRoute.name,
-            path: '/search-item-screen'),
         _i6.RouteConfig(MyAddressScreenRoute.name, path: '/my-address-screen'),
         _i6.RouteConfig(AddAddressScreenRoute.name,
             path: '/add-address-screen'),
@@ -162,14 +172,6 @@ class CheckStatusScreenRouteArgs {
 }
 
 /// generated route for
-/// [_i1.HomeScreen]
-class HomeScreenRoute extends _i6.PageRouteInfo<void> {
-  const HomeScreenRoute() : super(HomeScreenRoute.name, path: '/home-screen');
-
-  static const String name = 'HomeScreenRoute';
-}
-
-/// generated route for
 /// [_i2.LoginScreen]
 class LoginScreenRoute extends _i6.PageRouteInfo<void> {
   const LoginScreenRoute()
@@ -203,7 +205,50 @@ class OtpLoginScreenRouteArgs {
 }
 
 /// generated route for
-/// [_i3.ProductDetailPage]
+/// [_i1.HomeScreen]
+class HomeScreenRoute extends _i6.PageRouteInfo<void> {
+  const HomeScreenRoute() : super(HomeScreenRoute.name, path: '/home-screen');
+
+  static const String name = 'HomeScreenRoute';
+}
+
+/// generated route for
+/// [_i1.DashboardScreen]
+class DashboardScreenRoute extends _i6.PageRouteInfo<void> {
+  const DashboardScreenRoute()
+      : super(DashboardScreenRoute.name, path: '/dashboard-screen');
+
+  static const String name = 'DashboardScreenRoute';
+}
+
+/// generated route for
+/// [_i3.CartScreen]
+class CartScreenRoute extends _i6.PageRouteInfo<void> {
+  const CartScreenRoute() : super(CartScreenRoute.name, path: '/cart-screen');
+
+  static const String name = 'CartScreenRoute';
+}
+
+/// generated route for
+/// [_i4.AccountScreen]
+class AccountScreenRoute extends _i6.PageRouteInfo<void> {
+  const AccountScreenRoute()
+      : super(AccountScreenRoute.name, path: '/account-screen');
+
+  static const String name = 'AccountScreenRoute';
+}
+
+/// generated route for
+/// [_i1.SearchItemScreen]
+class SearchItemScreenRoute extends _i6.PageRouteInfo<void> {
+  const SearchItemScreenRoute()
+      : super(SearchItemScreenRoute.name, path: '/search-item-screen');
+
+  static const String name = 'SearchItemScreenRoute';
+}
+
+/// generated route for
+/// [_i5.ProductDetailPage]
 class ProductDetailPageRoute
     extends _i6.PageRouteInfo<ProductDetailPageRouteArgs> {
   ProductDetailPageRoute({required _i8.ProductModel productModel, _i7.Key? key})
@@ -255,15 +300,7 @@ class AddUserDetailScreenRouteArgs {
 }
 
 /// generated route for
-/// [_i5.CartScreen]
-class CartScreenRoute extends _i6.PageRouteInfo<void> {
-  const CartScreenRoute() : super(CartScreenRoute.name, path: '/cart-screen');
-
-  static const String name = 'CartScreenRoute';
-}
-
-/// generated route for
-/// [_i3.AllProductListScreen]
+/// [_i5.AllProductListScreen]
 class AllProductListScreenRoute
     extends _i6.PageRouteInfo<AllProductListScreenRouteArgs> {
   AllProductListScreenRoute({_i7.Key? key, String? productCondition})
@@ -286,15 +323,6 @@ class AllProductListScreenRouteArgs {
   String toString() {
     return 'AllProductListScreenRouteArgs{key: $key, productCondition: $productCondition}';
   }
-}
-
-/// generated route for
-/// [_i1.SearchItemScreen]
-class SearchItemScreenRoute extends _i6.PageRouteInfo<void> {
-  const SearchItemScreenRoute()
-      : super(SearchItemScreenRoute.name, path: '/search-item-screen');
-
-  static const String name = 'SearchItemScreenRoute';
 }
 
 /// generated route for
@@ -364,7 +392,7 @@ class AddAddressScreenRouteArgs {
 }
 
 /// generated route for
-/// [_i5.MyOrdersScreen]
+/// [_i3.MyOrdersScreen]
 class MyOrdersScreenRoute extends _i6.PageRouteInfo<void> {
   const MyOrdersScreenRoute()
       : super(MyOrdersScreenRoute.name, path: '/my-orders-screen');

@@ -1,8 +1,8 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intro/src/home/bloc/product_search_cubit.dart';
 import 'package:intro/src/home/state/product_search_state.dart';
+import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 import 'package:widgets/widgets.dart';
 
@@ -50,8 +50,27 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       crossAxisSpacing: 10,
       children: List.generate(
         productList.length,
-        (index) => ProductCard(productList[index]),
+        (index) => ProductCard(productModelToArgs(productList[index])),
       ),
+    );
+  }
+
+  ProductCardArgs productModelToArgs(ProductModel productModel) {
+    return ProductCardArgs(
+      image: productModel.image!,
+      name: productModel.name!,
+      currency: productModel.currency!,
+      onTap: () {
+        NavigationHandler.navigateTo(
+          ProductDetailPageRoute(
+            productModel: productModel,
+          ),
+        );
+      },
+      actualPrice: productModel.actualPrice!,
+      currentPrice: productModel.currentPrice!,
+      quantityPerUnit: productModel.quantityPerUnit!,
+      unit: productModel.unit!,
     );
   }
 }

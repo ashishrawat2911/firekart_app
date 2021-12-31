@@ -1,7 +1,6 @@
 import 'package:core/core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:network/network.dart';
-import 'package:package_info/package_info.dart';
 
 class CrashlyticsService {
   CrashlyticsService(this._firebaseManager) {

@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation/navigation.dart';
 import 'package:fluttercommerce/initializer.dart';
+import 'package:navigation/navigation.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -11,11 +11,6 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
