@@ -15,6 +15,7 @@ Future<void> main() async {
     runStateObserver();
     runApp(const App());
   }, (error, stack) {
+    AppLogger.log('App level error', logType: LogType.error, error: error, stackTrace: stack);
     DI.container<CrashlyticsService>().recordError(error, stack);
   }, zoneSpecification: const ZoneSpecification());
 }

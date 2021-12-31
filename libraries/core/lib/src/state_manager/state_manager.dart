@@ -1,3 +1,4 @@
+import 'package:core/src/logger/app_logger.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class StateManager<S> extends Cubit<S> {
@@ -9,6 +10,7 @@ abstract class StateManager<S> extends Cubit<S> {
 
   @override
   void onChange(Change<S> change) {
+    AppLogger.log(change.currentState.toString());
     super.onChange(change);
   }
 }
