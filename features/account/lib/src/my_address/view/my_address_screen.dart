@@ -14,30 +14,33 @@ class MyAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateProvider<MyAddressViewModel>(
-      onViewModelReady: (viewModel) {
-        viewModel.fetchAccountDetails();
-      },
-      child: Scaffold(
-        appBar: AppBar(
-            elevation: 1,
-            title: Text(selectedAddress
-                ? StringsConstants.selectAddress
-                : StringsConstants.myAddress)),
-        body: StateBuilder<MyAddressViewModel, MyAddressState>(
-          // buildWhen: (previous, current) => previous.accountDetails != current.accountDetails,
-          builder: (BuildContext context, viewModel, state) {
-            if (state.addressStates.isEmpty) {
-              return noAddressesFound(state.accountDetails!, viewModel);
-            } else if (state.screenError != null) {
-              return Text(state.screenError!);
-            } else {
-              return const Center(
-                child: CommonAppLoader(),
-              );
-            }
-          },
-        ),
+    return Scaffold(
+      appBar: AppBar(
+          elevation: 1,
+          title: Text(selectedAddress
+              ? StringsConstants.selectAddress
+              : StringsConstants.myAddress)),
+      body: StateBuilder<MyAddressViewModel, MyAddressState>(
+        onViewModelReady: (viewModel) {
+          viewModel.fetchAccountDetails();
+        },
+        // buildWhen: (previous, current) => previous.accountDetails != current.accountDetails,
+        builder: (BuildContext context, viewModel, state) {
+          if (state.screenLoading) {
+            return const Center(
+              child: CommonAppLoader(),
+            );
+          } else if (state.accountDetails != null &&
+              state.addressStates.isNotEmpty) {
+            return addressesView(state.accountDetails!, viewModel, state);
+          } else if (state.addressStates.isEmpty) {
+            return noAddressesFound(state.accountDetails!, viewModel);
+          } else if (state.screenError != null) {
+            return Text(state.screenError!);
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }

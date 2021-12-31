@@ -1,16 +1,17 @@
-import 'package:network/network.dart';
 import 'package:core/core.dart';
+import 'package:network/network.dart';
 
-import 'cart/bloc/cart_cubit.dart';
-import 'order/bloc/my_orders_cubit.dart';
+import 'cart/view_model/cart_view_model.dart';
+import 'order/view_model/my_orders_cubit.dart';
 
 class CheckoutModule extends Module {
   @override
   void registerDependencies() {
-    DI.container.registerSingleton((container) => CartCubit(
-          container.get<FirebaseManager>(),
-          container.get<GlobalListener>(),
-        ));
+    DI.container.registerSingleton(CartViewModel(
+      DI.container<FirebaseManager>(),
+      DI.container<GlobalListener>(),
+    ));
+
     final firebaseRepo = DI.container<FirebaseManager>();
 
     DI.container.registerFactory(() => MyOrdersCubit(firebaseRepo));

@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommonViewCartOverlayArgs {
   String title;
@@ -22,7 +21,9 @@ class CommonViewCartOverlay extends StatelessWidget {
         height: 50,
         margin: const EdgeInsets.all(20),
         padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(10)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -54,7 +55,9 @@ class CommonViewCartOverlay extends StatelessWidget {
         ),
       ),
       secondChild: const SizedBox(),
-      crossFadeState: args.isCartEmpty ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+      crossFadeState: args.isCartEmpty
+          ? CrossFadeState.showFirst
+          : CrossFadeState.showSecond,
     );
   }
 }

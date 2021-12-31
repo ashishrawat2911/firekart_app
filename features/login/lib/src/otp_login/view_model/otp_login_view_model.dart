@@ -20,11 +20,13 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
   }
 
   Future<void> sendOtp(String phoneNumber) async {
-    _firebaseManager.sendCode(phoneNumber, codeSent: (String verificationId, [int? forceResendingToken]) async {
+    _firebaseManager.sendCode(phoneNumber,
+        codeSent: (String verificationId, [int? forceResendingToken]) async {
       _verificationId = verificationId;
       Timer.periodic(const Duration(seconds: 60), (timer) {
         state = state.copyWith(
-          codeCountDown: "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
+          codeCountDown:
+              "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
         );
       });
     }, codeAutoRetrievalTimeout: (String verificationId) {
@@ -49,7 +51,8 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
       resendOtpLoading: isResend,
     );
 
-    final _credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: smsCode);
+    final _credential = PhoneAuthProvider.credential(
+        verificationId: _verificationId, smsCode: smsCode);
     _login(_credential);
   }
 
@@ -61,7 +64,6 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
       NavigationHandler.navigateTo(
         CheckStatusScreenRoute(checkForAccountStatusOnly: true),
         navigationType: NavigationType.pushAndPopUntil,
-        predicate: (route) => false,
       );
     } catch (e) {
       MessageHandler.showSnackBar(title: e.toString());

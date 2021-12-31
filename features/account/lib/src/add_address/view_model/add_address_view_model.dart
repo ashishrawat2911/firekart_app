@@ -4,9 +4,9 @@ import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 
 class AddAddressViewModel extends StateManager<AddAddressState> {
-  AddAddressViewModel(this._firebaseRepo) : super(const AddAddressState());
+  AddAddressViewModel(this._firebaseManager) : super(const AddAddressState());
 
-  final FirebaseManager _firebaseRepo;
+  final FirebaseManager _firebaseManager;
 
   Future<void> saveAddress(
       AccountDetails accountDetails, Address address) async {
@@ -18,7 +18,7 @@ class AddAddressViewModel extends StateManager<AddAddressState> {
       });
     }
     accountDetails.addresses.add(address);
-    await _firebaseRepo.addUserDetails(accountDetails).then((value) {
+    await _firebaseManager.addUserDetails(accountDetails).then((value) {
       NavigationHandler.pop(true);
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());

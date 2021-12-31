@@ -1,15 +1,20 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:network/network.dart';
 import 'package:widgets/src/action_text.dart';
 import 'package:widgets/src/common_app_loader.dart';
 
 enum AddButton { add, minus }
 
 class CartItemCardArgs {
+  final String name;
+  final String image;
+  final String price;
+  final String totalPrice;
+  final String quantity;
+  final int itemCount;
   final bool deleteLoading;
   final bool isLoading;
-  final CartModel cartModel;
+
   final int index;
   final EdgeInsets? margin;
   final ValueChanged<int> onDeleted;
@@ -17,10 +22,15 @@ class CartItemCardArgs {
   final ValueChanged<int> onDecrement;
 
   CartItemCardArgs({
+    required this.name,
+    required this.image,
+    required this.price,
+    required this.quantity,
+    required this.itemCount,
+    required this.totalPrice,
     required this.deleteLoading,
     required this.isLoading,
     this.margin,
-    required this.cartModel,
     required this.index,
     required this.onDeleted,
     required this.onIncrement,
@@ -52,7 +62,7 @@ class CartItemCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CachedNetworkImage(
-                        imageUrl: cartItemCardArgs.cartModel.image,
+                        imageUrl: cartItemCardArgs.image,
                         height: 68,
                         width: 68,
                         fit: BoxFit.fill,
@@ -64,15 +74,19 @@ class CartItemCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            cartItemCardArgs.cartModel.name,
-                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: AppColors.black),
+                            cartItemCardArgs.name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: AppColors.black),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           Text(
-                            "${cartItemCardArgs.cartModel.currency}${cartItemCardArgs.cartModel.currentPrice} / ${cartItemCardArgs.cartModel.quantityPerUnit} ${cartItemCardArgs.cartModel.unit}",
-                            style: TextStyle(fontSize: 14, color: AppColors.color81819A),
+                            "${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}",
+                            style: TextStyle(
+                                fontSize: 14, color: AppColors.color81819A),
                           ),
                         ],
                       )
@@ -113,7 +127,8 @@ class CartItemCard extends StatelessWidget {
                             cartItemCardArgs.isLoading
                                 ? () {}
                                 : () {
-                                    cartItemCardArgs.onIncrement(cartItemCardArgs.index);
+                                    cartItemCardArgs
+                                        .onIncrement(cartItemCardArgs.index);
                                   }),
                         Expanded(
                             child: Center(
@@ -123,7 +138,7 @@ class CartItemCard extends StatelessWidget {
                                         strokeWidth: 3,
                                       )
                                     : Text(
-                                        "${cartItemCardArgs.cartModel.numOfItems}",
+                                        "${cartItemCardArgs.itemCount}",
                                         style: TextStyle(
                                           color: AppColors.black,
                                           fontSize: 14,
@@ -134,13 +149,14 @@ class CartItemCard extends StatelessWidget {
                             cartItemCardArgs.isLoading
                                 ? () {}
                                 : () {
-                                    cartItemCardArgs.onDecrement(cartItemCardArgs.index);
+                                    cartItemCardArgs
+                                        .onDecrement(cartItemCardArgs.index);
                                   })
                       ],
                     ),
                   ),
                   Text(
-                    "${cartItemCardArgs.cartModel.currency}${cartItemCardArgs.cartModel.currentPrice * cartItemCardArgs.cartModel.numOfItems}",
+                    cartItemCardArgs.totalPrice,
                     style: TextStyle(
                       color: AppColors.black,
                       fontSize: 14,
@@ -162,8 +178,9 @@ class CartItemCard extends StatelessWidget {
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,
