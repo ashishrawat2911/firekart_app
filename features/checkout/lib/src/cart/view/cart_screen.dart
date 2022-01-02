@@ -1,5 +1,5 @@
-import 'package:checkout/src/cart/view_model/cart_view_model.dart';
 import 'package:checkout/src/cart/state/cart_state.dart';
+import 'package:checkout/src/cart/view_model/cart_view_model.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets/widgets.dart';

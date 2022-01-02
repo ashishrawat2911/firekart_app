@@ -1,6 +1,6 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:core/core.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
@@ -89,8 +89,7 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  void _fieldFocusChange(
-      BuildContext context, FocusNode currentFocus, FocusNode? nextFocus) {
+  void _fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode? nextFocus) {
     currentFocus.unfocus();
     if (nextFocus == null) {
       nextFocus?.unfocus();
@@ -124,23 +123,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
         validator: widget.isValidatorRequired
             ? widget.validator ??
                 (value) {
-                  if (value!.isEmpty) {
-                    return widget.errorText;
-                  } else {
-                    return value;
-                  }
-                }
+              if (value!.isEmpty) {
+                return widget.errorText;
+              } else {
+                return value;
+              }
+            }
             : null,
         onChanged: widget.onChanged,
         onFieldSubmitted: widget.onSubmitted ??
-            (term) {
+                (term) {
               _fieldFocusChange(
                   widget.context!, widget.focusNode!, widget.nextFocusNode!);
             },
         decoration: InputDecoration(
           contentPadding: widget.contentPadding != null
               ? EdgeInsets.symmetric(
-                  horizontal: widget.contentPadding!, vertical: 2)
+              horizontal: widget.contentPadding!, vertical: 2)
               : null,
           fillColor: widget.fillColor ?? AppColors.colorF6F5F8,
           filled: true,
@@ -152,9 +151,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
               : TextStyle(fontSize: 15, color: AppColors.color969696),
           errorStyle: widget.errorStyle ??
               const TextStyle(
-                  // color: AppColors.errorRed,
-                  // fontSize: 0,
-                  ),
+                // color: AppColors.errorRed,
+                // fontSize: 0,
+              ),
           border: OutlineInputBorder(
             // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(color: AppColors.white, width: 0.0),

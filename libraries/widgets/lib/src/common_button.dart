@@ -1,6 +1,6 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:core/core.dart';
 import 'package:widgets/src/dot_progress_indicator.dart';
 
 class CommonButton extends StatelessWidget {
@@ -20,23 +20,22 @@ class CommonButton extends StatelessWidget {
   final TextAlign? textAlign;
   final EdgeInsets? margin;
 
-  const CommonButton(
-      {Key? key,
-      required this.title,
-      this.onTap,
-      this.textStyle,
-      this.buttonColor,
-      this.titleColor,
-      this.elevation,
-      this.width,
-      this.height,
-      this.fontWeight,
-      this.fontSize,
-      this.textAlign,
-      this.hasForwardIcon = false,
-      this.replaceWithIndicator = false,
-      this.margin,
-      this.isEnabled = true})
+  const CommonButton({Key? key,
+    required this.title,
+    this.onTap,
+    this.textStyle,
+    this.buttonColor,
+    this.titleColor,
+    this.elevation,
+    this.width,
+    this.height,
+    this.fontWeight,
+    this.fontSize,
+    this.textAlign,
+    this.hasForwardIcon = false,
+    this.replaceWithIndicator = false,
+    this.margin,
+    this.isEnabled = true})
       : super(key: key);
 
   @override
@@ -47,15 +46,15 @@ class CommonButton extends StatelessWidget {
         margin: margin,
         child: MaterialButton(
           disabledColor:
-              AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
+          AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
           onPressed: (!replaceWithIndicator && isEnabled)
               ? () {
-                  if (onTap != null) {
-                    HapticFeedback.lightImpact();
-                    onTap!();
-                  }
-                }
+            if (onTap != null) {
+              HapticFeedback.lightImpact();
+              onTap!();
+            }
+          }
               : null,
           elevation: elevation ?? 0,
           highlightColor: Colors.transparent,
@@ -65,24 +64,24 @@ class CommonButton extends StatelessWidget {
           child: Center(
             child: hasForwardIcon
                 ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      buttonTitle(),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
-                        color: AppColors.white,
-                        size: 20,
-                      )
-                    ],
-                  )
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                buttonTitle(),
+                const SizedBox(
+                  width: 6,
+                ),
+                Icon(
+                  Icons.arrow_forward,
+                  color: AppColors.white,
+                  size: 20,
+                )
+              ],
+            )
                 : replaceWithIndicator
-                    ? DotProgressIndicator(
-                        color: AppColors.white,
-                      )
-                    : buttonTitle(),
+                ? DotProgressIndicator(
+              color: AppColors.white,
+            )
+                : buttonTitle(),
           ),
         ));
   }
