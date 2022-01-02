@@ -1,0 +1,52 @@
+#TODO Add descriptions for scripts
+
+name: my_project
+
+packages:
+  - features/**
+  - libraries/**
+
+scripts:
+  analyze:
+    run: |
+      flutter analyze
+      melos exec flutter analyze
+  format:
+    run: |
+      flutter format lib
+      melos exec flutter format lib
+  clean:
+    run: |
+      flutter clean
+      rm pubspec.lock
+      rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
+      melos exec flutter clean
+      melos exec rm pubspec.lock
+      melos exec rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
+  get:
+    run: |
+      flutter pub get
+      melos bs
+  checkout:
+    run: |
+      melos clean
+      melos get
+
+  test:
+    run: |
+      flutter test --no-pub --coverage
+      melos exec --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
+  build:
+    run: |
+      flutter build apk
+      flutter build ios
+  generate:
+    run: |
+      flutter packages pub run build_runner build --delete-conflicting-outputs
+      melos exec flutter packages pub run build_runner build --delete-conflicting-outputs
+  refactor:
+    run: |
+      melos analyze
+      melos checkout
+      melos format
+      melos generate
