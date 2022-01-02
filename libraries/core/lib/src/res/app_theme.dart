@@ -28,8 +28,7 @@ class AppTheme {
         titleTextStyle: AppTextStyles.t26,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      colorScheme:
-          ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
+      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
     );
   }
 }

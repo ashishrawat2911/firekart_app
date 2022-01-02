@@ -8,6 +8,10 @@ abstract class StateManager<S> extends Cubit<S> {
     emit(value);
   }
 
+  updateState() {
+    state = state;
+  }
+
   @override
   void onChange(Change<S> change) {
     AppLogger.log(change.currentState.toString());

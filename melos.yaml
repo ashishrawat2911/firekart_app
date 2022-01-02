@@ -1,6 +1,6 @@
 #TODO Add descriptions for scripts
 
-name: my_project
+name: flutter_commerce
 
 packages:
   - features/**
@@ -39,7 +39,7 @@ scripts:
   build:
     run: |
       flutter build apk
-      flutter build ios
+      flutter build ios --release --no-codesign
   generate:
     run: |
       flutter packages pub run build_runner build --delete-conflicting-outputs
