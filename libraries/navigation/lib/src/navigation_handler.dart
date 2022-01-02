@@ -17,8 +17,6 @@ class NavigationHandler {
 
   static RouterDelegate<Object> get routerDelegate => _appRouter.delegate();
 
-  // static NavigatorState get _navigator => navigatorKey.currentState!;
-
   static Future<dynamic> navigateTo(
     PageRouteInfo route, {
     NavigationType navigationType = NavigationType.push,

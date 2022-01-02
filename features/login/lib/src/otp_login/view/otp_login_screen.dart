@@ -1,8 +1,8 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:login/src/otp_login/state/otp_login_state.dart';
 import 'package:login/src/otp_login/view_model/otp_login_view_model.dart';
 import 'package:navigation/navigation.dart';
-import 'package:core/core.dart';
 import 'package:widgets/widgets.dart';
 
 class OtpLoginScreen extends StatefulWidget {
@@ -49,7 +49,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             child: Scaffold(
               backgroundColor: Colors.transparent,
               floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
+              FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),

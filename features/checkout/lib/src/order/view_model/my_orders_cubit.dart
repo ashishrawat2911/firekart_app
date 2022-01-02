@@ -1,5 +1,5 @@
-import 'package:network/network.dart';
 import 'package:core/core.dart';
+import 'package:network/network.dart';
 
 class MyOrdersCubit extends Cubit<ResultState<List<OrderModel>>> {
   MyOrdersCubit(this.firebaseRepo) : super(const ResultState.idle());

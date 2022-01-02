@@ -1,6 +1,6 @@
 #TODO Add descriptions for scripts
 
-name: my_project
+name: flutter_commerce
 
 packages:
   - features/**
@@ -10,19 +10,20 @@ scripts:
   analyze:
     run: |
       flutter analyze
-      melos exec flutter analyze
+      melos exec -c 1 --fail-fast -- "flutter analyze"
   format:
     run: |
       flutter format lib
       melos exec flutter format lib
   clean:
     run: |
+      melos cleanAll
+      melos exec -c 1 --fail-fast -- melos cleanAll
+  cleanAll:
+    run: |
       flutter clean
       rm pubspec.lock
       rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
-      melos exec flutter clean
-      melos exec rm pubspec.lock
-      melos exec rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
   get:
     run: |
       flutter pub get
@@ -39,11 +40,12 @@ scripts:
   build:
     run: |
       flutter build apk
-      flutter build ios
+      flutter build ios --release --no-codesign
   generate:
     run: |
       flutter packages pub run build_runner build --delete-conflicting-outputs
-      melos exec flutter packages pub run build_runner build --delete-conflicting-outputs
+      melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
+
   refactor:
     run: |
       melos analyze
