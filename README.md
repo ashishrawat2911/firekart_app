@@ -1,4 +1,5 @@
 # Flutter-Commerce
+![CI](https://github.com/ashishrawat2911/flutter_commerce/workflows/Ecomm/badge.svg)
 [![GitHub stars](https://img.shields.io/github/stars/ashishrawat2911/flutter_commerce?style=social)](https://github.com/ashishrawat2911/flutter_commerce) ![GitHub forks](https://img.shields.io/github/forks/ashishrawat2911/flutter_commerce?style=social) 
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/ashishrawat2911/flutter_commerce) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ashishrawat2911/flutter_commerce) ![GitHub last commit](https://img.shields.io/github/last-commit/ashishrawat2911/flutter_commerce)  ![GitHub issues](https://img.shields.io/github/issues-raw/ashishrawat2911/flutter_commerce) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashishrawat2911/flutter_commerce) 
 
