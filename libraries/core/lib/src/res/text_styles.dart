@@ -1,5 +1,5 @@
-import 'package:flutter/painting.dart';
 import 'package:core/core.dart';
+import 'package:flutter/painting.dart';
 
 class AppTextStyles {
   AppTextStyles._();

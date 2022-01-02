@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 
 class ActionText extends StatelessWidget {
   const ActionText(this.title, {Key? key, this.onTap}) : super(key: key);

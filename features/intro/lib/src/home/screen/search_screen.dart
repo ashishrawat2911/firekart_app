@@ -32,10 +32,9 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
               return const Center(
                 child: CommonAppLoader(),
               );
-            } else if (state.productList != null) {
+            } else {
               return productView(state.productList);
             }
-            return Container();
           },
         ));
   }
