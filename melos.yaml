@@ -45,8 +45,6 @@ scripts:
     run: |
       flutter packages pub run build_runner build --delete-conflicting-outputs
       melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
-    select-package:
-
 
   refactor:
     run: |
