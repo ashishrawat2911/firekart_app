@@ -1,0 +1,51 @@
+name: fluttercommerce
+description: A new Flutter project.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intro:
+    path: features/intro
+  account:
+    path: features/account
+  login:
+    path: features/login
+  product:
+    path: features/product
+  checkout:
+    path: features/checkout
+
+  core:
+    path: libraries/core
+  navigation:
+    path: libraries/navigation
+  network:
+    path: libraries/network
+  flutter_lints: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.1.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    #Images
+    - assets/images/app_logo.png
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.otf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Medium.otf
+          weight: 500
+        - asset: assets/fonts/poppins/Poppins-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-Bold.otf
+          weight: 700
