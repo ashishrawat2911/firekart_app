@@ -21,6 +21,14 @@ class AppLogger {
     _logger.log(_logTypeToLogLevel(logType), message, error, stackTrace);
   }
 
+  static void errorLog(
+    dynamic message, {
+    dynamic error,
+    StackTrace? stackTrace,
+  }) {
+    _logger.log(Level.error, message, error, stackTrace);
+  }
+
   static Level _logTypeToLogLevel(LogType logType) {
     switch (logType) {
       case LogType.verbose:
