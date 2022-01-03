@@ -3,47 +3,38 @@
 name: flutter_commerce
 
 packages:
-  - features/**
-  - libraries/**
+  - /**
 
 scripts:
   analyze:
     run: |
-      flutter analyze
       melos exec -c 1 --fail-fast -- "flutter analyze"
   format:
     run: |
-      flutter format lib
       melos exec flutter format lib
   clean:
     run: |
-      melos cleanAll
-      melos exec -c 1 --fail-fast -- melos cleanAll
-  cleanAll:
-    run: |
-      flutter clean
-      rm pubspec.lock
-      rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
+      melos exec -c 1 --fail-fast -- flutter clean
+      melos exec -c 1 --fail-fast -- rm pubspec.lock
+      melos exec -c 1 --fail-fast -- rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
   get:
     run: |
-      flutter pub get
       melos bs
   checkout:
     run: |
       melos clean
       melos get
-
   test:
     run: |
-      flutter test --no-pub --coverage
       melos exec --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
   build:
     run: |
+      cd mobile
       flutter build apk
       flutter build ios --release --no-codesign
+
   generate:
     run: |
-      flutter packages pub run build_runner build --delete-conflicting-outputs
       melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
 
   refactor:
