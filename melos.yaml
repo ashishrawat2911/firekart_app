@@ -11,7 +11,7 @@ scripts:
       melos exec -c 1 --fail-fast -- "flutter analyze"
   format:
     run: |
-      melos exec flutter format lib
+      melos exec -c 1 flutter format lib
   clean:
     run: |
       melos exec -c 1 --fail-fast -- flutter clean
@@ -26,7 +26,7 @@ scripts:
       melos get
   test:
     run: |
-      melos exec --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
+      melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
   build:
     run: |
       cd mobile
@@ -36,10 +36,16 @@ scripts:
   generate:
     run: |
       melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
+    select-package:
+     flutter: true
+
+  generateAll:
+    run: |
+      melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
 
   refactor:
     run: |
       melos analyze
       melos checkout
       melos format
-      melos generate
+      melos generateAll
