@@ -29,7 +29,7 @@ scripts:
       melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
   build:
     run: |
-      cd mobile
+      cd frontend
       flutter build apk
       flutter build ios --release --no-codesign
 
