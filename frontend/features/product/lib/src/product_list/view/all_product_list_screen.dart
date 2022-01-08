@@ -2,7 +2,7 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
-import 'package:product/src/product/product_list/view_model/all_product_cubit.dart';
+import 'package:product/src/product_list/view_model/all_product_cubit.dart';
 import 'package:widgets/widgets.dart';
 
 class AllProductListScreen extends StatefulWidget {

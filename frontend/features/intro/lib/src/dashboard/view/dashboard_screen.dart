@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:intro/src/home/bloc/dashboard_cubit.dart';
-import 'package:intro/src/home/state/dashboard_state.dart';
+import 'package:intro/src/dashboard/view_model/dashboard_view_model.dart';
+import 'package:intro/src/dashboard/state/dashboard_state.dart';
 import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 import 'package:widgets/widgets.dart';
@@ -9,7 +9,7 @@ import 'package:widgets/widgets.dart';
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
-  Future<void> fetchProductData(DashboardCubit viewModel) async {
+  Future<void> fetchProductData(DashboardViewModel viewModel) async {
     viewModel.fetchProductData(ProductData.dealOfTheDay);
     viewModel.fetchProductData(ProductData.onSale);
     viewModel.fetchProductData(ProductData.topProducts);
@@ -17,7 +17,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<DashboardCubit, DashboardState>(
+    return StateBuilder<DashboardViewModel, DashboardState>(
       onViewModelReady: (viewModel) {
         fetchProductData(viewModel);
       },

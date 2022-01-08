@@ -13,7 +13,7 @@ class CheckStatusScreen extends StatefulWidget {
 }
 
 class _CheckStatusScreenState extends State<CheckStatusScreen> {
-  final checkStatusBloc = DI.container<CheckStatusBloc>();
+  final checkStatusBloc = DI.container<CheckStatusViewModel>();
 
   @override
   void initState() {

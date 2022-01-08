@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
+import 'package:intro/src/home/viewmodel/home_viewmodel.dart';
 import 'package:navigation/navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:intro/src/home/bloc/home_cubit.dart';
 import 'package:intro/src/home/state/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<HomeScreenCubit, HomeState>(
+    return StateBuilder<HomeScreenViewModel, HomeState>(
       onViewModelReady: (viewModel) {
         viewModel.init();
       },

@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:fluttercommerce/di/di.dart';
-import 'package:fluttercommerce/features/init/bloc/splash_bloc.dart';
+import 'package:fluttercommerce/features/init/bloc/splash_view_model.dart';
 import 'package:fluttercommerce/features/init/screen/splash_screen.dart';
 import 'package:fluttercommerce/features/initializer.dart';
 

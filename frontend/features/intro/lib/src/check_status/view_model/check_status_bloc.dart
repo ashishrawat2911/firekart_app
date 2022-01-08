@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 
-class CheckStatusBloc extends Cubit<int> {
-  CheckStatusBloc(this.firebaseRepo) : super(0);
+class CheckStatusViewModel extends Cubit<int> {
+  CheckStatusViewModel(this.firebaseRepo) : super(0);
   FirebaseManager firebaseRepo;
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {
