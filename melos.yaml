@@ -39,6 +39,12 @@ scripts:
     select-package:
      flutter: true
 
+  generateWatch:
+    run: |
+      melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
+    select-package:
+     flutter: true
+
   generateAll:
     run: |
       melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
