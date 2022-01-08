@@ -2,8 +2,8 @@ import 'package:core/core.dart';
 import 'package:intro/src/home/state/home_state.dart';
 import 'package:network/network.dart';
 
-class HomeScreenCubit extends StateManager<HomeState> {
-  HomeScreenCubit(this.firebaseRepo, this.globalListener)
+class HomeScreenViewModel extends StateManager<HomeState> {
+  HomeScreenViewModel(this.firebaseRepo, this.globalListener)
       : super(const HomeState());
 
   final FirebaseManager firebaseRepo;

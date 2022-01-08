@@ -1,9 +1,9 @@
 import 'package:core/core.dart';
-import 'package:intro/src/home/state/product_search_state.dart';
+import 'package:intro/src/search/state/product_search_state.dart';
 import 'package:network/network.dart';
 
-class ProductSearchCubit extends StateManager<ProductSearchState> {
-  ProductSearchCubit(this.firebaseRepo) : super(const ProductSearchState());
+class ProductSearchViewModel extends StateManager<ProductSearchState> {
+  ProductSearchViewModel(this.firebaseRepo) : super(const ProductSearchState());
 
   FirebaseManager firebaseRepo;
 

@@ -1,11 +1,12 @@
 import 'package:core/core.dart';
-import 'package:intro/src/home/state/dashboard_state.dart';
+import 'package:intro/src/dashboard/state/dashboard_state.dart';
+import 'package:intro/src/dashboard/state/dashboard_state.dart';
 import 'package:network/network.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
 
-class DashboardCubit extends StateManager<DashboardState> {
-  DashboardCubit(this._firebaseManager) : super(const DashboardState());
+class DashboardViewModel extends StateManager<DashboardState> {
+  DashboardViewModel(this._firebaseManager) : super(const DashboardState());
 
   final FirebaseManager _firebaseManager;
 

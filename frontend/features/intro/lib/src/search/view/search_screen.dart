@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:intro/src/home/bloc/product_search_cubit.dart';
-import 'package:intro/src/home/state/product_search_state.dart';
+import 'package:intro/src/search/view_model/product_search_viewmodel.dart';
+import 'package:intro/src/search/state/product_search_state.dart';
 import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';
 import 'package:widgets/widgets.dart';
@@ -14,7 +14,7 @@ class SearchItemScreen extends StatefulWidget {
 }
 
 class _SearchItemScreenState extends State<SearchItemScreen> {
-  ProductSearchCubit productSearchCubit = DI.container<ProductSearchCubit>();
+  ProductSearchViewModel productSearchCubit = DI.container<ProductSearchViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
             productSearchCubit.searchProduct(value);
           },
         ),
-        body: BlocBuilder<ProductSearchCubit, ProductSearchState>(
+        body: BlocBuilder<ProductSearchViewModel, ProductSearchState>(
           bloc: productSearchCubit,
           builder: (BuildContext context, ProductSearchState state) {
             if (state.loading) {

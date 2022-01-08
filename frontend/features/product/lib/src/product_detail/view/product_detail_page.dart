@@ -1,8 +1,8 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
-import 'package:product/src/product/product_detail/state/add_to_cart_state.dart';
-import 'package:product/src/product/product_detail/view_model/product_view_model.dart';
+import 'package:product/src/product_detail/state/add_to_cart_state.dart';
+import 'package:product/src/product_detail/view_model/product_view_model.dart';
 import 'package:widgets/widgets.dart';
 
 class ProductDetailPage extends StatelessWidget {
