@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:intro/src/dashboard/state/dashboard_state.dart';
-import 'package:intro/src/dashboard/state/dashboard_state.dart';
 import 'package:network/network.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
