@@ -6,10 +6,10 @@ part 'faq_model.g.dart';
 class FaqModel {
   FaqModel({this.question, this.answer});
 
-  factory FaqModel.fromDocument(json) => _$FaqModelFromJson(json);
+  factory FaqModel.fromJson(json) => _$FaqModelFromJson(json);
 
   String? question;
   String? answer;
 
-  Map<String, dynamic> toMap() => _$FaqModelToJson(this);
+  Map<String, dynamic> toJson() => _$FaqModelToJson(this);
 }
