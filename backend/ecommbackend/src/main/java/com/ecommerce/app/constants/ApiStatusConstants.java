@@ -7,6 +7,26 @@ public class ApiStatusConstants {
     static final public String USER_ALREADY_EXIST = "User already exist";
     static final public String USER_PENDING_STATUS = "User have not activated";
     static final public String USER_SUCCESSFULLY_LOGGED_OUT = "Logged out successfully!";
+    static final public String Id_Not_Matched = "Id Not Matched";
+    static final public String PRODUCT_NOT_EXIST = "Product does not exist";
+    static final public String PRODUCT_STATUS_ERROR = "Product is not available";
+    static final public String PRODUCT_CODE_AVAILABLE = "There is already a product with the code provided.";
+    static final public String PRODUCT_DELETED = "Product Deleted";
+
+    static final public String PARAM_ERROR = "Parameter Error!";
+    static final public String PRODUCT_NOT_ENOUGH = "Not enough products in stock!";
+    static final public String PRODUCT_OFF_SALE = "Product is off sale!";
+    static final public String PRODUCT_NOT_IN_CART = "Product is not in the cart!";
+    static final public String CART_CHECKOUT_SUCCESS = "Checkout successfully! ";
+
+    static final public String CATEGORY_NOT_FOUND = "Category does not exit!";
+
+    static final public String ORDER_NOT_FOUND = "OrderMain is not exit!";
+    static final public String ORDER_STATUS_ERROR = "Status is not correct";
+
+
+    static final public String VALID_ERROR = "Wrong information";
+    static final public String USER_NOT_FOUNT = "User is not found!";
 
 
     static final public String INVALID_PARAMETER = "Invalid request parameter";

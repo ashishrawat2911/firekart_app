@@ -1,6 +1,7 @@
 package com.ecommerce.app.models.entity;
 
 import com.ecommerce.app.models.entity.converter.JpaConverterJson;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -43,4 +44,11 @@ public class UserEntity extends BaseEntity {
     @Convert(converter = JpaConverterJson.class)
     @Column(name = "user_address")
     List<Address> userAddress;
+
+    @NonNull
+    private String role = "ROLE_CUSTOMER";
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore  // fix bi-direction toString() recursion problem
+    private CartEntity cart;
 }

@@ -1,4 +1,4 @@
-package com.ecommerce.app.models.entity.converter;//package com.codejek.numen.model.converter;
+package com.ecommerce.app.models.entity.converter;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;

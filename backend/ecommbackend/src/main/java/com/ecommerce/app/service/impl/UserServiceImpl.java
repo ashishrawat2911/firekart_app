@@ -153,6 +153,11 @@ public class UserServiceImpl implements UserService {
         return userResponseDTO;
     }
 
+    @Override
+    public UserEntity findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     private UserResponseDTO userResponseDTOFromUser(UserEntity user) {
         UserResponseDTO userResponseDTO = new UserResponseDTO();
         userResponseDTO.setPhoneNumber(user.getPhoneNumber());
