@@ -1,9 +1,10 @@
 package com.ecommerce.app.exception;
 
 import com.ecommerce.app.constants.NetworkConstants;
-import com.google.common.base.Throwables;
 import com.ecommerce.app.models.base.BaseErrorResponse;
 import com.ecommerce.app.utils.AppUtils;
+import com.google.common.base.Throwables;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,12 +61,13 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
+    @NotNull
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,
-            HttpHeaders headers,
-            HttpStatus status,
-            WebRequest request) {
+            @NotNull HttpHeaders headers,
+            @NotNull HttpStatus status,
+            @NotNull WebRequest request) {
         StringBuilder sb = new StringBuilder();
         for (ObjectError error : ex.getBindingResult().getAllErrors()) {
             sb.append(error.getDefaultMessage());
@@ -81,12 +83,13 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.BAD_REQUEST);
     }
 
+    @NotNull
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestPart(
             MissingServletRequestPartException ex,
-            HttpHeaders headers,
-            HttpStatus status,
-            WebRequest request) {
+            @NotNull HttpHeaders headers,
+            @NotNull HttpStatus status,
+            @NotNull WebRequest request) {
 
         ErrorDetails error = getErrorDetails(ex.getMessage(), status, ex.getClass().getCanonicalName());
         return new ResponseEntity<>(
@@ -97,12 +100,13 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
                 status);
     }
 
+    @NotNull
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestParameter(
             MissingServletRequestParameterException ex,
-            HttpHeaders headers,
-            HttpStatus status,
-            WebRequest request) {
+            @NotNull HttpHeaders headers,
+            @NotNull HttpStatus status,
+            @NotNull WebRequest request) {
 
         ErrorDetails error = getErrorDetails(ex.getMessage(), status, ex.getClass().getCanonicalName());
         return new ResponseEntity<>(
