@@ -4,15 +4,18 @@ import com.ecommerce.app.utils.DateUtils;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @MappedSuperclass
 @Data
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class BaseEntity {
+public class BaseEntity implements Serializable {
 
     @Id
     @GenericGenerator(name = "native", strategy = "native")

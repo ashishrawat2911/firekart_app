@@ -31,4 +31,6 @@ public interface UserService {
     OTPSentResponse login(String phoneNumber) throws Exception;
 
     UserResponseDTO addUserDetails(String phoneNumber, UserAddDetailRequestDTO requestDTO) throws Exception;
+
+    UserEntity findUserByEmail(String email);
 }
