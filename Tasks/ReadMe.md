@@ -1,1 +1,6 @@
-- [] Tests
+- [ ] Cart Bug Fix
+- [ ] Backend
+- [ ] Add Tests
+- [ ] Push Notifications
+- [ ] Deep Link Implementation
+- [ ] Analytics
