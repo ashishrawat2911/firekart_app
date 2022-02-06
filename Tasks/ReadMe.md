@@ -1,6 +1,14 @@
 - [ ] Cart Bug Fix
 - [ ] Backend
-- [ ] Add Tests
+- [ ] Rest API integration
+- [ ] Api Caching
+- [ ] Flavors
+- [ ] Add Unit Tests
 - [ ] Push Notifications
 - [ ] Deep Link Implementation
 - [ ] Analytics
+- [ ] Crashlytics
+- [ ] Localization
+- [ ] Payment Gateway (Web view)
+- [ ] Performance Optimization
+- [ ] Theming (Add Dark theme)
