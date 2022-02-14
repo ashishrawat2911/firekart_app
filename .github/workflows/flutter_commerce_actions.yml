@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1.5.3
+      - uses: subosito/flutter-action@v2.8.0
       - run: flutter pub global activate melos
       - run: melos analyze
       - run: melos get
