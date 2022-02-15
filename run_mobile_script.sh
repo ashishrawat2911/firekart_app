@@ -1,5 +1,5 @@
 melos analyze
 melos get
-melos generate
+melos generateAll
 melos build
 melos checkout
