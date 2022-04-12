@@ -1,5 +1,7 @@
-package com.ecommerce.app.models.dto;
+package com.ecommerce.app.models.dto.request;
 
+import com.ecommerce.app.models.DtoEntityMapper;
+import com.ecommerce.app.models.entity.ProductEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.*;
@@ -19,7 +21,7 @@ import java.math.BigDecimal;
 
 
 @Data
-public class ProductDTO {
+public class ProductDTO implements DtoEntityMapper<ProductEntity> {
     private String productId;
     @NotNull
     private String productName;
@@ -32,4 +34,8 @@ public class ProductDTO {
     private String productIcon;
     @ColumnDefault("0")
     private Integer productStatus;
+
+    public ProductEntity dtoToEntity() {
+        return new ProductEntity(productId, productName, productPrice, productStock, productDescription, productIcon, productStatus);
+    }
 }

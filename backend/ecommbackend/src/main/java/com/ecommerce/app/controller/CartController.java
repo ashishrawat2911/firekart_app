@@ -1,6 +1,6 @@
 package com.ecommerce.app.controller;
 
-import com.ecommerce.app.models.dto.ItemForm;
+import com.ecommerce.app.models.dto.request.CartItemRequestDTO;
 import com.ecommerce.app.models.entity.CartEntity;
 import com.ecommerce.app.models.entity.ProductInOrder;
 import com.ecommerce.app.models.entity.UserEntity;
@@ -11,10 +11,8 @@ import com.ecommerce.app.service.UserService;
 import com.ecommerce.app.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -50,7 +48,7 @@ public class CartController {
 
 
     @PostMapping("/add")
-    public ResponseEntity addToCart(@RequestBody ItemForm form, @RequestParam("phone_number") String phoneNumber) {
+    public ResponseEntity addToCart(@RequestBody CartItemRequestDTO form, @RequestParam("phone_number") String phoneNumber) {
         var productInfo = productService.findOne(form.getProductId());
         try {
             UserEntity user = userService.getUserByPhoneNumber(phoneNumber);
