@@ -6,24 +6,15 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-/**
- * Base Response for all APIs
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseResponse<T> implements Serializable {
+public class EmptyBaseResponse<T> implements Serializable {
 
     /**
      * status
      */
     private String status;
 
-    /**
-     * Response Entity
-     */
-    private T data;
-
 
 }
-
