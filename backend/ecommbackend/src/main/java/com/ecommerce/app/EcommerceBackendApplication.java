@@ -8,12 +8,6 @@ import org.springframework.context.annotation.Bean;
 
 public class EcommerceBackendApplication {
 
-// Todo implement when JWT security is implemented
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-
     public static void main(String[] args) {
         SpringApplication.run(EcommerceBackendApplication.class, args);
     }

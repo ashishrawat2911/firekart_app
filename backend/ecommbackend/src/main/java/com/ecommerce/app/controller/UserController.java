@@ -1,9 +1,7 @@
 package com.ecommerce.app.controller;
 
-import com.ecommerce.app.constants.ApiStatusConstants;
-import com.ecommerce.app.exception.UnauthorizedException;
-import com.ecommerce.app.models.dto.OTPSentResponse;
-import com.ecommerce.app.models.dto.UserResponseDTO;
+import com.ecommerce.app.models.dto.response.OTPSentResponseDTO;
+import com.ecommerce.app.models.dto.response.UserResponseDTO;
 import com.ecommerce.app.models.dto.request.UserAddDetailRequestDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
 import com.ecommerce.app.service.UserService;
@@ -13,8 +11,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.security.Principal;
 
 @EnableAutoConfiguration
 @RestController()
@@ -27,18 +23,12 @@ public class UserController {
     @Autowired
     ResponseUtil responseUtil;
 
-// Todo implement when JWT security is implemented
-//    @Autowired
-//    JwtProvider jwtProvider;
-//    @Autowired
-//    AuthenticationManager authenticationManager;
-
 
     @RequestMapping(path = "/login", method = RequestMethod.GET, produces = "application/json", params = "phone_number")
     ResponseEntity loginUser(@RequestParam("phone_number") String phoneNumber) throws Exception {
 
-        OTPSentResponse otpSentResponse = userService.login(phoneNumber);
-        return responseUtil.successResponse(otpSentResponse);
+        OTPSentResponseDTO otpSentResponseDTO = userService.login(phoneNumber);
+        return responseUtil.successResponse(otpSentResponseDTO);
     }
 
 
