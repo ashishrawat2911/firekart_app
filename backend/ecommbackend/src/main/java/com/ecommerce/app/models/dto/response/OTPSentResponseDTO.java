@@ -1,4 +1,4 @@
-package com.ecommerce.app.models.dto;
+package com.ecommerce.app.models.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -10,13 +10,9 @@ import lombok.*;
 
 
 @Data
-public class OTPSentResponse {
-
-
+public class OTPSentResponseDTO {
     @JsonProperty("phone_number")
     String phoneNumber;
     String message;
     String otp;
-
-
 }

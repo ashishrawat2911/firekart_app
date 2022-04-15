@@ -3,8 +3,8 @@ package com.ecommerce.app.service.impl;
 import com.ecommerce.app.constants.ApiStatusConstants;
 import com.ecommerce.app.exception.AppException;
 import com.ecommerce.app.exception.ResourceNotFoundException;
-import com.ecommerce.app.models.dto.OTPSentResponse;
-import com.ecommerce.app.models.dto.UserResponseDTO;
+import com.ecommerce.app.models.dto.response.OTPSentResponseDTO;
+import com.ecommerce.app.models.dto.response.UserResponseDTO;
 import com.ecommerce.app.models.dto.request.UserAddDetailRequestDTO;
 import com.ecommerce.app.models.dto.request.UserDetailUpdateRequestDTO;
 import com.ecommerce.app.models.dto.response.UserFileUploadResponseDTO;
@@ -110,15 +110,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public OTPSentResponse login(String phoneNumber) throws Exception {
-        OTPSentResponse otpSentResponse = new OTPSentResponse();
+    public OTPSentResponseDTO login(String phoneNumber) throws Exception {
+        OTPSentResponseDTO otpSentResponseDTO = new OTPSentResponseDTO();
         String otp = String.valueOf(ThreadLocalRandom.current().nextInt(1000, 9999));
         saveAccountVerification(phoneNumber, otp);
-        otpSentResponse.setMessage("OTP sent to " + phoneNumber);
+        otpSentResponseDTO.setMessage("OTP sent to " + phoneNumber);
         //TODO Remove the otp from the response api
-        otpSentResponse.setOtp(otp);
-        otpSentResponse.setPhoneNumber(phoneNumber);
-        return otpSentResponse;
+        otpSentResponseDTO.setOtp(otp);
+        otpSentResponseDTO.setPhoneNumber(phoneNumber);
+        return otpSentResponseDTO;
     }
 
     @Override

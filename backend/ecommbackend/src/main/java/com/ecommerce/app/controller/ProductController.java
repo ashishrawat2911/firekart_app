@@ -2,6 +2,7 @@ package com.ecommerce.app.controller;
 
 import com.ecommerce.app.constants.ApiStatusConstants;
 import com.ecommerce.app.exception.ResourceNotFoundException;
+import com.ecommerce.app.models.dto.request.ProductDTO;
 import com.ecommerce.app.models.entity.ProductEntity;
 import com.ecommerce.app.service.ProductService;
 import com.ecommerce.app.utils.ResponseUtil;
@@ -38,14 +39,14 @@ public class ProductController {
     }
 
     @PostMapping("/product/new")
-    public ResponseEntity create(@Valid @RequestBody ProductEntity product,
+    public ResponseEntity create(@Valid @RequestBody ProductDTO product,
                                  BindingResult bindingResult) {
-        return responseUtil.successResponse(productService.create(product));
+        return responseUtil.successResponse(productService.create(product.dtoToEntity()));
     }
 
     @PutMapping("/{id}/edit")
     public ResponseEntity edit(@PathVariable("id") String productId,
-                               @Valid @RequestBody ProductEntity product,
+                               @Valid @RequestBody ProductDTO product,
                                BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             //TODO Add  return new BadRequestException(bindingResult);
@@ -54,7 +55,7 @@ public class ProductController {
         if (!productId.equals(product.getProductId())) {
             throw new ResourceNotFoundException(ApiStatusConstants.Id_Not_Matched);
         }
-        return responseUtil.successResponse(productService.update(product));
+        return responseUtil.successResponse(productService.update(product.dtoToEntity()));
     }
 
     @DeleteMapping("{id}/delete")
