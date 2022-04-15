@@ -1,4 +1,4 @@
-package com.ecommerce.app.models.dto;
+package com.ecommerce.app.models.dto.internal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;

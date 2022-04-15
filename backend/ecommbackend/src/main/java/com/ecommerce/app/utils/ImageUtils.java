@@ -2,7 +2,7 @@ package com.ecommerce.app.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ecommerce.app.models.dto.ImagesUrl;
+import com.ecommerce.app.models.dto.internal.ImagesUrl;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
