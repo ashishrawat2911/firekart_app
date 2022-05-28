@@ -3,7 +3,7 @@ import 'package:network/src/models/account_details_model.dart';
 
 part 'order_model.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable(fieldRename: FieldRename.snake,explicitToJson: true)
 class OrderModel {
   OrderModel(
       {this.orderId,
