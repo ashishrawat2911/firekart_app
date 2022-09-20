@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:core/core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:login/src/otp_login/state/otp_login_state.dart';
 import 'package:navigation/navigation.dart';
 import 'package:network/network.dart';

@@ -9,7 +9,7 @@ class CrashlyticsService {
     FlutterError.onError = recordFlutterError;
   }
 
-  final FirebaseManager _firebaseManager;
+  final FirebaseRepository _firebaseManager;
 
   void recordFlutterError(FlutterErrorDetails details) {
     FirebaseCrashlytics.instance.recordFlutterError(details);

@@ -1,22 +1,19 @@
-import 'package:core/core.dart';
-import 'package:network/network.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/domain/usecases/get_all_orders_usecase.dart';
+
+import '../../../../core/state/result_state.dart';
+import '../../../../data/models/order_model.dart';
 
 class MyOrdersCubit extends Cubit<ResultState<List<OrderModel>>> {
-  MyOrdersCubit(this.firebaseRepo) : super(const ResultState.idle());
+  MyOrdersCubit(this._allOrdersUseCase) : super(const ResultState.idle());
+  final GetAllOrdersUseCase _allOrdersUseCase;
 
-  FirebaseManager firebaseRepo;
-
-  late List<DocumentSnapshot> _documents;
   late List<OrderModel> _orderList;
 
   Future<void> fetchOrders() async {
     emit(const ResultState.loading());
     try {
-      _documents = await firebaseRepo.getAllOrders();
-
-      _orderList = List<OrderModel>.generate(_documents.length, (index) {
-        return OrderModel.fromJson(_documents[index]);
-      });
+      List<OrderModel> _orderList = await _allOrdersUseCase.execute();
       emit(ResultState.data(data: _orderList.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
@@ -25,11 +22,7 @@ class MyOrdersCubit extends Cubit<ResultState<List<OrderModel>>> {
 
   Future<void> fetchNextList() async {
     try {
-      final List<DocumentSnapshot> docs =
-          await firebaseRepo.getAllOrders(_documents[_documents.length - 1]);
-      _documents.addAll(docs);
-      _orderList = List<OrderModel>.generate(
-          _documents.length, (index) => OrderModel.fromJson(_documents[index]));
+      List<OrderModel> _orderList = await _allOrdersUseCase.execute(nextOrder: true);
       emit(ResultState.data(data: _orderList.toSet().toList()));
     } catch (e) {
       emit(ResultState.unNotifiedError(error: e.toString(), data: _orderList));
