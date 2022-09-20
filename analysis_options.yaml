@@ -1,0 +1,20 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    missing_required_param: warning
+    missing_return: error
+    todo: ignore
+    deprecated_member_use_from_same_package: ignore
+    sdk_version_async_exported_from_core: ignore
+    unnecessary_null_comparison: ignore
+  exclude:
+    - "bin/cache/**"
+    - lib/**/*.g.dart
+    - lib/**/*.gr.dart
+    - lib/**/*.freezed.dart
+    - example/*
+    - test/*
+
+linter:
+  rules:
