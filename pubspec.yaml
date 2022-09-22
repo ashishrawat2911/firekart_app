@@ -34,7 +34,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.1.5
-  flutter_lints: ^1.0.0
   auto_route_generator: ^3.1.0
   json_serializable: ^6.0.1
   injectable_generator:
