@@ -1,8 +1,17 @@
-import 'package:checkout/src/order/view_model/my_orders_cubit.dart';
-import 'package:core/core.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:network/network.dart';
-import 'package:widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/res/app_colors.dart';
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/state/result_state.dart';
+import '../../../../core/utils/date_time_util.dart';
+import '../../../../data/models/order_model.dart';
+import '../../../../di/di.dart';
+import '../../../widgets/common_app_loader.dart';
+import '../../../widgets/result_api_builder.dart';
+import '../view_model/my_orders_cubit.dart';
 
 class MyOrdersScreen extends StatefulWidget {
   const MyOrdersScreen({Key? key}) : super(key: key);

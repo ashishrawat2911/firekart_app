@@ -1,7 +1,8 @@
 import 'dart:math';
 
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/res/app_colors.dart';
 
 class CommonExpandedWidget extends StatefulWidget {
   const CommonExpandedWidget(

@@ -1,9 +1,15 @@
-import 'package:core/core.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:network/network.dart';
-import 'package:product/src/product_detail/state/add_to_cart_state.dart';
-import 'package:product/src/product_detail/view_model/product_view_model.dart';
-import 'package:widgets/widgets.dart';
+
+import '../../../../core/res/app_colors.dart';
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../data/models/product_model.dart';
+import '../../../widgets/common_app_loader.dart';
+import '../../../widgets/common_view_cart_overlay.dart';
+import '../state/add_to_cart_state.dart';
+import '../view_model/product_view_model.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);

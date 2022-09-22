@@ -56,7 +56,7 @@ mixin FirebaseMixin {
   }
 }
 
-class FirebaseRepository with FirebaseMixin {
+class FirebaseManager with FirebaseMixin {
   Future<bool> sendCode(
     String phoneNumber, {
     required PhoneVerificationCompleted verificationCompleted,

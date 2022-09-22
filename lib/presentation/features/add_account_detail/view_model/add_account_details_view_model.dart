@@ -11,7 +11,7 @@ class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
   AddAccountDetailsViewModel(this._firebaseManager)
       : super(const AddAccountDetailsState.idle());
 
-  final FirebaseRepository _firebaseManager;
+  final FirebaseManager _firebaseManager;
   final Validator _validator = Validator();
 
   void validateButton(String name) {

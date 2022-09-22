@@ -1,6 +1,8 @@
-import 'package:account/src/my_address/state/my_address_state.dart';
-import 'package:core/core.dart';
-import 'package:network/network.dart';
+import '../../../../core/message_handler/message_handler.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/account_details_model.dart';
+import '../state/my_address_state.dart';
 
 class MyAddressViewModel extends StateManager<MyAddressState> {
   MyAddressViewModel(this.firebaseManager) : super(const MyAddressState());
@@ -15,19 +17,14 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
     final List<AddressCardState> cardStates = [];
 
     for (int i = 0; i < accountDetails.addresses.length; i++) {
-      cardStates.add(
-          AddressCardState(address: accountDetails.addresses[i], index: i));
+      cardStates.add(AddressCardState(address: accountDetails.addresses[i], index: i));
     }
-    state = state.copyWith(
-        accountDetails: accountDetails,
-        addressStates: cardStates,
-        screenLoading: false);
+    state = state.copyWith(accountDetails: accountDetails, addressStates: cardStates, screenLoading: false);
   }
 
   Future<void> fetchAccountDetails() async {
     state = state.copyWith(screenLoading: true);
-    final AccountDetails accountDetails =
-        await firebaseManager.fetchUserDetails();
+    final AccountDetails accountDetails = await firebaseManager.fetchUserDetails();
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
     setAddress(accountDetails);
     state = state.copyWith(screenLoading: false);

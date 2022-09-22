@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:network/network.dart';
+
+import '../../../../data/models/product_model.dart';
 
 part 'product_search_state.freezed.dart';
 

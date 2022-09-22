@@ -1,7 +1,17 @@
-import 'package:checkout/src/cart/state/cart_state.dart';
-import 'package:core/core.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
+import 'package:fluttercommerce/core/global_listener/global_listener.dart';
+
+import '../../../../core/message_handler/message_handler.dart';
+import '../../../../core/res/global_listener_constants.dart';
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/utils/connectivity.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/account_details_model.dart';
+import '../../../../data/models/cart_model.dart';
+import '../../../../data/models/order_model.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../state/cart_state.dart';
 
 class CartViewModel extends StateManager<CartState> {
   CartViewModel(this.firebaseRepo, this.globalListener)

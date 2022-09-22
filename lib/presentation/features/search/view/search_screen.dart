@@ -1,10 +1,16 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:intro/src/search/view_model/product_search_viewmodel.dart';
-import 'package:intro/src/search/state/product_search_state.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
-import 'package:widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/res/string_constants.dart';
+import '../../../../data/models/product_model.dart';
+import '../../../../di/di.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/commom_search_text_field.dart';
+import '../../../widgets/common_app_loader.dart';
+import '../../../widgets/product_card.dart';
+import '../state/product_search_state.dart';
+import '../view_model/product_search_viewmodel.dart';
 
 class SearchItemScreen extends StatefulWidget {
   const SearchItemScreen({Key? key}) : super(key: key);

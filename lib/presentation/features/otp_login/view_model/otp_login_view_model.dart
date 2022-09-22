@@ -1,10 +1,13 @@
 import 'dart:async';
 
-import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:login/src/otp_login/state/otp_login_state.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
+
+import '../../../../core/message_handler/message_handler.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../state/otp_login_state.dart';
 
 class OtpLoginViewModel extends StateManager<OtpLoginState> {
   OtpLoginViewModel(this._firebaseManager) : super(const OtpLoginState());

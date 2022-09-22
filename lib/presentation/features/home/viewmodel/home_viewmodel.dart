@@ -1,6 +1,13 @@
-import 'package:core/core.dart';
-import 'package:intro/src/home/state/home_state.dart';
-import 'package:network/network.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../../../core/global_listener/global_listener.dart';
+import '../../../../core/res/global_listener_constants.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/account_details_model.dart';
+import '../../../../data/models/cart_model.dart';
+import '../state/home_state.dart';
 
 class HomeScreenViewModel extends StateManager<HomeState> {
   HomeScreenViewModel(this.firebaseRepo, this.globalListener)

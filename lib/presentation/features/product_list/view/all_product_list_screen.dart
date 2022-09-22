@@ -1,9 +1,16 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
-import 'package:product/src/product_list/view_model/all_product_cubit.dart';
-import 'package:widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/state/result_state.dart';
+import '../../../../data/models/product_model.dart';
+import '../../../../di/di.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/common_app_loader.dart';
+import '../../../widgets/product_card.dart';
+import '../../../widgets/result_api_builder.dart';
+import '../view_model/all_product_cubit.dart';
 
 class AllProductListScreen extends StatefulWidget {
   const AllProductListScreen({Key? key, this.productCondition})

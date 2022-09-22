@@ -1,9 +1,16 @@
-import 'package:core/core.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation/navigation.dart';
-import 'package:widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/styles.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/utils/validator.dart';
+import '../../../../di/di.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/commom_text_field.dart';
+import '../../../widgets/common_button.dart';
 import '../state/phone_login_state.dart';
 import '../view_model/phone_login_view_model.dart';
 

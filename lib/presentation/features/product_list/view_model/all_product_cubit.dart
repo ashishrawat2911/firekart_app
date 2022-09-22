@@ -1,5 +1,9 @@
-import 'package:core/core.dart';
-import 'package:network/network.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../../../core/state/result_state.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/product_model.dart';
 
 class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
   AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
