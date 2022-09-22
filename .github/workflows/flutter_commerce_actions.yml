@@ -16,7 +16,6 @@ jobs:
         with:
           flutter-version: '2.8.0'
           channel: 'stable'
-      - run: flutter pub global activate melos
       - run: flutter analyze
       - run: flutter pub get
       - run: flutter packages pub run build_runner build --delete-conflicting-outputs
