@@ -1,7 +1,10 @@
-import 'package:core/core.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:widgets/src/action_text.dart';
-import 'package:widgets/src/common_app_loader.dart';
+
+import '../../core/res/app_colors.dart';
+import '../../core/res/string_constants.dart';
+import 'action_text.dart';
+import 'common_app_loader.dart';
 
 enum AddButton { add, minus }
 

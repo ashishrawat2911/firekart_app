@@ -1,6 +1,12 @@
-import 'package:core/core.dart';
-import 'package:network/network.dart';
-import 'package:product/src/product_detail/state/add_to_cart_state.dart';
+
+import '../../../../core/message_handler/message_handler.dart';
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/utils/connectivity.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/cart_model.dart';
+import '../../../../data/models/product_model.dart';
+import '../state/add_to_cart_state.dart';
 
 class ProductViewModel extends StateManager<AddToCartState> {
   ProductViewModel(this._firebaseRepo) : super(const AddToCartState());

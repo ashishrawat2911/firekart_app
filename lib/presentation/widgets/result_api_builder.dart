@@ -1,5 +1,6 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/state/result_state.dart';
 
 typedef ResultErrorWidget<NetworkExceptions> = Widget Function(
     NetworkExceptions error);

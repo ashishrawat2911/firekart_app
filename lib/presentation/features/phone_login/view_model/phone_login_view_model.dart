@@ -1,5 +1,6 @@
-import 'package:core/core.dart';
-import 'package:login/src/phone_login/state/phone_login_state.dart';
+
+import '../../../../core/state_manager/state_manager.dart';
+import '../state/phone_login_state.dart';
 
 class PhoneLoginViewModel extends StateManager<PhoneLoginState> {
   PhoneLoginViewModel() : super(const PhoneLoginState());

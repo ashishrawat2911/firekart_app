@@ -1,6 +1,11 @@
-import 'package:core/core.dart';
-import 'package:intro/src/dashboard/state/dashboard_state.dart';
-import 'package:network/network.dart';
+
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/state/result_state.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/utils/connectivity.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/product_model.dart';
+import '../state/dashboard_state.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
 

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import '../../data/firebase_manager/firestore_manager.dart';
 
 class SendOTPUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirebaseManager _firebaseRepository;
 
   SendOTPUseCase(this._firebaseRepository);
 

@@ -1,5 +1,6 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/res/app_colors.dart';
 
 class LineDashDivider extends StatelessWidget {
   const LineDashDivider({Key? key, this.height = 1, this.color})

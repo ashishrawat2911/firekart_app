@@ -4,7 +4,7 @@ import 'package:fluttercommerce/data/firebase_manager/firestore_manager.dart';
 import '../../data/models/order_model.dart';
 
 class GetAllOrdersUseCase {
-  final FirebaseRepository _firebaseManager;
+  final FirebaseManager _firebaseManager;
 
   GetAllOrdersUseCase(this._firebaseManager);
 
@@ -14,6 +14,6 @@ class GetAllOrdersUseCase {
     final List<DocumentSnapshot> docs =
         await _firebaseManager.getAllOrders(nextOrder ? _documents[_documents.length - 1] : null);
     _documents.addAll(docs);
-    return List<OrderModel>.generate(_documents.length, (index) => OrderModel.fromJson(_documents[index]));
+    return List<OrderModel>.generate(_documents.length, (index) => OrderModel.fromJson(_documents[index])).toSet().toList();
   }
 }

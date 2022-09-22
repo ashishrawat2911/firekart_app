@@ -1,9 +1,17 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:login/src/otp_login/state/otp_login_state.dart';
-import 'package:login/src/otp_login/view_model/otp_login_view_model.dart';
-import 'package:navigation/navigation.dart';
-import 'package:widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/styles.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/utils/validator.dart';
+import '../../../../di/di.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/commom_text_field.dart';
+import '../../../widgets/common_app_loader.dart';
+import '../../../widgets/common_button.dart';
+import '../state/otp_login_state.dart';
+import '../view_model/otp_login_view_model.dart';
 
 class OtpLoginScreen extends StatefulWidget {
   const OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);

@@ -1,42 +1,20 @@
 import 'dart:async';
 
-import 'package:account/account.dart';
-import 'package:checkout/checkout.dart';
-import 'package:core/core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/app.dart';
-import 'package:fluttercommerce/global_module.dart';
-import 'package:intro/intro.dart';
-import 'package:login/login.dart';
-import 'package:network/network.dart';
-import 'package:product/product.dart';
+
+import 'core/logger/app_logger.dart';
+import 'core/state_manager/app_cubit_observer.dart';
+import 'data/crashlytics/crashlytics_service.dart';
+import 'di/di.dart';
 
 class Initializer {
   Initializer._();
 
-  static final _modules = <Module>[
-    /// Should call first as App level configuration will be defined
-    GlobalModule(),
+  static void registerModules() {}
 
-    InitialModule(),
-    AddressModule(),
-    CheckoutModule(),
-    LoginModule(),
-    ProductModule(),
-  ];
-
-  static void registerModules() {
-    for (final module in _modules) {
-      module.registerDependencies();
-      module.registerGlobalListeners();
-    }
-  }
-
-  static void closeModules() {
-    for (final module in _modules) {
-      module.close();
-    }
-  }
+  static void closeModules() {}
 
   static void initialize(ValueChanged<Widget> onRun) async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -46,8 +24,7 @@ class Initializer {
       runStateObserver();
       onRun(const App());
     }, (error, stack) {
-      AppLogger.log('App level error',
-          logType: LogType.error, error: error, stackTrace: stack);
+      AppLogger.log('App level error', logType: LogType.error, error: error, stackTrace: stack);
       DI.container<CrashlyticsService>().recordError(error, stack);
     }, zoneSpecification: const ZoneSpecification());
   }

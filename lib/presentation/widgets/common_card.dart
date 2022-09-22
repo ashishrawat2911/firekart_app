@@ -1,5 +1,6 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/res/app_colors.dart';
 
 class CommonCard extends StatelessWidget {
   const CommonCard(

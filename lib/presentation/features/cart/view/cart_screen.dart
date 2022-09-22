@@ -1,8 +1,15 @@
-import 'package:checkout/src/cart/state/cart_state.dart';
-import 'package:checkout/src/cart/view_model/cart_view_model.dart';
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:widgets/widgets.dart';
+
+import '../../../../core/res/app_colors.dart';
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../widgets/action_text.dart';
+import '../../../widgets/cart_item_card.dart';
+import '../../../widgets/common_button.dart';
+import '../../../widgets/common_card.dart';
+import '../state/cart_state.dart';
+import '../view_model/cart_view_model.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);

@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:network/network.dart';
+
+import '../../../../data/models/account_details_model.dart';
 
 part 'home_state.freezed.dart';
 

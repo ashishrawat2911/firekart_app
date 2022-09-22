@@ -1,8 +1,10 @@
 import 'dart:async';
 
-import 'package:core/core.dart';
-import 'package:intro/src/splash/state/splash_state.dart';
-import 'package:navigation/navigation.dart';
+
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../state/splash_state.dart';
 
 class SplashViewModel extends StateManager<SplashState> {
   SplashViewModel() : super(SplashInitialState());

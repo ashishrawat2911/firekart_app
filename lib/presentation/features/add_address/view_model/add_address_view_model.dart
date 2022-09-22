@@ -1,7 +1,10 @@
-import 'package:account/src/add_address/state/add_address_state.dart';
-import 'package:core/core.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
+
+import '../../../../core/message_handler/message_handler.dart';
+import '../../../../core/state_manager/state_manager.dart';
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../../data/models/account_details_model.dart';
+import '../../../routes/navigation_handler.dart';
+import '../state/add_address_state.dart';
 
 class AddAddressViewModel extends StateManager<AddAddressState> {
   AddAddressViewModel(this._firebaseManager) : super(const AddAddressState());

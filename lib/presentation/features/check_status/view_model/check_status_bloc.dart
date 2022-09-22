@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
+
+import '../../../../data/firebase_manager/firestore_manager.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
 
 class CheckStatusViewModel extends Cubit<int> {
   CheckStatusViewModel(this.firebaseRepo) : super(0);

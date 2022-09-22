@@ -1,11 +1,18 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:intro/src/dashboard/view_model/dashboard_view_model.dart';
-import 'package:intro/src/dashboard/state/dashboard_state.dart';
-import 'package:navigation/navigation.dart';
-import 'package:network/network.dart';
-import 'package:widgets/widgets.dart';
 
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/state/result_state.dart';
+import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../data/models/product_model.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/action_text.dart';
+import '../../../widgets/product_card.dart';
+import '../../../widgets/result_api_builder.dart';
+import '../state/dashboard_state.dart';
+import '../view_model/dashboard_view_model.dart';
+import 'package:shimmer/shimmer.dart';
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 

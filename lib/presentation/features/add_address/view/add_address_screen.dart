@@ -1,9 +1,15 @@
-import 'package:account/src/add_address/state/add_address_state.dart';
-import 'package:account/src/add_address/view_model/add_address_view_model.dart';
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:network/network.dart';
-import 'package:widgets/widgets.dart';
+
+import '../../../../core/res/app_colors.dart';
+import '../../../../core/res/string_constants.dart';
+import '../../../../core/res/text_styles.dart';
+import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/utils/validator.dart';
+import '../../../../data/models/account_details_model.dart';
+import '../../../widgets/commom_text_field.dart';
+import '../../../widgets/common_button.dart';
+import '../state/add_address_state.dart';
+import '../view_model/add_address_view_model.dart';
 
 class AddAddressScreen extends StatelessWidget {
   AddAddressScreen(this.newAddress, this.accountDetails,

@@ -7,6 +7,7 @@ import '../features/check_status/view/check_status_check_screen.dart';
 import '../features/dashboard/view/dashboard_screen.dart';
 import '../features/home/screen/home_screen.dart';
 import '../features/my_address/view/my_address_screen.dart';
+import '../features/order/view/my_orders_screen.dart';
 import '../features/otp_login/view/otp_login_screen.dart';
 import '../features/phone_login/view/phone_login_screen.dart';
 import '../features/product_detail/view/product_detail_page.dart';
@@ -41,7 +42,7 @@ import '../features/view/account_screen.dart';
     CupertinoRoute(page: AllProductListScreen),
     CupertinoRoute(page: MyAddressScreen),
     CupertinoRoute(page: AddAddressScreen),
-    // CupertinoRoute(page: MyOrdersScreen),
+    CupertinoRoute(page: MyOrdersScreen),
   ],
   replaceInRouteName: "Routes",
 )
