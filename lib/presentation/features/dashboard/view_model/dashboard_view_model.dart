@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/res/string_constants.dart';
 import '../../../../core/state/result_state.dart';
@@ -9,6 +10,7 @@ import '../state/dashboard_state.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
 
+@injectable
 class DashboardViewModel extends StateManager<DashboardState> {
   DashboardViewModel(this._firebaseManager) : super(const DashboardState());
 
@@ -36,8 +38,7 @@ class DashboardViewModel extends StateManager<DashboardState> {
         return;
       }
 
-      final List<ProductModel> productList =
-          await _firebaseManager.getProductsData(condition);
+      final List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
 
       final resultState = ResultState.data(data: productList);
 

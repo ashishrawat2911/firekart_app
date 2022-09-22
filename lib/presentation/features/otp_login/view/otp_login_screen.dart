@@ -23,7 +23,7 @@ class OtpLoginScreen extends StatefulWidget {
 }
 
 class _OtpLoginScreenState extends State<OtpLoginScreen> {
-  var otpLoginCubit = DI.container<OtpLoginViewModel>();
+  var otpLoginCubit = inject<OtpLoginViewModel>();
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -56,8 +56,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),

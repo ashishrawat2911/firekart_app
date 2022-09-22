@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
@@ -6,13 +7,13 @@ import '../../../../data/models/account_details_model.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/add_address_state.dart';
 
+@injectable
 class AddAddressViewModel extends StateManager<AddAddressState> {
   AddAddressViewModel(this._firebaseManager) : super(const AddAddressState());
 
   final FirebaseManager _firebaseManager;
 
-  Future<void> saveAddress(
-      AccountDetails accountDetails, Address address) async {
+  Future<void> saveAddress(AccountDetails accountDetails, Address address) async {
     state = state.copyWith(buttonLoading: true);
 
     if (address.isDefault) {

@@ -1,3 +1,6 @@
+import 'package:injectable/injectable.dart';
+
+@singleton
 class Validator {
   String? validateName(String? value) {
     const pattern = r'(^[a-zA-Z ]*$)';

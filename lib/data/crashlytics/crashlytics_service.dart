@@ -1,9 +1,11 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
 
 import '../firebase_manager/firestore_manager.dart';
 
+@singleton
 class CrashlyticsService {
   CrashlyticsService(this._firebaseManager) {
     FlutterError.onError = recordFlutterError;

@@ -22,7 +22,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var phoneLoginCubit = DI.container<PhoneLoginViewModel>();
+  var phoneLoginCubit = inject<PhoneLoginViewModel>();
   TextEditingController phoneNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -58,8 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.transparent,
               // backgroundColor: Styles.transparent,
 //            floatingActionButton: _floatingActionButton(),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
               body: Column(
                 children: <Widget>[_loginCard()],
               ),
@@ -146,9 +145,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(OtpLoginScreenRoute(
-              phoneNumber:
-                  phoneNumberNotifier.value + phoneNumberController.text))
+      NavigationHandler.navigateTo(
+              OtpLoginScreenRoute(phoneNumber: phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
         if (value != null && value as bool) {
           phoneNumberController.clear();

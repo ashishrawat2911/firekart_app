@@ -1,5 +1,5 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/global_listener/global_listener.dart';
 import '../../../../core/res/global_listener_constants.dart';
@@ -9,9 +9,9 @@ import '../../../../data/models/account_details_model.dart';
 import '../../../../data/models/cart_model.dart';
 import '../state/home_state.dart';
 
+@injectable
 class HomeScreenViewModel extends StateManager<HomeState> {
-  HomeScreenViewModel(this.firebaseRepo, this.globalListener)
-      : super(const HomeState());
+  HomeScreenViewModel(this.firebaseRepo, this.globalListener) : super(const HomeState());
 
   final FirebaseManager firebaseRepo;
   final GlobalListener globalListener;
@@ -43,8 +43,7 @@ class HomeScreenViewModel extends StateManager<HomeState> {
   }
 
   void _addDetails(DocumentSnapshot documentSnapshot) {
-    final AccountDetails accountDetails =
-        AccountDetails.fromDocument(documentSnapshot.data());
+    final AccountDetails accountDetails = AccountDetails.fromDocument(documentSnapshot.data());
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
 
     globalListener.refreshListener(

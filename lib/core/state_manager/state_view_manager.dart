@@ -5,10 +5,8 @@ import 'package:fluttercommerce/core/state_manager/state_manager.dart';
 import '../../di/di.dart';
 
 typedef OnViewModelReady<V> = void Function(V viewModel);
-typedef OnViewModelStateBuilder<V, S> = Widget Function(
-    BuildContext context, V viewModel, S state);
-typedef OnViewModelBuilder<V> = Widget Function(
-    BuildContext context, V viewModel);
+typedef OnViewModelStateBuilder<V, S> = Widget Function(BuildContext context, V viewModel, S state);
+typedef OnViewModelBuilder<V> = Widget Function(BuildContext context, V viewModel);
 typedef OnStateListener<S> = void Function(BuildContext context, S state);
 typedef BuilderCondition<S> = bool Function(S previous, S current);
 
@@ -26,9 +24,8 @@ class StateProvider<V extends StateManager> extends StatefulWidget {
   State<StateProvider<V>> createState() => _StateProviderState<V>();
 }
 
-class _StateProviderState<V extends StateManager>
-    extends State<StateProvider<V>> {
-  final V viewModel = DI.container<V>();
+class _StateProviderState<V extends StateManager> extends State<StateProvider<V>> {
+  final V viewModel = inject<V>();
 
   @override
   void initState() {

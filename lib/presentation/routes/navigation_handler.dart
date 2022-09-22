@@ -8,12 +8,10 @@ enum NavigationType { push, pushReplacement, popUntil, pushAndPopUntil }
 class NavigationHandler {
   NavigationHandler();
 
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   static final _appRouter = AppRouter(navigatorKey);
 
-  static RouteInformationParser<Object> get routeInformationParser =>
-      _appRouter.defaultRouteParser();
+  static RouteInformationParser<Object> get routeInformationParser => _appRouter.defaultRouteParser();
 
   static RouterDelegate<Object> get routerDelegate => _appRouter.delegate();
 

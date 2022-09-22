@@ -4,8 +4,7 @@ import '../../../../di/di.dart';
 import '../view_model/check_status_bloc.dart';
 
 class CheckStatusScreen extends StatefulWidget {
-  const CheckStatusScreen({Key? key, this.checkForAccountStatusOnly = false})
-      : super(key: key);
+  const CheckStatusScreen({Key? key, this.checkForAccountStatusOnly = false}) : super(key: key);
 
   final bool checkForAccountStatusOnly;
 
@@ -14,7 +13,7 @@ class CheckStatusScreen extends StatefulWidget {
 }
 
 class _CheckStatusScreenState extends State<CheckStatusScreen> {
-  final checkStatusBloc = DI.container<CheckStatusViewModel>();
+  final checkStatusBloc = inject<CheckStatusViewModel>();
 
   @override
   void initState() {

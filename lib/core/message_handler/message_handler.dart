@@ -46,8 +46,7 @@ class MessageHandler {
         cancelActionText: cancelActionText,
       );
     } else {
-      throw Exception(
-          'Platform is not supported. Please only run on iOS or Android devices.');
+      throw Exception('Platform is not supported. Please only run on iOS or Android devices.');
     }
   }
 }

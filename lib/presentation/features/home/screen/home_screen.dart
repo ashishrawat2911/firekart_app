@@ -33,10 +33,8 @@ class HomeScreen extends StatelessWidget {
             showSelectedLabels: true,
             showUnselectedLabels: true,
             items: [
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.home), label: (StringsConstants.home)),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: (StringsConstants.search)),
+              const BottomNavigationBarItem(icon: Icon(Icons.home), label: (StringsConstants.home)),
+              const BottomNavigationBarItem(icon: Icon(Icons.search), label: (StringsConstants.search)),
               BottomNavigationBarItem(
                   icon: Stack(
                     children: <Widget>[
@@ -62,8 +60,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   label: (StringsConstants.cart)),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: (StringsConstants.account)),
+              const BottomNavigationBarItem(icon: Icon(Icons.person), label: (StringsConstants.account)),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,

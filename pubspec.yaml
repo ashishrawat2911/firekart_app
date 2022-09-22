@@ -28,6 +28,7 @@ dependencies:
   firebase_auth: ^3.2.0
   firebase_core: ^1.10.0
   json_annotation: ^4.3.0
+  injectable:
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +37,7 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   auto_route_generator: ^3.1.0
   json_serializable: ^6.0.1
+  injectable_generator:
 flutter:
   uses-material-design: true
   assets:

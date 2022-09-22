@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/res/app_colors.dart';
 
 class LineDashDivider extends StatelessWidget {
-  const LineDashDivider({Key? key, this.height = 1, this.color})
-      : super(key: key);
+  const LineDashDivider({Key? key, this.height = 1, this.color}) : super(key: key);
 
   final double height;
 
@@ -24,8 +23,7 @@ class LineDashDivider extends StatelessWidget {
               width: dashWidth,
               height: dashHeight,
               child: DecoratedBox(
-                decoration:
-                    BoxDecoration(color: color ?? AppColors.colorDEDEDE),
+                decoration: BoxDecoration(color: color ?? AppColors.colorDEDEDE),
               ),
             );
           }),

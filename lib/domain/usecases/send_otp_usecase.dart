@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../data/firebase_manager/firestore_manager.dart';
 
+@injectable
 class SendOTPUseCase {
   final FirebaseManager _firebaseRepository;
 

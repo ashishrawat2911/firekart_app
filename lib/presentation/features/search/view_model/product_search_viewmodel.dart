@@ -1,8 +1,11 @@
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/product_model.dart';
 import '../state/product_search_state.dart';
 
+@injectable
 class ProductSearchViewModel extends StateManager<ProductSearchState> {
   ProductSearchViewModel(this.firebaseRepo) : super(const ProductSearchState());
 
