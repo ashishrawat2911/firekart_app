@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_screen.dart';
 
 import '../../../../core/res/app_colors.dart';
 import '../../../../core/res/string_constants.dart';
 import '../../../../core/res/text_styles.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
-import '../../../routes/home_tabs.dart';
+import '../../cart/view/cart_screen.dart';
+import '../../search/view/search_screen.dart';
+import '../../view/account_screen.dart';
 import '../state/home_state.dart';
 import '../viewmodel/home_viewmodel.dart';
 
@@ -20,10 +23,10 @@ class HomeScreen extends StatelessWidget {
       builder: (context, viewModel, state) {
         return Scaffold(
           body: const [
-            DashBoardScreenTab(),
-            SearchItemScreenTab(),
-            CartScreenTab(),
-            AccountScreenTab(),
+            DashboardScreen(),
+            SearchItemScreen(),
+            CartScreen(),
+            AccountScreen(),
           ][state.bottomIndex],
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
