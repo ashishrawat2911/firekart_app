@@ -58,14 +58,12 @@ mixin _$CartState {
   CartDataLoading get cartItemDataLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CartStateCopyWith<CartState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CartStateCopyWith<CartState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CartStateCopyWith<$Res> {
-  factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
-      _$CartStateCopyWithImpl<$Res>;
+  factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) = _$CartStateCopyWithImpl<$Res>;
   $Res call(
       {int cartValue,
       bool cartDataLoading,
@@ -150,9 +148,7 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
-  factory _$CartStateCopyWith(
-          _CartState value, $Res Function(_CartState) then) =
-      __$CartStateCopyWithImpl<$Res>;
+  factory _$CartStateCopyWith(_CartState value, $Res Function(_CartState) then) = __$CartStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {int cartValue,
@@ -170,8 +166,7 @@ abstract class _$CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements _$CartStateCopyWith<$Res> {
+class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res> implements _$CartStateCopyWith<$Res> {
   __$CartStateCopyWithImpl(_CartState _value, $Res Function(_CartState) _then)
       : super(_value, (v) => _then(v as _CartState));
 
@@ -281,20 +276,14 @@ class _$_CartState implements _CartState {
         (other.runtimeType == runtimeType &&
             other is _CartState &&
             const DeepCollectionEquality().equals(other.cartValue, cartValue) &&
-            const DeepCollectionEquality()
-                .equals(other.cartDataLoading, cartDataLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.cartDeleteLoading, cartDeleteLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.orderInProgress, orderInProgress) &&
+            const DeepCollectionEquality().equals(other.cartDataLoading, cartDataLoading) &&
+            const DeepCollectionEquality().equals(other.cartDeleteLoading, cartDeleteLoading) &&
+            const DeepCollectionEquality().equals(other.orderInProgress, orderInProgress) &&
             const DeepCollectionEquality().equals(other.cartError, cartError) &&
-            const DeepCollectionEquality()
-                .equals(other.deleteCartError, deleteCartError) &&
+            const DeepCollectionEquality().equals(other.deleteCartError, deleteCartError) &&
             const DeepCollectionEquality().equals(other.cartList, cartList) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedAddress, selectedAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.cartItemDataLoading, cartItemDataLoading));
+            const DeepCollectionEquality().equals(other.selectedAddress, selectedAddress) &&
+            const DeepCollectionEquality().equals(other.cartItemDataLoading, cartItemDataLoading));
   }
 
   @override
@@ -312,8 +301,7 @@ class _$_CartState implements _CartState {
 
   @JsonKey(ignore: true)
   @override
-  _$CartStateCopyWith<_CartState> get copyWith =>
-      __$CartStateCopyWithImpl<_CartState>(this, _$identity);
+  _$CartStateCopyWith<_CartState> get copyWith => __$CartStateCopyWithImpl<_CartState>(this, _$identity);
 }
 
 abstract class _CartState implements CartState {
@@ -348,16 +336,14 @@ abstract class _CartState implements CartState {
   CartDataLoading get cartItemDataLoading;
   @override
   @JsonKey(ignore: true)
-  _$CartStateCopyWith<_CartState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$CartStateCopyWith<_CartState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CartDataLoadingTearOff {
   const _$CartDataLoadingTearOff();
 
-  _CartDataLoading call(
-      {int index = 0, bool isLoading = false, bool deleteLoading = false}) {
+  _CartDataLoading call({int index = 0, bool isLoading = false, bool deleteLoading = false}) {
     return _CartDataLoading(
       index: index,
       isLoading: isLoading,
@@ -376,21 +362,18 @@ mixin _$CartDataLoading {
   bool get deleteLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CartDataLoadingCopyWith<CartDataLoading> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CartDataLoadingCopyWith<CartDataLoading> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CartDataLoadingCopyWith<$Res> {
-  factory $CartDataLoadingCopyWith(
-          CartDataLoading value, $Res Function(CartDataLoading) then) =
+  factory $CartDataLoadingCopyWith(CartDataLoading value, $Res Function(CartDataLoading) then) =
       _$CartDataLoadingCopyWithImpl<$Res>;
   $Res call({int index, bool isLoading, bool deleteLoading});
 }
 
 /// @nodoc
-class _$CartDataLoadingCopyWithImpl<$Res>
-    implements $CartDataLoadingCopyWith<$Res> {
+class _$CartDataLoadingCopyWithImpl<$Res> implements $CartDataLoadingCopyWith<$Res> {
   _$CartDataLoadingCopyWithImpl(this._value, this._then);
 
   final CartDataLoading _value;
@@ -421,21 +404,17 @@ class _$CartDataLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CartDataLoadingCopyWith<$Res>
-    implements $CartDataLoadingCopyWith<$Res> {
-  factory _$CartDataLoadingCopyWith(
-          _CartDataLoading value, $Res Function(_CartDataLoading) then) =
+abstract class _$CartDataLoadingCopyWith<$Res> implements $CartDataLoadingCopyWith<$Res> {
+  factory _$CartDataLoadingCopyWith(_CartDataLoading value, $Res Function(_CartDataLoading) then) =
       __$CartDataLoadingCopyWithImpl<$Res>;
   @override
   $Res call({int index, bool isLoading, bool deleteLoading});
 }
 
 /// @nodoc
-class __$CartDataLoadingCopyWithImpl<$Res>
-    extends _$CartDataLoadingCopyWithImpl<$Res>
+class __$CartDataLoadingCopyWithImpl<$Res> extends _$CartDataLoadingCopyWithImpl<$Res>
     implements _$CartDataLoadingCopyWith<$Res> {
-  __$CartDataLoadingCopyWithImpl(
-      _CartDataLoading _value, $Res Function(_CartDataLoading) _then)
+  __$CartDataLoadingCopyWithImpl(_CartDataLoading _value, $Res Function(_CartDataLoading) _then)
       : super(_value, (v) => _then(v as _CartDataLoading));
 
   @override
@@ -467,8 +446,7 @@ class __$CartDataLoadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CartDataLoading implements _CartDataLoading {
-  const _$_CartDataLoading(
-      {this.index = 0, this.isLoading = false, this.deleteLoading = false});
+  const _$_CartDataLoading({this.index = 0, this.isLoading = false, this.deleteLoading = false});
 
   @JsonKey()
   @override
@@ -492,16 +470,12 @@ class _$_CartDataLoading implements _CartDataLoading {
             other is _CartDataLoading &&
             const DeepCollectionEquality().equals(other.index, index) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.deleteLoading, deleteLoading));
+            const DeepCollectionEquality().equals(other.deleteLoading, deleteLoading));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(deleteLoading));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(isLoading), const DeepCollectionEquality().hash(deleteLoading));
 
   @JsonKey(ignore: true)
   @override
@@ -510,8 +484,7 @@ class _$_CartDataLoading implements _CartDataLoading {
 }
 
 abstract class _CartDataLoading implements CartDataLoading {
-  const factory _CartDataLoading(
-      {int index, bool isLoading, bool deleteLoading}) = _$_CartDataLoading;
+  const factory _CartDataLoading({int index, bool isLoading, bool deleteLoading}) = _$_CartDataLoading;
 
   @override
   int get index;
@@ -521,6 +494,5 @@ abstract class _CartDataLoading implements CartDataLoading {
   bool get deleteLoading;
   @override
   @JsonKey(ignore: true)
-  _$CartDataLoadingCopyWith<_CartDataLoading> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$CartDataLoadingCopyWith<_CartDataLoading> get copyWith => throw _privateConstructorUsedError;
 }

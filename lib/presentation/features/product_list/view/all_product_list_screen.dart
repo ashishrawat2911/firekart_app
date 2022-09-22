@@ -13,8 +13,7 @@ import '../../../widgets/result_api_builder.dart';
 import '../view_model/all_product_cubit.dart';
 
 class AllProductListScreen extends StatefulWidget {
-  const AllProductListScreen({Key? key, this.productCondition})
-      : super(key: key);
+  const AllProductListScreen({Key? key, this.productCondition}) : super(key: key);
 
   final String? productCondition;
 
@@ -23,7 +22,7 @@ class AllProductListScreen extends StatefulWidget {
 }
 
 class _AllProductListScreenState extends State<AllProductListScreen> {
-  var allProductsCubit = DI.container<AllProductCubit>();
+  var allProductsCubit = inject<AllProductCubit>();
   ScrollController controller = ScrollController();
 
   @override
@@ -36,8 +35,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent &&
-        !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
       allProductsCubit.fetchNextList(widget.productCondition);
     }
   }
@@ -61,8 +59,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       ),
       body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
         bloc: allProductsCubit,
-        listener:
-            (BuildContext context, ResultState<List<ProductModel>> state) {},
+        listener: (BuildContext context, ResultState<List<ProductModel>> state) {},
         builder: (BuildContext context, ResultState<List<ProductModel>> state) {
           return ResultStateBuilder(
             state: state,

@@ -1,9 +1,12 @@
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/account_details_model.dart';
 import '../state/my_address_state.dart';
 
+@injectable
 class MyAddressViewModel extends StateManager<MyAddressState> {
   MyAddressViewModel(this.firebaseManager) : super(const MyAddressState());
 

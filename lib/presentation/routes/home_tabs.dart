@@ -17,8 +17,7 @@ class _TabScreen<T> extends StatelessWidget {
 }
 
 class DashBoardScreenTab extends _TabScreen {
-  const DashBoardScreenTab({Key? key})
-      : super(key: key, screen: const DashboardScreen());
+  const DashBoardScreenTab({Key? key}) : super(key: key, screen: const DashboardScreen());
 }
 
 class CartScreenTab extends _TabScreen {
@@ -26,11 +25,9 @@ class CartScreenTab extends _TabScreen {
 }
 
 class AccountScreenTab extends _TabScreen {
-  const AccountScreenTab({Key? key})
-      : super(key: key, screen: const AccountScreen());
+  const AccountScreenTab({Key? key}) : super(key: key, screen: const AccountScreen());
 }
 
 class SearchItemScreenTab extends _TabScreen {
-  const SearchItemScreenTab({Key? key})
-      : super(key: key, screen: const SearchItemScreen());
+  const SearchItemScreenTab({Key? key}) : super(key: key, screen: const SearchItemScreen());
 }

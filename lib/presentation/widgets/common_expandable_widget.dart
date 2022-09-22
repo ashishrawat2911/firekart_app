@@ -27,8 +27,7 @@ class CommonExpandedWidget extends StatefulWidget {
   _CommonExpandedWidgetState createState() => _CommonExpandedWidgetState();
 }
 
-class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
-    with SingleTickerProviderStateMixin {
+class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController animationController;
   bool isOpened = false;
@@ -36,8 +35,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
     animation = Tween(begin: 0.0, end: pi).animate(animationController);
   }
 
@@ -47,8 +45,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
       margin: widget.margin,
       child: AnimatedCrossFade(
         duration: const Duration(milliseconds: 100),
-        crossFadeState:
-            !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        crossFadeState: !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         firstChild: topRow(),
         secondChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

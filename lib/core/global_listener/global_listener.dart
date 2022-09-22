@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class GlobalListener {
   Stream<T> registerListener<T>(String listenerKey);
@@ -12,6 +13,7 @@ abstract class GlobalListener {
   void close();
 }
 
+@Singleton(as: GlobalListener)
 class GlobalListenerImpl extends GlobalListener {
   Map<String, StreamController> listeners = {};
   Map<String, dynamic> lastData = {};

@@ -1,7 +1,9 @@
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/state_manager/state_manager.dart';
 import '../state/phone_login_state.dart';
 
+@injectable
 class PhoneLoginViewModel extends StateManager<PhoneLoginState> {
   PhoneLoginViewModel() : super(const PhoneLoginState());
 

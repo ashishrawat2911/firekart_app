@@ -13,8 +13,7 @@ import '../state/my_address_state.dart';
 import '../view_model/my_address_view_model.dart';
 
 class MyAddressScreen extends StatelessWidget {
-  const MyAddressScreen({Key? key, this.selectedAddress = false})
-      : super(key: key);
+  const MyAddressScreen({Key? key, this.selectedAddress = false}) : super(key: key);
 
   final bool selectedAddress;
 
@@ -22,10 +21,7 @@ class MyAddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 1,
-          title: Text(selectedAddress
-              ? StringsConstants.selectAddress
-              : StringsConstants.myAddress)),
+          elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
       body: StateBuilder<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
@@ -36,8 +32,7 @@ class MyAddressScreen extends StatelessWidget {
             return const Center(
               child: CommonAppLoader(),
             );
-          } else if (state.accountDetails != null &&
-              state.addressStates.isNotEmpty) {
+          } else if (state.accountDetails != null && state.addressStates.isNotEmpty) {
             return addressesView(state.accountDetails!, viewModel, state);
           } else if (state.addressStates.isEmpty) {
             return noAddressesFound(state.accountDetails!, viewModel);
@@ -51,8 +46,7 @@ class MyAddressScreen extends StatelessWidget {
     );
   }
 
-  Widget addressesView(AccountDetails accountDetails,
-      MyAddressViewModel viewModel, MyAddressState state) {
+  Widget addressesView(AccountDetails accountDetails, MyAddressViewModel viewModel, MyAddressState state) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -81,8 +75,7 @@ class MyAddressScreen extends StatelessWidget {
             const SizedBox(
               height: 21,
             ),
-            ...List<Widget>.generate(accountDetails.addresses.length,
-                (int index) {
+            ...List<Widget>.generate(accountDetails.addresses.length, (int index) {
               return addressCard(
                 state,
                 index,
@@ -102,7 +95,7 @@ class MyAddressScreen extends StatelessWidget {
     MyAddressViewModel viewModel,
     AddressCardState addressCardState,
   ) {
-    // final AddressCardCubit addressCardCubit = DI.container<AddressCardCubit>();
+    // final AddressCardCubit addressCardCubit = inject<AddressCardCubit>();
     Widget data(IconData iconData, String text) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,9 +141,7 @@ class MyAddressScreen extends StatelessWidget {
                         height: 20,
                         width: addressCardState.address.isDefault ? null : 0,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: AppColors.color6EBA49,
-                            borderRadius: BorderRadius.circular(4)),
+                        decoration: BoxDecoration(color: AppColors.color6EBA49, borderRadius: BorderRadius.circular(4)),
                         child: Text(
                           StringsConstants.defaultCaps,
                           style: AppTextStyles.t15,
@@ -178,13 +169,10 @@ class MyAddressScreen extends StatelessWidget {
                           ActionText(
                             StringsConstants.editCaps,
                             onTap: () {
-                              NavigationHandler.navigateTo(
-                                      AddAddressScreenRoute(
-                                          newAddress: false,
-                                          accountDetails:
-                                              addressState.accountDetails!,
-                                          editAddress:
-                                              addressCardState.address))
+                              NavigationHandler.navigateTo(AddAddressScreenRoute(
+                                      newAddress: false,
+                                      accountDetails: addressState.accountDetails!,
+                                      editAddress: addressCardState.address))
                                   .then((value) {
                                 if (value != null && value is bool && value) {
                                   viewModel.fetchAccountDetails();
@@ -232,8 +220,7 @@ class MyAddressScreen extends StatelessWidget {
         ));
   }
 
-  Widget noAddressesFound(
-      AccountDetails accountDetails, MyAddressViewModel viewModel) {
+  Widget noAddressesFound(AccountDetails accountDetails, MyAddressViewModel viewModel) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -257,11 +244,8 @@ class MyAddressScreen extends StatelessWidget {
     );
   }
 
-  void addNewNavigation(
-      AccountDetails accountDetails, MyAddressViewModel viewModel) {
-    NavigationHandler.navigateTo(AddAddressScreenRoute(
-            newAddress: true, accountDetails: accountDetails))
-        .then((value) {
+  void addNewNavigation(AccountDetails accountDetails, MyAddressViewModel viewModel) {
+    NavigationHandler.navigateTo(AddAddressScreenRoute(newAddress: true, accountDetails: accountDetails)).then((value) {
       if (value != null && value is bool && value) {
         viewModel.fetchAccountDetails();
       }

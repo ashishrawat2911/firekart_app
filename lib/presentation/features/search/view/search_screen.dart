@@ -20,7 +20,7 @@ class SearchItemScreen extends StatefulWidget {
 }
 
 class _SearchItemScreenState extends State<SearchItemScreen> {
-  ProductSearchViewModel productSearchCubit = DI.container<ProductSearchViewModel>();
+  ProductSearchViewModel productSearchCubit = inject<ProductSearchViewModel>();
 
   @override
   Widget build(BuildContext context) {

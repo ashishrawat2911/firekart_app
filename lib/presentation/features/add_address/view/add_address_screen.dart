@@ -12,19 +12,15 @@ import '../state/add_address_state.dart';
 import '../view_model/add_address_view_model.dart';
 
 class AddAddressScreen extends StatelessWidget {
-  AddAddressScreen(this.newAddress, this.accountDetails,
-      {Key? key, this.editAddress})
-      : super(key: key);
+  AddAddressScreen(this.newAddress, this.accountDetails, {Key? key, this.editAddress}) : super(key: key);
   final bool newAddress;
   final AccountDetails accountDetails;
   final Address? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
   final TextEditingController emailEditingController = TextEditingController();
-  final TextEditingController pincodeEditingController =
-      TextEditingController();
-  final TextEditingController addressEditingController =
-      TextEditingController();
+  final TextEditingController pincodeEditingController = TextEditingController();
+  final TextEditingController addressEditingController = TextEditingController();
   final TextEditingController cityEditingController = TextEditingController();
   final TextEditingController stateEditingController = TextEditingController();
   final TextEditingController phoneEditingController = TextEditingController();
@@ -182,8 +178,7 @@ class AddAddressScreen extends StatelessWidget {
                     Row(
                       children: [
                         StatefulBuilder(
-                          builder: (BuildContext context,
-                              void Function(void Function()) setState) {
+                          builder: (BuildContext context, void Function(void Function()) setState) {
                             return Checkbox(
                               value: state.setAsDefault,
                               onChanged: (bool? value) {

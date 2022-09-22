@@ -24,7 +24,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     super.initState();
-    DI.container<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
+    inject<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
       setState(() {
         accountDetails = event;
       });
@@ -92,7 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: const Text(StringsConstants.logout),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
-                  DI.container<FirebaseManager>().logoutUser().then((value) {
+                  inject<FirebaseManager>().logoutUser().then((value) {
                     NavigationHandler.navigateTo(
                       const LoginScreenRoute(),
                       navigationType: NavigationType.pushAndPopUntil,

@@ -1,6 +1,7 @@
 import 'package:logger/logger.dart';
 
 var _logger = Logger();
+
 enum LogType {
   verbose,
   debug,

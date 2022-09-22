@@ -13,6 +13,7 @@ import '../../../widgets/result_api_builder.dart';
 import '../state/dashboard_state.dart';
 import '../view_model/dashboard_view_model.dart';
 import 'package:shimmer/shimmer.dart';
+
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
@@ -53,11 +54,9 @@ class DashboardScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                productDataBuilder(
-                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
+                productDataBuilder(state.dealOfTheDay, StringsConstants.dealOfTheDay),
                 productDataBuilder(state.onSale, StringsConstants.onSale),
-                productDataBuilder(
-                    state.topProducts, StringsConstants.topProducts),
+                productDataBuilder(state.topProducts, StringsConstants.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -69,8 +68,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget productDataBuilder(
-      ResultState<List<ProductModel>> resultState, String title) {
+  Widget productDataBuilder(ResultState<List<ProductModel>> resultState, String title) {
     return ResultStateBuilder(
       state: resultState,
       errorWidget: (String error) => Column(
@@ -104,16 +102,14 @@ class DashboardScreen extends StatelessWidget {
             6,
             (index) {
               return Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
+                      borderRadius:
+                          const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -190,8 +186,7 @@ class DashboardScreen extends StatelessWidget {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigateTo(AllProductListScreenRoute(
-                          productCondition: condition));
+                      NavigationHandler.navigateTo(AllProductListScreenRoute(productCondition: condition));
                     },
                   ))
             ],

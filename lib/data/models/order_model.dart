@@ -38,14 +38,7 @@ class OrderModel {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class OrderItem {
-  OrderItem(
-      {this.productId,
-      this.image,
-      this.name,
-      this.unit,
-      this.currency,
-      this.price,
-      this.noOfItems});
+  OrderItem({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
 
   factory OrderItem.fromJson(json) => _$OrderItemFromJson(json);
 

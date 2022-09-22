@@ -27,12 +27,9 @@ class CartScreen extends StatelessWidget {
             title: const Text(StringsConstants.cart),
             elevation: 1,
           ),
-          body: state.cartList.noOfItemsInCart > 0
-              ? cartView(state, viewModel)
-              : Container(),
-          bottomNavigationBar: Visibility(
-              visible: state.cartList.noOfItemsInCart > 0,
-              child: checkOut(state, viewModel)),
+          body: state.cartList.noOfItemsInCart > 0 ? cartView(state, viewModel) : Container(),
+          bottomNavigationBar:
+              Visibility(visible: state.cartList.noOfItemsInCart > 0, child: checkOut(state, viewModel)),
         );
       },
     );
@@ -54,10 +51,8 @@ class CartScreen extends StatelessWidget {
                       image: cartModel.image,
                       itemCount: cartModel.numOfItems,
                       price: '${cartModel.currency}${cartModel.currentPrice}',
-                      quantity:
-                          '${cartModel.quantityPerUnit} ${cartModel.unit}',
-                      totalPrice:
-                          "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
+                      quantity: '${cartModel.quantityPerUnit} ${cartModel.unit}',
+                      totalPrice: "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
                       index: index,
                       deleteLoading: state.cartItemDataLoading.deleteLoading,
                       isLoading: state.cartItemDataLoading.isLoading,
@@ -127,17 +122,12 @@ class CartScreen extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                    color: AppColors.color20203E,
-                    fontSize: 14,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                style:
+                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 price,
-                style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 16,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -174,9 +164,7 @@ class CartScreen extends StatelessWidget {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay,
-              "${state.cartList.currency}${state.cartList.priceInCart}",
-              isFinal: true),
+          priceRow(StringsConstants.toPay, "${state.cartList.currency}${state.cartList.priceInCart}", isFinal: true),
         ],
       ),
     ));
@@ -197,9 +185,7 @@ class CartScreen extends StatelessWidget {
                 style: AppTextStyles.t1,
               ),
               ActionText(
-                state.selectedAddress == null
-                    ? StringsConstants.addNewCaps
-                    : StringsConstants.changeTextCapital,
+                state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
                 onTap: () {
                   viewModel.selectOrChangeAddress();
                 },
@@ -210,8 +196,7 @@ class CartScreen extends StatelessWidget {
             height: 20,
           ),
           Text(
-            state.selectedAddress?.wholeAddress() ??
-                StringsConstants.noAddressFound,
+            state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
             style: AppTextStyles.t12,
           ),
         ],

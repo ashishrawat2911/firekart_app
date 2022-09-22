@@ -21,7 +21,7 @@ class MyOrdersScreen extends StatefulWidget {
 }
 
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
-  MyOrdersCubit ordersCubit = DI.container<MyOrdersCubit>();
+  MyOrdersCubit ordersCubit = inject<MyOrdersCubit>();
   ScrollController controller = ScrollController();
 
   @override
@@ -32,8 +32,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   }
 
   void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent &&
-        !controller.position.outOfRange) {
+    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
       ordersCubit.fetchNextList();
     }
   }
@@ -89,8 +88,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.t14,
                               ),
                               Text(
-                                getOrderedTime(
-                                    orderList[orderListIndex].orderedAt!),
+                                getOrderedTime(orderList[orderListIndex].orderedAt!),
                                 style: AppTextStyles.t1,
                               )
                             ],
@@ -98,10 +96,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(
-                        orderList[orderListIndex].orderItems!.length,
-                        (index) => orderCard(
-                            orderList[orderListIndex].orderItems![index])),
+                    ...List<Widget>.generate(orderList[orderListIndex].orderItems!.length,
+                        (index) => orderCard(orderList[orderListIndex].orderItems![index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -129,8 +125,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(
-                                orderList[orderListIndex].orderStatus!)
+                            getOrderStatusIcon(orderList[orderListIndex].orderStatus!)
                           ],
                         )
                       ],
