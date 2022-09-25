@@ -29,7 +29,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
