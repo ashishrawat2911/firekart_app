@@ -1,4 +1,3 @@
-package android.app
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
