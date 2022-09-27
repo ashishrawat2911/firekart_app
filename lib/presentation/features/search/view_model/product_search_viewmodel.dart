@@ -9,7 +9,7 @@ import '../state/product_search_state.dart';
 class ProductSearchViewModel extends StateManager<ProductSearchState> {
   ProductSearchViewModel(this.firebaseRepo) : super(const ProductSearchState());
 
-  FirebaseManager firebaseRepo;
+  FirebaseRepository firebaseRepo;
 
   Future<void> searchProduct(String query) async {
     state = state.copyWith(loading: true);

@@ -1,5 +1,6 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
+import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dart';
 import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
 
@@ -7,11 +8,12 @@ import '../firebase_manager/firestore_manager.dart';
 
 @singleton
 class CrashlyticsService {
-  CrashlyticsService(this._firebaseManager) {
+  final GetUserDataStatusUseCase _getUserDataStatusUseCase;
+  CrashlyticsService(this._getUserDataStatusUseCase, this._firebaseManager) {
     FlutterError.onError = recordFlutterError;
   }
 
-  final FirebaseManager _firebaseManager;
+  final FirebaseRepository _firebaseManager;
 
   void recordFlutterError(FlutterErrorDetails details) {
     FirebaseCrashlytics.instance.recordFlutterError(details);
@@ -24,7 +26,7 @@ class CrashlyticsService {
   }
 
   Future<void> fullDeviceLog() async {
-    final isLoggedIn = await _firebaseManager.checkUserLoggedInStatus();
+    final isLoggedIn = await _getUserDataStatusUseCase.execute();
     final String packageName = (await PackageInfo.fromPlatform()).packageName;
     final StringBuffer stringBuffer = StringBuffer("");
     stringBuffer.write("Platform : $defaultTargetPlatform");

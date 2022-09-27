@@ -18,7 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
-  _HomeState call({int bottomIndex = 0, int noOfItemsInCart = 0, AccountDetails? accountDetails}) {
+  _HomeState call(
+      {int bottomIndex = 0,
+      int noOfItemsInCart = 0,
+      AccountDetails? accountDetails}) {
     return _HomeState(
       bottomIndex: bottomIndex,
       noOfItemsInCart: noOfItemsInCart,
@@ -37,13 +40,16 @@ mixin _$HomeState {
   AccountDetails? get accountDetails => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomeStateCopyWith<HomeState> get copyWith => throw _privateConstructorUsedError;
+  $HomeStateCopyWith<HomeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) = _$HomeStateCopyWithImpl<$Res>;
-  $Res call({int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
+  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
+      _$HomeStateCopyWithImpl<$Res>;
+  $Res call(
+      {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
 }
 
 /// @nodoc
@@ -79,13 +85,17 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
-  factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) then) = __$HomeStateCopyWithImpl<$Res>;
+  factory _$HomeStateCopyWith(
+          _HomeState value, $Res Function(_HomeState) then) =
+      __$HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
+  $Res call(
+      {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
 }
 
 /// @nodoc
-class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res> implements _$HomeStateCopyWith<$Res> {
+class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$HomeStateCopyWith<$Res> {
   __$HomeStateCopyWithImpl(_HomeState _value, $Res Function(_HomeState) _then)
       : super(_value, (v) => _then(v as _HomeState));
 
@@ -118,7 +128,8 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res> imple
 /// @nodoc
 
 class _$_HomeState implements _HomeState {
-  const _$_HomeState({this.bottomIndex = 0, this.noOfItemsInCart = 0, this.accountDetails});
+  const _$_HomeState(
+      {this.bottomIndex = 0, this.noOfItemsInCart = 0, this.accountDetails});
 
   @JsonKey()
   @override
@@ -139,22 +150,32 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HomeState &&
-            const DeepCollectionEquality().equals(other.bottomIndex, bottomIndex) &&
-            const DeepCollectionEquality().equals(other.noOfItemsInCart, noOfItemsInCart) &&
-            const DeepCollectionEquality().equals(other.accountDetails, accountDetails));
+            const DeepCollectionEquality()
+                .equals(other.bottomIndex, bottomIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.noOfItemsInCart, noOfItemsInCart) &&
+            const DeepCollectionEquality()
+                .equals(other.accountDetails, accountDetails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(bottomIndex),
-      const DeepCollectionEquality().hash(noOfItemsInCart), const DeepCollectionEquality().hash(accountDetails));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bottomIndex),
+      const DeepCollectionEquality().hash(noOfItemsInCart),
+      const DeepCollectionEquality().hash(accountDetails));
 
   @JsonKey(ignore: true)
   @override
-  _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeState>(this, _$identity);
+  _$HomeStateCopyWith<_HomeState> get copyWith =>
+      __$HomeStateCopyWithImpl<_HomeState>(this, _$identity);
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails}) = _$_HomeState;
+  const factory _HomeState(
+      {int bottomIndex,
+      int noOfItemsInCart,
+      AccountDetails? accountDetails}) = _$_HomeState;
 
   @override
   int get bottomIndex;
@@ -164,5 +185,6 @@ abstract class _HomeState implements HomeState {
   AccountDetails? get accountDetails;
   @override
   @JsonKey(ignore: true)
-  _$HomeStateCopyWith<_HomeState> get copyWith => throw _privateConstructorUsedError;
+  _$HomeStateCopyWith<_HomeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

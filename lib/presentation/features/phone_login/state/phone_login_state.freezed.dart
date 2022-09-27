@@ -19,7 +19,10 @@ class _$PhoneLoginStateTearOff {
   const _$PhoneLoginStateTearOff();
 
   _PhoneLoginState call(
-      {String? codeCountDown, bool isButtonEnabled = false, bool phoneLoading = false, String? error}) {
+      {String? codeCountDown,
+      bool isButtonEnabled = false,
+      bool phoneLoading = false,
+      String? error}) {
     return _PhoneLoginState(
       codeCountDown: codeCountDown,
       isButtonEnabled: isButtonEnabled,
@@ -40,18 +43,25 @@ mixin _$PhoneLoginState {
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PhoneLoginStateCopyWith<PhoneLoginState> get copyWith => throw _privateConstructorUsedError;
+  $PhoneLoginStateCopyWith<PhoneLoginState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $PhoneLoginStateCopyWith<$Res> {
-  factory $PhoneLoginStateCopyWith(PhoneLoginState value, $Res Function(PhoneLoginState) then) =
+  factory $PhoneLoginStateCopyWith(
+          PhoneLoginState value, $Res Function(PhoneLoginState) then) =
       _$PhoneLoginStateCopyWithImpl<$Res>;
-  $Res call({String? codeCountDown, bool isButtonEnabled, bool phoneLoading, String? error});
+  $Res call(
+      {String? codeCountDown,
+      bool isButtonEnabled,
+      bool phoneLoading,
+      String? error});
 }
 
 /// @nodoc
-class _$PhoneLoginStateCopyWithImpl<$Res> implements $PhoneLoginStateCopyWith<$Res> {
+class _$PhoneLoginStateCopyWithImpl<$Res>
+    implements $PhoneLoginStateCopyWith<$Res> {
   _$PhoneLoginStateCopyWithImpl(this._value, this._then);
 
   final PhoneLoginState _value;
@@ -87,17 +97,25 @@ class _$PhoneLoginStateCopyWithImpl<$Res> implements $PhoneLoginStateCopyWith<$R
 }
 
 /// @nodoc
-abstract class _$PhoneLoginStateCopyWith<$Res> implements $PhoneLoginStateCopyWith<$Res> {
-  factory _$PhoneLoginStateCopyWith(_PhoneLoginState value, $Res Function(_PhoneLoginState) then) =
+abstract class _$PhoneLoginStateCopyWith<$Res>
+    implements $PhoneLoginStateCopyWith<$Res> {
+  factory _$PhoneLoginStateCopyWith(
+          _PhoneLoginState value, $Res Function(_PhoneLoginState) then) =
       __$PhoneLoginStateCopyWithImpl<$Res>;
   @override
-  $Res call({String? codeCountDown, bool isButtonEnabled, bool phoneLoading, String? error});
+  $Res call(
+      {String? codeCountDown,
+      bool isButtonEnabled,
+      bool phoneLoading,
+      String? error});
 }
 
 /// @nodoc
-class __$PhoneLoginStateCopyWithImpl<$Res> extends _$PhoneLoginStateCopyWithImpl<$Res>
+class __$PhoneLoginStateCopyWithImpl<$Res>
+    extends _$PhoneLoginStateCopyWithImpl<$Res>
     implements _$PhoneLoginStateCopyWith<$Res> {
-  __$PhoneLoginStateCopyWithImpl(_PhoneLoginState _value, $Res Function(_PhoneLoginState) _then)
+  __$PhoneLoginStateCopyWithImpl(
+      _PhoneLoginState _value, $Res Function(_PhoneLoginState) _then)
       : super(_value, (v) => _then(v as _PhoneLoginState));
 
   @override
@@ -134,7 +152,11 @@ class __$PhoneLoginStateCopyWithImpl<$Res> extends _$PhoneLoginStateCopyWithImpl
 /// @nodoc
 
 class _$_PhoneLoginState implements _PhoneLoginState {
-  const _$_PhoneLoginState({this.codeCountDown, this.isButtonEnabled = false, this.phoneLoading = false, this.error});
+  const _$_PhoneLoginState(
+      {this.codeCountDown,
+      this.isButtonEnabled = false,
+      this.phoneLoading = false,
+      this.error});
 
   @override
   final String? codeCountDown;
@@ -157,9 +179,12 @@ class _$_PhoneLoginState implements _PhoneLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PhoneLoginState &&
-            const DeepCollectionEquality().equals(other.codeCountDown, codeCountDown) &&
-            const DeepCollectionEquality().equals(other.isButtonEnabled, isButtonEnabled) &&
-            const DeepCollectionEquality().equals(other.phoneLoading, phoneLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.codeCountDown, codeCountDown) &&
+            const DeepCollectionEquality()
+                .equals(other.isButtonEnabled, isButtonEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneLoading, phoneLoading) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -178,8 +203,11 @@ class _$_PhoneLoginState implements _PhoneLoginState {
 }
 
 abstract class _PhoneLoginState implements PhoneLoginState {
-  const factory _PhoneLoginState({String? codeCountDown, bool isButtonEnabled, bool phoneLoading, String? error}) =
-      _$_PhoneLoginState;
+  const factory _PhoneLoginState(
+      {String? codeCountDown,
+      bool isButtonEnabled,
+      bool phoneLoading,
+      String? error}) = _$_PhoneLoginState;
 
   @override
   String? get codeCountDown;
@@ -191,5 +219,6 @@ abstract class _PhoneLoginState implements PhoneLoginState {
   String? get error;
   @override
   @JsonKey(ignore: true)
-  _$PhoneLoginStateCopyWith<_PhoneLoginState> get copyWith => throw _privateConstructorUsedError;
+  _$PhoneLoginStateCopyWith<_PhoneLoginState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

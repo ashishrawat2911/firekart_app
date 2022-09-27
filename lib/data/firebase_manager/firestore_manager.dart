@@ -53,7 +53,7 @@ mixin FirebaseMixin {
 }
 
 @injectable
-class FirebaseManager with FirebaseMixin {
+class FirebaseRepository with FirebaseMixin {
   Future<bool> sendCode(
     String phoneNumber, {
     required PhoneVerificationCompleted verificationCompleted,
@@ -88,19 +88,6 @@ class FirebaseManager with FirebaseMixin {
     (getCurrentUser())!
       ..updatePhotoURL(photoUrl)
       ..updateDisplayName(displayName);
-  }
-
-  Future<bool> checkUserLoggedInStatus() async {
-    try {
-      final user = getCurrentUser();
-      if (user == null) {
-        return false;
-      } else {
-        return true;
-      }
-    } catch (e) {
-      return false;
-    }
   }
 
   Future<List<DocumentSnapshot>> getAllProducts([DocumentSnapshot? documentSnapshot]) async {
@@ -174,8 +161,7 @@ class FirebaseManager with FirebaseMixin {
 
   Future<bool> checkUserDetail() async {
     try {
-      final DocumentSnapshot documentSnapshot =
-          await _firestore.collection("users").doc(getUid()).collection("account").doc("details").get();
+      final DocumentSnapshot documentSnapshot = await accountDetailDoc.get();
       if (documentSnapshot.exists) {
         return true;
       } else {

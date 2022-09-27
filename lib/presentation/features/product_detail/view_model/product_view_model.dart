@@ -13,7 +13,7 @@ import '../state/add_to_cart_state.dart';
 class ProductViewModel extends StateManager<AddToCartState> {
   ProductViewModel(this._firebaseRepo) : super(const AddToCartState());
 
-  final FirebaseManager _firebaseRepo;
+  final FirebaseRepository _firebaseRepo;
 
   Future<void> listenToProduct(String productId) async {
     _firebaseRepo.cartStatusListen(_firebaseRepo.getUid()).listen((event) {

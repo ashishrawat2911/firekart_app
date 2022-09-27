@@ -10,7 +10,7 @@ import '../../../../data/models/product_model.dart';
 class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
   AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
 
-  final FirebaseManager _firebaseRepo;
+  final FirebaseRepository _firebaseRepo;
   List<DocumentSnapshot>? documents;
   List<ProductModel>? productList;
 
