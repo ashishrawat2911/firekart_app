@@ -14,7 +14,7 @@ enum ProductData { dealOfTheDay, onSale, topProducts }
 class DashboardViewModel extends StateManager<DashboardState> {
   DashboardViewModel(this._firebaseManager) : super(const DashboardState());
 
-  final FirebaseManager _firebaseManager;
+  final FirebaseRepository _firebaseManager;
 
   Future<void> fetchProductData(ProductData productData) async {
     String condition;

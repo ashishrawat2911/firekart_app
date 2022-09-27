@@ -2,16 +2,16 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/account_details_model.dart';
+import '../../../../domain/usecases/set_account_details_usecase.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/add_address_state.dart';
 
 @injectable
 class AddAddressViewModel extends StateManager<AddAddressState> {
-  AddAddressViewModel(this._firebaseManager) : super(const AddAddressState());
+  AddAddressViewModel(this._setAccountDetailsUseCase) : super(const AddAddressState());
 
-  final FirebaseManager _firebaseManager;
+  final SetAccountDetailsUseCase _setAccountDetailsUseCase;
 
   Future<void> saveAddress(AccountDetails accountDetails, Address address) async {
     state = state.copyWith(buttonLoading: true);
@@ -22,7 +22,7 @@ class AddAddressViewModel extends StateManager<AddAddressState> {
       });
     }
     accountDetails.addresses.add(address);
-    await _firebaseManager.addUserDetails(accountDetails).then((value) {
+    await _setAccountDetailsUseCase.execute(accountDetails).then((value) {
       NavigationHandler.pop(true);
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());

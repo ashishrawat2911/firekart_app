@@ -1,20 +1,22 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dart';
+import 'package:fluttercommerce/domain/usecases/get_user_logged_in_status.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 
 @injectable
 class CheckStatusViewModel extends Cubit<int> {
-  CheckStatusViewModel(this.firebaseRepo) : super(0);
-  FirebaseManager firebaseRepo;
+  CheckStatusViewModel(this._getUserLoggedInStatusUseCase, this._getUserDataStatusUseCase) : super(0);
+  final GetUserLoggedInStatusUseCase _getUserLoggedInStatusUseCase;
+  final GetUserDataStatusUseCase _getUserDataStatusUseCase;
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {
     Future.delayed(Duration(seconds: checkForAccountStatusOnly ? 2 : 0), () async {
-      final status = await firebaseRepo.checkUserLoggedInStatus();
+      final status = await _getUserLoggedInStatusUseCase.execute();
       if (checkForAccountStatusOnly || status) {
-        final isUserDataPresent = await firebaseRepo.checkUserDetail();
+        final isUserDataPresent = await _getUserDataStatusUseCase.execute();
         if (isUserDataPresent) {
           NavigationHandler.navigateTo(
             const HomeScreenRoute(),

@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'di.config.dart';
 
 @InjectableInit(asExtension: true)
-void registerDependencies() {
+Future<void> registerDependencies() async {
   _getIt.$initGetIt();
 }
 

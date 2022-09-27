@@ -49,12 +49,14 @@ mixin _$OtpLoginState {
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $OtpLoginStateCopyWith<OtpLoginState> get copyWith => throw _privateConstructorUsedError;
+  $OtpLoginStateCopyWith<OtpLoginState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OtpLoginStateCopyWith<$Res> {
-  factory $OtpLoginStateCopyWith(OtpLoginState value, $Res Function(OtpLoginState) then) =
+  factory $OtpLoginStateCopyWith(
+          OtpLoginState value, $Res Function(OtpLoginState) then) =
       _$OtpLoginStateCopyWithImpl<$Res>;
   $Res call(
       {String? codeCountDown,
@@ -66,7 +68,8 @@ abstract class $OtpLoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OtpLoginStateCopyWithImpl<$Res> implements $OtpLoginStateCopyWith<$Res> {
+class _$OtpLoginStateCopyWithImpl<$Res>
+    implements $OtpLoginStateCopyWith<$Res> {
   _$OtpLoginStateCopyWithImpl(this._value, this._then);
 
   final OtpLoginState _value;
@@ -112,8 +115,10 @@ class _$OtpLoginStateCopyWithImpl<$Res> implements $OtpLoginStateCopyWith<$Res> 
 }
 
 /// @nodoc
-abstract class _$OtpLoginStateCopyWith<$Res> implements $OtpLoginStateCopyWith<$Res> {
-  factory _$OtpLoginStateCopyWith(_OtpLoginState value, $Res Function(_OtpLoginState) then) =
+abstract class _$OtpLoginStateCopyWith<$Res>
+    implements $OtpLoginStateCopyWith<$Res> {
+  factory _$OtpLoginStateCopyWith(
+          _OtpLoginState value, $Res Function(_OtpLoginState) then) =
       __$OtpLoginStateCopyWithImpl<$Res>;
   @override
   $Res call(
@@ -126,9 +131,11 @@ abstract class _$OtpLoginStateCopyWith<$Res> implements $OtpLoginStateCopyWith<$
 }
 
 /// @nodoc
-class __$OtpLoginStateCopyWithImpl<$Res> extends _$OtpLoginStateCopyWithImpl<$Res>
+class __$OtpLoginStateCopyWithImpl<$Res>
+    extends _$OtpLoginStateCopyWithImpl<$Res>
     implements _$OtpLoginStateCopyWith<$Res> {
-  __$OtpLoginStateCopyWithImpl(_OtpLoginState _value, $Res Function(_OtpLoginState) _then)
+  __$OtpLoginStateCopyWithImpl(
+      _OtpLoginState _value, $Res Function(_OtpLoginState) _then)
       : super(_value, (v) => _then(v as _OtpLoginState));
 
   @override
@@ -209,10 +216,14 @@ class _$_OtpLoginState implements _OtpLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OtpLoginState &&
-            const DeepCollectionEquality().equals(other.codeCountDown, codeCountDown) &&
-            const DeepCollectionEquality().equals(other.isButtonEnabled, isButtonEnabled) &&
-            const DeepCollectionEquality().equals(other.confirmOtpLoading, confirmOtpLoading) &&
-            const DeepCollectionEquality().equals(other.resendOtpLoading, resendOtpLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.codeCountDown, codeCountDown) &&
+            const DeepCollectionEquality()
+                .equals(other.isButtonEnabled, isButtonEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other.confirmOtpLoading, confirmOtpLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.resendOtpLoading, resendOtpLoading) &&
             const DeepCollectionEquality().equals(other.otp, otp) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
@@ -256,5 +267,6 @@ abstract class _OtpLoginState implements OtpLoginState {
   String? get error;
   @override
   @JsonKey(ignore: true)
-  _$OtpLoginStateCopyWith<_OtpLoginState> get copyWith => throw _privateConstructorUsedError;
+  _$OtpLoginStateCopyWith<_OtpLoginState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

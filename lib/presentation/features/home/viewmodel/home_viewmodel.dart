@@ -13,7 +13,7 @@ import '../state/home_state.dart';
 class HomeScreenViewModel extends StateManager<HomeState> {
   HomeScreenViewModel(this.firebaseRepo, this.globalListener) : super(const HomeState());
 
-  final FirebaseManager firebaseRepo;
+  final FirebaseRepository firebaseRepo;
   final GlobalListener globalListener;
 
   void init() {

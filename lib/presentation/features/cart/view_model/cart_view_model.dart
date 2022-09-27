@@ -20,7 +20,7 @@ class CartViewModel extends StateManager<CartState> {
 
   AccountDetails? accountDetails;
 
-  final FirebaseManager firebaseRepo;
+  final FirebaseRepository firebaseRepo;
   final GlobalListener globalListener;
 
   void initCartValues(num cartValue) {

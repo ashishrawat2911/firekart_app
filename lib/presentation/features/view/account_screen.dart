@@ -92,7 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: const Text(StringsConstants.logout),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
-                  inject<FirebaseManager>().logoutUser().then((value) {
+                  inject<FirebaseRepository>().logoutUser().then((value) {
                     NavigationHandler.navigateTo(
                       const LoginScreenRoute(),
                       navigationType: NavigationType.pushAndPopUntil,

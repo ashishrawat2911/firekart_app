@@ -5,7 +5,7 @@ import '../../data/firebase_manager/firestore_manager.dart';
 
 @injectable
 class SendOTPUseCase {
-  final FirebaseManager _firebaseRepository;
+  final FirebaseRepository _firebaseRepository;
 
   SendOTPUseCase(this._firebaseRepository);
 

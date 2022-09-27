@@ -14,7 +14,8 @@ import 'di/di.dart';
 class Initializer {
   Initializer._();
 
-  static void registerModules() {
+  static void registerModules() async{
+    await registerDependencies();
     inject<GlobalListener>()
       ..registerListener(GlobalListenerConstants.cartList)
       ..registerListener(GlobalListenerConstants.accountDetails);

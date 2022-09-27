@@ -13,7 +13,7 @@ import '../state/otp_login_state.dart';
 @injectable
 class OtpLoginViewModel extends StateManager<OtpLoginState> {
   OtpLoginViewModel(this._firebaseManager) : super(const OtpLoginState());
-  final FirebaseManager _firebaseManager;
+  final FirebaseRepository _firebaseManager;
 
   late String _verificationId;
 

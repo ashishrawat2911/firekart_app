@@ -10,7 +10,7 @@ import '../state/my_address_state.dart';
 class MyAddressViewModel extends StateManager<MyAddressState> {
   MyAddressViewModel(this.firebaseManager) : super(const MyAddressState());
 
-  FirebaseManager firebaseManager;
+  FirebaseRepository firebaseManager;
 
   Future<void> listenToAccountDetails(AccountDetails accountDetails) async {
     setAddress(accountDetails);
