@@ -12,23 +12,7 @@ part of 'account_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AccountDetailsStateTearOff {
-  const _$AccountDetailsStateTearOff();
-
-  _AccountDetailsState call(
-      {AccountDetails? accountDetails, Address? selectedAddress}) {
-    return _AccountDetailsState(
-      accountDetails: accountDetails,
-      selectedAddress: selectedAddress,
-    );
-  }
-}
-
-/// @nodoc
-const $AccountDetailsState = _$AccountDetailsStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AccountDetailsState {
@@ -76,32 +60,32 @@ class _$AccountDetailsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AccountDetailsStateCopyWith<$Res>
+abstract class _$$_AccountDetailsStateCopyWith<$Res>
     implements $AccountDetailsStateCopyWith<$Res> {
-  factory _$AccountDetailsStateCopyWith(_AccountDetailsState value,
-          $Res Function(_AccountDetailsState) then) =
-      __$AccountDetailsStateCopyWithImpl<$Res>;
+  factory _$$_AccountDetailsStateCopyWith(_$_AccountDetailsState value,
+          $Res Function(_$_AccountDetailsState) then) =
+      __$$_AccountDetailsStateCopyWithImpl<$Res>;
   @override
   $Res call({AccountDetails? accountDetails, Address? selectedAddress});
 }
 
 /// @nodoc
-class __$AccountDetailsStateCopyWithImpl<$Res>
+class __$$_AccountDetailsStateCopyWithImpl<$Res>
     extends _$AccountDetailsStateCopyWithImpl<$Res>
-    implements _$AccountDetailsStateCopyWith<$Res> {
-  __$AccountDetailsStateCopyWithImpl(
-      _AccountDetailsState _value, $Res Function(_AccountDetailsState) _then)
-      : super(_value, (v) => _then(v as _AccountDetailsState));
+    implements _$$_AccountDetailsStateCopyWith<$Res> {
+  __$$_AccountDetailsStateCopyWithImpl(_$_AccountDetailsState _value,
+      $Res Function(_$_AccountDetailsState) _then)
+      : super(_value, (v) => _then(v as _$_AccountDetailsState));
 
   @override
-  _AccountDetailsState get _value => super._value as _AccountDetailsState;
+  _$_AccountDetailsState get _value => super._value as _$_AccountDetailsState;
 
   @override
   $Res call({
     Object? accountDetails = freezed,
     Object? selectedAddress = freezed,
   }) {
-    return _then(_AccountDetailsState(
+    return _then(_$_AccountDetailsState(
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
@@ -133,7 +117,7 @@ class _$_AccountDetailsState implements _AccountDetailsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AccountDetailsState &&
+            other is _$_AccountDetailsState &&
             const DeepCollectionEquality()
                 .equals(other.accountDetails, accountDetails) &&
             const DeepCollectionEquality()
@@ -148,15 +132,15 @@ class _$_AccountDetailsState implements _AccountDetailsState {
 
   @JsonKey(ignore: true)
   @override
-  _$AccountDetailsStateCopyWith<_AccountDetailsState> get copyWith =>
-      __$AccountDetailsStateCopyWithImpl<_AccountDetailsState>(
+  _$$_AccountDetailsStateCopyWith<_$_AccountDetailsState> get copyWith =>
+      __$$_AccountDetailsStateCopyWithImpl<_$_AccountDetailsState>(
           this, _$identity);
 }
 
 abstract class _AccountDetailsState implements AccountDetailsState {
   factory _AccountDetailsState(
-      {AccountDetails? accountDetails,
-      Address? selectedAddress}) = _$_AccountDetailsState;
+      {final AccountDetails? accountDetails,
+      final Address? selectedAddress}) = _$_AccountDetailsState;
 
   @override
   AccountDetails? get accountDetails;
@@ -164,6 +148,6 @@ abstract class _AccountDetailsState implements AccountDetailsState {
   Address? get selectedAddress;
   @override
   @JsonKey(ignore: true)
-  _$AccountDetailsStateCopyWith<_AccountDetailsState> get copyWith =>
+  _$$_AccountDetailsStateCopyWith<_$_AccountDetailsState> get copyWith =>
       throw _privateConstructorUsedError;
 }

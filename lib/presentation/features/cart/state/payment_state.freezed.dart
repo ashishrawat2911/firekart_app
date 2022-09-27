@@ -12,35 +12,7 @@ part of 'payment_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PaymentStateTearOff {
-  const _$PaymentStateTearOff();
-
-  Idle idle() {
-    return const Idle();
-  }
-
-  PaymentButtonLoading paymentButtonLoading() {
-    return const PaymentButtonLoading();
-  }
-
-  PaymentError paymentError(String errorMessage) {
-    return PaymentError(
-      errorMessage,
-    );
-  }
-
-  PaymentSuccessful paymentSuccessful(String response) {
-    return PaymentSuccessful(
-      response,
-    );
-  }
-}
-
-/// @nodoc
-const $PaymentState = _$PaymentStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PaymentState {
@@ -113,19 +85,19 @@ class _$PaymentStateCopyWithImpl<$Res> implements $PaymentStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $IdleCopyWith<$Res> {
-  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) =
-      _$IdleCopyWithImpl<$Res>;
+abstract class _$$IdleCopyWith<$Res> {
+  factory _$$IdleCopyWith(_$Idle value, $Res Function(_$Idle) then) =
+      __$$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IdleCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
-    implements $IdleCopyWith<$Res> {
-  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then)
-      : super(_value, (v) => _then(v as Idle));
+class __$$IdleCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
+    implements _$$IdleCopyWith<$Res> {
+  __$$IdleCopyWithImpl(_$Idle _value, $Res Function(_$Idle) _then)
+      : super(_value, (v) => _then(v as _$Idle));
 
   @override
-  Idle get _value => super._value as Idle;
+  _$Idle get _value => super._value as _$Idle;
 }
 
 /// @nodoc
@@ -141,7 +113,7 @@ class _$Idle implements Idle {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Idle);
+        (other.runtimeType == runtimeType && other is _$Idle);
   }
 
   @override
@@ -227,22 +199,22 @@ abstract class Idle implements PaymentState {
 }
 
 /// @nodoc
-abstract class $PaymentButtonLoadingCopyWith<$Res> {
-  factory $PaymentButtonLoadingCopyWith(PaymentButtonLoading value,
-          $Res Function(PaymentButtonLoading) then) =
-      _$PaymentButtonLoadingCopyWithImpl<$Res>;
+abstract class _$$PaymentButtonLoadingCopyWith<$Res> {
+  factory _$$PaymentButtonLoadingCopyWith(_$PaymentButtonLoading value,
+          $Res Function(_$PaymentButtonLoading) then) =
+      __$$PaymentButtonLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PaymentButtonLoadingCopyWithImpl<$Res>
+class __$$PaymentButtonLoadingCopyWithImpl<$Res>
     extends _$PaymentStateCopyWithImpl<$Res>
-    implements $PaymentButtonLoadingCopyWith<$Res> {
-  _$PaymentButtonLoadingCopyWithImpl(
-      PaymentButtonLoading _value, $Res Function(PaymentButtonLoading) _then)
-      : super(_value, (v) => _then(v as PaymentButtonLoading));
+    implements _$$PaymentButtonLoadingCopyWith<$Res> {
+  __$$PaymentButtonLoadingCopyWithImpl(_$PaymentButtonLoading _value,
+      $Res Function(_$PaymentButtonLoading) _then)
+      : super(_value, (v) => _then(v as _$PaymentButtonLoading));
 
   @override
-  PaymentButtonLoading get _value => super._value as PaymentButtonLoading;
+  _$PaymentButtonLoading get _value => super._value as _$PaymentButtonLoading;
 }
 
 /// @nodoc
@@ -258,7 +230,7 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is PaymentButtonLoading);
+        (other.runtimeType == runtimeType && other is _$PaymentButtonLoading);
   }
 
   @override
@@ -344,28 +316,29 @@ abstract class PaymentButtonLoading implements PaymentState {
 }
 
 /// @nodoc
-abstract class $PaymentErrorCopyWith<$Res> {
-  factory $PaymentErrorCopyWith(
-          PaymentError value, $Res Function(PaymentError) then) =
-      _$PaymentErrorCopyWithImpl<$Res>;
+abstract class _$$PaymentErrorCopyWith<$Res> {
+  factory _$$PaymentErrorCopyWith(
+          _$PaymentError value, $Res Function(_$PaymentError) then) =
+      __$$PaymentErrorCopyWithImpl<$Res>;
   $Res call({String errorMessage});
 }
 
 /// @nodoc
-class _$PaymentErrorCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
-    implements $PaymentErrorCopyWith<$Res> {
-  _$PaymentErrorCopyWithImpl(
-      PaymentError _value, $Res Function(PaymentError) _then)
-      : super(_value, (v) => _then(v as PaymentError));
+class __$$PaymentErrorCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res>
+    implements _$$PaymentErrorCopyWith<$Res> {
+  __$$PaymentErrorCopyWithImpl(
+      _$PaymentError _value, $Res Function(_$PaymentError) _then)
+      : super(_value, (v) => _then(v as _$PaymentError));
 
   @override
-  PaymentError get _value => super._value as PaymentError;
+  _$PaymentError get _value => super._value as _$PaymentError;
 
   @override
   $Res call({
     Object? errorMessage = freezed,
   }) {
-    return _then(PaymentError(
+    return _then(_$PaymentError(
       errorMessage == freezed
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -391,7 +364,7 @@ class _$PaymentError implements PaymentError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PaymentError &&
+            other is _$PaymentError &&
             const DeepCollectionEquality()
                 .equals(other.errorMessage, errorMessage));
   }
@@ -402,8 +375,8 @@ class _$PaymentError implements PaymentError {
 
   @JsonKey(ignore: true)
   @override
-  $PaymentErrorCopyWith<PaymentError> get copyWith =>
-      _$PaymentErrorCopyWithImpl<PaymentError>(this, _$identity);
+  _$$PaymentErrorCopyWith<_$PaymentError> get copyWith =>
+      __$$PaymentErrorCopyWithImpl<_$PaymentError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -481,38 +454,38 @@ class _$PaymentError implements PaymentError {
 }
 
 abstract class PaymentError implements PaymentState {
-  const factory PaymentError(String errorMessage) = _$PaymentError;
+  const factory PaymentError(final String errorMessage) = _$PaymentError;
 
   String get errorMessage;
   @JsonKey(ignore: true)
-  $PaymentErrorCopyWith<PaymentError> get copyWith =>
+  _$$PaymentErrorCopyWith<_$PaymentError> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PaymentSuccessfulCopyWith<$Res> {
-  factory $PaymentSuccessfulCopyWith(
-          PaymentSuccessful value, $Res Function(PaymentSuccessful) then) =
-      _$PaymentSuccessfulCopyWithImpl<$Res>;
+abstract class _$$PaymentSuccessfulCopyWith<$Res> {
+  factory _$$PaymentSuccessfulCopyWith(
+          _$PaymentSuccessful value, $Res Function(_$PaymentSuccessful) then) =
+      __$$PaymentSuccessfulCopyWithImpl<$Res>;
   $Res call({String response});
 }
 
 /// @nodoc
-class _$PaymentSuccessfulCopyWithImpl<$Res>
+class __$$PaymentSuccessfulCopyWithImpl<$Res>
     extends _$PaymentStateCopyWithImpl<$Res>
-    implements $PaymentSuccessfulCopyWith<$Res> {
-  _$PaymentSuccessfulCopyWithImpl(
-      PaymentSuccessful _value, $Res Function(PaymentSuccessful) _then)
-      : super(_value, (v) => _then(v as PaymentSuccessful));
+    implements _$$PaymentSuccessfulCopyWith<$Res> {
+  __$$PaymentSuccessfulCopyWithImpl(
+      _$PaymentSuccessful _value, $Res Function(_$PaymentSuccessful) _then)
+      : super(_value, (v) => _then(v as _$PaymentSuccessful));
 
   @override
-  PaymentSuccessful get _value => super._value as PaymentSuccessful;
+  _$PaymentSuccessful get _value => super._value as _$PaymentSuccessful;
 
   @override
   $Res call({
     Object? response = freezed,
   }) {
-    return _then(PaymentSuccessful(
+    return _then(_$PaymentSuccessful(
       response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
@@ -538,7 +511,7 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PaymentSuccessful &&
+            other is _$PaymentSuccessful &&
             const DeepCollectionEquality().equals(other.response, response));
   }
 
@@ -548,8 +521,8 @@ class _$PaymentSuccessful implements PaymentSuccessful {
 
   @JsonKey(ignore: true)
   @override
-  $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith =>
-      _$PaymentSuccessfulCopyWithImpl<PaymentSuccessful>(this, _$identity);
+  _$$PaymentSuccessfulCopyWith<_$PaymentSuccessful> get copyWith =>
+      __$$PaymentSuccessfulCopyWithImpl<_$PaymentSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -627,10 +600,10 @@ class _$PaymentSuccessful implements PaymentSuccessful {
 }
 
 abstract class PaymentSuccessful implements PaymentState {
-  const factory PaymentSuccessful(String response) = _$PaymentSuccessful;
+  const factory PaymentSuccessful(final String response) = _$PaymentSuccessful;
 
   String get response;
   @JsonKey(ignore: true)
-  $PaymentSuccessfulCopyWith<PaymentSuccessful> get copyWith =>
+  _$$PaymentSuccessfulCopyWith<_$PaymentSuccessful> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,47 +12,7 @@ part of 'result_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResultStateTearOff {
-  const _$ResultStateTearOff();
-
-  Idle<T> idle<T>() {
-    return Idle<T>();
-  }
-
-  Loading<T> loading<T>() {
-    return Loading<T>();
-  }
-
-  ReLoading<T> reLoading<T>() {
-    return ReLoading<T>();
-  }
-
-  Data<T> data<T>({required T data}) {
-    return Data<T>(
-      data: data,
-    );
-  }
-
-  Error<T> error<T>({required String error}) {
-    return Error<T>(
-      error: error,
-    );
-  }
-
-  UnNotifiedError<T> unNotifiedError<T>(
-      {required T data, required String error}) {
-    return UnNotifiedError<T>(
-      data: data,
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $ResultState = _$ResultStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResultState<T> {
@@ -138,41 +98,35 @@ class _$ResultStateCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-abstract class $IdleCopyWith<T, $Res> {
-  factory $IdleCopyWith(Idle<T> value, $Res Function(Idle<T>) then) =
-      _$IdleCopyWithImpl<T, $Res>;
+abstract class _$$IdleCopyWith<T, $Res> {
+  factory _$$IdleCopyWith(_$Idle<T> value, $Res Function(_$Idle<T>) then) =
+      __$$IdleCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$IdleCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements $IdleCopyWith<T, $Res> {
-  _$IdleCopyWithImpl(Idle<T> _value, $Res Function(Idle<T>) _then)
-      : super(_value, (v) => _then(v as Idle<T>));
+class __$$IdleCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
+    implements _$$IdleCopyWith<T, $Res> {
+  __$$IdleCopyWithImpl(_$Idle<T> _value, $Res Function(_$Idle<T>) _then)
+      : super(_value, (v) => _then(v as _$Idle<T>));
 
   @override
-  Idle<T> get _value => super._value as Idle<T>;
+  _$Idle<T> get _value => super._value as _$Idle<T>;
 }
 
 /// @nodoc
 
-class _$Idle<T> with DiagnosticableTreeMixin implements Idle<T> {
+class _$Idle<T> implements Idle<T> {
   const _$Idle();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResultState<$T>.idle()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ResultState<$T>.idle'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Idle<T>);
+        (other.runtimeType == runtimeType && other is _$Idle<T>);
   }
 
   @override
@@ -270,41 +224,38 @@ abstract class Idle<T> implements ResultState<T> {
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<T, $Res> {
-  factory $LoadingCopyWith(Loading<T> value, $Res Function(Loading<T>) then) =
-      _$LoadingCopyWithImpl<T, $Res>;
+abstract class _$$LoadingCopyWith<T, $Res> {
+  factory _$$LoadingCopyWith(
+          _$Loading<T> value, $Res Function(_$Loading<T>) then) =
+      __$$LoadingCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements $LoadingCopyWith<T, $Res> {
-  _$LoadingCopyWithImpl(Loading<T> _value, $Res Function(Loading<T>) _then)
-      : super(_value, (v) => _then(v as Loading<T>));
+class __$$LoadingCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res>
+    implements _$$LoadingCopyWith<T, $Res> {
+  __$$LoadingCopyWithImpl(
+      _$Loading<T> _value, $Res Function(_$Loading<T>) _then)
+      : super(_value, (v) => _then(v as _$Loading<T>));
 
   @override
-  Loading<T> get _value => super._value as Loading<T>;
+  _$Loading<T> get _value => super._value as _$Loading<T>;
 }
 
 /// @nodoc
 
-class _$Loading<T> with DiagnosticableTreeMixin implements Loading<T> {
+class _$Loading<T> implements Loading<T> {
   const _$Loading();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResultState<$T>.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ResultState<$T>.loading'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Loading<T>);
+        (other.runtimeType == runtimeType && other is _$Loading<T>);
   }
 
   @override
@@ -402,44 +353,38 @@ abstract class Loading<T> implements ResultState<T> {
 }
 
 /// @nodoc
-abstract class $ReLoadingCopyWith<T, $Res> {
-  factory $ReLoadingCopyWith(
-          ReLoading<T> value, $Res Function(ReLoading<T>) then) =
-      _$ReLoadingCopyWithImpl<T, $Res>;
+abstract class _$$ReLoadingCopyWith<T, $Res> {
+  factory _$$ReLoadingCopyWith(
+          _$ReLoading<T> value, $Res Function(_$ReLoading<T>) then) =
+      __$$ReLoadingCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$ReLoadingCopyWithImpl<T, $Res>
+class __$$ReLoadingCopyWithImpl<T, $Res>
     extends _$ResultStateCopyWithImpl<T, $Res>
-    implements $ReLoadingCopyWith<T, $Res> {
-  _$ReLoadingCopyWithImpl(
-      ReLoading<T> _value, $Res Function(ReLoading<T>) _then)
-      : super(_value, (v) => _then(v as ReLoading<T>));
+    implements _$$ReLoadingCopyWith<T, $Res> {
+  __$$ReLoadingCopyWithImpl(
+      _$ReLoading<T> _value, $Res Function(_$ReLoading<T>) _then)
+      : super(_value, (v) => _then(v as _$ReLoading<T>));
 
   @override
-  ReLoading<T> get _value => super._value as ReLoading<T>;
+  _$ReLoading<T> get _value => super._value as _$ReLoading<T>;
 }
 
 /// @nodoc
 
-class _$ReLoading<T> with DiagnosticableTreeMixin implements ReLoading<T> {
+class _$ReLoading<T> implements ReLoading<T> {
   const _$ReLoading();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResultState<$T>.reLoading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ResultState<$T>.reLoading'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ReLoading<T>);
+        (other.runtimeType == runtimeType && other is _$ReLoading<T>);
   }
 
   @override
@@ -537,26 +482,26 @@ abstract class ReLoading<T> implements ResultState<T> {
 }
 
 /// @nodoc
-abstract class $DataCopyWith<T, $Res> {
-  factory $DataCopyWith(Data<T> value, $Res Function(Data<T>) then) =
-      _$DataCopyWithImpl<T, $Res>;
+abstract class _$$DataCopyWith<T, $Res> {
+  factory _$$DataCopyWith(_$Data<T> value, $Res Function(_$Data<T>) then) =
+      __$$DataCopyWithImpl<T, $Res>;
   $Res call({T data});
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements $DataCopyWith<T, $Res> {
-  _$DataCopyWithImpl(Data<T> _value, $Res Function(Data<T>) _then)
-      : super(_value, (v) => _then(v as Data<T>));
+class __$$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
+    implements _$$DataCopyWith<T, $Res> {
+  __$$DataCopyWithImpl(_$Data<T> _value, $Res Function(_$Data<T>) _then)
+      : super(_value, (v) => _then(v as _$Data<T>));
 
   @override
-  Data<T> get _value => super._value as Data<T>;
+  _$Data<T> get _value => super._value as _$Data<T>;
 
   @override
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(Data<T>(
+    return _then(_$Data<T>(
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -567,30 +512,22 @@ class _$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
+class _$Data<T> implements Data<T> {
   const _$Data({required this.data});
 
   @override
   final T data;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResultState<$T>.data(data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResultState<$T>.data'))
-      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is Data<T> &&
+            other is _$Data<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -600,8 +537,8 @@ class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
 
   @JsonKey(ignore: true)
   @override
-  $DataCopyWith<T, Data<T>> get copyWith =>
-      _$DataCopyWithImpl<T, Data<T>>(this, _$identity);
+  _$$DataCopyWith<T, _$Data<T>> get copyWith =>
+      __$$DataCopyWithImpl<T, _$Data<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -691,34 +628,35 @@ class _$Data<T> with DiagnosticableTreeMixin implements Data<T> {
 }
 
 abstract class Data<T> implements ResultState<T> {
-  const factory Data({required T data}) = _$Data<T>;
+  const factory Data({required final T data}) = _$Data<T>;
 
   T get data;
   @JsonKey(ignore: true)
-  $DataCopyWith<T, Data<T>> get copyWith => throw _privateConstructorUsedError;
+  _$$DataCopyWith<T, _$Data<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ErrorCopyWith<T, $Res> {
-  factory $ErrorCopyWith(Error<T> value, $Res Function(Error<T>) then) =
-      _$ErrorCopyWithImpl<T, $Res>;
+abstract class _$$ErrorCopyWith<T, $Res> {
+  factory _$$ErrorCopyWith(_$Error<T> value, $Res Function(_$Error<T>) then) =
+      __$$ErrorCopyWithImpl<T, $Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements $ErrorCopyWith<T, $Res> {
-  _$ErrorCopyWithImpl(Error<T> _value, $Res Function(Error<T>) _then)
-      : super(_value, (v) => _then(v as Error<T>));
+class __$$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
+    implements _$$ErrorCopyWith<T, $Res> {
+  __$$ErrorCopyWithImpl(_$Error<T> _value, $Res Function(_$Error<T>) _then)
+      : super(_value, (v) => _then(v as _$Error<T>));
 
   @override
-  Error<T> get _value => super._value as Error<T>;
+  _$Error<T> get _value => super._value as _$Error<T>;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(Error<T>(
+    return _then(_$Error<T>(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -729,30 +667,22 @@ class _$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
+class _$Error<T> implements Error<T> {
   const _$Error({required this.error});
 
   @override
   final String error;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResultState<$T>.error(error: $error)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResultState<$T>.error'))
-      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is Error<T> &&
+            other is _$Error<T> &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -762,8 +692,8 @@ class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
 
   @JsonKey(ignore: true)
   @override
-  $ErrorCopyWith<T, Error<T>> get copyWith =>
-      _$ErrorCopyWithImpl<T, Error<T>>(this, _$identity);
+  _$$ErrorCopyWith<T, _$Error<T>> get copyWith =>
+      __$$ErrorCopyWithImpl<T, _$Error<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -853,39 +783,39 @@ class _$Error<T> with DiagnosticableTreeMixin implements Error<T> {
 }
 
 abstract class Error<T> implements ResultState<T> {
-  const factory Error({required String error}) = _$Error<T>;
+  const factory Error({required final String error}) = _$Error<T>;
 
   String get error;
   @JsonKey(ignore: true)
-  $ErrorCopyWith<T, Error<T>> get copyWith =>
+  _$$ErrorCopyWith<T, _$Error<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnNotifiedErrorCopyWith<T, $Res> {
-  factory $UnNotifiedErrorCopyWith(
-          UnNotifiedError<T> value, $Res Function(UnNotifiedError<T>) then) =
-      _$UnNotifiedErrorCopyWithImpl<T, $Res>;
+abstract class _$$UnNotifiedErrorCopyWith<T, $Res> {
+  factory _$$UnNotifiedErrorCopyWith(_$UnNotifiedError<T> value,
+          $Res Function(_$UnNotifiedError<T>) then) =
+      __$$UnNotifiedErrorCopyWithImpl<T, $Res>;
   $Res call({T data, String error});
 }
 
 /// @nodoc
-class _$UnNotifiedErrorCopyWithImpl<T, $Res>
+class __$$UnNotifiedErrorCopyWithImpl<T, $Res>
     extends _$ResultStateCopyWithImpl<T, $Res>
-    implements $UnNotifiedErrorCopyWith<T, $Res> {
-  _$UnNotifiedErrorCopyWithImpl(
-      UnNotifiedError<T> _value, $Res Function(UnNotifiedError<T>) _then)
-      : super(_value, (v) => _then(v as UnNotifiedError<T>));
+    implements _$$UnNotifiedErrorCopyWith<T, $Res> {
+  __$$UnNotifiedErrorCopyWithImpl(
+      _$UnNotifiedError<T> _value, $Res Function(_$UnNotifiedError<T>) _then)
+      : super(_value, (v) => _then(v as _$UnNotifiedError<T>));
 
   @override
-  UnNotifiedError<T> get _value => super._value as UnNotifiedError<T>;
+  _$UnNotifiedError<T> get _value => super._value as _$UnNotifiedError<T>;
 
   @override
   $Res call({
     Object? data = freezed,
     Object? error = freezed,
   }) {
-    return _then(UnNotifiedError<T>(
+    return _then(_$UnNotifiedError<T>(
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -900,9 +830,7 @@ class _$UnNotifiedErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$UnNotifiedError<T>
-    with DiagnosticableTreeMixin
-    implements UnNotifiedError<T> {
+class _$UnNotifiedError<T> implements UnNotifiedError<T> {
   const _$UnNotifiedError({required this.data, required this.error});
 
   @override
@@ -911,24 +839,15 @@ class _$UnNotifiedError<T>
   final String error;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResultState<$T>.unNotifiedError(data: $data, error: $error)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResultState<$T>.unNotifiedError'))
-      ..add(DiagnosticsProperty('data', data))
-      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is UnNotifiedError<T> &&
+            other is _$UnNotifiedError<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
@@ -941,8 +860,9 @@ class _$UnNotifiedError<T>
 
   @JsonKey(ignore: true)
   @override
-  $UnNotifiedErrorCopyWith<T, UnNotifiedError<T>> get copyWith =>
-      _$UnNotifiedErrorCopyWithImpl<T, UnNotifiedError<T>>(this, _$identity);
+  _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith =>
+      __$$UnNotifiedErrorCopyWithImpl<T, _$UnNotifiedError<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1032,12 +952,13 @@ class _$UnNotifiedError<T>
 }
 
 abstract class UnNotifiedError<T> implements ResultState<T> {
-  const factory UnNotifiedError({required T data, required String error}) =
-      _$UnNotifiedError<T>;
+  const factory UnNotifiedError(
+      {required final T data,
+      required final String error}) = _$UnNotifiedError<T>;
 
   T get data;
   String get error;
   @JsonKey(ignore: true)
-  $UnNotifiedErrorCopyWith<T, UnNotifiedError<T>> get copyWith =>
+  _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,45 +12,7 @@ part of 'add_account_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AddAccountDetailsStateTearOff {
-  const _$AddAccountDetailsStateTearOff();
-
-  Idle idle() {
-    return const Idle();
-  }
-
-  EditData editData(AccountDetails accountDetails) {
-    return EditData(
-      accountDetails,
-    );
-  }
-
-  Loading loading() {
-    return const Loading();
-  }
-
-  ButtonEnabled onButtonEnabled() {
-    return const ButtonEnabled();
-  }
-
-  ButtonDisabled onButtonDisabled() {
-    return const ButtonDisabled();
-  }
-
-  SaveDataLoading saveDataLoading() {
-    return const SaveDataLoading();
-  }
-
-  Successful successful() {
-    return const Successful();
-  }
-}
-
-/// @nodoc
-const $AddAccountDetailsState = _$AddAccountDetailsStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AddAccountDetailsState {
@@ -142,20 +104,20 @@ class _$AddAccountDetailsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $IdleCopyWith<$Res> {
-  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) =
-      _$IdleCopyWithImpl<$Res>;
+abstract class _$$IdleCopyWith<$Res> {
+  factory _$$IdleCopyWith(_$Idle value, $Res Function(_$Idle) then) =
+      __$$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IdleCopyWithImpl<$Res>
+class __$$IdleCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $IdleCopyWith<$Res> {
-  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then)
-      : super(_value, (v) => _then(v as Idle));
+    implements _$$IdleCopyWith<$Res> {
+  __$$IdleCopyWithImpl(_$Idle _value, $Res Function(_$Idle) _then)
+      : super(_value, (v) => _then(v as _$Idle));
 
   @override
-  Idle get _value => super._value as Idle;
+  _$Idle get _value => super._value as _$Idle;
 }
 
 /// @nodoc
@@ -171,7 +133,7 @@ class _$Idle implements Idle {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Idle);
+        (other.runtimeType == runtimeType && other is _$Idle);
   }
 
   @override
@@ -275,27 +237,28 @@ abstract class Idle implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class $EditDataCopyWith<$Res> {
-  factory $EditDataCopyWith(EditData value, $Res Function(EditData) then) =
-      _$EditDataCopyWithImpl<$Res>;
+abstract class _$$EditDataCopyWith<$Res> {
+  factory _$$EditDataCopyWith(
+          _$EditData value, $Res Function(_$EditData) then) =
+      __$$EditDataCopyWithImpl<$Res>;
   $Res call({AccountDetails accountDetails});
 }
 
 /// @nodoc
-class _$EditDataCopyWithImpl<$Res>
+class __$$EditDataCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $EditDataCopyWith<$Res> {
-  _$EditDataCopyWithImpl(EditData _value, $Res Function(EditData) _then)
-      : super(_value, (v) => _then(v as EditData));
+    implements _$$EditDataCopyWith<$Res> {
+  __$$EditDataCopyWithImpl(_$EditData _value, $Res Function(_$EditData) _then)
+      : super(_value, (v) => _then(v as _$EditData));
 
   @override
-  EditData get _value => super._value as EditData;
+  _$EditData get _value => super._value as _$EditData;
 
   @override
   $Res call({
     Object? accountDetails = freezed,
   }) {
-    return _then(EditData(
+    return _then(_$EditData(
       accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
@@ -321,7 +284,7 @@ class _$EditData implements EditData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is EditData &&
+            other is _$EditData &&
             const DeepCollectionEquality()
                 .equals(other.accountDetails, accountDetails));
   }
@@ -332,8 +295,8 @@ class _$EditData implements EditData {
 
   @JsonKey(ignore: true)
   @override
-  $EditDataCopyWith<EditData> get copyWith =>
-      _$EditDataCopyWithImpl<EditData>(this, _$identity);
+  _$$EditDataCopyWith<_$EditData> get copyWith =>
+      __$$EditDataCopyWithImpl<_$EditData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -429,29 +392,29 @@ class _$EditData implements EditData {
 }
 
 abstract class EditData implements AddAccountDetailsState {
-  const factory EditData(AccountDetails accountDetails) = _$EditData;
+  const factory EditData(final AccountDetails accountDetails) = _$EditData;
 
   AccountDetails get accountDetails;
   @JsonKey(ignore: true)
-  $EditDataCopyWith<EditData> get copyWith =>
+  _$$EditDataCopyWith<_$EditData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<$Res> {
-  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
-      _$LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingCopyWith<$Res> {
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
+      __$$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res>
+class __$$LoadingCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $LoadingCopyWith<$Res> {
-  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
-      : super(_value, (v) => _then(v as Loading));
+    implements _$$LoadingCopyWith<$Res> {
+  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+      : super(_value, (v) => _then(v as _$Loading));
 
   @override
-  Loading get _value => super._value as Loading;
+  _$Loading get _value => super._value as _$Loading;
 }
 
 /// @nodoc
@@ -467,7 +430,7 @@ class _$Loading implements Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Loading);
+        (other.runtimeType == runtimeType && other is _$Loading);
   }
 
   @override
@@ -571,22 +534,22 @@ abstract class Loading implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class $ButtonEnabledCopyWith<$Res> {
-  factory $ButtonEnabledCopyWith(
-          ButtonEnabled value, $Res Function(ButtonEnabled) then) =
-      _$ButtonEnabledCopyWithImpl<$Res>;
+abstract class _$$ButtonEnabledCopyWith<$Res> {
+  factory _$$ButtonEnabledCopyWith(
+          _$ButtonEnabled value, $Res Function(_$ButtonEnabled) then) =
+      __$$ButtonEnabledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ButtonEnabledCopyWithImpl<$Res>
+class __$$ButtonEnabledCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $ButtonEnabledCopyWith<$Res> {
-  _$ButtonEnabledCopyWithImpl(
-      ButtonEnabled _value, $Res Function(ButtonEnabled) _then)
-      : super(_value, (v) => _then(v as ButtonEnabled));
+    implements _$$ButtonEnabledCopyWith<$Res> {
+  __$$ButtonEnabledCopyWithImpl(
+      _$ButtonEnabled _value, $Res Function(_$ButtonEnabled) _then)
+      : super(_value, (v) => _then(v as _$ButtonEnabled));
 
   @override
-  ButtonEnabled get _value => super._value as ButtonEnabled;
+  _$ButtonEnabled get _value => super._value as _$ButtonEnabled;
 }
 
 /// @nodoc
@@ -602,7 +565,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ButtonEnabled);
+        (other.runtimeType == runtimeType && other is _$ButtonEnabled);
   }
 
   @override
@@ -706,22 +669,22 @@ abstract class ButtonEnabled implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class $ButtonDisabledCopyWith<$Res> {
-  factory $ButtonDisabledCopyWith(
-          ButtonDisabled value, $Res Function(ButtonDisabled) then) =
-      _$ButtonDisabledCopyWithImpl<$Res>;
+abstract class _$$ButtonDisabledCopyWith<$Res> {
+  factory _$$ButtonDisabledCopyWith(
+          _$ButtonDisabled value, $Res Function(_$ButtonDisabled) then) =
+      __$$ButtonDisabledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ButtonDisabledCopyWithImpl<$Res>
+class __$$ButtonDisabledCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $ButtonDisabledCopyWith<$Res> {
-  _$ButtonDisabledCopyWithImpl(
-      ButtonDisabled _value, $Res Function(ButtonDisabled) _then)
-      : super(_value, (v) => _then(v as ButtonDisabled));
+    implements _$$ButtonDisabledCopyWith<$Res> {
+  __$$ButtonDisabledCopyWithImpl(
+      _$ButtonDisabled _value, $Res Function(_$ButtonDisabled) _then)
+      : super(_value, (v) => _then(v as _$ButtonDisabled));
 
   @override
-  ButtonDisabled get _value => super._value as ButtonDisabled;
+  _$ButtonDisabled get _value => super._value as _$ButtonDisabled;
 }
 
 /// @nodoc
@@ -737,7 +700,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ButtonDisabled);
+        (other.runtimeType == runtimeType && other is _$ButtonDisabled);
   }
 
   @override
@@ -841,22 +804,22 @@ abstract class ButtonDisabled implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class $SaveDataLoadingCopyWith<$Res> {
-  factory $SaveDataLoadingCopyWith(
-          SaveDataLoading value, $Res Function(SaveDataLoading) then) =
-      _$SaveDataLoadingCopyWithImpl<$Res>;
+abstract class _$$SaveDataLoadingCopyWith<$Res> {
+  factory _$$SaveDataLoadingCopyWith(
+          _$SaveDataLoading value, $Res Function(_$SaveDataLoading) then) =
+      __$$SaveDataLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SaveDataLoadingCopyWithImpl<$Res>
+class __$$SaveDataLoadingCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $SaveDataLoadingCopyWith<$Res> {
-  _$SaveDataLoadingCopyWithImpl(
-      SaveDataLoading _value, $Res Function(SaveDataLoading) _then)
-      : super(_value, (v) => _then(v as SaveDataLoading));
+    implements _$$SaveDataLoadingCopyWith<$Res> {
+  __$$SaveDataLoadingCopyWithImpl(
+      _$SaveDataLoading _value, $Res Function(_$SaveDataLoading) _then)
+      : super(_value, (v) => _then(v as _$SaveDataLoading));
 
   @override
-  SaveDataLoading get _value => super._value as SaveDataLoading;
+  _$SaveDataLoading get _value => super._value as _$SaveDataLoading;
 }
 
 /// @nodoc
@@ -872,7 +835,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SaveDataLoading);
+        (other.runtimeType == runtimeType && other is _$SaveDataLoading);
   }
 
   @override
@@ -976,21 +939,22 @@ abstract class SaveDataLoading implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class $SuccessfulCopyWith<$Res> {
-  factory $SuccessfulCopyWith(
-          Successful value, $Res Function(Successful) then) =
-      _$SuccessfulCopyWithImpl<$Res>;
+abstract class _$$SuccessfulCopyWith<$Res> {
+  factory _$$SuccessfulCopyWith(
+          _$Successful value, $Res Function(_$Successful) then) =
+      __$$SuccessfulCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SuccessfulCopyWithImpl<$Res>
+class __$$SuccessfulCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements $SuccessfulCopyWith<$Res> {
-  _$SuccessfulCopyWithImpl(Successful _value, $Res Function(Successful) _then)
-      : super(_value, (v) => _then(v as Successful));
+    implements _$$SuccessfulCopyWith<$Res> {
+  __$$SuccessfulCopyWithImpl(
+      _$Successful _value, $Res Function(_$Successful) _then)
+      : super(_value, (v) => _then(v as _$Successful));
 
   @override
-  Successful get _value => super._value as Successful;
+  _$Successful get _value => super._value as _$Successful;
 }
 
 /// @nodoc
@@ -1006,7 +970,7 @@ class _$Successful implements Successful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Successful);
+        (other.runtimeType == runtimeType && other is _$Successful);
   }
 
   @override
