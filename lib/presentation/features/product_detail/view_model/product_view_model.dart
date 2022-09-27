@@ -1,3 +1,6 @@
+import 'package:fluttercommerce/domain/usecases/add_product_to_cart_usecase.dart';
+import 'package:fluttercommerce/domain/usecases/delete_product_from_cart_usecase.dart';
+import 'package:fluttercommerce/domain/usecases/get_items_in_cart_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
@@ -11,9 +14,17 @@ import '../state/add_to_cart_state.dart';
 
 @injectable
 class ProductViewModel extends StateManager<AddToCartState> {
-  ProductViewModel(this._firebaseRepo) : super(const AddToCartState());
+  ProductViewModel(
+    this._firebaseRepo,
+    this._getItemsInCartUseCase,
+    this._productDeleteCartUseCase,
+    this._productAddToCartUseCase,
+  ) : super(const AddToCartState());
 
   final FirebaseRepository _firebaseRepo;
+  GetItemsInCartUseCase _getItemsInCartUseCase;
+  ProductDeleteCartUseCase _productDeleteCartUseCase;
+  ProductAddToCartUseCase _productAddToCartUseCase;
 
   Future<void> listenToProduct(String productId) async {
     _firebaseRepo.cartStatusListen(_firebaseRepo.getUid()).listen((event) {
@@ -27,7 +38,7 @@ class ProductViewModel extends StateManager<AddToCartState> {
     } else {
       state = state.copyWith(addToCardLoading: false);
     }
-    final int cartValue = await _firebaseRepo.checkItemInCart(productId);
+    final int cartValue = await _getItemsInCartUseCase.execute(productId);
     if (cartValue > 0) {
       state = state.copyWith(noOfItems: cartValue);
     } else {
@@ -43,7 +54,7 @@ class ProductViewModel extends StateManager<AddToCartState> {
       return;
     }
     CartModel cartModel = CartModel.fromProduct(productModel, 1);
-    _firebaseRepo.addProductToCart(cartModel).then((value) {
+    _productAddToCartUseCase.execute(cartModel).then((value) {
       state = state.copyWith(noOfItems: 1);
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());
@@ -62,7 +73,7 @@ class ProductViewModel extends StateManager<AddToCartState> {
         return;
       }
       final CartModel cartModel = CartModel.fromProduct(productModel, newCartValue);
-      _firebaseRepo.addProductToCart(cartModel).then((value) {
+      _productAddToCartUseCase.execute(cartModel).then((value) {
         state = state.copyWith(noOfItems: newCartValue);
       }).catchError((e) {
         MessageHandler.showSnackBar(title: e.toString());
@@ -74,7 +85,7 @@ class ProductViewModel extends StateManager<AddToCartState> {
         MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
         return;
       }
-      _firebaseRepo.delProductFromCart(productModel.productId!).then((value) {
+      _productDeleteCartUseCase.execute(productModel.productId!).then((value) {
         state = state.copyWith(showAddButton: true);
       }).catchError((e) {
         MessageHandler.showSnackBar(title: e.toString());

@@ -90,18 +90,6 @@ class FirebaseRepository with FirebaseMixin {
       ..updateDisplayName(displayName);
   }
 
-  Future<List<DocumentSnapshot>> getAllProducts([DocumentSnapshot? documentSnapshot]) async {
-    List<DocumentSnapshot> documentList;
-    final query = productCollection.limit(20).orderBy("name");
-
-    if (documentSnapshot != null) {
-      documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
-    } else {
-      documentList = (await query.get()).docs;
-    }
-    return documentList;
-  }
-
   Future<List<DocumentSnapshot>> getAllOrders([DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
     final query = orderCollection.limit(20).orderBy("ordered_at", descending: true);
@@ -124,6 +112,18 @@ class FirebaseRepository with FirebaseMixin {
     return List.generate(docList.length, (index) {
       return ProductModel.fromJson(docList[index].data());
     });
+  }
+
+  Future<List<DocumentSnapshot>> getAllProducts([DocumentSnapshot? documentSnapshot]) async {
+    List<DocumentSnapshot> documentList;
+    final query = productCollection.limit(20).orderBy("name");
+
+    if (documentSnapshot != null) {
+      documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
+    } else {
+      documentList = (await query.get()).docs;
+    }
+    return documentList;
   }
 
   Future<List<DocumentSnapshot>> getAllProductsData(
