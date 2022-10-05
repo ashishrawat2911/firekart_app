@@ -22,9 +22,9 @@ class ProductViewModel extends StateManager<AddToCartState> {
   ) : super(const AddToCartState());
 
   final FirebaseRepository _firebaseRepo;
-  GetItemsInCartUseCase _getItemsInCartUseCase;
-  ProductDeleteCartUseCase _productDeleteCartUseCase;
-  ProductAddToCartUseCase _productAddToCartUseCase;
+  final GetItemsInCartUseCase _getItemsInCartUseCase;
+  final ProductDeleteCartUseCase _productDeleteCartUseCase;
+  final ProductAddToCartUseCase _productAddToCartUseCase;
 
   Future<void> listenToProduct(String productId) async {
     _firebaseRepo.cartStatusListen(_firebaseRepo.getUid()).listen((event) {
