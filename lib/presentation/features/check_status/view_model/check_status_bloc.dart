@@ -14,7 +14,7 @@ class CheckStatusViewModel extends Cubit<int> {
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {
     Future.delayed(Duration(seconds: checkForAccountStatusOnly ? 2 : 0), () async {
-      final status = await _getUserLoggedInStatusUseCase.execute();
+      final status = _getUserLoggedInStatusUseCase.execute();
       if (checkForAccountStatusOnly || status) {
         final isUserDataPresent = await _getUserDataStatusUseCase.execute();
         if (isUserDataPresent) {
