@@ -37,14 +37,14 @@ class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
 
   Future<void> loadPreviousData() async {
     state = (const AddAccountDetailsState.loading());
-    final AccountDetails _accountDetails = await _getAccountDetailsUseCase.execute();
+    final AccountDetailsModel _accountDetails = await _getAccountDetailsUseCase.execute();
     state = (AddAccountDetailsState.editData(_accountDetails));
     validateButton(_accountDetails.name);
   }
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
-    final AccountDetails _accountDetails =
-        AccountDetails(name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
+    final AccountDetailsModel _accountDetails =
+        AccountDetailsModel(name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
 
     state = (const AddAccountDetailsState.saveDataLoading());
     await _setAccountDetailsUseCase.execute(_accountDetails);

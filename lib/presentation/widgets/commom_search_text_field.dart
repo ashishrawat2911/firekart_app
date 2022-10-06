@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/res/app_colors.dart';
-import '../../core/res/text_styles.dart';
+import '../../res/app_colors.dart';
+import '../../res/text_styles.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   const CommonSearchTextField(

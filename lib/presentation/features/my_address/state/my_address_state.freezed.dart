@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'my_address_state.dart';
@@ -12,14 +11,37 @@ part of 'my_address_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$MyAddressStateTearOff {
+  const _$MyAddressStateTearOff();
+
+  _MyAddressState call(
+      {bool screenLoading = false,
+      String? screenError,
+      bool buttonLoading = false,
+      AccountDetailsModel? accountDetails,
+      List<AddressCardState> addressStates = const []}) {
+    return _MyAddressState(
+      screenLoading: screenLoading,
+      screenError: screenError,
+      buttonLoading: buttonLoading,
+      accountDetails: accountDetails,
+      addressStates: addressStates,
+    );
+  }
+}
+
+/// @nodoc
+const $MyAddressState = _$MyAddressStateTearOff();
 
 /// @nodoc
 mixin _$MyAddressState {
   bool get screenLoading => throw _privateConstructorUsedError;
   String? get screenError => throw _privateConstructorUsedError;
   bool get buttonLoading => throw _privateConstructorUsedError;
-  AccountDetails? get accountDetails => throw _privateConstructorUsedError;
+  AccountDetailsModel? get accountDetails => throw _privateConstructorUsedError;
   List<AddressCardState> get addressStates =>
       throw _privateConstructorUsedError;
 
@@ -37,7 +59,7 @@ abstract class $MyAddressStateCopyWith<$Res> {
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetails? accountDetails,
+      AccountDetailsModel? accountDetails,
       List<AddressCardState> addressStates});
 }
 
@@ -74,7 +96,7 @@ class _$MyAddressStateCopyWithImpl<$Res>
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetails?,
+              as AccountDetailsModel?,
       addressStates: addressStates == freezed
           ? _value.addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
@@ -84,30 +106,30 @@ class _$MyAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_MyAddressStateCopyWith<$Res>
+abstract class _$MyAddressStateCopyWith<$Res>
     implements $MyAddressStateCopyWith<$Res> {
-  factory _$$_MyAddressStateCopyWith(
-          _$_MyAddressState value, $Res Function(_$_MyAddressState) then) =
-      __$$_MyAddressStateCopyWithImpl<$Res>;
+  factory _$MyAddressStateCopyWith(
+          _MyAddressState value, $Res Function(_MyAddressState) then) =
+      __$MyAddressStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetails? accountDetails,
+      AccountDetailsModel? accountDetails,
       List<AddressCardState> addressStates});
 }
 
 /// @nodoc
-class __$$_MyAddressStateCopyWithImpl<$Res>
+class __$MyAddressStateCopyWithImpl<$Res>
     extends _$MyAddressStateCopyWithImpl<$Res>
-    implements _$$_MyAddressStateCopyWith<$Res> {
-  __$$_MyAddressStateCopyWithImpl(
-      _$_MyAddressState _value, $Res Function(_$_MyAddressState) _then)
-      : super(_value, (v) => _then(v as _$_MyAddressState));
+    implements _$MyAddressStateCopyWith<$Res> {
+  __$MyAddressStateCopyWithImpl(
+      _MyAddressState _value, $Res Function(_MyAddressState) _then)
+      : super(_value, (v) => _then(v as _MyAddressState));
 
   @override
-  _$_MyAddressState get _value => super._value as _$_MyAddressState;
+  _MyAddressState get _value => super._value as _MyAddressState;
 
   @override
   $Res call({
@@ -117,7 +139,7 @@ class __$$_MyAddressStateCopyWithImpl<$Res>
     Object? accountDetails = freezed,
     Object? addressStates = freezed,
   }) {
-    return _then(_$_MyAddressState(
+    return _then(_MyAddressState(
       screenLoading: screenLoading == freezed
           ? _value.screenLoading
           : screenLoading // ignore: cast_nullable_to_non_nullable
@@ -133,9 +155,9 @@ class __$$_MyAddressStateCopyWithImpl<$Res>
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetails?,
+              as AccountDetailsModel?,
       addressStates: addressStates == freezed
-          ? _value._addressStates
+          ? _value.addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
               as List<AddressCardState>,
     ));
@@ -150,26 +172,21 @@ class _$_MyAddressState implements _MyAddressState {
       this.screenError,
       this.buttonLoading = false,
       this.accountDetails,
-      final List<AddressCardState> addressStates = const []})
-      : _addressStates = addressStates;
+      this.addressStates = const []});
 
-  @override
   @JsonKey()
+  @override
   final bool screenLoading;
   @override
   final String? screenError;
-  @override
   @JsonKey()
+  @override
   final bool buttonLoading;
   @override
-  final AccountDetails? accountDetails;
-  final List<AddressCardState> _addressStates;
-  @override
+  final AccountDetailsModel? accountDetails;
   @JsonKey()
-  List<AddressCardState> get addressStates {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_addressStates);
-  }
+  @override
+  final List<AddressCardState> addressStates;
 
   @override
   String toString() {
@@ -180,7 +197,7 @@ class _$_MyAddressState implements _MyAddressState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MyAddressState &&
+            other is _MyAddressState &&
             const DeepCollectionEquality()
                 .equals(other.screenLoading, screenLoading) &&
             const DeepCollectionEquality()
@@ -190,7 +207,7 @@ class _$_MyAddressState implements _MyAddressState {
             const DeepCollectionEquality()
                 .equals(other.accountDetails, accountDetails) &&
             const DeepCollectionEquality()
-                .equals(other._addressStates, _addressStates));
+                .equals(other.addressStates, addressStates));
   }
 
   @override
@@ -200,21 +217,21 @@ class _$_MyAddressState implements _MyAddressState {
       const DeepCollectionEquality().hash(screenError),
       const DeepCollectionEquality().hash(buttonLoading),
       const DeepCollectionEquality().hash(accountDetails),
-      const DeepCollectionEquality().hash(_addressStates));
+      const DeepCollectionEquality().hash(addressStates));
 
   @JsonKey(ignore: true)
   @override
-  _$$_MyAddressStateCopyWith<_$_MyAddressState> get copyWith =>
-      __$$_MyAddressStateCopyWithImpl<_$_MyAddressState>(this, _$identity);
+  _$MyAddressStateCopyWith<_MyAddressState> get copyWith =>
+      __$MyAddressStateCopyWithImpl<_MyAddressState>(this, _$identity);
 }
 
 abstract class _MyAddressState implements MyAddressState {
   const factory _MyAddressState(
-      {final bool screenLoading,
-      final String? screenError,
-      final bool buttonLoading,
-      final AccountDetails? accountDetails,
-      final List<AddressCardState> addressStates}) = _$_MyAddressState;
+      {bool screenLoading,
+      String? screenError,
+      bool buttonLoading,
+      AccountDetailsModel? accountDetails,
+      List<AddressCardState> addressStates}) = _$_MyAddressState;
 
   @override
   bool get screenLoading;
@@ -223,19 +240,40 @@ abstract class _MyAddressState implements MyAddressState {
   @override
   bool get buttonLoading;
   @override
-  AccountDetails? get accountDetails;
+  AccountDetailsModel? get accountDetails;
   @override
   List<AddressCardState> get addressStates;
   @override
   @JsonKey(ignore: true)
-  _$$_MyAddressStateCopyWith<_$_MyAddressState> get copyWith =>
+  _$MyAddressStateCopyWith<_MyAddressState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+class _$AddressCardStateTearOff {
+  const _$AddressCardStateTearOff();
+
+  _AddressCardState call(
+      {int index = 0,
+      required AddressModel address,
+      bool editLoading = false,
+      bool setDefaultLoading = false}) {
+    return _AddressCardState(
+      index: index,
+      address: address,
+      editLoading: editLoading,
+      setDefaultLoading: setDefaultLoading,
+    );
+  }
+}
+
+/// @nodoc
+const $AddressCardState = _$AddressCardStateTearOff();
+
+/// @nodoc
 mixin _$AddressCardState {
   int get index => throw _privateConstructorUsedError;
-  Address get address => throw _privateConstructorUsedError;
+  AddressModel get address => throw _privateConstructorUsedError;
   bool get editLoading => throw _privateConstructorUsedError;
   bool get setDefaultLoading => throw _privateConstructorUsedError;
 
@@ -250,7 +288,10 @@ abstract class $AddressCardStateCopyWith<$Res> {
           AddressCardState value, $Res Function(AddressCardState) then) =
       _$AddressCardStateCopyWithImpl<$Res>;
   $Res call(
-      {int index, Address address, bool editLoading, bool setDefaultLoading});
+      {int index,
+      AddressModel address,
+      bool editLoading,
+      bool setDefaultLoading});
 }
 
 /// @nodoc
@@ -277,7 +318,7 @@ class _$AddressCardStateCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as Address,
+              as AddressModel,
       editLoading: editLoading == freezed
           ? _value.editLoading
           : editLoading // ignore: cast_nullable_to_non_nullable
@@ -291,26 +332,29 @@ class _$AddressCardStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_AddressCardStateCopyWith<$Res>
+abstract class _$AddressCardStateCopyWith<$Res>
     implements $AddressCardStateCopyWith<$Res> {
-  factory _$$_AddressCardStateCopyWith(
-          _$_AddressCardState value, $Res Function(_$_AddressCardState) then) =
-      __$$_AddressCardStateCopyWithImpl<$Res>;
+  factory _$AddressCardStateCopyWith(
+          _AddressCardState value, $Res Function(_AddressCardState) then) =
+      __$AddressCardStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int index, Address address, bool editLoading, bool setDefaultLoading});
+      {int index,
+      AddressModel address,
+      bool editLoading,
+      bool setDefaultLoading});
 }
 
 /// @nodoc
-class __$$_AddressCardStateCopyWithImpl<$Res>
+class __$AddressCardStateCopyWithImpl<$Res>
     extends _$AddressCardStateCopyWithImpl<$Res>
-    implements _$$_AddressCardStateCopyWith<$Res> {
-  __$$_AddressCardStateCopyWithImpl(
-      _$_AddressCardState _value, $Res Function(_$_AddressCardState) _then)
-      : super(_value, (v) => _then(v as _$_AddressCardState));
+    implements _$AddressCardStateCopyWith<$Res> {
+  __$AddressCardStateCopyWithImpl(
+      _AddressCardState _value, $Res Function(_AddressCardState) _then)
+      : super(_value, (v) => _then(v as _AddressCardState));
 
   @override
-  _$_AddressCardState get _value => super._value as _$_AddressCardState;
+  _AddressCardState get _value => super._value as _AddressCardState;
 
   @override
   $Res call({
@@ -319,7 +363,7 @@ class __$$_AddressCardStateCopyWithImpl<$Res>
     Object? editLoading = freezed,
     Object? setDefaultLoading = freezed,
   }) {
-    return _then(_$_AddressCardState(
+    return _then(_AddressCardState(
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -327,7 +371,7 @@ class __$$_AddressCardStateCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as Address,
+              as AddressModel,
       editLoading: editLoading == freezed
           ? _value.editLoading
           : editLoading // ignore: cast_nullable_to_non_nullable
@@ -349,16 +393,16 @@ class _$_AddressCardState implements _AddressCardState {
       this.editLoading = false,
       this.setDefaultLoading = false});
 
-  @override
   @JsonKey()
+  @override
   final int index;
   @override
-  final Address address;
-  @override
+  final AddressModel address;
   @JsonKey()
+  @override
   final bool editLoading;
-  @override
   @JsonKey()
+  @override
   final bool setDefaultLoading;
 
   @override
@@ -370,7 +414,7 @@ class _$_AddressCardState implements _AddressCardState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddressCardState &&
+            other is _AddressCardState &&
             const DeepCollectionEquality().equals(other.index, index) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
@@ -389,27 +433,27 @@ class _$_AddressCardState implements _AddressCardState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_AddressCardStateCopyWith<_$_AddressCardState> get copyWith =>
-      __$$_AddressCardStateCopyWithImpl<_$_AddressCardState>(this, _$identity);
+  _$AddressCardStateCopyWith<_AddressCardState> get copyWith =>
+      __$AddressCardStateCopyWithImpl<_AddressCardState>(this, _$identity);
 }
 
 abstract class _AddressCardState implements AddressCardState {
   const factory _AddressCardState(
-      {final int index,
-      required final Address address,
-      final bool editLoading,
-      final bool setDefaultLoading}) = _$_AddressCardState;
+      {int index,
+      required AddressModel address,
+      bool editLoading,
+      bool setDefaultLoading}) = _$_AddressCardState;
 
   @override
   int get index;
   @override
-  Address get address;
+  AddressModel get address;
   @override
   bool get editLoading;
   @override
   bool get setDefaultLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_AddressCardStateCopyWith<_$_AddressCardState> get copyWith =>
+  _$AddressCardStateCopyWith<_AddressCardState> get copyWith =>
       throw _privateConstructorUsedError;
 }

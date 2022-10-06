@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/res/app_assets.dart';
+import '../../../../res/app_assets.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../state/splash_state.dart';
 import '../view_model/splash_view_model.dart';

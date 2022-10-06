@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/res/app_colors.dart';
-import '../../../../core/res/string_constants.dart';
-import '../../../../core/res/text_styles.dart';
+import '../../../../res/app_colors.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/text_styles.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../data/models/account_details_model.dart';
 import '../../../routes/app_router.gr.dart';
@@ -46,7 +46,7 @@ class MyAddressScreen extends StatelessWidget {
     );
   }
 
-  Widget addressesView(AccountDetails accountDetails, MyAddressViewModel viewModel, MyAddressState state) {
+  Widget addressesView(AccountDetailsModel accountDetails, MyAddressViewModel viewModel, MyAddressState state) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -220,7 +220,7 @@ class MyAddressScreen extends StatelessWidget {
         ));
   }
 
-  Widget noAddressesFound(AccountDetails accountDetails, MyAddressViewModel viewModel) {
+  Widget noAddressesFound(AccountDetailsModel accountDetails, MyAddressViewModel viewModel) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -244,7 +244,7 @@ class MyAddressScreen extends StatelessWidget {
     );
   }
 
-  void addNewNavigation(AccountDetails accountDetails, MyAddressViewModel viewModel) {
+  void addNewNavigation(AccountDetailsModel accountDetails, MyAddressViewModel viewModel) {
     NavigationHandler.navigateTo(AddAddressScreenRoute(newAddress: true, accountDetails: accountDetails)).then((value) {
       if (value != null && value is bool && value) {
         viewModel.fetchAccountDetails();

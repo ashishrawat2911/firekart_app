@@ -529,9 +529,9 @@ class AddAddressScreenRoute
     extends _i16.PageRouteInfo<AddAddressScreenRouteArgs> {
   AddAddressScreenRoute({
     required bool newAddress,
-    required _i19.AccountDetails accountDetails,
+    required _i19.AccountDetailsModel accountDetails,
     _i17.Key? key,
-    _i19.Address? editAddress,
+    _i19.AddressModel? editAddress,
   }) : super(
           AddAddressScreenRoute.name,
           path: '/add-address-screen',
@@ -556,11 +556,11 @@ class AddAddressScreenRouteArgs {
 
   final bool newAddress;
 
-  final _i19.AccountDetails accountDetails;
+  final _i19.AccountDetailsModel accountDetails;
 
   final _i17.Key? key;
 
-  final _i19.Address? editAddress;
+  final _i19.AddressModel? editAddress;
 
   @override
   String toString() {

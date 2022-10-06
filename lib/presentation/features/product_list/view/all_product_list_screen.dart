@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/res/string_constants.dart';
+import '../../../../res/string_constants.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../data/models/product_model.dart';
 import '../../../../di/di.dart';

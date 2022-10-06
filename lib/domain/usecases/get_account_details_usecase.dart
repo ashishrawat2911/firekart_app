@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/data/firebase_manager/firestore_manager.dart';
+import 'package:fluttercommerce/data/firebase_manager/firestore_repository.dart';
 import 'package:fluttercommerce/data/models/account_details_model.dart';
 import 'package:injectable/injectable.dart';
 
@@ -8,7 +8,7 @@ class GetAccountDetailsUseCase {
 
   final FirebaseRepository _firebaseRepository;
 
-  Future<AccountDetails> execute() {
+  Future<AccountDetailsModel> execute() {
     return _firebaseRepository.fetchUserDetails();
   }
 }

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fluttercommerce/data/firebase_manager/firestore_manager.dart';
+import 'package:fluttercommerce/data/firebase_manager/firestore_repository.dart';
 import 'package:fluttercommerce/data/models/product_model.dart';
 import 'package:injectable/injectable.dart';
 

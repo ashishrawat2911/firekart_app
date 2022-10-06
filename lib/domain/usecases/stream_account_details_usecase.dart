@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/data/firebase_manager/firestore_manager.dart';
+import 'package:fluttercommerce/data/firebase_manager/firestore_repository.dart';
 import 'package:fluttercommerce/data/models/account_details_model.dart';
 import 'package:injectable/injectable.dart';
 
@@ -8,9 +8,9 @@ class StreamAccountDetailsUseCaseUseCase {
 
   final FirebaseRepository _firebaseRepository;
 
-  Stream<AccountDetails> execute() {
+  Stream<AccountDetailsModel> execute() {
     return _firebaseRepository
         .streamUserDetails(_firebaseRepository.getUid())
-        .map((event) => AccountDetails.fromDocument(event.data()));
+        .map((event) => AccountDetailsModel.fromDocument(event.data()));
   }
 }

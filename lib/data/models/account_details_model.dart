@@ -5,24 +5,24 @@ part 'account_details_model.g.dart';
 @JsonSerializable(
   explicitToJson: true,
 )
-class AccountDetails {
-  AccountDetails({
+class AccountDetailsModel {
+  AccountDetailsModel({
     required this.name,
     required this.phoneNumber,
     this.addresses = const [],
   });
 
-  factory AccountDetails.fromDocument(json) => _$AccountDetailsFromJson(json);
+  factory AccountDetailsModel.fromDocument(json) => _$AccountDetailsModelFromJson(json);
   String name;
   String? phoneNumber;
-  List<Address> addresses;
+  List<AddressModel> addresses;
 
-  Map<String, dynamic> toJson() => _$AccountDetailsToJson(this);
+  Map<String, dynamic> toJson() => _$AccountDetailsModelToJson(this);
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class Address {
-  Address(
+class AddressModel {
+  AddressModel(
       {required this.name,
       required this.pincode,
       required this.address,
@@ -31,7 +31,7 @@ class Address {
       required this.phoneNumber,
       this.isDefault = false});
 
-  factory Address.fromJson(json) => _$AddressFromJson(json);
+  factory AddressModel.fromJson(json) => _$AddressModelFromJson(json);
   String name;
   String pincode;
   String address;
@@ -40,7 +40,7 @@ class Address {
   String phoneNumber;
   bool isDefault;
 
-  Map<String, dynamic> toJson() => _$AddressToJson(this);
+  Map<String, dynamic> toJson() => _$AddressModelToJson(this);
 
   String wholeAddress() {
     return "$address $city $state $pincode";

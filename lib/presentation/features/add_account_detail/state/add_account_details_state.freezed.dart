@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'add_account_details_state.dart';
@@ -12,14 +11,52 @@ part of 'add_account_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$AddAccountDetailsStateTearOff {
+  const _$AddAccountDetailsStateTearOff();
+
+  Idle idle() {
+    return const Idle();
+  }
+
+  EditData editData(AccountDetailsModel accountDetails) {
+    return EditData(
+      accountDetails,
+    );
+  }
+
+  Loading loading() {
+    return const Loading();
+  }
+
+  ButtonEnabled onButtonEnabled() {
+    return const ButtonEnabled();
+  }
+
+  ButtonDisabled onButtonDisabled() {
+    return const ButtonDisabled();
+  }
+
+  SaveDataLoading saveDataLoading() {
+    return const SaveDataLoading();
+  }
+
+  Successful successful() {
+    return const Successful();
+  }
+}
+
+/// @nodoc
+const $AddAccountDetailsState = _$AddAccountDetailsStateTearOff();
 
 /// @nodoc
 mixin _$AddAccountDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -30,7 +67,7 @@ mixin _$AddAccountDetailsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -41,7 +78,7 @@ mixin _$AddAccountDetailsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -104,20 +141,20 @@ class _$AddAccountDetailsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$IdleCopyWith<$Res> {
-  factory _$$IdleCopyWith(_$Idle value, $Res Function(_$Idle) then) =
-      __$$IdleCopyWithImpl<$Res>;
+abstract class $IdleCopyWith<$Res> {
+  factory $IdleCopyWith(Idle value, $Res Function(Idle) then) =
+      _$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$IdleCopyWithImpl<$Res>
+class _$IdleCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$IdleCopyWith<$Res> {
-  __$$IdleCopyWithImpl(_$Idle _value, $Res Function(_$Idle) _then)
-      : super(_value, (v) => _then(v as _$Idle));
+    implements $IdleCopyWith<$Res> {
+  _$IdleCopyWithImpl(Idle _value, $Res Function(Idle) _then)
+      : super(_value, (v) => _then(v as Idle));
 
   @override
-  _$Idle get _value => super._value as _$Idle;
+  Idle get _value => super._value as Idle;
 }
 
 /// @nodoc
@@ -133,7 +170,7 @@ class _$Idle implements Idle {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Idle);
+        (other.runtimeType == runtimeType && other is Idle);
   }
 
   @override
@@ -143,7 +180,7 @@ class _$Idle implements Idle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -157,7 +194,7 @@ class _$Idle implements Idle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -171,7 +208,7 @@ class _$Idle implements Idle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -237,32 +274,31 @@ abstract class Idle implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class _$$EditDataCopyWith<$Res> {
-  factory _$$EditDataCopyWith(
-          _$EditData value, $Res Function(_$EditData) then) =
-      __$$EditDataCopyWithImpl<$Res>;
-  $Res call({AccountDetails accountDetails});
+abstract class $EditDataCopyWith<$Res> {
+  factory $EditDataCopyWith(EditData value, $Res Function(EditData) then) =
+      _$EditDataCopyWithImpl<$Res>;
+  $Res call({AccountDetailsModel accountDetails});
 }
 
 /// @nodoc
-class __$$EditDataCopyWithImpl<$Res>
+class _$EditDataCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$EditDataCopyWith<$Res> {
-  __$$EditDataCopyWithImpl(_$EditData _value, $Res Function(_$EditData) _then)
-      : super(_value, (v) => _then(v as _$EditData));
+    implements $EditDataCopyWith<$Res> {
+  _$EditDataCopyWithImpl(EditData _value, $Res Function(EditData) _then)
+      : super(_value, (v) => _then(v as EditData));
 
   @override
-  _$EditData get _value => super._value as _$EditData;
+  EditData get _value => super._value as EditData;
 
   @override
   $Res call({
     Object? accountDetails = freezed,
   }) {
-    return _then(_$EditData(
+    return _then(EditData(
       accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetails,
+              as AccountDetailsModel,
     ));
   }
 }
@@ -273,7 +309,7 @@ class _$EditData implements EditData {
   const _$EditData(this.accountDetails);
 
   @override
-  final AccountDetails accountDetails;
+  final AccountDetailsModel accountDetails;
 
   @override
   String toString() {
@@ -284,7 +320,7 @@ class _$EditData implements EditData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditData &&
+            other is EditData &&
             const DeepCollectionEquality()
                 .equals(other.accountDetails, accountDetails));
   }
@@ -295,14 +331,14 @@ class _$EditData implements EditData {
 
   @JsonKey(ignore: true)
   @override
-  _$$EditDataCopyWith<_$EditData> get copyWith =>
-      __$$EditDataCopyWithImpl<_$EditData>(this, _$identity);
+  $EditDataCopyWith<EditData> get copyWith =>
+      _$EditDataCopyWithImpl<EditData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -316,7 +352,7 @@ class _$EditData implements EditData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -330,7 +366,7 @@ class _$EditData implements EditData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -392,29 +428,29 @@ class _$EditData implements EditData {
 }
 
 abstract class EditData implements AddAccountDetailsState {
-  const factory EditData(final AccountDetails accountDetails) = _$EditData;
+  const factory EditData(AccountDetailsModel accountDetails) = _$EditData;
 
-  AccountDetails get accountDetails;
+  AccountDetailsModel get accountDetails;
   @JsonKey(ignore: true)
-  _$$EditDataCopyWith<_$EditData> get copyWith =>
+  $EditDataCopyWith<EditData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+abstract class $LoadingCopyWith<$Res> {
+  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
+      _$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
+class _$LoadingCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
-      : super(_value, (v) => _then(v as _$Loading));
+    implements $LoadingCopyWith<$Res> {
+  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
+      : super(_value, (v) => _then(v as Loading));
 
   @override
-  _$Loading get _value => super._value as _$Loading;
+  Loading get _value => super._value as Loading;
 }
 
 /// @nodoc
@@ -430,7 +466,7 @@ class _$Loading implements Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is Loading);
   }
 
   @override
@@ -440,7 +476,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -454,7 +490,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -468,7 +504,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -534,22 +570,22 @@ abstract class Loading implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class _$$ButtonEnabledCopyWith<$Res> {
-  factory _$$ButtonEnabledCopyWith(
-          _$ButtonEnabled value, $Res Function(_$ButtonEnabled) then) =
-      __$$ButtonEnabledCopyWithImpl<$Res>;
+abstract class $ButtonEnabledCopyWith<$Res> {
+  factory $ButtonEnabledCopyWith(
+          ButtonEnabled value, $Res Function(ButtonEnabled) then) =
+      _$ButtonEnabledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ButtonEnabledCopyWithImpl<$Res>
+class _$ButtonEnabledCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$ButtonEnabledCopyWith<$Res> {
-  __$$ButtonEnabledCopyWithImpl(
-      _$ButtonEnabled _value, $Res Function(_$ButtonEnabled) _then)
-      : super(_value, (v) => _then(v as _$ButtonEnabled));
+    implements $ButtonEnabledCopyWith<$Res> {
+  _$ButtonEnabledCopyWithImpl(
+      ButtonEnabled _value, $Res Function(ButtonEnabled) _then)
+      : super(_value, (v) => _then(v as ButtonEnabled));
 
   @override
-  _$ButtonEnabled get _value => super._value as _$ButtonEnabled;
+  ButtonEnabled get _value => super._value as ButtonEnabled;
 }
 
 /// @nodoc
@@ -565,7 +601,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ButtonEnabled);
+        (other.runtimeType == runtimeType && other is ButtonEnabled);
   }
 
   @override
@@ -575,7 +611,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -589,7 +625,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -603,7 +639,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -669,22 +705,22 @@ abstract class ButtonEnabled implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class _$$ButtonDisabledCopyWith<$Res> {
-  factory _$$ButtonDisabledCopyWith(
-          _$ButtonDisabled value, $Res Function(_$ButtonDisabled) then) =
-      __$$ButtonDisabledCopyWithImpl<$Res>;
+abstract class $ButtonDisabledCopyWith<$Res> {
+  factory $ButtonDisabledCopyWith(
+          ButtonDisabled value, $Res Function(ButtonDisabled) then) =
+      _$ButtonDisabledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ButtonDisabledCopyWithImpl<$Res>
+class _$ButtonDisabledCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$ButtonDisabledCopyWith<$Res> {
-  __$$ButtonDisabledCopyWithImpl(
-      _$ButtonDisabled _value, $Res Function(_$ButtonDisabled) _then)
-      : super(_value, (v) => _then(v as _$ButtonDisabled));
+    implements $ButtonDisabledCopyWith<$Res> {
+  _$ButtonDisabledCopyWithImpl(
+      ButtonDisabled _value, $Res Function(ButtonDisabled) _then)
+      : super(_value, (v) => _then(v as ButtonDisabled));
 
   @override
-  _$ButtonDisabled get _value => super._value as _$ButtonDisabled;
+  ButtonDisabled get _value => super._value as ButtonDisabled;
 }
 
 /// @nodoc
@@ -700,7 +736,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ButtonDisabled);
+        (other.runtimeType == runtimeType && other is ButtonDisabled);
   }
 
   @override
@@ -710,7 +746,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -724,7 +760,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -738,7 +774,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -804,22 +840,22 @@ abstract class ButtonDisabled implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class _$$SaveDataLoadingCopyWith<$Res> {
-  factory _$$SaveDataLoadingCopyWith(
-          _$SaveDataLoading value, $Res Function(_$SaveDataLoading) then) =
-      __$$SaveDataLoadingCopyWithImpl<$Res>;
+abstract class $SaveDataLoadingCopyWith<$Res> {
+  factory $SaveDataLoadingCopyWith(
+          SaveDataLoading value, $Res Function(SaveDataLoading) then) =
+      _$SaveDataLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SaveDataLoadingCopyWithImpl<$Res>
+class _$SaveDataLoadingCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$SaveDataLoadingCopyWith<$Res> {
-  __$$SaveDataLoadingCopyWithImpl(
-      _$SaveDataLoading _value, $Res Function(_$SaveDataLoading) _then)
-      : super(_value, (v) => _then(v as _$SaveDataLoading));
+    implements $SaveDataLoadingCopyWith<$Res> {
+  _$SaveDataLoadingCopyWithImpl(
+      SaveDataLoading _value, $Res Function(SaveDataLoading) _then)
+      : super(_value, (v) => _then(v as SaveDataLoading));
 
   @override
-  _$SaveDataLoading get _value => super._value as _$SaveDataLoading;
+  SaveDataLoading get _value => super._value as SaveDataLoading;
 }
 
 /// @nodoc
@@ -835,7 +871,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SaveDataLoading);
+        (other.runtimeType == runtimeType && other is SaveDataLoading);
   }
 
   @override
@@ -845,7 +881,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -859,7 +895,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -873,7 +909,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -939,22 +975,21 @@ abstract class SaveDataLoading implements AddAccountDetailsState {
 }
 
 /// @nodoc
-abstract class _$$SuccessfulCopyWith<$Res> {
-  factory _$$SuccessfulCopyWith(
-          _$Successful value, $Res Function(_$Successful) then) =
-      __$$SuccessfulCopyWithImpl<$Res>;
+abstract class $SuccessfulCopyWith<$Res> {
+  factory $SuccessfulCopyWith(
+          Successful value, $Res Function(Successful) then) =
+      _$SuccessfulCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SuccessfulCopyWithImpl<$Res>
+class _$SuccessfulCopyWithImpl<$Res>
     extends _$AddAccountDetailsStateCopyWithImpl<$Res>
-    implements _$$SuccessfulCopyWith<$Res> {
-  __$$SuccessfulCopyWithImpl(
-      _$Successful _value, $Res Function(_$Successful) _then)
-      : super(_value, (v) => _then(v as _$Successful));
+    implements $SuccessfulCopyWith<$Res> {
+  _$SuccessfulCopyWithImpl(Successful _value, $Res Function(Successful) _then)
+      : super(_value, (v) => _then(v as Successful));
 
   @override
-  _$Successful get _value => super._value as _$Successful;
+  Successful get _value => super._value as Successful;
 }
 
 /// @nodoc
@@ -970,7 +1005,7 @@ class _$Successful implements Successful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Successful);
+        (other.runtimeType == runtimeType && other is Successful);
   }
 
   @override
@@ -980,7 +1015,7 @@ class _$Successful implements Successful {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetails accountDetails) editData,
+    required TResult Function(AccountDetailsModel accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -994,7 +1029,7 @@ class _$Successful implements Successful {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -1008,7 +1043,7 @@ class _$Successful implements Successful {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetails accountDetails)? editData,
+    TResult Function(AccountDetailsModel accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,

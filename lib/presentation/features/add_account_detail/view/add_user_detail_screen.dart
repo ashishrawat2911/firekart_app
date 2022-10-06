@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/res/app_colors.dart';
+import 'package:fluttercommerce/res/app_colors.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
     as account_details_state;
 
-import '../../../../core/res/string_constants.dart';
+import '../../../../res/string_constants.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../core/utils/validator.dart';

@@ -10,7 +10,7 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       orderId: json['order_id'] as String?,
       price: json['price'] as num?,
       orderItems: (json['order_items'] as List<dynamic>?)
-          ?.map((e) => OrderItem.fromJson(e))
+          ?.map((e) => OrderItemModel.fromJson(e))
           .toList(),
       orderedAt: json['ordered_at'] as String?,
       orderStatus: json['order_status'] as String?,
@@ -19,7 +19,7 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       signature: json['signature'] as String?,
       orderAddress: json['order_address'] == null
           ? null
-          : Address.fromJson(json['order_address']),
+          : AddressModel.fromJson(json['order_address']),
     );
 
 Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
@@ -35,7 +35,8 @@ Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
       'order_address': instance.orderAddress,
     };
 
-OrderItem _$OrderItemFromJson(Map<String, dynamic> json) => OrderItem(
+OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) =>
+    OrderItemModel(
       productId: json['product_id'] as String?,
       image: json['image'] as String?,
       name: json['name'] as String?,
@@ -45,7 +46,8 @@ OrderItem _$OrderItemFromJson(Map<String, dynamic> json) => OrderItem(
       noOfItems: json['no_of_items'] as num?,
     );
 
-Map<String, dynamic> _$OrderItemToJson(OrderItem instance) => <String, dynamic>{
+Map<String, dynamic> _$OrderItemModelToJson(OrderItemModel instance) =>
+    <String, dynamic>{
       'product_id': instance.productId,
       'image': instance.image,
       'name': instance.name,

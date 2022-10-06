@@ -2,9 +2,9 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/res/string_constants.dart';
-import '../../../../core/res/styles.dart';
-import '../../../../core/res/text_styles.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/styles.dart';
+import '../../../../res/text_styles.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../di/di.dart';
 import '../../../routes/app_router.gr.dart';

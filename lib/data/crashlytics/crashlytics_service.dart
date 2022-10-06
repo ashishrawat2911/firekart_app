@@ -4,7 +4,7 @@ import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dar
 import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
 
-import '../firebase_manager/firestore_manager.dart';
+import '../firebase_manager/firestore_repository.dart';
 
 @singleton
 class CrashlyticsService {

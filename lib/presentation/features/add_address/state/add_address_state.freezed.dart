@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'add_address_state.dart';
@@ -12,7 +11,23 @@ part of 'add_address_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$AddAddressStateTearOff {
+  const _$AddAddressStateTearOff();
+
+  _AddAddressState call(
+      {bool buttonLoading = false, bool setAsDefault = false}) {
+    return _AddAddressState(
+      buttonLoading: buttonLoading,
+      setAsDefault: setAsDefault,
+    );
+  }
+}
+
+/// @nodoc
+const $AddAddressState = _$AddAddressStateTearOff();
 
 /// @nodoc
 mixin _$AddAddressState {
@@ -60,32 +75,32 @@ class _$AddAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_AddAddressStateCopyWith<$Res>
+abstract class _$AddAddressStateCopyWith<$Res>
     implements $AddAddressStateCopyWith<$Res> {
-  factory _$$_AddAddressStateCopyWith(
-          _$_AddAddressState value, $Res Function(_$_AddAddressState) then) =
-      __$$_AddAddressStateCopyWithImpl<$Res>;
+  factory _$AddAddressStateCopyWith(
+          _AddAddressState value, $Res Function(_AddAddressState) then) =
+      __$AddAddressStateCopyWithImpl<$Res>;
   @override
   $Res call({bool buttonLoading, bool setAsDefault});
 }
 
 /// @nodoc
-class __$$_AddAddressStateCopyWithImpl<$Res>
+class __$AddAddressStateCopyWithImpl<$Res>
     extends _$AddAddressStateCopyWithImpl<$Res>
-    implements _$$_AddAddressStateCopyWith<$Res> {
-  __$$_AddAddressStateCopyWithImpl(
-      _$_AddAddressState _value, $Res Function(_$_AddAddressState) _then)
-      : super(_value, (v) => _then(v as _$_AddAddressState));
+    implements _$AddAddressStateCopyWith<$Res> {
+  __$AddAddressStateCopyWithImpl(
+      _AddAddressState _value, $Res Function(_AddAddressState) _then)
+      : super(_value, (v) => _then(v as _AddAddressState));
 
   @override
-  _$_AddAddressState get _value => super._value as _$_AddAddressState;
+  _AddAddressState get _value => super._value as _AddAddressState;
 
   @override
   $Res call({
     Object? buttonLoading = freezed,
     Object? setAsDefault = freezed,
   }) {
-    return _then(_$_AddAddressState(
+    return _then(_AddAddressState(
       buttonLoading: buttonLoading == freezed
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
@@ -104,11 +119,11 @@ class _$_AddAddressState implements _AddAddressState {
   const _$_AddAddressState(
       {this.buttonLoading = false, this.setAsDefault = false});
 
-  @override
   @JsonKey()
+  @override
   final bool buttonLoading;
-  @override
   @JsonKey()
+  @override
   final bool setAsDefault;
 
   @override
@@ -120,7 +135,7 @@ class _$_AddAddressState implements _AddAddressState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddAddressState &&
+            other is _AddAddressState &&
             const DeepCollectionEquality()
                 .equals(other.buttonLoading, buttonLoading) &&
             const DeepCollectionEquality()
@@ -135,13 +150,13 @@ class _$_AddAddressState implements _AddAddressState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_AddAddressStateCopyWith<_$_AddAddressState> get copyWith =>
-      __$$_AddAddressStateCopyWithImpl<_$_AddAddressState>(this, _$identity);
+  _$AddAddressStateCopyWith<_AddAddressState> get copyWith =>
+      __$AddAddressStateCopyWithImpl<_AddAddressState>(this, _$identity);
 }
 
 abstract class _AddAddressState implements AddAddressState {
-  const factory _AddAddressState(
-      {final bool buttonLoading, final bool setAsDefault}) = _$_AddAddressState;
+  const factory _AddAddressState({bool buttonLoading, bool setAsDefault}) =
+      _$_AddAddressState;
 
   @override
   bool get buttonLoading;
@@ -149,6 +164,6 @@ abstract class _AddAddressState implements AddAddressState {
   bool get setAsDefault;
   @override
   @JsonKey(ignore: true)
-  _$$_AddAddressStateCopyWith<_$_AddAddressState> get copyWith =>
+  _$AddAddressStateCopyWith<_AddAddressState> get copyWith =>
       throw _privateConstructorUsedError;
 }

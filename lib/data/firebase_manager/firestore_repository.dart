@@ -9,51 +9,28 @@ import '../models/cart_model.dart';
 import '../models/order_model.dart';
 import '../models/product_model.dart';
 
-mixin FirebaseMixin {
+@injectable
+class FirebaseRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final firebaseAuth = FirebaseAuth.instance;
 
-  CollectionReference get productCollection {
+  CollectionReference get _productCollection {
     AppLogger.log('Fetching products collection');
     return _firestore.collection("products");
   }
 
-  CollectionReference get orderCollection {
+  CollectionReference get _orderCollection {
     AppLogger.log('Fetching orders collection');
     return _firestore.collection("users").doc(getUid()).collection("orders");
   }
 
-  DocumentReference get accountDetailDoc {
+  DocumentReference get _accountDetailDoc {
     AppLogger.log('Fetching account detail');
     return _firestore.collection("users").doc(getUid()).collection("account").doc("details");
   }
 
-  CollectionReference get cartCollection => _firestore.collection("users").doc(getUid()).collection("cart");
+  CollectionReference get _cartCollection => _firestore.collection("users").doc(getUid()).collection("cart");
 
-  String getUid() {
-    AppLogger.log('Fetching UID');
-    return getCurrentUser()!.uid;
-  }
-
-  User? getCurrentUser() {
-    AppLogger.log('Fetching Current User');
-    final User? user = firebaseAuth.currentUser;
-    return user;
-  }
-
-  String? getPhoneNumber() {
-    AppLogger.log('Fetching Phone Number');
-    return getCurrentUser()!.phoneNumber;
-  }
-
-  Future<void> logoutUser() async {
-    AppLogger.log('Logging out....');
-    return firebaseAuth.signOut();
-  }
-}
-
-@injectable
-class FirebaseRepository with FirebaseMixin {
   Future<bool> sendCode(
     String phoneNumber, {
     required PhoneVerificationCompleted verificationCompleted,
@@ -92,7 +69,7 @@ class FirebaseRepository with FirebaseMixin {
 
   Future<List<DocumentSnapshot>> getAllOrders([DocumentSnapshot? documentSnapshot]) async {
     List<DocumentSnapshot> documentList;
-    final query = orderCollection.limit(20).orderBy("ordered_at", descending: true);
+    final query = _orderCollection.limit(20).orderBy("ordered_at", descending: true);
     if (documentSnapshot != null) {
       documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
     } else {
@@ -108,7 +85,7 @@ class FirebaseRepository with FirebaseMixin {
   }
 
   Future<List<ProductModel>> getProductsData(String condition) async {
-    final List<DocumentSnapshot> docList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
+    final List<DocumentSnapshot> docList = (await _productCollection.where(condition, isEqualTo: true).get()).docs;
     return List.generate(docList.length, (index) {
       return ProductModel.fromJson(docList[index].data());
     });
@@ -121,13 +98,13 @@ class FirebaseRepository with FirebaseMixin {
   }) async {
     if (all == true) {
       if (condition != null) {
-        return (await productCollection.where(condition, isEqualTo: true).get()).docs;
+        return (await _productCollection.where(condition, isEqualTo: true).get()).docs;
       } else {
-        return (await productCollection.get()).docs;
+        return (await _productCollection.get()).docs;
       }
     }
     List<DocumentSnapshot> documentList;
-    var query = productCollection.limit(20).orderBy("name");
+    var query = _productCollection.limit(20).orderBy("name");
     if (condition != null) {
       query = query.where(condition, isEqualTo: true);
     }
@@ -142,18 +119,18 @@ class FirebaseRepository with FirebaseMixin {
   Future<List<DocumentSnapshot>> getAllProductsData(
     String condition,
   ) async {
-    final List<DocumentSnapshot> documentList = (await productCollection.where(condition, isEqualTo: true).get()).docs;
+    final List<DocumentSnapshot> documentList = (await _productCollection.where(condition, isEqualTo: true).get()).docs;
     return documentList;
   }
 
-  Future<AccountDetails> getAllFaq() async {
-    final DocumentSnapshot document = await accountDetailDoc.get();
-    return AccountDetails.fromDocument(document.data());
+  Future<AccountDetailsModel> getAllFaq() async {
+    final DocumentSnapshot document = await _accountDetailDoc.get();
+    return AccountDetailsModel.fromDocument(document.data());
   }
 
   Future<int> checkItemInCart(String productId) async {
     try {
-      final DocumentSnapshot documentSnapshot = await cartCollection.doc(productId).get();
+      final DocumentSnapshot documentSnapshot = await _cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
         return documentSnapshot["no_of_items"] as int;
       } else {
@@ -165,16 +142,16 @@ class FirebaseRepository with FirebaseMixin {
   }
 
   Future<void> addProductToCart(CartModel cartModel) async {
-    return cartCollection.doc(cartModel.productId).set(cartModel.toJson());
+    return _cartCollection.doc(cartModel.productId).set(cartModel.toJson());
   }
 
   Future<void> delProductFromCart(String productId) async {
-    return cartCollection.doc(productId).delete();
+    return _cartCollection.doc(productId).delete();
   }
 
   Future<bool> checkUserDetail() async {
     try {
-      final DocumentSnapshot documentSnapshot = await accountDetailDoc.get();
+      final DocumentSnapshot documentSnapshot = await _accountDetailDoc.get();
       if (documentSnapshot.exists) {
         return true;
       } else {
@@ -185,31 +162,52 @@ class FirebaseRepository with FirebaseMixin {
     }
   }
 
-  Future<void> addUserDetails(AccountDetails accountDetails) async {
-    return accountDetailDoc.set(accountDetails.toJson());
+  Future<void> addUserDetails(AccountDetailsModel accountDetails) async {
+    return _accountDetailDoc.set(accountDetails.toJson());
   }
 
-  Future<AccountDetails> fetchUserDetails() async {
-    return AccountDetails.fromDocument((await accountDetailDoc.get()).data());
+  Future<AccountDetailsModel> fetchUserDetails() async {
+    return AccountDetailsModel.fromDocument((await _accountDetailDoc.get()).data());
   }
 
   Stream<DocumentSnapshot> streamUserDetails(String uID) {
-    return accountDetailDoc.snapshots();
+    return _accountDetailDoc.snapshots();
   }
 
   Stream<QuerySnapshot> cartStatusListen(String uID) {
-    return cartCollection.snapshots();
+    return _cartCollection.snapshots();
   }
 
   Future<void> placeOrder(OrderModel orderModel) async {
-    return orderCollection.doc(orderModel.orderId).set(orderModel.toJson());
+    return _orderCollection.doc(orderModel.orderId).set(orderModel.toJson());
   }
 
   Future<void> emptyCart() async {
-    return cartCollection.get().then((snapshot) {
+    return _cartCollection.get().then((snapshot) {
       for (final DocumentSnapshot doc in snapshot.docs) {
         doc.reference.delete();
       }
     });
+  }
+
+  String getUid() {
+    AppLogger.log('Fetching UID');
+    return getCurrentUser()!.uid;
+  }
+
+  User? getCurrentUser() {
+    AppLogger.log('Fetching Current User');
+    final User? user = firebaseAuth.currentUser;
+    return user;
+  }
+
+  String? getPhoneNumber() {
+    AppLogger.log('Fetching Phone Number');
+    return getCurrentUser()!.phoneNumber;
+  }
+
+  Future<void> logoutUser() async {
+    AppLogger.log('Logging out....');
+    return firebaseAuth.signOut();
   }
 }
