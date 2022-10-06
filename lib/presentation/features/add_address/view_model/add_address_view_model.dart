@@ -13,7 +13,7 @@ class AddAddressViewModel extends StateManager<AddAddressState> {
 
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
 
-  Future<void> saveAddress(AccountDetails accountDetails, Address address) async {
+  Future<void> saveAddress(AccountDetailsModel accountDetails, AddressModel address) async {
     state = state.copyWith(buttonLoading: true);
 
     if (address.isDefault) {

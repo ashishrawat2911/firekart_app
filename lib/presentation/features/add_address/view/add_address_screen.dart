@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/res/app_colors.dart';
-import '../../../../core/res/string_constants.dart';
-import '../../../../core/res/text_styles.dart';
+import '../../../../res/app_colors.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/text_styles.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../data/models/account_details_model.dart';
@@ -14,8 +14,8 @@ import '../view_model/add_address_view_model.dart';
 class AddAddressScreen extends StatelessWidget {
   AddAddressScreen(this.newAddress, this.accountDetails, {Key? key, this.editAddress}) : super(key: key);
   final bool newAddress;
-  final AccountDetails accountDetails;
-  final Address? editAddress;
+  final AccountDetailsModel accountDetails;
+  final AddressModel? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
   final TextEditingController emailEditingController = TextEditingController();
@@ -220,7 +220,7 @@ class AddAddressScreen extends StatelessWidget {
 
   void onButtonTap(AddAddressViewModel viewModel, AddAddressState state) {
     if (_formKey.currentState!.validate()) {
-      final Address address = Address(
+      final AddressModel address = AddressModel(
           name: nameEditingController.text,
           address: addressEditingController.text,
           city: cityEditingController.text,

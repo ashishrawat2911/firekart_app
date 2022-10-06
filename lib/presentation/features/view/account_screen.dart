@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/global_listener/global_listener.dart';
-import '../../../core/res/global_listener_constants.dart';
-import '../../../core/res/string_constants.dart';
-import '../../../core/res/text_styles.dart';
-import '../../../data/firebase_manager/firestore_manager.dart';
+import '../../../res/string_constants.dart';
+import '../../../res/text_styles.dart';
 import '../../../data/models/account_details_model.dart';
 import '../../../di/di.dart';
 import '../../../domain/usecases/logout_usecase.dart';
+import '../../../domain/usecases/stream_account_details_usecase.dart';
 import '../../routes/app_router.gr.dart';
 import '../../routes/navigation_handler.dart';
 import '../../widgets/action_text.dart';
@@ -20,12 +18,12 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  AccountDetails? accountDetails;
+  AccountDetailsModel? accountDetails;
 
   @override
   void initState() {
     super.initState();
-    inject<GlobalListener>().listen<AccountDetails>(GlobalListenerConstants.accountDetails, (event) {
+    inject<StreamAccountDetailsUseCaseUseCase>().execute().listen((event) {
       setState(() {
         accountDetails = event;
       });

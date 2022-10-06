@@ -9,6 +9,6 @@ abstract class HomeState with _$HomeState {
   const factory HomeState({
     @Default(0) int bottomIndex,
     @Default(0) int noOfItemsInCart,
-    AccountDetails? accountDetails,
+    AccountDetailsModel? accountDetails,
   }) = _HomeState;
 }

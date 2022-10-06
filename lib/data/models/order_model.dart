@@ -20,13 +20,13 @@ class OrderModel {
   factory OrderModel.fromJson(json) => _$OrderModelFromJson(json);
   String? orderId;
   num? price;
-  List<OrderItem>? orderItems;
+  List<OrderItemModel>? orderItems;
   String? orderedAt;
   String? orderStatus;
   String? currency;
   String? paymentId;
   String? signature;
-  Address? orderAddress;
+  AddressModel? orderAddress;
 
   Map<String, dynamic> toJson() => _$OrderModelToJson(this);
 
@@ -37,12 +37,12 @@ class OrderModel {
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class OrderItem {
-  OrderItem({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
+class OrderItemModel {
+  OrderItemModel({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
 
-  factory OrderItem.fromJson(json) => _$OrderItemFromJson(json);
+  factory OrderItemModel.fromJson(json) => _$OrderItemModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$OrderItemToJson(this);
+  Map<String, dynamic> toJson() => _$OrderItemModelToJson(this);
 
   String? productId;
   String? image;

@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/res/app_colors.dart';
-import '../../../../core/res/string_constants.dart';
-import '../../../../core/res/text_styles.dart';
+import '../../../../res/app_colors.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/text_styles.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../data/models/product_model.dart';
 import '../../../widgets/common_app_loader.dart';

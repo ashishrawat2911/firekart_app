@@ -15,7 +15,7 @@ abstract class CartState with _$CartState {
     String? cartError,
     String? deleteCartError,
     @Default([]) List<CartModel> cartList,
-    Address? selectedAddress,
+    AddressModel? selectedAddress,
     @Default(CartDataLoading()) CartDataLoading cartItemDataLoading,
   }) = _CartState;
 }

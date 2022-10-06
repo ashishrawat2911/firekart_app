@@ -1,18 +1,17 @@
-import 'package:fluttercommerce/core/global_listener/global_listener.dart';
 import 'package:fluttercommerce/domain/usecases/place_order_usecase.dart';
+import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
-import '../../../../core/res/global_listener_constants.dart';
-import '../../../../core/res/string_constants.dart';
+import '../../../../res/string_constants.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/account_details_model.dart';
 import '../../../../data/models/cart_model.dart';
 import '../../../../data/models/order_model.dart';
 import '../../../../domain/usecases/add_product_to_cart_usecase.dart';
 import '../../../../domain/usecases/delete_product_from_cart_usecase.dart';
+import '../../../../domain/usecases/get_cart_status_use_case.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
@@ -20,18 +19,20 @@ import '../state/cart_state.dart';
 @injectable
 class CartViewModel extends StateManager<CartState> {
   CartViewModel(
-    this.globalListener,
     this._productAddToCartUseCase,
     this._productDeleteCartUseCase,
     this._placeOrderUseCase,
+    this._accountDetailsUseCaseUseCase,
+    this._getCartStatusUseCase,
   ) : super(const CartState());
 
-  AccountDetails? accountDetails;
+  AccountDetailsModel? accountDetails;
 
-  final GlobalListener globalListener;
   final ProductAddToCartUseCase _productAddToCartUseCase;
   final ProductDeleteCartUseCase _productDeleteCartUseCase;
   final PlaceOrderUseCase _placeOrderUseCase;
+  final StreamAccountDetailsUseCaseUseCase _accountDetailsUseCaseUseCase;
+  final GetCartStatusUseCase _getCartStatusUseCase;
 
   void initCartValues(num cartValue) {
     state = state.copyWith(cartValue: cartValue as int);
@@ -77,13 +78,13 @@ class CartViewModel extends StateManager<CartState> {
     state = state.copyWith(orderInProgress: false);
   }
 
-  OrderModel _orderFromCartList(List<CartModel> cartModel, Address orderAddress) {
+  OrderModel _orderFromCartList(List<CartModel> cartModel, AddressModel orderAddress) {
     final cartItems = cartModel;
 
-    List<OrderItem> getOrderItems() {
-      return List<OrderItem>.generate(cartItems.length, (index) {
+    List<OrderItemModel> getOrderItems() {
+      return List<OrderItemModel>.generate(cartItems.length, (index) {
         final CartModel cartModel = cartItems[index];
-        return OrderItem(
+        return OrderItemModel(
           name: cartModel.name,
           productId: cartModel.productId,
           currency: cartModel.currency,
@@ -119,18 +120,18 @@ class CartViewModel extends StateManager<CartState> {
           selectedAddress: true,
         ),
       ).then((value) {
-        if (value != null && value.runtimeType is Address) {
+        if (value != null && value.runtimeType is AddressModel) {
           state = state.copyWith(selectedAddress: value);
         }
       });
     }
   }
 
-  void addAccountDetails(AccountDetails? accountDetails) {
+  void addAccountDetails(AccountDetailsModel? accountDetails) {
     if (accountDetails != null) {
-      Address? address;
+      AddressModel? address;
       List.generate(accountDetails.addresses.length, (int index) {
-        final Address add = accountDetails.addresses[index];
+        final AddressModel add = accountDetails.addresses[index];
         if (add.isDefault) {
           address = add;
         }
@@ -195,11 +196,11 @@ class CartViewModel extends StateManager<CartState> {
   }
 
   void init() {
-    globalListener.listen<List<CartModel>>(GlobalListenerConstants.cartList, (value) {
-      state = state.copyWith(cartList: value);
+    _getCartStatusUseCase.execute().listen((event) {
+      state = state.copyWith(cartList: event);
     });
-    globalListener.listen<AccountDetails>(GlobalListenerConstants.accountDetails, (value) {
-      addAccountDetails(value);
+    _accountDetailsUseCaseUseCase.execute().listen((event) {
+      addAccountDetails(event);
     });
   }
 }

@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'otp_login_state.dart';
@@ -12,7 +11,32 @@ part of 'otp_login_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$OtpLoginStateTearOff {
+  const _$OtpLoginStateTearOff();
+
+  _OtpLoginState call(
+      {String? codeCountDown,
+      bool isButtonEnabled = false,
+      bool confirmOtpLoading = false,
+      bool resendOtpLoading = false,
+      String? otp,
+      String? error}) {
+    return _OtpLoginState(
+      codeCountDown: codeCountDown,
+      isButtonEnabled: isButtonEnabled,
+      confirmOtpLoading: confirmOtpLoading,
+      resendOtpLoading: resendOtpLoading,
+      otp: otp,
+      error: error,
+    );
+  }
+}
+
+/// @nodoc
+const $OtpLoginState = _$OtpLoginStateTearOff();
 
 /// @nodoc
 mixin _$OtpLoginState {
@@ -90,11 +114,11 @@ class _$OtpLoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_OtpLoginStateCopyWith<$Res>
+abstract class _$OtpLoginStateCopyWith<$Res>
     implements $OtpLoginStateCopyWith<$Res> {
-  factory _$$_OtpLoginStateCopyWith(
-          _$_OtpLoginState value, $Res Function(_$_OtpLoginState) then) =
-      __$$_OtpLoginStateCopyWithImpl<$Res>;
+  factory _$OtpLoginStateCopyWith(
+          _OtpLoginState value, $Res Function(_OtpLoginState) then) =
+      __$OtpLoginStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? codeCountDown,
@@ -106,15 +130,15 @@ abstract class _$$_OtpLoginStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OtpLoginStateCopyWithImpl<$Res>
+class __$OtpLoginStateCopyWithImpl<$Res>
     extends _$OtpLoginStateCopyWithImpl<$Res>
-    implements _$$_OtpLoginStateCopyWith<$Res> {
-  __$$_OtpLoginStateCopyWithImpl(
-      _$_OtpLoginState _value, $Res Function(_$_OtpLoginState) _then)
-      : super(_value, (v) => _then(v as _$_OtpLoginState));
+    implements _$OtpLoginStateCopyWith<$Res> {
+  __$OtpLoginStateCopyWithImpl(
+      _OtpLoginState _value, $Res Function(_OtpLoginState) _then)
+      : super(_value, (v) => _then(v as _OtpLoginState));
 
   @override
-  _$_OtpLoginState get _value => super._value as _$_OtpLoginState;
+  _OtpLoginState get _value => super._value as _OtpLoginState;
 
   @override
   $Res call({
@@ -125,7 +149,7 @@ class __$$_OtpLoginStateCopyWithImpl<$Res>
     Object? otp = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$_OtpLoginState(
+    return _then(_OtpLoginState(
       codeCountDown: codeCountDown == freezed
           ? _value.codeCountDown
           : codeCountDown // ignore: cast_nullable_to_non_nullable
@@ -167,14 +191,14 @@ class _$_OtpLoginState implements _OtpLoginState {
 
   @override
   final String? codeCountDown;
-  @override
   @JsonKey()
+  @override
   final bool isButtonEnabled;
-  @override
   @JsonKey()
+  @override
   final bool confirmOtpLoading;
-  @override
   @JsonKey()
+  @override
   final bool resendOtpLoading;
   @override
   final String? otp;
@@ -190,7 +214,7 @@ class _$_OtpLoginState implements _OtpLoginState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OtpLoginState &&
+            other is _OtpLoginState &&
             const DeepCollectionEquality()
                 .equals(other.codeCountDown, codeCountDown) &&
             const DeepCollectionEquality()
@@ -215,18 +239,18 @@ class _$_OtpLoginState implements _OtpLoginState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_OtpLoginStateCopyWith<_$_OtpLoginState> get copyWith =>
-      __$$_OtpLoginStateCopyWithImpl<_$_OtpLoginState>(this, _$identity);
+  _$OtpLoginStateCopyWith<_OtpLoginState> get copyWith =>
+      __$OtpLoginStateCopyWithImpl<_OtpLoginState>(this, _$identity);
 }
 
 abstract class _OtpLoginState implements OtpLoginState {
   const factory _OtpLoginState(
-      {final String? codeCountDown,
-      final bool isButtonEnabled,
-      final bool confirmOtpLoading,
-      final bool resendOtpLoading,
-      final String? otp,
-      final String? error}) = _$_OtpLoginState;
+      {String? codeCountDown,
+      bool isButtonEnabled,
+      bool confirmOtpLoading,
+      bool resendOtpLoading,
+      String? otp,
+      String? error}) = _$_OtpLoginState;
 
   @override
   String? get codeCountDown;
@@ -242,6 +266,6 @@ abstract class _OtpLoginState implements OtpLoginState {
   String? get error;
   @override
   @JsonKey(ignore: true)
-  _$$_OtpLoginStateCopyWith<_$_OtpLoginState> get copyWith =>
+  _$OtpLoginStateCopyWith<_OtpLoginState> get copyWith =>
       throw _privateConstructorUsedError;
 }

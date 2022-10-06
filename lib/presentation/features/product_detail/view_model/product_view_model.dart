@@ -5,7 +5,7 @@ import 'package:fluttercommerce/domain/usecases/get_items_in_cart_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
-import '../../../../core/res/string_constants.dart';
+import '../../../../res/string_constants.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
 import '../../../../data/models/cart_model.dart';

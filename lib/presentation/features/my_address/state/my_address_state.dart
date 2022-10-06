@@ -10,7 +10,7 @@ abstract class MyAddressState with _$MyAddressState {
     @Default(false) bool screenLoading,
     String? screenError,
     @Default(false) bool buttonLoading,
-    AccountDetails? accountDetails,
+    AccountDetailsModel? accountDetails,
     @Default([]) List<AddressCardState> addressStates,
   }) = _MyAddressState;
 }
@@ -19,7 +19,7 @@ abstract class MyAddressState with _$MyAddressState {
 abstract class AddressCardState with _$AddressCardState {
   const factory AddressCardState({
     @Default(0) int index,
-    required Address address,
+    required AddressModel address,
     @Default(false) bool editLoading,
     @Default(false) bool setDefaultLoading,
   }) = _AddressCardState;

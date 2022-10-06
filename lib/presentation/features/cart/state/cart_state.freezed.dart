@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'cart_state.dart';
@@ -12,7 +11,38 @@ part of 'cart_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$CartStateTearOff {
+  const _$CartStateTearOff();
+
+  _CartState call(
+      {int cartValue = 0,
+      bool cartDataLoading = false,
+      bool cartDeleteLoading = false,
+      bool orderInProgress = false,
+      String? cartError,
+      String? deleteCartError,
+      List<CartModel> cartList = const [],
+      AddressModel? selectedAddress,
+      CartDataLoading cartItemDataLoading = const CartDataLoading()}) {
+    return _CartState(
+      cartValue: cartValue,
+      cartDataLoading: cartDataLoading,
+      cartDeleteLoading: cartDeleteLoading,
+      orderInProgress: orderInProgress,
+      cartError: cartError,
+      deleteCartError: deleteCartError,
+      cartList: cartList,
+      selectedAddress: selectedAddress,
+      cartItemDataLoading: cartItemDataLoading,
+    );
+  }
+}
+
+/// @nodoc
+const $CartState = _$CartStateTearOff();
 
 /// @nodoc
 mixin _$CartState {
@@ -23,7 +53,7 @@ mixin _$CartState {
   String? get cartError => throw _privateConstructorUsedError;
   String? get deleteCartError => throw _privateConstructorUsedError;
   List<CartModel> get cartList => throw _privateConstructorUsedError;
-  Address? get selectedAddress => throw _privateConstructorUsedError;
+  AddressModel? get selectedAddress => throw _privateConstructorUsedError;
   CartDataLoading get cartItemDataLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,7 +73,7 @@ abstract class $CartStateCopyWith<$Res> {
       String? cartError,
       String? deleteCartError,
       List<CartModel> cartList,
-      Address? selectedAddress,
+      AddressModel? selectedAddress,
       CartDataLoading cartItemDataLoading});
 
   $CartDataLoadingCopyWith<$Res> get cartItemDataLoading;
@@ -101,7 +131,7 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
       selectedAddress: selectedAddress == freezed
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
-              as Address?,
+              as AddressModel?,
       cartItemDataLoading: cartItemDataLoading == freezed
           ? _value.cartItemDataLoading
           : cartItemDataLoading // ignore: cast_nullable_to_non_nullable
@@ -118,10 +148,10 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
-  factory _$$_CartStateCopyWith(
-          _$_CartState value, $Res Function(_$_CartState) then) =
-      __$$_CartStateCopyWithImpl<$Res>;
+abstract class _$CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
+  factory _$CartStateCopyWith(
+          _CartState value, $Res Function(_CartState) then) =
+      __$CartStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {int cartValue,
@@ -131,7 +161,7 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       String? cartError,
       String? deleteCartError,
       List<CartModel> cartList,
-      Address? selectedAddress,
+      AddressModel? selectedAddress,
       CartDataLoading cartItemDataLoading});
 
   @override
@@ -139,14 +169,13 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements _$$_CartStateCopyWith<$Res> {
-  __$$_CartStateCopyWithImpl(
-      _$_CartState _value, $Res Function(_$_CartState) _then)
-      : super(_value, (v) => _then(v as _$_CartState));
+class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
+    implements _$CartStateCopyWith<$Res> {
+  __$CartStateCopyWithImpl(_CartState _value, $Res Function(_CartState) _then)
+      : super(_value, (v) => _then(v as _CartState));
 
   @override
-  _$_CartState get _value => super._value as _$_CartState;
+  _CartState get _value => super._value as _CartState;
 
   @override
   $Res call({
@@ -160,7 +189,7 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
     Object? selectedAddress = freezed,
     Object? cartItemDataLoading = freezed,
   }) {
-    return _then(_$_CartState(
+    return _then(_CartState(
       cartValue: cartValue == freezed
           ? _value.cartValue
           : cartValue // ignore: cast_nullable_to_non_nullable
@@ -186,13 +215,13 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           : deleteCartError // ignore: cast_nullable_to_non_nullable
               as String?,
       cartList: cartList == freezed
-          ? _value._cartList
+          ? _value.cartList
           : cartList // ignore: cast_nullable_to_non_nullable
               as List<CartModel>,
       selectedAddress: selectedAddress == freezed
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
-              as Address?,
+              as AddressModel?,
       cartItemDataLoading: cartItemDataLoading == freezed
           ? _value.cartItemDataLoading
           : cartItemDataLoading // ignore: cast_nullable_to_non_nullable
@@ -211,39 +240,33 @@ class _$_CartState implements _CartState {
       this.orderInProgress = false,
       this.cartError,
       this.deleteCartError,
-      final List<CartModel> cartList = const [],
+      this.cartList = const [],
       this.selectedAddress,
-      this.cartItemDataLoading = const CartDataLoading()})
-      : _cartList = cartList;
+      this.cartItemDataLoading = const CartDataLoading()});
 
-  @override
   @JsonKey()
+  @override
   final int cartValue;
-  @override
   @JsonKey()
+  @override
   final bool cartDataLoading;
-  @override
   @JsonKey()
+  @override
   final bool cartDeleteLoading;
-  @override
   @JsonKey()
+  @override
   final bool orderInProgress;
   @override
   final String? cartError;
   @override
   final String? deleteCartError;
-  final List<CartModel> _cartList;
-  @override
   @JsonKey()
-  List<CartModel> get cartList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cartList);
-  }
-
   @override
-  final Address? selectedAddress;
+  final List<CartModel> cartList;
   @override
+  final AddressModel? selectedAddress;
   @JsonKey()
+  @override
   final CartDataLoading cartItemDataLoading;
 
   @override
@@ -255,7 +278,7 @@ class _$_CartState implements _CartState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CartState &&
+            other is _CartState &&
             const DeepCollectionEquality().equals(other.cartValue, cartValue) &&
             const DeepCollectionEquality()
                 .equals(other.cartDataLoading, cartDataLoading) &&
@@ -266,7 +289,7 @@ class _$_CartState implements _CartState {
             const DeepCollectionEquality().equals(other.cartError, cartError) &&
             const DeepCollectionEquality()
                 .equals(other.deleteCartError, deleteCartError) &&
-            const DeepCollectionEquality().equals(other._cartList, _cartList) &&
+            const DeepCollectionEquality().equals(other.cartList, cartList) &&
             const DeepCollectionEquality()
                 .equals(other.selectedAddress, selectedAddress) &&
             const DeepCollectionEquality()
@@ -282,27 +305,27 @@ class _$_CartState implements _CartState {
       const DeepCollectionEquality().hash(orderInProgress),
       const DeepCollectionEquality().hash(cartError),
       const DeepCollectionEquality().hash(deleteCartError),
-      const DeepCollectionEquality().hash(_cartList),
+      const DeepCollectionEquality().hash(cartList),
       const DeepCollectionEquality().hash(selectedAddress),
       const DeepCollectionEquality().hash(cartItemDataLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$$_CartStateCopyWith<_$_CartState> get copyWith =>
-      __$$_CartStateCopyWithImpl<_$_CartState>(this, _$identity);
+  _$CartStateCopyWith<_CartState> get copyWith =>
+      __$CartStateCopyWithImpl<_CartState>(this, _$identity);
 }
 
 abstract class _CartState implements CartState {
   const factory _CartState(
-      {final int cartValue,
-      final bool cartDataLoading,
-      final bool cartDeleteLoading,
-      final bool orderInProgress,
-      final String? cartError,
-      final String? deleteCartError,
-      final List<CartModel> cartList,
-      final Address? selectedAddress,
-      final CartDataLoading cartItemDataLoading}) = _$_CartState;
+      {int cartValue,
+      bool cartDataLoading,
+      bool cartDeleteLoading,
+      bool orderInProgress,
+      String? cartError,
+      String? deleteCartError,
+      List<CartModel> cartList,
+      AddressModel? selectedAddress,
+      CartDataLoading cartItemDataLoading}) = _$_CartState;
 
   @override
   int get cartValue;
@@ -319,14 +342,31 @@ abstract class _CartState implements CartState {
   @override
   List<CartModel> get cartList;
   @override
-  Address? get selectedAddress;
+  AddressModel? get selectedAddress;
   @override
   CartDataLoading get cartItemDataLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_CartStateCopyWith<_$_CartState> get copyWith =>
+  _$CartStateCopyWith<_CartState> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$CartDataLoadingTearOff {
+  const _$CartDataLoadingTearOff();
+
+  _CartDataLoading call(
+      {int index = 0, bool isLoading = false, bool deleteLoading = false}) {
+    return _CartDataLoading(
+      index: index,
+      isLoading: isLoading,
+      deleteLoading: deleteLoading,
+    );
+  }
+}
+
+/// @nodoc
+const $CartDataLoading = _$CartDataLoadingTearOff();
 
 /// @nodoc
 mixin _$CartDataLoading {
@@ -380,25 +420,25 @@ class _$CartDataLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_CartDataLoadingCopyWith<$Res>
+abstract class _$CartDataLoadingCopyWith<$Res>
     implements $CartDataLoadingCopyWith<$Res> {
-  factory _$$_CartDataLoadingCopyWith(
-          _$_CartDataLoading value, $Res Function(_$_CartDataLoading) then) =
-      __$$_CartDataLoadingCopyWithImpl<$Res>;
+  factory _$CartDataLoadingCopyWith(
+          _CartDataLoading value, $Res Function(_CartDataLoading) then) =
+      __$CartDataLoadingCopyWithImpl<$Res>;
   @override
   $Res call({int index, bool isLoading, bool deleteLoading});
 }
 
 /// @nodoc
-class __$$_CartDataLoadingCopyWithImpl<$Res>
+class __$CartDataLoadingCopyWithImpl<$Res>
     extends _$CartDataLoadingCopyWithImpl<$Res>
-    implements _$$_CartDataLoadingCopyWith<$Res> {
-  __$$_CartDataLoadingCopyWithImpl(
-      _$_CartDataLoading _value, $Res Function(_$_CartDataLoading) _then)
-      : super(_value, (v) => _then(v as _$_CartDataLoading));
+    implements _$CartDataLoadingCopyWith<$Res> {
+  __$CartDataLoadingCopyWithImpl(
+      _CartDataLoading _value, $Res Function(_CartDataLoading) _then)
+      : super(_value, (v) => _then(v as _CartDataLoading));
 
   @override
-  _$_CartDataLoading get _value => super._value as _$_CartDataLoading;
+  _CartDataLoading get _value => super._value as _CartDataLoading;
 
   @override
   $Res call({
@@ -406,7 +446,7 @@ class __$$_CartDataLoadingCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? deleteLoading = freezed,
   }) {
-    return _then(_$_CartDataLoading(
+    return _then(_CartDataLoading(
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -429,14 +469,14 @@ class _$_CartDataLoading implements _CartDataLoading {
   const _$_CartDataLoading(
       {this.index = 0, this.isLoading = false, this.deleteLoading = false});
 
-  @override
   @JsonKey()
+  @override
   final int index;
-  @override
   @JsonKey()
+  @override
   final bool isLoading;
-  @override
   @JsonKey()
+  @override
   final bool deleteLoading;
 
   @override
@@ -448,7 +488,7 @@ class _$_CartDataLoading implements _CartDataLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CartDataLoading &&
+            other is _CartDataLoading &&
             const DeepCollectionEquality().equals(other.index, index) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
@@ -464,15 +504,13 @@ class _$_CartDataLoading implements _CartDataLoading {
 
   @JsonKey(ignore: true)
   @override
-  _$$_CartDataLoadingCopyWith<_$_CartDataLoading> get copyWith =>
-      __$$_CartDataLoadingCopyWithImpl<_$_CartDataLoading>(this, _$identity);
+  _$CartDataLoadingCopyWith<_CartDataLoading> get copyWith =>
+      __$CartDataLoadingCopyWithImpl<_CartDataLoading>(this, _$identity);
 }
 
 abstract class _CartDataLoading implements CartDataLoading {
   const factory _CartDataLoading(
-      {final int index,
-      final bool isLoading,
-      final bool deleteLoading}) = _$_CartDataLoading;
+      {int index, bool isLoading, bool deleteLoading}) = _$_CartDataLoading;
 
   @override
   int get index;
@@ -482,6 +520,6 @@ abstract class _CartDataLoading implements CartDataLoading {
   bool get deleteLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_CartDataLoadingCopyWith<_$_CartDataLoading> get copyWith =>
+  _$CartDataLoadingCopyWith<_CartDataLoading> get copyWith =>
       throw _privateConstructorUsedError;
 }

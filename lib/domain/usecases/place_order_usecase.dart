@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/data/firebase_manager/firestore_manager.dart';
+import 'package:fluttercommerce/data/firebase_manager/firestore_repository.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/models/order_model.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/res/string_constants.dart';
-import '../../../../core/res/text_styles.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/text_styles.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../data/models/product_model.dart';

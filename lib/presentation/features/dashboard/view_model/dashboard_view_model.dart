@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/res/string_constants.dart';
+import '../../../../res/string_constants.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';

@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/res/app_colors.dart';
-import '../../../../core/res/string_constants.dart';
-import '../../../../core/res/text_styles.dart';
+import '../../../../res/app_colors.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/text_styles.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
 import '../../../../data/models/order_model.dart';
@@ -142,7 +142,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     );
   }
 
-  Widget orderCard(OrderItem orderItem) {
+  Widget orderCard(OrderItemModel orderItem) {
     return Container(
       margin: const EdgeInsets.only(top: 16, bottom: 20),
       child: Card(
