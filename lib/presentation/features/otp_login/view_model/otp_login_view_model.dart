@@ -1,20 +1,19 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttercommerce/domain/usecases/send_otp_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/otp_login_state.dart';
 
 @injectable
 class OtpLoginViewModel extends StateManager<OtpLoginState> {
-  OtpLoginViewModel(this._firebaseManager) : super(const OtpLoginState());
-  final FirebaseRepository _firebaseManager;
-
+  OtpLoginViewModel(this._sendOTPUseCase) : super(const OtpLoginState());
+  final SendOTPUseCase _sendOTPUseCase;
   late String _verificationId;
 
   void validateButton(String otp) {
@@ -26,24 +25,26 @@ class OtpLoginViewModel extends StateManager<OtpLoginState> {
   }
 
   Future<void> sendOtp(String phoneNumber) async {
-    _firebaseManager.sendCode(phoneNumber, codeSent: (String verificationId, [int? forceResendingToken]) async {
-      _verificationId = verificationId;
-      Timer.periodic(const Duration(seconds: 60), (timer) {
-        state = state.copyWith(
-          codeCountDown: "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
-        );
-      });
-    }, codeAutoRetrievalTimeout: (String verificationId) {
-      _verificationId = verificationId;
-      state = state.copyWith(error: '');
-    }, verificationFailed: (authException) {
-      MessageHandler.showSnackBar(title: authException.message);
-      state = state.copyWith(error: authException.message);
-    }, verificationCompleted: (AuthCredential auth) {
-      state = state.copyWith(otp: '******');
+    _sendOTPUseCase.execute(
+      phoneNumber: phoneNumber,
+      onSuccess: (auth) {
+        state = state.copyWith(otp: '******');
 
-      _login(auth);
-    });
+        _login(auth);
+      },
+      onError: (value) {
+        MessageHandler.showSnackBar(title: value);
+        state = state.copyWith(error: value);
+      },
+      onVerificationId: (value) {
+        _verificationId = value;
+        Timer.periodic(const Duration(seconds: 60), (timer) {
+          state = state.copyWith(
+            codeCountDown: "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
+          );
+        });
+      },
+    );
   }
 
   void loginWithOtp(String smsCode, bool isResend) {

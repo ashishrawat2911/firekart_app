@@ -7,6 +7,7 @@ import '../../../core/res/text_styles.dart';
 import '../../../data/firebase_manager/firestore_manager.dart';
 import '../../../data/models/account_details_model.dart';
 import '../../../di/di.dart';
+import '../../../domain/usecases/logout_usecase.dart';
 import '../../routes/app_router.gr.dart';
 import '../../routes/navigation_handler.dart';
 import '../../widgets/action_text.dart';
@@ -92,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: const Text(StringsConstants.logout),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
-                  inject<FirebaseRepository>().logoutUser().then((value) {
+                  inject<LogoutUseCase>().execute().then((value) {
                     NavigationHandler.navigateTo(
                       const LoginScreenRoute(),
                       navigationType: NavigationType.pushAndPopUntil,

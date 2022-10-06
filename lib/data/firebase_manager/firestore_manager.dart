@@ -114,10 +114,23 @@ class FirebaseRepository with FirebaseMixin {
     });
   }
 
-  Future<List<DocumentSnapshot>> getAllProducts([DocumentSnapshot? documentSnapshot]) async {
+  Future<List<DocumentSnapshot>> getAllProducts({
+    DocumentSnapshot? documentSnapshot,
+    String? condition,
+    bool all = false,
+  }) async {
+    if (all == true) {
+      if (condition != null) {
+        return (await productCollection.where(condition, isEqualTo: true).get()).docs;
+      } else {
+        return (await productCollection.get()).docs;
+      }
+    }
     List<DocumentSnapshot> documentList;
-    final query = productCollection.limit(20).orderBy("name");
-
+    var query = productCollection.limit(20).orderBy("name");
+    if (condition != null) {
+      query = query.where(condition, isEqualTo: true);
+    }
     if (documentSnapshot != null) {
       documentList = (await query.startAfterDocument(documentSnapshot).get()).docs;
     } else {

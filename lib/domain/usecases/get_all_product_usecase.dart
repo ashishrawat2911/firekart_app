@@ -1,22 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttercommerce/data/firebase_manager/firestore_manager.dart';
+import 'package:fluttercommerce/data/models/product_model.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../data/models/order_model.dart';
-
 @injectable
-class GetAllOrdersUseCase {
+class GetAllProductsUseCase {
   final FirebaseRepository _firebaseRepository;
 
-  GetAllOrdersUseCase(this._firebaseRepository);
+  GetAllProductsUseCase(this._firebaseRepository);
 
   final List<DocumentSnapshot> _documents = [];
 
-  Future<List<OrderModel>> execute({bool nextOrder = false}) async {
-    final List<DocumentSnapshot> docs =
-        await _firebaseRepository.getAllProducts(nextOrder ? _documents[_documents.length - 1] : null);
+  Future<List<ProductModel>> execute({
+    bool nextOrder = false,
+    String? condition,
+    bool all = false,
+  }) async {
+    final List<DocumentSnapshot> docs = await _firebaseRepository.getAllProducts(
+      documentSnapshot: nextOrder ? _documents[_documents.length - 1] : null,
+      condition: condition,
+      all: all,
+    );
     _documents.addAll(docs);
-    return List<OrderModel>.generate(_documents.length, (index) => OrderModel.fromJson(_documents[index]))
+    return List<ProductModel>.generate(_documents.length, (index) => ProductModel.fromJson(_documents[index]))
         .toSet()
         .toList();
   }

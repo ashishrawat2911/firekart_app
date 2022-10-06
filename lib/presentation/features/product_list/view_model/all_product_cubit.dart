@@ -1,31 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttercommerce/domain/usecases/get_all_product_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/state_manager.dart';
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/product_model.dart';
 
 @injectable
 class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
-  AllProductCubit(this._firebaseRepo) : super(const ResultState.idle());
+  AllProductCubit(this._getAllProductsUseCase) : super(const ResultState.idle());
 
-  final FirebaseRepository _firebaseRepo;
+  final GetAllProductsUseCase _getAllProductsUseCase;
   List<DocumentSnapshot>? documents;
-  List<ProductModel>? productList;
 
   Future<void> fetchProducts([String? condition]) async {
     emit(const ResultState.loading());
     try {
-      if (condition == null) {
-        documents = await _firebaseRepo.getAllProducts();
-      } else {
-        documents = await _firebaseRepo.getAllProductsData(condition);
-      }
-      productList =
-          List<ProductModel>.generate(documents!.length, (index) => ProductModel.fromJson(documents![index].data()));
-      List.generate(productList!.length, (index) {});
-      emit(ResultState.data(data: productList!.toSet().toList()));
+      final productList = await _getAllProductsUseCase.execute(condition: condition);
+      emit(ResultState.data(data: productList.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
     }
@@ -33,14 +25,14 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
 
   Future<void> fetchNextList([String? condition]) async {
     try {
-      final List<DocumentSnapshot> docs = await _firebaseRepo.getAllProducts(documents![documents!.length - 1]);
+      final products = await _getAllProductsUseCase.execute(
+        condition: condition,
+        nextOrder: true,
+      );
 
-      documents!.addAll(docs);
-      productList = List<ProductModel>.generate(documents!.length, (index) => ProductModel.fromJson(documents![index]));
-      List.generate(productList!.length, (index) {});
-      emit(ResultState.data(data: productList!.toSet().toList()));
+      emit(ResultState.data(data: products.toSet().toList()));
     } catch (e) {
-      emit(ResultState.unNotifiedError(error: e.toString(), data: productList!));
+      emit(ResultState.unNotifiedError(error: e.toString(), data: (state as Data<List<ProductModel>>).data));
     }
   }
 }

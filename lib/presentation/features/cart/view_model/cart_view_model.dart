@@ -1,4 +1,5 @@
 import 'package:fluttercommerce/core/global_listener/global_listener.dart';
+import 'package:fluttercommerce/domain/usecases/place_order_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
@@ -10,18 +11,27 @@ import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/account_details_model.dart';
 import '../../../../data/models/cart_model.dart';
 import '../../../../data/models/order_model.dart';
+import '../../../../domain/usecases/add_product_to_cart_usecase.dart';
+import '../../../../domain/usecases/delete_product_from_cart_usecase.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
 
 @injectable
 class CartViewModel extends StateManager<CartState> {
-  CartViewModel(this.firebaseRepo, this.globalListener) : super(const CartState());
+  CartViewModel(
+    this.globalListener,
+    this._productAddToCartUseCase,
+    this._productDeleteCartUseCase,
+    this._placeOrderUseCase,
+  ) : super(const CartState());
 
   AccountDetails? accountDetails;
 
-  final FirebaseRepository firebaseRepo;
   final GlobalListener globalListener;
+  final ProductAddToCartUseCase _productAddToCartUseCase;
+  final ProductDeleteCartUseCase _productDeleteCartUseCase;
+  final PlaceOrderUseCase _placeOrderUseCase;
 
   void initCartValues(num cartValue) {
     state = state.copyWith(cartValue: cartValue as int);
@@ -51,8 +61,7 @@ class CartViewModel extends StateManager<CartState> {
     state = state.copyWith(orderInProgress: true);
     if (await ConnectionStatus.getInstance().checkConnection()) {
       try {
-        await firebaseRepo.placeOrder(_orderFromCartList(state.cartList, state.selectedAddress!));
-        await firebaseRepo.emptyCart();
+        await _placeOrderUseCase.execute(_orderFromCartList(state.cartList, state.selectedAddress!));
         if (NavigationHandler.canNavigateBack()) {
           NavigationHandler.navigateTo(
             const MyOrdersScreenRoute(),
@@ -156,7 +165,7 @@ class CartViewModel extends StateManager<CartState> {
 
       state.cartList[index] = cart;
 
-      firebaseRepo.addProductToCart(cart).then((value) {
+      _productAddToCartUseCase.execute(cart).then((value) {
         state = state.copyWith(cartList: state.cartList);
       }).catchError((e) {
         MessageHandler.showSnackBar(title: e.toString());
@@ -176,7 +185,7 @@ class CartViewModel extends StateManager<CartState> {
       MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
       return;
     }
-    firebaseRepo.delProductFromCart(cartModel.productId).then((value) {
+    _productDeleteCartUseCase.execute(cartModel.productId).then((value) {
       state.cartList.removeAt(index);
       state = state.copyWith(cartList: state.cartList);
     }).catchError((e) {
