@@ -4,17 +4,17 @@ import '../../../../core/res/string_constants.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/product_model.dart';
+import '../../../../domain/usecases/get_all_product_usecase.dart';
 import '../state/dashboard_state.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
 
 @injectable
 class DashboardViewModel extends StateManager<DashboardState> {
-  DashboardViewModel(this._firebaseManager) : super(const DashboardState());
+  DashboardViewModel(this._getAllProductsUseCase) : super(const DashboardState());
 
-  final FirebaseRepository _firebaseManager;
+  final GetAllProductsUseCase _getAllProductsUseCase;
 
   Future<void> fetchProductData(ProductData productData) async {
     String condition;
@@ -38,7 +38,7 @@ class DashboardViewModel extends StateManager<DashboardState> {
         return;
       }
 
-      final List<ProductModel> productList = await _firebaseManager.getProductsData(condition);
+      final List<ProductModel> productList = await _getAllProductsUseCase.execute(condition: condition, all: true);
 
       final resultState = ResultState.data(data: productList);
 

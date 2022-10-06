@@ -1,5 +1,6 @@
 import 'package:fluttercommerce/domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/delete_product_from_cart_usecase.dart';
+import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart';
 import 'package:fluttercommerce/domain/usecases/get_items_in_cart_usecase.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,7 +8,6 @@ import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/res/string_constants.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
-import '../../../../data/firebase_manager/firestore_manager.dart';
 import '../../../../data/models/cart_model.dart';
 import '../../../../data/models/product_model.dart';
 import '../state/add_to_cart_state.dart';
@@ -15,19 +15,19 @@ import '../state/add_to_cart_state.dart';
 @injectable
 class ProductViewModel extends StateManager<AddToCartState> {
   ProductViewModel(
-    this._firebaseRepo,
     this._getItemsInCartUseCase,
     this._productDeleteCartUseCase,
     this._productAddToCartUseCase,
+    this._getCartStatusUseCase,
   ) : super(const AddToCartState());
 
-  final FirebaseRepository _firebaseRepo;
   final GetItemsInCartUseCase _getItemsInCartUseCase;
   final ProductDeleteCartUseCase _productDeleteCartUseCase;
   final ProductAddToCartUseCase _productAddToCartUseCase;
+  final GetCartStatusUseCase _getCartStatusUseCase;
 
   Future<void> listenToProduct(String productId) async {
-    _firebaseRepo.cartStatusListen(_firebaseRepo.getUid()).listen((event) {
+    _getCartStatusUseCase.execute().listen((event) {
       checkItemInCart(productId, isListening: true);
     });
   }
