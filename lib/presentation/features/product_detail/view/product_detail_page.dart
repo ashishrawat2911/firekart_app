@@ -127,7 +127,7 @@ class ProductDetailPage extends StatelessWidget {
             ],
           ),
         ),
-        crossFadeState: (state.cartDataLoading) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        crossFadeState: (cartValue>0) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 100));
   }
 

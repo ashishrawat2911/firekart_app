@@ -53,9 +53,7 @@ class ProductViewModel extends StateManager<AddToCartState> {
       MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
       return;
     }
-    CartModel cartModel = CartModel.fromProduct(productModel, 1);
-    _productAddToCartUseCase.execute(cartModel).then((value) {
-      state = state.copyWith(noOfItems: 1);
+    updateCartValues(productModel, 0, true).then((value) {
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());
     }).whenComplete(() {
@@ -87,6 +85,7 @@ class ProductViewModel extends StateManager<AddToCartState> {
       }
       _productDeleteCartUseCase.execute(productModel.productId!).then((value) {
         state = state.copyWith(showAddButton: true);
+        state = state.copyWith(noOfItems: newCartValue);
       }).catchError((e) {
         MessageHandler.showSnackBar(title: e.toString());
       }).whenComplete(() {
