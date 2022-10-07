@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/data/firebase_manager/firestore_repository.dart';
+import 'package:fluttercommerce/data/repository/firestore_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -7,7 +7,7 @@ class GetUserLoggedInStatusUseCase {
 
   final FirebaseRepository _firebaseRepository;
 
-  bool execute()  {
+  bool execute() {
     try {
       final user = _firebaseRepository.getCurrentUser();
       if (user == null) {

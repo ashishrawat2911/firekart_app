@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/app.dart';
 
 import 'core/logger/app_logger.dart';
+import 'core/services/crashlytics_service.dart';
 import 'core/state_manager/app_cubit_observer.dart';
-import 'data/crashlytics/crashlytics_service.dart';
 import 'di/di.dart';
 
 class Initializer {

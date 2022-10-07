@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../data/models/account_details_model.dart';
+import '../../../../res/app_colors.dart';
+import '../../../../res/string_constants.dart';
+import '../../../../res/text_styles.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/add_address_state.dart';

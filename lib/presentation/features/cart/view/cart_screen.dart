@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../res/app_colors.dart';
 import '../../../../res/string_constants.dart';
 import '../../../../res/text_styles.dart';
-import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/cart_item_card.dart';
 import '../../../widgets/common_button.dart';

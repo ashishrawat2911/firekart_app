@@ -4,11 +4,12 @@ import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dar
 import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
 
-import '../firebase_manager/firestore_repository.dart';
+import '../../data/repository/firestore_repository.dart';
 
 @singleton
 class CrashlyticsService {
   final GetUserDataStatusUseCase _getUserDataStatusUseCase;
+
   CrashlyticsService(this._getUserDataStatusUseCase, this._firebaseManager) {
     FlutterError.onError = recordFlutterError;
   }

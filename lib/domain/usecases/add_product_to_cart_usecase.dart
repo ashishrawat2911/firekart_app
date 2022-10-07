@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/data/firebase_manager/firestore_repository.dart';
+import 'package:fluttercommerce/data/repository/firestore_repository.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/models/cart_model.dart';
