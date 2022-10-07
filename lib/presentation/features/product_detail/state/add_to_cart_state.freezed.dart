@@ -18,7 +18,10 @@ class _$AddToCartStateTearOff {
   const _$AddToCartStateTearOff();
 
   _AddToCartState call(
-      {bool addToCardLoading = false, bool showAddButton = false, bool cartDataLoading = false, num noOfItems = 0}) {
+      {bool addToCardLoading = false,
+      bool showAddButton = false,
+      bool cartDataLoading = false,
+      num noOfItems = 0}) {
     return _AddToCartState(
       addToCardLoading: addToCardLoading,
       showAddButton: showAddButton,
@@ -34,31 +37,33 @@ const $AddToCartState = _$AddToCartStateTearOff();
 /// @nodoc
 mixin _$AddToCartState {
   bool get addToCardLoading => throw _privateConstructorUsedError;
-
   bool get showAddButton => throw _privateConstructorUsedError;
-
   bool get cartDataLoading => throw _privateConstructorUsedError;
-
   num get noOfItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AddToCartStateCopyWith<AddToCartState> get copyWith => throw _privateConstructorUsedError;
+  $AddToCartStateCopyWith<AddToCartState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AddToCartStateCopyWith<$Res> {
-  factory $AddToCartStateCopyWith(AddToCartState value, $Res Function(AddToCartState) then) =
+  factory $AddToCartStateCopyWith(
+          AddToCartState value, $Res Function(AddToCartState) then) =
       _$AddToCartStateCopyWithImpl<$Res>;
-
-  $Res call({bool addToCardLoading, bool showAddButton, bool cartDataLoading, num noOfItems});
+  $Res call(
+      {bool addToCardLoading,
+      bool showAddButton,
+      bool cartDataLoading,
+      num noOfItems});
 }
 
 /// @nodoc
-class _$AddToCartStateCopyWithImpl<$Res> implements $AddToCartStateCopyWith<$Res> {
+class _$AddToCartStateCopyWithImpl<$Res>
+    implements $AddToCartStateCopyWith<$Res> {
   _$AddToCartStateCopyWithImpl(this._value, this._then);
 
   final AddToCartState _value;
-
   // ignore: unused_field
   final $Res Function(AddToCartState) _then;
 
@@ -91,18 +96,25 @@ class _$AddToCartStateCopyWithImpl<$Res> implements $AddToCartStateCopyWith<$Res
 }
 
 /// @nodoc
-abstract class _$AddToCartStateCopyWith<$Res> implements $AddToCartStateCopyWith<$Res> {
-  factory _$AddToCartStateCopyWith(_AddToCartState value, $Res Function(_AddToCartState) then) =
+abstract class _$AddToCartStateCopyWith<$Res>
+    implements $AddToCartStateCopyWith<$Res> {
+  factory _$AddToCartStateCopyWith(
+          _AddToCartState value, $Res Function(_AddToCartState) then) =
       __$AddToCartStateCopyWithImpl<$Res>;
-
   @override
-  $Res call({bool addToCardLoading, bool showAddButton, bool cartDataLoading, num noOfItems});
+  $Res call(
+      {bool addToCardLoading,
+      bool showAddButton,
+      bool cartDataLoading,
+      num noOfItems});
 }
 
 /// @nodoc
-class __$AddToCartStateCopyWithImpl<$Res> extends _$AddToCartStateCopyWithImpl<$Res>
+class __$AddToCartStateCopyWithImpl<$Res>
+    extends _$AddToCartStateCopyWithImpl<$Res>
     implements _$AddToCartStateCopyWith<$Res> {
-  __$AddToCartStateCopyWithImpl(_AddToCartState _value, $Res Function(_AddToCartState) _then)
+  __$AddToCartStateCopyWithImpl(
+      _AddToCartState _value, $Res Function(_AddToCartState) _then)
       : super(_value, (v) => _then(v as _AddToCartState));
 
   @override
@@ -140,7 +152,10 @@ class __$AddToCartStateCopyWithImpl<$Res> extends _$AddToCartStateCopyWithImpl<$
 
 class _$_AddToCartState implements _AddToCartState {
   const _$_AddToCartState(
-      {this.addToCardLoading = false, this.showAddButton = false, this.cartDataLoading = false, this.noOfItems = 0});
+      {this.addToCardLoading = false,
+      this.showAddButton = false,
+      this.cartDataLoading = false,
+      this.noOfItems = 0});
 
   @JsonKey()
   @override
@@ -165,9 +180,12 @@ class _$_AddToCartState implements _AddToCartState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AddToCartState &&
-            const DeepCollectionEquality().equals(other.addToCardLoading, addToCardLoading) &&
-            const DeepCollectionEquality().equals(other.showAddButton, showAddButton) &&
-            const DeepCollectionEquality().equals(other.cartDataLoading, cartDataLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.addToCardLoading, addToCardLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.showAddButton, showAddButton) &&
+            const DeepCollectionEquality()
+                .equals(other.cartDataLoading, cartDataLoading) &&
             const DeepCollectionEquality().equals(other.noOfItems, noOfItems));
   }
 
@@ -186,22 +204,22 @@ class _$_AddToCartState implements _AddToCartState {
 }
 
 abstract class _AddToCartState implements AddToCartState {
-  const factory _AddToCartState({bool addToCardLoading, bool showAddButton, bool cartDataLoading, num noOfItems}) =
-      _$_AddToCartState;
+  const factory _AddToCartState(
+      {bool addToCardLoading,
+      bool showAddButton,
+      bool cartDataLoading,
+      num noOfItems}) = _$_AddToCartState;
 
   @override
   bool get addToCardLoading;
-
   @override
   bool get showAddButton;
-
   @override
   bool get cartDataLoading;
-
   @override
   num get noOfItems;
-
   @override
   @JsonKey(ignore: true)
-  _$AddToCartStateCopyWith<_AddToCartState> get copyWith => throw _privateConstructorUsedError;
+  _$AddToCartStateCopyWith<_AddToCartState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

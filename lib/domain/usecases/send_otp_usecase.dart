@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttercommerce/data/repository/firestore_repository.dart';
 import 'package:injectable/injectable.dart';
-
-import '../../data/repository/firestore_repository.dart';
 
 @injectable
 class SendOTPUseCase {
