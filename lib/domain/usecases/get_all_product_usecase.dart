@@ -22,7 +22,7 @@ class GetAllProductsUseCase {
       all: all,
     );
     _documents.addAll(docs);
-    return List<ProductModel>.generate(_documents.length, (index) => ProductModel.fromJson(_documents[index]))
+    return List<ProductModel>.generate(_documents.length, (index) => ProductModel.fromJson(_documents[index].data()))
         .toSet()
         .toList();
   }

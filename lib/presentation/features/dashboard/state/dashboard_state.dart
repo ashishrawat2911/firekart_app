@@ -6,7 +6,7 @@ import '../../../../data/models/product_model.dart';
 part 'dashboard_state.freezed.dart';
 
 @freezed
-abstract class DashboardState with _$DashboardState {
+ class DashboardState with _$DashboardState {
   const factory DashboardState({
     @Default(Idle()) ResultState<List<ProductModel>> dealOfTheDay,
     @Default(Idle()) ResultState<List<ProductModel>> onSale,

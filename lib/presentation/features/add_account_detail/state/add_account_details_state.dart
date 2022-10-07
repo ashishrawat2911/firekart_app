@@ -5,7 +5,7 @@ import '../../../../data/models/account_details_model.dart';
 part 'add_account_details_state.freezed.dart';
 
 @freezed
-abstract class AddAccountDetailsState with _$AddAccountDetailsState {
+ class AddAccountDetailsState with _$AddAccountDetailsState {
   const factory AddAccountDetailsState.idle() = Idle;
 
   const factory AddAccountDetailsState.editData(AccountDetailsModel accountDetails) = EditData;

@@ -9,16 +9,21 @@ part of 'order_model.dart';
 OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       orderId: json['order_id'] as String?,
       price: json['price'] as num?,
-      orderItems: (json['order_items'] as List<dynamic>?)?.map((e) => OrderItemModel.fromJson(e)).toList(),
+      orderItems: (json['order_items'] as List<dynamic>?)
+          ?.map((e) => OrderItemModel.fromJson(e))
+          .toList(),
       orderedAt: json['ordered_at'] as String?,
       orderStatus: json['order_status'] as String?,
       currency: json['currency'] as String?,
       paymentId: json['payment_id'] as String?,
       signature: json['signature'] as String?,
-      orderAddress: json['order_address'] == null ? null : AddressModel.fromJson(json['order_address']),
+      orderAddress: json['order_address'] == null
+          ? null
+          : AddressModel.fromJson(json['order_address']),
     );
 
-Map<String, dynamic> _$OrderModelToJson(OrderModel instance) => <String, dynamic>{
+Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
+    <String, dynamic>{
       'order_id': instance.orderId,
       'price': instance.price,
       'order_items': instance.orderItems,
@@ -30,7 +35,8 @@ Map<String, dynamic> _$OrderModelToJson(OrderModel instance) => <String, dynamic
       'order_address': instance.orderAddress,
     };
 
-OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) => OrderItemModel(
+OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) =>
+    OrderItemModel(
       productId: json['product_id'] as String?,
       image: json['image'] as String?,
       name: json['name'] as String?,
@@ -40,7 +46,8 @@ OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) => OrderItemM
       noOfItems: json['no_of_items'] as num?,
     );
 
-Map<String, dynamic> _$OrderItemModelToJson(OrderItemModel instance) => <String, dynamic>{
+Map<String, dynamic> _$OrderItemModelToJson(OrderItemModel instance) =>
+    <String, dynamic>{
       'product_id': instance.productId,
       'image': instance.image,
       'name': instance.name,
