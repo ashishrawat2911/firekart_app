@@ -57,7 +57,7 @@ class CartScreen extends StatelessWidget {
                       deleteLoading: state.cartItemDataLoading.deleteLoading,
                       isLoading: state.cartItemDataLoading.isLoading,
                       onDecrement: (value) {
-                        viewModel.updateCartValues(index, true);
+                        viewModel.updateCartValues(index, false);
                       },
                       onDeleted: (value) {
                         viewModel.deleteItem(index);
