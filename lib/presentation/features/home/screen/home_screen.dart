@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_screen.dart';
 
+import '../../../../core/state_manager/state_view_manager.dart';
 import '../../../../res/app_colors.dart';
 import '../../../../res/string_constants.dart';
 import '../../../../res/text_styles.dart';
-import '../../../../core/state_manager/state_view_manager.dart';
 import '../../cart/view/cart_screen.dart';
 import '../../search/view/search_screen.dart';
 import '../../view/account_screen.dart';

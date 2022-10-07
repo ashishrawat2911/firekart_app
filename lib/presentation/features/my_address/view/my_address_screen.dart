@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../data/models/account_details_model.dart';
 import '../../../../res/app_colors.dart';
 import '../../../../res/string_constants.dart';
 import '../../../../res/text_styles.dart';
-import '../../../../core/state_manager/state_view_manager.dart';
-import '../../../../data/models/account_details_model.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';

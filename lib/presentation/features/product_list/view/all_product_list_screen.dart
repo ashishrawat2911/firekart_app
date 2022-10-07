@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../res/string_constants.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../data/models/product_model.dart';
 import '../../../../di/di.dart';
+import '../../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';

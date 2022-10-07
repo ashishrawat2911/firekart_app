@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../res/string_constants.dart';
 import '../../../../data/models/product_model.dart';
 import '../../../../di/di.dart';
+import '../../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_search_text_field.dart';

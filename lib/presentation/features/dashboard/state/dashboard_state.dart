@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../../../core/state/result_state.dart';
 import '../../../../data/models/product_model.dart';
 
