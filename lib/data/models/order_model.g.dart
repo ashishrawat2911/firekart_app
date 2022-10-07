@@ -26,13 +26,13 @@ Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
     <String, dynamic>{
       'order_id': instance.orderId,
       'price': instance.price,
-      'order_items': instance.orderItems,
+      'order_items': instance.orderItems?.map((e) => e.toJson()).toList(),
       'ordered_at': instance.orderedAt,
       'order_status': instance.orderStatus,
       'currency': instance.currency,
       'payment_id': instance.paymentId,
       'signature': instance.signature,
-      'order_address': instance.orderAddress,
+      'order_address': instance.orderAddress?.toJson(),
     };
 
 OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) =>

@@ -66,7 +66,7 @@ class CartViewModel extends StateManager<CartState> {
         if (NavigationHandler.canNavigateBack()) {
           NavigationHandler.navigateTo(
             const MyOrdersScreenRoute(),
-            navigationType: NavigationType.pushReplacement,
+            navigationType: NavigationType.push,
           );
         }
       } catch (e) {
@@ -103,6 +103,9 @@ class CartViewModel extends StateManager<CartState> {
       signature: 'response.signature!',
       price: cartModel.priceInCart,
       orderAddress: orderAddress,
+      currency: cartModel.first.currency,
+      orderedAt: DateTime.now().toString(),
+      orderStatus: "Ordered",
     );
     return orderModel;
   }

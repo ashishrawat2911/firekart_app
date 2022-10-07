@@ -16,7 +16,7 @@ class GetAllOrdersUseCase {
     final List<DocumentSnapshot> docs =
         await _firebaseRepository.getAllOrders(nextOrder ? _documents[_documents.length - 1] : null);
     _documents.addAll(docs);
-    return List<OrderModel>.generate(_documents.length, (index) => OrderModel.fromJson(_documents[index]))
+    return List<OrderModel>.generate(_documents.length, (index) => OrderModel.fromJson(_documents[index].data()))
         .toSet()
         .toList();
   }

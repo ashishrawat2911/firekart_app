@@ -126,7 +126,7 @@ class CartItemCard extends StatelessWidget {
                             cartItemCardArgs.isLoading
                                 ? () {}
                                 : () {
-                                    cartItemCardArgs.onIncrement(cartItemCardArgs.index);
+                                    cartItemCardArgs.onDecrement(cartItemCardArgs.index);
                                   }),
                         Expanded(
                             child: Center(
@@ -147,7 +147,7 @@ class CartItemCard extends StatelessWidget {
                             cartItemCardArgs.isLoading
                                 ? () {}
                                 : () {
-                                    cartItemCardArgs.onDecrement(cartItemCardArgs.index);
+                                    cartItemCardArgs.onIncrement(cartItemCardArgs.index);
                                   })
                       ],
                     ),
