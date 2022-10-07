@@ -131,7 +131,7 @@ class FirebaseRepository {
     try {
       final DocumentSnapshot documentSnapshot = await _cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
-        return documentSnapshot["no_of_items"] as int;
+        return documentSnapshot["num_of_items"] as int;
       } else {
         return 0;
       }
