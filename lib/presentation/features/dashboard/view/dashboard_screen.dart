@@ -3,7 +3,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/state_view_manager.dart';
-import '../../../../data/models/product_model.dart';
+import '../../../../domain/models/product_model.dart';
 import '../../../../res/string_constants.dart';
 import '../../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';

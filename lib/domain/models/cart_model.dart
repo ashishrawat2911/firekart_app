@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/data/models/product_model.dart';
+import 'package:fluttercommerce/domain/models/product_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'cart_model.g.dart';

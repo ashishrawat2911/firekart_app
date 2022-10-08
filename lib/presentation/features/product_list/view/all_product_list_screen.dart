@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../data/models/product_model.dart';
+import '../../../../domain/models/product_model.dart';
 import '../../../../di/di.dart';
 import '../../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
