@@ -1,7 +1,7 @@
-import 'package:fluttercommerce/data/repository/firestore_repository.dart';
+import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../data/models/cart_model.dart';
+import '../models/cart_model.dart';
 
 @injectable
 class ProductAddToCartUseCase {
