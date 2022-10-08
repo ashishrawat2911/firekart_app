@@ -7,8 +7,8 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
-import '../../../../data/models/cart_model.dart';
-import '../../../../data/models/product_model.dart';
+import '../../../../domain/models/cart_model.dart';
+import '../../../../domain/models/product_model.dart';
 import '../../../../res/string_constants.dart';
 import '../state/add_to_cart_state.dart';
 
