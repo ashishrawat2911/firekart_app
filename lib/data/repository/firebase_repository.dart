@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttercommerce/core/logger/app_logger.dart';
-import 'package:fluttercommerce/data/models/account_details_model.dart';
-import 'package:fluttercommerce/data/models/cart_model.dart';
-import 'package:fluttercommerce/data/models/order_model.dart';
-import 'package:fluttercommerce/data/models/product_model.dart';
+import 'package:fluttercommerce/domain/models/account_details_model.dart';
+import 'package:fluttercommerce/domain/models/cart_model.dart';
+import 'package:fluttercommerce/domain/models/order_model.dart';
+import 'package:fluttercommerce/domain/models/product_model.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -131,7 +131,7 @@ class FirebaseRepository {
     try {
       final DocumentSnapshot documentSnapshot = await _cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
-        return documentSnapshot["no_of_items"] as int;
+        return documentSnapshot["num_of_items"] as int;
       } else {
         return 0;
       }

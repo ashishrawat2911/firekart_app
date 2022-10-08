@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
-import '../../../../data/models/order_model.dart';
+import '../../../../domain/models/order_model.dart';
 import '../../../../di/di.dart';
 import '../../../../res/app_colors.dart';
 import '../../../../res/string_constants.dart';

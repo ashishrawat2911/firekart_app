@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fluttercommerce/data/models/cart_model.dart';
-import 'package:fluttercommerce/data/repository/firestore_repository.dart';
+import 'package:fluttercommerce/domain/models/cart_model.dart';
+import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

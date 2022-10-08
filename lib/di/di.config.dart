@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../core/services/crashlytics_service.dart' as _i32;
 import '../core/utils/validator.dart' as _i26;
-import '../data/repository/firestore_repository.dart' as _i3;
+import '../data/repository/firebase_repository.dart' as _i3;
 import '../domain/usecases/add_product_to_cart_usecase.dart' as _i16;
 import '../domain/usecases/delete_product_from_cart_usecase.dart' as _i17;
 import '../domain/usecases/get_account_details_usecase.dart' as _i4;

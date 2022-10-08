@@ -2,10 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/state_manager/state_view_manager.dart';
-import '../../../../data/models/product_model.dart';
+import '../../../../domain/models/product_model.dart';
 import '../../../../res/app_colors.dart';
 import '../../../../res/string_constants.dart';
 import '../../../../res/text_styles.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/common_view_cart_overlay.dart';
 import '../state/add_to_cart_state.dart';
@@ -26,13 +28,11 @@ class ProductDetailPage extends StatelessWidget {
       builder: (context, viewModel, state) => Scaffold(
         floatingActionButton: CommonViewCartOverlay(
           args: CommonViewCartOverlayArgs(
-            //TODO add cart its in state
-            // title: "${state.cartList.noOfItemsInCart} item${state.cartList.noOfItemsInCart > 1
-            //     ? "s"
-            //     : ""} | ${state.cartList.currency}${state.cartList.priceInCart}"
-            // , isCartEmpty: !(state.cartList.noOfItemsInCart > 0)
-            isCartEmpty: !(state.noOfItems > 0),
-            title: "",
+            title: "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
+            isCartEmpty: (state.noOfItems > 0),
+            onCartTap: () {
+              NavigationHandler.navigateTo(CartScreenRoute());
+            },
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -127,7 +127,7 @@ class ProductDetailPage extends StatelessWidget {
             ],
           ),
         ),
-        crossFadeState: (cartValue>0) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        crossFadeState: (cartValue > 0) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 100));
   }
 
