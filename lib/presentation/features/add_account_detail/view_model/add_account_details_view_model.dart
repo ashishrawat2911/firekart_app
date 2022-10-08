@@ -1,5 +1,5 @@
 import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/data/models/account_details_model.dart';
+import 'package:fluttercommerce/domain/models/account_details_model.dart';
 import 'package:fluttercommerce/domain/usecases/set_account_details_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/set_user_profile_data_usecase.dart';
 import 'package:injectable/injectable.dart';

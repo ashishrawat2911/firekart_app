@@ -2,7 +2,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
-import '../../../../data/models/account_details_model.dart';
+import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/set_account_details_usecase.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/add_address_state.dart';

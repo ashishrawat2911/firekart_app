@@ -14,8 +14,8 @@
 import 'package:auto_route/auto_route.dart' as _i16;
 import 'package:flutter/material.dart' as _i17;
 
-import '../../data/models/account_details_model.dart' as _i19;
-import '../../data/models/product_model.dart' as _i18;
+import '../../domain/models/account_details_model.dart' as _i19;
+import '../../domain/models/product_model.dart' as _i18;
 import '../features/add_account_detail/view/add_user_detail_screen.dart'
     as _i11;
 import '../features/add_address/view/add_address_screen.dart' as _i14;

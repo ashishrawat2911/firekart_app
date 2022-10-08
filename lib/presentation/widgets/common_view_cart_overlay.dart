@@ -7,8 +7,9 @@ import '../../res/text_styles.dart';
 class CommonViewCartOverlayArgs {
   String title;
   bool isCartEmpty;
+  VoidCallback? onCartTap;
 
-  CommonViewCartOverlayArgs({required this.title, required this.isCartEmpty});
+  CommonViewCartOverlayArgs({required this.title, required this.isCartEmpty,this.onCartTap});
 }
 
 class CommonViewCartOverlay extends StatelessWidget {
@@ -36,9 +37,7 @@ class CommonViewCartOverlay extends StatelessWidget {
               width: 10,
             ),
             InkWell(
-              onTap: () {
-                // NavigationHandler.navigateTo(CartScreenRoute());
-              },
+              onTap:args.onCartTap,
               child: Row(
                 children: <Widget>[
                   Icon(Icons.shopping_cart, color: AppColors.white),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/account_details_model.dart';
+import '../../../domain/models/account_details_model.dart';
 import '../../../di/di.dart';
 import '../../../domain/usecases/logout_usecase.dart';
 import '../../../domain/usecases/stream_account_details_usecase.dart';

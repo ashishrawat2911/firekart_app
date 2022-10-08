@@ -1,7 +1,7 @@
-import 'package:fluttercommerce/data/repository/firestore_repository.dart';
+import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../data/models/order_model.dart';
+import '../models/order_model.dart';
 
 @injectable
 class PlaceOrderUseCase {
