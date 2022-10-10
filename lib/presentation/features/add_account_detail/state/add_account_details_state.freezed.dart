@@ -21,7 +21,7 @@ class _$AddAccountDetailsStateTearOff {
     return const Idle();
   }
 
-  EditData editData(AccountDetailsModel accountDetails) {
+  EditData editData(AccountDetails accountDetails) {
     return EditData(
       accountDetails,
     );
@@ -56,7 +56,7 @@ mixin _$AddAccountDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -67,7 +67,7 @@ mixin _$AddAccountDetailsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -78,7 +78,7 @@ mixin _$AddAccountDetailsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -180,7 +180,7 @@ class _$Idle implements Idle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -194,7 +194,7 @@ class _$Idle implements Idle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -208,7 +208,7 @@ class _$Idle implements Idle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -277,7 +277,7 @@ abstract class Idle implements AddAccountDetailsState {
 abstract class $EditDataCopyWith<$Res> {
   factory $EditDataCopyWith(EditData value, $Res Function(EditData) then) =
       _$EditDataCopyWithImpl<$Res>;
-  $Res call({AccountDetailsModel accountDetails});
+  $Res call({AccountDetails accountDetails});
 }
 
 /// @nodoc
@@ -298,7 +298,7 @@ class _$EditDataCopyWithImpl<$Res>
       accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetailsModel,
+              as AccountDetails,
     ));
   }
 }
@@ -309,7 +309,7 @@ class _$EditData implements EditData {
   const _$EditData(this.accountDetails);
 
   @override
-  final AccountDetailsModel accountDetails;
+  final AccountDetails accountDetails;
 
   @override
   String toString() {
@@ -338,7 +338,7 @@ class _$EditData implements EditData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -352,7 +352,7 @@ class _$EditData implements EditData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -366,7 +366,7 @@ class _$EditData implements EditData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -428,9 +428,9 @@ class _$EditData implements EditData {
 }
 
 abstract class EditData implements AddAccountDetailsState {
-  const factory EditData(AccountDetailsModel accountDetails) = _$EditData;
+  const factory EditData(AccountDetails accountDetails) = _$EditData;
 
-  AccountDetailsModel get accountDetails;
+  AccountDetails get accountDetails;
   @JsonKey(ignore: true)
   $EditDataCopyWith<EditData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -476,7 +476,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -490,7 +490,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -504,7 +504,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -611,7 +611,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -625,7 +625,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -639,7 +639,7 @@ class _$ButtonEnabled implements ButtonEnabled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -746,7 +746,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -760,7 +760,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -774,7 +774,7 @@ class _$ButtonDisabled implements ButtonDisabled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -881,7 +881,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -895,7 +895,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -909,7 +909,7 @@ class _$SaveDataLoading implements SaveDataLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -1015,7 +1015,7 @@ class _$Successful implements Successful {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(AccountDetailsModel accountDetails) editData,
+    required TResult Function(AccountDetails accountDetails) editData,
     required TResult Function() loading,
     required TResult Function() onButtonEnabled,
     required TResult Function() onButtonDisabled,
@@ -1029,7 +1029,7 @@ class _$Successful implements Successful {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,
@@ -1043,7 +1043,7 @@ class _$Successful implements Successful {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(AccountDetailsModel accountDetails)? editData,
+    TResult Function(AccountDetails accountDetails)? editData,
     TResult Function()? loading,
     TResult Function()? onButtonEnabled,
     TResult Function()? onButtonDisabled,

@@ -108,7 +108,7 @@ class AppRouter extends _i16.RootStackRouter {
       return _i16.CupertinoPageX<dynamic>(
         routeData: routeData,
         child: _i10.ProductDetailPage(
-          args.productModel,
+          args.product,
           key: args.key,
         ),
       );
@@ -388,13 +388,13 @@ class SearchItemScreenRoute extends _i16.PageRouteInfo<void> {
 class ProductDetailPageRoute
     extends _i16.PageRouteInfo<ProductDetailPageRouteArgs> {
   ProductDetailPageRoute({
-    required _i18.ProductModel productModel,
+    required _i18.Product product,
     _i17.Key? key,
   }) : super(
           ProductDetailPageRoute.name,
           path: '/product-detail-page',
           args: ProductDetailPageRouteArgs(
-            productModel: productModel,
+            product: product,
             key: key,
           ),
         );
@@ -404,17 +404,17 @@ class ProductDetailPageRoute
 
 class ProductDetailPageRouteArgs {
   const ProductDetailPageRouteArgs({
-    required this.productModel,
+    required this.product,
     this.key,
   });
 
-  final _i18.ProductModel productModel;
+  final _i18.Product product;
 
   final _i17.Key? key;
 
   @override
   String toString() {
-    return 'ProductDetailPageRouteArgs{productModel: $productModel, key: $key}';
+    return 'ProductDetailPageRouteArgs{product: $product, key: $key}';
   }
 }
 
@@ -529,9 +529,9 @@ class AddAddressScreenRoute
     extends _i16.PageRouteInfo<AddAddressScreenRouteArgs> {
   AddAddressScreenRoute({
     required bool newAddress,
-    required _i19.AccountDetailsModel accountDetails,
+    required _i19.AccountDetails accountDetails,
     _i17.Key? key,
-    _i19.AddressModel? editAddress,
+    _i19.Address? editAddress,
   }) : super(
           AddAddressScreenRoute.name,
           path: '/add-address-screen',
@@ -556,11 +556,11 @@ class AddAddressScreenRouteArgs {
 
   final bool newAddress;
 
-  final _i19.AccountDetailsModel accountDetails;
+  final _i19.AccountDetails accountDetails;
 
   final _i17.Key? key;
 
-  final _i19.AddressModel? editAddress;
+  final _i19.Address? editAddress;
 
   @override
   String toString() {

@@ -14,8 +14,8 @@ import '../view_model/add_address_view_model.dart';
 class AddAddressScreen extends StatelessWidget {
   AddAddressScreen(this.newAddress, this.accountDetails, {Key? key, this.editAddress}) : super(key: key);
   final bool newAddress;
-  final AccountDetailsModel accountDetails;
-  final AddressModel? editAddress;
+  final AccountDetails accountDetails;
+  final Address? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
   final TextEditingController emailEditingController = TextEditingController();
@@ -220,7 +220,7 @@ class AddAddressScreen extends StatelessWidget {
 
   void onButtonTap(AddAddressViewModel viewModel, AddAddressState state) {
     if (_formKey.currentState!.validate()) {
-      final AddressModel address = AddressModel(
+      final Address address = Address(
           name: nameEditingController.text,
           address: addressEditingController.text,
           city: cityEditingController.text,

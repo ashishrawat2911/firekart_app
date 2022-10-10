@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../domain/models/product_model.dart';
 import '../../../../di/di.dart';
+import '../../../../domain/models/product_model.dart';
 import '../../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
@@ -28,16 +28,8 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   @override
   void initState() {
     allProductsCubit.fetchProducts(widget.productCondition);
-    if (widget.productCondition == null) {
-      controller.addListener(_scrollListener);
-    }
-    super.initState();
-  }
 
-  void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
-      allProductsCubit.fetchNextList(widget.productCondition);
-    }
+    super.initState();
   }
 
   @override
@@ -57,10 +49,10 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           )
         ],
       ),
-      body: BlocConsumer<AllProductCubit, ResultState<List<ProductModel>>>(
+      body: BlocConsumer<AllProductCubit, ResultState<List<Product>>>(
         bloc: allProductsCubit,
-        listener: (BuildContext context, ResultState<List<ProductModel>> state) {},
-        builder: (BuildContext context, ResultState<List<ProductModel>> state) {
+        listener: (BuildContext context, ResultState<List<Product>> state) {},
+        builder: (BuildContext context, ResultState<List<Product>> state) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
@@ -71,7 +63,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
             errorWidget: (String error) {
               return Container();
             },
-            dataWidget: (List<ProductModel> value) {
+            dataWidget: (List<Product> value) {
               return dataWidget(value);
             },
           );
@@ -80,7 +72,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
     );
   }
 
-  Widget dataWidget(List<ProductModel> productList) {
+  Widget dataWidget(List<Product> productList) {
     return GridView.builder(
       controller: controller,
       itemCount: productList.length,
@@ -97,7 +89,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
     );
   }
 
-  ProductCardArgs productModelToArgs(ProductModel productModel) {
+  ProductCardArgs productModelToArgs(Product productModel) {
     return ProductCardArgs(
       image: productModel.image!,
       name: productModel.name!,
@@ -105,7 +97,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       onTap: () {
         NavigationHandler.navigateTo(
           ProductDetailPageRoute(
-            productModel: productModel,
+            product: productModel,
           ),
         );
       },

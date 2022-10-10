@@ -18,7 +18,7 @@ class _$ProductSearchStateTearOff {
   const _$ProductSearchStateTearOff();
 
   _ProductSearchState call(
-      {List<ProductModel> productList = const [],
+      {List<Product> productList = const [],
       bool loading = false,
       String? otp,
       String? error}) {
@@ -36,7 +36,7 @@ const $ProductSearchState = _$ProductSearchStateTearOff();
 
 /// @nodoc
 mixin _$ProductSearchState {
-  List<ProductModel> get productList => throw _privateConstructorUsedError;
+  List<Product> get productList => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   String? get otp => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
@@ -52,10 +52,7 @@ abstract class $ProductSearchStateCopyWith<$Res> {
           ProductSearchState value, $Res Function(ProductSearchState) then) =
       _$ProductSearchStateCopyWithImpl<$Res>;
   $Res call(
-      {List<ProductModel> productList,
-      bool loading,
-      String? otp,
-      String? error});
+      {List<Product> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
@@ -78,7 +75,7 @@ class _$ProductSearchStateCopyWithImpl<$Res>
       productList: productList == freezed
           ? _value.productList
           : productList // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
+              as List<Product>,
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -103,10 +100,7 @@ abstract class _$ProductSearchStateCopyWith<$Res>
       __$ProductSearchStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<ProductModel> productList,
-      bool loading,
-      String? otp,
-      String? error});
+      {List<Product> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
@@ -131,7 +125,7 @@ class __$ProductSearchStateCopyWithImpl<$Res>
       productList: productList == freezed
           ? _value.productList
           : productList // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
+              as List<Product>,
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -159,7 +153,7 @@ class _$_ProductSearchState implements _ProductSearchState {
 
   @JsonKey()
   @override
-  final List<ProductModel> productList;
+  final List<Product> productList;
   @JsonKey()
   @override
   final bool loading;
@@ -201,13 +195,13 @@ class _$_ProductSearchState implements _ProductSearchState {
 
 abstract class _ProductSearchState implements ProductSearchState {
   const factory _ProductSearchState(
-      {List<ProductModel> productList,
+      {List<Product> productList,
       bool loading,
       String? otp,
       String? error}) = _$_ProductSearchState;
 
   @override
-  List<ProductModel> get productList;
+  List<Product> get productList;
   @override
   bool get loading;
   @override

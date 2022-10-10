@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/models/product_model.dart';
 import '../../../../di/di.dart';
+import '../../../../domain/models/product_model.dart';
 import '../../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
@@ -45,7 +45,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
         ));
   }
 
-  Widget productView(List<ProductModel> productList) {
+  Widget productView(List<Product> productList) {
     return GridView.count(
       padding: const EdgeInsets.only(bottom: 10, right: 16, left: 16, top: 20),
       crossAxisCount: 3,
@@ -60,7 +60,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
     );
   }
 
-  ProductCardArgs productModelToArgs(ProductModel productModel) {
+  ProductCardArgs productModelToArgs(Product productModel) {
     return ProductCardArgs(
       image: productModel.image!,
       name: productModel.name!,
@@ -68,7 +68,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       onTap: () {
         NavigationHandler.navigateTo(
           ProductDetailPageRoute(
-            productModel: productModel,
+            product: productModel,
           ),
         );
       },

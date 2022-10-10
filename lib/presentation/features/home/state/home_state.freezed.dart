@@ -20,7 +20,7 @@ class _$HomeStateTearOff {
   _HomeState call(
       {int bottomIndex = 0,
       int noOfItemsInCart = 0,
-      AccountDetailsModel? accountDetails}) {
+      AccountDetails? accountDetails}) {
     return _HomeState(
       bottomIndex: bottomIndex,
       noOfItemsInCart: noOfItemsInCart,
@@ -36,7 +36,7 @@ const $HomeState = _$HomeStateTearOff();
 mixin _$HomeState {
   int get bottomIndex => throw _privateConstructorUsedError;
   int get noOfItemsInCart => throw _privateConstructorUsedError;
-  AccountDetailsModel? get accountDetails => throw _privateConstructorUsedError;
+  AccountDetails? get accountDetails => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -48,9 +48,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
   $Res call(
-      {int bottomIndex,
-      int noOfItemsInCart,
-      AccountDetailsModel? accountDetails});
+      {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
 }
 
 /// @nodoc
@@ -79,7 +77,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetailsModel?,
+              as AccountDetails?,
     ));
   }
 }
@@ -91,9 +89,7 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$HomeStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int bottomIndex,
-      int noOfItemsInCart,
-      AccountDetailsModel? accountDetails});
+      {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
 }
 
 /// @nodoc
@@ -123,7 +119,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetailsModel?,
+              as AccountDetails?,
     ));
   }
 }
@@ -141,7 +137,7 @@ class _$_HomeState implements _HomeState {
   @override
   final int noOfItemsInCart;
   @override
-  final AccountDetailsModel? accountDetails;
+  final AccountDetails? accountDetails;
 
   @override
   String toString() {
@@ -178,14 +174,14 @@ abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {int bottomIndex,
       int noOfItemsInCart,
-      AccountDetailsModel? accountDetails}) = _$_HomeState;
+      AccountDetails? accountDetails}) = _$_HomeState;
 
   @override
   int get bottomIndex;
   @override
   int get noOfItemsInCart;
   @override
-  AccountDetailsModel? get accountDetails;
+  AccountDetails? get accountDetails;
   @override
   @JsonKey(ignore: true)
   _$HomeStateCopyWith<_HomeState> get copyWith =>

@@ -1,3 +1,4 @@
+import 'package:fluttercommerce/domain/mapper/domain_mapper.dart';
 import 'package:fluttercommerce/domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/delete_product_from_cart_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart';
@@ -7,7 +8,6 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
-import '../../../../domain/models/cart_model.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../../res/string_constants.dart';
 import '../state/add_to_cart_state.dart';
@@ -19,12 +19,14 @@ class ProductViewModel extends StateManager<AddToCartState> {
     this._productDeleteCartUseCase,
     this._productAddToCartUseCase,
     this._getCartStatusUseCase,
+    this._domainMapper,
   ) : super(const AddToCartState());
 
   final GetItemsInCartUseCase _getItemsInCartUseCase;
   final ProductDeleteCartUseCase _productDeleteCartUseCase;
   final ProductAddToCartUseCase _productAddToCartUseCase;
   final GetCartStatusUseCase _getCartStatusUseCase;
+  final DomainMapper _domainMapper;
 
   Future<void> listenToProduct(String productId) async {
     _getCartStatusUseCase.execute().listen((event) {
@@ -46,22 +48,21 @@ class ProductViewModel extends StateManager<AddToCartState> {
     }
   }
 
-  Future<void> addToCart(ProductModel productModel) async {
+  Future<void> addToCart(Product productModel) async {
     state = state.copyWith(addToCardLoading: true);
 
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
       MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
       return;
     }
-    updateCartValues(productModel, 0, true).then((value) {
-    }).catchError((e) {
+    updateCartValues(productModel, 0, true).then((value) {}).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());
     }).whenComplete(() {
       state = state.copyWith(addToCardLoading: false);
     });
   }
 
-  Future<void> updateCartValues(ProductModel productModel, int cartValue, bool shouldIncrease) async {
+  Future<void> updateCartValues(Product productModel, int cartValue, bool shouldIncrease) async {
     final int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
     state = state.copyWith(addToCardLoading: true);
 
@@ -70,8 +71,9 @@ class ProductViewModel extends StateManager<AddToCartState> {
         MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
         return;
       }
-      final CartModel cartModel = CartModel.fromProduct(productModel, newCartValue);
-      _productAddToCartUseCase.execute(cartModel).then((value) {
+      final cart = _domainMapper.cartFromProduct(productModel);
+      cart.numOfItems = newCartValue;
+      _productAddToCartUseCase.execute(cart).then((value) {
         state = state.copyWith(noOfItems: newCartValue);
       }).catchError((e) {
         MessageHandler.showSnackBar(title: e.toString());
