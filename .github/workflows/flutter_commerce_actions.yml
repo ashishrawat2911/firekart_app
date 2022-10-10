@@ -18,7 +18,7 @@ jobs:
           channel: 'stable'
       - run: flutter analyze
       - run: flutter pub get
-#      - run: flutter packages pub run build_runner build --delete-conflicting-outputs
+      - run: flutter packages pub run build_runner build --delete-conflicting-outputs
       - run: flutter build apk
       - run: flutter build ios --release --no-codesign
 
