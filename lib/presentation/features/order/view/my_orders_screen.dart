@@ -17,7 +17,7 @@ class MyOrdersScreen extends StatefulWidget {
   const MyOrdersScreen({Key? key}) : super(key: key);
 
   @override
-  _MyOrdersScreenState createState() => _MyOrdersScreenState();
+  State createState() => _MyOrdersScreenState();
 }
 
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
@@ -81,7 +81,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.t14,
                               ),
                               Text(
-                                getOrderedTime(orderList[orderListIndex].orderedAt!),
+                                getOrderedTime(orderList[orderListIndex].orderedAt),
                                 style: AppTextStyles.t1,
                               )
                             ],
@@ -89,8 +89,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(orderList[orderListIndex].orderItems!.length,
-                        (index) => orderCard(orderList[orderListIndex].orderItems![index])),
+                    ...List<Widget>.generate(orderList[orderListIndex].orderItems.length,
+                        (index) => orderCard(orderList[orderListIndex].orderItems[index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -112,13 +112,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         Row(
                           children: [
                             Text(
-                              "${orderList[orderListIndex].orderStatus}",
+                              orderList[orderListIndex].orderStatus,
                               style: AppTextStyles.t19,
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(orderList[orderListIndex].orderStatus!)
+                            getOrderStatusIcon(orderList[orderListIndex].orderStatus)
                           ],
                         )
                       ],
@@ -147,7 +147,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             Row(
               children: [
                 CachedNetworkImage(
-                  imageUrl: orderItem.image!,
+                  imageUrl: orderItem.image,
                   height: 46,
                   width: 46,
                   fit: BoxFit.fill,
@@ -159,7 +159,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      orderItem.name!,
+                      orderItem.name,
                       style: AppTextStyles.t18,
                     ),
                     const SizedBox(
@@ -177,7 +177,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               height: 10,
             ),
             Text(
-              "${orderItem.noOfItems} item${orderItem.noOfItems! > 1 ? "s" : ""}",
+              "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
               style: AppTextStyles.t19,
             ),
           ],

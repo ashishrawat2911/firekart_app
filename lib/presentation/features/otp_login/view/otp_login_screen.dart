@@ -19,7 +19,7 @@ class OtpLoginScreen extends StatefulWidget {
   final String? phoneNumber;
 
   @override
-  _OtpLoginScreenState createState() => _OtpLoginScreenState();
+  State createState() => _OtpLoginScreenState();
 }
 
 class _OtpLoginScreenState extends State<OtpLoginScreen> {

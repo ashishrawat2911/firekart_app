@@ -56,8 +56,8 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
       resendOtpLoading: isResend,
     );
 
-    final _credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: smsCode);
-    _login(_credential);
+    final credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: smsCode);
+    _login(credential);
   }
 
   Future<void> _login(AuthCredential authCred) async {

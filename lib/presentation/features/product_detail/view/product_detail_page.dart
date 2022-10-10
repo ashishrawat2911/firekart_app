@@ -22,8 +22,8 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateManager<ProductViewModel, AddToCartState>(
       onViewModelReady: (viewModel) {
-        viewModel.checkItemInCart(product.productId!);
-        viewModel.listenToProduct(product.productId!);
+        viewModel.checkItemInCart(product.productId);
+        viewModel.listenToProduct(product.productId);
       },
       builder: (context, viewModel, state) => Scaffold(
         floatingActionButton: CommonViewCartOverlay(
@@ -37,13 +37,13 @@ class ProductDetailPage extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
-          title: Text(product.name!),
+          title: Text(product.name),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               CachedNetworkImage(
-                imageUrl: product.image!,
+                imageUrl: product.image,
                 fit: BoxFit.fill,
               ),
               Container(
@@ -52,13 +52,13 @@ class ProductDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      product.name!,
+                      product.name,
                       style: AppTextStyles.t33,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(product.description!),
+                    Text(product.description),
                     const SizedBox(
                       height: 10,
                     ),

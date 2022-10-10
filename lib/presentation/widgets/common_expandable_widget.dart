@@ -24,7 +24,7 @@ class CommonExpandedWidget extends StatefulWidget {
   final Color? color;
 
   @override
-  _CommonExpandedWidgetState createState() => _CommonExpandedWidgetState();
+  State createState() => _CommonExpandedWidgetState();
 }
 
 class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with SingleTickerProviderStateMixin {

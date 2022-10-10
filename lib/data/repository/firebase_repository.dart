@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttercommerce/core/extentions/list_extention.dart';
 import 'package:fluttercommerce/data/mapper/data_mapper.dart';
 import 'package:fluttercommerce/domain/models/account_details_model.dart';
@@ -54,5 +55,29 @@ class FirebaseRepository {
 
   Future<void> addProductToCart(Cart cart) {
     return _firebaseService.addProductToCart(_mapper.carToModel(cart));
+  }
+
+  Future<void> delProductFromCart(String productId) {
+    return _firebaseService.delProductFromCart(productId);
+  }
+
+  String? getPhoneNumber() {
+    return _firebaseService.getPhoneNumber();
+  }
+
+  Future<int> checkItemInCart(String productId) {
+    return _firebaseService.checkItemInCart(productId);
+  }
+
+  Future<bool> checkUserDetail() {
+    return _firebaseService.checkUserDetail();
+  }
+
+  User? getCurrentUser() {
+    return _firebaseService.getCurrentUser();
+  }
+
+  Future<void> logoutUser() {
+    return _firebaseService.logoutUser();
   }
 }
