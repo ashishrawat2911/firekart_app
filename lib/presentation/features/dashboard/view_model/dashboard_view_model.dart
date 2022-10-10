@@ -11,7 +11,7 @@ import '../state/dashboard_state.dart';
 enum ProductData { dealOfTheDay, onSale, topProducts }
 
 @injectable
-class DashboardViewModel extends StateManager<DashboardState> {
+class DashboardViewModel extends ViewModel<DashboardState> {
   DashboardViewModel(this._getAllProductsUseCase) : super(const DashboardState());
 
   final GetAllProductsUseCase _getAllProductsUseCase;

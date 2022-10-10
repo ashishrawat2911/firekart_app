@@ -1,33 +1,9 @@
-import 'package:fluttercommerce/data/model/product_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'cart_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class CartModel {
-  CartModel({
-    required this.productId,
-    required this.image,
-    required this.name,
-    required this.unit,
-    required this.currency,
-    required this.currentPrice,
-    required this.quantityPerUnit,
-    required this.numOfItems,
-  });
-
-  factory CartModel.fromProduct(ProductModel productModel, int numOfItems) {
-    return CartModel(
-        productId: productModel.productId!,
-        image: productModel.image!,
-        name: productModel.name!,
-        unit: productModel.unit!,
-        currency: productModel.currency!,
-        currentPrice: productModel.currentPrice!,
-        quantityPerUnit: productModel.quantityPerUnit!,
-        numOfItems: numOfItems);
-  }
-
   factory CartModel.fromJson(json) => _$CartModelFromJson(json);
   String productId;
   String image;
@@ -40,4 +16,7 @@ class CartModel {
   int numOfItems;
 
   Map<String, dynamic> toJson() => _$CartModelToJson(this);
+
+  CartModel(this.productId, this.image, this.name, this.unit, this.currency, this.currentPrice, this.quantityPerUnit,
+      [this.numOfItems = 0]);
 }

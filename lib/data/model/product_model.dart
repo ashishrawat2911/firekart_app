@@ -4,26 +4,30 @@ part 'product_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ProductModel {
-  String? productId;
-  String? image;
-  String? name;
-  String? description;
-  String? unit;
-  List<String>? categories;
-  String? currency;
-  bool? dealOfTheDay;
-  bool? topProducts;
-  bool? onSale;
-  num? currentPrice;
-  num? actualPrice;
-  num? quantityPerUnit;
-  bool? isProductAvailable;
-  List<String>? nameSearch;
+  final String productId;
+  final String image;
+  final String name;
+  final String description;
+  final String unit;
+  final List<String> categories;
+  final String currency;
+  final bool dealOfTheDay;
+  final bool topProducts;
+  final bool onSale;
+  final num currentPrice;
+  final num actualPrice;
+  final num quantityPerUnit;
+
+  @JsonKey(defaultValue: false)
+  final bool isProductAvailable;
+  final List<String> nameSearch;
+
 
   ProductModel(
-      {this.productId,
+      this.productId,
       this.image,
       this.name,
+      this.description,
       this.unit,
       this.categories,
       this.currency,
@@ -33,9 +37,8 @@ class ProductModel {
       this.currentPrice,
       this.actualPrice,
       this.quantityPerUnit,
-      this.description,
-      this.isProductAvailable = false,
-      this.nameSearch});
+      this.isProductAvailable,
+      this.nameSearch);
 
   factory ProductModel.fromJson(json) => _$ProductModelFromJson(json);
 

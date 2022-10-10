@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'phone_login_state.dart';
@@ -11,28 +12,7 @@ part of 'phone_login_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PhoneLoginStateTearOff {
-  const _$PhoneLoginStateTearOff();
-
-  _PhoneLoginState call(
-      {String? codeCountDown,
-      bool isButtonEnabled = false,
-      bool phoneLoading = false,
-      String? error}) {
-    return _PhoneLoginState(
-      codeCountDown: codeCountDown,
-      isButtonEnabled: isButtonEnabled,
-      phoneLoading: phoneLoading,
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $PhoneLoginState = _$PhoneLoginStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PhoneLoginState {
@@ -96,11 +76,11 @@ class _$PhoneLoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PhoneLoginStateCopyWith<$Res>
+abstract class _$$_PhoneLoginStateCopyWith<$Res>
     implements $PhoneLoginStateCopyWith<$Res> {
-  factory _$PhoneLoginStateCopyWith(
-          _PhoneLoginState value, $Res Function(_PhoneLoginState) then) =
-      __$PhoneLoginStateCopyWithImpl<$Res>;
+  factory _$$_PhoneLoginStateCopyWith(
+          _$_PhoneLoginState value, $Res Function(_$_PhoneLoginState) then) =
+      __$$_PhoneLoginStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? codeCountDown,
@@ -110,15 +90,15 @@ abstract class _$PhoneLoginStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PhoneLoginStateCopyWithImpl<$Res>
+class __$$_PhoneLoginStateCopyWithImpl<$Res>
     extends _$PhoneLoginStateCopyWithImpl<$Res>
-    implements _$PhoneLoginStateCopyWith<$Res> {
-  __$PhoneLoginStateCopyWithImpl(
-      _PhoneLoginState _value, $Res Function(_PhoneLoginState) _then)
-      : super(_value, (v) => _then(v as _PhoneLoginState));
+    implements _$$_PhoneLoginStateCopyWith<$Res> {
+  __$$_PhoneLoginStateCopyWithImpl(
+      _$_PhoneLoginState _value, $Res Function(_$_PhoneLoginState) _then)
+      : super(_value, (v) => _then(v as _$_PhoneLoginState));
 
   @override
-  _PhoneLoginState get _value => super._value as _PhoneLoginState;
+  _$_PhoneLoginState get _value => super._value as _$_PhoneLoginState;
 
   @override
   $Res call({
@@ -127,7 +107,7 @@ class __$PhoneLoginStateCopyWithImpl<$Res>
     Object? phoneLoading = freezed,
     Object? error = freezed,
   }) {
-    return _then(_PhoneLoginState(
+    return _then(_$_PhoneLoginState(
       codeCountDown: codeCountDown == freezed
           ? _value.codeCountDown
           : codeCountDown // ignore: cast_nullable_to_non_nullable
@@ -159,11 +139,11 @@ class _$_PhoneLoginState implements _PhoneLoginState {
 
   @override
   final String? codeCountDown;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isButtonEnabled;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool phoneLoading;
   @override
   final String? error;
@@ -177,7 +157,7 @@ class _$_PhoneLoginState implements _PhoneLoginState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PhoneLoginState &&
+            other is _$_PhoneLoginState &&
             const DeepCollectionEquality()
                 .equals(other.codeCountDown, codeCountDown) &&
             const DeepCollectionEquality()
@@ -197,16 +177,16 @@ class _$_PhoneLoginState implements _PhoneLoginState {
 
   @JsonKey(ignore: true)
   @override
-  _$PhoneLoginStateCopyWith<_PhoneLoginState> get copyWith =>
-      __$PhoneLoginStateCopyWithImpl<_PhoneLoginState>(this, _$identity);
+  _$$_PhoneLoginStateCopyWith<_$_PhoneLoginState> get copyWith =>
+      __$$_PhoneLoginStateCopyWithImpl<_$_PhoneLoginState>(this, _$identity);
 }
 
 abstract class _PhoneLoginState implements PhoneLoginState {
   const factory _PhoneLoginState(
-      {String? codeCountDown,
-      bool isButtonEnabled,
-      bool phoneLoading,
-      String? error}) = _$_PhoneLoginState;
+      {final String? codeCountDown,
+      final bool isButtonEnabled,
+      final bool phoneLoading,
+      final String? error}) = _$_PhoneLoginState;
 
   @override
   String? get codeCountDown;
@@ -218,6 +198,6 @@ abstract class _PhoneLoginState implements PhoneLoginState {
   String? get error;
   @override
   @JsonKey(ignore: true)
-  _$PhoneLoginStateCopyWith<_PhoneLoginState> get copyWith =>
+  _$$_PhoneLoginStateCopyWith<_$_PhoneLoginState> get copyWith =>
       throw _privateConstructorUsedError;
 }

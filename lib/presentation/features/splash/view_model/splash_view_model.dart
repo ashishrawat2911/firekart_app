@@ -8,7 +8,7 @@ import '../../../routes/navigation_handler.dart';
 import '../state/splash_state.dart';
 
 @injectable
-class SplashViewModel extends StateManager<SplashState> {
+class SplashViewModel extends ViewModel<SplashState> {
   SplashViewModel() : super(SplashInitialState());
 
   void startSplash() {

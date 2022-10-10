@@ -7,7 +7,7 @@ class Cart {
     required this.currency,
     required this.currentPrice,
     required this.quantityPerUnit,
-    required this.numOfItems,
+    this.numOfItems = 0,
   });
 
   String productId;

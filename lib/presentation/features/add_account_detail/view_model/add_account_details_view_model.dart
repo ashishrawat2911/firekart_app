@@ -12,7 +12,7 @@ import '../../../routes/navigation_handler.dart';
 import '../state/add_account_details_state.dart';
 
 @injectable
-class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
+class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
   AddAccountDetailsViewModel(
     this._setAccountDetailsUseCase,
     this._getAccountDetailsUseCase,

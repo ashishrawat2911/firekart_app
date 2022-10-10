@@ -47,7 +47,7 @@ class _SaveDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
+    return StateManager<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
       onViewModelReady: (viewModel) {
         if (!newAddress) {
           viewModel.loadPreviousData();

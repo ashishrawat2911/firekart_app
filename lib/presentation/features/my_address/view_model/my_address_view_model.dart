@@ -8,7 +8,7 @@ import '../../../../domain/usecases/set_account_details_usecase.dart';
 import '../state/my_address_state.dart';
 
 @injectable
-class MyAddressViewModel extends StateManager<MyAddressState> {
+class MyAddressViewModel extends ViewModel<MyAddressState> {
   MyAddressViewModel(this._getAccountDetailsUseCase, this._setAccountDetailsUseCase) : super(const MyAddressState());
 
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;

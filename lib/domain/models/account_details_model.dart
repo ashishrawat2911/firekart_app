@@ -11,14 +11,15 @@ class AccountDetails {
 }
 
 class Address {
-  Address(
-      {required this.name,
-      required this.pincode,
-      required this.address,
-      required this.city,
-      required this.state,
-      required this.phoneNumber,
-      this.isDefault = false});
+  Address({
+    required this.name,
+    required this.pincode,
+    required this.address,
+    required this.city,
+    required this.state,
+    required this.phoneNumber,
+    this.isDefault = false,
+  });
 
   String name;
   String pincode;

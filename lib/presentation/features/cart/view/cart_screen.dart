@@ -16,7 +16,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<CartViewModel, CartState>(
+    return StateManager<CartViewModel, CartState>(
       onViewModelReady: (viewModel) {
         viewModel.init();
       },

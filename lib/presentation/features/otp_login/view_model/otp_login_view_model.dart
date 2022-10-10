@@ -11,7 +11,7 @@ import '../../../routes/navigation_handler.dart';
 import '../state/otp_login_state.dart';
 
 @injectable
-class OtpLoginViewModel extends StateManager<OtpLoginState> {
+class OtpLoginViewModel extends ViewModel<OtpLoginState> {
   OtpLoginViewModel(this._sendOTPUseCase) : super(const OtpLoginState());
   final SendOTPUseCase _sendOTPUseCase;
   late String _verificationId;

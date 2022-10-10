@@ -8,24 +8,34 @@ import 'package:smartstruct/smartstruct.dart';
 
 import '../../domain/models/account_details_model.dart';
 import '../../domain/models/product_model.dart';
+import 'package:injectable/injectable.dart';
 
 part 'data_mapper.mapper.g.dart';
-
-@Mapper()
+@Mapper(useInjection: true)
 abstract class DataMapper {
   AccountDetails accountDetailsFromModel(AccountDetailsModel model);
 
   AccountDetailsModel accountDetailsToModel(AccountDetails model);
 
-  Order orderFromModel(OrderModel orderModel);
+  Address addressFromModel(AddressModel model);
+
+  AddressModel addressToModel(Address model);
+
+  Order orderFromModel(OrderModel model);
 
   OrderModel orderToModel(Order order);
 
-  Product productFromModel(ProductModel productModel);
+  OrderItem orderItemFromModel(OrderItemModel model);
 
-  Cart cartFromModel(CartModel cartModel);
+  OrderItemModel orderItemToModel(OrderItem model);
 
-  CartModel carToModel(Cart cartModel);
+  Product productFromModel(ProductModel model);
 
-  CartModel cartFromProduct(Product product);
+  ProductModel productToModel(Product model);
+
+  Cart cartFromModel(CartModel model);
+
+  CartModel carToModel(Cart model);
+
+  CartModel cartFromProduct(Product model);
 }

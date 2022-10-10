@@ -18,7 +18,7 @@ import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
 
 @injectable
-class CartViewModel extends StateManager<CartState> {
+class CartViewModel extends ViewModel<CartState> {
   CartViewModel(
     this._productAddToCartUseCase,
     this._productDeleteCartUseCase,
