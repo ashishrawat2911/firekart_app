@@ -7,8 +7,8 @@ part of 'faq_model.dart';
 // **************************************************************************
 
 FaqModel _$FaqModelFromJson(Map<String, dynamic> json) => FaqModel(
-      question: json['question'] as String?,
-      answer: json['answer'] as String?,
+      json['question'] as String,
+      json['answer'] as String,
     );
 
 Map<String, dynamic> _$FaqModelToJson(FaqModel instance) => <String, dynamic>{

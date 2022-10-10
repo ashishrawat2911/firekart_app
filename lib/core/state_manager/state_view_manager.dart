@@ -10,8 +10,8 @@ typedef OnViewModelBuilder<V> = Widget Function(BuildContext context, V viewMode
 typedef OnStateListener<S> = void Function(BuildContext context, S state);
 typedef BuilderCondition<S> = bool Function(S previous, S current);
 
-class BaseView<V extends StateManager<S>, S> extends StatefulWidget {
-  const BaseView({
+class StateManager<V extends ViewModel<S>, S> extends StatefulWidget {
+  const StateManager({
     Key? key,
     this.builder,
     this.onViewModelReady,
@@ -25,16 +25,14 @@ class BaseView<V extends StateManager<S>, S> extends StatefulWidget {
   final BuilderCondition<S>? buildWhen;
 
   @override
-  State<BaseView<V, S>> createState() => _BaseViewState<V, S>();
+  State<StateManager<V, S>> createState() => _StateManagerState<V, S>();
 }
 
-class _BaseViewState<V extends StateManager<S>, S> extends State<BaseView<V, S>> {
-  final V viewModel = inject<V>();
-
+class _StateManagerState<V extends ViewModel<S>, S> extends State<StateManager<V, S>> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<V>.value(
-      value: viewModel,
+      value: inject<V>(),
       child: BlocConsumer<V, S>(
         builder: (context, state) {
           return widget.builder?.call(
@@ -47,6 +45,35 @@ class _BaseViewState<V extends StateManager<S>, S> extends State<BaseView<V, S>>
         listener: widget.stateListener ?? (_, __) {},
         buildWhen: widget.buildWhen,
       ),
+    );
+  }
+}
+
+class StateBuilder<V extends ViewModel<S>, S> extends StatelessWidget {
+  const StateBuilder({
+    Key? key,
+    required this.builder,
+    this.stateListener,
+    this.buildWhen,
+  }) : super(key: key);
+
+  final OnViewModelStateBuilder<V, S> builder;
+  final OnStateListener<S>? stateListener;
+  final BuilderCondition<S>? buildWhen;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<V, S>(
+      builder: (context, state) {
+        return builder.call(
+              context,
+              BlocProvider.of(context),
+              state,
+            ) ??
+            Container();
+      },
+      listener: stateListener ?? (_, __) {},
+      buildWhen: buildWhen,
     );
   }
 }

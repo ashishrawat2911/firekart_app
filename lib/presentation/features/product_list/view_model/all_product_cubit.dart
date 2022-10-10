@@ -7,7 +7,7 @@ import '../../../../core/state_manager/state_manager.dart';
 import '../../../../domain/models/product_model.dart';
 
 @injectable
-class AllProductCubit extends StateManager<ResultState<List<Product>>> {
+class AllProductCubit extends ViewModel<ResultState<List<Product>>> {
   AllProductCubit(this._getAllProductsUseCase) : super(const ResultState.idle());
 
   final GetAllProductsUseCase _getAllProductsUseCase;

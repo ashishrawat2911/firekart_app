@@ -1,6 +1,6 @@
 class Faq {
-  Faq({this.question, this.answer});
+  Faq({required this.question,required this.answer});
 
-  String? question;
-  String? answer;
+  String question;
+  String answer;
 }

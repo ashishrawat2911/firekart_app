@@ -38,7 +38,7 @@ class AddAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<AddAddressViewModel, AddAddressState>(
+    return StateManager<AddAddressViewModel, AddAddressState>(
       onViewModelReady: (viewModel) {
         if (editAddress != null) {
           nameEditingController.text = editAddress!.name;

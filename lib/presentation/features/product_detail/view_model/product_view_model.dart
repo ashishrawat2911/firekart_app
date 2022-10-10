@@ -13,7 +13,7 @@ import '../../../../res/string_constants.dart';
 import '../state/add_to_cart_state.dart';
 
 @injectable
-class ProductViewModel extends StateManager<AddToCartState> {
+class ProductViewModel extends ViewModel<AddToCartState> {
   ProductViewModel(
     this._getItemsInCartUseCase,
     this._productDeleteCartUseCase,

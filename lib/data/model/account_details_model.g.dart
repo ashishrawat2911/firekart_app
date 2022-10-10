@@ -8,12 +8,12 @@ part of 'account_details_model.dart';
 
 AccountDetailsModel _$AccountDetailsModelFromJson(Map<String, dynamic> json) =>
     AccountDetailsModel(
-      name: json['name'] as String,
-      phoneNumber: json['phoneNumber'] as String?,
-      addresses: (json['addresses'] as List<dynamic>?)
+      json['name'] as String,
+      json['phoneNumber'] as String?,
+      (json['addresses'] as List<dynamic>?)
               ?.map((e) => AddressModel.fromJson(e))
               .toList() ??
-          const [],
+          [],
     );
 
 Map<String, dynamic> _$AccountDetailsModelToJson(
@@ -25,13 +25,13 @@ Map<String, dynamic> _$AccountDetailsModelToJson(
     };
 
 AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
-      name: json['name'] as String,
-      pincode: json['pincode'] as String,
-      address: json['address'] as String,
-      city: json['city'] as String,
-      state: json['state'] as String,
-      phoneNumber: json['phone_number'] as String,
-      isDefault: json['is_default'] as bool? ?? false,
+      json['name'] as String,
+      json['pincode'] as String,
+      json['address'] as String,
+      json['city'] as String,
+      json['state'] as String,
+      json['phone_number'] as String,
+      json['is_default'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$AddressModelToJson(AddressModel instance) =>

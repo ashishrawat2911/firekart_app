@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../logger/app_logger.dart';
 
-abstract class StateManager<S> extends Cubit<S> {
-  StateManager(S state) : super(state);
+abstract class ViewModel<S> extends Cubit<S> {
+  ViewModel(S state) : super(state);
 
   set state(S value) {
     emit(value);

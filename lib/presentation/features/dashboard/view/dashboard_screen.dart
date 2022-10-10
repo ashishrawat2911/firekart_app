@@ -25,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<DashboardViewModel, DashboardState>(
+    return StateManager<DashboardViewModel, DashboardState>(
       onViewModelReady: (viewModel) {
         fetchProductData(viewModel);
       },
