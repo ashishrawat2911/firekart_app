@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<HomeScreenViewModel, HomeState>(
+    return BaseView<HomeScreenViewModel, HomeState>(
       onViewModelReady: (viewModel) {
         viewModel.init();
       },

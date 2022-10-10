@@ -22,7 +22,7 @@ class MyAddressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
-      body: StateBuilder<MyAddressViewModel, MyAddressState>(
+      body: BaseView<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
         },
