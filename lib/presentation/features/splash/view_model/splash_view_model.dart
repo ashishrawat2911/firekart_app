@@ -12,8 +12,8 @@ class SplashViewModel extends ViewModel<SplashState> {
   SplashViewModel() : super(SplashInitialState());
 
   void startSplash() {
-    const _duration = Duration(milliseconds: 1500);
-    Timer(_duration, () {
+    const duration = Duration(milliseconds: 1500);
+    Timer(duration, () {
       NavigationHandler.navigateTo(
         CheckStatusScreenRoute(),
         navigationType: NavigationType.pushReplacement,

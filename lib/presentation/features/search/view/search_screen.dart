@@ -16,7 +16,7 @@ class SearchItemScreen extends StatefulWidget {
   const SearchItemScreen({Key? key}) : super(key: key);
 
   @override
-  _SearchItemScreenState createState() => _SearchItemScreenState();
+  State createState() => _SearchItemScreenState();
 }
 
 class _SearchItemScreenState extends State<SearchItemScreen> {
@@ -62,9 +62,9 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
 
   ProductCardArgs productModelToArgs(Product productModel) {
     return ProductCardArgs(
-      image: productModel.image!,
-      name: productModel.name!,
-      currency: productModel.currency!,
+      image: productModel.image,
+      name: productModel.name,
+      currency: productModel.currency,
       onTap: () {
         NavigationHandler.navigateTo(
           ProductDetailPageRoute(
@@ -72,10 +72,10 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
           ),
         );
       },
-      actualPrice: productModel.actualPrice!,
-      currentPrice: productModel.currentPrice!,
-      quantityPerUnit: productModel.quantityPerUnit!,
-      unit: productModel.unit!,
+      actualPrice: productModel.actualPrice,
+      currentPrice: productModel.currentPrice,
+      quantityPerUnit: productModel.quantityPerUnit,
+      unit: productModel.unit,
     );
   }
 }

@@ -13,8 +13,8 @@ class MyOrdersCubit extends Cubit<ResultState<List<Order>>> {
   Future<void> fetchOrders() async {
     emit(const ResultState.loading());
     try {
-      List<Order> _orderList = await _allOrdersUseCase.execute();
-      emit(ResultState.data(data: _orderList));
+      List<Order> orderList = await _allOrdersUseCase.execute();
+      emit(ResultState.data(data: orderList));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
     }

@@ -14,7 +14,7 @@ class CommonSearchTextField extends StatefulWidget {
   final FocusNode? focusNode;
 
   @override
-  _CommonSearchTextFieldState createState() => _CommonSearchTextFieldState();
+  State createState() => _CommonSearchTextFieldState();
 }
 
 class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
@@ -68,7 +68,7 @@ class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
   final String? hintText;
 
   @override
-  _CommonSearchBarState createState() => _CommonSearchBarState();
+  State createState() => _CommonSearchBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

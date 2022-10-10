@@ -85,7 +85,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
         MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
         return;
       }
-      _productDeleteCartUseCase.execute(productModel.productId!).then((value) {
+      _productDeleteCartUseCase.execute(productModel.productId).then((value) {
         state = state.copyWith(showAddButton: true);
         state = state.copyWith(noOfItems: newCartValue);
       }).catchError((e) {

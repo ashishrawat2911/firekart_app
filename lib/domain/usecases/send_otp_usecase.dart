@@ -5,9 +5,9 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class SendOTPUseCase {
-  final FirebaseService _firebaseRepository;
+  final FirebaseService firebaseService;
 
-  SendOTPUseCase(this._firebaseRepository);
+  SendOTPUseCase(this.firebaseService);
 
   Future<bool> execute({
     required String phoneNumber,
@@ -15,7 +15,7 @@ class SendOTPUseCase {
     required ValueChanged<String> onError,
     required ValueChanged<String> onVerificationId,
   }) {
-    return _firebaseRepository.sendCode(
+    return firebaseService.sendCode(
       phoneNumber,
       verificationCompleted: (phoneAuthCredential) {
         onSuccess(phoneAuthCredential);

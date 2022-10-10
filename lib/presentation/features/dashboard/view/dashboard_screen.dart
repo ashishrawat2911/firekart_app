@@ -217,9 +217,9 @@ class DashboardScreen extends StatelessWidget {
 
   ProductCardArgs productModelToArgs(Product productModel) {
     return ProductCardArgs(
-      image: productModel.image!,
-      name: productModel.name!,
-      currency: productModel.currency!,
+      image: productModel.image,
+      name: productModel.name,
+      currency: productModel.currency,
       onTap: () {
         NavigationHandler.navigateTo(
           ProductDetailPageRoute(
@@ -227,10 +227,10 @@ class DashboardScreen extends StatelessWidget {
           ),
         );
       },
-      actualPrice: productModel.actualPrice!,
-      currentPrice: productModel.currentPrice!,
-      quantityPerUnit: productModel.quantityPerUnit!,
-      unit: productModel.unit!,
+      actualPrice: productModel.actualPrice,
+      currentPrice: productModel.currentPrice,
+      quantityPerUnit: productModel.quantityPerUnit,
+      unit: productModel.unit,
     );
   }
 }

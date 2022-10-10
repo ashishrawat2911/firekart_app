@@ -18,7 +18,7 @@ class AllProductListScreen extends StatefulWidget {
   final String? productCondition;
 
   @override
-  _AllProductListScreenState createState() => _AllProductListScreenState();
+  State createState() => _AllProductListScreenState();
 }
 
 class _AllProductListScreenState extends State<AllProductListScreen> {
@@ -91,9 +91,9 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
 
   ProductCardArgs productModelToArgs(Product productModel) {
     return ProductCardArgs(
-      image: productModel.image!,
-      name: productModel.name!,
-      currency: productModel.currency!,
+      image: productModel.image,
+      name: productModel.name,
+      currency: productModel.currency,
       onTap: () {
         NavigationHandler.navigateTo(
           ProductDetailPageRoute(
@@ -101,10 +101,10 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           ),
         );
       },
-      actualPrice: productModel.actualPrice!,
-      currentPrice: productModel.currentPrice!,
-      quantityPerUnit: productModel.quantityPerUnit!,
-      unit: productModel.unit!,
+      actualPrice: productModel.actualPrice,
+      currentPrice: productModel.currentPrice,
+      quantityPerUnit: productModel.quantityPerUnit,
+      unit: productModel.unit,
     );
   }
 }

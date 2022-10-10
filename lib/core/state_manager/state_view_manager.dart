@@ -66,11 +66,10 @@ class StateBuilder<V extends ViewModel<S>, S> extends StatelessWidget {
     return BlocConsumer<V, S>(
       builder: (context, state) {
         return builder.call(
-              context,
-              BlocProvider.of(context),
-              state,
-            ) ??
-            Container();
+          context,
+          BlocProvider.of(context),
+          state,
+        );
       },
       listener: stateListener ?? (_, __) {},
       buildWhen: buildWhen,
