@@ -24,8 +24,8 @@ class _$CartStateTearOff {
       bool orderInProgress = false,
       String? cartError,
       String? deleteCartError,
-      List<CartModel> cartList = const [],
-      AddressModel? selectedAddress,
+      List<Cart> cartList = const [],
+      Address? selectedAddress,
       CartDataLoading cartItemDataLoading = const CartDataLoading()}) {
     return _CartState(
       cartValue: cartValue,
@@ -52,8 +52,8 @@ mixin _$CartState {
   bool get orderInProgress => throw _privateConstructorUsedError;
   String? get cartError => throw _privateConstructorUsedError;
   String? get deleteCartError => throw _privateConstructorUsedError;
-  List<CartModel> get cartList => throw _privateConstructorUsedError;
-  AddressModel? get selectedAddress => throw _privateConstructorUsedError;
+  List<Cart> get cartList => throw _privateConstructorUsedError;
+  Address? get selectedAddress => throw _privateConstructorUsedError;
   CartDataLoading get cartItemDataLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -72,8 +72,8 @@ abstract class $CartStateCopyWith<$Res> {
       bool orderInProgress,
       String? cartError,
       String? deleteCartError,
-      List<CartModel> cartList,
-      AddressModel? selectedAddress,
+      List<Cart> cartList,
+      Address? selectedAddress,
       CartDataLoading cartItemDataLoading});
 
   $CartDataLoadingCopyWith<$Res> get cartItemDataLoading;
@@ -127,11 +127,11 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
       cartList: cartList == freezed
           ? _value.cartList
           : cartList // ignore: cast_nullable_to_non_nullable
-              as List<CartModel>,
+              as List<Cart>,
       selectedAddress: selectedAddress == freezed
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
-              as AddressModel?,
+              as Address?,
       cartItemDataLoading: cartItemDataLoading == freezed
           ? _value.cartItemDataLoading
           : cartItemDataLoading // ignore: cast_nullable_to_non_nullable
@@ -160,8 +160,8 @@ abstract class _$CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       bool orderInProgress,
       String? cartError,
       String? deleteCartError,
-      List<CartModel> cartList,
-      AddressModel? selectedAddress,
+      List<Cart> cartList,
+      Address? selectedAddress,
       CartDataLoading cartItemDataLoading});
 
   @override
@@ -217,11 +217,11 @@ class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
       cartList: cartList == freezed
           ? _value.cartList
           : cartList // ignore: cast_nullable_to_non_nullable
-              as List<CartModel>,
+              as List<Cart>,
       selectedAddress: selectedAddress == freezed
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
-              as AddressModel?,
+              as Address?,
       cartItemDataLoading: cartItemDataLoading == freezed
           ? _value.cartItemDataLoading
           : cartItemDataLoading // ignore: cast_nullable_to_non_nullable
@@ -262,9 +262,9 @@ class _$_CartState implements _CartState {
   final String? deleteCartError;
   @JsonKey()
   @override
-  final List<CartModel> cartList;
+  final List<Cart> cartList;
   @override
-  final AddressModel? selectedAddress;
+  final Address? selectedAddress;
   @JsonKey()
   @override
   final CartDataLoading cartItemDataLoading;
@@ -323,8 +323,8 @@ abstract class _CartState implements CartState {
       bool orderInProgress,
       String? cartError,
       String? deleteCartError,
-      List<CartModel> cartList,
-      AddressModel? selectedAddress,
+      List<Cart> cartList,
+      Address? selectedAddress,
       CartDataLoading cartItemDataLoading}) = _$_CartState;
 
   @override
@@ -340,9 +340,9 @@ abstract class _CartState implements CartState {
   @override
   String? get deleteCartError;
   @override
-  List<CartModel> get cartList;
+  List<Cart> get cartList;
   @override
-  AddressModel? get selectedAddress;
+  Address? get selectedAddress;
   @override
   CartDataLoading get cartItemDataLoading;
   @override

@@ -68,7 +68,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget productDataBuilder(ResultState<List<ProductModel>> resultState, String title) {
+  Widget productDataBuilder(ResultState<List<Product>> resultState, String title) {
     return ResultStateBuilder(
       state: resultState,
       errorWidget: (String error) => Column(
@@ -76,7 +76,7 @@ class DashboardScreen extends StatelessWidget {
           Center(child: Text(error)),
         ],
       ),
-      dataWidget: (List<ProductModel> value) {
+      dataWidget: (List<Product> value) {
         return productsGrids(title, value);
       },
       loadingWidget: (bool isReloading) => productLoader(),
@@ -156,7 +156,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget productsGrids(String title, List<ProductModel> products) {
+  Widget productsGrids(String title, List<Product> products) {
     // if (products == null) return Container();
     return Container(
       margin: const EdgeInsets.only(left: 16),
@@ -215,7 +215,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  ProductCardArgs productModelToArgs(ProductModel productModel) {
+  ProductCardArgs productModelToArgs(Product productModel) {
     return ProductCardArgs(
       image: productModel.image!,
       name: productModel.name!,
@@ -223,7 +223,7 @@ class DashboardScreen extends StatelessWidget {
       onTap: () {
         NavigationHandler.navigateTo(
           ProductDetailPageRoute(
-            productModel: productModel,
+            product: productModel,
           ),
         );
       },

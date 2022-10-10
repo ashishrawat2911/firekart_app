@@ -14,8 +14,8 @@ class CartState with _$CartState {
     @Default(false) bool orderInProgress,
     String? cartError,
     String? deleteCartError,
-    @Default([]) List<CartModel> cartList,
-    AddressModel? selectedAddress,
+    @Default([]) List<Cart> cartList,
+    Address? selectedAddress,
     @Default(CartDataLoading()) CartDataLoading cartItemDataLoading,
   }) = _CartState;
 }

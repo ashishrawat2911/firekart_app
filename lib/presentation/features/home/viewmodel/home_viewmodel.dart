@@ -31,7 +31,7 @@ class HomeScreenViewModel extends StateManager<HomeState> {
     _getCartStatusUseCase.execute().listen((event) {});
   }
 
-  void _addDetails(AccountDetailsModel accountDetails) {
+  void _addDetails(AccountDetails accountDetails) {
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
 
     emit(state.copyWith(

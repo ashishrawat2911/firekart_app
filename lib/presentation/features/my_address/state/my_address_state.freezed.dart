@@ -21,7 +21,7 @@ class _$MyAddressStateTearOff {
       {bool screenLoading = false,
       String? screenError,
       bool buttonLoading = false,
-      AccountDetailsModel? accountDetails,
+      AccountDetails? accountDetails,
       List<AddressCardState> addressStates = const []}) {
     return _MyAddressState(
       screenLoading: screenLoading,
@@ -41,7 +41,7 @@ mixin _$MyAddressState {
   bool get screenLoading => throw _privateConstructorUsedError;
   String? get screenError => throw _privateConstructorUsedError;
   bool get buttonLoading => throw _privateConstructorUsedError;
-  AccountDetailsModel? get accountDetails => throw _privateConstructorUsedError;
+  AccountDetails? get accountDetails => throw _privateConstructorUsedError;
   List<AddressCardState> get addressStates =>
       throw _privateConstructorUsedError;
 
@@ -59,7 +59,7 @@ abstract class $MyAddressStateCopyWith<$Res> {
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetailsModel? accountDetails,
+      AccountDetails? accountDetails,
       List<AddressCardState> addressStates});
 }
 
@@ -96,7 +96,7 @@ class _$MyAddressStateCopyWithImpl<$Res>
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetailsModel?,
+              as AccountDetails?,
       addressStates: addressStates == freezed
           ? _value.addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
@@ -116,7 +116,7 @@ abstract class _$MyAddressStateCopyWith<$Res>
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetailsModel? accountDetails,
+      AccountDetails? accountDetails,
       List<AddressCardState> addressStates});
 }
 
@@ -155,7 +155,7 @@ class __$MyAddressStateCopyWithImpl<$Res>
       accountDetails: accountDetails == freezed
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetailsModel?,
+              as AccountDetails?,
       addressStates: addressStates == freezed
           ? _value.addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ class _$_MyAddressState implements _MyAddressState {
   @override
   final bool buttonLoading;
   @override
-  final AccountDetailsModel? accountDetails;
+  final AccountDetails? accountDetails;
   @JsonKey()
   @override
   final List<AddressCardState> addressStates;
@@ -230,7 +230,7 @@ abstract class _MyAddressState implements MyAddressState {
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetailsModel? accountDetails,
+      AccountDetails? accountDetails,
       List<AddressCardState> addressStates}) = _$_MyAddressState;
 
   @override
@@ -240,7 +240,7 @@ abstract class _MyAddressState implements MyAddressState {
   @override
   bool get buttonLoading;
   @override
-  AccountDetailsModel? get accountDetails;
+  AccountDetails? get accountDetails;
   @override
   List<AddressCardState> get addressStates;
   @override
@@ -255,7 +255,7 @@ class _$AddressCardStateTearOff {
 
   _AddressCardState call(
       {int index = 0,
-      required AddressModel address,
+      required Address address,
       bool editLoading = false,
       bool setDefaultLoading = false}) {
     return _AddressCardState(
@@ -273,7 +273,7 @@ const $AddressCardState = _$AddressCardStateTearOff();
 /// @nodoc
 mixin _$AddressCardState {
   int get index => throw _privateConstructorUsedError;
-  AddressModel get address => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
   bool get editLoading => throw _privateConstructorUsedError;
   bool get setDefaultLoading => throw _privateConstructorUsedError;
 
@@ -288,10 +288,7 @@ abstract class $AddressCardStateCopyWith<$Res> {
           AddressCardState value, $Res Function(AddressCardState) then) =
       _$AddressCardStateCopyWithImpl<$Res>;
   $Res call(
-      {int index,
-      AddressModel address,
-      bool editLoading,
-      bool setDefaultLoading});
+      {int index, Address address, bool editLoading, bool setDefaultLoading});
 }
 
 /// @nodoc
@@ -318,7 +315,7 @@ class _$AddressCardStateCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as AddressModel,
+              as Address,
       editLoading: editLoading == freezed
           ? _value.editLoading
           : editLoading // ignore: cast_nullable_to_non_nullable
@@ -339,10 +336,7 @@ abstract class _$AddressCardStateCopyWith<$Res>
       __$AddressCardStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int index,
-      AddressModel address,
-      bool editLoading,
-      bool setDefaultLoading});
+      {int index, Address address, bool editLoading, bool setDefaultLoading});
 }
 
 /// @nodoc
@@ -371,7 +365,7 @@ class __$AddressCardStateCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as AddressModel,
+              as Address,
       editLoading: editLoading == freezed
           ? _value.editLoading
           : editLoading // ignore: cast_nullable_to_non_nullable
@@ -397,7 +391,7 @@ class _$_AddressCardState implements _AddressCardState {
   @override
   final int index;
   @override
-  final AddressModel address;
+  final Address address;
   @JsonKey()
   @override
   final bool editLoading;
@@ -440,14 +434,14 @@ class _$_AddressCardState implements _AddressCardState {
 abstract class _AddressCardState implements AddressCardState {
   const factory _AddressCardState(
       {int index,
-      required AddressModel address,
+      required Address address,
       bool editLoading,
       bool setDefaultLoading}) = _$_AddressCardState;
 
   @override
   int get index;
   @override
-  AddressModel get address;
+  Address get address;
   @override
   bool get editLoading;
   @override

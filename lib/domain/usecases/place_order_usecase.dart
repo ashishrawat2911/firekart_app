@@ -9,8 +9,7 @@ class PlaceOrderUseCase {
 
   PlaceOrderUseCase(this._firebaseRepository);
 
-  Future<void> execute(OrderModel orderModel) async {
-    await _firebaseRepository.placeOrder(orderModel);
-    await _firebaseRepository.emptyCart();
+  Future<void> execute(Order order) async {
+    return _firebaseRepository.placeOrder(order);
   }
 }

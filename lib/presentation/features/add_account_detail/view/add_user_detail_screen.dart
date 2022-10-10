@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
-as account_details_state;
+    as account_details_state;
 import 'package:fluttercommerce/res/app_colors.dart';
 
 import '../../../../core/state/result_state.dart';

@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fluttercommerce/domain/models/cart_model.dart';
 import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
+
+import '../models/cart_model.dart';
 
 @injectable
 class GetCartStatusUseCase {
@@ -9,13 +9,7 @@ class GetCartStatusUseCase {
 
   GetCartStatusUseCase(this._firebaseRepository);
 
-  Stream<List<CartModel>> execute() {
-    return _firebaseRepository.cartStatusListen(_firebaseRepository.getUid()).map((event) => List<CartModel>.generate(
-          event.docs.length,
-          (index) {
-            final DocumentSnapshot documentSnapshot = event.docs[index];
-            return CartModel.fromJson(documentSnapshot.data());
-          },
-        ));
+  Stream<List<Cart>> execute() {
+    return _firebaseRepository.listenToCart();
   }
 }

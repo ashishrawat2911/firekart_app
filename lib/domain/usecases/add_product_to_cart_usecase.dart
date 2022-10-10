@@ -1,7 +1,6 @@
 import 'package:fluttercommerce/data/repository/firebase_repository.dart';
+import 'package:fluttercommerce/domain/models/cart_model.dart';
 import 'package:injectable/injectable.dart';
-
-import '../models/cart_model.dart';
 
 @injectable
 class ProductAddToCartUseCase {
@@ -9,7 +8,7 @@ class ProductAddToCartUseCase {
 
   ProductAddToCartUseCase(this._firebaseRepository);
 
-  Future<void> execute(CartModel cartModel) async {
-    return _firebaseRepository.addProductToCart(cartModel);
+  Future<void> execute(Cart cart) {
+    return _firebaseRepository.addProductToCart(cart);
   }
 }

@@ -5,9 +5,9 @@ import '../../../../domain/models/product_model.dart';
 part 'product_search_state.freezed.dart';
 
 @freezed
- class ProductSearchState with _$ProductSearchState {
+class ProductSearchState with _$ProductSearchState {
   const factory ProductSearchState({
-    @Default([]) List<ProductModel> productList,
+    @Default([]) List<Product> productList,
     @Default(false) bool loading,
     String? otp,
     String? error,

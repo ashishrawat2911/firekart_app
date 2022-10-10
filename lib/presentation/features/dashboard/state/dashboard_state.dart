@@ -6,10 +6,10 @@ import '../../../../domain/models/product_model.dart';
 part 'dashboard_state.freezed.dart';
 
 @freezed
- class DashboardState with _$DashboardState {
+class DashboardState with _$DashboardState {
   const factory DashboardState({
-    @Default(Idle()) ResultState<List<ProductModel>> dealOfTheDay,
-    @Default(Idle()) ResultState<List<ProductModel>> onSale,
-    @Default(Idle()) ResultState<List<ProductModel>> topProducts,
+    @Default(Idle()) ResultState<List<Product>> dealOfTheDay,
+    @Default(Idle()) ResultState<List<Product>> onSale,
+    @Default(Idle()) ResultState<List<Product>> topProducts,
   }) = _DashboardState;
 }

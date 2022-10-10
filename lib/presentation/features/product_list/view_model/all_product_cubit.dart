@@ -7,7 +7,7 @@ import '../../../../core/state_manager/state_manager.dart';
 import '../../../../domain/models/product_model.dart';
 
 @injectable
-class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
+class AllProductCubit extends StateManager<ResultState<List<Product>>> {
   AllProductCubit(this._getAllProductsUseCase) : super(const ResultState.idle());
 
   final GetAllProductsUseCase _getAllProductsUseCase;
@@ -20,19 +20,6 @@ class AllProductCubit extends StateManager<ResultState<List<ProductModel>>> {
       emit(ResultState.data(data: productList.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));
-    }
-  }
-
-  Future<void> fetchNextList([String? condition]) async {
-    try {
-      final products = await _getAllProductsUseCase.execute(
-        condition: condition,
-        nextOrder: true,
-      );
-
-      emit(ResultState.data(data: products.toSet().toList()));
-    } catch (e) {
-      emit(ResultState.unNotifiedError(error: e.toString(), data: (state as Data<List<ProductModel>>).data));
     }
   }
 }
