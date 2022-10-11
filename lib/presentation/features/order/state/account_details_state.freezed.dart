@@ -17,28 +17,27 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AccountDetailsState {
   AccountDetailsModel? get accountDetails => throw _privateConstructorUsedError;
+
   AddressModel? get selectedAddress => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountDetailsStateCopyWith<AccountDetailsState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AccountDetailsStateCopyWith<AccountDetailsState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountDetailsStateCopyWith<$Res> {
-  factory $AccountDetailsStateCopyWith(
-          AccountDetailsState value, $Res Function(AccountDetailsState) then) =
+  factory $AccountDetailsStateCopyWith(AccountDetailsState value, $Res Function(AccountDetailsState) then) =
       _$AccountDetailsStateCopyWithImpl<$Res>;
-  $Res call(
-      {AccountDetailsModel? accountDetails, AddressModel? selectedAddress});
+
+  $Res call({AccountDetailsModel? accountDetails, AddressModel? selectedAddress});
 }
 
 /// @nodoc
-class _$AccountDetailsStateCopyWithImpl<$Res>
-    implements $AccountDetailsStateCopyWith<$Res> {
+class _$AccountDetailsStateCopyWithImpl<$Res> implements $AccountDetailsStateCopyWith<$Res> {
   _$AccountDetailsStateCopyWithImpl(this._value, this._then);
 
   final AccountDetailsState _value;
+
   // ignore: unused_field
   final $Res Function(AccountDetailsState) _then;
 
@@ -61,22 +60,18 @@ class _$AccountDetailsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_AccountDetailsStateCopyWith<$Res>
-    implements $AccountDetailsStateCopyWith<$Res> {
-  factory _$$_AccountDetailsStateCopyWith(_$_AccountDetailsState value,
-          $Res Function(_$_AccountDetailsState) then) =
+abstract class _$$_AccountDetailsStateCopyWith<$Res> implements $AccountDetailsStateCopyWith<$Res> {
+  factory _$$_AccountDetailsStateCopyWith(_$_AccountDetailsState value, $Res Function(_$_AccountDetailsState) then) =
       __$$_AccountDetailsStateCopyWithImpl<$Res>;
+
   @override
-  $Res call(
-      {AccountDetailsModel? accountDetails, AddressModel? selectedAddress});
+  $Res call({AccountDetailsModel? accountDetails, AddressModel? selectedAddress});
 }
 
 /// @nodoc
-class __$$_AccountDetailsStateCopyWithImpl<$Res>
-    extends _$AccountDetailsStateCopyWithImpl<$Res>
+class __$$_AccountDetailsStateCopyWithImpl<$Res> extends _$AccountDetailsStateCopyWithImpl<$Res>
     implements _$$_AccountDetailsStateCopyWith<$Res> {
-  __$$_AccountDetailsStateCopyWithImpl(_$_AccountDetailsState _value,
-      $Res Function(_$_AccountDetailsState) _then)
+  __$$_AccountDetailsStateCopyWithImpl(_$_AccountDetailsState _value, $Res Function(_$_AccountDetailsState) _then)
       : super(_value, (v) => _then(v as _$_AccountDetailsState));
 
   @override
@@ -120,36 +115,31 @@ class _$_AccountDetailsState implements _AccountDetailsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AccountDetailsState &&
-            const DeepCollectionEquality()
-                .equals(other.accountDetails, accountDetails) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedAddress, selectedAddress));
+            const DeepCollectionEquality().equals(other.accountDetails, accountDetails) &&
+            const DeepCollectionEquality().equals(other.selectedAddress, selectedAddress));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(accountDetails),
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(accountDetails),
       const DeepCollectionEquality().hash(selectedAddress));
 
   @JsonKey(ignore: true)
   @override
   _$$_AccountDetailsStateCopyWith<_$_AccountDetailsState> get copyWith =>
-      __$$_AccountDetailsStateCopyWithImpl<_$_AccountDetailsState>(
-          this, _$identity);
+      __$$_AccountDetailsStateCopyWithImpl<_$_AccountDetailsState>(this, _$identity);
 }
 
 abstract class _AccountDetailsState implements AccountDetailsState {
-  factory _AccountDetailsState(
-      {final AccountDetailsModel? accountDetails,
-      final AddressModel? selectedAddress}) = _$_AccountDetailsState;
+  factory _AccountDetailsState({final AccountDetailsModel? accountDetails, final AddressModel? selectedAddress}) =
+      _$_AccountDetailsState;
 
   @override
   AccountDetailsModel? get accountDetails;
+
   @override
   AddressModel? get selectedAddress;
+
   @override
   @JsonKey(ignore: true)
-  _$$_AccountDetailsStateCopyWith<_$_AccountDetailsState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AccountDetailsStateCopyWith<_$_AccountDetailsState> get copyWith => throw _privateConstructorUsedError;
 }
