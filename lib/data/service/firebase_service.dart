@@ -11,8 +11,11 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class FirebaseService {
-  final _firebaseFireStore = FirebaseFirestore.instance;
-  final _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore _firebaseFireStore;
+
+  final FirebaseAuth _firebaseAuth;
+
+  FirebaseService(this._firebaseFireStore, this._firebaseAuth);
 
   CollectionReference get _productCollection {
     AppLogger.log('Fetching products collection');
@@ -76,7 +79,7 @@ class FirebaseService {
   Future<List<ProductModel>> searchProducts(String query) async {
     final List<DocumentSnapshot> documentList =
         (await _firebaseFireStore.collection("products").where("name_search", arrayContains: query).get()).docs;
-    return documentList.mapToList((e) => ProductModel.fromJson(e));
+    return documentList.mapToList((e) => ProductModel.fromJson(e.data()));
   }
 
   Future<List<ProductModel>> getProductsData(String condition) async {
