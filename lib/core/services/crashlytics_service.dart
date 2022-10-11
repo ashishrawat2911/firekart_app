@@ -9,20 +9,21 @@ import '../../data/service/firebase_service.dart';
 @singleton
 class CrashlyticsService {
   final GetUserDataStatusUseCase _getUserDataStatusUseCase;
+  final FirebaseCrashlytics _firebaseCrashlytics;
 
-  CrashlyticsService(this._getUserDataStatusUseCase, this._firebaseManager) {
+  CrashlyticsService(this._getUserDataStatusUseCase, this._firebaseManager, this._firebaseCrashlytics) {
     FlutterError.onError = recordFlutterError;
   }
 
   final FirebaseService _firebaseManager;
 
   void recordFlutterError(FlutterErrorDetails details) {
-    FirebaseCrashlytics.instance.recordFlutterError(details);
+    _firebaseCrashlytics.recordFlutterError(details);
     fullDeviceLog();
   }
 
   void recordError(dynamic exception, StackTrace stack, {dynamic context}) {
-    FirebaseCrashlytics.instance.recordError(exception, stack);
+    _firebaseCrashlytics.recordError(exception, stack);
     fullDeviceLog();
   }
 
@@ -39,6 +40,6 @@ class CrashlyticsService {
       stringBuffer.write("Phone Number : ${currentUser.phoneNumber}");
       stringBuffer.write("UID : ${currentUser.uid}");
     }
-    FirebaseCrashlytics.instance.log(stringBuffer.toString());
+    _firebaseCrashlytics.log(stringBuffer.toString());
   }
 }

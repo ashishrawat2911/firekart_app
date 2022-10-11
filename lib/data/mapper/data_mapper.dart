@@ -4,13 +4,14 @@ import 'package:fluttercommerce/data/model/order_model.dart';
 import 'package:fluttercommerce/data/model/product_model.dart';
 import 'package:fluttercommerce/domain/models/cart_model.dart';
 import 'package:fluttercommerce/domain/models/order_model.dart';
+import 'package:injectable/injectable.dart';
 import 'package:smartstruct/smartstruct.dart';
 
 import '../../domain/models/account_details_model.dart';
 import '../../domain/models/product_model.dart';
-import 'package:injectable/injectable.dart';
 
 part 'data_mapper.mapper.g.dart';
+
 @Mapper(useInjection: true)
 abstract class DataMapper {
   AccountDetails accountDetailsFromModel(AccountDetailsModel model);

@@ -9,9 +9,7 @@ part of 'order_model.dart';
 OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       json['order_id'] as String,
       json['price'] as num,
-      (json['order_items'] as List<dynamic>)
-          .map((e) => OrderItemModel.fromJson(e))
-          .toList(),
+      (json['order_items'] as List<dynamic>).map((e) => OrderItemModel.fromJson(e)).toList(),
       json['ordered_at'] as String,
       json['order_status'] as String,
       json['currency'] as String,
@@ -20,8 +18,7 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       AddressModel.fromJson(json['order_address']),
     );
 
-Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OrderModelToJson(OrderModel instance) => <String, dynamic>{
       'order_id': instance.orderId,
       'price': instance.price,
       'order_items': instance.orderItems.map((e) => e.toJson()).toList(),
@@ -33,8 +30,7 @@ Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
       'order_address': instance.orderAddress.toJson(),
     };
 
-OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) =>
-    OrderItemModel(
+OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) => OrderItemModel(
       json['product_id'] as String,
       json['image'] as String,
       json['name'] as String,
@@ -44,8 +40,7 @@ OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) =>
       json['no_of_items'] as num,
     );
 
-Map<String, dynamic> _$OrderItemModelToJson(OrderItemModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OrderItemModelToJson(OrderItemModel instance) => <String, dynamic>{
       'product_id': instance.productId,
       'image': instance.image,
       'name': instance.name,

@@ -17,22 +17,24 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MyAddressState {
   bool get screenLoading => throw _privateConstructorUsedError;
+
   String? get screenError => throw _privateConstructorUsedError;
+
   bool get buttonLoading => throw _privateConstructorUsedError;
+
   AccountDetails? get accountDetails => throw _privateConstructorUsedError;
-  List<AddressCardState> get addressStates =>
-      throw _privateConstructorUsedError;
+
+  List<AddressCardState> get addressStates => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $MyAddressStateCopyWith<MyAddressState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $MyAddressStateCopyWith<MyAddressState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MyAddressStateCopyWith<$Res> {
-  factory $MyAddressStateCopyWith(
-          MyAddressState value, $Res Function(MyAddressState) then) =
+  factory $MyAddressStateCopyWith(MyAddressState value, $Res Function(MyAddressState) then) =
       _$MyAddressStateCopyWithImpl<$Res>;
+
   $Res call(
       {bool screenLoading,
       String? screenError,
@@ -42,11 +44,11 @@ abstract class $MyAddressStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MyAddressStateCopyWithImpl<$Res>
-    implements $MyAddressStateCopyWith<$Res> {
+class _$MyAddressStateCopyWithImpl<$Res> implements $MyAddressStateCopyWith<$Res> {
   _$MyAddressStateCopyWithImpl(this._value, this._then);
 
   final MyAddressState _value;
+
   // ignore: unused_field
   final $Res Function(MyAddressState) _then;
 
@@ -84,11 +86,10 @@ class _$MyAddressStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_MyAddressStateCopyWith<$Res>
-    implements $MyAddressStateCopyWith<$Res> {
-  factory _$$_MyAddressStateCopyWith(
-          _$_MyAddressState value, $Res Function(_$_MyAddressState) then) =
+abstract class _$$_MyAddressStateCopyWith<$Res> implements $MyAddressStateCopyWith<$Res> {
+  factory _$$_MyAddressStateCopyWith(_$_MyAddressState value, $Res Function(_$_MyAddressState) then) =
       __$$_MyAddressStateCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {bool screenLoading,
@@ -99,11 +100,9 @@ abstract class _$$_MyAddressStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MyAddressStateCopyWithImpl<$Res>
-    extends _$MyAddressStateCopyWithImpl<$Res>
+class __$$_MyAddressStateCopyWithImpl<$Res> extends _$MyAddressStateCopyWithImpl<$Res>
     implements _$$_MyAddressStateCopyWith<$Res> {
-  __$$_MyAddressStateCopyWithImpl(
-      _$_MyAddressState _value, $Res Function(_$_MyAddressState) _then)
+  __$$_MyAddressStateCopyWithImpl(_$_MyAddressState _value, $Res Function(_$_MyAddressState) _then)
       : super(_value, (v) => _then(v as _$_MyAddressState));
 
   @override
@@ -164,6 +163,7 @@ class _$_MyAddressState implements _MyAddressState {
   @override
   final AccountDetails? accountDetails;
   final List<AddressCardState> _addressStates;
+
   @override
   @JsonKey()
   List<AddressCardState> get addressStates {
@@ -181,16 +181,11 @@ class _$_MyAddressState implements _MyAddressState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MyAddressState &&
-            const DeepCollectionEquality()
-                .equals(other.screenLoading, screenLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.screenError, screenError) &&
-            const DeepCollectionEquality()
-                .equals(other.buttonLoading, buttonLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.accountDetails, accountDetails) &&
-            const DeepCollectionEquality()
-                .equals(other._addressStates, _addressStates));
+            const DeepCollectionEquality().equals(other.screenLoading, screenLoading) &&
+            const DeepCollectionEquality().equals(other.screenError, screenError) &&
+            const DeepCollectionEquality().equals(other.buttonLoading, buttonLoading) &&
+            const DeepCollectionEquality().equals(other.accountDetails, accountDetails) &&
+            const DeepCollectionEquality().equals(other._addressStates, _addressStates));
   }
 
   @override
@@ -218,47 +213,52 @@ abstract class _MyAddressState implements MyAddressState {
 
   @override
   bool get screenLoading;
+
   @override
   String? get screenError;
+
   @override
   bool get buttonLoading;
+
   @override
   AccountDetails? get accountDetails;
+
   @override
   List<AddressCardState> get addressStates;
+
   @override
   @JsonKey(ignore: true)
-  _$$_MyAddressStateCopyWith<_$_MyAddressState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_MyAddressStateCopyWith<_$_MyAddressState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$AddressCardState {
   int get index => throw _privateConstructorUsedError;
+
   Address get address => throw _privateConstructorUsedError;
+
   bool get editLoading => throw _privateConstructorUsedError;
+
   bool get setDefaultLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AddressCardStateCopyWith<AddressCardState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AddressCardStateCopyWith<AddressCardState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AddressCardStateCopyWith<$Res> {
-  factory $AddressCardStateCopyWith(
-          AddressCardState value, $Res Function(AddressCardState) then) =
+  factory $AddressCardStateCopyWith(AddressCardState value, $Res Function(AddressCardState) then) =
       _$AddressCardStateCopyWithImpl<$Res>;
-  $Res call(
-      {int index, Address address, bool editLoading, bool setDefaultLoading});
+
+  $Res call({int index, Address address, bool editLoading, bool setDefaultLoading});
 }
 
 /// @nodoc
-class _$AddressCardStateCopyWithImpl<$Res>
-    implements $AddressCardStateCopyWith<$Res> {
+class _$AddressCardStateCopyWithImpl<$Res> implements $AddressCardStateCopyWith<$Res> {
   _$AddressCardStateCopyWithImpl(this._value, this._then);
 
   final AddressCardState _value;
+
   // ignore: unused_field
   final $Res Function(AddressCardState) _then;
 
@@ -291,22 +291,18 @@ class _$AddressCardStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_AddressCardStateCopyWith<$Res>
-    implements $AddressCardStateCopyWith<$Res> {
-  factory _$$_AddressCardStateCopyWith(
-          _$_AddressCardState value, $Res Function(_$_AddressCardState) then) =
+abstract class _$$_AddressCardStateCopyWith<$Res> implements $AddressCardStateCopyWith<$Res> {
+  factory _$$_AddressCardStateCopyWith(_$_AddressCardState value, $Res Function(_$_AddressCardState) then) =
       __$$_AddressCardStateCopyWithImpl<$Res>;
+
   @override
-  $Res call(
-      {int index, Address address, bool editLoading, bool setDefaultLoading});
+  $Res call({int index, Address address, bool editLoading, bool setDefaultLoading});
 }
 
 /// @nodoc
-class __$$_AddressCardStateCopyWithImpl<$Res>
-    extends _$AddressCardStateCopyWithImpl<$Res>
+class __$$_AddressCardStateCopyWithImpl<$Res> extends _$AddressCardStateCopyWithImpl<$Res>
     implements _$$_AddressCardStateCopyWith<$Res> {
-  __$$_AddressCardStateCopyWithImpl(
-      _$_AddressCardState _value, $Res Function(_$_AddressCardState) _then)
+  __$$_AddressCardStateCopyWithImpl(_$_AddressCardState _value, $Res Function(_$_AddressCardState) _then)
       : super(_value, (v) => _then(v as _$_AddressCardState));
 
   @override
@@ -344,10 +340,7 @@ class __$$_AddressCardStateCopyWithImpl<$Res>
 
 class _$_AddressCardState implements _AddressCardState {
   const _$_AddressCardState(
-      {this.index = 0,
-      required this.address,
-      this.editLoading = false,
-      this.setDefaultLoading = false});
+      {this.index = 0, required this.address, this.editLoading = false, this.setDefaultLoading = false});
 
   @override
   @JsonKey()
@@ -373,10 +366,8 @@ class _$_AddressCardState implements _AddressCardState {
             other is _$_AddressCardState &&
             const DeepCollectionEquality().equals(other.index, index) &&
             const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality()
-                .equals(other.editLoading, editLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.setDefaultLoading, setDefaultLoading));
+            const DeepCollectionEquality().equals(other.editLoading, editLoading) &&
+            const DeepCollectionEquality().equals(other.setDefaultLoading, setDefaultLoading));
   }
 
   @override
@@ -402,14 +393,17 @@ abstract class _AddressCardState implements AddressCardState {
 
   @override
   int get index;
+
   @override
   Address get address;
+
   @override
   bool get editLoading;
+
   @override
   bool get setDefaultLoading;
+
   @override
   @JsonKey(ignore: true)
-  _$$_AddressCardStateCopyWith<_$_AddressCardState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AddressCardStateCopyWith<_$_AddressCardState> get copyWith => throw _privateConstructorUsedError;
 }

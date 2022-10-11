@@ -26,6 +26,7 @@ mixin _$ResultState<T> {
     required TResult Function(T data, String error) unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
@@ -36,6 +37,7 @@ mixin _$ResultState<T> {
     TResult Function(T data, String error)? unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -47,6 +49,7 @@ mixin _$ResultState<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle<T> value) idle,
@@ -57,6 +60,7 @@ mixin _$ResultState<T> {
     required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Idle<T> value)? idle,
@@ -67,6 +71,7 @@ mixin _$ResultState<T> {
     TResult Function(UnNotifiedError<T> value)? unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle<T> value)? idle,
@@ -82,32 +87,28 @@ mixin _$ResultState<T> {
 
 /// @nodoc
 abstract class $ResultStateCopyWith<T, $Res> {
-  factory $ResultStateCopyWith(
-          ResultState<T> value, $Res Function(ResultState<T>) then) =
+  factory $ResultStateCopyWith(ResultState<T> value, $Res Function(ResultState<T>) then) =
       _$ResultStateCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$ResultStateCopyWithImpl<T, $Res>
-    implements $ResultStateCopyWith<T, $Res> {
+class _$ResultStateCopyWithImpl<T, $Res> implements $ResultStateCopyWith<T, $Res> {
   _$ResultStateCopyWithImpl(this._value, this._then);
 
   final ResultState<T> _value;
+
   // ignore: unused_field
   final $Res Function(ResultState<T>) _then;
 }
 
 /// @nodoc
 abstract class _$$IdleCopyWith<T, $Res> {
-  factory _$$IdleCopyWith(_$Idle<T> value, $Res Function(_$Idle<T>) then) =
-      __$$IdleCopyWithImpl<T, $Res>;
+  factory _$$IdleCopyWith(_$Idle<T> value, $Res Function(_$Idle<T>) then) = __$$IdleCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$IdleCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements _$$IdleCopyWith<T, $Res> {
-  __$$IdleCopyWithImpl(_$Idle<T> _value, $Res Function(_$Idle<T>) _then)
-      : super(_value, (v) => _then(v as _$Idle<T>));
+class __$$IdleCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res> implements _$$IdleCopyWith<T, $Res> {
+  __$$IdleCopyWithImpl(_$Idle<T> _value, $Res Function(_$Idle<T>) _then) : super(_value, (v) => _then(v as _$Idle<T>));
 
   @override
   _$Idle<T> get _value => super._value as _$Idle<T>;
@@ -125,8 +126,7 @@ class _$Idle<T> implements Idle<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Idle<T>);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$Idle<T>);
   }
 
   @override
@@ -225,17 +225,13 @@ abstract class Idle<T> implements ResultState<T> {
 
 /// @nodoc
 abstract class _$$LoadingCopyWith<T, $Res> {
-  factory _$$LoadingCopyWith(
-          _$Loading<T> value, $Res Function(_$Loading<T>) then) =
-      __$$LoadingCopyWithImpl<T, $Res>;
+  factory _$$LoadingCopyWith(_$Loading<T> value, $Res Function(_$Loading<T>) then) = __$$LoadingCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<T, $Res>
-    extends _$ResultStateCopyWithImpl<T, $Res>
+class __$$LoadingCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
     implements _$$LoadingCopyWith<T, $Res> {
-  __$$LoadingCopyWithImpl(
-      _$Loading<T> _value, $Res Function(_$Loading<T>) _then)
+  __$$LoadingCopyWithImpl(_$Loading<T> _value, $Res Function(_$Loading<T>) _then)
       : super(_value, (v) => _then(v as _$Loading<T>));
 
   @override
@@ -254,8 +250,7 @@ class _$Loading<T> implements Loading<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading<T>);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$Loading<T>);
   }
 
   @override
@@ -354,17 +349,14 @@ abstract class Loading<T> implements ResultState<T> {
 
 /// @nodoc
 abstract class _$$ReLoadingCopyWith<T, $Res> {
-  factory _$$ReLoadingCopyWith(
-          _$ReLoading<T> value, $Res Function(_$ReLoading<T>) then) =
+  factory _$$ReLoadingCopyWith(_$ReLoading<T> value, $Res Function(_$ReLoading<T>) then) =
       __$$ReLoadingCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ReLoadingCopyWithImpl<T, $Res>
-    extends _$ResultStateCopyWithImpl<T, $Res>
+class __$$ReLoadingCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
     implements _$$ReLoadingCopyWith<T, $Res> {
-  __$$ReLoadingCopyWithImpl(
-      _$ReLoading<T> _value, $Res Function(_$ReLoading<T>) _then)
+  __$$ReLoadingCopyWithImpl(_$ReLoading<T> _value, $Res Function(_$ReLoading<T>) _then)
       : super(_value, (v) => _then(v as _$ReLoading<T>));
 
   @override
@@ -383,8 +375,7 @@ class _$ReLoading<T> implements ReLoading<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ReLoading<T>);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$ReLoading<T>);
   }
 
   @override
@@ -483,16 +474,14 @@ abstract class ReLoading<T> implements ResultState<T> {
 
 /// @nodoc
 abstract class _$$DataCopyWith<T, $Res> {
-  factory _$$DataCopyWith(_$Data<T> value, $Res Function(_$Data<T>) then) =
-      __$$DataCopyWithImpl<T, $Res>;
+  factory _$$DataCopyWith(_$Data<T> value, $Res Function(_$Data<T>) then) = __$$DataCopyWithImpl<T, $Res>;
+
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements _$$DataCopyWith<T, $Res> {
-  __$$DataCopyWithImpl(_$Data<T> _value, $Res Function(_$Data<T>) _then)
-      : super(_value, (v) => _then(v as _$Data<T>));
+class __$$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res> implements _$$DataCopyWith<T, $Res> {
+  __$$DataCopyWithImpl(_$Data<T> _value, $Res Function(_$Data<T>) _then) : super(_value, (v) => _then(v as _$Data<T>));
 
   @override
   _$Data<T> get _value => super._value as _$Data<T>;
@@ -532,13 +521,11 @@ class _$Data<T> implements Data<T> {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
-  _$$DataCopyWith<T, _$Data<T>> get copyWith =>
-      __$$DataCopyWithImpl<T, _$Data<T>>(this, _$identity);
+  _$$DataCopyWith<T, _$Data<T>> get copyWith => __$$DataCopyWithImpl<T, _$Data<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -631,21 +618,20 @@ abstract class Data<T> implements ResultState<T> {
   const factory Data({required final T data}) = _$Data<T>;
 
   T get data;
+
   @JsonKey(ignore: true)
-  _$$DataCopyWith<T, _$Data<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DataCopyWith<T, _$Data<T>> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ErrorCopyWith<T, $Res> {
-  factory _$$ErrorCopyWith(_$Error<T> value, $Res Function(_$Error<T>) then) =
-      __$$ErrorCopyWithImpl<T, $Res>;
+  factory _$$ErrorCopyWith(_$Error<T> value, $Res Function(_$Error<T>) then) = __$$ErrorCopyWithImpl<T, $Res>;
+
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
-    implements _$$ErrorCopyWith<T, $Res> {
+class __$$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res> implements _$$ErrorCopyWith<T, $Res> {
   __$$ErrorCopyWithImpl(_$Error<T> _value, $Res Function(_$Error<T>) _then)
       : super(_value, (v) => _then(v as _$Error<T>));
 
@@ -687,13 +673,11 @@ class _$Error<T> implements Error<T> {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
-  _$$ErrorCopyWith<T, _$Error<T>> get copyWith =>
-      __$$ErrorCopyWithImpl<T, _$Error<T>>(this, _$identity);
+  _$$ErrorCopyWith<T, _$Error<T>> get copyWith => __$$ErrorCopyWithImpl<T, _$Error<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -786,25 +770,23 @@ abstract class Error<T> implements ResultState<T> {
   const factory Error({required final String error}) = _$Error<T>;
 
   String get error;
+
   @JsonKey(ignore: true)
-  _$$ErrorCopyWith<T, _$Error<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ErrorCopyWith<T, _$Error<T>> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UnNotifiedErrorCopyWith<T, $Res> {
-  factory _$$UnNotifiedErrorCopyWith(_$UnNotifiedError<T> value,
-          $Res Function(_$UnNotifiedError<T>) then) =
+  factory _$$UnNotifiedErrorCopyWith(_$UnNotifiedError<T> value, $Res Function(_$UnNotifiedError<T>) then) =
       __$$UnNotifiedErrorCopyWithImpl<T, $Res>;
+
   $Res call({T data, String error});
 }
 
 /// @nodoc
-class __$$UnNotifiedErrorCopyWithImpl<T, $Res>
-    extends _$ResultStateCopyWithImpl<T, $Res>
+class __$$UnNotifiedErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
     implements _$$UnNotifiedErrorCopyWith<T, $Res> {
-  __$$UnNotifiedErrorCopyWithImpl(
-      _$UnNotifiedError<T> _value, $Res Function(_$UnNotifiedError<T>) _then)
+  __$$UnNotifiedErrorCopyWithImpl(_$UnNotifiedError<T> _value, $Res Function(_$UnNotifiedError<T>) _then)
       : super(_value, (v) => _then(v as _$UnNotifiedError<T>));
 
   @override
@@ -853,16 +835,13 @@ class _$UnNotifiedError<T> implements UnNotifiedError<T> {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(data),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data), const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
   _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith =>
-      __$$UnNotifiedErrorCopyWithImpl<T, _$UnNotifiedError<T>>(
-          this, _$identity);
+      __$$UnNotifiedErrorCopyWithImpl<T, _$UnNotifiedError<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -952,13 +931,12 @@ class _$UnNotifiedError<T> implements UnNotifiedError<T> {
 }
 
 abstract class UnNotifiedError<T> implements ResultState<T> {
-  const factory UnNotifiedError(
-      {required final T data,
-      required final String error}) = _$UnNotifiedError<T>;
+  const factory UnNotifiedError({required final T data, required final String error}) = _$UnNotifiedError<T>;
 
   T get data;
+
   String get error;
+
   @JsonKey(ignore: true)
-  _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith => throw _privateConstructorUsedError;
 }
