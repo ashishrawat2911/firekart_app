@@ -22,7 +22,6 @@ class ProductModel {
   final bool isProductAvailable;
   final List<String> nameSearch;
 
-
   ProductModel(
       this.productId,
       this.image,
