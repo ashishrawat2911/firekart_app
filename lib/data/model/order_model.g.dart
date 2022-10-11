@@ -7,43 +7,41 @@ part of 'order_model.dart';
 // **************************************************************************
 
 OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
-      orderId: json['order_id'] as String?,
-      price: json['price'] as num?,
-      orderItems: (json['order_items'] as List<dynamic>?)
-          ?.map((e) => OrderItemModel.fromJson(e))
+      json['order_id'] as String,
+      json['price'] as num,
+      (json['order_items'] as List<dynamic>)
+          .map((e) => OrderItemModel.fromJson(e))
           .toList(),
-      orderedAt: json['ordered_at'] as String?,
-      orderStatus: json['order_status'] as String?,
-      currency: json['currency'] as String?,
-      paymentId: json['payment_id'] as String?,
-      signature: json['signature'] as String?,
-      orderAddress: json['order_address'] == null
-          ? null
-          : AddressModel.fromJson(json['order_address']),
+      json['ordered_at'] as String,
+      json['order_status'] as String,
+      json['currency'] as String,
+      json['payment_id'] as String,
+      json['signature'] as String,
+      AddressModel.fromJson(json['order_address']),
     );
 
 Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
     <String, dynamic>{
       'order_id': instance.orderId,
       'price': instance.price,
-      'order_items': instance.orderItems?.map((e) => e.toJson()).toList(),
+      'order_items': instance.orderItems.map((e) => e.toJson()).toList(),
       'ordered_at': instance.orderedAt,
       'order_status': instance.orderStatus,
       'currency': instance.currency,
       'payment_id': instance.paymentId,
       'signature': instance.signature,
-      'order_address': instance.orderAddress?.toJson(),
+      'order_address': instance.orderAddress.toJson(),
     };
 
 OrderItemModel _$OrderItemModelFromJson(Map<String, dynamic> json) =>
     OrderItemModel(
-      productId: json['product_id'] as String?,
-      image: json['image'] as String?,
-      name: json['name'] as String?,
-      unit: json['unit'] as String?,
-      currency: json['currency'] as String?,
-      price: json['price'] as num?,
-      noOfItems: json['no_of_items'] as num?,
+      json['product_id'] as String,
+      json['image'] as String,
+      json['name'] as String,
+      json['unit'] as String,
+      json['currency'] as String,
+      json['price'] as num,
+      json['no_of_items'] as num,
     );
 
 Map<String, dynamic> _$OrderItemModelToJson(OrderItemModel instance) =>

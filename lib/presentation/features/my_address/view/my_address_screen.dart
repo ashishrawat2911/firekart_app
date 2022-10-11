@@ -22,7 +22,7 @@ class MyAddressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
-      body: StateBuilder<MyAddressViewModel, MyAddressState>(
+      body: StateManager<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
         },
@@ -46,7 +46,7 @@ class MyAddressScreen extends StatelessWidget {
     );
   }
 
-  Widget addressesView(AccountDetailsModel accountDetails, MyAddressViewModel viewModel, MyAddressState state) {
+  Widget addressesView(AccountDetails accountDetails, MyAddressViewModel viewModel, MyAddressState state) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -220,7 +220,7 @@ class MyAddressScreen extends StatelessWidget {
         ));
   }
 
-  Widget noAddressesFound(AccountDetailsModel accountDetails, MyAddressViewModel viewModel) {
+  Widget noAddressesFound(AccountDetails accountDetails, MyAddressViewModel viewModel) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -244,7 +244,7 @@ class MyAddressScreen extends StatelessWidget {
     );
   }
 
-  void addNewNavigation(AccountDetailsModel accountDetails, MyAddressViewModel viewModel) {
+  void addNewNavigation(AccountDetails accountDetails, MyAddressViewModel viewModel) {
     NavigationHandler.navigateTo(AddAddressScreenRoute(newAddress: true, accountDetails: accountDetails)).then((value) {
       if (value != null && value is bool && value) {
         viewModel.fetchAccountDetails();

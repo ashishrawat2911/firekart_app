@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<SplashViewModel, SplashState>(
+    return StateManager<SplashViewModel, SplashState>(
       onViewModelReady: (viewModel) {
         viewModel.startSplash();
       },

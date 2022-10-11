@@ -21,7 +21,7 @@ class DotProgressIndicator extends StatefulWidget {
   final AnimationController? controller;
 
   @override
-  _DotProgressIndicatorState createState() => _DotProgressIndicatorState();
+  State createState() => _DotProgressIndicatorState();
 }
 
 class _DotProgressIndicatorState extends State<DotProgressIndicator> with SingleTickerProviderStateMixin {

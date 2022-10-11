@@ -11,7 +11,7 @@ import '../state/dashboard_state.dart';
 enum ProductData { dealOfTheDay, onSale, topProducts }
 
 @injectable
-class DashboardViewModel extends StateManager<DashboardState> {
+class DashboardViewModel extends ViewModel<DashboardState> {
   DashboardViewModel(this._getAllProductsUseCase) : super(const DashboardState());
 
   final GetAllProductsUseCase _getAllProductsUseCase;
@@ -38,7 +38,7 @@ class DashboardViewModel extends StateManager<DashboardState> {
         return;
       }
 
-      final List<ProductModel> productList = await _getAllProductsUseCase.execute(condition: condition, all: true);
+      final List<Product> productList = await _getAllProductsUseCase.execute(condition: condition, all: true);
 
       final resultState = ResultState.data(data: productList);
 
@@ -59,7 +59,7 @@ class DashboardViewModel extends StateManager<DashboardState> {
   }
 
   void onErrorState(ProductData productData, String error) {
-    final errorState = ResultState<List<ProductModel>>.error(error: error);
+    final errorState = ResultState<List<Product>>.error(error: error);
     switch (productData) {
       case ProductData.dealOfTheDay:
         state = state.copyWith(dealOfTheDay: errorState);

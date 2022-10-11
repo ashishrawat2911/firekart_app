@@ -7,25 +7,21 @@ part of 'product_model.dart';
 // **************************************************************************
 
 ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
-      productId: json['product_id'] as String?,
-      image: json['image'] as String?,
-      name: json['name'] as String?,
-      unit: json['unit'] as String?,
-      categories: (json['categories'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      currency: json['currency'] as String?,
-      dealOfTheDay: json['deal_of_the_day'] as bool?,
-      topProducts: json['top_products'] as bool?,
-      onSale: json['on_sale'] as bool?,
-      currentPrice: json['current_price'] as num?,
-      actualPrice: json['actual_price'] as num?,
-      quantityPerUnit: json['quantity_per_unit'] as num?,
-      description: json['description'] as String?,
-      isProductAvailable: json['is_product_available'] as bool? ?? false,
-      nameSearch: (json['name_search'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+      json['product_id'] as String,
+      json['image'] as String,
+      json['name'] as String,
+      json['description'] as String,
+      json['unit'] as String,
+      (json['categories'] as List<dynamic>).map((e) => e as String).toList(),
+      json['currency'] as String,
+      json['deal_of_the_day'] as bool,
+      json['top_products'] as bool,
+      json['on_sale'] as bool,
+      json['current_price'] as num,
+      json['actual_price'] as num,
+      json['quantity_per_unit'] as num,
+      json['is_product_available'] as bool? ?? false,
+      (json['name_search'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>

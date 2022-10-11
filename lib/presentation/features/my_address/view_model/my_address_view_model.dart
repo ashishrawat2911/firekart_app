@@ -8,17 +8,17 @@ import '../../../../domain/usecases/set_account_details_usecase.dart';
 import '../state/my_address_state.dart';
 
 @injectable
-class MyAddressViewModel extends StateManager<MyAddressState> {
+class MyAddressViewModel extends ViewModel<MyAddressState> {
   MyAddressViewModel(this._getAccountDetailsUseCase, this._setAccountDetailsUseCase) : super(const MyAddressState());
 
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
 
-  Future<void> listenToAccountDetails(AccountDetailsModel accountDetails) async {
+  Future<void> listenToAccountDetails(AccountDetails accountDetails) async {
     setAddress(accountDetails);
   }
 
-  void setAddress(AccountDetailsModel accountDetails) {
+  void setAddress(AccountDetails accountDetails) {
     final List<AddressCardState> cardStates = [];
 
     for (int i = 0; i < accountDetails.addresses.length; i++) {
@@ -29,7 +29,7 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
 
   Future<void> fetchAccountDetails() async {
     state = state.copyWith(screenLoading: true);
-    final AccountDetailsModel accountDetails = await _getAccountDetailsUseCase.execute();
+    final AccountDetails accountDetails = await _getAccountDetailsUseCase.execute();
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
     setAddress(accountDetails);
     state = state.copyWith(screenLoading: false);
@@ -57,7 +57,7 @@ class MyAddressViewModel extends StateManager<MyAddressState> {
     _saveData(state.accountDetails!);
   }
 
-  void _saveData(AccountDetailsModel accountDetails) {
+  void _saveData(AccountDetails accountDetails) {
     _setAccountDetailsUseCase.execute(accountDetails).then((value) {
       fetchAccountDetails();
     }).catchError((e) {

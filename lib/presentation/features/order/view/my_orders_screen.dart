@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
-import '../../../../domain/models/order_model.dart';
 import '../../../../di/di.dart';
+import '../../../../domain/models/order_model.dart';
 import '../../../../res/app_colors.dart';
 import '../../../../res/string_constants.dart';
 import '../../../../res/text_styles.dart';
@@ -17,7 +17,7 @@ class MyOrdersScreen extends StatefulWidget {
   const MyOrdersScreen({Key? key}) : super(key: key);
 
   @override
-  _MyOrdersScreenState createState() => _MyOrdersScreenState();
+  State createState() => _MyOrdersScreenState();
 }
 
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
@@ -28,13 +28,6 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   void initState() {
     super.initState();
     ordersCubit.fetchOrders();
-    controller.addListener(_scrollListener);
-  }
-
-  void _scrollListener() {
-    if (controller.offset >= controller.position.maxScrollExtent && !controller.position.outOfRange) {
-      ordersCubit.fetchNextList();
-    }
   }
 
   @override
@@ -43,9 +36,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
       appBar: AppBar(
         title: const Text(StringsConstants.myOrders),
       ),
-      body: BlocBuilder<MyOrdersCubit, ResultState<List<OrderModel>>>(
+      body: BlocBuilder<MyOrdersCubit, ResultState<List<Order>>>(
         bloc: ordersCubit,
-        builder: (BuildContext context, ResultState<List<OrderModel>> state) {
+        builder: (BuildContext context, ResultState<List<Order>> state) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
@@ -53,7 +46,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                 child: CommonAppLoader(),
               );
             },
-            dataWidget: (List<OrderModel> value) {
+            dataWidget: (List<Order> value) {
               return orderView(value);
             },
             errorWidget: (String error) {
@@ -65,7 +58,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     );
   }
 
-  Widget orderView(List<OrderModel> orderList) {
+  Widget orderView(List<Order> orderList) {
     return ListView.builder(
       controller: controller,
       itemCount: orderList.length,
@@ -88,7 +81,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.t14,
                               ),
                               Text(
-                                getOrderedTime(orderList[orderListIndex].orderedAt!),
+                                getOrderedTime(orderList[orderListIndex].orderedAt),
                                 style: AppTextStyles.t1,
                               )
                             ],
@@ -96,8 +89,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(orderList[orderListIndex].orderItems!.length,
-                        (index) => orderCard(orderList[orderListIndex].orderItems![index])),
+                    ...List<Widget>.generate(orderList[orderListIndex].orderItems.length,
+                        (index) => orderCard(orderList[orderListIndex].orderItems[index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -119,13 +112,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         Row(
                           children: [
                             Text(
-                              "${orderList[orderListIndex].orderStatus}",
+                              orderList[orderListIndex].orderStatus,
                               style: AppTextStyles.t19,
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(orderList[orderListIndex].orderStatus!)
+                            getOrderStatusIcon(orderList[orderListIndex].orderStatus)
                           ],
                         )
                       ],
@@ -142,7 +135,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     );
   }
 
-  Widget orderCard(OrderItemModel orderItem) {
+  Widget orderCard(OrderItem orderItem) {
     return Container(
       margin: const EdgeInsets.only(top: 16, bottom: 20),
       child: Card(
@@ -154,7 +147,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             Row(
               children: [
                 CachedNetworkImage(
-                  imageUrl: orderItem.image!,
+                  imageUrl: orderItem.image,
                   height: 46,
                   width: 46,
                   fit: BoxFit.fill,
@@ -166,7 +159,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      orderItem.name!,
+                      orderItem.name,
                       style: AppTextStyles.t18,
                     ),
                     const SizedBox(
@@ -184,7 +177,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               height: 10,
             ),
             Text(
-              "${orderItem.noOfItems} item${orderItem.noOfItems! > 1 ? "s" : ""}",
+              "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
               style: AppTextStyles.t19,
             ),
           ],

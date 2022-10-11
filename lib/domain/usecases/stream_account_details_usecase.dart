@@ -1,6 +1,7 @@
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
 import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
+
+import '../models/account_details_model.dart';
 
 @injectable
 class StreamAccountDetailsUseCaseUseCase {
@@ -8,9 +9,7 @@ class StreamAccountDetailsUseCaseUseCase {
 
   final FirebaseRepository _firebaseRepository;
 
-  Stream<AccountDetailsModel> execute() {
-    return _firebaseRepository
-        .streamUserDetails(_firebaseRepository.getUid())
-        .map((event) => AccountDetailsModel.fromDocument(event.data()));
+  Stream<AccountDetails> execute() {
+    return _firebaseRepository.streamUserDetails();
   }
 }

@@ -4,7 +4,7 @@ import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dar
 import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
 
-import '../../data/repository/firebase_repository.dart';
+import '../../data/service/firebase_service.dart';
 
 @singleton
 class CrashlyticsService {
@@ -14,7 +14,7 @@ class CrashlyticsService {
     FlutterError.onError = recordFlutterError;
   }
 
-  final FirebaseRepository _firebaseManager;
+  final FirebaseService _firebaseManager;
 
   void recordFlutterError(FlutterErrorDetails details) {
     FirebaseCrashlytics.instance.recordFlutterError(details);

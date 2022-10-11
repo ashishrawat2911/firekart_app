@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/models/account_details_model.dart';
 import '../../../di/di.dart';
+import '../../../domain/models/account_details_model.dart';
 import '../../../domain/usecases/logout_usecase.dart';
 import '../../../domain/usecases/stream_account_details_usecase.dart';
 import '../../../res/string_constants.dart';
@@ -14,11 +14,11 @@ class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
 
   @override
-  _AccountScreenState createState() => _AccountScreenState();
+  State createState() => _AccountScreenState();
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  AccountDetailsModel? accountDetails;
+  AccountDetails? accountDetails;
 
   @override
   void initState() {

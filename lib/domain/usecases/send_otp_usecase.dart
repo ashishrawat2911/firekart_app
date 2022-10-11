@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/data/repository/firebase_repository.dart';
+import 'package:fluttercommerce/data/service/firebase_service.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class SendOTPUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirebaseService firebaseService;
 
-  SendOTPUseCase(this._firebaseRepository);
+  SendOTPUseCase(this.firebaseService);
 
   Future<bool> execute({
     required String phoneNumber,
@@ -15,7 +15,7 @@ class SendOTPUseCase {
     required ValueChanged<String> onError,
     required ValueChanged<String> onVerificationId,
   }) {
-    return _firebaseRepository.sendCode(
+    return firebaseService.sendCode(
       phoneNumber,
       verificationCompleted: (phoneAuthCredential) {
         onSuccess(phoneAuthCredential);

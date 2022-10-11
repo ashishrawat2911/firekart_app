@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/state_manager.dart';
 import '../../../../core/utils/connectivity.dart';
+import '../../../../data/model/account_details_model.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/models/cart_model.dart';
 import '../../../../domain/models/order_model.dart';
@@ -17,7 +18,7 @@ import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
 
 @injectable
-class CartViewModel extends StateManager<CartState> {
+class CartViewModel extends ViewModel<CartState> {
   CartViewModel(
     this._productAddToCartUseCase,
     this._productDeleteCartUseCase,
@@ -26,7 +27,7 @@ class CartViewModel extends StateManager<CartState> {
     this._getCartStatusUseCase,
   ) : super(const CartState());
 
-  AccountDetailsModel? accountDetails;
+  AccountDetails? accountDetails;
 
   final ProductAddToCartUseCase _productAddToCartUseCase;
   final ProductDeleteCartUseCase _productDeleteCartUseCase;
@@ -50,7 +51,7 @@ class CartViewModel extends StateManager<CartState> {
 
   String get currency => noOfItemsInCart > 0 ? state.cartList[0].currency : "";
 
-  set cartItems(List<CartModel> value) {
+  set cartItems(List<Cart> value) {
     state = state.copyWith(cartList: value);
   }
 
@@ -78,13 +79,13 @@ class CartViewModel extends StateManager<CartState> {
     state = state.copyWith(orderInProgress: false);
   }
 
-  OrderModel _orderFromCartList(List<CartModel> cartModel, AddressModel orderAddress) {
+  Order _orderFromCartList(List<Cart> cartModel, Address orderAddress) {
     final cartItems = cartModel;
 
-    List<OrderItemModel> getOrderItems() {
-      return List<OrderItemModel>.generate(cartItems.length, (index) {
-        final CartModel cartModel = cartItems[index];
-        return OrderItemModel(
+    List<OrderItem> getOrderItems() {
+      return List<OrderItem>.generate(cartItems.length, (index) {
+        final Cart cartModel = cartItems[index];
+        return OrderItem(
           name: cartModel.name,
           productId: cartModel.productId,
           currency: cartModel.currency,
@@ -96,7 +97,7 @@ class CartViewModel extends StateManager<CartState> {
       });
     }
 
-    final OrderModel orderModel = OrderModel(
+    final Order orderModel = Order(
       orderId: "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
       orderItems: getOrderItems(),
       paymentId: 'response.paymentId!',
@@ -130,11 +131,11 @@ class CartViewModel extends StateManager<CartState> {
     }
   }
 
-  void addAccountDetails(AccountDetailsModel? accountDetails) {
+  void addAccountDetails(AccountDetails? accountDetails) {
     if (accountDetails != null) {
-      AddressModel? address;
+      Address? address;
       List.generate(accountDetails.addresses.length, (int index) {
-        final AddressModel add = accountDetails.addresses[index];
+        final Address add = accountDetails.addresses[index];
         if (add.isDefault) {
           address = add;
         }
@@ -181,7 +182,7 @@ class CartViewModel extends StateManager<CartState> {
   }
 
   Future<void> deleteItem(int index, {bool deleteExternally = true}) async {
-    final CartModel cartModel = state.cartList[index];
+    final Cart cartModel = state.cartList[index];
     if (deleteExternally) {
       state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, deleteLoading: true));
     }
@@ -208,7 +209,7 @@ class CartViewModel extends StateManager<CartState> {
   }
 }
 
-extension CartStatus on List<CartModel> {
+extension CartStatus on List<Cart> {
   int get noOfItemsInCart => length;
 
   num get priceInCart {

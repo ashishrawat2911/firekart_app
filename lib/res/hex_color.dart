@@ -7,7 +7,7 @@ class HexColor extends Color {
     var hexColor = hexColorString;
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
+      hexColor = "FF$hexColor";
     }
     return int.parse(hexColor, radix: 16);
   }
