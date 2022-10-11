@@ -7,7 +7,7 @@ import '../../../../domain/usecases/stream_account_details_usecase.dart';
 import '../state/home_state.dart';
 
 @injectable
-class HomeScreenViewModel extends StateManager<HomeState> {
+class HomeScreenViewModel extends ViewModel<HomeState> {
   HomeScreenViewModel(
     this._getCartStatusUseCase,
     this._accountDetailsUseCaseUseCase,
@@ -31,7 +31,7 @@ class HomeScreenViewModel extends StateManager<HomeState> {
     _getCartStatusUseCase.execute().listen((event) {});
   }
 
-  void _addDetails(AccountDetailsModel accountDetails) {
+  void _addDetails(AccountDetails accountDetails) {
     accountDetails.addresses = accountDetails.addresses.reversed.toList();
 
     emit(state.copyWith(

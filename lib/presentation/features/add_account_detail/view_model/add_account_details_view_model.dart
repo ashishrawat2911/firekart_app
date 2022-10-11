@@ -1,10 +1,10 @@
 import 'package:fluttercommerce/core/utils/validator.dart';
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
 import 'package:fluttercommerce/domain/usecases/set_account_details_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/set_user_profile_data_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/state_manager/state_manager.dart';
+import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/get_account_details_usecase.dart';
 import '../../../../domain/usecases/get_current_user_phone_number_usecase.dart';
 import '../../../routes/app_router.gr.dart';
@@ -12,7 +12,7 @@ import '../../../routes/navigation_handler.dart';
 import '../state/add_account_details_state.dart';
 
 @injectable
-class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
+class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
   AddAccountDetailsViewModel(
     this._setAccountDetailsUseCase,
     this._getAccountDetailsUseCase,
@@ -37,18 +37,18 @@ class AddAccountDetailsViewModel extends StateManager<AddAccountDetailsState> {
 
   Future<void> loadPreviousData() async {
     state = (const AddAccountDetailsState.loading());
-    final AccountDetailsModel _accountDetails = await _getAccountDetailsUseCase.execute();
-    state = (AddAccountDetailsState.editData(_accountDetails));
-    validateButton(_accountDetails.name);
+    final AccountDetails accountDetails = await _getAccountDetailsUseCase.execute();
+    state = (AddAccountDetailsState.editData(accountDetails));
+    validateButton(accountDetails.name);
   }
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
-    final AccountDetailsModel _accountDetails =
-        AccountDetailsModel(name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
+    final AccountDetails accountDetails =
+        AccountDetails(name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
 
     state = (const AddAccountDetailsState.saveDataLoading());
-    await _setAccountDetailsUseCase.execute(_accountDetails);
-    await _setProfileUserDataUseCase.execute(displayName: _accountDetails.name);
+    await _setAccountDetailsUseCase.execute(accountDetails);
+    await _setProfileUserDataUseCase.execute(displayName: accountDetails.name);
 
     if (isEdit) {
       NavigationHandler.navigateTo(const HomeScreenRoute(), navigationType: NavigationType.pushReplacement);

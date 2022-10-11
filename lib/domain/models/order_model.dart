@@ -1,59 +1,45 @@
-import 'package:json_annotation/json_annotation.dart';
-
 import 'account_details_model.dart';
 
-part 'order_model.g.dart';
+class Order {
+  Order({
+    required this.orderId,
+    required this.price,
+    required this.orderItems,
+    required this.orderedAt,
+    required this.orderStatus,
+    required this.currency,
+    required this.paymentId,
+    required this.signature,
+    required this.orderAddress,
+  });
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class OrderModel {
-  OrderModel(
-      {this.orderId,
-      this.price,
-      this.orderItems,
-      this.orderedAt,
-      this.orderStatus,
-      this.currency,
-      this.paymentId,
-      this.signature,
-      this.orderAddress});
-
-  factory OrderModel.fromJson(json) => _$OrderModelFromJson(json);
-  String? orderId;
-  num? price;
-  List<OrderItemModel>? orderItems;
-  String? orderedAt;
-  String? orderStatus;
-  String? currency;
-  String? paymentId;
-  String? signature;
-  AddressModel? orderAddress;
-
-  Map<String, dynamic> toJson() => _$OrderModelToJson(this);
-
-  @override
-  String toString() {
-    return 'OrderModel{orderId: $orderId, price: $price, orderItems: $orderItems}';
-  }
+  String orderId;
+  num price;
+  List<OrderItem> orderItems;
+  String orderedAt;
+  String orderStatus;
+  String currency;
+  String paymentId;
+  String signature;
+  Address orderAddress;
 }
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class OrderItemModel {
-  OrderItemModel({this.productId, this.image, this.name, this.unit, this.currency, this.price, this.noOfItems});
+class OrderItem {
+  OrderItem({
+    required this.productId,
+    required this.image,
+    required this.name,
+    required this.unit,
+    required this.currency,
+    required this.price,
+    required this.noOfItems,
+  });
 
-  factory OrderItemModel.fromJson(json) => _$OrderItemModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OrderItemModelToJson(this);
-
-  String? productId;
-  String? image;
-  String? name;
-  String? unit;
-  String? currency;
-  num? price;
-  num? noOfItems;
-
-  @override
-  String toString() {
-    return 'OrderItem{productId: $productId, image: $image, name: $name, unit: $unit, currency: $currency, price: $price, noOfItems: $noOfItems}';
-  }
+  String productId;
+  String image;
+  String name;
+  String unit;
+  String currency;
+  num price;
+  num noOfItems;
 }

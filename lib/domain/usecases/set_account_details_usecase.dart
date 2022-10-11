@@ -1,6 +1,7 @@
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
 import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
+
+import '../models/account_details_model.dart';
 
 @injectable
 class SetAccountDetailsUseCase {
@@ -8,7 +9,7 @@ class SetAccountDetailsUseCase {
 
   final FirebaseRepository _firebaseRepository;
 
-  Future<void> execute(AccountDetailsModel accountDetails) {
+  Future<void> execute(AccountDetails accountDetails) {
     return _firebaseRepository.addUserDetails(accountDetails);
   }
 }

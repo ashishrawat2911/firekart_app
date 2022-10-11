@@ -14,16 +14,16 @@ import '../state/add_to_cart_state.dart';
 import '../view_model/product_view_model.dart';
 
 class ProductDetailPage extends StatelessWidget {
-  const ProductDetailPage(this.productModel, {Key? key}) : super(key: key);
+  const ProductDetailPage(this.product, {Key? key}) : super(key: key);
 
-  final ProductModel productModel;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
-    return StateBuilder<ProductViewModel, AddToCartState>(
+    return StateManager<ProductViewModel, AddToCartState>(
       onViewModelReady: (viewModel) {
-        viewModel.checkItemInCart(productModel.productId!);
-        viewModel.listenToProduct(productModel.productId!);
+        viewModel.checkItemInCart(product.productId);
+        viewModel.listenToProduct(product.productId);
       },
       builder: (context, viewModel, state) => Scaffold(
         floatingActionButton: CommonViewCartOverlay(
@@ -31,19 +31,19 @@ class ProductDetailPage extends StatelessWidget {
             title: "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
             isCartEmpty: (state.noOfItems > 0),
             onCartTap: () {
-              NavigationHandler.navigateTo(CartScreenRoute());
+              NavigationHandler.navigateTo(const CartScreenRoute());
             },
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
-          title: Text(productModel.name!),
+          title: Text(product.name),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               CachedNetworkImage(
-                imageUrl: productModel.image!,
+                imageUrl: product.image,
                 fit: BoxFit.fill,
               ),
               Container(
@@ -52,13 +52,13 @@ class ProductDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      productModel.name!,
+                      product.name,
                       style: AppTextStyles.t33,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(productModel.description!),
+                    Text(product.description),
                     const SizedBox(
                       height: 10,
                     ),
@@ -66,7 +66,7 @@ class ProductDetailPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "${productModel.currency}${productModel.currentPrice} / ${productModel.quantityPerUnit} ${productModel.unit}",
+                          "${product.currency}${product.currentPrice} / ${product.quantityPerUnit} ${product.unit}",
                           style: AppTextStyles.t5,
                         ),
                         const SizedBox(
@@ -100,7 +100,7 @@ class ProductDetailPage extends StatelessWidget {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(productModel, cartValue, false);
+                          viewModel.updateCartValues(product, cartValue, false);
                         }),
               Expanded(
                   child: state.cartDataLoading
@@ -122,7 +122,7 @@ class ProductDetailPage extends StatelessWidget {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(productModel, cartValue, true);
+                          viewModel.updateCartValues(product, cartValue, true);
                         })
             ],
           ),
@@ -135,7 +135,7 @@ class ProductDetailPage extends StatelessWidget {
     return AnimatedCrossFade(
       firstChild: InkWell(
         onTap: () {
-          viewModel.addToCart(productModel);
+          viewModel.addToCart(product);
         },
         child: Container(
           height: 30,

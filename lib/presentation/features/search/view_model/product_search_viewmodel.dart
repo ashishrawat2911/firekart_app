@@ -5,7 +5,7 @@ import '../../../../domain/usecases/search_products_use_case.dart';
 import '../state/product_search_state.dart';
 
 @injectable
-class ProductSearchViewModel extends StateManager<ProductSearchState> {
+class ProductSearchViewModel extends ViewModel<ProductSearchState> {
   ProductSearchViewModel(this._searchProductsUseCase) : super(const ProductSearchState());
 
   final SearchProductsUseCase _searchProductsUseCase;

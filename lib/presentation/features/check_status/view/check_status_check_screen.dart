@@ -9,7 +9,7 @@ class CheckStatusScreen extends StatefulWidget {
   final bool checkForAccountStatusOnly;
 
   @override
-  _CheckStatusScreenState createState() => _CheckStatusScreenState();
+  State createState() => _CheckStatusScreenState();
 }
 
 class _CheckStatusScreenState extends State<CheckStatusScreen> {

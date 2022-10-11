@@ -1,6 +1,7 @@
-import 'package:fluttercommerce/domain/models/product_model.dart';
 import 'package:fluttercommerce/data/repository/firebase_repository.dart';
 import 'package:injectable/injectable.dart';
+
+import '../models/product_model.dart';
 
 @injectable
 class SearchProductsUseCase {
@@ -8,12 +9,7 @@ class SearchProductsUseCase {
 
   SearchProductsUseCase(this._firebaseRepository);
 
-  Future<List<ProductModel>> execute(String query) async {
-    final productSnapshot = await _firebaseRepository.searchProducts(query);
-
-    return List<ProductModel>.generate(productSnapshot.length, (index) {
-      final ProductModel productModel = ProductModel.fromJson(productSnapshot[index]);
-      return productModel;
-    });
+  Future<List<Product>> execute(String query) async {
+    return _firebaseRepository.searchProducts(query);
   }
 }

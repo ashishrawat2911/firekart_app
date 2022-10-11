@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'dashboard_state.dart';
@@ -11,34 +12,14 @@ part of 'dashboard_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$DashboardStateTearOff {
-  const _$DashboardStateTearOff();
-
-  _DashboardState call(
-      {ResultState<List<ProductModel>> dealOfTheDay = const Idle(),
-      ResultState<List<ProductModel>> onSale = const Idle(),
-      ResultState<List<ProductModel>> topProducts = const Idle()}) {
-    return _DashboardState(
-      dealOfTheDay: dealOfTheDay,
-      onSale: onSale,
-      topProducts: topProducts,
-    );
-  }
-}
-
-/// @nodoc
-const $DashboardState = _$DashboardStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$DashboardState {
-  ResultState<List<ProductModel>> get dealOfTheDay =>
+  ResultState<List<Product>> get dealOfTheDay =>
       throw _privateConstructorUsedError;
-  ResultState<List<ProductModel>> get onSale =>
-      throw _privateConstructorUsedError;
-  ResultState<List<ProductModel>> get topProducts =>
+  ResultState<List<Product>> get onSale => throw _privateConstructorUsedError;
+  ResultState<List<Product>> get topProducts =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -52,13 +33,13 @@ abstract class $DashboardStateCopyWith<$Res> {
           DashboardState value, $Res Function(DashboardState) then) =
       _$DashboardStateCopyWithImpl<$Res>;
   $Res call(
-      {ResultState<List<ProductModel>> dealOfTheDay,
-      ResultState<List<ProductModel>> onSale,
-      ResultState<List<ProductModel>> topProducts});
+      {ResultState<List<Product>> dealOfTheDay,
+      ResultState<List<Product>> onSale,
+      ResultState<List<Product>> topProducts});
 
-  $ResultStateCopyWith<List<ProductModel>, $Res> get dealOfTheDay;
-  $ResultStateCopyWith<List<ProductModel>, $Res> get onSale;
-  $ResultStateCopyWith<List<ProductModel>, $Res> get topProducts;
+  $ResultStateCopyWith<List<Product>, $Res> get dealOfTheDay;
+  $ResultStateCopyWith<List<Product>, $Res> get onSale;
+  $ResultStateCopyWith<List<Product>, $Res> get topProducts;
 }
 
 /// @nodoc
@@ -80,37 +61,36 @@ class _$DashboardStateCopyWithImpl<$Res>
       dealOfTheDay: dealOfTheDay == freezed
           ? _value.dealOfTheDay
           : dealOfTheDay // ignore: cast_nullable_to_non_nullable
-              as ResultState<List<ProductModel>>,
+              as ResultState<List<Product>>,
       onSale: onSale == freezed
           ? _value.onSale
           : onSale // ignore: cast_nullable_to_non_nullable
-              as ResultState<List<ProductModel>>,
+              as ResultState<List<Product>>,
       topProducts: topProducts == freezed
           ? _value.topProducts
           : topProducts // ignore: cast_nullable_to_non_nullable
-              as ResultState<List<ProductModel>>,
+              as ResultState<List<Product>>,
     ));
   }
 
   @override
-  $ResultStateCopyWith<List<ProductModel>, $Res> get dealOfTheDay {
-    return $ResultStateCopyWith<List<ProductModel>, $Res>(_value.dealOfTheDay,
+  $ResultStateCopyWith<List<Product>, $Res> get dealOfTheDay {
+    return $ResultStateCopyWith<List<Product>, $Res>(_value.dealOfTheDay,
         (value) {
       return _then(_value.copyWith(dealOfTheDay: value));
     });
   }
 
   @override
-  $ResultStateCopyWith<List<ProductModel>, $Res> get onSale {
-    return $ResultStateCopyWith<List<ProductModel>, $Res>(_value.onSale,
-        (value) {
+  $ResultStateCopyWith<List<Product>, $Res> get onSale {
+    return $ResultStateCopyWith<List<Product>, $Res>(_value.onSale, (value) {
       return _then(_value.copyWith(onSale: value));
     });
   }
 
   @override
-  $ResultStateCopyWith<List<ProductModel>, $Res> get topProducts {
-    return $ResultStateCopyWith<List<ProductModel>, $Res>(_value.topProducts,
+  $ResultStateCopyWith<List<Product>, $Res> get topProducts {
+    return $ResultStateCopyWith<List<Product>, $Res>(_value.topProducts,
         (value) {
       return _then(_value.copyWith(topProducts: value));
     });
@@ -118,35 +98,35 @@ class _$DashboardStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$DashboardStateCopyWith<$Res>
+abstract class _$$_DashboardStateCopyWith<$Res>
     implements $DashboardStateCopyWith<$Res> {
-  factory _$DashboardStateCopyWith(
-          _DashboardState value, $Res Function(_DashboardState) then) =
-      __$DashboardStateCopyWithImpl<$Res>;
+  factory _$$_DashboardStateCopyWith(
+          _$_DashboardState value, $Res Function(_$_DashboardState) then) =
+      __$$_DashboardStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {ResultState<List<ProductModel>> dealOfTheDay,
-      ResultState<List<ProductModel>> onSale,
-      ResultState<List<ProductModel>> topProducts});
+      {ResultState<List<Product>> dealOfTheDay,
+      ResultState<List<Product>> onSale,
+      ResultState<List<Product>> topProducts});
 
   @override
-  $ResultStateCopyWith<List<ProductModel>, $Res> get dealOfTheDay;
+  $ResultStateCopyWith<List<Product>, $Res> get dealOfTheDay;
   @override
-  $ResultStateCopyWith<List<ProductModel>, $Res> get onSale;
+  $ResultStateCopyWith<List<Product>, $Res> get onSale;
   @override
-  $ResultStateCopyWith<List<ProductModel>, $Res> get topProducts;
+  $ResultStateCopyWith<List<Product>, $Res> get topProducts;
 }
 
 /// @nodoc
-class __$DashboardStateCopyWithImpl<$Res>
+class __$$_DashboardStateCopyWithImpl<$Res>
     extends _$DashboardStateCopyWithImpl<$Res>
-    implements _$DashboardStateCopyWith<$Res> {
-  __$DashboardStateCopyWithImpl(
-      _DashboardState _value, $Res Function(_DashboardState) _then)
-      : super(_value, (v) => _then(v as _DashboardState));
+    implements _$$_DashboardStateCopyWith<$Res> {
+  __$$_DashboardStateCopyWithImpl(
+      _$_DashboardState _value, $Res Function(_$_DashboardState) _then)
+      : super(_value, (v) => _then(v as _$_DashboardState));
 
   @override
-  _DashboardState get _value => super._value as _DashboardState;
+  _$_DashboardState get _value => super._value as _$_DashboardState;
 
   @override
   $Res call({
@@ -154,19 +134,19 @@ class __$DashboardStateCopyWithImpl<$Res>
     Object? onSale = freezed,
     Object? topProducts = freezed,
   }) {
-    return _then(_DashboardState(
+    return _then(_$_DashboardState(
       dealOfTheDay: dealOfTheDay == freezed
           ? _value.dealOfTheDay
           : dealOfTheDay // ignore: cast_nullable_to_non_nullable
-              as ResultState<List<ProductModel>>,
+              as ResultState<List<Product>>,
       onSale: onSale == freezed
           ? _value.onSale
           : onSale // ignore: cast_nullable_to_non_nullable
-              as ResultState<List<ProductModel>>,
+              as ResultState<List<Product>>,
       topProducts: topProducts == freezed
           ? _value.topProducts
           : topProducts // ignore: cast_nullable_to_non_nullable
-              as ResultState<List<ProductModel>>,
+              as ResultState<List<Product>>,
     ));
   }
 }
@@ -179,15 +159,15 @@ class _$_DashboardState implements _DashboardState {
       this.onSale = const Idle(),
       this.topProducts = const Idle()});
 
-  @JsonKey()
   @override
-  final ResultState<List<ProductModel>> dealOfTheDay;
   @JsonKey()
+  final ResultState<List<Product>> dealOfTheDay;
   @override
-  final ResultState<List<ProductModel>> onSale;
   @JsonKey()
+  final ResultState<List<Product>> onSale;
   @override
-  final ResultState<List<ProductModel>> topProducts;
+  @JsonKey()
+  final ResultState<List<Product>> topProducts;
 
   @override
   String toString() {
@@ -198,7 +178,7 @@ class _$_DashboardState implements _DashboardState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DashboardState &&
+            other is _$_DashboardState &&
             const DeepCollectionEquality()
                 .equals(other.dealOfTheDay, dealOfTheDay) &&
             const DeepCollectionEquality().equals(other.onSale, onSale) &&
@@ -215,24 +195,24 @@ class _$_DashboardState implements _DashboardState {
 
   @JsonKey(ignore: true)
   @override
-  _$DashboardStateCopyWith<_DashboardState> get copyWith =>
-      __$DashboardStateCopyWithImpl<_DashboardState>(this, _$identity);
+  _$$_DashboardStateCopyWith<_$_DashboardState> get copyWith =>
+      __$$_DashboardStateCopyWithImpl<_$_DashboardState>(this, _$identity);
 }
 
 abstract class _DashboardState implements DashboardState {
   const factory _DashboardState(
-      {ResultState<List<ProductModel>> dealOfTheDay,
-      ResultState<List<ProductModel>> onSale,
-      ResultState<List<ProductModel>> topProducts}) = _$_DashboardState;
+      {final ResultState<List<Product>> dealOfTheDay,
+      final ResultState<List<Product>> onSale,
+      final ResultState<List<Product>> topProducts}) = _$_DashboardState;
 
   @override
-  ResultState<List<ProductModel>> get dealOfTheDay;
+  ResultState<List<Product>> get dealOfTheDay;
   @override
-  ResultState<List<ProductModel>> get onSale;
+  ResultState<List<Product>> get onSale;
   @override
-  ResultState<List<ProductModel>> get topProducts;
+  ResultState<List<Product>> get topProducts;
   @override
   @JsonKey(ignore: true)
-  _$DashboardStateCopyWith<_DashboardState> get copyWith =>
+  _$$_DashboardStateCopyWith<_$_DashboardState> get copyWith =>
       throw _privateConstructorUsedError;
 }

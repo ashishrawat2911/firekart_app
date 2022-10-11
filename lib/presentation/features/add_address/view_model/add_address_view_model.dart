@@ -8,12 +8,12 @@ import '../../../routes/navigation_handler.dart';
 import '../state/add_address_state.dart';
 
 @injectable
-class AddAddressViewModel extends StateManager<AddAddressState> {
+class AddAddressViewModel extends ViewModel<AddAddressState> {
   AddAddressViewModel(this._setAccountDetailsUseCase) : super(const AddAddressState());
 
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
 
-  Future<void> saveAddress(AccountDetailsModel accountDetails, AddressModel address) async {
+  Future<void> saveAddress(AccountDetails accountDetails, Address address) async {
     state = state.copyWith(buttonLoading: true);
 
     if (address.isDefault) {

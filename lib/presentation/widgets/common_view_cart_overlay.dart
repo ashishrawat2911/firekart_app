@@ -9,7 +9,7 @@ class CommonViewCartOverlayArgs {
   bool isCartEmpty;
   VoidCallback? onCartTap;
 
-  CommonViewCartOverlayArgs({required this.title, required this.isCartEmpty,this.onCartTap});
+  CommonViewCartOverlayArgs({required this.title, required this.isCartEmpty, this.onCartTap});
 }
 
 class CommonViewCartOverlay extends StatelessWidget {
@@ -37,7 +37,7 @@ class CommonViewCartOverlay extends StatelessWidget {
               width: 10,
             ),
             InkWell(
-              onTap:args.onCartTap,
+              onTap: args.onCartTap,
               child: Row(
                 children: <Widget>[
                   Icon(Icons.shopping_cart, color: AppColors.white),
