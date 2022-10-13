@@ -17,31 +17,30 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductSearchState {
   List<Product> get productList => throw _privateConstructorUsedError;
-
   bool get loading => throw _privateConstructorUsedError;
-
   String? get otp => throw _privateConstructorUsedError;
-
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ProductSearchStateCopyWith<ProductSearchState> get copyWith => throw _privateConstructorUsedError;
+  $ProductSearchStateCopyWith<ProductSearchState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ProductSearchStateCopyWith<$Res> {
-  factory $ProductSearchStateCopyWith(ProductSearchState value, $Res Function(ProductSearchState) then) =
+  factory $ProductSearchStateCopyWith(
+          ProductSearchState value, $Res Function(ProductSearchState) then) =
       _$ProductSearchStateCopyWithImpl<$Res>;
-
-  $Res call({List<Product> productList, bool loading, String? otp, String? error});
+  $Res call(
+      {List<Product> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
-class _$ProductSearchStateCopyWithImpl<$Res> implements $ProductSearchStateCopyWith<$Res> {
+class _$ProductSearchStateCopyWithImpl<$Res>
+    implements $ProductSearchStateCopyWith<$Res> {
   _$ProductSearchStateCopyWithImpl(this._value, this._then);
 
   final ProductSearchState _value;
-
   // ignore: unused_field
   final $Res Function(ProductSearchState) _then;
 
@@ -74,18 +73,22 @@ class _$ProductSearchStateCopyWithImpl<$Res> implements $ProductSearchStateCopyW
 }
 
 /// @nodoc
-abstract class _$$_ProductSearchStateCopyWith<$Res> implements $ProductSearchStateCopyWith<$Res> {
-  factory _$$_ProductSearchStateCopyWith(_$_ProductSearchState value, $Res Function(_$_ProductSearchState) then) =
+abstract class _$$_ProductSearchStateCopyWith<$Res>
+    implements $ProductSearchStateCopyWith<$Res> {
+  factory _$$_ProductSearchStateCopyWith(_$_ProductSearchState value,
+          $Res Function(_$_ProductSearchState) then) =
       __$$_ProductSearchStateCopyWithImpl<$Res>;
-
   @override
-  $Res call({List<Product> productList, bool loading, String? otp, String? error});
+  $Res call(
+      {List<Product> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
-class __$$_ProductSearchStateCopyWithImpl<$Res> extends _$ProductSearchStateCopyWithImpl<$Res>
+class __$$_ProductSearchStateCopyWithImpl<$Res>
+    extends _$ProductSearchStateCopyWithImpl<$Res>
     implements _$$_ProductSearchStateCopyWith<$Res> {
-  __$$_ProductSearchStateCopyWithImpl(_$_ProductSearchState _value, $Res Function(_$_ProductSearchState) _then)
+  __$$_ProductSearchStateCopyWithImpl(
+      _$_ProductSearchState _value, $Res Function(_$_ProductSearchState) _then)
       : super(_value, (v) => _then(v as _$_ProductSearchState));
 
   @override
@@ -122,11 +125,14 @@ class __$$_ProductSearchStateCopyWithImpl<$Res> extends _$ProductSearchStateCopy
 /// @nodoc
 
 class _$_ProductSearchState implements _ProductSearchState {
-  const _$_ProductSearchState({final List<Product> productList = const [], this.loading = false, this.otp, this.error})
+  const _$_ProductSearchState(
+      {final List<Product> productList = const [],
+      this.loading = false,
+      this.otp,
+      this.error})
       : _productList = productList;
 
   final List<Product> _productList;
-
   @override
   @JsonKey()
   List<Product> get productList {
@@ -152,7 +158,8 @@ class _$_ProductSearchState implements _ProductSearchState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductSearchState &&
-            const DeepCollectionEquality().equals(other._productList, _productList) &&
+            const DeepCollectionEquality()
+                .equals(other._productList, _productList) &&
             const DeepCollectionEquality().equals(other.loading, loading) &&
             const DeepCollectionEquality().equals(other.otp, otp) &&
             const DeepCollectionEquality().equals(other.error, error));
@@ -169,7 +176,8 @@ class _$_ProductSearchState implements _ProductSearchState {
   @JsonKey(ignore: true)
   @override
   _$$_ProductSearchStateCopyWith<_$_ProductSearchState> get copyWith =>
-      __$$_ProductSearchStateCopyWithImpl<_$_ProductSearchState>(this, _$identity);
+      __$$_ProductSearchStateCopyWithImpl<_$_ProductSearchState>(
+          this, _$identity);
 }
 
 abstract class _ProductSearchState implements ProductSearchState {
@@ -181,17 +189,14 @@ abstract class _ProductSearchState implements ProductSearchState {
 
   @override
   List<Product> get productList;
-
   @override
   bool get loading;
-
   @override
   String? get otp;
-
   @override
   String? get error;
-
   @override
   @JsonKey(ignore: true)
-  _$$_ProductSearchStateCopyWith<_$_ProductSearchState> get copyWith => throw _privateConstructorUsedError;
+  _$$_ProductSearchStateCopyWith<_$_ProductSearchState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
