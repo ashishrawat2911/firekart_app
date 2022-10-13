@@ -39,7 +39,7 @@ class FirebaseDeepLink extends Deeplink {
       link: Uri(
         scheme: 'http',
         host: 'fluttercommerce.io',
-        path: '$path',
+        path: path,
         queryParameters: value,
       ),
       androidParameters: AndroidParameters(
