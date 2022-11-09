@@ -24,7 +24,6 @@ mixin _$PaymentState {
     required TResult Function(String response) paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? idle,
@@ -33,7 +32,6 @@ mixin _$PaymentState {
     TResult Function(String response)? paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
@@ -43,7 +41,6 @@ mixin _$PaymentState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -52,7 +49,6 @@ mixin _$PaymentState {
     required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -61,7 +57,6 @@ mixin _$PaymentState {
     TResult Function(PaymentSuccessful value)? paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Idle value)? idle,
@@ -75,7 +70,8 @@ mixin _$PaymentState {
 
 /// @nodoc
 abstract class $PaymentStateCopyWith<$Res> {
-  factory $PaymentStateCopyWith(PaymentState value, $Res Function(PaymentState) then) =
+  factory $PaymentStateCopyWith(
+          PaymentState value, $Res Function(PaymentState) then) =
       _$PaymentStateCopyWithImpl<$Res>;
 }
 
@@ -84,19 +80,21 @@ class _$PaymentStateCopyWithImpl<$Res> implements $PaymentStateCopyWith<$Res> {
   _$PaymentStateCopyWithImpl(this._value, this._then);
 
   final PaymentState _value;
-
   // ignore: unused_field
   final $Res Function(PaymentState) _then;
 }
 
 /// @nodoc
 abstract class _$$IdleCopyWith<$Res> {
-  factory _$$IdleCopyWith(_$Idle value, $Res Function(_$Idle) then) = __$$IdleCopyWithImpl<$Res>;
+  factory _$$IdleCopyWith(_$Idle value, $Res Function(_$Idle) then) =
+      __$$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$IdleCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res> implements _$$IdleCopyWith<$Res> {
-  __$$IdleCopyWithImpl(_$Idle _value, $Res Function(_$Idle) _then) : super(_value, (v) => _then(v as _$Idle));
+class __$$IdleCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
+    implements _$$IdleCopyWith<$Res> {
+  __$$IdleCopyWithImpl(_$Idle _value, $Res Function(_$Idle) _then)
+      : super(_value, (v) => _then(v as _$Idle));
 
   @override
   _$Idle get _value => super._value as _$Idle;
@@ -114,7 +112,8 @@ class _$Idle implements Idle {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$Idle);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Idle);
   }
 
   @override
@@ -201,14 +200,17 @@ abstract class Idle implements PaymentState {
 
 /// @nodoc
 abstract class _$$PaymentButtonLoadingCopyWith<$Res> {
-  factory _$$PaymentButtonLoadingCopyWith(_$PaymentButtonLoading value, $Res Function(_$PaymentButtonLoading) then) =
+  factory _$$PaymentButtonLoadingCopyWith(_$PaymentButtonLoading value,
+          $Res Function(_$PaymentButtonLoading) then) =
       __$$PaymentButtonLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PaymentButtonLoadingCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
+class __$$PaymentButtonLoadingCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res>
     implements _$$PaymentButtonLoadingCopyWith<$Res> {
-  __$$PaymentButtonLoadingCopyWithImpl(_$PaymentButtonLoading _value, $Res Function(_$PaymentButtonLoading) _then)
+  __$$PaymentButtonLoadingCopyWithImpl(_$PaymentButtonLoading _value,
+      $Res Function(_$PaymentButtonLoading) _then)
       : super(_value, (v) => _then(v as _$PaymentButtonLoading));
 
   @override
@@ -227,7 +229,8 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$PaymentButtonLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PaymentButtonLoading);
   }
 
   @override
@@ -314,16 +317,18 @@ abstract class PaymentButtonLoading implements PaymentState {
 
 /// @nodoc
 abstract class _$$PaymentErrorCopyWith<$Res> {
-  factory _$$PaymentErrorCopyWith(_$PaymentError value, $Res Function(_$PaymentError) then) =
+  factory _$$PaymentErrorCopyWith(
+          _$PaymentError value, $Res Function(_$PaymentError) then) =
       __$$PaymentErrorCopyWithImpl<$Res>;
-
   $Res call({String errorMessage});
 }
 
 /// @nodoc
-class __$$PaymentErrorCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
+class __$$PaymentErrorCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res>
     implements _$$PaymentErrorCopyWith<$Res> {
-  __$$PaymentErrorCopyWithImpl(_$PaymentError _value, $Res Function(_$PaymentError) _then)
+  __$$PaymentErrorCopyWithImpl(
+      _$PaymentError _value, $Res Function(_$PaymentError) _then)
       : super(_value, (v) => _then(v as _$PaymentError));
 
   @override
@@ -360,11 +365,13 @@ class _$PaymentError implements PaymentError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentError &&
-            const DeepCollectionEquality().equals(other.errorMessage, errorMessage));
+            const DeepCollectionEquality()
+                .equals(other.errorMessage, errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(errorMessage));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(errorMessage));
 
   @JsonKey(ignore: true)
   @override
@@ -450,23 +457,25 @@ abstract class PaymentError implements PaymentState {
   const factory PaymentError(final String errorMessage) = _$PaymentError;
 
   String get errorMessage;
-
   @JsonKey(ignore: true)
-  _$$PaymentErrorCopyWith<_$PaymentError> get copyWith => throw _privateConstructorUsedError;
+  _$$PaymentErrorCopyWith<_$PaymentError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$PaymentSuccessfulCopyWith<$Res> {
-  factory _$$PaymentSuccessfulCopyWith(_$PaymentSuccessful value, $Res Function(_$PaymentSuccessful) then) =
+  factory _$$PaymentSuccessfulCopyWith(
+          _$PaymentSuccessful value, $Res Function(_$PaymentSuccessful) then) =
       __$$PaymentSuccessfulCopyWithImpl<$Res>;
-
   $Res call({String response});
 }
 
 /// @nodoc
-class __$$PaymentSuccessfulCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
+class __$$PaymentSuccessfulCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res>
     implements _$$PaymentSuccessfulCopyWith<$Res> {
-  __$$PaymentSuccessfulCopyWithImpl(_$PaymentSuccessful _value, $Res Function(_$PaymentSuccessful) _then)
+  __$$PaymentSuccessfulCopyWithImpl(
+      _$PaymentSuccessful _value, $Res Function(_$PaymentSuccessful) _then)
       : super(_value, (v) => _then(v as _$PaymentSuccessful));
 
   @override
@@ -507,7 +516,8 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(response));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(response));
 
   @JsonKey(ignore: true)
   @override
@@ -593,7 +603,7 @@ abstract class PaymentSuccessful implements PaymentState {
   const factory PaymentSuccessful(final String response) = _$PaymentSuccessful;
 
   String get response;
-
   @JsonKey(ignore: true)
-  _$$PaymentSuccessfulCopyWith<_$PaymentSuccessful> get copyWith => throw _privateConstructorUsedError;
+  _$$PaymentSuccessfulCopyWith<_$PaymentSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }

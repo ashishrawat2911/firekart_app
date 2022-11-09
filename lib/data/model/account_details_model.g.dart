@@ -6,13 +6,19 @@ part of 'account_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AccountDetailsModel _$AccountDetailsModelFromJson(Map<String, dynamic> json) => AccountDetailsModel(
+AccountDetailsModel _$AccountDetailsModelFromJson(Map<String, dynamic> json) =>
+    AccountDetailsModel(
       json['name'] as String,
       json['phoneNumber'] as String?,
-      (json['addresses'] as List<dynamic>?)?.map((e) => AddressModel.fromJson(e)).toList() ?? [],
+      (json['addresses'] as List<dynamic>?)
+              ?.map((e) => AddressModel.fromJson(e))
+              .toList() ??
+          [],
     );
 
-Map<String, dynamic> _$AccountDetailsModelToJson(AccountDetailsModel instance) => <String, dynamic>{
+Map<String, dynamic> _$AccountDetailsModelToJson(
+        AccountDetailsModel instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'phoneNumber': instance.phoneNumber,
       'addresses': instance.addresses.map((e) => e.toJson()).toList(),
@@ -28,7 +34,8 @@ AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
       json['is_default'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$AddressModelToJson(AddressModel instance) => <String, dynamic>{
+Map<String, dynamic> _$AddressModelToJson(AddressModel instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'pincode': instance.pincode,
       'address': instance.address,
