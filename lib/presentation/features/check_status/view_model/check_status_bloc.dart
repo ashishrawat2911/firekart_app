@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/view_model.dart';
 import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/get_user_logged_in_status.dart';
 import 'package:injectable/injectable.dart';
@@ -7,7 +8,7 @@ import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 
 @injectable
-class CheckStatusViewModel extends Cubit<int> {
+class CheckStatusViewModel extends ViewModel<int> {
   CheckStatusViewModel(this._getUserLoggedInStatusUseCase, this._getUserDataStatusUseCase) : super(0);
   final GetUserLoggedInStatusUseCase _getUserLoggedInStatusUseCase;
   final GetUserDataStatusUseCase _getUserDataStatusUseCase;

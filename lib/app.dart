@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/routes/navigation_handler.dart';
 
 import 'core/message_handler/message_handler.dart';
-import 'res/app_theme.dart';
+import 'presentation/res/app_theme.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

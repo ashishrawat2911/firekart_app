@@ -32,7 +32,8 @@ mixin _$OtpLoginState {
 abstract class $OtpLoginStateCopyWith<$Res> {
   factory $OtpLoginStateCopyWith(
           OtpLoginState value, $Res Function(OtpLoginState) then) =
-      _$OtpLoginStateCopyWithImpl<$Res>;
+      _$OtpLoginStateCopyWithImpl<$Res, OtpLoginState>;
+  @useResult
   $Res call(
       {String? codeCountDown,
       bool isButtonEnabled,
@@ -43,49 +44,51 @@ abstract class $OtpLoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OtpLoginStateCopyWithImpl<$Res>
+class _$OtpLoginStateCopyWithImpl<$Res, $Val extends OtpLoginState>
     implements $OtpLoginStateCopyWith<$Res> {
   _$OtpLoginStateCopyWithImpl(this._value, this._then);
 
-  final OtpLoginState _value;
   // ignore: unused_field
-  final $Res Function(OtpLoginState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? codeCountDown = freezed,
-    Object? isButtonEnabled = freezed,
-    Object? confirmOtpLoading = freezed,
-    Object? resendOtpLoading = freezed,
+    Object? isButtonEnabled = null,
+    Object? confirmOtpLoading = null,
+    Object? resendOtpLoading = null,
     Object? otp = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      codeCountDown: codeCountDown == freezed
+      codeCountDown: freezed == codeCountDown
           ? _value.codeCountDown
           : codeCountDown // ignore: cast_nullable_to_non_nullable
               as String?,
-      isButtonEnabled: isButtonEnabled == freezed
+      isButtonEnabled: null == isButtonEnabled
           ? _value.isButtonEnabled
           : isButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      confirmOtpLoading: confirmOtpLoading == freezed
+      confirmOtpLoading: null == confirmOtpLoading
           ? _value.confirmOtpLoading
           : confirmOtpLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      resendOtpLoading: resendOtpLoading == freezed
+      resendOtpLoading: null == resendOtpLoading
           ? _value.resendOtpLoading
           : resendOtpLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      otp: otp == freezed
+      otp: freezed == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
               as String?,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -96,6 +99,7 @@ abstract class _$$_OtpLoginStateCopyWith<$Res>
           _$_OtpLoginState value, $Res Function(_$_OtpLoginState) then) =
       __$$_OtpLoginStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? codeCountDown,
       bool isButtonEnabled,
@@ -107,46 +111,44 @@ abstract class _$$_OtpLoginStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_OtpLoginStateCopyWithImpl<$Res>
-    extends _$OtpLoginStateCopyWithImpl<$Res>
+    extends _$OtpLoginStateCopyWithImpl<$Res, _$_OtpLoginState>
     implements _$$_OtpLoginStateCopyWith<$Res> {
   __$$_OtpLoginStateCopyWithImpl(
       _$_OtpLoginState _value, $Res Function(_$_OtpLoginState) _then)
-      : super(_value, (v) => _then(v as _$_OtpLoginState));
+      : super(_value, _then);
 
-  @override
-  _$_OtpLoginState get _value => super._value as _$_OtpLoginState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? codeCountDown = freezed,
-    Object? isButtonEnabled = freezed,
-    Object? confirmOtpLoading = freezed,
-    Object? resendOtpLoading = freezed,
+    Object? isButtonEnabled = null,
+    Object? confirmOtpLoading = null,
+    Object? resendOtpLoading = null,
     Object? otp = freezed,
     Object? error = freezed,
   }) {
     return _then(_$_OtpLoginState(
-      codeCountDown: codeCountDown == freezed
+      codeCountDown: freezed == codeCountDown
           ? _value.codeCountDown
           : codeCountDown // ignore: cast_nullable_to_non_nullable
               as String?,
-      isButtonEnabled: isButtonEnabled == freezed
+      isButtonEnabled: null == isButtonEnabled
           ? _value.isButtonEnabled
           : isButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      confirmOtpLoading: confirmOtpLoading == freezed
+      confirmOtpLoading: null == confirmOtpLoading
           ? _value.confirmOtpLoading
           : confirmOtpLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      resendOtpLoading: resendOtpLoading == freezed
+      resendOtpLoading: null == resendOtpLoading
           ? _value.resendOtpLoading
           : resendOtpLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      otp: otp == freezed
+      otp: freezed == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
               as String?,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -191,30 +193,25 @@ class _$_OtpLoginState implements _OtpLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OtpLoginState &&
-            const DeepCollectionEquality()
-                .equals(other.codeCountDown, codeCountDown) &&
-            const DeepCollectionEquality()
-                .equals(other.isButtonEnabled, isButtonEnabled) &&
-            const DeepCollectionEquality()
-                .equals(other.confirmOtpLoading, confirmOtpLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.resendOtpLoading, resendOtpLoading) &&
-            const DeepCollectionEquality().equals(other.otp, otp) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.codeCountDown, codeCountDown) ||
+                other.codeCountDown == codeCountDown) &&
+            (identical(other.isButtonEnabled, isButtonEnabled) ||
+                other.isButtonEnabled == isButtonEnabled) &&
+            (identical(other.confirmOtpLoading, confirmOtpLoading) ||
+                other.confirmOtpLoading == confirmOtpLoading) &&
+            (identical(other.resendOtpLoading, resendOtpLoading) ||
+                other.resendOtpLoading == resendOtpLoading) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(codeCountDown),
-      const DeepCollectionEquality().hash(isButtonEnabled),
-      const DeepCollectionEquality().hash(confirmOtpLoading),
-      const DeepCollectionEquality().hash(resendOtpLoading),
-      const DeepCollectionEquality().hash(otp),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, codeCountDown, isButtonEnabled,
+      confirmOtpLoading, resendOtpLoading, otp, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OtpLoginStateCopyWith<_$_OtpLoginState> get copyWith =>
       __$$_OtpLoginStateCopyWithImpl<_$_OtpLoginState>(this, _$identity);
 }

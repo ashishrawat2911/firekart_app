@@ -1,14 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/base_view.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
-import '../../../../di/di.dart';
 import '../../../../domain/models/order_model.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
+import '../../../res/text_styles.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/result_api_builder.dart';
 import '../view_model/my_orders_cubit.dart';
@@ -21,13 +20,11 @@ class MyOrdersScreen extends StatefulWidget {
 }
 
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
-  MyOrdersCubit ordersCubit = inject<MyOrdersCubit>();
   ScrollController controller = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    ordersCubit.fetchOrders();
   }
 
   @override
@@ -36,9 +33,15 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
       appBar: AppBar(
         title: const Text(StringsConstants.myOrders),
       ),
-      body: BlocBuilder<MyOrdersCubit, ResultState<List<Order>>>(
-        bloc: ordersCubit,
-        builder: (BuildContext context, ResultState<List<Order>> state) {
+      body: BaseView<MyOrdersCubit, ResultState<List<Order>>>(
+        onViewModelReady: (viewModel) {
+          viewModel.fetchOrders();
+        },
+        builder: (
+          BuildContext context,
+          viewModel,
+          ResultState<List<Order>> state,
+        ) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
@@ -81,7 +84,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 style: AppTextStyles.t14,
                               ),
                               Text(
-                                getOrderedTime(orderList[orderListIndex].orderedAt),
+                                getOrderedTime(
+                                    orderList[orderListIndex].orderedAt),
                                 style: AppTextStyles.t1,
                               )
                             ],
@@ -89,8 +93,10 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(orderList[orderListIndex].orderItems.length,
-                        (index) => orderCard(orderList[orderListIndex].orderItems[index])),
+                    ...List<Widget>.generate(
+                        orderList[orderListIndex].orderItems.length,
+                        (index) => orderCard(
+                            orderList[orderListIndex].orderItems[index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -118,7 +124,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(orderList[orderListIndex].orderStatus)
+                            getOrderStatusIcon(
+                                orderList[orderListIndex].orderStatus)
                           ],
                         )
                       ],

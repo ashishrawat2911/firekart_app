@@ -32,7 +32,8 @@ mixin _$MyAddressState {
 abstract class $MyAddressStateCopyWith<$Res> {
   factory $MyAddressStateCopyWith(
           MyAddressState value, $Res Function(MyAddressState) then) =
-      _$MyAddressStateCopyWithImpl<$Res>;
+      _$MyAddressStateCopyWithImpl<$Res, MyAddressState>;
+  @useResult
   $Res call(
       {bool screenLoading,
       String? screenError,
@@ -42,44 +43,46 @@ abstract class $MyAddressStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MyAddressStateCopyWithImpl<$Res>
+class _$MyAddressStateCopyWithImpl<$Res, $Val extends MyAddressState>
     implements $MyAddressStateCopyWith<$Res> {
   _$MyAddressStateCopyWithImpl(this._value, this._then);
 
-  final MyAddressState _value;
   // ignore: unused_field
-  final $Res Function(MyAddressState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? screenLoading = freezed,
+    Object? screenLoading = null,
     Object? screenError = freezed,
-    Object? buttonLoading = freezed,
+    Object? buttonLoading = null,
     Object? accountDetails = freezed,
-    Object? addressStates = freezed,
+    Object? addressStates = null,
   }) {
     return _then(_value.copyWith(
-      screenLoading: screenLoading == freezed
+      screenLoading: null == screenLoading
           ? _value.screenLoading
           : screenLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      screenError: screenError == freezed
+      screenError: freezed == screenError
           ? _value.screenError
           : screenError // ignore: cast_nullable_to_non_nullable
               as String?,
-      buttonLoading: buttonLoading == freezed
+      buttonLoading: null == buttonLoading
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      accountDetails: accountDetails == freezed
+      accountDetails: freezed == accountDetails
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
               as AccountDetails?,
-      addressStates: addressStates == freezed
+      addressStates: null == addressStates
           ? _value.addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
               as List<AddressCardState>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -90,6 +93,7 @@ abstract class _$$_MyAddressStateCopyWith<$Res>
           _$_MyAddressState value, $Res Function(_$_MyAddressState) then) =
       __$$_MyAddressStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool screenLoading,
       String? screenError,
@@ -100,41 +104,39 @@ abstract class _$$_MyAddressStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_MyAddressStateCopyWithImpl<$Res>
-    extends _$MyAddressStateCopyWithImpl<$Res>
+    extends _$MyAddressStateCopyWithImpl<$Res, _$_MyAddressState>
     implements _$$_MyAddressStateCopyWith<$Res> {
   __$$_MyAddressStateCopyWithImpl(
       _$_MyAddressState _value, $Res Function(_$_MyAddressState) _then)
-      : super(_value, (v) => _then(v as _$_MyAddressState));
+      : super(_value, _then);
 
-  @override
-  _$_MyAddressState get _value => super._value as _$_MyAddressState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? screenLoading = freezed,
+    Object? screenLoading = null,
     Object? screenError = freezed,
-    Object? buttonLoading = freezed,
+    Object? buttonLoading = null,
     Object? accountDetails = freezed,
-    Object? addressStates = freezed,
+    Object? addressStates = null,
   }) {
     return _then(_$_MyAddressState(
-      screenLoading: screenLoading == freezed
+      screenLoading: null == screenLoading
           ? _value.screenLoading
           : screenLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      screenError: screenError == freezed
+      screenError: freezed == screenError
           ? _value.screenError
           : screenError // ignore: cast_nullable_to_non_nullable
               as String?,
-      buttonLoading: buttonLoading == freezed
+      buttonLoading: null == buttonLoading
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      accountDetails: accountDetails == freezed
+      accountDetails: freezed == accountDetails
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
               as AccountDetails?,
-      addressStates: addressStates == freezed
+      addressStates: null == addressStates
           ? _value._addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
               as List<AddressCardState>,
@@ -181,14 +183,14 @@ class _$_MyAddressState implements _MyAddressState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MyAddressState &&
-            const DeepCollectionEquality()
-                .equals(other.screenLoading, screenLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.screenError, screenError) &&
-            const DeepCollectionEquality()
-                .equals(other.buttonLoading, buttonLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.accountDetails, accountDetails) &&
+            (identical(other.screenLoading, screenLoading) ||
+                other.screenLoading == screenLoading) &&
+            (identical(other.screenError, screenError) ||
+                other.screenError == screenError) &&
+            (identical(other.buttonLoading, buttonLoading) ||
+                other.buttonLoading == buttonLoading) &&
+            (identical(other.accountDetails, accountDetails) ||
+                other.accountDetails == accountDetails) &&
             const DeepCollectionEquality()
                 .equals(other._addressStates, _addressStates));
   }
@@ -196,14 +198,15 @@ class _$_MyAddressState implements _MyAddressState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(screenLoading),
-      const DeepCollectionEquality().hash(screenError),
-      const DeepCollectionEquality().hash(buttonLoading),
-      const DeepCollectionEquality().hash(accountDetails),
+      screenLoading,
+      screenError,
+      buttonLoading,
+      accountDetails,
       const DeepCollectionEquality().hash(_addressStates));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MyAddressStateCopyWith<_$_MyAddressState> get copyWith =>
       __$$_MyAddressStateCopyWithImpl<_$_MyAddressState>(this, _$identity);
 }
@@ -248,45 +251,48 @@ mixin _$AddressCardState {
 abstract class $AddressCardStateCopyWith<$Res> {
   factory $AddressCardStateCopyWith(
           AddressCardState value, $Res Function(AddressCardState) then) =
-      _$AddressCardStateCopyWithImpl<$Res>;
+      _$AddressCardStateCopyWithImpl<$Res, AddressCardState>;
+  @useResult
   $Res call(
       {int index, Address address, bool editLoading, bool setDefaultLoading});
 }
 
 /// @nodoc
-class _$AddressCardStateCopyWithImpl<$Res>
+class _$AddressCardStateCopyWithImpl<$Res, $Val extends AddressCardState>
     implements $AddressCardStateCopyWith<$Res> {
   _$AddressCardStateCopyWithImpl(this._value, this._then);
 
-  final AddressCardState _value;
   // ignore: unused_field
-  final $Res Function(AddressCardState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
-    Object? address = freezed,
-    Object? editLoading = freezed,
-    Object? setDefaultLoading = freezed,
+    Object? index = null,
+    Object? address = null,
+    Object? editLoading = null,
+    Object? setDefaultLoading = null,
   }) {
     return _then(_value.copyWith(
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address,
-      editLoading: editLoading == freezed
+      editLoading: null == editLoading
           ? _value.editLoading
           : editLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      setDefaultLoading: setDefaultLoading == freezed
+      setDefaultLoading: null == setDefaultLoading
           ? _value.setDefaultLoading
           : setDefaultLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -297,42 +303,41 @@ abstract class _$$_AddressCardStateCopyWith<$Res>
           _$_AddressCardState value, $Res Function(_$_AddressCardState) then) =
       __$$_AddressCardStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int index, Address address, bool editLoading, bool setDefaultLoading});
 }
 
 /// @nodoc
 class __$$_AddressCardStateCopyWithImpl<$Res>
-    extends _$AddressCardStateCopyWithImpl<$Res>
+    extends _$AddressCardStateCopyWithImpl<$Res, _$_AddressCardState>
     implements _$$_AddressCardStateCopyWith<$Res> {
   __$$_AddressCardStateCopyWithImpl(
       _$_AddressCardState _value, $Res Function(_$_AddressCardState) _then)
-      : super(_value, (v) => _then(v as _$_AddressCardState));
+      : super(_value, _then);
 
-  @override
-  _$_AddressCardState get _value => super._value as _$_AddressCardState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
-    Object? address = freezed,
-    Object? editLoading = freezed,
-    Object? setDefaultLoading = freezed,
+    Object? index = null,
+    Object? address = null,
+    Object? editLoading = null,
+    Object? setDefaultLoading = null,
   }) {
     return _then(_$_AddressCardState(
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address,
-      editLoading: editLoading == freezed
+      editLoading: null == editLoading
           ? _value.editLoading
           : editLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      setDefaultLoading: setDefaultLoading == freezed
+      setDefaultLoading: null == setDefaultLoading
           ? _value.setDefaultLoading
           : setDefaultLoading // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -371,24 +376,21 @@ class _$_AddressCardState implements _AddressCardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddressCardState &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality()
-                .equals(other.editLoading, editLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.setDefaultLoading, setDefaultLoading));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.editLoading, editLoading) ||
+                other.editLoading == editLoading) &&
+            (identical(other.setDefaultLoading, setDefaultLoading) ||
+                other.setDefaultLoading == setDefaultLoading));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(editLoading),
-      const DeepCollectionEquality().hash(setDefaultLoading));
+  int get hashCode =>
+      Object.hash(runtimeType, index, address, editLoading, setDefaultLoading);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddressCardStateCopyWith<_$_AddressCardState> get copyWith =>
       __$$_AddressCardStateCopyWithImpl<_$_AddressCardState>(this, _$identity);
 }

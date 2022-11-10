@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/core/state_manager/state_manager.dart';
+import 'package:fluttercommerce/core/state_manager/view_model.dart';
 
 import '../../di/di.dart';
 
@@ -10,8 +10,8 @@ typedef OnViewModelBuilder<V> = Widget Function(BuildContext context, V viewMode
 typedef OnStateListener<S> = void Function(BuildContext context, S state);
 typedef BuilderCondition<S> = bool Function(S previous, S current);
 
-class StateManager<V extends ViewModel<S>, S> extends StatefulWidget {
-  const StateManager({
+class BaseView<V extends ViewModel<S>, S> extends StatefulWidget {
+  const BaseView({
     Key? key,
     this.builder,
     this.onViewModelReady,
@@ -25,10 +25,10 @@ class StateManager<V extends ViewModel<S>, S> extends StatefulWidget {
   final BuilderCondition<S>? buildWhen;
 
   @override
-  State<StateManager<V, S>> createState() => _StateManagerState<V, S>();
+  State<BaseView<V, S>> createState() => _BaseViewState<V, S>();
 }
 
-class _StateManagerState<V extends ViewModel<S>, S> extends State<StateManager<V, S>> {
+class _BaseViewState<V extends ViewModel<S>, S> extends State<BaseView<V, S>> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<V>.value(
@@ -49,30 +49,3 @@ class _StateManagerState<V extends ViewModel<S>, S> extends State<StateManager<V
   }
 }
 
-class StateBuilder<V extends ViewModel<S>, S> extends StatelessWidget {
-  const StateBuilder({
-    Key? key,
-    required this.builder,
-    this.stateListener,
-    this.buildWhen,
-  }) : super(key: key);
-
-  final OnViewModelStateBuilder<V, S> builder;
-  final OnStateListener<S>? stateListener;
-  final BuilderCondition<S>? buildWhen;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<V, S>(
-      builder: (context, state) {
-        return builder.call(
-          context,
-          BlocProvider.of(context),
-          state,
-        );
-      },
-      listener: stateListener ?? (_, __) {},
-      buildWhen: buildWhen,
-    );
-  }
-}

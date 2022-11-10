@@ -1,12 +1,13 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/base_view.dart';
 
 import '../../../../core/utils/validator.dart';
 import '../../../../di/di.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/styles.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/string_constants.dart';
+import '../../../res/styles.dart';
+import '../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -22,7 +23,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var phoneLoginCubit = inject<PhoneLoginViewModel>();
   TextEditingController phoneNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -32,44 +32,48 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    phoneNumberController.addListener(() {
-      phoneLoginCubit.validateButton(phoneNumberController.text);
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Material(
-            elevation: 5,
-            child: Container(
-              height: 250,
-              width: width,
-              decoration: BoxDecoration(
-                gradient: Styles.appBackGradient,
-              ),
-            ),
-          ),
-          SafeArea(
-            child: Scaffold(
-              backgroundColor: Colors.transparent,
-              // backgroundColor: Styles.transparent,
+    return BaseView<PhoneLoginViewModel, PhoneLoginState>(
+        onViewModelReady: (viewModel) {
+          phoneNumberController.addListener(() {
+            viewModel.validateButton(phoneNumberController.text);
+          });
+        },
+        builder: (context, viewModel, state) => Scaffold(
+              body: Stack(
+                children: <Widget>[
+                  Material(
+                    elevation: 5,
+                    child: Container(
+                      height: 250,
+                      width: width,
+                      decoration: BoxDecoration(
+                        gradient: Styles.appBackGradient,
+                      ),
+                    ),
+                  ),
+                  SafeArea(
+                    child: Scaffold(
+                      backgroundColor: Colors.transparent,
+                      // backgroundColor: Styles.transparent,
 //            floatingActionButton: _floatingActionButton(),
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-              body: Column(
-                children: <Widget>[_loginCard()],
+                      floatingActionButtonLocation:
+                          FloatingActionButtonLocation.centerDocked,
+                      body: Column(
+                        children: <Widget>[_loginCard(viewModel)],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ),
-        ],
-      ),
-    );
+            ));
   }
 
-  Widget _loginCard() {
+  Widget _loginCard(PhoneLoginViewModel viewModel) {
     return Card(
       margin: const EdgeInsets.only(top: 50, right: 16, left: 16),
       child: Container(
@@ -119,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               BlocConsumer<PhoneLoginViewModel, PhoneLoginState>(
-                bloc: phoneLoginCubit,
+                bloc: viewModel,
                 listener: (BuildContext context, PhoneLoginState state) {},
                 builder: (BuildContext context, PhoneLoginState state) {
                   return CommonButton(
@@ -145,8 +149,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(
-              OtpLoginScreenRoute(phoneNumber: phoneNumberNotifier.value + phoneNumberController.text))
+      NavigationHandler.navigateTo(OtpLoginScreenRoute(
+              phoneNumber:
+                  phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {
         if (value != null && value as bool) {
           phoneNumberController.clear();

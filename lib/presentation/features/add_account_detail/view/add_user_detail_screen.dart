@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
     as account_details_state;
-import 'package:fluttercommerce/res/app_colors.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/state_manager/base_view.dart';
 import '../../../../core/utils/validator.dart';
-import '../../../../res/string_constants.dart';
+import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -47,7 +47,7 @@ class _SaveDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateManager<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
+    return BaseView<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
       onViewModelReady: (viewModel) {
         if (!newAddress) {
           viewModel.loadPreviousData();

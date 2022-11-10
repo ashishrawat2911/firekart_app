@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/base_view.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../di/di.dart';
 import '../../../../domain/models/product_model.dart';
-import '../../../../res/string_constants.dart';
+import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -13,7 +12,8 @@ import '../../../widgets/result_api_builder.dart';
 import '../view_model/all_product_cubit.dart';
 
 class AllProductListScreen extends StatefulWidget {
-  const AllProductListScreen({Key? key, this.productCondition}) : super(key: key);
+  const AllProductListScreen({Key? key, this.productCondition})
+      : super(key: key);
 
   final String? productCondition;
 
@@ -22,52 +22,48 @@ class AllProductListScreen extends StatefulWidget {
 }
 
 class _AllProductListScreenState extends State<AllProductListScreen> {
-  var allProductsCubit = inject<AllProductCubit>();
   ScrollController controller = ScrollController();
 
   @override
   void initState() {
-    allProductsCubit.fetchProducts(widget.productCondition);
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(StringsConstants.allProducts),
-        actions: <Widget>[
-          InkWell(
-            onTap: () {
-              NavigationHandler.navigateTo(const SearchItemScreenRoute());
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Icon(Icons.search),
-            ),
-          )
-        ],
-      ),
-      body: BlocConsumer<AllProductCubit, ResultState<List<Product>>>(
-        bloc: allProductsCubit,
-        listener: (BuildContext context, ResultState<List<Product>> state) {},
-        builder: (BuildContext context, ResultState<List<Product>> state) {
-          return ResultStateBuilder(
-            state: state,
-            loadingWidget: (bool isReloading) {
-              return const Center(
-                child: CommonAppLoader(),
-              );
-            },
-            errorWidget: (String error) {
-              return Container();
-            },
-            dataWidget: (List<Product> value) {
-              return dataWidget(value);
-            },
-          );
-        },
+    return BaseView<AllProductCubit, ResultState<List<Product>>>(
+      onViewModelReady: (viewModel) {
+        viewModel.fetchProducts(widget.productCondition);
+      },
+      builder: (context, viewModel, state) => Scaffold(
+        appBar: AppBar(
+          title: const Text(StringsConstants.allProducts),
+          actions: <Widget>[
+            InkWell(
+              onTap: () {
+                NavigationHandler.navigateTo(const SearchItemScreenRoute());
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Icon(Icons.search),
+              ),
+            )
+          ],
+        ),
+        body: ResultStateBuilder(
+          state: state,
+          loadingWidget: (bool isReloading) {
+            return const Center(
+              child: CommonAppLoader(),
+            );
+          },
+          errorWidget: (String error) {
+            return Container();
+          },
+          dataWidget: (List<Product> value) {
+            return dataWidget(value);
+          },
+        ),
       ),
     );
   }

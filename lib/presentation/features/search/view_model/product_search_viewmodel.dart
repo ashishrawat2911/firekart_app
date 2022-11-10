@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../../domain/usecases/search_products_use_case.dart';
 import '../state/product_search_state.dart';
 

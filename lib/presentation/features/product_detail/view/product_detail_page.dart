@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
+import '../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -20,7 +20,7 @@ class ProductDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateManager<ProductViewModel, AddToCartState>(
+    return BaseView<ProductViewModel, AddToCartState>(
       onViewModelReady: (viewModel) {
         viewModel.checkItemInCart(product.productId);
         viewModel.listenToProduct(product.productId);

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../res/text_styles.dart';
+import '../res/text_styles.dart';
 
 class ProductCardArgs {
   final VoidCallback onTap;
