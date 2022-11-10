@@ -26,10 +26,10 @@ mixin _$PaymentState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? paymentButtonLoading,
-    TResult Function(String errorMessage)? paymentError,
-    TResult Function(String response)? paymentSuccessful,
+    TResult? Function()? idle,
+    TResult? Function()? paymentButtonLoading,
+    TResult? Function(String errorMessage)? paymentError,
+    TResult? Function(String response)? paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$PaymentState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
-    TResult Function(PaymentError value)? paymentError,
-    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    TResult? Function(Idle value)? idle,
+    TResult? Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult? Function(PaymentError value)? paymentError,
+    TResult? Function(PaymentSuccessful value)? paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,16 +72,18 @@ mixin _$PaymentState {
 abstract class $PaymentStateCopyWith<$Res> {
   factory $PaymentStateCopyWith(
           PaymentState value, $Res Function(PaymentState) then) =
-      _$PaymentStateCopyWithImpl<$Res>;
+      _$PaymentStateCopyWithImpl<$Res, PaymentState>;
 }
 
 /// @nodoc
-class _$PaymentStateCopyWithImpl<$Res> implements $PaymentStateCopyWith<$Res> {
+class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
+    implements $PaymentStateCopyWith<$Res> {
   _$PaymentStateCopyWithImpl(this._value, this._then);
 
-  final PaymentState _value;
   // ignore: unused_field
-  final $Res Function(PaymentState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -91,13 +93,11 @@ abstract class _$$IdleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$IdleCopyWithImpl<$Res> extends _$PaymentStateCopyWithImpl<$Res>
+class __$$IdleCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$Idle>
     implements _$$IdleCopyWith<$Res> {
   __$$IdleCopyWithImpl(_$Idle _value, $Res Function(_$Idle) _then)
-      : super(_value, (v) => _then(v as _$Idle));
-
-  @override
-  _$Idle get _value => super._value as _$Idle;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -133,10 +133,10 @@ class _$Idle implements Idle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? paymentButtonLoading,
-    TResult Function(String errorMessage)? paymentError,
-    TResult Function(String response)? paymentSuccessful,
+    TResult? Function()? idle,
+    TResult? Function()? paymentButtonLoading,
+    TResult? Function(String errorMessage)? paymentError,
+    TResult? Function(String response)? paymentSuccessful,
   }) {
     return idle?.call();
   }
@@ -170,10 +170,10 @@ class _$Idle implements Idle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
-    TResult Function(PaymentError value)? paymentError,
-    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    TResult? Function(Idle value)? idle,
+    TResult? Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult? Function(PaymentError value)? paymentError,
+    TResult? Function(PaymentSuccessful value)? paymentSuccessful,
   }) {
     return idle?.call(this);
   }
@@ -207,14 +207,11 @@ abstract class _$$PaymentButtonLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$PaymentButtonLoadingCopyWithImpl<$Res>
-    extends _$PaymentStateCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$PaymentButtonLoading>
     implements _$$PaymentButtonLoadingCopyWith<$Res> {
   __$$PaymentButtonLoadingCopyWithImpl(_$PaymentButtonLoading _value,
       $Res Function(_$PaymentButtonLoading) _then)
-      : super(_value, (v) => _then(v as _$PaymentButtonLoading));
-
-  @override
-  _$PaymentButtonLoading get _value => super._value as _$PaymentButtonLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -250,10 +247,10 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? paymentButtonLoading,
-    TResult Function(String errorMessage)? paymentError,
-    TResult Function(String response)? paymentSuccessful,
+    TResult? Function()? idle,
+    TResult? Function()? paymentButtonLoading,
+    TResult? Function(String errorMessage)? paymentError,
+    TResult? Function(String response)? paymentSuccessful,
   }) {
     return paymentButtonLoading?.call();
   }
@@ -287,10 +284,10 @@ class _$PaymentButtonLoading implements PaymentButtonLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
-    TResult Function(PaymentError value)? paymentError,
-    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    TResult? Function(Idle value)? idle,
+    TResult? Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult? Function(PaymentError value)? paymentError,
+    TResult? Function(PaymentSuccessful value)? paymentSuccessful,
   }) {
     return paymentButtonLoading?.call(this);
   }
@@ -320,26 +317,25 @@ abstract class _$$PaymentErrorCopyWith<$Res> {
   factory _$$PaymentErrorCopyWith(
           _$PaymentError value, $Res Function(_$PaymentError) then) =
       __$$PaymentErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String errorMessage});
 }
 
 /// @nodoc
 class __$$PaymentErrorCopyWithImpl<$Res>
-    extends _$PaymentStateCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$PaymentError>
     implements _$$PaymentErrorCopyWith<$Res> {
   __$$PaymentErrorCopyWithImpl(
       _$PaymentError _value, $Res Function(_$PaymentError) _then)
-      : super(_value, (v) => _then(v as _$PaymentError));
+      : super(_value, _then);
 
-  @override
-  _$PaymentError get _value => super._value as _$PaymentError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorMessage = freezed,
+    Object? errorMessage = null,
   }) {
     return _then(_$PaymentError(
-      errorMessage == freezed
+      null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
@@ -365,16 +361,16 @@ class _$PaymentError implements PaymentError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentError &&
-            const DeepCollectionEquality()
-                .equals(other.errorMessage, errorMessage));
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(errorMessage));
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$PaymentErrorCopyWith<_$PaymentError> get copyWith =>
       __$$PaymentErrorCopyWithImpl<_$PaymentError>(this, _$identity);
 
@@ -392,10 +388,10 @@ class _$PaymentError implements PaymentError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? paymentButtonLoading,
-    TResult Function(String errorMessage)? paymentError,
-    TResult Function(String response)? paymentSuccessful,
+    TResult? Function()? idle,
+    TResult? Function()? paymentButtonLoading,
+    TResult? Function(String errorMessage)? paymentError,
+    TResult? Function(String response)? paymentSuccessful,
   }) {
     return paymentError?.call(errorMessage);
   }
@@ -429,10 +425,10 @@ class _$PaymentError implements PaymentError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
-    TResult Function(PaymentError value)? paymentError,
-    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    TResult? Function(Idle value)? idle,
+    TResult? Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult? Function(PaymentError value)? paymentError,
+    TResult? Function(PaymentSuccessful value)? paymentSuccessful,
   }) {
     return paymentError?.call(this);
   }
@@ -467,26 +463,25 @@ abstract class _$$PaymentSuccessfulCopyWith<$Res> {
   factory _$$PaymentSuccessfulCopyWith(
           _$PaymentSuccessful value, $Res Function(_$PaymentSuccessful) then) =
       __$$PaymentSuccessfulCopyWithImpl<$Res>;
+  @useResult
   $Res call({String response});
 }
 
 /// @nodoc
 class __$$PaymentSuccessfulCopyWithImpl<$Res>
-    extends _$PaymentStateCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$PaymentSuccessful>
     implements _$$PaymentSuccessfulCopyWith<$Res> {
   __$$PaymentSuccessfulCopyWithImpl(
       _$PaymentSuccessful _value, $Res Function(_$PaymentSuccessful) _then)
-      : super(_value, (v) => _then(v as _$PaymentSuccessful));
+      : super(_value, _then);
 
-  @override
-  _$PaymentSuccessful get _value => super._value as _$PaymentSuccessful;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? response = freezed,
+    Object? response = null,
   }) {
     return _then(_$PaymentSuccessful(
-      response == freezed
+      null == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as String,
@@ -512,15 +507,16 @@ class _$PaymentSuccessful implements PaymentSuccessful {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSuccessful &&
-            const DeepCollectionEquality().equals(other.response, response));
+            (identical(other.response, response) ||
+                other.response == response));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(response));
+  int get hashCode => Object.hash(runtimeType, response);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$PaymentSuccessfulCopyWith<_$PaymentSuccessful> get copyWith =>
       __$$PaymentSuccessfulCopyWithImpl<_$PaymentSuccessful>(this, _$identity);
 
@@ -538,10 +534,10 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? paymentButtonLoading,
-    TResult Function(String errorMessage)? paymentError,
-    TResult Function(String response)? paymentSuccessful,
+    TResult? Function()? idle,
+    TResult? Function()? paymentButtonLoading,
+    TResult? Function(String errorMessage)? paymentError,
+    TResult? Function(String response)? paymentSuccessful,
   }) {
     return paymentSuccessful?.call(response);
   }
@@ -575,10 +571,10 @@ class _$PaymentSuccessful implements PaymentSuccessful {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle value)? idle,
-    TResult Function(PaymentButtonLoading value)? paymentButtonLoading,
-    TResult Function(PaymentError value)? paymentError,
-    TResult Function(PaymentSuccessful value)? paymentSuccessful,
+    TResult? Function(Idle value)? idle,
+    TResult? Function(PaymentButtonLoading value)? paymentButtonLoading,
+    TResult? Function(PaymentError value)? paymentError,
+    TResult? Function(PaymentSuccessful value)? paymentSuccessful,
   }) {
     return paymentSuccessful?.call(this);
   }

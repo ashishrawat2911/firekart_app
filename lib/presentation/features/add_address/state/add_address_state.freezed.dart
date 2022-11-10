@@ -28,34 +28,37 @@ mixin _$AddAddressState {
 abstract class $AddAddressStateCopyWith<$Res> {
   factory $AddAddressStateCopyWith(
           AddAddressState value, $Res Function(AddAddressState) then) =
-      _$AddAddressStateCopyWithImpl<$Res>;
+      _$AddAddressStateCopyWithImpl<$Res, AddAddressState>;
+  @useResult
   $Res call({bool buttonLoading, bool setAsDefault});
 }
 
 /// @nodoc
-class _$AddAddressStateCopyWithImpl<$Res>
+class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
     implements $AddAddressStateCopyWith<$Res> {
   _$AddAddressStateCopyWithImpl(this._value, this._then);
 
-  final AddAddressState _value;
   // ignore: unused_field
-  final $Res Function(AddAddressState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? buttonLoading = freezed,
-    Object? setAsDefault = freezed,
+    Object? buttonLoading = null,
+    Object? setAsDefault = null,
   }) {
     return _then(_value.copyWith(
-      buttonLoading: buttonLoading == freezed
+      buttonLoading: null == buttonLoading
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      setAsDefault: setAsDefault == freezed
+      setAsDefault: null == setAsDefault
           ? _value.setAsDefault
           : setAsDefault // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,31 +69,30 @@ abstract class _$$_AddAddressStateCopyWith<$Res>
           _$_AddAddressState value, $Res Function(_$_AddAddressState) then) =
       __$$_AddAddressStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool buttonLoading, bool setAsDefault});
 }
 
 /// @nodoc
 class __$$_AddAddressStateCopyWithImpl<$Res>
-    extends _$AddAddressStateCopyWithImpl<$Res>
+    extends _$AddAddressStateCopyWithImpl<$Res, _$_AddAddressState>
     implements _$$_AddAddressStateCopyWith<$Res> {
   __$$_AddAddressStateCopyWithImpl(
       _$_AddAddressState _value, $Res Function(_$_AddAddressState) _then)
-      : super(_value, (v) => _then(v as _$_AddAddressState));
+      : super(_value, _then);
 
-  @override
-  _$_AddAddressState get _value => super._value as _$_AddAddressState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? buttonLoading = freezed,
-    Object? setAsDefault = freezed,
+    Object? buttonLoading = null,
+    Object? setAsDefault = null,
   }) {
     return _then(_$_AddAddressState(
-      buttonLoading: buttonLoading == freezed
+      buttonLoading: null == buttonLoading
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      setAsDefault: setAsDefault == freezed
+      setAsDefault: null == setAsDefault
           ? _value.setAsDefault
           : setAsDefault // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -121,20 +123,18 @@ class _$_AddAddressState implements _AddAddressState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddAddressState &&
-            const DeepCollectionEquality()
-                .equals(other.buttonLoading, buttonLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.setAsDefault, setAsDefault));
+            (identical(other.buttonLoading, buttonLoading) ||
+                other.buttonLoading == buttonLoading) &&
+            (identical(other.setAsDefault, setAsDefault) ||
+                other.setAsDefault == setAsDefault));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(buttonLoading),
-      const DeepCollectionEquality().hash(setAsDefault));
+  int get hashCode => Object.hash(runtimeType, buttonLoading, setAsDefault);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddAddressStateCopyWith<_$_AddAddressState> get copyWith =>
       __$$_AddAddressStateCopyWithImpl<_$_AddAddressState>(this, _$identity);
 }

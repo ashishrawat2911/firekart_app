@@ -28,35 +28,38 @@ mixin _$AccountDetailsState {
 abstract class $AccountDetailsStateCopyWith<$Res> {
   factory $AccountDetailsStateCopyWith(
           AccountDetailsState value, $Res Function(AccountDetailsState) then) =
-      _$AccountDetailsStateCopyWithImpl<$Res>;
+      _$AccountDetailsStateCopyWithImpl<$Res, AccountDetailsState>;
+  @useResult
   $Res call(
       {AccountDetailsModel? accountDetails, AddressModel? selectedAddress});
 }
 
 /// @nodoc
-class _$AccountDetailsStateCopyWithImpl<$Res>
+class _$AccountDetailsStateCopyWithImpl<$Res, $Val extends AccountDetailsState>
     implements $AccountDetailsStateCopyWith<$Res> {
   _$AccountDetailsStateCopyWithImpl(this._value, this._then);
 
-  final AccountDetailsState _value;
   // ignore: unused_field
-  final $Res Function(AccountDetailsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? accountDetails = freezed,
     Object? selectedAddress = freezed,
   }) {
     return _then(_value.copyWith(
-      accountDetails: accountDetails == freezed
+      accountDetails: freezed == accountDetails
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
               as AccountDetailsModel?,
-      selectedAddress: selectedAddress == freezed
+      selectedAddress: freezed == selectedAddress
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
               as AddressModel?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,32 +70,31 @@ abstract class _$$_AccountDetailsStateCopyWith<$Res>
           $Res Function(_$_AccountDetailsState) then) =
       __$$_AccountDetailsStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {AccountDetailsModel? accountDetails, AddressModel? selectedAddress});
 }
 
 /// @nodoc
 class __$$_AccountDetailsStateCopyWithImpl<$Res>
-    extends _$AccountDetailsStateCopyWithImpl<$Res>
+    extends _$AccountDetailsStateCopyWithImpl<$Res, _$_AccountDetailsState>
     implements _$$_AccountDetailsStateCopyWith<$Res> {
   __$$_AccountDetailsStateCopyWithImpl(_$_AccountDetailsState _value,
       $Res Function(_$_AccountDetailsState) _then)
-      : super(_value, (v) => _then(v as _$_AccountDetailsState));
+      : super(_value, _then);
 
-  @override
-  _$_AccountDetailsState get _value => super._value as _$_AccountDetailsState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? accountDetails = freezed,
     Object? selectedAddress = freezed,
   }) {
     return _then(_$_AccountDetailsState(
-      accountDetails: accountDetails == freezed
+      accountDetails: freezed == accountDetails
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
               as AccountDetailsModel?,
-      selectedAddress: selectedAddress == freezed
+      selectedAddress: freezed == selectedAddress
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
               as AddressModel?,
@@ -120,20 +122,18 @@ class _$_AccountDetailsState implements _AccountDetailsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AccountDetailsState &&
-            const DeepCollectionEquality()
-                .equals(other.accountDetails, accountDetails) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedAddress, selectedAddress));
+            (identical(other.accountDetails, accountDetails) ||
+                other.accountDetails == accountDetails) &&
+            (identical(other.selectedAddress, selectedAddress) ||
+                other.selectedAddress == selectedAddress));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(accountDetails),
-      const DeepCollectionEquality().hash(selectedAddress));
+  int get hashCode => Object.hash(runtimeType, accountDetails, selectedAddress);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AccountDetailsStateCopyWith<_$_AccountDetailsState> get copyWith =>
       __$$_AccountDetailsStateCopyWithImpl<_$_AccountDetailsState>(
           this, _$identity);

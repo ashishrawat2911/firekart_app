@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../res/app_colors.dart';
-import '../../res/string_constants.dart';
-import '../../res/text_styles.dart';
+import '../res/app_colors.dart';
+import '../res/string_constants.dart';
+import '../res/text_styles.dart';
 
 class CommonViewCartOverlayArgs {
   String title;

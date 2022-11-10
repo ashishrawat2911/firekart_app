@@ -30,7 +30,8 @@ mixin _$AddToCartState {
 abstract class $AddToCartStateCopyWith<$Res> {
   factory $AddToCartStateCopyWith(
           AddToCartState value, $Res Function(AddToCartState) then) =
-      _$AddToCartStateCopyWithImpl<$Res>;
+      _$AddToCartStateCopyWithImpl<$Res, AddToCartState>;
+  @useResult
   $Res call(
       {bool addToCardLoading,
       bool showAddButton,
@@ -39,39 +40,41 @@ abstract class $AddToCartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddToCartStateCopyWithImpl<$Res>
+class _$AddToCartStateCopyWithImpl<$Res, $Val extends AddToCartState>
     implements $AddToCartStateCopyWith<$Res> {
   _$AddToCartStateCopyWithImpl(this._value, this._then);
 
-  final AddToCartState _value;
   // ignore: unused_field
-  final $Res Function(AddToCartState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? addToCardLoading = freezed,
-    Object? showAddButton = freezed,
-    Object? cartDataLoading = freezed,
-    Object? noOfItems = freezed,
+    Object? addToCardLoading = null,
+    Object? showAddButton = null,
+    Object? cartDataLoading = null,
+    Object? noOfItems = null,
   }) {
     return _then(_value.copyWith(
-      addToCardLoading: addToCardLoading == freezed
+      addToCardLoading: null == addToCardLoading
           ? _value.addToCardLoading
           : addToCardLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      showAddButton: showAddButton == freezed
+      showAddButton: null == showAddButton
           ? _value.showAddButton
           : showAddButton // ignore: cast_nullable_to_non_nullable
               as bool,
-      cartDataLoading: cartDataLoading == freezed
+      cartDataLoading: null == cartDataLoading
           ? _value.cartDataLoading
           : cartDataLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      noOfItems: noOfItems == freezed
+      noOfItems: null == noOfItems
           ? _value.noOfItems
           : noOfItems // ignore: cast_nullable_to_non_nullable
               as num,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +85,7 @@ abstract class _$$_AddToCartStateCopyWith<$Res>
           _$_AddToCartState value, $Res Function(_$_AddToCartState) then) =
       __$$_AddToCartStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool addToCardLoading,
       bool showAddButton,
@@ -91,36 +95,34 @@ abstract class _$$_AddToCartStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_AddToCartStateCopyWithImpl<$Res>
-    extends _$AddToCartStateCopyWithImpl<$Res>
+    extends _$AddToCartStateCopyWithImpl<$Res, _$_AddToCartState>
     implements _$$_AddToCartStateCopyWith<$Res> {
   __$$_AddToCartStateCopyWithImpl(
       _$_AddToCartState _value, $Res Function(_$_AddToCartState) _then)
-      : super(_value, (v) => _then(v as _$_AddToCartState));
+      : super(_value, _then);
 
-  @override
-  _$_AddToCartState get _value => super._value as _$_AddToCartState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? addToCardLoading = freezed,
-    Object? showAddButton = freezed,
-    Object? cartDataLoading = freezed,
-    Object? noOfItems = freezed,
+    Object? addToCardLoading = null,
+    Object? showAddButton = null,
+    Object? cartDataLoading = null,
+    Object? noOfItems = null,
   }) {
     return _then(_$_AddToCartState(
-      addToCardLoading: addToCardLoading == freezed
+      addToCardLoading: null == addToCardLoading
           ? _value.addToCardLoading
           : addToCardLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      showAddButton: showAddButton == freezed
+      showAddButton: null == showAddButton
           ? _value.showAddButton
           : showAddButton // ignore: cast_nullable_to_non_nullable
               as bool,
-      cartDataLoading: cartDataLoading == freezed
+      cartDataLoading: null == cartDataLoading
           ? _value.cartDataLoading
           : cartDataLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      noOfItems: noOfItems == freezed
+      noOfItems: null == noOfItems
           ? _value.noOfItems
           : noOfItems // ignore: cast_nullable_to_non_nullable
               as num,
@@ -160,25 +162,23 @@ class _$_AddToCartState implements _AddToCartState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddToCartState &&
-            const DeepCollectionEquality()
-                .equals(other.addToCardLoading, addToCardLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.showAddButton, showAddButton) &&
-            const DeepCollectionEquality()
-                .equals(other.cartDataLoading, cartDataLoading) &&
-            const DeepCollectionEquality().equals(other.noOfItems, noOfItems));
+            (identical(other.addToCardLoading, addToCardLoading) ||
+                other.addToCardLoading == addToCardLoading) &&
+            (identical(other.showAddButton, showAddButton) ||
+                other.showAddButton == showAddButton) &&
+            (identical(other.cartDataLoading, cartDataLoading) ||
+                other.cartDataLoading == cartDataLoading) &&
+            (identical(other.noOfItems, noOfItems) ||
+                other.noOfItems == noOfItems));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(addToCardLoading),
-      const DeepCollectionEquality().hash(showAddButton),
-      const DeepCollectionEquality().hash(cartDataLoading),
-      const DeepCollectionEquality().hash(noOfItems));
+      runtimeType, addToCardLoading, showAddButton, cartDataLoading, noOfItems);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddToCartStateCopyWith<_$_AddToCartState> get copyWith =>
       __$$_AddToCartStateCopyWithImpl<_$_AddToCartState>(this, _$identity);
 }

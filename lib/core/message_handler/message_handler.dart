@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../res/app_colors.dart';
+import '../../presentation/res/app_colors.dart';
 
 class MessageHandler {
   MessageHandler._();

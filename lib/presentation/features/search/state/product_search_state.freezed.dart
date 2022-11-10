@@ -30,45 +30,48 @@ mixin _$ProductSearchState {
 abstract class $ProductSearchStateCopyWith<$Res> {
   factory $ProductSearchStateCopyWith(
           ProductSearchState value, $Res Function(ProductSearchState) then) =
-      _$ProductSearchStateCopyWithImpl<$Res>;
+      _$ProductSearchStateCopyWithImpl<$Res, ProductSearchState>;
+  @useResult
   $Res call(
       {List<Product> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
-class _$ProductSearchStateCopyWithImpl<$Res>
+class _$ProductSearchStateCopyWithImpl<$Res, $Val extends ProductSearchState>
     implements $ProductSearchStateCopyWith<$Res> {
   _$ProductSearchStateCopyWithImpl(this._value, this._then);
 
-  final ProductSearchState _value;
   // ignore: unused_field
-  final $Res Function(ProductSearchState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? productList = freezed,
-    Object? loading = freezed,
+    Object? productList = null,
+    Object? loading = null,
     Object? otp = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      productList: productList == freezed
+      productList: null == productList
           ? _value.productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-      loading: loading == freezed
+      loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      otp: otp == freezed
+      otp: freezed == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
               as String?,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -79,42 +82,41 @@ abstract class _$$_ProductSearchStateCopyWith<$Res>
           $Res Function(_$_ProductSearchState) then) =
       __$$_ProductSearchStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<Product> productList, bool loading, String? otp, String? error});
 }
 
 /// @nodoc
 class __$$_ProductSearchStateCopyWithImpl<$Res>
-    extends _$ProductSearchStateCopyWithImpl<$Res>
+    extends _$ProductSearchStateCopyWithImpl<$Res, _$_ProductSearchState>
     implements _$$_ProductSearchStateCopyWith<$Res> {
   __$$_ProductSearchStateCopyWithImpl(
       _$_ProductSearchState _value, $Res Function(_$_ProductSearchState) _then)
-      : super(_value, (v) => _then(v as _$_ProductSearchState));
+      : super(_value, _then);
 
-  @override
-  _$_ProductSearchState get _value => super._value as _$_ProductSearchState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? productList = freezed,
-    Object? loading = freezed,
+    Object? productList = null,
+    Object? loading = null,
     Object? otp = freezed,
     Object? error = freezed,
   }) {
     return _then(_$_ProductSearchState(
-      productList: productList == freezed
+      productList: null == productList
           ? _value._productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-      loading: loading == freezed
+      loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      otp: otp == freezed
+      otp: freezed == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
               as String?,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -160,21 +162,18 @@ class _$_ProductSearchState implements _ProductSearchState {
             other is _$_ProductSearchState &&
             const DeepCollectionEquality()
                 .equals(other._productList, _productList) &&
-            const DeepCollectionEquality().equals(other.loading, loading) &&
-            const DeepCollectionEquality().equals(other.otp, otp) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.loading, loading) || other.loading == loading) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_productList),
-      const DeepCollectionEquality().hash(loading),
-      const DeepCollectionEquality().hash(otp),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_productList), loading, otp, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProductSearchStateCopyWith<_$_ProductSearchState> get copyWith =>
       __$$_ProductSearchStateCopyWithImpl<_$_ProductSearchState>(
           this, _$identity);

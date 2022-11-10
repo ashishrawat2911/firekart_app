@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/account_details_model.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
+import '../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -22,7 +22,7 @@ class MyAddressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
-      body: StateManager<MyAddressViewModel, MyAddressState>(
+      body: BaseView<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
         },

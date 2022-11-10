@@ -34,7 +34,8 @@ mixin _$CartState {
 /// @nodoc
 abstract class $CartStateCopyWith<$Res> {
   factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
-      _$CartStateCopyWithImpl<$Res>;
+      _$CartStateCopyWithImpl<$Res, CartState>;
+  @useResult
   $Res call(
       {int cartValue,
       bool cartDataLoading,
@@ -50,69 +51,73 @@ abstract class $CartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
+class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
+    implements $CartStateCopyWith<$Res> {
   _$CartStateCopyWithImpl(this._value, this._then);
 
-  final CartState _value;
   // ignore: unused_field
-  final $Res Function(CartState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cartValue = freezed,
-    Object? cartDataLoading = freezed,
-    Object? cartDeleteLoading = freezed,
-    Object? orderInProgress = freezed,
+    Object? cartValue = null,
+    Object? cartDataLoading = null,
+    Object? cartDeleteLoading = null,
+    Object? orderInProgress = null,
     Object? cartError = freezed,
     Object? deleteCartError = freezed,
-    Object? cartList = freezed,
+    Object? cartList = null,
     Object? selectedAddress = freezed,
-    Object? cartItemDataLoading = freezed,
+    Object? cartItemDataLoading = null,
   }) {
     return _then(_value.copyWith(
-      cartValue: cartValue == freezed
+      cartValue: null == cartValue
           ? _value.cartValue
           : cartValue // ignore: cast_nullable_to_non_nullable
               as int,
-      cartDataLoading: cartDataLoading == freezed
+      cartDataLoading: null == cartDataLoading
           ? _value.cartDataLoading
           : cartDataLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      cartDeleteLoading: cartDeleteLoading == freezed
+      cartDeleteLoading: null == cartDeleteLoading
           ? _value.cartDeleteLoading
           : cartDeleteLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      orderInProgress: orderInProgress == freezed
+      orderInProgress: null == orderInProgress
           ? _value.orderInProgress
           : orderInProgress // ignore: cast_nullable_to_non_nullable
               as bool,
-      cartError: cartError == freezed
+      cartError: freezed == cartError
           ? _value.cartError
           : cartError // ignore: cast_nullable_to_non_nullable
               as String?,
-      deleteCartError: deleteCartError == freezed
+      deleteCartError: freezed == deleteCartError
           ? _value.deleteCartError
           : deleteCartError // ignore: cast_nullable_to_non_nullable
               as String?,
-      cartList: cartList == freezed
+      cartList: null == cartList
           ? _value.cartList
           : cartList // ignore: cast_nullable_to_non_nullable
               as List<Cart>,
-      selectedAddress: selectedAddress == freezed
+      selectedAddress: freezed == selectedAddress
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
               as Address?,
-      cartItemDataLoading: cartItemDataLoading == freezed
+      cartItemDataLoading: null == cartItemDataLoading
           ? _value.cartItemDataLoading
           : cartItemDataLoading // ignore: cast_nullable_to_non_nullable
               as CartDataLoading,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CartDataLoadingCopyWith<$Res> get cartItemDataLoading {
     return $CartDataLoadingCopyWith<$Res>(_value.cartItemDataLoading, (value) {
-      return _then(_value.copyWith(cartItemDataLoading: value));
+      return _then(_value.copyWith(cartItemDataLoading: value) as $Val);
     });
   }
 }
@@ -123,6 +128,7 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
           _$_CartState value, $Res Function(_$_CartState) then) =
       __$$_CartStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int cartValue,
       bool cartDataLoading,
@@ -139,61 +145,60 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
+class __$$_CartStateCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$_CartState>
     implements _$$_CartStateCopyWith<$Res> {
   __$$_CartStateCopyWithImpl(
       _$_CartState _value, $Res Function(_$_CartState) _then)
-      : super(_value, (v) => _then(v as _$_CartState));
+      : super(_value, _then);
 
-  @override
-  _$_CartState get _value => super._value as _$_CartState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cartValue = freezed,
-    Object? cartDataLoading = freezed,
-    Object? cartDeleteLoading = freezed,
-    Object? orderInProgress = freezed,
+    Object? cartValue = null,
+    Object? cartDataLoading = null,
+    Object? cartDeleteLoading = null,
+    Object? orderInProgress = null,
     Object? cartError = freezed,
     Object? deleteCartError = freezed,
-    Object? cartList = freezed,
+    Object? cartList = null,
     Object? selectedAddress = freezed,
-    Object? cartItemDataLoading = freezed,
+    Object? cartItemDataLoading = null,
   }) {
     return _then(_$_CartState(
-      cartValue: cartValue == freezed
+      cartValue: null == cartValue
           ? _value.cartValue
           : cartValue // ignore: cast_nullable_to_non_nullable
               as int,
-      cartDataLoading: cartDataLoading == freezed
+      cartDataLoading: null == cartDataLoading
           ? _value.cartDataLoading
           : cartDataLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      cartDeleteLoading: cartDeleteLoading == freezed
+      cartDeleteLoading: null == cartDeleteLoading
           ? _value.cartDeleteLoading
           : cartDeleteLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      orderInProgress: orderInProgress == freezed
+      orderInProgress: null == orderInProgress
           ? _value.orderInProgress
           : orderInProgress // ignore: cast_nullable_to_non_nullable
               as bool,
-      cartError: cartError == freezed
+      cartError: freezed == cartError
           ? _value.cartError
           : cartError // ignore: cast_nullable_to_non_nullable
               as String?,
-      deleteCartError: deleteCartError == freezed
+      deleteCartError: freezed == deleteCartError
           ? _value.deleteCartError
           : deleteCartError // ignore: cast_nullable_to_non_nullable
               as String?,
-      cartList: cartList == freezed
+      cartList: null == cartList
           ? _value._cartList
           : cartList // ignore: cast_nullable_to_non_nullable
               as List<Cart>,
-      selectedAddress: selectedAddress == freezed
+      selectedAddress: freezed == selectedAddress
           ? _value.selectedAddress
           : selectedAddress // ignore: cast_nullable_to_non_nullable
               as Address?,
-      cartItemDataLoading: cartItemDataLoading == freezed
+      cartItemDataLoading: null == cartItemDataLoading
           ? _value.cartItemDataLoading
           : cartItemDataLoading // ignore: cast_nullable_to_non_nullable
               as CartDataLoading,
@@ -256,38 +261,41 @@ class _$_CartState implements _CartState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CartState &&
-            const DeepCollectionEquality().equals(other.cartValue, cartValue) &&
-            const DeepCollectionEquality()
-                .equals(other.cartDataLoading, cartDataLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.cartDeleteLoading, cartDeleteLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.orderInProgress, orderInProgress) &&
-            const DeepCollectionEquality().equals(other.cartError, cartError) &&
-            const DeepCollectionEquality()
-                .equals(other.deleteCartError, deleteCartError) &&
+            (identical(other.cartValue, cartValue) ||
+                other.cartValue == cartValue) &&
+            (identical(other.cartDataLoading, cartDataLoading) ||
+                other.cartDataLoading == cartDataLoading) &&
+            (identical(other.cartDeleteLoading, cartDeleteLoading) ||
+                other.cartDeleteLoading == cartDeleteLoading) &&
+            (identical(other.orderInProgress, orderInProgress) ||
+                other.orderInProgress == orderInProgress) &&
+            (identical(other.cartError, cartError) ||
+                other.cartError == cartError) &&
+            (identical(other.deleteCartError, deleteCartError) ||
+                other.deleteCartError == deleteCartError) &&
             const DeepCollectionEquality().equals(other._cartList, _cartList) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedAddress, selectedAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.cartItemDataLoading, cartItemDataLoading));
+            (identical(other.selectedAddress, selectedAddress) ||
+                other.selectedAddress == selectedAddress) &&
+            (identical(other.cartItemDataLoading, cartItemDataLoading) ||
+                other.cartItemDataLoading == cartItemDataLoading));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(cartValue),
-      const DeepCollectionEquality().hash(cartDataLoading),
-      const DeepCollectionEquality().hash(cartDeleteLoading),
-      const DeepCollectionEquality().hash(orderInProgress),
-      const DeepCollectionEquality().hash(cartError),
-      const DeepCollectionEquality().hash(deleteCartError),
+      cartValue,
+      cartDataLoading,
+      cartDeleteLoading,
+      orderInProgress,
+      cartError,
+      deleteCartError,
       const DeepCollectionEquality().hash(_cartList),
-      const DeepCollectionEquality().hash(selectedAddress),
-      const DeepCollectionEquality().hash(cartItemDataLoading));
+      selectedAddress,
+      cartItemDataLoading);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CartStateCopyWith<_$_CartState> get copyWith =>
       __$$_CartStateCopyWithImpl<_$_CartState>(this, _$identity);
 }
@@ -343,39 +351,42 @@ mixin _$CartDataLoading {
 abstract class $CartDataLoadingCopyWith<$Res> {
   factory $CartDataLoadingCopyWith(
           CartDataLoading value, $Res Function(CartDataLoading) then) =
-      _$CartDataLoadingCopyWithImpl<$Res>;
+      _$CartDataLoadingCopyWithImpl<$Res, CartDataLoading>;
+  @useResult
   $Res call({int index, bool isLoading, bool deleteLoading});
 }
 
 /// @nodoc
-class _$CartDataLoadingCopyWithImpl<$Res>
+class _$CartDataLoadingCopyWithImpl<$Res, $Val extends CartDataLoading>
     implements $CartDataLoadingCopyWith<$Res> {
   _$CartDataLoadingCopyWithImpl(this._value, this._then);
 
-  final CartDataLoading _value;
   // ignore: unused_field
-  final $Res Function(CartDataLoading) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
-    Object? isLoading = freezed,
-    Object? deleteLoading = freezed,
+    Object? index = null,
+    Object? isLoading = null,
+    Object? deleteLoading = null,
   }) {
     return _then(_value.copyWith(
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      deleteLoading: deleteLoading == freezed
+      deleteLoading: null == deleteLoading
           ? _value.deleteLoading
           : deleteLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -386,36 +397,35 @@ abstract class _$$_CartDataLoadingCopyWith<$Res>
           _$_CartDataLoading value, $Res Function(_$_CartDataLoading) then) =
       __$$_CartDataLoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int index, bool isLoading, bool deleteLoading});
 }
 
 /// @nodoc
 class __$$_CartDataLoadingCopyWithImpl<$Res>
-    extends _$CartDataLoadingCopyWithImpl<$Res>
+    extends _$CartDataLoadingCopyWithImpl<$Res, _$_CartDataLoading>
     implements _$$_CartDataLoadingCopyWith<$Res> {
   __$$_CartDataLoadingCopyWithImpl(
       _$_CartDataLoading _value, $Res Function(_$_CartDataLoading) _then)
-      : super(_value, (v) => _then(v as _$_CartDataLoading));
+      : super(_value, _then);
 
-  @override
-  _$_CartDataLoading get _value => super._value as _$_CartDataLoading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
-    Object? isLoading = freezed,
-    Object? deleteLoading = freezed,
+    Object? index = null,
+    Object? isLoading = null,
+    Object? deleteLoading = null,
   }) {
     return _then(_$_CartDataLoading(
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      deleteLoading: deleteLoading == freezed
+      deleteLoading: null == deleteLoading
           ? _value.deleteLoading
           : deleteLoading // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -449,21 +459,19 @@ class _$_CartDataLoading implements _CartDataLoading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CartDataLoading &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.deleteLoading, deleteLoading));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.deleteLoading, deleteLoading) ||
+                other.deleteLoading == deleteLoading));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(deleteLoading));
+  int get hashCode => Object.hash(runtimeType, index, isLoading, deleteLoading);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CartDataLoadingCopyWith<_$_CartDataLoading> get copyWith =>
       __$$_CartDataLoadingCopyWithImpl<_$_CartDataLoading>(this, _$identity);
 }

@@ -14,7 +14,7 @@ import '../features/product_detail/view/product_detail_page.dart';
 import '../features/product_list/view/all_product_list_screen.dart';
 import '../features/search/view/search_screen.dart';
 import '../features/splash/view/splash_screen.dart';
-import '../features/view/account_screen.dart';
+import '../features/accounts/view/account_screen.dart';
 
 /*
 * Run this command in terminal

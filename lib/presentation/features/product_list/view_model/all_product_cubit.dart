@@ -3,7 +3,7 @@ import 'package:fluttercommerce/domain/usecases/get_all_product_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../../domain/models/product_model.dart';
 
 @injectable

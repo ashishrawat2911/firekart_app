@@ -3,7 +3,7 @@ import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.d
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../../core/utils/connectivity.dart';
 import '../../../../data/model/account_details_model.dart';
 import '../../../../domain/models/account_details_model.dart';
@@ -12,7 +12,7 @@ import '../../../../domain/models/order_model.dart';
 import '../../../../domain/usecases/add_product_to_cart_usecase.dart';
 import '../../../../domain/usecases/delete_product_from_cart_usecase.dart';
 import '../../../../domain/usecases/get_cart_status_use_case.dart';
-import '../../../../res/string_constants.dart';
+import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
