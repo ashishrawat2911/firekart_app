@@ -11,6 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: AppTheme.appTheme(),
+      darkTheme: AppTheme.appTheme(),
       debugShowCheckedModeBanner: false,
       routerDelegate: NavigationHandler.routerDelegate,
       routeInformationParser: NavigationHandler.routeInformationParser,

@@ -93,7 +93,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with Single
                     angle: animation.value,
                     child: Icon(
                       Icons.expand_more,
-                      color: widget.color ?? AppColors.color81819A,
+                      color: widget.color ?? AppColors.color4C4C6F,
                       // color: Styles.whiteColor,
                     ),
                   ),

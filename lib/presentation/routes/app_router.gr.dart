@@ -16,6 +16,7 @@ import 'package:flutter/material.dart' as _i17;
 
 import '../../domain/models/account_details_model.dart' as _i19;
 import '../../domain/models/product_model.dart' as _i18;
+import '../features/accounts/view/account_screen.dart' as _i8;
 import '../features/add_account_detail/view/add_user_detail_screen.dart'
     as _i11;
 import '../features/add_address/view/add_address_screen.dart' as _i14;
@@ -31,7 +32,6 @@ import '../features/product_detail/view/product_detail_page.dart' as _i10;
 import '../features/product_list/view/all_product_list_screen.dart' as _i12;
 import '../features/search/view/search_screen.dart' as _i9;
 import '../features/splash/view/splash_screen.dart' as _i1;
-import '../features/view/account_screen.dart' as _i8;
 
 class AppRouter extends _i16.RootStackRouter {
   AppRouter([_i17.GlobalKey<_i17.NavigatorState>? navigatorKey])

@@ -85,7 +85,7 @@ class CartItemCard extends StatelessWidget {
                           ),
                           Text(
                             "${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}",
-                            style: TextStyle(fontSize: 14, color: AppColors.color81819A),
+                            style: TextStyle(fontSize: 14, color: AppColors.color4C4C6F),
                           ),
                         ],
                       )
@@ -176,11 +176,11 @@ class CartItemCard extends StatelessWidget {
           width: 32,
           alignment: Alignment.center,
           decoration:
-              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.white),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,
-              color: isAdd ? AppColors.white : AppColors.color81819A,
+              color: isAdd ? AppColors.white : AppColors.color4C4C6F,
             ),
           ),
         ),

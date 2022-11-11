@@ -81,12 +81,12 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             children: [
                               Text(
                                 StringsConstants.orderedOnCaps,
-                                style: AppTextStyles.t14,
+                                style: Theme.of(context).textTheme.button,
                               ),
                               Text(
                                 getOrderedTime(
                                     orderList[orderListIndex].orderedAt),
-                                style: AppTextStyles.t1,
+                                style: Theme.of(context).textTheme.bodyText1,
                               )
                             ],
                           ),
@@ -104,14 +104,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               StringsConstants.totalCaps,
-                              style: AppTextStyles.t14,
+                              style: Theme.of(context).textTheme.button,
                             ),
                             const SizedBox(
                               width: 13,
                             ),
                             Text(
                               "${orderList[orderListIndex].currency} ${orderList[orderListIndex].price}",
-                              style: AppTextStyles.t18,
+                              style: Theme.of(context).textTheme.bodyText2,
                             )
                           ],
                         ),
@@ -119,7 +119,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               orderList[orderListIndex].orderStatus,
-                              style: AppTextStyles.t19,
+                              style: Theme.of(context).textTheme.caption,
                             ),
                             const SizedBox(
                               width: 10,
@@ -167,14 +167,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   children: [
                     Text(
                       orderItem.name,
-                      style: AppTextStyles.t18,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
                       "${orderItem.currency} ${orderItem.price} / ${orderItem.unit}",
-                      style: AppTextStyles.t19,
+                      style: Theme.of(context).textTheme.caption,
                     ),
                   ],
                 )
@@ -185,7 +185,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             ),
             Text(
               "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
-              style: AppTextStyles.t19,
+              style: Theme.of(context).textTheme.caption,
             ),
           ],
         ),
@@ -197,7 +197,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     if (orderStatus == "Delivered") {
       return Icon(
         Icons.check_circle,
-        color: AppColors.color5EB15A,
+        color: AppColors.color6EBA49,
       );
     } else {
       return Icon(

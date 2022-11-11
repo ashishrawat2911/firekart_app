@@ -12,16 +12,21 @@ import '../../../widgets/common_app_loader.dart';
 import '../state/my_address_state.dart';
 import '../view_model/my_address_view_model.dart';
 
-class MyAddressScreen extends StatelessWidget {
+class MyAddressScreen extends StatefulWidget {
   const MyAddressScreen({Key? key, this.selectedAddress = false}) : super(key: key);
 
   final bool selectedAddress;
 
   @override
+  State<MyAddressScreen> createState() => _MyAddressScreenState();
+}
+
+class _MyAddressScreenState extends State<MyAddressScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 1, title: Text(selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
+          elevation: 1, title: Text(widget.selectedAddress ? StringsConstants.selectAddress : StringsConstants.myAddress)),
       body: BaseView<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
@@ -61,7 +66,7 @@ class MyAddressScreen extends StatelessWidget {
                 children: [
                   Text(
                     "${accountDetails.addresses.length} ${StringsConstants.savedAddresses}",
-                    style: AppTextStyles.t12,
+                    style: Theme.of(context).textTheme.overline,
                   ),
                   ActionText(
                     StringsConstants.addNewCaps,
@@ -102,7 +107,7 @@ class MyAddressScreen extends StatelessWidget {
         children: [
           Icon(
             iconData,
-            color: AppColors.color81819A,
+            color: AppColors.color4C4C6F,
           ),
           const SizedBox(
             width: 12,
@@ -110,7 +115,7 @@ class MyAddressScreen extends StatelessWidget {
           Expanded(
               child: Text(
             text,
-            style: AppTextStyles.t14,
+            style: Theme.of(context).textTheme.button,
           ))
         ],
       );
@@ -119,7 +124,7 @@ class MyAddressScreen extends StatelessWidget {
     return Container(
         margin: const EdgeInsets.only(left: 15, right: 15, bottom: 30),
         child: InkWell(
-          onTap: selectedAddress
+          onTap: widget.selectedAddress
               ? () {
                   NavigationHandler.pop(addressCardState.address);
                 }
@@ -133,7 +138,7 @@ class MyAddressScreen extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         addressCardState.address.name,
-                        style: AppTextStyles.t1,
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 20),
@@ -144,7 +149,7 @@ class MyAddressScreen extends StatelessWidget {
                         decoration: BoxDecoration(color: AppColors.color6EBA49, borderRadius: BorderRadius.circular(4)),
                         child: Text(
                           StringsConstants.defaultCaps,
-                          style: AppTextStyles.t15,
+                          style: Theme.of(context).textTheme.overline?.copyWith(  color: AppColors.white,),
                         ),
                       )
                     ],
@@ -228,7 +233,7 @@ class MyAddressScreen extends StatelessWidget {
         children: <Widget>[
           Text(
             "No Address Found",
-            style: AppTextStyles.t6,
+            style: Theme.of(context).textTheme.headline3,
           ),
           const SizedBox(
             height: 20,

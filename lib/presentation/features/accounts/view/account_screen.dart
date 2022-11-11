@@ -51,11 +51,11 @@ class _AccountScreenState extends State<AccountScreen> {
                         children: <Widget>[
                           Text(
                             accountDetails!.name,
-                            style: AppTextStyles.t33,
+                            style: Theme.of(context).textTheme.headline1,
                           ),
                           Text(
                             accountDetails!.phoneNumber ?? '',
-                            style: AppTextStyles.t28,
+                            style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/utils/validator.dart';
 import '../../../res/string_constants.dart';
@@ -77,14 +78,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             children: <Widget>[
               Text(
                 StringsConstants.mobileVerification,
-                style: AppTextStyles.t27,
+                style: Theme.of(context).textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 StringsConstants.mobileVerificationDesc,
-                style: AppTextStyles.t18,
+                style: Theme.of(context).textTheme.bodyText2,
               ),
               const SizedBox(
                 height: 20,
@@ -94,7 +95,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   InkWell(
                     child: Text(
                       StringsConstants.changeNumber,
-                      style: AppTextStyles.t29,
+                      style: Theme.of(context).textTheme.caption?.copyWith(  color: AppColors.primaryColor,),
                     ),
                     onTap: () {
                       NavigationHandler.pop(true);
@@ -147,7 +148,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     },
                     child: Text(
                       StringsConstants.resendOtp,
-                      style: AppTextStyles.t29,
+                      style: Theme.of(context).textTheme.caption?.copyWith(  color: AppColors.primaryColor,),
                     ),
                   );
                 },
@@ -158,7 +159,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               InkWell(
                 child: Text(
                   StringsConstants.goBack,
-                  style: AppTextStyles.t29,
+                  style: Theme.of(context).textTheme.caption?.copyWith(  color: AppColors.primaryColor,),
                 ),
                 onTap: () {
                   NavigationHandler.pop();

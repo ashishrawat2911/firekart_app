@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             //  backgroundColor: AppColors.primaryColor,
-            unselectedItemColor: AppColors.color81819A,
+            unselectedItemColor: AppColors.color4C4C6F,
             selectedItemColor: AppColors.primaryColor,
             showSelectedLabels: true,
             showUnselectedLabels: true,
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                               backgroundColor: AppColors.color6EBA49,
                               child: Text(
                                 "${state.noOfItemsInCart}",
-                                style: AppTextStyles.t10,
+                                style: Theme.of(context).textTheme.overline,
                               ),
                             ),
                           ),
