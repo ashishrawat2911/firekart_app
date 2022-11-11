@@ -11,9 +11,14 @@ import '../../../widgets/common_card.dart';
 import '../state/cart_state.dart';
 import '../view_model/cart_view_model.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseView<CartViewModel, CartState>(
@@ -22,7 +27,7 @@ class CartScreen extends StatelessWidget {
       },
       builder: (context, viewModel, state) {
         return Scaffold(
-          backgroundColor: AppColors.colorF8F8F8,
+          backgroundColor: AppColors.white,
           appBar: AppBar(
             title: const Text(StringsConstants.cart),
             elevation: 1,
@@ -70,7 +75,7 @@ class CartScreen extends StatelessWidget {
                   );
                 }),
               ),
-              billDetails(state),
+              billDetails(state,),
               const SizedBox(
                 height: 20,
               ),
@@ -96,7 +101,7 @@ class CartScreen extends StatelessWidget {
             children: [
               Icon(
                 Icons.local_offer,
-                color: AppColors.color81819A,
+                color: AppColors.color4C4C6F,
               ),
               const SizedBox(
                 width: 10,
@@ -106,7 +111,7 @@ class CartScreen extends StatelessWidget {
           ),
           Icon(
             Icons.keyboard_arrow_right,
-            color: AppColors.color81819A,
+            color: AppColors.color4C4C6F,
           )
         ],
       ),
@@ -154,7 +159,7 @@ class CartScreen extends StatelessWidget {
         children: [
           Text(
             StringsConstants.billDetails,
-            style: AppTextStyles.t1,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
           const SizedBox(
             height: 20,
@@ -182,7 +187,7 @@ class CartScreen extends StatelessWidget {
             children: [
               Text(
                 StringsConstants.deliverTo,
-                style: AppTextStyles.t1,
+                style: Theme.of(context).textTheme.bodyText1,
               ),
               ActionText(
                 state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
@@ -197,7 +202,7 @@ class CartScreen extends StatelessWidget {
           ),
           Text(
             state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
-            style: AppTextStyles.t12,
+            style: Theme.of(context).textTheme.overline,
           ),
         ],
       ),
@@ -220,7 +225,7 @@ class CartScreen extends StatelessWidget {
                   children: [
                     Text(
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
-                      style: AppTextStyles.t4,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const ActionText(StringsConstants.viewDetailedBillCaps)
                   ],

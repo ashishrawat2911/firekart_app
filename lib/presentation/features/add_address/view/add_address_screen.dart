@@ -69,7 +69,7 @@ class AddAddressScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(bottom: 30),
                         child: Text(
                           StringsConstants.addNewAddress,
-                          style: AppTextStyles.t1,
+                          style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
                     ),
@@ -191,7 +191,7 @@ class AddAddressScreen extends StatelessWidget {
                         ),
                         Text(
                           StringsConstants.setAsDefaultCaps,
-                          style: AppTextStyles.t1,
+                          style: Theme.of(context).textTheme.bodyText1,
                         )
                       ],
                     ),

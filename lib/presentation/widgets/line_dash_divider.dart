@@ -25,7 +25,7 @@ class LineDashDivider extends StatelessWidget {
               width: dashWidth,
               height: dashHeight,
               child: DecoratedBox(
-                decoration: BoxDecoration(color: color ?? AppColors.colorDEDEDE),
+                decoration: BoxDecoration(color: color ?? AppColors.white),
               ),
             );
           }),

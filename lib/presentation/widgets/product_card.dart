@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../res/text_styles.dart';
 
@@ -60,7 +61,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     productCardArgs.name,
-                    style: AppTextStyles.t1,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                   const SizedBox(
                     height: 5,
@@ -69,14 +70,14 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${productCardArgs.currency}${productCardArgs.currentPrice}",
-                        style: AppTextStyles.t8,
+                        style: Theme.of(context).textTheme.button?.copyWith(color: AppColors.color4C4C6F),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
                         "${productCardArgs.currency}${productCardArgs.actualPrice}",
-                        style: AppTextStyles.t13,
+                        style: Theme.of(context).textTheme.button?.copyWith(decoration: TextDecoration.lineThrough),
                       ),
                     ],
                   ),
@@ -85,7 +86,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     "${productCardArgs.quantityPerUnit}${productCardArgs.unit}",
-                    style: AppTextStyles.t14,
+                    style: Theme.of(context).textTheme.button,
                   ),
                 ],
               ),

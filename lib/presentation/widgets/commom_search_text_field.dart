@@ -28,7 +28,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
           textInputAction: TextInputAction.search,
           onSubmitted: widget.onSubmitted,
           onChanged: widget.onChanged,
-          style: AppTextStyles.t20,
+          style: Theme.of(context).textTheme.overline,
           decoration: InputDecoration(
               hintText: widget.hint,
               contentPadding: const EdgeInsets.only(top: 25),
@@ -39,9 +39,9 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
                   color: AppColors.black,
                 ),
               ),
-              fillColor: AppColors.colorF6F5F8,
+              fillColor: AppColors.white,
               filled: true,
-              hintStyle: AppTextStyles.t34,
+              hintStyle: Theme.of(context).textTheme.subtitle1,
               focusColor: AppColors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -128,9 +128,9 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
                         widget.onTextChanged("");
                       }
                     })),
-            fillColor: AppColors.colorF6F5F8,
+            fillColor: AppColors.white,
             filled: true,
-            hintStyle: AppTextStyles.t34,
+            hintStyle: Theme.of(context).textTheme.subtitle1,
             focusColor: AppColors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),

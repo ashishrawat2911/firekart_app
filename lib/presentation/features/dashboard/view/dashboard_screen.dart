@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/state/result_state.dart';
@@ -14,9 +15,14 @@ import '../../../widgets/result_api_builder.dart';
 import '../state/dashboard_state.dart';
 import '../view_model/dashboard_view_model.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> fetchProductData(DashboardViewModel viewModel) async {
     viewModel.fetchProductData(ProductData.dealOfTheDay);
     viewModel.fetchProductData(ProductData.onSale);
@@ -34,7 +40,8 @@ class DashboardScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text(
             StringsConstants.products,
-            style: AppTextStyles.t3,
+            style: Theme.of(context).textTheme.headline2?.copyWith(        fontWeight: FontWeight.w500,color: AppColors.black,
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -43,7 +50,7 @@ class DashboardScreen extends StatelessWidget {
             },
             label: Text(
               StringsConstants.viewAllProducts,
-              style: AppTextStyles.t15,
+              style: Theme.of(context).textTheme.overline?.copyWith(  color: AppColors.white,),
             )),
         body: RefreshIndicator(
           onRefresh: () => fetchProductData(viewModel),
@@ -171,7 +178,7 @@ class DashboardScreen extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: AppTextStyles.t27,
+                style: Theme.of(context).textTheme.headline2,
               ),
               Container(
                   margin: const EdgeInsets.only(right: 16),

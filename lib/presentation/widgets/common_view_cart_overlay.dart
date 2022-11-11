@@ -31,7 +31,7 @@ class CommonViewCartOverlay extends StatelessWidget {
           children: <Widget>[
             Text(
               args.title,
-              style: AppTextStyles.t16,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
             const SizedBox(
               width: 10,
@@ -46,7 +46,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                   ),
                   Text(
                     StringsConstants.viewCart,
-                    style: AppTextStyles.t16,
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),

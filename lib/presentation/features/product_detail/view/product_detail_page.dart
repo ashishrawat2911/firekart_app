@@ -13,17 +13,22 @@ import '../../../widgets/common_view_cart_overlay.dart';
 import '../state/add_to_cart_state.dart';
 import '../view_model/product_view_model.dart';
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage(this.product, {Key? key}) : super(key: key);
 
   final Product product;
 
   @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
+  @override
   Widget build(BuildContext context) {
     return BaseView<ProductViewModel, AddToCartState>(
       onViewModelReady: (viewModel) {
-        viewModel.checkItemInCart(product.productId);
-        viewModel.listenToProduct(product.productId);
+        viewModel.checkItemInCart(widget.product.productId);
+        viewModel.listenToProduct(widget.product.productId);
       },
       builder: (context, viewModel, state) => Scaffold(
         floatingActionButton: CommonViewCartOverlay(
@@ -37,13 +42,13 @@ class ProductDetailPage extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
-          title: Text(product.name),
+          title: Text(widget.product.name),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               CachedNetworkImage(
-                imageUrl: product.image,
+                imageUrl: widget.product.image,
                 fit: BoxFit.fill,
               ),
               Container(
@@ -52,13 +57,13 @@ class ProductDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      product.name,
-                      style: AppTextStyles.t33,
+                      widget.product.name,
+                      style: Theme.of(context).textTheme.headline1,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(product.description),
+                    Text(widget.product.description),
                     const SizedBox(
                       height: 10,
                     ),
@@ -66,8 +71,8 @@ class ProductDetailPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "${product.currency}${product.currentPrice} / ${product.quantityPerUnit} ${product.unit}",
-                          style: AppTextStyles.t5,
+                          "${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}",
+                          style: Theme.of(context).textTheme.overline?.copyWith(fontSize: 16),
                         ),
                         const SizedBox(
                           width: 10,
@@ -100,7 +105,7 @@ class ProductDetailPage extends StatelessWidget {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(product, cartValue, false);
+                          viewModel.updateCartValues(widget.product, cartValue, false);
                         }),
               Expanded(
                   child: state.cartDataLoading
@@ -122,12 +127,14 @@ class ProductDetailPage extends StatelessWidget {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(product, cartValue, true);
+                          viewModel.updateCartValues(widget.product, cartValue, true);
                         })
             ],
           ),
         ),
-        crossFadeState: (cartValue > 0) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        crossFadeState: (cartValue > 0)
+            ? CrossFadeState.showSecond
+            : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 100));
   }
 
@@ -135,16 +142,17 @@ class ProductDetailPage extends StatelessWidget {
     return AnimatedCrossFade(
       firstChild: InkWell(
         onTap: () {
-          viewModel.addToCart(product);
+          viewModel.addToCart(widget.product);
         },
         child: Container(
           height: 30,
           width: 70,
           alignment: Alignment.center,
-          decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.colorC4C4C4)),
+          decoration: BoxDecoration(
+              border: Border.all(width: 1, color: AppColors.dropShadow)),
           child: Text(
             StringsConstants.add,
-            style: AppTextStyles.t35,
+            style: Theme.of(context).textTheme.button?.copyWith(  color: AppColors.primaryColor,),
           ),
         ),
       ),
@@ -156,7 +164,9 @@ class ProductDetailPage extends StatelessWidget {
             size: 20,
             strokeWidth: 3,
           ))),
-      crossFadeState: state.addToCardLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+      crossFadeState: state.addToCardLoading
+          ? CrossFadeState.showSecond
+          : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 100),
     );
   }
@@ -168,13 +178,14 @@ class ProductDetailPage extends StatelessWidget {
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.colorE2E6EC),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isAdd ? AppColors.primaryColor : AppColors.white),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,
               size: 14,
-              color: isAdd ? AppColors.white : AppColors.color81819A,
+              color: isAdd ? AppColors.white : AppColors.color4C4C6F,
             ),
           ),
         ),

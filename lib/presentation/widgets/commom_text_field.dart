@@ -140,13 +140,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           contentPadding: widget.contentPadding != null
               ? EdgeInsets.symmetric(horizontal: widget.contentPadding!, vertical: 2)
               : null,
-          fillColor: widget.fillColor ?? AppColors.colorF6F5F8,
+          fillColor: widget.fillColor ?? AppColors.white,
           filled: true,
           hintText: widget.hint,
           suffixIcon: widget.suffix,
           prefixIcon: widget.prefix,
           hintStyle:
-              widget.hint!.length < 30 ? widget.hintStyle : TextStyle(fontSize: 15, color: AppColors.color969696),
+              widget.hint!.length < 30 ? widget.hintStyle : TextStyle(fontSize: 15, color: AppColors.dropShadow),
           errorStyle: widget.errorStyle ??
               const TextStyle(
                   // color: AppColors.errorRed,
