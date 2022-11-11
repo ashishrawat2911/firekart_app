@@ -11,7 +11,8 @@ class CrashlyticsService {
   final GetUserDataStatusUseCase _getUserDataStatusUseCase;
   final FirebaseCrashlytics _firebaseCrashlytics;
 
-  CrashlyticsService(this._getUserDataStatusUseCase, this._firebaseManager, this._firebaseCrashlytics) {
+  CrashlyticsService(this._getUserDataStatusUseCase, this._firebaseManager,
+      this._firebaseCrashlytics) {
     FlutterError.onError = recordFlutterError;
   }
 

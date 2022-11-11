@@ -6,7 +6,8 @@ import '../state/product_search_state.dart';
 
 @injectable
 class ProductSearchViewModel extends ViewModel<ProductSearchState> {
-  ProductSearchViewModel(this._searchProductsUseCase) : super(const ProductSearchState());
+  ProductSearchViewModel(this._searchProductsUseCase)
+      : super(const ProductSearchState());
 
   final SearchProductsUseCase _searchProductsUseCase;
 
@@ -15,9 +16,9 @@ class ProductSearchViewModel extends ViewModel<ProductSearchState> {
     try {
       final productList = await _searchProductsUseCase.execute(query);
 
-      state.copyWith(productList: productList);
+      state = state.copyWith(productList: productList);
     } catch (e) {
-      state.copyWith(error: '');
+      state = state.copyWith(error: '');
     }
     state = state.copyWith(loading: false);
   }

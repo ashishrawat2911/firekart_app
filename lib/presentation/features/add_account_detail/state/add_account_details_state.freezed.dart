@@ -27,6 +27,7 @@ mixin _$AddAccountDetailsState {
     required TResult Function() successful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
@@ -50,6 +51,7 @@ mixin _$AddAccountDetailsState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -61,6 +63,7 @@ mixin _$AddAccountDetailsState {
     required TResult Function(Successful value) successful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Idle value)? idle,
@@ -101,6 +104,7 @@ class _$AddAccountDetailsStateCopyWithImpl<$Res,
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
@@ -240,6 +244,7 @@ abstract class _$$EditDataCopyWith<$Res> {
   factory _$$EditDataCopyWith(
           _$EditData value, $Res Function(_$EditData) then) =
       __$$EditDataCopyWithImpl<$Res>;
+
   @useResult
   $Res call({AccountDetails accountDetails});
 }
@@ -393,6 +398,7 @@ abstract class EditData implements AddAccountDetailsState {
   const factory EditData(final AccountDetails accountDetails) = _$EditData;
 
   AccountDetails get accountDetails;
+
   @JsonKey(ignore: true)
   _$$EditDataCopyWith<_$EditData> get copyWith =>
       throw _privateConstructorUsedError;

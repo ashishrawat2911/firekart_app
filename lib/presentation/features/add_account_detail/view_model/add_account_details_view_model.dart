@@ -37,21 +37,23 @@ class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
 
   Future<void> loadPreviousData() async {
     state = (const AddAccountDetailsState.loading());
-    final AccountDetails accountDetails = await _getAccountDetailsUseCase.execute();
+    final AccountDetails accountDetails =
+        await _getAccountDetailsUseCase.execute();
     state = (AddAccountDetailsState.editData(accountDetails));
     validateButton(accountDetails.name);
   }
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
-    final AccountDetails accountDetails =
-        AccountDetails(name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
+    final AccountDetails accountDetails = AccountDetails(
+        name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
 
     state = (const AddAccountDetailsState.saveDataLoading());
     await _setAccountDetailsUseCase.execute(accountDetails);
     await _setProfileUserDataUseCase.execute(displayName: accountDetails.name);
 
     if (isEdit) {
-      NavigationHandler.navigateTo(const HomeScreenRoute(), navigationType: NavigationType.pushReplacement);
+      NavigationHandler.navigateTo(const HomeScreenRoute(),
+          navigationType: NavigationType.pushReplacement);
     } else {
       NavigationHandler.pop();
     }

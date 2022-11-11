@@ -9,11 +9,13 @@ import '../state/add_address_state.dart';
 
 @injectable
 class AddAddressViewModel extends ViewModel<AddAddressState> {
-  AddAddressViewModel(this._setAccountDetailsUseCase) : super(const AddAddressState());
+  AddAddressViewModel(this._setAccountDetailsUseCase)
+      : super(const AddAddressState());
 
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
 
-  Future<void> saveAddress(AccountDetails accountDetails, Address address) async {
+  Future<void> saveAddress(
+      AccountDetails accountDetails, Address address) async {
     state = state.copyWith(buttonLoading: true);
 
     if (address.isDefault) {
@@ -32,6 +34,6 @@ class AddAddressViewModel extends ViewModel<AddAddressState> {
   }
 
   void setDefault(bool isDefault) {
-    state.copyWith(setAsDefault: isDefault);
+    state = state.copyWith(setAsDefault: isDefault);
   }
 }

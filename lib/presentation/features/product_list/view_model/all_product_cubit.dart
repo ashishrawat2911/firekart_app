@@ -8,7 +8,8 @@ import '../../../../domain/models/product_model.dart';
 
 @injectable
 class AllProductCubit extends ViewModel<ResultState<List<Product>>> {
-  AllProductCubit(this._getAllProductsUseCase) : super(const ResultState.idle());
+  AllProductCubit(this._getAllProductsUseCase)
+      : super(const ResultState.idle());
 
   final GetAllProductsUseCase _getAllProductsUseCase;
   List<DocumentSnapshot>? documents;
@@ -16,7 +17,8 @@ class AllProductCubit extends ViewModel<ResultState<List<Product>>> {
   Future<void> fetchProducts([String? condition]) async {
     emit(const ResultState.loading());
     try {
-      final productList = await _getAllProductsUseCase.execute(condition: condition);
+      final productList =
+          await _getAllProductsUseCase.execute(condition: condition);
       emit(ResultState.data(data: productList.toSet().toList()));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));

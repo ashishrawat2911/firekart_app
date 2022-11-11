@@ -20,5 +20,6 @@ abstract class FirebaseModule {
   FirebaseAnalytics get firebaseAnalytics => FirebaseAnalytics.instance;
 
   @singleton
-  FirebaseDynamicLinks get firebaseDynamicLinks => FirebaseDynamicLinks.instance;
+  FirebaseDynamicLinks get firebaseDynamicLinks =>
+      FirebaseDynamicLinks.instance;
 }

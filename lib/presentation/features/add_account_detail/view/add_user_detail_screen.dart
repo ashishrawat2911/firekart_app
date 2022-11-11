@@ -25,7 +25,8 @@ class AddUserDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: Text("${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+        title: Text(
+            "${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: _SaveDataView(newAddress),
     );
@@ -47,7 +48,8 @@ class _SaveDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
+    return BaseView<AddAccountDetailsViewModel,
+        account_details_state.AddAccountDetailsState>(
       onViewModelReady: (viewModel) {
         if (!newAddress) {
           viewModel.loadPreviousData();
@@ -80,7 +82,8 @@ class _SaveDataView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
                           ActionText(StringsConstants.manageAddress, onTap: () {
-                            NavigationHandler.navigateTo(MyAddressScreenRoute());
+                            NavigationHandler.navigateTo(
+                                MyAddressScreenRoute());
                           }),
                         ],
                       ),
@@ -107,7 +110,8 @@ class _SaveDataView extends StatelessWidget {
                     titleColor: AppColors.white,
                     height: 50,
                     isEnabled: isButtonEnabled(state),
-                    replaceWithIndicator: state is account_details_state.SaveDataLoading,
+                    replaceWithIndicator:
+                        state is account_details_state.SaveDataLoading,
                     margin: const EdgeInsets.only(bottom: 40),
                     onTap: () {
                       onButtonTap(viewModel);

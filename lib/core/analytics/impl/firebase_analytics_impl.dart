@@ -14,7 +14,8 @@ class FirebaseAnalyticsImpl extends Analytics {
   }
 
   @override
-  void logEventWithParam({required String name, Map<String, Object?>? parameters}) {
+  void logEventWithParam(
+      {required String name, Map<String, Object?>? parameters}) {
     _analytics.logEvent(name: name, parameters: parameters);
   }
 }

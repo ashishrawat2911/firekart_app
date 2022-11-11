@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../res/app_colors.dart';
-import '../res/text_styles.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   const CommonSearchTextField(
-      {Key? key, @required this.hint, this.onSubmitted, this.onChanged, this.textEditingController, this.focusNode})
+      {Key? key,
+      @required this.hint,
+      this.onSubmitted,
+      this.onChanged,
+      this.textEditingController,
+      this.focusNode})
       : super(key: key);
   final String? hint;
   final ValueChanged<String>? onSubmitted;
@@ -60,7 +64,12 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
 }
 
 class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
-  const CommonSearchBar({Key? key, required this.onTextChanged, this.hintText, this.onBackPressed, this.onClosePressed})
+  const CommonSearchBar(
+      {Key? key,
+      required this.onTextChanged,
+      this.hintText,
+      this.onBackPressed,
+      this.onClosePressed})
       : super(key: key);
   final ValueChanged<String> onTextChanged;
   final VoidCallback? onBackPressed;

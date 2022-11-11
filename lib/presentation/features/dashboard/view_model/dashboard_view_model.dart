@@ -12,7 +12,8 @@ enum ProductData { dealOfTheDay, onSale, topProducts }
 
 @injectable
 class DashboardViewModel extends ViewModel<DashboardState> {
-  DashboardViewModel(this._getAllProductsUseCase) : super(const DashboardState());
+  DashboardViewModel(this._getAllProductsUseCase)
+      : super(const DashboardState());
 
   final GetAllProductsUseCase _getAllProductsUseCase;
 
@@ -38,7 +39,8 @@ class DashboardViewModel extends ViewModel<DashboardState> {
         return;
       }
 
-      final List<Product> productList = await _getAllProductsUseCase.execute(condition: condition, all: true);
+      final List<Product> productList =
+          await _getAllProductsUseCase.execute(condition: condition, all: true);
 
       final resultState = ResultState.data(data: productList);
 
