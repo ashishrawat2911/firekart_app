@@ -10,5 +10,6 @@ abstract class PaymentState {
 
   const factory PaymentState.paymentError(String errorMessage) = PaymentError;
 
-  const factory PaymentState.paymentSuccessful(String response) = PaymentSuccessful;
+  const factory PaymentState.paymentSuccessful(String response) =
+      PaymentSuccessful;
 }

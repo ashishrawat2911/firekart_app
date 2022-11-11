@@ -78,14 +78,18 @@ class CartItemCard extends StatelessWidget {
                         children: [
                           Text(
                             cartItemCardArgs.name,
-                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: AppColors.black),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: AppColors.black),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           Text(
                             "${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}",
-                            style: TextStyle(fontSize: 14, color: AppColors.color4C4C6F),
+                            style: TextStyle(
+                                fontSize: 14, color: AppColors.color4C4C6F),
                           ),
                         ],
                       )
@@ -126,7 +130,8 @@ class CartItemCard extends StatelessWidget {
                             cartItemCardArgs.isLoading
                                 ? () {}
                                 : () {
-                                    cartItemCardArgs.onDecrement(cartItemCardArgs.index);
+                                    cartItemCardArgs
+                                        .onDecrement(cartItemCardArgs.index);
                                   }),
                         Expanded(
                             child: Center(
@@ -147,7 +152,8 @@ class CartItemCard extends StatelessWidget {
                             cartItemCardArgs.isLoading
                                 ? () {}
                                 : () {
-                                    cartItemCardArgs.onIncrement(cartItemCardArgs.index);
+                                    cartItemCardArgs
+                                        .onIncrement(cartItemCardArgs.index);
                                   })
                       ],
                     ),
@@ -175,8 +181,9 @@ class CartItemCard extends StatelessWidget {
           height: 32,
           width: 32,
           alignment: Alignment.center,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: isAdd ? AppColors.primaryColor : AppColors.white),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isAdd ? AppColors.primaryColor : AppColors.white),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/state_manager/base_view.dart';
 import '../../../res/app_colors.dart';
 import '../../../res/string_constants.dart';
-import '../../../res/text_styles.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/cart_item_card.dart';
 import '../../../widgets/common_button.dart';
@@ -32,9 +31,12 @@ class _CartScreenState extends State<CartScreen> {
             title: const Text(StringsConstants.cart),
             elevation: 1,
           ),
-          body: state.cartList.noOfItemsInCart > 0 ? cartView(state, viewModel) : Container(),
-          bottomNavigationBar:
-              Visibility(visible: state.cartList.noOfItemsInCart > 0, child: checkOut(state, viewModel)),
+          body: state.cartList.noOfItemsInCart > 0
+              ? cartView(state, viewModel)
+              : Container(),
+          bottomNavigationBar: Visibility(
+              visible: state.cartList.noOfItemsInCart > 0,
+              child: checkOut(state, viewModel)),
         );
       },
     );
@@ -56,8 +58,10 @@ class _CartScreenState extends State<CartScreen> {
                       image: cartModel.image,
                       itemCount: cartModel.numOfItems,
                       price: '${cartModel.currency}${cartModel.currentPrice}',
-                      quantity: '${cartModel.quantityPerUnit} ${cartModel.unit}',
-                      totalPrice: "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
+                      quantity:
+                          '${cartModel.quantityPerUnit} ${cartModel.unit}',
+                      totalPrice:
+                          "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
                       index: index,
                       deleteLoading: state.cartItemDataLoading.deleteLoading,
                       isLoading: state.cartItemDataLoading.isLoading,
@@ -75,7 +79,9 @@ class _CartScreenState extends State<CartScreen> {
                   );
                 }),
               ),
-              billDetails(state,),
+              billDetails(
+                state,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -127,12 +133,17 @@ class _CartScreenState extends State<CartScreen> {
             children: [
               Text(
                 title,
-                style:
-                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.color20203E,
+                    fontSize: 14,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 price,
-                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.black,
+                    fontSize: 16,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -169,7 +180,9 @@ class _CartScreenState extends State<CartScreen> {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay, "${state.cartList.currency}${state.cartList.priceInCart}", isFinal: true),
+          priceRow(StringsConstants.toPay,
+              "${state.cartList.currency}${state.cartList.priceInCart}",
+              isFinal: true),
         ],
       ),
     ));
@@ -190,7 +203,9 @@ class _CartScreenState extends State<CartScreen> {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               ActionText(
-                state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
+                state.selectedAddress == null
+                    ? StringsConstants.addNewCaps
+                    : StringsConstants.changeTextCapital,
                 onTap: () {
                   viewModel.selectOrChangeAddress();
                 },
@@ -201,7 +216,8 @@ class _CartScreenState extends State<CartScreen> {
             height: 20,
           ),
           Text(
-            state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
+            state.selectedAddress?.wholeAddress() ??
+                StringsConstants.noAddressFound,
             style: Theme.of(context).textTheme.overline,
           ),
         ],

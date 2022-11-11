@@ -6,7 +6,6 @@ import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../res/string_constants.dart';
-import '../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -40,8 +39,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
           automaticallyImplyLeading: false,
           title: Text(
             StringsConstants.products,
-            style: Theme.of(context).textTheme.headline2?.copyWith(        fontWeight: FontWeight.w500,color: AppColors.black,
-            ),
+            style: Theme.of(context).textTheme.headline2?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.black,
+                ),
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -50,7 +51,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
             label: Text(
               StringsConstants.viewAllProducts,
-              style: Theme.of(context).textTheme.overline?.copyWith(  color: AppColors.white,),
+              style: Theme.of(context).textTheme.overline?.copyWith(
+                    color: AppColors.white,
+                  ),
             )),
         body: RefreshIndicator(
           onRefresh: () => fetchProductData(viewModel),
@@ -61,9 +64,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                productDataBuilder(state.dealOfTheDay, StringsConstants.dealOfTheDay),
+                productDataBuilder(
+                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
                 productDataBuilder(state.onSale, StringsConstants.onSale),
-                productDataBuilder(state.topProducts, StringsConstants.topProducts),
+                productDataBuilder(
+                    state.topProducts, StringsConstants.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -75,7 +80,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget productDataBuilder(ResultState<List<Product>> resultState, String title) {
+  Widget productDataBuilder(
+      ResultState<List<Product>> resultState, String title) {
     return ResultStateBuilder(
       state: resultState,
       errorWidget: (String error) => Column(
@@ -109,14 +115,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
             6,
             (index) {
               return Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius:
-                          const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -193,7 +201,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigateTo(AllProductListScreenRoute(productCondition: condition));
+                      NavigationHandler.navigateTo(AllProductListScreenRoute(
+                          productCondition: condition));
                     },
                   ))
             ],

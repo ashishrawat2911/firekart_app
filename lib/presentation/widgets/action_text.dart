@@ -12,7 +12,8 @@ class ActionText extends StatelessWidget {
     return actionText();
   }
 
-  TextStyle get actionTextStyle => TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: AppColors.primaryColor);
+  TextStyle get actionTextStyle => TextStyle(
+      fontWeight: FontWeight.w500, fontSize: 14, color: AppColors.primaryColor);
 
   Widget actionText() {
     return GestureDetector(

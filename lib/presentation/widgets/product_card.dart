@@ -2,8 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
-import '../res/text_styles.dart';
-
 class ProductCardArgs {
   final VoidCallback onTap;
   final String name;
@@ -42,7 +40,8 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(
@@ -70,14 +69,20 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${productCardArgs.currency}${productCardArgs.currentPrice}",
-                        style: Theme.of(context).textTheme.button?.copyWith(color: AppColors.color4C4C6F),
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            ?.copyWith(color: AppColors.color4C4C6F),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
                         "${productCardArgs.currency}${productCardArgs.actualPrice}",
-                        style: Theme.of(context).textTheme.button?.copyWith(decoration: TextDecoration.lineThrough),
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            ?.copyWith(decoration: TextDecoration.lineThrough),
                       ),
                     ],
                   ),

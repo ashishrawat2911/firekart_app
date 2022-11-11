@@ -6,7 +6,6 @@ import 'package:fluttercommerce/presentation/res/app_colors.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../res/string_constants.dart';
 import '../../../res/styles.dart';
-import '../../../res/text_styles.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -95,7 +94,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   InkWell(
                     child: Text(
                       StringsConstants.changeNumber,
-                      style: Theme.of(context).textTheme.caption?.copyWith(  color: AppColors.primaryColor,),
+                      style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
                     ),
                     onTap: () {
                       NavigationHandler.pop(true);
@@ -148,7 +149,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     },
                     child: Text(
                       StringsConstants.resendOtp,
-                      style: Theme.of(context).textTheme.caption?.copyWith(  color: AppColors.primaryColor,),
+                      style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
                     ),
                   );
                 },
@@ -159,7 +162,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               InkWell(
                 child: Text(
                   StringsConstants.goBack,
-                  style: Theme.of(context).textTheme.caption?.copyWith(  color: AppColors.primaryColor,),
+                  style: Theme.of(context).textTheme.caption?.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                 ),
                 onTap: () {
                   NavigationHandler.pop();

@@ -11,6 +11,7 @@ class SetProfileUserDataUseCase {
     String? displayName,
     String? photoUrl,
   }) {
-    return _firebaseRepository.setAccountDetails(displayName: displayName, photoUrl: photoUrl);
+    return _firebaseRepository.setAccountDetails(
+        displayName: displayName, photoUrl: photoUrl);
   }
 }

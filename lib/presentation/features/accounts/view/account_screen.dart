@@ -5,7 +5,6 @@ import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/logout_usecase.dart';
 import '../../../../domain/usecases/stream_account_details_usecase.dart';
 import '../../../res/string_constants.dart';
-import '../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -65,7 +64,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     ActionText(
                       StringsConstants.editCaps,
                       onTap: () {
-                        NavigationHandler.navigateTo(AddUserDetailScreenRoute(newAddress: false));
+                        NavigationHandler.navigateTo(
+                            AddUserDetailScreenRoute(newAddress: false));
                       },
                     ),
                   ],

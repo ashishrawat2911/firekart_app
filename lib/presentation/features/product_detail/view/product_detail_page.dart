@@ -5,7 +5,6 @@ import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../res/app_colors.dart';
 import '../../../res/string_constants.dart';
-import '../../../res/text_styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -72,7 +71,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       children: <Widget>[
                         Text(
                           "${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}",
-                          style: Theme.of(context).textTheme.overline?.copyWith(fontSize: 16),
+                          style: Theme.of(context)
+                              .textTheme
+                              .overline
+                              ?.copyWith(fontSize: 16),
                         ),
                         const SizedBox(
                           width: 10,
@@ -105,7 +107,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(widget.product, cartValue, false);
+                          viewModel.updateCartValues(
+                              widget.product, cartValue, false);
                         }),
               Expanded(
                   child: state.cartDataLoading
@@ -127,7 +130,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   state.cartDataLoading
                       ? () {}
                       : () {
-                          viewModel.updateCartValues(widget.product, cartValue, true);
+                          viewModel.updateCartValues(
+                              widget.product, cartValue, true);
                         })
             ],
           ),
@@ -152,7 +156,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               border: Border.all(width: 1, color: AppColors.dropShadow)),
           child: Text(
             StringsConstants.add,
-            style: Theme.of(context).textTheme.button?.copyWith(  color: AppColors.primaryColor,),
+            style: Theme.of(context).textTheme.button?.copyWith(
+                  color: AppColors.primaryColor,
+                ),
           ),
         ),
       ),
