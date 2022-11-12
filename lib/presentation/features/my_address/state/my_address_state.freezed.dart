@@ -17,13 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MyAddressState {
   bool get screenLoading => throw _privateConstructorUsedError;
-
   String? get screenError => throw _privateConstructorUsedError;
-
   bool get buttonLoading => throw _privateConstructorUsedError;
-
   AccountDetails? get accountDetails => throw _privateConstructorUsedError;
-
   List<AddressCardState> get addressStates =>
       throw _privateConstructorUsedError;
 
@@ -37,7 +33,6 @@ abstract class $MyAddressStateCopyWith<$Res> {
   factory $MyAddressStateCopyWith(
           MyAddressState value, $Res Function(MyAddressState) then) =
       _$MyAddressStateCopyWithImpl<$Res, MyAddressState>;
-
   @useResult
   $Res call(
       {bool screenLoading,
@@ -54,7 +49,6 @@ class _$MyAddressStateCopyWithImpl<$Res, $Val extends MyAddressState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -98,7 +92,6 @@ abstract class _$$_MyAddressStateCopyWith<$Res>
   factory _$$_MyAddressStateCopyWith(
           _$_MyAddressState value, $Res Function(_$_MyAddressState) then) =
       __$$_MyAddressStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -173,7 +166,6 @@ class _$_MyAddressState implements _MyAddressState {
   @override
   final AccountDetails? accountDetails;
   final List<AddressCardState> _addressStates;
-
   @override
   @JsonKey()
   List<AddressCardState> get addressStates {
@@ -229,19 +221,14 @@ abstract class _MyAddressState implements MyAddressState {
 
   @override
   bool get screenLoading;
-
   @override
   String? get screenError;
-
   @override
   bool get buttonLoading;
-
   @override
   AccountDetails? get accountDetails;
-
   @override
   List<AddressCardState> get addressStates;
-
   @override
   @JsonKey(ignore: true)
   _$$_MyAddressStateCopyWith<_$_MyAddressState> get copyWith =>
@@ -251,11 +238,8 @@ abstract class _MyAddressState implements MyAddressState {
 /// @nodoc
 mixin _$AddressCardState {
   int get index => throw _privateConstructorUsedError;
-
   Address get address => throw _privateConstructorUsedError;
-
   bool get editLoading => throw _privateConstructorUsedError;
-
   bool get setDefaultLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -268,7 +252,6 @@ abstract class $AddressCardStateCopyWith<$Res> {
   factory $AddressCardStateCopyWith(
           AddressCardState value, $Res Function(AddressCardState) then) =
       _$AddressCardStateCopyWithImpl<$Res, AddressCardState>;
-
   @useResult
   $Res call(
       {int index, Address address, bool editLoading, bool setDefaultLoading});
@@ -281,7 +264,6 @@ class _$AddressCardStateCopyWithImpl<$Res, $Val extends AddressCardState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -320,7 +302,6 @@ abstract class _$$_AddressCardStateCopyWith<$Res>
   factory _$$_AddressCardStateCopyWith(
           _$_AddressCardState value, $Res Function(_$_AddressCardState) then) =
       __$$_AddressCardStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -423,16 +404,12 @@ abstract class _AddressCardState implements AddressCardState {
 
   @override
   int get index;
-
   @override
   Address get address;
-
   @override
   bool get editLoading;
-
   @override
   bool get setDefaultLoading;
-
   @override
   @JsonKey(ignore: true)
   _$$_AddressCardStateCopyWith<_$_AddressCardState> get copyWith =>
