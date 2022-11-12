@@ -31,10 +31,18 @@ class BaseView<V extends ViewModel<S>, S> extends StatefulWidget {
 }
 
 class _BaseViewState<V extends ViewModel<S>, S> extends State<BaseView<V, S>> {
+  V viewModel = inject<V>();
+
+  @override
+  void initState() {
+    super.initState();
+    widget.onViewModelReady?.call(viewModel);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<V>.value(
-      value: inject<V>(),
+      value: viewModel,
       child: BlocConsumer<V, S>(
         builder: (context, state) {
           return widget.builder?.call(
