@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_screen.dart';
 
-import '../../../../core/state_manager/state_view_manager.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../../core/state_manager/base_view.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
+import '../../accounts/view/account_screen.dart';
 import '../../cart/view/cart_screen.dart';
 import '../../search/view/search_screen.dart';
-import '../../view/account_screen.dart';
 import '../state/home_state.dart';
 import '../viewmodel/home_viewmodel.dart';
 
@@ -16,7 +15,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateManager<HomeScreenViewModel, HomeState>(
+    return BaseView<HomeScreenViewModel, HomeState>(
       onViewModelReady: (viewModel) {
         viewModel.init();
       },
@@ -31,13 +30,15 @@ class HomeScreen extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             //  backgroundColor: AppColors.primaryColor,
-            unselectedItemColor: AppColors.color81819A,
+            unselectedItemColor: AppColors.color4C4C6F,
             selectedItemColor: AppColors.primaryColor,
             showSelectedLabels: true,
             showUnselectedLabels: true,
             items: [
-              const BottomNavigationBarItem(icon: Icon(Icons.home), label: (StringsConstants.home)),
-              const BottomNavigationBarItem(icon: Icon(Icons.search), label: (StringsConstants.search)),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.home), label: (StringsConstants.home)),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.search), label: (StringsConstants.search)),
               BottomNavigationBarItem(
                   icon: Stack(
                     children: <Widget>[
@@ -54,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                               backgroundColor: AppColors.color6EBA49,
                               child: Text(
                                 "${state.noOfItemsInCart}",
-                                style: AppTextStyles.t10,
+                                style: Theme.of(context).textTheme.overline,
                               ),
                             ),
                           ),
@@ -63,7 +64,8 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   label: (StringsConstants.cart)),
-              const BottomNavigationBarItem(icon: Icon(Icons.person), label: (StringsConstants.account)),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: (StringsConstants.account)),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,

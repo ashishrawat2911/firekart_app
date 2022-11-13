@@ -1,14 +1,16 @@
 class StringsConstants {
   static const login = "Login";
 
-  static const phoneLoginText = "Enter your number to log in or create an account";
+  static const phoneLoginText =
+      "Enter your number to log in or create an account";
   static const continueText = "Continue";
   static const mobileNumber = "Mobile Number";
   static const skip = "Skip";
   static const goBack = "< Go Back";
   static const changeNumber = "Change Number?";
   static const mobileVerification = "Mobile Verification";
-  static const mobileVerificationDesc = "SMS with a 6 digit code has been sent on your mobile number";
+  static const mobileVerificationDesc =
+      "SMS with a 6 digit code has been sent on your mobile number";
   static const enterOtp = "Enter OTP";
   static const confirmOtp = "Confirm OTP";
   static const resendOtp = "Didn’t get OTP? Send again";

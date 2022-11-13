@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/state_manager/base_view.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../domain/models/account_details_model.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/add_address_state.dart';
 import '../view_model/add_address_view_model.dart';
 
 class AddAddressScreen extends StatelessWidget {
-  AddAddressScreen(this.newAddress, this.accountDetails, {Key? key, this.editAddress}) : super(key: key);
+  AddAddressScreen(this.newAddress, this.accountDetails,
+      {Key? key, this.editAddress})
+      : super(key: key);
   final bool newAddress;
   final AccountDetails accountDetails;
   final Address? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
   final TextEditingController emailEditingController = TextEditingController();
-  final TextEditingController pincodeEditingController = TextEditingController();
-  final TextEditingController addressEditingController = TextEditingController();
+  final TextEditingController pincodeEditingController =
+      TextEditingController();
+  final TextEditingController addressEditingController =
+      TextEditingController();
   final TextEditingController cityEditingController = TextEditingController();
   final TextEditingController stateEditingController = TextEditingController();
   final TextEditingController phoneEditingController = TextEditingController();
@@ -38,7 +41,7 @@ class AddAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateManager<AddAddressViewModel, AddAddressState>(
+    return BaseView<AddAddressViewModel, AddAddressState>(
       onViewModelReady: (viewModel) {
         if (editAddress != null) {
           nameEditingController.text = editAddress!.name;
@@ -69,7 +72,7 @@ class AddAddressScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(bottom: 30),
                         child: Text(
                           StringsConstants.addNewAddress,
-                          style: AppTextStyles.t1,
+                          style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
                     ),
@@ -178,7 +181,8 @@ class AddAddressScreen extends StatelessWidget {
                     Row(
                       children: [
                         StatefulBuilder(
-                          builder: (BuildContext context, void Function(void Function()) setState) {
+                          builder: (BuildContext context,
+                              void Function(void Function()) setState) {
                             return Checkbox(
                               value: state.setAsDefault,
                               onChanged: (bool? value) {
@@ -191,7 +195,7 @@ class AddAddressScreen extends StatelessWidget {
                         ),
                         Text(
                           StringsConstants.setAsDefaultCaps,
-                          style: AppTextStyles.t1,
+                          style: Theme.of(context).textTheme.bodyText1,
                         )
                       ],
                     ),

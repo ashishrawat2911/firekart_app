@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/state_manager/state_view_manager.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../../core/state_manager/base_view.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/cart_item_card.dart';
 import '../../../widgets/common_button.dart';
@@ -11,25 +10,33 @@ import '../../../widgets/common_card.dart';
 import '../state/cart_state.dart';
 import '../view_model/cart_view_model.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
 
   @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  @override
   Widget build(BuildContext context) {
-    return StateManager<CartViewModel, CartState>(
+    return BaseView<CartViewModel, CartState>(
       onViewModelReady: (viewModel) {
         viewModel.init();
       },
       builder: (context, viewModel, state) {
         return Scaffold(
-          backgroundColor: AppColors.colorF8F8F8,
+          backgroundColor: AppColors.white,
           appBar: AppBar(
             title: const Text(StringsConstants.cart),
             elevation: 1,
           ),
-          body: state.cartList.noOfItemsInCart > 0 ? cartView(state, viewModel) : Container(),
-          bottomNavigationBar:
-              Visibility(visible: state.cartList.noOfItemsInCart > 0, child: checkOut(state, viewModel)),
+          body: state.cartList.noOfItemsInCart > 0
+              ? cartView(state, viewModel)
+              : Container(),
+          bottomNavigationBar: Visibility(
+              visible: state.cartList.noOfItemsInCart > 0,
+              child: checkOut(state, viewModel)),
         );
       },
     );
@@ -51,8 +58,10 @@ class CartScreen extends StatelessWidget {
                       image: cartModel.image,
                       itemCount: cartModel.numOfItems,
                       price: '${cartModel.currency}${cartModel.currentPrice}',
-                      quantity: '${cartModel.quantityPerUnit} ${cartModel.unit}',
-                      totalPrice: "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
+                      quantity:
+                          '${cartModel.quantityPerUnit} ${cartModel.unit}',
+                      totalPrice:
+                          "${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}",
                       index: index,
                       deleteLoading: state.cartItemDataLoading.deleteLoading,
                       isLoading: state.cartItemDataLoading.isLoading,
@@ -70,7 +79,9 @@ class CartScreen extends StatelessWidget {
                   );
                 }),
               ),
-              billDetails(state),
+              billDetails(
+                state,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -96,7 +107,7 @@ class CartScreen extends StatelessWidget {
             children: [
               Icon(
                 Icons.local_offer,
-                color: AppColors.color81819A,
+                color: AppColors.color4C4C6F,
               ),
               const SizedBox(
                 width: 10,
@@ -106,7 +117,7 @@ class CartScreen extends StatelessWidget {
           ),
           Icon(
             Icons.keyboard_arrow_right,
-            color: AppColors.color81819A,
+            color: AppColors.color4C4C6F,
           )
         ],
       ),
@@ -122,12 +133,17 @@ class CartScreen extends StatelessWidget {
             children: [
               Text(
                 title,
-                style:
-                    TextStyle(color: AppColors.color20203E, fontSize: 14, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.color20203E,
+                    fontSize: 14,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
               Text(
                 price,
-                style: TextStyle(color: AppColors.black, fontSize: 16, fontWeight: isFinal ? FontWeight.w500 : null),
+                style: TextStyle(
+                    color: AppColors.black,
+                    fontSize: 16,
+                    fontWeight: isFinal ? FontWeight.w500 : null),
               ),
             ],
           ),
@@ -154,7 +170,7 @@ class CartScreen extends StatelessWidget {
         children: [
           Text(
             StringsConstants.billDetails,
-            style: AppTextStyles.t1,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
           const SizedBox(
             height: 20,
@@ -164,7 +180,9 @@ class CartScreen extends StatelessWidget {
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay, "${state.cartList.currency}${state.cartList.priceInCart}", isFinal: true),
+          priceRow(StringsConstants.toPay,
+              "${state.cartList.currency}${state.cartList.priceInCart}",
+              isFinal: true),
         ],
       ),
     ));
@@ -182,10 +200,12 @@ class CartScreen extends StatelessWidget {
             children: [
               Text(
                 StringsConstants.deliverTo,
-                style: AppTextStyles.t1,
+                style: Theme.of(context).textTheme.bodyText1,
               ),
               ActionText(
-                state.selectedAddress == null ? StringsConstants.addNewCaps : StringsConstants.changeTextCapital,
+                state.selectedAddress == null
+                    ? StringsConstants.addNewCaps
+                    : StringsConstants.changeTextCapital,
                 onTap: () {
                   viewModel.selectOrChangeAddress();
                 },
@@ -196,8 +216,9 @@ class CartScreen extends StatelessWidget {
             height: 20,
           ),
           Text(
-            state.selectedAddress?.wholeAddress() ?? StringsConstants.noAddressFound,
-            style: AppTextStyles.t12,
+            state.selectedAddress?.wholeAddress() ??
+                StringsConstants.noAddressFound,
+            style: Theme.of(context).textTheme.overline,
           ),
         ],
       ),
@@ -220,7 +241,7 @@ class CartScreen extends StatelessWidget {
                   children: [
                     Text(
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
-                      style: AppTextStyles.t4,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const ActionText(StringsConstants.viewDetailedBillCaps)
                   ],

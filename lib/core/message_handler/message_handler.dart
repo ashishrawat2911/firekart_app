@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../res/app_colors.dart';
+import '../../presentation/res/app_colors.dart';
 
 class MessageHandler {
   MessageHandler._();
@@ -46,7 +46,8 @@ class MessageHandler {
         cancelActionText: cancelActionText,
       );
     } else {
-      throw Exception('Platform is not supported. Please only run on iOS or Android devices.');
+      throw Exception(
+          'Platform is not supported. Please only run on iOS or Android devices.');
     }
   }
 }

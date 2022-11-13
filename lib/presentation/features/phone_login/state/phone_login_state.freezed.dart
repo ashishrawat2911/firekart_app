@@ -30,7 +30,8 @@ mixin _$PhoneLoginState {
 abstract class $PhoneLoginStateCopyWith<$Res> {
   factory $PhoneLoginStateCopyWith(
           PhoneLoginState value, $Res Function(PhoneLoginState) then) =
-      _$PhoneLoginStateCopyWithImpl<$Res>;
+      _$PhoneLoginStateCopyWithImpl<$Res, PhoneLoginState>;
+  @useResult
   $Res call(
       {String? codeCountDown,
       bool isButtonEnabled,
@@ -39,39 +40,41 @@ abstract class $PhoneLoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PhoneLoginStateCopyWithImpl<$Res>
+class _$PhoneLoginStateCopyWithImpl<$Res, $Val extends PhoneLoginState>
     implements $PhoneLoginStateCopyWith<$Res> {
   _$PhoneLoginStateCopyWithImpl(this._value, this._then);
 
-  final PhoneLoginState _value;
   // ignore: unused_field
-  final $Res Function(PhoneLoginState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? codeCountDown = freezed,
-    Object? isButtonEnabled = freezed,
-    Object? phoneLoading = freezed,
+    Object? isButtonEnabled = null,
+    Object? phoneLoading = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      codeCountDown: codeCountDown == freezed
+      codeCountDown: freezed == codeCountDown
           ? _value.codeCountDown
           : codeCountDown // ignore: cast_nullable_to_non_nullable
               as String?,
-      isButtonEnabled: isButtonEnabled == freezed
+      isButtonEnabled: null == isButtonEnabled
           ? _value.isButtonEnabled
           : isButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      phoneLoading: phoneLoading == freezed
+      phoneLoading: null == phoneLoading
           ? _value.phoneLoading
           : phoneLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +85,7 @@ abstract class _$$_PhoneLoginStateCopyWith<$Res>
           _$_PhoneLoginState value, $Res Function(_$_PhoneLoginState) then) =
       __$$_PhoneLoginStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? codeCountDown,
       bool isButtonEnabled,
@@ -91,36 +95,34 @@ abstract class _$$_PhoneLoginStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_PhoneLoginStateCopyWithImpl<$Res>
-    extends _$PhoneLoginStateCopyWithImpl<$Res>
+    extends _$PhoneLoginStateCopyWithImpl<$Res, _$_PhoneLoginState>
     implements _$$_PhoneLoginStateCopyWith<$Res> {
   __$$_PhoneLoginStateCopyWithImpl(
       _$_PhoneLoginState _value, $Res Function(_$_PhoneLoginState) _then)
-      : super(_value, (v) => _then(v as _$_PhoneLoginState));
+      : super(_value, _then);
 
-  @override
-  _$_PhoneLoginState get _value => super._value as _$_PhoneLoginState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? codeCountDown = freezed,
-    Object? isButtonEnabled = freezed,
-    Object? phoneLoading = freezed,
+    Object? isButtonEnabled = null,
+    Object? phoneLoading = null,
     Object? error = freezed,
   }) {
     return _then(_$_PhoneLoginState(
-      codeCountDown: codeCountDown == freezed
+      codeCountDown: freezed == codeCountDown
           ? _value.codeCountDown
           : codeCountDown // ignore: cast_nullable_to_non_nullable
               as String?,
-      isButtonEnabled: isButtonEnabled == freezed
+      isButtonEnabled: null == isButtonEnabled
           ? _value.isButtonEnabled
           : isButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      phoneLoading: phoneLoading == freezed
+      phoneLoading: null == phoneLoading
           ? _value.phoneLoading
           : phoneLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -158,25 +160,22 @@ class _$_PhoneLoginState implements _PhoneLoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PhoneLoginState &&
-            const DeepCollectionEquality()
-                .equals(other.codeCountDown, codeCountDown) &&
-            const DeepCollectionEquality()
-                .equals(other.isButtonEnabled, isButtonEnabled) &&
-            const DeepCollectionEquality()
-                .equals(other.phoneLoading, phoneLoading) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.codeCountDown, codeCountDown) ||
+                other.codeCountDown == codeCountDown) &&
+            (identical(other.isButtonEnabled, isButtonEnabled) ||
+                other.isButtonEnabled == isButtonEnabled) &&
+            (identical(other.phoneLoading, phoneLoading) ||
+                other.phoneLoading == phoneLoading) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(codeCountDown),
-      const DeepCollectionEquality().hash(isButtonEnabled),
-      const DeepCollectionEquality().hash(phoneLoading),
-      const DeepCollectionEquality().hash(error));
+      runtimeType, codeCountDown, isButtonEnabled, phoneLoading, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PhoneLoginStateCopyWith<_$_PhoneLoginState> get copyWith =>
       __$$_PhoneLoginStateCopyWithImpl<_$_PhoneLoginState>(this, _$identity);
 }

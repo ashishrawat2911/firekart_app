@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
     as account_details_state;
-import 'package:fluttercommerce/res/app_colors.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/state_manager/base_view.dart';
 import '../../../../core/utils/validator.dart';
-import '../../../../res/string_constants.dart';
+import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -25,7 +25,8 @@ class AddUserDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: Text("${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+        title: Text(
+            "${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
       ),
       body: _SaveDataView(newAddress),
     );
@@ -47,7 +48,8 @@ class _SaveDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateManager<AddAccountDetailsViewModel, account_details_state.AddAccountDetailsState>(
+    return BaseView<AddAccountDetailsViewModel,
+        account_details_state.AddAccountDetailsState>(
       onViewModelReady: (viewModel) {
         if (!newAddress) {
           viewModel.loadPreviousData();
@@ -80,7 +82,8 @@ class _SaveDataView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
                           ActionText(StringsConstants.manageAddress, onTap: () {
-                            NavigationHandler.navigateTo(MyAddressScreenRoute());
+                            NavigationHandler.navigateTo(
+                                MyAddressScreenRoute());
                           }),
                         ],
                       ),
@@ -107,7 +110,8 @@ class _SaveDataView extends StatelessWidget {
                     titleColor: AppColors.white,
                     height: 50,
                     isEnabled: isButtonEnabled(state),
-                    replaceWithIndicator: state is account_details_state.SaveDataLoading,
+                    replaceWithIndicator:
+                        state is account_details_state.SaveDataLoading,
                     margin: const EdgeInsets.only(bottom: 40),
                     onTap: () {
                       onButtonTap(viewModel);

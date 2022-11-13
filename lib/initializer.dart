@@ -20,7 +20,8 @@ class Initializer {
       runStateObserver();
       onRun(const App());
     }, (error, stack) {
-      AppLogger.log('App level error', logType: LogType.error, error: error, stackTrace: stack);
+      AppLogger.log('App level error',
+          logType: LogType.error, error: error, stackTrace: stack);
       inject<CrashlyticsService>().recordError(error, stack);
     }, zoneSpecification: const ZoneSpecification());
   }

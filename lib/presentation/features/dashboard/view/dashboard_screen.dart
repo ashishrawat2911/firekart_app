@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../core/state_manager/state_view_manager.dart';
+import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -14,9 +14,14 @@ import '../../../widgets/result_api_builder.dart';
 import '../state/dashboard_state.dart';
 import '../view_model/dashboard_view_model.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> fetchProductData(DashboardViewModel viewModel) async {
     viewModel.fetchProductData(ProductData.dealOfTheDay);
     viewModel.fetchProductData(ProductData.onSale);
@@ -25,7 +30,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateManager<DashboardViewModel, DashboardState>(
+    return BaseView<DashboardViewModel, DashboardState>(
       onViewModelReady: (viewModel) {
         fetchProductData(viewModel);
       },
@@ -34,7 +39,10 @@ class DashboardScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text(
             StringsConstants.products,
-            style: AppTextStyles.t3,
+            style: Theme.of(context).textTheme.headline2?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.black,
+                ),
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -43,7 +51,9 @@ class DashboardScreen extends StatelessWidget {
             },
             label: Text(
               StringsConstants.viewAllProducts,
-              style: AppTextStyles.t15,
+              style: Theme.of(context).textTheme.overline?.copyWith(
+                    color: AppColors.white,
+                  ),
             )),
         body: RefreshIndicator(
           onRefresh: () => fetchProductData(viewModel),
@@ -54,9 +64,11 @@ class DashboardScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                productDataBuilder(state.dealOfTheDay, StringsConstants.dealOfTheDay),
+                productDataBuilder(
+                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
                 productDataBuilder(state.onSale, StringsConstants.onSale),
-                productDataBuilder(state.topProducts, StringsConstants.topProducts),
+                productDataBuilder(
+                    state.topProducts, StringsConstants.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -68,7 +80,8 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget productDataBuilder(ResultState<List<Product>> resultState, String title) {
+  Widget productDataBuilder(
+      ResultState<List<Product>> resultState, String title) {
     return ResultStateBuilder(
       state: resultState,
       errorWidget: (String error) => Column(
@@ -102,14 +115,16 @@ class DashboardScreen extends StatelessWidget {
             6,
             (index) {
               return Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius:
-                          const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10)),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -171,7 +186,7 @@ class DashboardScreen extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: AppTextStyles.t27,
+                style: Theme.of(context).textTheme.headline2,
               ),
               Container(
                   margin: const EdgeInsets.only(right: 16),
@@ -186,7 +201,8 @@ class DashboardScreen extends StatelessWidget {
                       } else if (title == StringsConstants.onSale) {
                         condition = "on_sale";
                       }
-                      NavigationHandler.navigateTo(AllProductListScreenRoute(productCondition: condition));
+                      NavigationHandler.navigateTo(AllProductListScreenRoute(
+                          productCondition: condition));
                     },
                   ))
             ],

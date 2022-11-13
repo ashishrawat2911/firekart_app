@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/state/result_state.dart';
 
-typedef ResultErrorWidget<NetworkExceptions> = Widget Function(NetworkExceptions error);
+typedef ResultErrorWidget<NetworkExceptions> = Widget Function(
+    NetworkExceptions error);
 typedef ResultLoadingWidget = Widget Function(bool isReloading);
 typedef ReturnWidget = Widget Function();
 typedef ResultDataWidget<T> = Widget Function(T value);

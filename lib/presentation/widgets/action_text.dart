@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../res/app_colors.dart';
+import '../res/app_colors.dart';
 
 class ActionText extends StatelessWidget {
   const ActionText(this.title, {Key? key, this.onTap}) : super(key: key);
@@ -12,7 +12,8 @@ class ActionText extends StatelessWidget {
     return actionText();
   }
 
-  TextStyle get actionTextStyle => TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: AppColors.primaryColor);
+  TextStyle get actionTextStyle => TextStyle(
+      fontWeight: FontWeight.w500, fontSize: 14, color: AppColors.primaryColor);
 
   Widget actionText() {
     return GestureDetector(

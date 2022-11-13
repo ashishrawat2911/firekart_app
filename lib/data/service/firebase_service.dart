@@ -24,15 +24,23 @@ class FirebaseService {
 
   CollectionReference get _orderCollection {
     AppLogger.log('Fetching orders collection');
-    return _firebaseFireStore.collection("users").doc(getUid()).collection("orders");
+    return _firebaseFireStore
+        .collection("users")
+        .doc(getUid())
+        .collection("orders");
   }
 
   DocumentReference get _accountDetailDoc {
     AppLogger.log('Fetching account detail');
-    return _firebaseFireStore.collection("users").doc(getUid()).collection("account").doc("details");
+    return _firebaseFireStore
+        .collection("users")
+        .doc(getUid())
+        .collection("account")
+        .doc("details");
   }
 
-  CollectionReference get _cartCollection => _firebaseFireStore.collection("users").doc(getUid()).collection("cart");
+  CollectionReference get _cartCollection =>
+      _firebaseFireStore.collection("users").doc(getUid()).collection("cart");
 
   Future<bool> sendCode(
     String phoneNumber, {
@@ -77,13 +85,17 @@ class FirebaseService {
   }
 
   Future<List<ProductModel>> searchProducts(String query) async {
-    final List<DocumentSnapshot> documentList =
-        (await _firebaseFireStore.collection("products").where("name_search", arrayContains: query).get()).docs;
+    final List<DocumentSnapshot> documentList = (await _firebaseFireStore
+            .collection("products")
+            .where("name_search", arrayContains: query)
+            .get())
+        .docs;
     return documentList.mapToList((e) => ProductModel.fromJson(e.data()));
   }
 
   Future<List<ProductModel>> getProductsData(String condition) async {
-    final List<DocumentSnapshot> docList = (await _productCollection.where(condition, isEqualTo: true).get()).docs;
+    final List<DocumentSnapshot> docList =
+        (await _productCollection.where(condition, isEqualTo: true).get()).docs;
     return List.generate(docList.length, (index) {
       return ProductModel.fromJson(docList[index].data());
     });
@@ -97,12 +109,17 @@ class FirebaseService {
 
     if (all == true) {
       if (condition != null) {
-        return (await _productCollection.where(condition, isEqualTo: true).get())
+        return (await _productCollection
+                .where(condition, isEqualTo: true)
+                .get())
             .docs
             .map((e) => ProductModel.fromJson(e.data()))
             .toList();
       } else {
-        return (await _productCollection.get()).docs.map((e) => ProductModel.fromJson(e.data())).toList();
+        return (await _productCollection.get())
+            .docs
+            .map((e) => ProductModel.fromJson(e.data()))
+            .toList();
       }
     }
     var query = _productCollection.orderBy("name");
@@ -117,7 +134,8 @@ class FirebaseService {
   Future<List<DocumentSnapshot>> getAllProductsData(
     String condition,
   ) async {
-    final List<DocumentSnapshot> documentList = (await _productCollection.where(condition, isEqualTo: true).get()).docs;
+    final List<DocumentSnapshot> documentList =
+        (await _productCollection.where(condition, isEqualTo: true).get()).docs;
     return documentList;
   }
 
@@ -128,7 +146,8 @@ class FirebaseService {
 
   Future<int> checkItemInCart(String productId) async {
     try {
-      final DocumentSnapshot documentSnapshot = await _cartCollection.doc(productId).get();
+      final DocumentSnapshot documentSnapshot =
+          await _cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
         final CartModel cartModel = CartModel.fromJson(documentSnapshot.data());
         return cartModel.numOfItems;
@@ -166,15 +185,19 @@ class FirebaseService {
   }
 
   Future<AccountDetailsModel> fetchUserDetails() async {
-    return AccountDetailsModel.fromDocument((await _accountDetailDoc.get()).data());
+    return AccountDetailsModel.fromDocument(
+        (await _accountDetailDoc.get()).data());
   }
 
   Stream<AccountDetailsModel> streamUserDetails() {
-    return _accountDetailDoc.snapshots().map((event) => AccountDetailsModel.fromDocument(event.data()));
+    return _accountDetailDoc
+        .snapshots()
+        .map((event) => AccountDetailsModel.fromDocument(event.data()));
   }
 
   Stream<List<CartModel>> cartStatusListen() {
-    return _cartCollection.snapshots().map((event) => event.docs.map((e) => CartModel.fromJson(e.data())).toList());
+    return _cartCollection.snapshots().map((event) =>
+        event.docs.map((e) => CartModel.fromJson(e.data())).toList());
   }
 
   Future<void> placeOrder(OrderModel orderModel) async {
