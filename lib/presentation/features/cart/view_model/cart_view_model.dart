@@ -3,7 +3,7 @@ import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.d
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../../core/utils/connectivity.dart';
 import '../../../../data/model/account_details_model.dart';
 import '../../../../domain/models/account_details_model.dart';
@@ -12,7 +12,7 @@ import '../../../../domain/models/order_model.dart';
 import '../../../../domain/usecases/add_product_to_cart_usecase.dart';
 import '../../../../domain/usecases/delete_product_from_cart_usecase.dart';
 import '../../../../domain/usecases/get_cart_status_use_case.dart';
-import '../../../../res/string_constants.dart';
+import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
@@ -44,7 +44,9 @@ class CartViewModel extends ViewModel<CartState> {
   num get priceInCart {
     num price = 0;
     List.generate(state.cartList.length, (index) {
-      price = price + (state.cartList[index].currentPrice * state.cartList[index].numOfItems);
+      price = price +
+          (state.cartList[index].currentPrice *
+              state.cartList[index].numOfItems);
     });
     return price;
   }
@@ -63,7 +65,8 @@ class CartViewModel extends ViewModel<CartState> {
     state = state.copyWith(orderInProgress: true);
     if (await ConnectionStatus.getInstance().checkConnection()) {
       try {
-        await _placeOrderUseCase.execute(_orderFromCartList(state.cartList, state.selectedAddress!));
+        await _placeOrderUseCase.execute(
+            _orderFromCartList(state.cartList, state.selectedAddress!));
         if (NavigationHandler.canNavigateBack()) {
           NavigationHandler.navigateTo(
             const MyOrdersScreenRoute(),
@@ -74,7 +77,8 @@ class CartViewModel extends ViewModel<CartState> {
         MessageHandler.showSnackBar(title: e.toString());
       }
     } else {
-      MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+      MessageHandler.showSnackBar(
+          title: StringsConstants.connectionNotAvailable);
     }
     state = state.copyWith(orderInProgress: false);
   }
@@ -98,7 +102,8 @@ class CartViewModel extends ViewModel<CartState> {
     }
 
     final Order orderModel = Order(
-      orderId: "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
+      orderId:
+          "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
       orderItems: getOrderItems(),
       paymentId: 'response.paymentId!',
       signature: 'response.signature!',
@@ -156,13 +161,16 @@ class CartViewModel extends ViewModel<CartState> {
   Future<void> updateCartValues(int index, bool shouldIncrease) async {
     final cart = state.cartList[index];
 
-    final int newCartValue = shouldIncrease ? cart.numOfItems + 1 : cart.numOfItems - 1;
+    final int newCartValue =
+        shouldIncrease ? cart.numOfItems + 1 : cart.numOfItems - 1;
 
-    state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, isLoading: true));
+    state = state.copyWith(
+        cartItemDataLoading: CartDataLoading(index: index, isLoading: true));
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+        MessageHandler.showSnackBar(
+            title: StringsConstants.connectionNotAvailable);
         return;
       }
 
@@ -178,16 +186,20 @@ class CartViewModel extends ViewModel<CartState> {
     } else {
       deleteItem(index, deleteExternally: false);
     }
-    state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, isLoading: false));
+    state = state.copyWith(
+        cartItemDataLoading: CartDataLoading(index: index, isLoading: false));
   }
 
   Future<void> deleteItem(int index, {bool deleteExternally = true}) async {
     final Cart cartModel = state.cartList[index];
     if (deleteExternally) {
-      state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, deleteLoading: true));
+      state = state.copyWith(
+          cartItemDataLoading:
+              CartDataLoading(index: index, deleteLoading: true));
     }
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
-      MessageHandler.showSnackBar(title: StringsConstants.connectionNotAvailable);
+      MessageHandler.showSnackBar(
+          title: StringsConstants.connectionNotAvailable);
       return;
     }
     _productDeleteCartUseCase.execute(cartModel.productId).then((value) {
@@ -196,7 +208,9 @@ class CartViewModel extends ViewModel<CartState> {
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());
     });
-    state = state.copyWith(cartItemDataLoading: CartDataLoading(index: index, deleteLoading: false));
+    state = state.copyWith(
+        cartItemDataLoading:
+            CartDataLoading(index: index, deleteLoading: false));
   }
 
   void init() {

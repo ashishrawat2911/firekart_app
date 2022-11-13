@@ -1,8 +1,10 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
 
 import 'deep_link.dart';
 
+@injectable
 class FirebaseDeepLink extends Deeplink {
   final FirebaseDynamicLinks _firebaseDynamicLinks;
 
@@ -27,7 +29,8 @@ class FirebaseDeepLink extends Deeplink {
   }
 
   @override
-  Future<String> createDeepLink(String path, Map<String, dynamic>? value, {bool? short}) async {
+  Future<String> createDeepLink(String path, Map<String, dynamic>? value,
+      {bool? short}) async {
     final packageInfo = await PackageInfo.fromPlatform();
     var packageName = packageInfo.packageName;
     var appStoreId = "";

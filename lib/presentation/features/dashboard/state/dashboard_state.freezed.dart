@@ -31,7 +31,8 @@ mixin _$DashboardState {
 abstract class $DashboardStateCopyWith<$Res> {
   factory $DashboardStateCopyWith(
           DashboardState value, $Res Function(DashboardState) then) =
-      _$DashboardStateCopyWithImpl<$Res>;
+      _$DashboardStateCopyWithImpl<$Res, DashboardState>;
+  @useResult
   $Res call(
       {ResultState<List<Product>> dealOfTheDay,
       ResultState<List<Product>> onSale,
@@ -43,56 +44,61 @@ abstract class $DashboardStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DashboardStateCopyWithImpl<$Res>
+class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
     implements $DashboardStateCopyWith<$Res> {
   _$DashboardStateCopyWithImpl(this._value, this._then);
 
-  final DashboardState _value;
   // ignore: unused_field
-  final $Res Function(DashboardState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dealOfTheDay = freezed,
-    Object? onSale = freezed,
-    Object? topProducts = freezed,
+    Object? dealOfTheDay = null,
+    Object? onSale = null,
+    Object? topProducts = null,
   }) {
     return _then(_value.copyWith(
-      dealOfTheDay: dealOfTheDay == freezed
+      dealOfTheDay: null == dealOfTheDay
           ? _value.dealOfTheDay
           : dealOfTheDay // ignore: cast_nullable_to_non_nullable
               as ResultState<List<Product>>,
-      onSale: onSale == freezed
+      onSale: null == onSale
           ? _value.onSale
           : onSale // ignore: cast_nullable_to_non_nullable
               as ResultState<List<Product>>,
-      topProducts: topProducts == freezed
+      topProducts: null == topProducts
           ? _value.topProducts
           : topProducts // ignore: cast_nullable_to_non_nullable
               as ResultState<List<Product>>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ResultStateCopyWith<List<Product>, $Res> get dealOfTheDay {
     return $ResultStateCopyWith<List<Product>, $Res>(_value.dealOfTheDay,
         (value) {
-      return _then(_value.copyWith(dealOfTheDay: value));
+      return _then(_value.copyWith(dealOfTheDay: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ResultStateCopyWith<List<Product>, $Res> get onSale {
     return $ResultStateCopyWith<List<Product>, $Res>(_value.onSale, (value) {
-      return _then(_value.copyWith(onSale: value));
+      return _then(_value.copyWith(onSale: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ResultStateCopyWith<List<Product>, $Res> get topProducts {
     return $ResultStateCopyWith<List<Product>, $Res>(_value.topProducts,
         (value) {
-      return _then(_value.copyWith(topProducts: value));
+      return _then(_value.copyWith(topProducts: value) as $Val);
     });
   }
 }
@@ -104,6 +110,7 @@ abstract class _$$_DashboardStateCopyWith<$Res>
           _$_DashboardState value, $Res Function(_$_DashboardState) then) =
       __$$_DashboardStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {ResultState<List<Product>> dealOfTheDay,
       ResultState<List<Product>> onSale,
@@ -119,31 +126,29 @@ abstract class _$$_DashboardStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_DashboardStateCopyWithImpl<$Res>
-    extends _$DashboardStateCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res, _$_DashboardState>
     implements _$$_DashboardStateCopyWith<$Res> {
   __$$_DashboardStateCopyWithImpl(
       _$_DashboardState _value, $Res Function(_$_DashboardState) _then)
-      : super(_value, (v) => _then(v as _$_DashboardState));
+      : super(_value, _then);
 
-  @override
-  _$_DashboardState get _value => super._value as _$_DashboardState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dealOfTheDay = freezed,
-    Object? onSale = freezed,
-    Object? topProducts = freezed,
+    Object? dealOfTheDay = null,
+    Object? onSale = null,
+    Object? topProducts = null,
   }) {
     return _then(_$_DashboardState(
-      dealOfTheDay: dealOfTheDay == freezed
+      dealOfTheDay: null == dealOfTheDay
           ? _value.dealOfTheDay
           : dealOfTheDay // ignore: cast_nullable_to_non_nullable
               as ResultState<List<Product>>,
-      onSale: onSale == freezed
+      onSale: null == onSale
           ? _value.onSale
           : onSale // ignore: cast_nullable_to_non_nullable
               as ResultState<List<Product>>,
-      topProducts: topProducts == freezed
+      topProducts: null == topProducts
           ? _value.topProducts
           : topProducts // ignore: cast_nullable_to_non_nullable
               as ResultState<List<Product>>,
@@ -179,22 +184,20 @@ class _$_DashboardState implements _DashboardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DashboardState &&
-            const DeepCollectionEquality()
-                .equals(other.dealOfTheDay, dealOfTheDay) &&
-            const DeepCollectionEquality().equals(other.onSale, onSale) &&
-            const DeepCollectionEquality()
-                .equals(other.topProducts, topProducts));
+            (identical(other.dealOfTheDay, dealOfTheDay) ||
+                other.dealOfTheDay == dealOfTheDay) &&
+            (identical(other.onSale, onSale) || other.onSale == onSale) &&
+            (identical(other.topProducts, topProducts) ||
+                other.topProducts == topProducts));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(dealOfTheDay),
-      const DeepCollectionEquality().hash(onSale),
-      const DeepCollectionEquality().hash(topProducts));
+  int get hashCode =>
+      Object.hash(runtimeType, dealOfTheDay, onSale, topProducts);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DashboardStateCopyWith<_$_DashboardState> get copyWith =>
       __$$_DashboardStateCopyWithImpl<_$_DashboardState>(this, _$identity);
 }

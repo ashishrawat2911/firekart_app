@@ -8,7 +8,8 @@ part 'add_account_details_state.freezed.dart';
 class AddAccountDetailsState with _$AddAccountDetailsState {
   const factory AddAccountDetailsState.idle() = Idle;
 
-  const factory AddAccountDetailsState.editData(AccountDetails accountDetails) = EditData;
+  const factory AddAccountDetailsState.editData(AccountDetails accountDetails) =
+      EditData;
 
   const factory AddAccountDetailsState.loading() = Loading;
 

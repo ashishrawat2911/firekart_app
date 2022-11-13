@@ -30,6 +30,7 @@ apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 33
+    buildToolsVersion "33.0.0"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

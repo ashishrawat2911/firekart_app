@@ -25,7 +25,8 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
 
   @override
   Future<void> addUserDetails(AccountDetails accountDetails) {
-    return _firebaseService.addUserDetails(_mapper.accountDetailsToModel(accountDetails));
+    return _firebaseService
+        .addUserDetails(_mapper.accountDetailsToModel(accountDetails));
   }
 
   @override
@@ -35,14 +36,17 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  Future<List<Product>> getAllProducts({String? condition, required bool all}) async {
+  Future<List<Product>> getAllProducts(
+      {String? condition, required bool all}) async {
     final products = await _firebaseService.getAllProducts();
     return products.mapToList((e) => _mapper.productFromModel(e));
   }
 
   @override
   Stream<List<Cart>> listenToCart() {
-    return _firebaseService.cartStatusListen().map((event) => event.mapToList((e) => _mapper.cartFromModel(e)));
+    return _firebaseService
+        .cartStatusListen()
+        .map((event) => event.mapToList((e) => _mapper.cartFromModel(e)));
   }
 
   @override
@@ -59,7 +63,9 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
 
   @override
   Stream<AccountDetails> streamUserDetails() {
-    return _firebaseService.streamUserDetails().map((event) => _mapper.accountDetailsFromModel(event));
+    return _firebaseService
+        .streamUserDetails()
+        .map((event) => _mapper.accountDetailsFromModel(event));
   }
 
   @override

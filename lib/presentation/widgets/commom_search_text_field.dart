@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../res/app_colors.dart';
-import '../../res/text_styles.dart';
+import '../res/app_colors.dart';
 
 class CommonSearchTextField extends StatefulWidget {
   const CommonSearchTextField(
-      {Key? key, @required this.hint, this.onSubmitted, this.onChanged, this.textEditingController, this.focusNode})
+      {Key? key,
+      @required this.hint,
+      this.onSubmitted,
+      this.onChanged,
+      this.textEditingController,
+      this.focusNode})
       : super(key: key);
   final String? hint;
   final ValueChanged<String>? onSubmitted;
@@ -28,7 +32,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
           textInputAction: TextInputAction.search,
           onSubmitted: widget.onSubmitted,
           onChanged: widget.onChanged,
-          style: AppTextStyles.t20,
+          style: Theme.of(context).textTheme.overline,
           decoration: InputDecoration(
               hintText: widget.hint,
               contentPadding: const EdgeInsets.only(top: 25),
@@ -39,9 +43,9 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
                   color: AppColors.black,
                 ),
               ),
-              fillColor: AppColors.colorF6F5F8,
+              fillColor: AppColors.white,
               filled: true,
-              hintStyle: AppTextStyles.t34,
+              hintStyle: Theme.of(context).textTheme.subtitle1,
               focusColor: AppColors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -60,7 +64,12 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
 }
 
 class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
-  const CommonSearchBar({Key? key, required this.onTextChanged, this.hintText, this.onBackPressed, this.onClosePressed})
+  const CommonSearchBar(
+      {Key? key,
+      required this.onTextChanged,
+      this.hintText,
+      this.onBackPressed,
+      this.onClosePressed})
       : super(key: key);
   final ValueChanged<String> onTextChanged;
   final VoidCallback? onBackPressed;
@@ -128,9 +137,9 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
                         widget.onTextChanged("");
                       }
                     })),
-            fillColor: AppColors.colorF6F5F8,
+            fillColor: AppColors.white,
             filled: true,
-            hintStyle: AppTextStyles.t34,
+            hintStyle: Theme.of(context).textTheme.subtitle1,
             focusColor: AppColors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),

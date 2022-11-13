@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/base_view.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
-import '../../../../di/di.dart';
 import '../../../../domain/models/order_model.dart';
-import '../../../../res/app_colors.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/app_colors.dart';
+import '../../../res/string_constants.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/result_api_builder.dart';
 import '../view_model/my_orders_cubit.dart';
@@ -21,13 +19,11 @@ class MyOrdersScreen extends StatefulWidget {
 }
 
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
-  MyOrdersCubit ordersCubit = inject<MyOrdersCubit>();
   ScrollController controller = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    ordersCubit.fetchOrders();
   }
 
   @override
@@ -36,9 +32,15 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
       appBar: AppBar(
         title: const Text(StringsConstants.myOrders),
       ),
-      body: BlocBuilder<MyOrdersCubit, ResultState<List<Order>>>(
-        bloc: ordersCubit,
-        builder: (BuildContext context, ResultState<List<Order>> state) {
+      body: BaseView<MyOrdersCubit, ResultState<List<Order>>>(
+        onViewModelReady: (viewModel) {
+          viewModel.fetchOrders();
+        },
+        builder: (
+          BuildContext context,
+          viewModel,
+          ResultState<List<Order>> state,
+        ) {
           return ResultStateBuilder(
             state: state,
             loadingWidget: (bool isReloading) {
@@ -78,19 +80,22 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             children: [
                               Text(
                                 StringsConstants.orderedOnCaps,
-                                style: AppTextStyles.t14,
+                                style: Theme.of(context).textTheme.button,
                               ),
                               Text(
-                                getOrderedTime(orderList[orderListIndex].orderedAt),
-                                style: AppTextStyles.t1,
+                                getOrderedTime(
+                                    orderList[orderListIndex].orderedAt),
+                                style: Theme.of(context).textTheme.bodyText1,
                               )
                             ],
                           ),
                         ),
                       ],
                     ),
-                    ...List<Widget>.generate(orderList[orderListIndex].orderItems.length,
-                        (index) => orderCard(orderList[orderListIndex].orderItems[index])),
+                    ...List<Widget>.generate(
+                        orderList[orderListIndex].orderItems.length,
+                        (index) => orderCard(
+                            orderList[orderListIndex].orderItems[index])),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -98,14 +103,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               StringsConstants.totalCaps,
-                              style: AppTextStyles.t14,
+                              style: Theme.of(context).textTheme.button,
                             ),
                             const SizedBox(
                               width: 13,
                             ),
                             Text(
                               "${orderList[orderListIndex].currency} ${orderList[orderListIndex].price}",
-                              style: AppTextStyles.t18,
+                              style: Theme.of(context).textTheme.bodyText2,
                             )
                           ],
                         ),
@@ -113,12 +118,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               orderList[orderListIndex].orderStatus,
-                              style: AppTextStyles.t19,
+                              style: Theme.of(context).textTheme.caption,
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            getOrderStatusIcon(orderList[orderListIndex].orderStatus)
+                            getOrderStatusIcon(
+                                orderList[orderListIndex].orderStatus)
                           ],
                         )
                       ],
@@ -160,14 +166,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   children: [
                     Text(
                       orderItem.name,
-                      style: AppTextStyles.t18,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
                       "${orderItem.currency} ${orderItem.price} / ${orderItem.unit}",
-                      style: AppTextStyles.t19,
+                      style: Theme.of(context).textTheme.caption,
                     ),
                   ],
                 )
@@ -178,7 +184,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             ),
             Text(
               "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
-              style: AppTextStyles.t19,
+              style: Theme.of(context).textTheme.caption,
             ),
           ],
         ),
@@ -190,7 +196,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     if (orderStatus == "Delivered") {
       return Icon(
         Icons.check_circle,
-        color: AppColors.color5EB15A,
+        color: AppColors.color6EBA49,
       );
     } else {
       return Icon(

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../di/di.dart';
-import '../../../domain/models/account_details_model.dart';
-import '../../../domain/usecases/logout_usecase.dart';
-import '../../../domain/usecases/stream_account_details_usecase.dart';
+import '../../../../di/di.dart';
+import '../../../../domain/models/account_details_model.dart';
+import '../../../../domain/usecases/logout_usecase.dart';
+import '../../../../domain/usecases/stream_account_details_usecase.dart';
 import '../../../res/string_constants.dart';
-import '../../../res/text_styles.dart';
-import '../../routes/app_router.gr.dart';
-import '../../routes/navigation_handler.dart';
-import '../../widgets/action_text.dart';
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/action_text.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -51,11 +50,11 @@ class _AccountScreenState extends State<AccountScreen> {
                         children: <Widget>[
                           Text(
                             accountDetails!.name,
-                            style: AppTextStyles.t33,
+                            style: Theme.of(context).textTheme.headline1,
                           ),
                           Text(
                             accountDetails!.phoneNumber ?? '',
-                            style: AppTextStyles.t28,
+                            style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),
@@ -65,7 +64,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     ActionText(
                       StringsConstants.editCaps,
                       onTap: () {
-                        NavigationHandler.navigateTo(AddUserDetailScreenRoute(newAddress: false));
+                        NavigationHandler.navigateTo(
+                            AddUserDetailScreenRoute(newAddress: false));
                       },
                     ),
                   ],

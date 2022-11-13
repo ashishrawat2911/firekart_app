@@ -28,12 +28,12 @@ mixin _$ResultState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,12 +59,12 @@ mixin _$ResultState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,17 +84,18 @@ mixin _$ResultState<T> {
 abstract class $ResultStateCopyWith<T, $Res> {
   factory $ResultStateCopyWith(
           ResultState<T> value, $Res Function(ResultState<T>) then) =
-      _$ResultStateCopyWithImpl<T, $Res>;
+      _$ResultStateCopyWithImpl<T, $Res, ResultState<T>>;
 }
 
 /// @nodoc
-class _$ResultStateCopyWithImpl<T, $Res>
+class _$ResultStateCopyWithImpl<T, $Res, $Val extends ResultState<T>>
     implements $ResultStateCopyWith<T, $Res> {
   _$ResultStateCopyWithImpl(this._value, this._then);
 
-  final ResultState<T> _value;
   // ignore: unused_field
-  final $Res Function(ResultState<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -104,13 +105,11 @@ abstract class _$$IdleCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class __$$IdleCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
+class __$$IdleCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res, _$Idle<T>>
     implements _$$IdleCopyWith<T, $Res> {
   __$$IdleCopyWithImpl(_$Idle<T> _value, $Res Function(_$Idle<T>) _then)
-      : super(_value, (v) => _then(v as _$Idle<T>));
-
-  @override
-  _$Idle<T> get _value => super._value as _$Idle<T>;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -148,12 +147,12 @@ class _$Idle<T> implements Idle<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) {
     return idle?.call();
   }
@@ -191,12 +190,12 @@ class _$Idle<T> implements Idle<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) {
     return idle?.call(this);
   }
@@ -232,14 +231,11 @@ abstract class _$$LoadingCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoadingCopyWithImpl<T, $Res>
-    extends _$ResultStateCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res, _$Loading<T>>
     implements _$$LoadingCopyWith<T, $Res> {
   __$$LoadingCopyWithImpl(
       _$Loading<T> _value, $Res Function(_$Loading<T>) _then)
-      : super(_value, (v) => _then(v as _$Loading<T>));
-
-  @override
-  _$Loading<T> get _value => super._value as _$Loading<T>;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -277,12 +273,12 @@ class _$Loading<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) {
     return loading?.call();
   }
@@ -320,12 +316,12 @@ class _$Loading<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) {
     return loading?.call(this);
   }
@@ -361,14 +357,11 @@ abstract class _$$ReLoadingCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$ReLoadingCopyWithImpl<T, $Res>
-    extends _$ResultStateCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res, _$ReLoading<T>>
     implements _$$ReLoadingCopyWith<T, $Res> {
   __$$ReLoadingCopyWithImpl(
       _$ReLoading<T> _value, $Res Function(_$ReLoading<T>) _then)
-      : super(_value, (v) => _then(v as _$ReLoading<T>));
-
-  @override
-  _$ReLoading<T> get _value => super._value as _$ReLoading<T>;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -406,12 +399,12 @@ class _$ReLoading<T> implements ReLoading<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) {
     return reLoading?.call();
   }
@@ -449,12 +442,12 @@ class _$ReLoading<T> implements ReLoading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) {
     return reLoading?.call(this);
   }
@@ -485,24 +478,24 @@ abstract class ReLoading<T> implements ResultState<T> {
 abstract class _$$DataCopyWith<T, $Res> {
   factory _$$DataCopyWith(_$Data<T> value, $Res Function(_$Data<T>) then) =
       __$$DataCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
+class __$$DataCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res, _$Data<T>>
     implements _$$DataCopyWith<T, $Res> {
   __$$DataCopyWithImpl(_$Data<T> _value, $Res Function(_$Data<T>) _then)
-      : super(_value, (v) => _then(v as _$Data<T>));
+      : super(_value, _then);
 
-  @override
-  _$Data<T> get _value => super._value as _$Data<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$Data<T>(
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
@@ -537,6 +530,7 @@ class _$Data<T> implements Data<T> {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$DataCopyWith<T, _$Data<T>> get copyWith =>
       __$$DataCopyWithImpl<T, _$Data<T>>(this, _$identity);
 
@@ -556,12 +550,12 @@ class _$Data<T> implements Data<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) {
     return data?.call(this.data);
   }
@@ -599,12 +593,12 @@ class _$Data<T> implements Data<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) {
     return data?.call(this);
   }
@@ -640,24 +634,24 @@ abstract class Data<T> implements ResultState<T> {
 abstract class _$$ErrorCopyWith<T, $Res> {
   factory _$$ErrorCopyWith(_$Error<T> value, $Res Function(_$Error<T>) then) =
       __$$ErrorCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<T, $Res> extends _$ResultStateCopyWithImpl<T, $Res>
+class __$$ErrorCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res, _$Error<T>>
     implements _$$ErrorCopyWith<T, $Res> {
   __$$ErrorCopyWithImpl(_$Error<T> _value, $Res Function(_$Error<T>) _then)
-      : super(_value, (v) => _then(v as _$Error<T>));
+      : super(_value, _then);
 
-  @override
-  _$Error<T> get _value => super._value as _$Error<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$Error<T>(
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -683,15 +677,15 @@ class _$Error<T> implements Error<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Error<T> &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ErrorCopyWith<T, _$Error<T>> get copyWith =>
       __$$ErrorCopyWithImpl<T, _$Error<T>>(this, _$identity);
 
@@ -711,12 +705,12 @@ class _$Error<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) {
     return error?.call(this.error);
   }
@@ -754,12 +748,12 @@ class _$Error<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) {
     return error?.call(this);
   }
@@ -796,31 +790,30 @@ abstract class _$$UnNotifiedErrorCopyWith<T, $Res> {
   factory _$$UnNotifiedErrorCopyWith(_$UnNotifiedError<T> value,
           $Res Function(_$UnNotifiedError<T>) then) =
       __$$UnNotifiedErrorCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({T data, String error});
 }
 
 /// @nodoc
 class __$$UnNotifiedErrorCopyWithImpl<T, $Res>
-    extends _$ResultStateCopyWithImpl<T, $Res>
+    extends _$ResultStateCopyWithImpl<T, $Res, _$UnNotifiedError<T>>
     implements _$$UnNotifiedErrorCopyWith<T, $Res> {
   __$$UnNotifiedErrorCopyWithImpl(
       _$UnNotifiedError<T> _value, $Res Function(_$UnNotifiedError<T>) _then)
-      : super(_value, (v) => _then(v as _$UnNotifiedError<T>));
+      : super(_value, _then);
 
-  @override
-  _$UnNotifiedError<T> get _value => super._value as _$UnNotifiedError<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
-    Object? error = freezed,
+    Object? data = null,
+    Object? error = null,
   }) {
     return _then(_$UnNotifiedError<T>(
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -849,17 +842,16 @@ class _$UnNotifiedError<T> implements UnNotifiedError<T> {
         (other.runtimeType == runtimeType &&
             other is _$UnNotifiedError<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(data),
-      const DeepCollectionEquality().hash(error));
+      runtimeType, const DeepCollectionEquality().hash(data), error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith =>
       __$$UnNotifiedErrorCopyWithImpl<T, _$UnNotifiedError<T>>(
           this, _$identity);
@@ -880,12 +872,12 @@ class _$UnNotifiedError<T> implements UnNotifiedError<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? loading,
-    TResult Function()? reLoading,
-    TResult Function(T data)? data,
-    TResult Function(String error)? error,
-    TResult Function(T data, String error)? unNotifiedError,
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? reLoading,
+    TResult? Function(T data)? data,
+    TResult? Function(String error)? error,
+    TResult? Function(T data, String error)? unNotifiedError,
   }) {
     return unNotifiedError?.call(this.data, this.error);
   }
@@ -923,12 +915,12 @@ class _$UnNotifiedError<T> implements UnNotifiedError<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Idle<T> value)? idle,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(ReLoading<T> value)? reLoading,
-    TResult Function(Data<T> value)? data,
-    TResult Function(Error<T> value)? error,
-    TResult Function(UnNotifiedError<T> value)? unNotifiedError,
+    TResult? Function(Idle<T> value)? idle,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ReLoading<T> value)? reLoading,
+    TResult? Function(Data<T> value)? data,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(UnNotifiedError<T> value)? unNotifiedError,
   }) {
     return unNotifiedError?.call(this);
   }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/utils/validator.dart';
-import '../../../../di/di.dart';
-import '../../../../res/string_constants.dart';
-import '../../../../res/styles.dart';
-import '../../../../res/text_styles.dart';
+import '../../../res/string_constants.dart';
+import '../../../res/styles.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -23,51 +23,49 @@ class OtpLoginScreen extends StatefulWidget {
 }
 
 class _OtpLoginScreenState extends State<OtpLoginScreen> {
-  var otpLoginCubit = inject<OtpLoginViewModel>();
   TextEditingController otpNumberController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
-  void initState() {
-    super.initState();
-    otpLoginCubit.sendOtp(widget.phoneNumber!);
-    otpNumberController.addListener(() {
-      otpLoginCubit.validateButton(otpNumberController.text);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Material(
-            elevation: 5,
-            child: Container(
-              height: 250,
-              width: width,
-              decoration: BoxDecoration(
-                gradient: Styles.appBackGradient,
+    return BaseView<OtpLoginViewModel, OtpLoginState>(
+        onViewModelReady: (viewModel) {
+          viewModel.sendOtp(widget.phoneNumber!);
+          otpNumberController.addListener(() {
+            viewModel.validateButton(otpNumberController.text);
+          });
+        },
+        builder: (context, viewModel, state) => Scaffold(
+              body: Stack(
+                children: <Widget>[
+                  Material(
+                    elevation: 5,
+                    child: Container(
+                      height: 250,
+                      width: width,
+                      decoration: BoxDecoration(
+                        gradient: Styles.appBackGradient,
+                      ),
+                    ),
+                  ),
+                  SafeArea(
+                    child: Scaffold(
+                      backgroundColor: Colors.transparent,
+                      floatingActionButtonLocation:
+                          FloatingActionButtonLocation.centerDocked,
+                      body: Column(
+                        children: <Widget>[_loginCard(viewModel, state)],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ),
-          SafeArea(
-            child: Scaffold(
-              backgroundColor: Colors.transparent,
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-              body: Column(
-                children: <Widget>[_loginCard()],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+            ));
   }
 
-  Widget _loginCard() {
+  Widget _loginCard(OtpLoginViewModel viewModel, OtpLoginState state) {
     return Card(
       margin: const EdgeInsets.only(top: 50, right: 16, left: 16),
       child: Container(
@@ -79,14 +77,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             children: <Widget>[
               Text(
                 StringsConstants.mobileVerification,
-                style: AppTextStyles.t27,
+                style: Theme.of(context).textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 StringsConstants.mobileVerificationDesc,
-                style: AppTextStyles.t18,
+                style: Theme.of(context).textTheme.bodyText2,
               ),
               const SizedBox(
                 height: 20,
@@ -96,7 +94,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   InkWell(
                     child: Text(
                       StringsConstants.changeNumber,
-                      style: AppTextStyles.t29,
+                      style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
                     ),
                     onTap: () {
                       NavigationHandler.pop(true);
@@ -117,7 +117,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 height: 20,
               ),
               BlocConsumer<OtpLoginViewModel, OtpLoginState>(
-                bloc: otpLoginCubit,
+                bloc: viewModel,
                 listener: (BuildContext context, OtpLoginState state) {
                   if (state.otp != null) {
                     otpNumberController.text = state.otp!;
@@ -130,7 +130,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     isEnabled: state.isButtonEnabled,
                     replaceWithIndicator: state.confirmOtpLoading,
                     onTap: () {
-                      onButtonTap();
+                      onButtonTap(viewModel);
                     },
                   );
                 },
@@ -138,20 +138,20 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              BlocConsumer<OtpLoginViewModel, OtpLoginState>(
-                bloc: otpLoginCubit,
-                listener: (BuildContext context, OtpLoginState state) {},
-                builder: (BuildContext context, OtpLoginState state) {
+              Builder(
+                builder: (BuildContext context) {
                   if (state.resendOtpLoading) {
                     return const CommonAppLoader();
                   }
                   return GestureDetector(
                     onTap: () {
-                      otpLoginCubit.sendOtp(widget.phoneNumber!);
+                      viewModel.sendOtp(widget.phoneNumber!);
                     },
                     child: Text(
                       StringsConstants.resendOtp,
-                      style: AppTextStyles.t29,
+                      style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
                     ),
                   );
                 },
@@ -162,7 +162,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               InkWell(
                 child: Text(
                   StringsConstants.goBack,
-                  style: AppTextStyles.t29,
+                  style: Theme.of(context).textTheme.caption?.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                 ),
                 onTap: () {
                   NavigationHandler.pop();
@@ -178,9 +180,9 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
     );
   }
 
-  void onButtonTap({bool isResend = false}) {
+  void onButtonTap(OtpLoginViewModel viewModel, {bool isResend = false}) {
     if (_formKey.currentState!.validate()) {
-      otpLoginCubit.loginWithOtp(otpNumberController.text.trim(), isResend);
+      viewModel.loginWithOtp(otpNumberController.text.trim(), isResend);
     }
   }
 }

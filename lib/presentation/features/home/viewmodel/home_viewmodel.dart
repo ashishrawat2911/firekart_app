@@ -1,7 +1,7 @@
 import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/stream_account_details_usecase.dart';
 import '../state/home_state.dart';

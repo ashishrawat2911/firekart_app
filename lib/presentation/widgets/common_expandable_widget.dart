@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../res/app_colors.dart';
+import '../res/app_colors.dart';
 
 class CommonExpandedWidget extends StatefulWidget {
   const CommonExpandedWidget(
@@ -27,7 +27,8 @@ class CommonExpandedWidget extends StatefulWidget {
   State createState() => _CommonExpandedWidgetState();
 }
 
-class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with SingleTickerProviderStateMixin {
+class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
+    with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController animationController;
   bool isOpened = false;
@@ -35,7 +36,8 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with Single
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     animation = Tween(begin: 0.0, end: pi).animate(animationController);
   }
 
@@ -45,7 +47,8 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with Single
       margin: widget.margin,
       child: AnimatedCrossFade(
         duration: const Duration(milliseconds: 100),
-        crossFadeState: !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        crossFadeState:
+            !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         firstChild: topRow(),
         secondChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +96,7 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget> with Single
                     angle: animation.value,
                     child: Icon(
                       Icons.expand_more,
-                      color: widget.color ?? AppColors.color81819A,
+                      color: widget.color ?? AppColors.color4C4C6F,
                       // color: Styles.whiteColor,
                     ),
                   ),

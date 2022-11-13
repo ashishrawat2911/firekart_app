@@ -16,7 +16,8 @@ class AppConfiguration {
   final _configs = <String, dynamic>{};
 
   Future<AppConfiguration> loadConfigs(String name, {String? category}) async {
-    final configJsonString = await rootBundle.loadString("assets/configs/$name");
+    final configJsonString =
+        await rootBundle.loadString("assets/configs/$name");
 
     final Map<String, dynamic> configJson = json.decode(configJsonString);
 

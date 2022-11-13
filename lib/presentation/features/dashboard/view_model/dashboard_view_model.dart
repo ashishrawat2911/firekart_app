@@ -1,18 +1,19 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/state/result_state.dart';
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../../core/utils/connectivity.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../../domain/usecases/get_all_product_usecase.dart';
-import '../../../../res/string_constants.dart';
+import '../../../res/string_constants.dart';
 import '../state/dashboard_state.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
 
 @injectable
 class DashboardViewModel extends ViewModel<DashboardState> {
-  DashboardViewModel(this._getAllProductsUseCase) : super(const DashboardState());
+  DashboardViewModel(this._getAllProductsUseCase)
+      : super(const DashboardState());
 
   final GetAllProductsUseCase _getAllProductsUseCase;
 
@@ -38,7 +39,8 @@ class DashboardViewModel extends ViewModel<DashboardState> {
         return;
       }
 
-      final List<Product> productList = await _getAllProductsUseCase.execute(condition: condition, all: true);
+      final List<Product> productList =
+          await _getAllProductsUseCase.execute(condition: condition, all: true);
 
       final resultState = ResultState.data(data: productList);
 

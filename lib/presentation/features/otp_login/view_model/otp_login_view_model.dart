@@ -5,7 +5,7 @@ import 'package:fluttercommerce/domain/usecases/send_otp_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/message_handler/message_handler.dart';
-import '../../../../core/state_manager/state_manager.dart';
+import '../../../../core/state_manager/view_model.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/otp_login_state.dart';
@@ -40,7 +40,8 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
         _verificationId = value;
         Timer.periodic(const Duration(seconds: 60), (timer) {
           state = state.copyWith(
-            codeCountDown: "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
+            codeCountDown:
+                "00:${timer.tick < 10 ? "0${timer.tick}" : "${timer.tick}"}",
           );
         });
       },
@@ -56,7 +57,8 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
       resendOtpLoading: isResend,
     );
 
-    final credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: smsCode);
+    final credential = PhoneAuthProvider.credential(
+        verificationId: _verificationId, smsCode: smsCode);
     _login(credential);
   }
 
