@@ -30,16 +30,13 @@ class HomeScreen extends StatelessWidget {
           ][state.bottomIndex],
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            //  backgroundColor: AppColors.primaryColor,
-            unselectedItemColor: AppColors.color4C4C6F,
-            selectedItemColor: AppColors.primaryColor,
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
+            // showSelectedLabels: true,
+            // showUnselectedLabels: true,
             items: [
                BottomNavigationBarItem(
-                  icon: Icon(Icons.home), label: (Localization.value.home)),
+                  icon: const Icon(Icons.home), label: (Localization.value.home)),
                BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: (Localization.value.search)),
+                  icon: const Icon(Icons.search), label: (Localization.value.search)),
               BottomNavigationBarItem(
                   icon: Stack(
                     children: <Widget>[
@@ -66,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   label: (Localization.value.cart)),
                BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: (Localization.value.account)),
+                  icon: const Icon(Icons.person), label: (Localization.value.account)),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,

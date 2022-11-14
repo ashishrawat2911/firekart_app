@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../state/app_state.dart';
 
-@injectable
+@singleton
 class AppViewModel extends ViewModel<AppState> {
   AppViewModel() : super(const AppState());
 

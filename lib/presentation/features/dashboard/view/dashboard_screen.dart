@@ -40,10 +40,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           automaticallyImplyLeading: false,
           title: Text(
             Localization.value.products,
-            style: Theme.of(context).textTheme.headline2?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.black,
-                ),
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -118,7 +114,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               return Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

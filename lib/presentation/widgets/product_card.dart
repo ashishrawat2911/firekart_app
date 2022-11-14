@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 class ProductCardArgs {
   final VoidCallback onTap;
@@ -34,8 +33,6 @@ class ProductCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       onTap: productCardArgs.onTap,
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -69,10 +66,7 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${productCardArgs.currency}${productCardArgs.currentPrice}",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            ?.copyWith(color: AppColors.color4C4C6F),
+                        style: Theme.of(context).textTheme.button,
                       ),
                       const SizedBox(
                         width: 10,

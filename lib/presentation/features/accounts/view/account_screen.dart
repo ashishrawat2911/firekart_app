@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../di/di.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/logout_usecase.dart';
 import '../../../../domain/usecases/stream_account_details_usecase.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -74,14 +74,18 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(),
               ListTile(
-                title:  Text(Localization.value.myOrders),
+                title: Text(
+                  Localization.value.myOrders,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
                 leading: const Icon(Icons.shopping_basket),
                 onTap: () {
                   NavigationHandler.navigateTo(const MyOrdersScreenRoute());
                 },
               ),
               ListTile(
-                title:  Text(Localization.value.myAddress),
+                title: Text(Localization.value.myAddress,
+                    style: Theme.of(context).textTheme.bodyText2),
                 leading: const Icon(Icons.place),
                 onTap: () {
                   NavigationHandler.navigateTo(MyAddressScreenRoute());
@@ -89,7 +93,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(),
               ListTile(
-                title:  Text(Localization.value.logout),
+                title: Text(Localization.value.logout,
+                    style: Theme.of(context).textTheme.bodyText2),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
                   inject<LogoutUseCase>().execute().then((value) {
