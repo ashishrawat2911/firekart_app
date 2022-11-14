@@ -5,6 +5,7 @@ import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart';
 import 'package:fluttercommerce/domain/usecases/get_items_in_cart_usecase.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/localization/localization.dart';
 import '../../../../core/message_handler/message_handler.dart';
 import '../../../../core/state_manager/view_model.dart';
 import '../../../../core/utils/connectivity.dart';
@@ -54,7 +55,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
 
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
       MessageHandler.showSnackBar(
-          title: StringsConstants.connectionNotAvailable);
+          title: Localization.value.connectionNotAvailable);
       return;
     }
     updateCartValues(productModel, 0, true).then((value) {}).catchError((e) {
@@ -72,7 +73,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
         MessageHandler.showSnackBar(
-            title: StringsConstants.connectionNotAvailable);
+            title: Localization.value.connectionNotAvailable);
         return;
       }
       final cart = _domainMapper.cartFromProduct(productModel);
@@ -87,7 +88,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
     } else {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
         MessageHandler.showSnackBar(
-            title: StringsConstants.connectionNotAvailable);
+            title: Localization.value.connectionNotAvailable);
         return;
       }
       _productDeleteCartUseCase.execute(productModel.productId).then((value) {

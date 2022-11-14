@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../core/utils/validator.dart';
@@ -71,13 +72,13 @@ class AddAddressScreen extends StatelessWidget {
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 30),
                         child: Text(
-                          StringsConstants.addNewAddress,
+                          Localization.value.addNewAddress,
                           style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
                     ),
                     CustomTextField(
-                      hint: StringsConstants.name,
+                      hint: Localization.value.name,
                       textEditingController: nameEditingController,
                       focusNode: nameFocusNode,
                       nextFocusNode: pincodeFocusNode,
@@ -93,7 +94,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.pincode,
+                      hint: Localization.value.pincode,
                       textEditingController: pincodeEditingController,
                       focusNode: pincodeFocusNode,
                       nextFocusNode: addressFocusNode,
@@ -109,7 +110,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.address,
+                      hint: Localization.value.address,
                       textEditingController: addressEditingController,
                       focusNode: addressFocusNode,
                       nextFocusNode: cityFocusNode,
@@ -131,7 +132,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.city,
+                      hint: Localization.value.city,
                       textEditingController: cityEditingController,
                       focusNode: cityFocusNode,
                       nextFocusNode: stateFocusNode,
@@ -147,7 +148,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.state,
+                      hint: Localization.value.state,
                       textEditingController: stateEditingController,
                       focusNode: stateFocusNode,
                       nextFocusNode: phoneFocusNode,
@@ -163,7 +164,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.phoneNumber,
+                      hint: Localization.value.phoneNumber,
                       textEditingController: phoneEditingController,
                       focusNode: phoneFocusNode,
                       validator: validator.validateMobile,
@@ -194,7 +195,7 @@ class AddAddressScreen extends StatelessWidget {
                           },
                         ),
                         Text(
-                          StringsConstants.setAsDefaultCaps,
+                          Localization.value.setAsDefaultCaps,
                           style: Theme.of(context).textTheme.bodyText1,
                         )
                       ],
@@ -203,7 +204,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 50,
                     ),
                     CommonButton(
-                      title: StringsConstants.save,
+                      title: Localization.value.save,
                       titleColor: AppColors.white,
                       height: 50,
                       replaceWithIndicator: state.buttonLoading,

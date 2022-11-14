@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
@@ -76,14 +77,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Text(
-                StringsConstants.mobileVerification,
+                Localization.value.mobileVerification,
                 style: Theme.of(context).textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                StringsConstants.mobileVerificationDesc,
+                Localization.value.mobileVerificationDesc,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               const SizedBox(
@@ -93,7 +94,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 children: <Widget>[
                   InkWell(
                     child: Text(
-                      StringsConstants.changeNumber,
+                      Localization.value.changeNumber,
                       style: Theme.of(context).textTheme.caption?.copyWith(
                             color: AppColors.primaryColor,
                           ),
@@ -109,7 +110,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               ),
               CustomTextField(
                 textEditingController: otpNumberController,
-                hint: StringsConstants.enterOtp,
+                hint: Localization.value.enterOtp,
                 validator: validator.validate6DigitCode,
                 keyboardType: TextInputType.phone,
               ),
@@ -125,7 +126,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 },
                 builder: (BuildContext context, OtpLoginState state) {
                   return CommonButton(
-                    title: StringsConstants.confirmOtp,
+                    title: Localization.value.confirmOtp,
                     height: 50,
                     isEnabled: state.isButtonEnabled,
                     replaceWithIndicator: state.confirmOtpLoading,
@@ -148,7 +149,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                       viewModel.sendOtp(widget.phoneNumber!);
                     },
                     child: Text(
-                      StringsConstants.resendOtp,
+                      Localization.value.resendOtp,
                       style: Theme.of(context).textTheme.caption?.copyWith(
                             color: AppColors.primaryColor,
                           ),
@@ -161,7 +162,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               ),
               InkWell(
                 child: Text(
-                  StringsConstants.goBack,
+                  Localization.value.goBack,
                   style: Theme.of(context).textTheme.caption?.copyWith(
                         color: AppColors.primaryColor,
                       ),

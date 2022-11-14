@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../di/di.dart';
 import '../../../../domain/models/product_model.dart';
@@ -26,7 +27,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CommonSearchBar(
-          hintText: StringsConstants.searchItems,
+          hintText: Localization.value.searchItems,
           onTextChanged: (String value) {
             productSearchCubit.searchProduct(value);
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
     as account_details_state;
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
@@ -26,7 +27,7 @@ class AddUserDetailScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 1,
         title: Text(
-            "${newAddress ? StringsConstants.add : StringsConstants.edit} ${StringsConstants.details}"),
+            "${newAddress ? Localization.value.add : Localization.value.edit} ${Localization.value.details}"),
       ),
       body: _SaveDataView(newAddress),
     );
@@ -81,7 +82,7 @@ class _SaveDataView extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          ActionText(StringsConstants.manageAddress, onTap: () {
+                          ActionText(Localization.value.manageAddress, onTap: () {
                             NavigationHandler.navigateTo(
                                 MyAddressScreenRoute());
                           }),

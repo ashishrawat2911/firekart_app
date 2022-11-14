@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/account_details_model.dart';
@@ -28,8 +29,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       appBar: AppBar(
           elevation: 1,
           title: Text(widget.selectedAddress
-              ? StringsConstants.selectAddress
-              : StringsConstants.myAddress)),
+              ? Localization.value.selectAddress
+              : Localization.value.myAddress)),
       body: BaseView<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
@@ -70,11 +71,11 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${accountDetails.addresses.length} ${StringsConstants.savedAddresses}",
+                    "${accountDetails.addresses.length} ${Localization.value.savedAddresses}",
                     style: Theme.of(context).textTheme.overline,
                   ),
                   ActionText(
-                    StringsConstants.addNewCaps,
+                    Localization.value.addNewCaps,
                     onTap: () {
                       addNewNavigation(accountDetails, viewModel);
                     },
@@ -156,7 +157,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                             color: AppColors.color6EBA49,
                             borderRadius: BorderRadius.circular(4)),
                         child: Text(
-                          StringsConstants.defaultCaps,
+                          Localization.value.defaultCaps,
                           style: Theme.of(context).textTheme.overline?.copyWith(
                                 color: AppColors.white,
                               ),
@@ -182,7 +183,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                       Row(
                         children: [
                           ActionText(
-                            StringsConstants.editCaps,
+                            Localization.value.editCaps,
                             onTap: () {
                               NavigationHandler.navigateTo(
                                       AddAddressScreenRoute(
@@ -207,7 +208,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                             )
                           else
                             ActionText(
-                              StringsConstants.deleteCaps,
+                              Localization.value.deleteCaps,
                               onTap: () {
                                 viewModel.deleteAddress(index);
                               },
@@ -223,7 +224,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                     size: 20,
                                   )
                                 : ActionText(
-                                    StringsConstants.setAsDefaultCaps,
+                                    Localization.value.setAsDefaultCaps,
                                     onTap: () {
                                       viewModel.setAsDefault(index);
                                     },
@@ -253,7 +254,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             height: 20,
           ),
           ActionText(
-            StringsConstants.addNewCaps,
+            Localization.value.addNewCaps,
             onTap: () {
               addNewNavigation(accountDetails, viewModel);
             },
