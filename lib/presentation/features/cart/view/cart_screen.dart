@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../res/app_colors.dart';
@@ -170,7 +171,7 @@ class _CartScreenState extends State<CartScreen> {
         children: [
           Text(
             Localization.value.billDetails,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: ThemeProvider.textTheme.bodyText1,
           ),
           const SizedBox(
             height: 20,
@@ -200,7 +201,7 @@ class _CartScreenState extends State<CartScreen> {
             children: [
               Text(
                 Localization.value.deliverTo,
-                style: Theme.of(context).textTheme.bodyText1,
+                style: ThemeProvider.textTheme.bodyText1,
               ),
               ActionText(
                 state.selectedAddress == null
@@ -218,7 +219,7 @@ class _CartScreenState extends State<CartScreen> {
           Text(
             state.selectedAddress?.wholeAddress() ??
                 Localization.value.noAddressFound,
-            style: Theme.of(context).textTheme.overline,
+            style: ThemeProvider.textTheme.overline,
           ),
         ],
       ),
@@ -241,7 +242,7 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     Text(
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: ThemeProvider.textTheme.bodyText1,
                     ),
                      ActionText(Localization.value.viewDetailedBillCaps)
                   ],

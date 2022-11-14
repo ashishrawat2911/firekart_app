@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/utils/validator.dart';
 import '../../../res/string_constants.dart';
@@ -84,14 +85,14 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               Text(
                 Localization.value.login,
-                style: Theme.of(context).textTheme.headline2,
+                style: ThemeProvider.textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 Localization.value.phoneLoginText,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: ThemeProvider.textTheme.bodyText2,
               ),
               const SizedBox(
                 height: 20,

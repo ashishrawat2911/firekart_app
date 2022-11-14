@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_screen.dart';
 
 import '../../../../core/state_manager/base_view.dart';
@@ -53,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                               backgroundColor: AppColors.color6EBA49,
                               child: Text(
                                 "${state.noOfItemsInCart}",
-                                style: Theme.of(context).textTheme.overline,
+                                style: ThemeProvider.textTheme.overline,
                               ),
                             ),
                           ),

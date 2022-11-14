@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/localization/localization.dart';
 import '../../../../core/state_manager/base_view.dart';
@@ -58,7 +59,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   children: <Widget>[
                     Text(
                       widget.product.name,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: ThemeProvider.textTheme.headline1,
                     ),
                     const SizedBox(
                       height: 10,
@@ -72,7 +73,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       children: <Widget>[
                         Text(
                           "${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}",
-                          style: Theme.of(context)
+                          style: ThemeProvider
                               .textTheme
                               .overline
                               ?.copyWith(fontSize: 16),
@@ -157,7 +158,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               border: Border.all(width: 1, color: AppColors.dropShadow)),
           child: Text(
             Localization.value.add,
-            style: Theme.of(context).textTheme.button?.copyWith(
+            style: ThemeProvider.textTheme.button?.copyWith(
                   color: AppColors.primaryColor,
                 ),
           ),

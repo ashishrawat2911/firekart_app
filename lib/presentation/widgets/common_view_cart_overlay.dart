@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../res/app_colors.dart';
 import '../res/string_constants.dart';
@@ -34,7 +35,7 @@ class CommonViewCartOverlay extends StatelessWidget {
           children: <Widget>[
             Text(
               args.title,
-              style: Theme.of(context).textTheme.subtitle2,
+              style: ThemeProvider.textTheme.subtitle2,
             ),
             const SizedBox(
               width: 10,
@@ -49,7 +50,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                   ),
                   Text(
                     Localization.value.viewCart,
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: ThemeProvider.textTheme.subtitle2,
                   ),
                 ],
               ),

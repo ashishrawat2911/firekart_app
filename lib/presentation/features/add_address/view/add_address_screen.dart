@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../core/state_manager/base_view.dart';
+import '../../../../core/theme/theme_provider.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../res/app_colors.dart';
@@ -73,7 +74,7 @@ class AddAddressScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(bottom: 30),
                         child: Text(
                           Localization.value.addNewAddress,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: ThemeProvider.textTheme.bodyText1,
                         ),
                       ),
                     ),
@@ -196,7 +197,7 @@ class AddAddressScreen extends StatelessWidget {
                         ),
                         Text(
                           Localization.value.setAsDefaultCaps,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: ThemeProvider.textTheme.bodyText1,
                         )
                       ],
                     ),

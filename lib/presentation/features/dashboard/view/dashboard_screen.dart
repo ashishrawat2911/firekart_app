@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -48,7 +49,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
             label: Text(
               Localization.value.viewAllProducts,
-              style: Theme.of(context).textTheme.overline?.copyWith(
+              style: ThemeProvider.textTheme.overline?.copyWith(
                     color: AppColors.white,
                   ),
             )),
@@ -182,7 +183,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: <Widget>[
               Text(
                 title,
-                style: Theme.of(context).textTheme.headline2,
+                style: ThemeProvider.textTheme.headline2,
               ),
               Container(
                   margin: const EdgeInsets.only(right: 16),

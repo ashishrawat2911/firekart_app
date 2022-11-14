@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/utils/validator.dart';
@@ -78,14 +79,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             children: <Widget>[
               Text(
                 Localization.value.mobileVerification,
-                style: Theme.of(context).textTheme.headline2,
+                style: ThemeProvider.textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 Localization.value.mobileVerificationDesc,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: ThemeProvider.textTheme.bodyText2,
               ),
               const SizedBox(
                 height: 20,
@@ -95,7 +96,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   InkWell(
                     child: Text(
                       Localization.value.changeNumber,
-                      style: Theme.of(context).textTheme.caption?.copyWith(
+                      style: ThemeProvider.textTheme.caption?.copyWith(
                             color: AppColors.primaryColor,
                           ),
                     ),
@@ -150,7 +151,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     },
                     child: Text(
                       Localization.value.resendOtp,
-                      style: Theme.of(context).textTheme.caption?.copyWith(
+                      style: ThemeProvider.textTheme.caption?.copyWith(
                             color: AppColors.primaryColor,
                           ),
                     ),
@@ -163,7 +164,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               InkWell(
                 child: Text(
                   Localization.value.goBack,
-                  style: Theme.of(context).textTheme.caption?.copyWith(
+                  style: ThemeProvider.textTheme.caption?.copyWith(
                         color: AppColors.primaryColor,
                       ),
                 ),
