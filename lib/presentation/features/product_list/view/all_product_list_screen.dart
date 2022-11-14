@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
 
 import '../../../../core/state/result_state.dart';
@@ -37,7 +38,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       },
       builder: (context, viewModel, state) => Scaffold(
         appBar: AppBar(
-          title: const Text(StringsConstants.allProducts),
+          title:  Text(Localization.value.allProducts),
           actions: <Widget>[
             InkWell(
               onTap: () {

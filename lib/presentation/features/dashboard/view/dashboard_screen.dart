@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -38,7 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text(
-            StringsConstants.products,
+            Localization.value.products,
             style: Theme.of(context).textTheme.headline2?.copyWith(
                   fontWeight: FontWeight.w500,
                   color: AppColors.black,
@@ -50,7 +51,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               NavigationHandler.navigateTo(AllProductListScreenRoute());
             },
             label: Text(
-              StringsConstants.viewAllProducts,
+              Localization.value.viewAllProducts,
               style: Theme.of(context).textTheme.overline?.copyWith(
                     color: AppColors.white,
                   ),
@@ -65,10 +66,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   height: 20,
                 ),
                 productDataBuilder(
-                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
-                productDataBuilder(state.onSale, StringsConstants.onSale),
+                    state.dealOfTheDay, Localization.value.dealOfTheDay),
+                productDataBuilder(state.onSale, Localization.value.onSale),
                 productDataBuilder(
-                    state.topProducts, StringsConstants.topProducts),
+                    state.topProducts, Localization.value.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -191,14 +192,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               Container(
                   margin: const EdgeInsets.only(right: 16),
                   child: ActionText(
-                    StringsConstants.viewAllCaps,
+                    Localization.value.viewAllCaps,
                     onTap: () {
                       late String condition;
-                      if (title == StringsConstants.dealOfTheDay) {
+                      if (title == Localization.value.dealOfTheDay) {
                         condition = "deal_of_the_day";
-                      } else if (title == StringsConstants.topProducts) {
+                      } else if (title == Localization.value.topProducts) {
                         condition = "top_products";
-                      } else if (title == StringsConstants.onSale) {
+                      } else if (title == Localization.value.onSale) {
                         condition = "on_sale";
                       }
                       NavigationHandler.navigateTo(AllProductListScreenRoute(

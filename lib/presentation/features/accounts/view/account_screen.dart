@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../di/di.dart';
 import '../../../../domain/models/account_details_model.dart';
@@ -62,7 +63,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       height: 10,
                     ),
                     ActionText(
-                      StringsConstants.editCaps,
+                      Localization.value.editCaps,
                       onTap: () {
                         NavigationHandler.navigateTo(
                             AddUserDetailScreenRoute(newAddress: false));
@@ -73,14 +74,14 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(),
               ListTile(
-                title: const Text(StringsConstants.myOrders),
+                title:  Text(Localization.value.myOrders),
                 leading: const Icon(Icons.shopping_basket),
                 onTap: () {
                   NavigationHandler.navigateTo(const MyOrdersScreenRoute());
                 },
               ),
               ListTile(
-                title: const Text(StringsConstants.myAddress),
+                title:  Text(Localization.value.myAddress),
                 leading: const Icon(Icons.place),
                 onTap: () {
                   NavigationHandler.navigateTo(MyAddressScreenRoute());
@@ -88,7 +89,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(),
               ListTile(
-                title: const Text(StringsConstants.logout),
+                title:  Text(Localization.value.logout),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
                   inject<LogoutUseCase>().execute().then((value) {

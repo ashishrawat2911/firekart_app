@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
 
+import '../../../../core/localization/localization.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
 import '../../../../domain/models/order_model.dart';
@@ -30,7 +31,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(StringsConstants.myOrders),
+        title:  Text(Localization.value.myOrders),
       ),
       body: BaseView<MyOrdersCubit, ResultState<List<Order>>>(
         onViewModelReady: (viewModel) {
@@ -79,7 +80,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                StringsConstants.orderedOnCaps,
+                                Localization.value.orderedOnCaps,
                                 style: Theme.of(context).textTheme.button,
                               ),
                               Text(
@@ -102,7 +103,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         Row(
                           children: [
                             Text(
-                              StringsConstants.totalCaps,
+                              Localization.value.totalCaps,
                               style: Theme.of(context).textTheme.button,
                             ),
                             const SizedBox(

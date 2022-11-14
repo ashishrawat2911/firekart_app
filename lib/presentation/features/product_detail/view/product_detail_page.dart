@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/localization/localization.dart';
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../res/app_colors.dart';
@@ -155,7 +156,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: AppColors.dropShadow)),
           child: Text(
-            StringsConstants.add,
+            Localization.value.add,
             style: Theme.of(context).textTheme.button?.copyWith(
                   color: AppColors.primaryColor,
                 ),

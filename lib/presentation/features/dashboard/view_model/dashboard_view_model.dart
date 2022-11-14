@@ -1,3 +1,4 @@
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/state/result_state.dart';
@@ -35,7 +36,7 @@ class DashboardViewModel extends ViewModel<DashboardState> {
     }
     try {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        onErrorState(productData, StringsConstants.connectionNotAvailable);
+        onErrorState(productData, Localization.value.connectionNotAvailable);
         return;
       }
 

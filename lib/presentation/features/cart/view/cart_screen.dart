@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../res/app_colors.dart';
@@ -28,7 +29,7 @@ class _CartScreenState extends State<CartScreen> {
         return Scaffold(
           backgroundColor: AppColors.white,
           appBar: AppBar(
-            title: const Text(StringsConstants.cart),
+            title:  Text(Localization.value.cart),
             elevation: 1,
           ),
           body: state.cartList.noOfItemsInCart > 0
@@ -112,7 +113,7 @@ class _CartScreenState extends State<CartScreen> {
               const SizedBox(
                 width: 10,
               ),
-              const Text(StringsConstants.applyCoupon),
+               Text(Localization.value.applyCoupon),
             ],
           ),
           Icon(
@@ -169,18 +170,18 @@ class _CartScreenState extends State<CartScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            StringsConstants.billDetails,
+            Localization.value.billDetails,
             style: Theme.of(context).textTheme.bodyText1,
           ),
           const SizedBox(
             height: 20,
           ),
 //          priceRow(
-//              StringsConstants.basketTotal,
+//              Localization.value.basketTotal,
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
-//              StringsConstants.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(StringsConstants.toPay,
+//              Localization.value.taxAndCharges, "${cartItemStatus.currency}900"),
+          priceRow(Localization.value.toPay,
               "${state.cartList.currency}${state.cartList.priceInCart}",
               isFinal: true),
         ],
@@ -199,13 +200,13 @@ class _CartScreenState extends State<CartScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                StringsConstants.deliverTo,
+                Localization.value.deliverTo,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               ActionText(
                 state.selectedAddress == null
-                    ? StringsConstants.addNewCaps
-                    : StringsConstants.changeTextCapital,
+                    ? Localization.value.addNewCaps
+                    : Localization.value.changeTextCapital,
                 onTap: () {
                   viewModel.selectOrChangeAddress();
                 },
@@ -217,7 +218,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
           Text(
             state.selectedAddress?.wholeAddress() ??
-                StringsConstants.noAddressFound,
+                Localization.value.noAddressFound,
             style: Theme.of(context).textTheme.overline,
           ),
         ],
@@ -243,14 +244,14 @@ class _CartScreenState extends State<CartScreen> {
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
-                    const ActionText(StringsConstants.viewDetailedBillCaps)
+                     ActionText(Localization.value.viewDetailedBillCaps)
                   ],
                 ),
               ),
             ),
           ),
           CommonButton(
-            title: StringsConstants.makePayment,
+            title: Localization.value.makePayment,
             width: 190,
             height: 50,
             replaceWithIndicator: state.orderInProgress,
