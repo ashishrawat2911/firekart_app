@@ -4,7 +4,6 @@ import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/cart_item_card.dart';
 import '../../../widgets/common_button.dart';
@@ -29,7 +28,7 @@ class _CartScreenState extends State<CartScreen> {
       builder: (context, viewModel, state) {
         return Scaffold(
           appBar: AppBar(
-            title:  Text(Localization.value.cart),
+            title: Text(Localization.value.cart),
             elevation: 1,
           ),
           body: state.cartList.noOfItemsInCart > 0
@@ -113,7 +112,7 @@ class _CartScreenState extends State<CartScreen> {
               const SizedBox(
                 width: 10,
               ),
-               Text(Localization.value.applyCoupon),
+              Text(Localization.value.applyCoupon),
             ],
           ),
           Icon(
@@ -244,7 +243,7 @@ class _CartScreenState extends State<CartScreen> {
                       "${state.cartList.currency} ${state.cartList.priceInCart}",
                       style: ThemeProvider.textTheme.bodyText1,
                     ),
-                     ActionText(Localization.value.viewDetailedBillCaps)
+                    ActionText(Localization.value.viewDetailedBillCaps)
                   ],
                 ),
               ),

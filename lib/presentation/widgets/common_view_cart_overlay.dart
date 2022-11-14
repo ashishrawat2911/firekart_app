@@ -3,7 +3,6 @@ import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../res/app_colors.dart';
-import '../res/string_constants.dart';
 
 class CommonViewCartOverlayArgs {
   String title;

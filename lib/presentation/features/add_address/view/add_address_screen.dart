@@ -6,7 +6,6 @@ import '../../../../core/theme/theme_provider.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/add_address_state.dart';

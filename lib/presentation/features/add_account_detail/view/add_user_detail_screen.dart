@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
-    as account_details_state;
+as account_details_state;
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/base_view.dart';
-import '../../../../core/utils/validator.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -82,7 +81,8 @@ class _SaveDataView extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          ActionText(Localization.value.manageAddress, onTap: () {
+                          ActionText(Localization.value.manageAddress,
+                              onTap: () {
                             NavigationHandler.navigateTo(
                                 MyAddressScreenRoute());
                           }),

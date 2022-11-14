@@ -28,7 +28,10 @@ import '../features/splash/view/splash_screen.dart';
 
 @CupertinoAutoRouter(
   routes: [
-    CupertinoRoute(page: SplashScreen, initial: true,),
+    CupertinoRoute(
+      page: SplashScreen,
+      initial: true,
+    ),
     CupertinoRoute(page: CheckStatusScreen),
     CupertinoRoute(page: LoginScreen),
     CupertinoRoute(page: OtpLoginScreen),

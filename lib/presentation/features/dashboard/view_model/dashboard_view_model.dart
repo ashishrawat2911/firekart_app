@@ -6,7 +6,6 @@ import '../../../../core/state_manager/view_model.dart';
 import '../../../../core/utils/connectivity.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../../domain/usecases/get_all_product_usecase.dart';
-import '../../../res/string_constants.dart';
 import '../state/dashboard_state.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }

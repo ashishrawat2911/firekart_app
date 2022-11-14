@@ -6,7 +6,6 @@ import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/utils/validator.dart';
-import '../../../res/string_constants.dart';
 import '../../../res/styles.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -97,8 +96,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     child: Text(
                       Localization.value.changeNumber,
                       style: ThemeProvider.textTheme.caption?.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                     onTap: () {
                       NavigationHandler.pop(true);
@@ -152,8 +151,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     child: Text(
                       Localization.value.resendOtp,
                       style: ThemeProvider.textTheme.caption?.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   );
                 },
@@ -165,8 +164,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 child: Text(
                   Localization.value.goBack,
                   style: ThemeProvider.textTheme.caption?.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
+                    color: AppColors.primaryColor,
+                  ),
                 ),
                 onTap: () {
                   NavigationHandler.pop();
