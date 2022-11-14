@@ -27,7 +27,6 @@ class _CartScreenState extends State<CartScreen> {
       },
       builder: (context, viewModel, state) {
         return Scaffold(
-          backgroundColor: AppColors.white,
           appBar: AppBar(
             title:  Text(Localization.value.cart),
             elevation: 1,
