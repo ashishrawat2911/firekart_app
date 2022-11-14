@@ -1,10 +1,11 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/utils/validator.dart';
-import '../../../res/string_constants.dart';
 import '../../../res/styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
@@ -82,15 +83,15 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Text(
-                StringsConstants.login,
-                style: Theme.of(context).textTheme.headline2,
+                Localization.value.login,
+                style: ThemeProvider.textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                StringsConstants.phoneLoginText,
-                style: Theme.of(context).textTheme.bodyText2,
+                Localization.value.phoneLoginText,
+                style: ThemeProvider.textTheme.bodyText2,
               ),
               const SizedBox(
                 height: 20,
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Expanded(
                     child: CustomTextField(
                       textEditingController: phoneNumberController,
-                      hint: StringsConstants.mobileNumber,
+                      hint: Localization.value.mobileNumber,
                       validator: validator.validateMobile,
                       keyboardType: TextInputType.phone,
                     ),
@@ -125,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 listener: (BuildContext context, PhoneLoginState state) {},
                 builder: (BuildContext context, PhoneLoginState state) {
                   return CommonButton(
-                    title: StringsConstants.continueText,
+                    title: Localization.value.continueText,
                     height: 50,
                     isEnabled: state.isButtonEnabled,
                     replaceWithIndicator: state.phoneLoading,

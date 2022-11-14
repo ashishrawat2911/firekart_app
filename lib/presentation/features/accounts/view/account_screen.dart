@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
+import '../../../../core/theme/theme_provider.dart';
 import '../../../../di/di.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/logout_usecase.dart';
 import '../../../../domain/usecases/stream_account_details_usecase.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -50,11 +51,11 @@ class _AccountScreenState extends State<AccountScreen> {
                         children: <Widget>[
                           Text(
                             accountDetails!.name,
-                            style: Theme.of(context).textTheme.headline1,
+                            style: ThemeProvider.textTheme.headline1,
                           ),
                           Text(
                             accountDetails!.phoneNumber ?? '',
-                            style: Theme.of(context).textTheme.caption,
+                            style: ThemeProvider.textTheme.caption,
                           ),
                         ],
                       ),
@@ -62,7 +63,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       height: 10,
                     ),
                     ActionText(
-                      StringsConstants.editCaps,
+                      Localization.value.editCaps,
                       onTap: () {
                         NavigationHandler.navigateTo(
                             AddUserDetailScreenRoute(newAddress: false));
@@ -73,14 +74,18 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(),
               ListTile(
-                title: const Text(StringsConstants.myOrders),
+                title: Text(
+                  Localization.value.myOrders,
+                  style: ThemeProvider.textTheme.bodyText2,
+                ),
                 leading: const Icon(Icons.shopping_basket),
                 onTap: () {
                   NavigationHandler.navigateTo(const MyOrdersScreenRoute());
                 },
               ),
               ListTile(
-                title: const Text(StringsConstants.myAddress),
+                title: Text(Localization.value.myAddress,
+                    style: ThemeProvider.textTheme.bodyText2),
                 leading: const Icon(Icons.place),
                 onTap: () {
                   NavigationHandler.navigateTo(MyAddressScreenRoute());
@@ -88,7 +93,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(),
               ListTile(
-                title: const Text(StringsConstants.logout),
+                title: Text(Localization.value.logout,
+                    style: ThemeProvider.textTheme.bodyText2),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
                   inject<LogoutUseCase>().execute().then((value) {

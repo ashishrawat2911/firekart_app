@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 class ProductCardArgs {
   final VoidCallback onTap;
@@ -34,8 +34,6 @@ class ProductCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       onTap: productCardArgs.onTap,
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -60,7 +58,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     productCardArgs.name,
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: ThemeProvider.textTheme.bodyText1,
                   ),
                   const SizedBox(
                     height: 5,
@@ -69,19 +67,14 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${productCardArgs.currency}${productCardArgs.currentPrice}",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            ?.copyWith(color: AppColors.color4C4C6F),
+                        style: ThemeProvider.textTheme.button,
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
                         "${productCardArgs.currency}${productCardArgs.actualPrice}",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
+                        style: ThemeProvider.textTheme.button
                             ?.copyWith(decoration: TextDecoration.lineThrough),
                       ),
                     ],
@@ -91,7 +84,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     "${productCardArgs.quantityPerUnit}${productCardArgs.unit}",
-                    style: Theme.of(context).textTheme.button,
+                    style: ThemeProvider.textTheme.button,
                   ),
                 ],
               ),

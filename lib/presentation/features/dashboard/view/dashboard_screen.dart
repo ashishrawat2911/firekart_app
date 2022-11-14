@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -38,11 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text(
-            StringsConstants.products,
-            style: Theme.of(context).textTheme.headline2?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.black,
-                ),
+            Localization.value.products,
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -50,10 +47,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
               NavigationHandler.navigateTo(AllProductListScreenRoute());
             },
             label: Text(
-              StringsConstants.viewAllProducts,
-              style: Theme.of(context).textTheme.overline?.copyWith(
-                    color: AppColors.white,
-                  ),
+              Localization.value.viewAllProducts,
+              style: ThemeProvider.textTheme.overline?.copyWith(
+                color: AppColors.white,
+              ),
             )),
         body: RefreshIndicator(
           onRefresh: () => fetchProductData(viewModel),
@@ -65,10 +62,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   height: 20,
                 ),
                 productDataBuilder(
-                    state.dealOfTheDay, StringsConstants.dealOfTheDay),
-                productDataBuilder(state.onSale, StringsConstants.onSale),
+                    state.dealOfTheDay, Localization.value.dealOfTheDay),
+                productDataBuilder(state.onSale, Localization.value.onSale),
                 productDataBuilder(
-                    state.topProducts, StringsConstants.topProducts),
+                    state.topProducts, Localization.value.topProducts),
                 const SizedBox(
                   height: 20,
                 )
@@ -117,7 +114,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               return Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -186,19 +182,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: <Widget>[
               Text(
                 title,
-                style: Theme.of(context).textTheme.headline2,
+                style: ThemeProvider.textTheme.headline2,
               ),
               Container(
                   margin: const EdgeInsets.only(right: 16),
                   child: ActionText(
-                    StringsConstants.viewAllCaps,
+                    Localization.value.viewAllCaps,
                     onTap: () {
                       late String condition;
-                      if (title == StringsConstants.dealOfTheDay) {
+                      if (title == Localization.value.dealOfTheDay) {
                         condition = "deal_of_the_day";
-                      } else if (title == StringsConstants.topProducts) {
+                      } else if (title == Localization.value.topProducts) {
                         condition = "top_products";
-                      } else if (title == StringsConstants.onSale) {
+                      } else if (title == Localization.value.onSale) {
                         condition = "on_sale";
                       }
                       NavigationHandler.navigateTo(AllProductListScreenRoute(

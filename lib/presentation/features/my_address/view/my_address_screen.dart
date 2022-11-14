@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -28,8 +29,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       appBar: AppBar(
           elevation: 1,
           title: Text(widget.selectedAddress
-              ? StringsConstants.selectAddress
-              : StringsConstants.myAddress)),
+              ? Localization.value.selectAddress
+              : Localization.value.myAddress)),
       body: BaseView<MyAddressViewModel, MyAddressState>(
         onViewModelReady: (viewModel) {
           viewModel.fetchAccountDetails();
@@ -70,11 +71,11 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${accountDetails.addresses.length} ${StringsConstants.savedAddresses}",
-                    style: Theme.of(context).textTheme.overline,
+                    "${accountDetails.addresses.length} ${Localization.value.savedAddresses}",
+                    style: ThemeProvider.textTheme.overline,
                   ),
                   ActionText(
-                    StringsConstants.addNewCaps,
+                    Localization.value.addNewCaps,
                     onTap: () {
                       addNewNavigation(accountDetails, viewModel);
                     },
@@ -121,7 +122,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
           Expanded(
               child: Text(
             text,
-            style: Theme.of(context).textTheme.button,
+            style: ThemeProvider.textTheme.button,
           ))
         ],
       );
@@ -144,7 +145,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                     children: <Widget>[
                       Text(
                         addressCardState.address.name,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: ThemeProvider.textTheme.bodyText1,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 20),
@@ -156,10 +157,10 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                             color: AppColors.color6EBA49,
                             borderRadius: BorderRadius.circular(4)),
                         child: Text(
-                          StringsConstants.defaultCaps,
-                          style: Theme.of(context).textTheme.overline?.copyWith(
-                                color: AppColors.white,
-                              ),
+                          Localization.value.defaultCaps,
+                          style: ThemeProvider.textTheme.overline?.copyWith(
+                            color: AppColors.white,
+                          ),
                         ),
                       )
                     ],
@@ -182,7 +183,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                       Row(
                         children: [
                           ActionText(
-                            StringsConstants.editCaps,
+                            Localization.value.editCaps,
                             onTap: () {
                               NavigationHandler.navigateTo(
                                       AddAddressScreenRoute(
@@ -207,7 +208,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                             )
                           else
                             ActionText(
-                              StringsConstants.deleteCaps,
+                              Localization.value.deleteCaps,
                               onTap: () {
                                 viewModel.deleteAddress(index);
                               },
@@ -223,7 +224,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                     size: 20,
                                   )
                                 : ActionText(
-                                    StringsConstants.setAsDefaultCaps,
+                                    Localization.value.setAsDefaultCaps,
                                     onTap: () {
                                       viewModel.setAsDefault(index);
                                     },
@@ -247,13 +248,13 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
         children: <Widget>[
           Text(
             "No Address Found",
-            style: Theme.of(context).textTheme.headline3,
+            style: ThemeProvider.textTheme.headline3,
           ),
           const SizedBox(
             height: 20,
           ),
           ActionText(
-            StringsConstants.addNewCaps,
+            Localization.value.addNewCaps,
             onTap: () {
               addNewNavigation(accountDetails, viewModel);
             },

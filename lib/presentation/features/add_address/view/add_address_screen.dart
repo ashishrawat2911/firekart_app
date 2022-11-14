@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../../../../core/state_manager/base_view.dart';
+import '../../../../core/theme/theme_provider.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/add_address_state.dart';
@@ -71,13 +72,13 @@ class AddAddressScreen extends StatelessWidget {
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 30),
                         child: Text(
-                          StringsConstants.addNewAddress,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          Localization.value.addNewAddress,
+                          style: ThemeProvider.textTheme.bodyText1,
                         ),
                       ),
                     ),
                     CustomTextField(
-                      hint: StringsConstants.name,
+                      hint: Localization.value.name,
                       textEditingController: nameEditingController,
                       focusNode: nameFocusNode,
                       nextFocusNode: pincodeFocusNode,
@@ -93,7 +94,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.pincode,
+                      hint: Localization.value.pincode,
                       textEditingController: pincodeEditingController,
                       focusNode: pincodeFocusNode,
                       nextFocusNode: addressFocusNode,
@@ -109,7 +110,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.address,
+                      hint: Localization.value.address,
                       textEditingController: addressEditingController,
                       focusNode: addressFocusNode,
                       nextFocusNode: cityFocusNode,
@@ -131,7 +132,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.city,
+                      hint: Localization.value.city,
                       textEditingController: cityEditingController,
                       focusNode: cityFocusNode,
                       nextFocusNode: stateFocusNode,
@@ -147,7 +148,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.state,
+                      hint: Localization.value.state,
                       textEditingController: stateEditingController,
                       focusNode: stateFocusNode,
                       nextFocusNode: phoneFocusNode,
@@ -163,7 +164,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextField(
-                      hint: StringsConstants.phoneNumber,
+                      hint: Localization.value.phoneNumber,
                       textEditingController: phoneEditingController,
                       focusNode: phoneFocusNode,
                       validator: validator.validateMobile,
@@ -194,8 +195,8 @@ class AddAddressScreen extends StatelessWidget {
                           },
                         ),
                         Text(
-                          StringsConstants.setAsDefaultCaps,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          Localization.value.setAsDefaultCaps,
+                          style: ThemeProvider.textTheme.bodyText1,
                         )
                       ],
                     ),
@@ -203,7 +204,7 @@ class AddAddressScreen extends StatelessWidget {
                       height: 50,
                     ),
                     CommonButton(
-                      title: StringsConstants.save,
+                      title: Localization.value.save,
                       titleColor: AppColors.white,
                       height: 50,
                       replaceWithIndicator: state.buttonLoading,

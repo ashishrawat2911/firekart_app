@@ -46,10 +46,7 @@ class CommonButton extends StatelessWidget {
         height: height ?? 50,
         width: width,
         margin: margin,
-        child: MaterialButton(
-          disabledColor:
-              AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+        child: ElevatedButton(
           onPressed: (!replaceWithIndicator && isEnabled)
               ? () {
                   if (onTap != null) {
@@ -58,11 +55,6 @@ class CommonButton extends StatelessWidget {
                   }
                 }
               : null,
-          elevation: elevation ?? 0,
-          highlightColor: Colors.transparent,
-          focusElevation: 0,
-          color: buttonColor ??
-              AppColors.primaryColor.withOpacity(!isEnabled ? 0.5 : 1),
           child: Center(
             child: hasForwardIcon
                 ? Row(
@@ -94,9 +86,10 @@ class CommonButton extends StatelessWidget {
       textAlign: textAlign ?? textAlign,
       style: textStyle ??
           TextStyle(
-              fontSize: fontSize ?? 17,
-              color: titleColor ?? AppColors.white,
-              fontWeight: fontWeight ?? FontWeight.w600),
+            fontSize: fontSize ?? 17,
+            color: titleColor ?? AppColors.white,
+            fontWeight: fontWeight ?? FontWeight.w600,
+          ),
     );
   }
 }

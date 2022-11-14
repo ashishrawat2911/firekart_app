@@ -1,3 +1,4 @@
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/state/result_state.dart';
@@ -5,7 +6,6 @@ import '../../../../core/state_manager/view_model.dart';
 import '../../../../core/utils/connectivity.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../../domain/usecases/get_all_product_usecase.dart';
-import '../../../res/string_constants.dart';
 import '../state/dashboard_state.dart';
 
 enum ProductData { dealOfTheDay, onSale, topProducts }
@@ -35,7 +35,7 @@ class DashboardViewModel extends ViewModel<DashboardState> {
     }
     try {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
-        onErrorState(productData, StringsConstants.connectionNotAvailable);
+        onErrorState(productData, Localization.value.connectionNotAvailable);
         return;
       }
 

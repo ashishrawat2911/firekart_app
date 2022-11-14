@@ -1,3 +1,4 @@
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/domain/usecases/place_order_usecase.dart';
 import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.dart';
 import 'package:injectable/injectable.dart';
@@ -12,7 +13,6 @@ import '../../../../domain/models/order_model.dart';
 import '../../../../domain/usecases/add_product_to_cart_usecase.dart';
 import '../../../../domain/usecases/delete_product_from_cart_usecase.dart';
 import '../../../../domain/usecases/get_cart_status_use_case.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';
@@ -59,7 +59,7 @@ class CartViewModel extends ViewModel<CartState> {
 
   Future<void> placeOrder() async {
     if (state.selectedAddress == null) {
-      MessageHandler.showSnackBar(title: StringsConstants.noAddressSelected);
+      MessageHandler.showSnackBar(title: Localization.value.noAddressSelected);
       return;
     }
     state = state.copyWith(orderInProgress: true);
@@ -78,7 +78,7 @@ class CartViewModel extends ViewModel<CartState> {
       }
     } else {
       MessageHandler.showSnackBar(
-          title: StringsConstants.connectionNotAvailable);
+          title: Localization.value.connectionNotAvailable);
     }
     state = state.copyWith(orderInProgress: false);
   }
@@ -170,7 +170,7 @@ class CartViewModel extends ViewModel<CartState> {
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
         MessageHandler.showSnackBar(
-            title: StringsConstants.connectionNotAvailable);
+            title: Localization.value.connectionNotAvailable);
         return;
       }
 
@@ -199,7 +199,7 @@ class CartViewModel extends ViewModel<CartState> {
     }
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
       MessageHandler.showSnackBar(
-          title: StringsConstants.connectionNotAvailable);
+          title: Localization.value.connectionNotAvailable);
       return;
     }
     _productDeleteCartUseCase.execute(cartModel.productId).then((value) {

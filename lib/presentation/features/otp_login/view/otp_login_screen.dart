@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
 import '../../../../core/utils/validator.dart';
-import '../../../res/string_constants.dart';
 import '../../../res/styles.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -76,15 +77,15 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Text(
-                StringsConstants.mobileVerification,
-                style: Theme.of(context).textTheme.headline2,
+                Localization.value.mobileVerification,
+                style: ThemeProvider.textTheme.headline2,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                StringsConstants.mobileVerificationDesc,
-                style: Theme.of(context).textTheme.bodyText2,
+                Localization.value.mobileVerificationDesc,
+                style: ThemeProvider.textTheme.bodyText2,
               ),
               const SizedBox(
                 height: 20,
@@ -93,10 +94,10 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 children: <Widget>[
                   InkWell(
                     child: Text(
-                      StringsConstants.changeNumber,
-                      style: Theme.of(context).textTheme.caption?.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                      Localization.value.changeNumber,
+                      style: ThemeProvider.textTheme.caption?.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                     onTap: () {
                       NavigationHandler.pop(true);
@@ -109,7 +110,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               ),
               CustomTextField(
                 textEditingController: otpNumberController,
-                hint: StringsConstants.enterOtp,
+                hint: Localization.value.enterOtp,
                 validator: validator.validate6DigitCode,
                 keyboardType: TextInputType.phone,
               ),
@@ -125,7 +126,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 },
                 builder: (BuildContext context, OtpLoginState state) {
                   return CommonButton(
-                    title: StringsConstants.confirmOtp,
+                    title: Localization.value.confirmOtp,
                     height: 50,
                     isEnabled: state.isButtonEnabled,
                     replaceWithIndicator: state.confirmOtpLoading,
@@ -148,10 +149,10 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                       viewModel.sendOtp(widget.phoneNumber!);
                     },
                     child: Text(
-                      StringsConstants.resendOtp,
-                      style: Theme.of(context).textTheme.caption?.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                      Localization.value.resendOtp,
+                      style: ThemeProvider.textTheme.caption?.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   );
                 },
@@ -161,10 +162,10 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               ),
               InkWell(
                 child: Text(
-                  StringsConstants.goBack,
-                  style: Theme.of(context).textTheme.caption?.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
+                  Localization.value.goBack,
+                  style: ThemeProvider.textTheme.caption?.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
                 ),
                 onTap: () {
                   NavigationHandler.pop();

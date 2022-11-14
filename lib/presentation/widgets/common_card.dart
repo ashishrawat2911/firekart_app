@@ -36,7 +36,7 @@ class CommonCard extends StatelessWidget {
             BoxShadow(
               color: Colors.grey.withOpacity(0.1),
               //  spreadRadius: elevation ??
-              //  Theme.of(context).cardTheme.elevation,
+              //  ThemeProvider.cardTheme.elevation,
               spreadRadius: elevation ?? 0.1,
               blurRadius: 7,
               offset: const Offset(0, 3), // changes position of shadow
