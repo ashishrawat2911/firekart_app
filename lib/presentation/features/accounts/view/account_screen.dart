@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
+import '../../../../core/theme/theme_provider.dart';
 import '../../../../di/di.dart';
 import '../../../../domain/models/account_details_model.dart';
 import '../../../../domain/usecases/logout_usecase.dart';
@@ -51,11 +51,11 @@ class _AccountScreenState extends State<AccountScreen> {
                         children: <Widget>[
                           Text(
                             accountDetails!.name,
-                            style: Theme.of(context).textTheme.headline1,
+                            style: ThemeProvider.textTheme.headline1,
                           ),
                           Text(
                             accountDetails!.phoneNumber ?? '',
-                            style: Theme.of(context).textTheme.caption,
+                            style: ThemeProvider.textTheme.caption,
                           ),
                         ],
                       ),
@@ -76,7 +76,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ListTile(
                 title: Text(
                   Localization.value.myOrders,
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: ThemeProvider.textTheme.bodyText2,
                 ),
                 leading: const Icon(Icons.shopping_basket),
                 onTap: () {
@@ -85,7 +85,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               ListTile(
                 title: Text(Localization.value.myAddress,
-                    style: Theme.of(context).textTheme.bodyText2),
+                    style: ThemeProvider.textTheme.bodyText2),
                 leading: const Icon(Icons.place),
                 onTap: () {
                   NavigationHandler.navigateTo(MyAddressScreenRoute());
@@ -94,7 +94,7 @@ class _AccountScreenState extends State<AccountScreen> {
               const Divider(),
               ListTile(
                 title: Text(Localization.value.logout,
-                    style: Theme.of(context).textTheme.bodyText2),
+                    style: ThemeProvider.textTheme.bodyText2),
                 leading: const Icon(Icons.exit_to_app),
                 onTap: () {
                   inject<LogoutUseCase>().execute().then((value) {

@@ -4,6 +4,7 @@ import 'package:fluttercommerce/app/state/app_state.dart';
 import 'package:fluttercommerce/app/view_model/app_view_model.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/routes/navigation_handler.dart';
 
 import '../core/message_handler/message_handler.dart';
@@ -19,6 +20,7 @@ class App extends StatelessWidget {
         return MaterialApp.router(
           builder: (context, child) {
             Localization.setup(context);
+            ThemeProvider.setup(context);
             return child!;
           },
           locale: state.locale,

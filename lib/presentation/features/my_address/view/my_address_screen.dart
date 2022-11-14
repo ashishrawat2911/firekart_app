@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/account_details_model.dart';
@@ -72,7 +73,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 children: [
                   Text(
                     "${accountDetails.addresses.length} ${Localization.value.savedAddresses}",
-                    style: Theme.of(context).textTheme.overline,
+                    style: ThemeProvider.textTheme.overline,
                   ),
                   ActionText(
                     Localization.value.addNewCaps,
@@ -122,7 +123,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
           Expanded(
               child: Text(
             text,
-            style: Theme.of(context).textTheme.button,
+            style: ThemeProvider.textTheme.button,
           ))
         ],
       );
@@ -145,7 +146,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                     children: <Widget>[
                       Text(
                         addressCardState.address.name,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: ThemeProvider.textTheme.bodyText1,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 20),
@@ -158,7 +159,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                             borderRadius: BorderRadius.circular(4)),
                         child: Text(
                           Localization.value.defaultCaps,
-                          style: Theme.of(context).textTheme.overline?.copyWith(
+                          style: ThemeProvider.textTheme.overline?.copyWith(
                                 color: AppColors.white,
                               ),
                         ),
@@ -248,7 +249,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
         children: <Widget>[
           Text(
             "No Address Found",
-            style: Theme.of(context).textTheme.headline3,
+            style: ThemeProvider.textTheme.headline3,
           ),
           const SizedBox(
             height: 20,
