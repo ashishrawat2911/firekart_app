@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../res/app_colors.dart';
-import '../res/string_constants.dart';
 import 'action_text.dart';
 import 'common_app_loader.dart';
 

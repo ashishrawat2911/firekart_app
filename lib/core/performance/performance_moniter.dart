@@ -18,5 +18,4 @@ abstract class PerformanceMonitor {
     String eventName, {
     Map<String, dynamic>? properties,
   });
-
 }

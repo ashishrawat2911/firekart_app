@@ -7,7 +7,6 @@ import 'package:shimmer/shimmer.dart';
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
@@ -50,8 +49,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             label: Text(
               Localization.value.viewAllProducts,
               style: ThemeProvider.textTheme.overline?.copyWith(
-                    color: AppColors.white,
-                  ),
+                color: AppColors.white,
+              ),
             )),
         body: RefreshIndicator(
           onRefresh: () => fetchProductData(viewModel),

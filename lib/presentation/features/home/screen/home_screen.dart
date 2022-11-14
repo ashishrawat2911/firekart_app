@@ -5,7 +5,6 @@ import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_s
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../accounts/view/account_screen.dart';
 import '../../cart/view/cart_screen.dart';
 import '../../search/view/search_screen.dart';
@@ -34,10 +33,12 @@ class HomeScreen extends StatelessWidget {
             // showSelectedLabels: true,
             // showUnselectedLabels: true,
             items: [
-               BottomNavigationBarItem(
-                  icon: const Icon(Icons.home), label: (Localization.value.home)),
-               BottomNavigationBarItem(
-                  icon: const Icon(Icons.search), label: (Localization.value.search)),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.home),
+                  label: (Localization.value.home)),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.search),
+                  label: (Localization.value.search)),
               BottomNavigationBarItem(
                   icon: Stack(
                     children: <Widget>[
@@ -63,8 +64,9 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   label: (Localization.value.cart)),
-               BottomNavigationBarItem(
-                  icon: const Icon(Icons.person), label: (Localization.value.account)),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.person),
+                  label: (Localization.value.account)),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,
