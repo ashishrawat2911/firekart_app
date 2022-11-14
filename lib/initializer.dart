@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/app.dart';
+import 'package:fluttercommerce/app/app.dart';
 
 import 'core/logger/app_logger.dart';
 import 'core/services/crashlytics_service.dart';

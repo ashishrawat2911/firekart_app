@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddAddressState {
   bool get buttonLoading => throw _privateConstructorUsedError;
+
   bool get setAsDefault => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,6 +30,7 @@ abstract class $AddAddressStateCopyWith<$Res> {
   factory $AddAddressStateCopyWith(
           AddAddressState value, $Res Function(AddAddressState) then) =
       _$AddAddressStateCopyWithImpl<$Res, AddAddressState>;
+
   @useResult
   $Res call({bool buttonLoading, bool setAsDefault});
 }
@@ -40,6 +42,7 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -68,6 +71,7 @@ abstract class _$$_AddAddressStateCopyWith<$Res>
   factory _$$_AddAddressStateCopyWith(
           _$_AddAddressState value, $Res Function(_$_AddAddressState) then) =
       __$$_AddAddressStateCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({bool buttonLoading, bool setAsDefault});
@@ -145,8 +149,10 @@ abstract class _AddAddressState implements AddAddressState {
 
   @override
   bool get buttonLoading;
+
   @override
   bool get setAsDefault;
+
   @override
   @JsonKey(ignore: true)
   _$$_AddAddressStateCopyWith<_$_AddAddressState> get copyWith =>

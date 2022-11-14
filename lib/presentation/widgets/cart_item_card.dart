@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
 
 import '../res/app_colors.dart';
-import '../res/string_constants.dart';
 import 'action_text.dart';
 import 'common_app_loader.dart';
 
@@ -105,7 +105,7 @@ class CartItemCard extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ActionText(
-                          StringsConstants.deleteCaps,
+                          Localization.value.deleteCaps,
                           onTap: () {
                             cartItemCardArgs.onDeleted(cartItemCardArgs.index);
                           },

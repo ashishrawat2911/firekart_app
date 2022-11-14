@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_screen.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../accounts/view/account_screen.dart';
 import '../../cart/view/cart_screen.dart';
 import '../../search/view/search_screen.dart';
@@ -29,16 +30,15 @@ class HomeScreen extends StatelessWidget {
           ][state.bottomIndex],
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            //  backgroundColor: AppColors.primaryColor,
-            unselectedItemColor: AppColors.color4C4C6F,
-            selectedItemColor: AppColors.primaryColor,
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
+            // showSelectedLabels: true,
+            // showUnselectedLabels: true,
             items: [
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.home), label: (StringsConstants.home)),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: (StringsConstants.search)),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.home),
+                  label: (Localization.value.home)),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.search),
+                  label: (Localization.value.search)),
               BottomNavigationBarItem(
                   icon: Stack(
                     children: <Widget>[
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                               backgroundColor: AppColors.color6EBA49,
                               child: Text(
                                 "${state.noOfItemsInCart}",
-                                style: Theme.of(context).textTheme.overline,
+                                style: ThemeProvider.textTheme.overline,
                               ),
                             ),
                           ),
@@ -63,9 +63,10 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  label: (StringsConstants.cart)),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: (StringsConstants.account)),
+                  label: (Localization.value.cart)),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.person),
+                  label: (Localization.value.account)),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,

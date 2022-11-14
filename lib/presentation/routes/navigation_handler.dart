@@ -43,7 +43,7 @@ class NavigationHandler {
     await perfMonitor.startScreenEvent(route.path, properties: {
       "args": route.args.toString(),
     });
-    final navigation =  getNavigation();
+    final navigation = getNavigation();
     await perfMonitor.endScreenEvent(route.path, properties: {
       "args": route.args.toString(),
     });

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../res/app_colors.dart';
 
@@ -32,7 +33,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
           textInputAction: TextInputAction.search,
           onSubmitted: widget.onSubmitted,
           onChanged: widget.onChanged,
-          style: Theme.of(context).textTheme.overline,
+          style: ThemeProvider.textTheme.overline,
           decoration: InputDecoration(
               hintText: widget.hint,
               contentPadding: const EdgeInsets.only(top: 25),
@@ -45,7 +46,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
               ),
               fillColor: AppColors.white,
               filled: true,
-              hintStyle: Theme.of(context).textTheme.subtitle1,
+              hintStyle: ThemeProvider.textTheme.subtitle1,
               focusColor: AppColors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -139,7 +140,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
                     })),
             fillColor: AppColors.white,
             filled: true,
-            hintStyle: Theme.of(context).textTheme.subtitle1,
+            hintStyle: ThemeProvider.textTheme.subtitle1,
             focusColor: AppColors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
