@@ -6,7 +6,6 @@ import '../../../../core/localization/localization.dart';
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/product_model.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -73,9 +72,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       children: <Widget>[
                         Text(
                           "${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}",
-                          style: ThemeProvider
-                              .textTheme
-                              .overline
+                          style: ThemeProvider.textTheme.overline
                               ?.copyWith(fontSize: 16),
                         ),
                         const SizedBox(
@@ -159,8 +156,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           child: Text(
             Localization.value.add,
             style: ThemeProvider.textTheme.button?.copyWith(
-                  color: AppColors.primaryColor,
-                ),
+              color: AppColors.primaryColor,
+            ),
           ),
         ),
       ),

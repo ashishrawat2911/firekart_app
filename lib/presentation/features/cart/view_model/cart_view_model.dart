@@ -13,7 +13,6 @@ import '../../../../domain/models/order_model.dart';
 import '../../../../domain/usecases/add_product_to_cart_usecase.dart';
 import '../../../../domain/usecases/delete_product_from_cart_usecase.dart';
 import '../../../../domain/usecases/get_cart_status_use_case.dart';
-import '../../../res/string_constants.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/cart_state.dart';

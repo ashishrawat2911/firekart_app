@@ -74,9 +74,7 @@ class ProductCard extends StatelessWidget {
                       ),
                       Text(
                         "${productCardArgs.currency}${productCardArgs.actualPrice}",
-                        style: ThemeProvider
-                            .textTheme
-                            .button
+                        style: ThemeProvider.textTheme.button
                             ?.copyWith(decoration: TextDecoration.lineThrough),
                       ),
                     ],

@@ -9,7 +9,6 @@ class Localization {
   }
 
   static AppLocalizations get value {
-
     return AppLocalizations.of(_context)!;
   }
 }

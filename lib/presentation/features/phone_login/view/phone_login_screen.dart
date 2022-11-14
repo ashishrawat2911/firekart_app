@@ -6,7 +6,6 @@ import 'package:fluttercommerce/core/state_manager/base_view.dart';
 import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/utils/validator.dart';
-import '../../../res/string_constants.dart';
 import '../../../res/styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';

@@ -8,7 +8,6 @@ import '../../../../core/state/result_state.dart';
 import '../../../../core/utils/date_time_util.dart';
 import '../../../../domain/models/order_model.dart';
 import '../../../res/app_colors.dart';
-import '../../../res/string_constants.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/result_api_builder.dart';
 import '../view_model/my_orders_cubit.dart';
@@ -32,7 +31,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(Localization.value.myOrders),
+        title: Text(Localization.value.myOrders),
       ),
       body: BaseView<MyOrdersCubit, ResultState<List<Order>>>(
         onViewModelReady: (viewModel) {
