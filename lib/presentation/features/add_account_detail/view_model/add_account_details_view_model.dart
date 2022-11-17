@@ -28,32 +28,33 @@ class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
   final Validator _validator = Validator();
 
   void validateButton(String name) {
-    if (_validator.validateName(name) == null) {
-      state = (const ButtonEnabled());
-    } else {
-      state = (const ButtonDisabled());
-    }
+    state = _validator.validateName(name) == null
+        ? const ButtonEnabled()
+        : const ButtonDisabled();
   }
 
   Future<void> loadPreviousData() async {
-    state = (const AddAccountDetailsState.loading());
-    final AccountDetails accountDetails =
-        await _getAccountDetailsUseCase.execute();
-    state = (AddAccountDetailsState.editData(accountDetails));
+    state = const AddAccountDetailsState.loading();
+    final accountDetails = await _getAccountDetailsUseCase.execute();
+    state = AddAccountDetailsState.editData(accountDetails);
     validateButton(accountDetails.name);
   }
 
   Future<void> saveData(String name, {bool isEdit = false}) async {
-    final AccountDetails accountDetails = AccountDetails(
-        name: name, phoneNumber: _getCurrentUserPhoneNumberUseCase.execute());
+    final accountDetails = AccountDetails(
+      name: name,
+      phoneNumber: _getCurrentUserPhoneNumberUseCase.execute(),
+    );
 
-    state = (const AddAccountDetailsState.saveDataLoading());
+    state = const AddAccountDetailsState.saveDataLoading();
     await _setAccountDetailsUseCase.execute(accountDetails);
     await _setProfileUserDataUseCase.execute(displayName: accountDetails.name);
 
     if (isEdit) {
-      NavigationHandler.navigateTo(const HomeScreenRoute(),
-          navigationType: NavigationType.pushReplacement);
+      await NavigationHandler.navigateTo<void>(
+        const HomeScreenRoute(),
+        navigationType: NavigationType.pushReplacement,
+      );
     } else {
       NavigationHandler.pop();
     }

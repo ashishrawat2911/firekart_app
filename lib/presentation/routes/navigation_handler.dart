@@ -20,7 +20,7 @@ class NavigationHandler {
 
   static RouterDelegate<Object> get routerDelegate => _appRouter.delegate();
 
-  static Future<dynamic> navigateTo(
+  static Future<T> navigateTo<T>(
     PageRouteInfo route, {
     NavigationType navigationType = NavigationType.push,
   }) async {

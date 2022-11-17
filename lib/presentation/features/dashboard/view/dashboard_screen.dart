@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/theme/theme_provider.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
+import 'package:fluttercommerce/presentation/res/colors.gen.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/state/result_state.dart';

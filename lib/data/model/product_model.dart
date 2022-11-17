@@ -39,7 +39,7 @@ class ProductModel {
       this.isProductAvailable,
       this.nameSearch);
 
-  factory ProductModel.fromJson(json) => _$ProductModelFromJson(json);
+  factory ProductModel.fromJson(Map<String, dynamic> json) => _$ProductModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 

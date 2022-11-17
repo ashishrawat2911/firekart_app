@@ -19,7 +19,7 @@ class AppConfiguration {
     final configJsonString =
         await rootBundle.loadString("assets/configs/$name");
 
-    final Map<String, dynamic> configJson = json.decode(configJsonString);
+    final configJson = json.decode(configJsonString) as Map<String, dynamic>;
 
     if (category == null || category.isEmpty) {
       category = _globConfig;

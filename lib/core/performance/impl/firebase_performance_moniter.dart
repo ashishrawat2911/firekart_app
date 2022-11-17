@@ -13,9 +13,9 @@ class FirebasePerformanceMonitor extends PerformanceMonitor {
   @override
   Future<void> startEvent(
     String eventName, {
-    Map<String, dynamic>? properties,
+    Map<String, String>? properties,
   }) async {
-    Trace trace = performance.newTrace(eventName);
+    final trace = performance.newTrace(eventName);
     _traceKeys[eventName] = trace;
     await trace.start();
     properties?.forEach((key, value) {
@@ -26,9 +26,9 @@ class FirebasePerformanceMonitor extends PerformanceMonitor {
   @override
   Future<void> endEvent(
     String eventName, {
-    Map<String, dynamic>? properties,
+    Map<String, String>? properties,
   }) async {
-    Trace? trace = _traceKeys[eventName];
+    final trace = _traceKeys[eventName];
 
     if (trace == null) {
       throw "Event Never Started";
@@ -42,7 +42,7 @@ class FirebasePerformanceMonitor extends PerformanceMonitor {
   @override
   Future<void> endScreenEvent(
     String eventName, {
-    Map<String, dynamic>? properties,
+    Map<String, String>? properties,
   }) async {
     await endEvent(eventName, properties: properties);
   }
@@ -50,7 +50,7 @@ class FirebasePerformanceMonitor extends PerformanceMonitor {
   @override
   Future<void> startScreenEvent(
     String eventName, {
-    Map<String, dynamic>? properties,
+    Map<String, String>? properties,
   }) async {
     await startEvent(
       eventName,

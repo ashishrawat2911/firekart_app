@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttercommerce/presentation/res/fonts.gen.dart';
 
-import 'app_colors.dart';
-import 'font_family.dart';
+import 'colors.gen.dart';
 
 class AppTheme {
   AppTheme();
@@ -69,7 +69,7 @@ class AppTheme {
 
     return ThemeData(
       brightness: dark ? Brightness.dark : Brightness.light,
-      fontFamily: AppFonts.poppins,
+      fontFamily: FontFamily.poppins,
       primaryColor: AppColors.primaryColor,
       backgroundColor: dark ? AppColors.black : AppColors.white,
       scaffoldBackgroundColor: dark ? AppColors.black : AppColors.white,

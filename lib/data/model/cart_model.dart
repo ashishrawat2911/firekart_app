@@ -4,7 +4,7 @@ part 'cart_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class CartModel {
-  factory CartModel.fromJson(json) => _$CartModelFromJson(json);
+  factory CartModel.fromJson(Map<String, dynamic> json) => _$CartModelFromJson(json);
   String productId;
   String image;
   String name;

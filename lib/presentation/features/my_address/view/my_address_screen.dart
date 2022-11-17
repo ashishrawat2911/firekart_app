@@ -4,7 +4,7 @@ import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/state_manager/base_view.dart';
 import '../../../../domain/models/account_details_model.dart';
-import '../../../res/app_colors.dart';
+import '../../../res/colors.gen.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';

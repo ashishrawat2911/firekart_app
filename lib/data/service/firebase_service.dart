@@ -61,7 +61,7 @@ class FirebaseService {
       )
           .then((value) {
         return true;
-      }).catchError((e) {
+      }).catchError((Exception e) {
         return false;
       });
     } on PlatformException {
@@ -81,7 +81,9 @@ class FirebaseService {
   Future<List<OrderModel>> getAllOrders() async {
     final query = _orderCollection.orderBy("ordered_at", descending: true);
     final documentList = (await query.get()).docs;
-    return documentList.map((e) => OrderModel.fromJson(e.data())).toList();
+    return documentList
+        .map((e) => OrderModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
   }
 
   Future<List<ProductModel>> searchProducts(String query) async {
@@ -90,14 +92,16 @@ class FirebaseService {
             .where("name_search", arrayContains: query)
             .get())
         .docs;
-    return documentList.mapToList((e) => ProductModel.fromJson(e.data()));
+    return documentList.mapToList(
+        (e) => ProductModel.fromJson(e.data() as Map<String, dynamic>));
   }
 
   Future<List<ProductModel>> getProductsData(String condition) async {
     final List<DocumentSnapshot> docList =
         (await _productCollection.where(condition, isEqualTo: true).get()).docs;
     return List.generate(docList.length, (index) {
-      return ProductModel.fromJson(docList[index].data());
+      return ProductModel.fromJson(
+          docList[index].data() as Map<String, dynamic>);
     });
   }
 
@@ -113,12 +117,12 @@ class FirebaseService {
                 .where(condition, isEqualTo: true)
                 .get())
             .docs
-            .map((e) => ProductModel.fromJson(e.data()))
+            .map((e) => ProductModel.fromJson(e.data() as Map<String, dynamic>))
             .toList();
       } else {
         return (await _productCollection.get())
             .docs
-            .map((e) => ProductModel.fromJson(e.data()))
+            .map((e) => ProductModel.fromJson(e.data() as Map<String, dynamic>))
             .toList();
       }
     }
@@ -128,7 +132,9 @@ class FirebaseService {
     }
 
     documentList = (await query.get()).docs;
-    return documentList.map((e) => ProductModel.fromJson(e.data())).toList();
+    return documentList
+        .map((e) => ProductModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
   }
 
   Future<List<DocumentSnapshot>> getAllProductsData(
@@ -141,7 +147,8 @@ class FirebaseService {
 
   Future<AccountDetailsModel> getAllFaq() async {
     final DocumentSnapshot document = await _accountDetailDoc.get();
-    return AccountDetailsModel.fromDocument(document.data());
+    return AccountDetailsModel.fromDocument(
+        document.data() as Map<String, dynamic>);
   }
 
   Future<int> checkItemInCart(String productId) async {
@@ -149,7 +156,8 @@ class FirebaseService {
       final DocumentSnapshot documentSnapshot =
           await _cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
-        final CartModel cartModel = CartModel.fromJson(documentSnapshot.data());
+        final CartModel cartModel =
+            CartModel.fromJson(documentSnapshot.data() as Map<String, dynamic>);
         return cartModel.numOfItems;
       } else {
         return 0;
@@ -186,18 +194,18 @@ class FirebaseService {
 
   Future<AccountDetailsModel> fetchUserDetails() async {
     return AccountDetailsModel.fromDocument(
-        (await _accountDetailDoc.get()).data());
+        (await _accountDetailDoc.get()).data() as Map<String, dynamic>);
   }
 
   Stream<AccountDetailsModel> streamUserDetails() {
-    return _accountDetailDoc
-        .snapshots()
-        .map((event) => AccountDetailsModel.fromDocument(event.data()));
+    return _accountDetailDoc.snapshots().map((event) =>
+        AccountDetailsModel.fromDocument(event.data() as Map<String, dynamic>));
   }
 
   Stream<List<CartModel>> cartStatusListen() {
-    return _cartCollection.snapshots().map((event) =>
-        event.docs.map((e) => CartModel.fromJson(e.data())).toList());
+    return _cartCollection.snapshots().map((event) => event.docs
+        .map((e) => CartModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList());
   }
 
   Future<void> placeOrder(OrderModel orderModel) async {
