@@ -7,5 +7,5 @@ import '../state/app_settings_state.dart';
 class AppSettingsViewModel extends ViewModel<AppSettingsState> {
   AppSettingsViewModel() : super(const AppSettingsState());
 
-  setLocale() {}
+  void setLocale() {}
 }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
 import 'package:fluttercommerce/core/theme/theme_provider.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
+import 'package:fluttercommerce/presentation/res/colors.gen.dart';
 
 import '../../../../core/utils/validator.dart';
 import '../../../res/styles.dart';

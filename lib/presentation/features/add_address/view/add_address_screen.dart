@@ -5,7 +5,7 @@ import '../../../../core/state_manager/base_view.dart';
 import '../../../../core/theme/theme_provider.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../domain/models/account_details_model.dart';
-import '../../../res/app_colors.dart';
+import '../../../res/colors.gen.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/add_address_state.dart';
@@ -13,7 +13,7 @@ import '../view_model/add_address_view_model.dart';
 
 class AddAddressScreen extends StatelessWidget {
   AddAddressScreen(this.newAddress, this.accountDetails,
-      {Key? key, this.editAddress})
+      {Key? key, this.editAddress,})
       : super(key: key);
   final bool newAddress;
   final AccountDetails accountDetails;
@@ -116,7 +116,7 @@ class AddAddressScreen extends StatelessWidget {
                       nextFocusNode: cityFocusNode,
                       validator: (val) {
                         if ((val ?? '').isEmpty) {
-                          return "Address is Required";
+                          return 'Address is Required';
                         } else {
                           return null;
                         }
@@ -136,7 +136,7 @@ class AddAddressScreen extends StatelessWidget {
                       textEditingController: cityEditingController,
                       focusNode: cityFocusNode,
                       nextFocusNode: stateFocusNode,
-                      validator: (val) => validator.validateText(val, "City"),
+                      validator: (val) => validator.validateText(val, 'City'),
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
@@ -152,7 +152,7 @@ class AddAddressScreen extends StatelessWidget {
                       textEditingController: stateEditingController,
                       focusNode: stateFocusNode,
                       nextFocusNode: phoneFocusNode,
-                      validator: (val) => validator.validateText(val, "State"),
+                      validator: (val) => validator.validateText(val, 'State'),
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
@@ -225,15 +225,16 @@ class AddAddressScreen extends StatelessWidget {
 
   void onButtonTap(AddAddressViewModel viewModel, AddAddressState state) {
     if (_formKey.currentState!.validate()) {
-      final Address address = Address(
-          name: nameEditingController.text,
-          address: addressEditingController.text,
-          city: cityEditingController.text,
-          isDefault: state.setAsDefault,
-          pincode: pincodeEditingController.text,
-          //todo add the country picker
-          phoneNumber: "+91${phoneEditingController.text}",
-          state: stateEditingController.text);
+      final address = Address(
+        name: nameEditingController.text,
+        address: addressEditingController.text,
+        city: cityEditingController.text,
+        isDefault: state.setAsDefault,
+        pincode: pincodeEditingController.text,
+        //todo add the country picker
+        phoneNumber: '+91${phoneEditingController.text}',
+        state: stateEditingController.text,
+      );
       viewModel.saveAddress(accountDetails, address);
     }
   }
