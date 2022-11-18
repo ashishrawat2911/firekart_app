@@ -1,20 +1,21 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../res/app_colors.dart';
+import '../res/colors.gen.dart';
 
-class CommonExpandedWidget extends StatefulWidget {
-  const CommonExpandedWidget(
-      {Key? key,
-      this.backgroundColor,
-      this.title,
-      this.titleStyle,
-      this.voidCallbackScroll,
-      this.children,
-      this.margin,
-      this.color})
-      : super(key: key);
+class CommonExpandableWidget extends StatefulWidget {
+  const CommonExpandableWidget({
+    Key? key,
+    this.backgroundColor,
+    this.title,
+    this.titleStyle,
+    this.voidCallbackScroll,
+    this.children,
+    this.margin,
+    this.color,
+  }) : super(key: key);
   final Color? backgroundColor;
   final String? title;
   final TextStyle? titleStyle;
@@ -24,10 +25,23 @@ class CommonExpandedWidget extends StatefulWidget {
   final Color? color;
 
   @override
-  State createState() => _CommonExpandedWidgetState();
+  State createState() => _CommonExpandableWidgetState();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(StringProperty('title', title))
+      ..add(DiagnosticsProperty<TextStyle?>('titleStyle', titleStyle))
+      ..add(DiagnosticsProperty<EdgeInsets?>('margin', margin))
+      ..add(ObjectFlagProperty<VoidCallback?>.has(
+          'voidCallbackScroll', voidCallbackScroll))
+      ..add(ColorProperty('color', color));
+  }
 }
 
-class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
+class _CommonExpandableWidgetState extends State<CommonExpandableWidget>
     with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController animationController;
@@ -37,35 +51,34 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
   void initState() {
     super.initState();
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
     animation = Tween(begin: 0.0, end: pi).animate(animationController);
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: widget.margin,
-      child: AnimatedCrossFade(
-        duration: const Duration(milliseconds: 100),
-        crossFadeState:
-            !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-        firstChild: topRow(),
-        secondChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            topRow(),
-            const SizedBox(
-              height: 23,
-            ),
-            ...?widget.children,
-          ],
+  Widget build(BuildContext context) => Container(
+        margin: widget.margin,
+        child: AnimatedCrossFade(
+          duration: const Duration(milliseconds: 100),
+          crossFadeState:
+              !isOpened ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          firstChild: topRow(),
+          secondChild: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              topRow(),
+              const SizedBox(
+                height: 23,
+              ),
+              ...?widget.children,
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 
-  GestureDetector topRow() {
-    return GestureDetector(
+  GestureDetector topRow() => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
           if (isOpened) {
@@ -105,6 +118,6 @@ class _CommonExpandedWidgetState extends State<CommonExpandedWidget>
               ),
             ],
           ),
-        ));
-  }
+        ),
+      );
 }

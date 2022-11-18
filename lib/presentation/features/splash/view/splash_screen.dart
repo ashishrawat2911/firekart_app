@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/presentation/res/assets.gen.dart';
 
 import '../../../../core/state_manager/base_view.dart';
-import '../../../res/app_assets.dart';
 import '../state/splash_state.dart';
 import '../view_model/splash_view_model.dart';
 
@@ -17,8 +17,7 @@ class SplashScreen extends StatelessWidget {
       builder: (context, viewModel, state) => Scaffold(
         //  backgroundColor: AppColors.backGroundColor,
         body: Center(
-          child: Image.asset(
-            AppAssets.logo,
+          child: AppAssets.images.appLogo.image(
             height: 245,
             width: 245,
           ),

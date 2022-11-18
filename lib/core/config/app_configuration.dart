@@ -3,13 +3,11 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 class AppConfiguration {
-  factory AppConfiguration() {
-    return _singleton;
-  }
+  factory AppConfiguration() => _singleton;
 
   AppConfiguration._internal();
 
-  static const _globConfig = "globConfig";
+  static const _globConfig = 'globConfig';
 
   static final _singleton = AppConfiguration._internal();
 
@@ -17,15 +15,16 @@ class AppConfiguration {
 
   Future<AppConfiguration> loadConfigs(String name, {String? category}) async {
     final configJsonString =
-        await rootBundle.loadString("assets/configs/$name");
+        await rootBundle.loadString('assets/configs/$name');
 
-    final Map<String, dynamic> configJson = json.decode(configJsonString);
+    final configJson = json.decode(configJsonString) as Map<String, dynamic>;
 
     if (category == null || category.isEmpty) {
       category = _globConfig;
     }
 
     if (_configs[category] == null) {
+      //ignore:avoid-dynamic
       _configs[category] = <String, dynamic>{};
     }
 

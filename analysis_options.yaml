@@ -1,13 +1,11 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  errors:
-    missing_required_param: warning
-    missing_return: error
-    todo: ignore
-    deprecated_member_use_from_same_package: ignore
-    sdk_version_async_exported_from_core: ignore
-    unnecessary_null_comparison: ignore
+  language:
+    strict-inference: true
+    strict-raw-types: true
+  plugins:
+    - dart_code_metrics
   exclude:
     - "bin/cache/**"
     - lib/**/*.g.dart
@@ -15,6 +13,191 @@ analyzer:
     - lib/**/*.freezed.dart
     - example/*
     - test/*
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    maintainability-index: 50
+    maximum-nesting: 5
+    number-of-parameters: 5
+    source-lines-of-code: 50
+    technical-debt:
+      threshold: 16
+      todo-cost: 4
+      ignore-cost: 8
+      ignore-for-file-cost: 16
+      as-dynamic-cost: 16
+      deprecated-annotations-cost: 2
+      file-nullsafety-migration-cost: 2
+      unit-type: "hours"
+  metrics-exclude:
+    - test/**
+    - "bin/cache/**"
+    - lib/**/*.g.dart
+    - lib/**/*.gr.dart
+    - lib/**/*.freezed.dart
+    - example/*
+  rules:
+    - avoid-collection-methods-with-unrelated-types
+    - avoid-dynamic:
+        exclude:
+          - test/**
+    - avoid-global-state
+#    - avoid-late-keyword:
+#        exclude:
+#          - test/**
+    - avoid-missing-enum-constant-in-map
+    - avoid-unnecessary-type-assertions
+#    - avoid-unnecessary-type-casts
+    - avoid-unused-parameters
+    - binary-expression-operand-order
+    - double-literal-format
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-empty-block
+    - no-equal-then-else
+    - no-object-declaration
+    - prefer-async-await
+    - prefer-conditional-expressions
+    - prefer-correct-identifier-length:
+        exceptions:
+          - id
+          - ok
+    - prefer-correct-type-name:
+        max-length: 44
+    - prefer-first
+    - prefer-last
+    - prefer-match-file-name:
+        exclude:
+          - test/**
+    - prefer-moving-to-variable:
+        exclude:
+          - test/**
+    - prefer-trailing-comma
+
 
 linter:
   rules:
+    - always_declare_return_types
+    - always_put_control_body_on_new_line
+    #    - always_put_required_named_parameters_first
+    #    - always_specify_types
+    #    - always_use_package_imports
+    - avoid_annotating_with_dynamic
+    - avoid_bool_literals_in_conditional_expressions
+    - avoid_catches_without_on_clauses
+    - avoid_catching_errors
+    #   - avoid_classes_with_only_static_members
+    - avoid_double_and_int_checks
+    - avoid_dynamic_calls
+    - avoid_equals_and_hash_code_on_mutable_classes
+    - avoid_escaping_inner_quotes
+    - avoid_field_initializers_in_const_classes
+    - avoid_final_parameters
+    - avoid_implementing_value_types
+    - avoid_js_rounded_ints
+    - avoid_multiple_declarations_per_line
+    - avoid_positional_boolean_parameters
+    #    - avoid_print
+    - avoid_private_typedef_functions
+    #    - avoid_redundant_argument_values
+    - avoid_returning_null
+    - avoid_returning_null_for_future
+    - avoid_returning_this
+    - avoid_setters_without_getters
+    - avoid_slow_async_io
+    - avoid_type_to_string
+    - avoid_types_on_closure_parameters
+    - avoid_unnecessary_containers
+    - avoid_unused_constructor_parameters
+    - avoid_void_async
+    - avoid_web_libraries_in_flutter
+    - cancel_subscriptions
+    - cascade_invocations
+    #    - cast_nullable_to_non_nullable
+    - close_sinks
+    - comment_references
+    - conditional_uri_does_not_exist
+    - deprecated_consistency
+    - diagnostic_describe_all_properties
+    - directives_ordering
+    - do_not_use_environment
+    - eol_at_end_of_file
+    - flutter_style_todos
+    # - invariant_booleans
+    - join_return_with_assignment
+    - leading_newlines_in_multiline_strings
+    #    - lines_longer_than_80_chars
+    - literal_only_boolean_expressions
+    - missing_whitespace_between_adjacent_strings
+    #    - no_adjacent_strings_in_list
+    - no_default_cases
+    - no_logic_in_create_state
+    - no_runtimeType_toString
+    - noop_primitive_operations
+    - omit_local_variable_types
+    #    - one_member_abstracts
+    - only_throw_errors
+    - package_api_docs
+    - parameter_assignments
+    - prefer_asserts_in_initializer_lists
+    - prefer_asserts_with_message
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - prefer_constructors_over_static_methods
+    #    - prefer_double_quotes
+    - prefer_expression_function_bodies
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    #    - prefer_final_parameters
+    - prefer_foreach
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_int_literals
+    - prefer_mixin
+    - prefer_null_aware_method_calls
+    - prefer_relative_imports
+    - prefer_single_quotes
+    #    - public_member_api_docs
+    #    - require_trailing_commas
+    - secure_pubspec_urls
+    #    - sized_box_for_whitespace
+    #    - sized_box_shrink_expand
+    #    - sort_child_properties_last
+    #    - sort_constructors_first
+    - sort_pub_dependencies
+    - sort_unnamed_constructors_first
+    - test_types_in_equals
+    - throw_in_finally
+    - tighten_type_of_initializing_formals
+    - type_annotate_public_apis
+    - unawaited_futures
+    - unnecessary_await_in_return
+    #    - unnecessary_final
+    - unnecessary_lambdas
+    - unnecessary_null_checks
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    - unnecessary_statements
+    - unsafe_html
+    #    - use_build_context_synchronously
+    #    - use_decorated_box
+    #    - use_full_hex_values_for_flutter_colors
+    - use_if_null_to_convert_nulls_to_bools
+    - use_is_even_rather_than_modulo
+    - use_key_in_widget_constructors
+    - use_late_for_private_fields_and_variables
+    - use_named_constants
+    - use_raw_strings
+    - use_setters_to_change_properties
+    - use_string_buffers
+    - use_super_parameters
+    - use_test_throws_matchers
+    - use_to_and_as_if_applicable

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/theme/theme_provider.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
+import 'package:fluttercommerce/presentation/res/colors.gen.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/state/result_state.dart';
@@ -11,7 +11,7 @@ import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/product_card.dart';
-import '../../../widgets/result_api_builder.dart';
+import '../../../widgets/result_state_builder.dart';
 import '../state/dashboard_state.dart';
 import '../view_model/dashboard_view_model.dart';
 
@@ -30,88 +30,83 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return BaseView<DashboardViewModel, DashboardState>(
-      onViewModelReady: (viewModel) {
-        fetchProductData(viewModel);
-      },
-      builder: (context, viewModel, state) => Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            Localization.value.products,
+  Widget build(BuildContext context) =>
+      BaseView<DashboardViewModel, DashboardState>(
+        onViewModelReady: (viewModel) {
+          fetchProductData(viewModel);
+        },
+        builder: (context, viewModel, state) => Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text(
+              Localization.value.products,
+            ),
           ),
-        ),
-        floatingActionButton: FloatingActionButton.extended(
+          floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
-              NavigationHandler.navigateTo(AllProductListScreenRoute());
+              NavigationHandler.navigateTo<void>(AllProductListScreenRoute());
             },
             label: Text(
               Localization.value.viewAllProducts,
               style: ThemeProvider.textTheme.overline?.copyWith(
                 color: AppColors.white,
               ),
-            )),
-        body: RefreshIndicator(
-          onRefresh: () => fetchProductData(viewModel),
-          child: SingleChildScrollView(
-            physics: const AlwaysScrollableScrollPhysics(),
-            child: Column(
-              children: <Widget>[
-                const SizedBox(
-                  height: 20,
-                ),
-                productDataBuilder(
-                    state.dealOfTheDay, Localization.value.dealOfTheDay),
-                productDataBuilder(state.onSale, Localization.value.onSale),
-                productDataBuilder(
-                    state.topProducts, Localization.value.topProducts),
-                const SizedBox(
-                  height: 20,
-                )
-              ],
+            ),
+          ),
+          body: RefreshIndicator(
+            onRefresh: () => fetchProductData(viewModel),
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                children: <Widget>[
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  productDataBuilder(
+                      state.dealOfTheDay, Localization.value.dealOfTheDay),
+                  productDataBuilder(state.onSale, Localization.value.onSale),
+                  productDataBuilder(
+                      state.topProducts, Localization.value.topProducts),
+                  const SizedBox(
+                    height: 20,
+                  )
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
 
   Widget productDataBuilder(
-      ResultState<List<Product>> resultState, String title) {
-    return ResultStateBuilder(
-      state: resultState,
-      errorWidget: (String error) => Column(
-        children: <Widget>[
-          Center(child: Text(error)),
-        ],
-      ),
-      dataWidget: (List<Product> value) {
-        return productsGrids(title, value);
-      },
-      loadingWidget: (bool isReloading) => productLoader(),
-    );
-  }
+          ResultState<List<Product>> resultState, String title) =>
+      ResultStateBuilder(
+        state: resultState,
+        errorWidget: (String error) => Column(
+          children: <Widget>[
+            Center(child: Text(error)),
+          ],
+        ),
+        dataWidget: (List<Product> value) => productsGrids(title, value),
+        loadingWidget: (bool isReloading) => productLoader(),
+      );
 
-  Shimmer productLoader() {
-    return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!,
-      highlightColor: Colors.grey[100]!,
-      enabled: true,
-      child: Container(
-        margin: const EdgeInsets.only(left: 10, right: 10),
-        child: GridView.count(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.only(bottom: 10),
-          crossAxisCount: 3,
-          shrinkWrap: true,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.7,
-          crossAxisSpacing: 10,
-          children: List.generate(
-            6,
-            (index) {
-              return Card(
+  Shimmer productLoader() => Shimmer.fromColors(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[100]!,
+        enabled: true,
+        child: Container(
+          margin: const EdgeInsets.only(left: 10, right: 10),
+          child: GridView.count(
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.only(bottom: 10),
+            crossAxisCount: 3,
+            shrinkWrap: true,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.7,
+            crossAxisSpacing: 10,
+            children: List.generate(
+              6,
+              (index) => Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 child: Column(
@@ -159,13 +154,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     )
                   ],
                 ),
-              );
-            },
+              ),
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 
   Widget productsGrids(String title, List<Product> products) {
     // if (products == null) return Container();
@@ -185,22 +178,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 style: ThemeProvider.textTheme.headline2,
               ),
               Container(
-                  margin: const EdgeInsets.only(right: 16),
-                  child: ActionText(
-                    Localization.value.viewAllCaps,
-                    onTap: () {
-                      late String condition;
-                      if (title == Localization.value.dealOfTheDay) {
-                        condition = "deal_of_the_day";
-                      } else if (title == Localization.value.topProducts) {
-                        condition = "top_products";
-                      } else if (title == Localization.value.onSale) {
-                        condition = "on_sale";
-                      }
-                      NavigationHandler.navigateTo(AllProductListScreenRoute(
-                          productCondition: condition));
-                    },
-                  ))
+                margin: const EdgeInsets.only(right: 16),
+                child: ActionText(
+                  Localization.value.viewAllCaps,
+                  onTap: () {
+                    late String condition;
+                    if (title == Localization.value.dealOfTheDay) {
+                      condition = "deal_of_the_day";
+                    } else if (title == Localization.value.topProducts) {
+                      condition = "top_products";
+                    } else if (title == Localization.value.onSale) {
+                      condition = "on_sale";
+                    }
+                    NavigationHandler.navigateTo<void>(
+                      AllProductListScreenRoute(productCondition: condition),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
           const SizedBox(
@@ -227,22 +222,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  ProductCardArgs productModelToArgs(Product productModel) {
-    return ProductCardArgs(
-      image: productModel.image,
-      name: productModel.name,
-      currency: productModel.currency,
-      onTap: () {
-        NavigationHandler.navigateTo(
-          ProductDetailPageRoute(
-            product: productModel,
-          ),
-        );
-      },
-      actualPrice: productModel.actualPrice,
-      currentPrice: productModel.currentPrice,
-      quantityPerUnit: productModel.quantityPerUnit,
-      unit: productModel.unit,
-    );
-  }
+  ProductCardArgs productModelToArgs(Product productModel) => ProductCardArgs(
+        image: productModel.image,
+        name: productModel.name,
+        currency: productModel.currency,
+        onTap: () {
+          NavigationHandler.navigateTo<void>(
+            ProductDetailPageRoute(
+              product: productModel,
+            ),
+          );
+        },
+        actualPrice: productModel.actualPrice,
+        currentPrice: productModel.currentPrice,
+        quantityPerUnit: productModel.quantityPerUnit,
+        unit: productModel.unit,
+      );
 }

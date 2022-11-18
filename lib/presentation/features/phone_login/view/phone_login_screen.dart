@@ -148,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(OtpLoginScreenRoute(
+      NavigationHandler.navigateTo<bool?>(OtpLoginScreenRoute(
               phoneNumber:
                   phoneNumberNotifier.value + phoneNumberController.text))
           .then((value) {

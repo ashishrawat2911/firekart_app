@@ -30,7 +30,7 @@ class FirebaseDeepLink extends Deeplink {
 
   @override
   Future<String> createDeepLink(String path, Map<String, dynamic>? value,
-      {bool? short}) async {
+      {bool? short,}) async {
     final packageInfo = await PackageInfo.fromPlatform();
     var packageName = packageInfo.packageName;
     var appStoreId = "";

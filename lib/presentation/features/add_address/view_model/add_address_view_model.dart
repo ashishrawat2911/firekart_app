@@ -26,7 +26,7 @@ class AddAddressViewModel extends ViewModel<AddAddressState> {
     accountDetails.addresses.add(address);
     await _setAccountDetailsUseCase.execute(accountDetails).then((value) {
       NavigationHandler.pop(true);
-    }).catchError((e) {
+    }).catchError((Exception e) {
       MessageHandler.showSnackBar(title: e.toString());
     }).whenComplete(() {
       state = state.copyWith(buttonLoading: false);

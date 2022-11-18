@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/utils/validator.dart';
 import 'package:fluttercommerce/presentation/features/add_account_detail/state/add_account_details_state.dart'
-as account_details_state;
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
+    as account_details_state;
+import 'package:fluttercommerce/presentation/res/colors.gen.dart';
 
 import '../../../../core/state/result_state.dart';
 import '../../../../core/state_manager/base_view.dart';
@@ -21,16 +21,15 @@ class AddUserDetailScreen extends StatelessWidget {
   final bool newAddress;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 1,
-        title: Text(
-            "${newAddress ? Localization.value.add : Localization.value.edit} ${Localization.value.details}"),
-      ),
-      body: _SaveDataView(newAddress),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          elevation: 1,
+          title: Text(
+            '${newAddress ? Localization.value.add : Localization.value.edit} ${Localization.value.details}',
+          ),
+        ),
+        body: _SaveDataView(newAddress),
+      );
 }
 
 class _SaveDataView extends StatelessWidget {
@@ -47,85 +46,84 @@ class _SaveDataView extends StatelessWidget {
   final Validator validator = Validator();
 
   @override
-  Widget build(BuildContext context) {
-    return BaseView<AddAccountDetailsViewModel,
-        account_details_state.AddAccountDetailsState>(
-      onViewModelReady: (viewModel) {
-        if (!newAddress) {
-          viewModel.loadPreviousData();
-        }
-        nameEditingController.addListener(() {
-          viewModel.validateButton(nameEditingController.text);
-        });
-      },
-      stateListener: (context, state) {
-        if (state is account_details_state.EditData) {
-          nameEditingController.text = state.accountDetails.name;
-        }
-      },
-      builder: (context, viewModel, state) {
-        if (state is Loading) {
-          return const Center(child: CommonAppLoader());
-        }
-        return SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Container(
-              margin: const EdgeInsets.all(16),
-              child: Column(
-                children: <Widget>[
-                  Visibility(
-                    visible: !newAddress,
-                    child: Container(
-                      margin: const EdgeInsets.only(bottom: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          ActionText(Localization.value.manageAddress,
-                              onTap: () {
-                            NavigationHandler.navigateTo(
-                                MyAddressScreenRoute());
-                          }),
-                        ],
+  Widget build(BuildContext context) => BaseView<AddAccountDetailsViewModel,
+          account_details_state.AddAccountDetailsState>(
+        onViewModelReady: (viewModel) {
+          if (!newAddress) {
+            viewModel.loadPreviousData();
+          }
+          nameEditingController.addListener(() {
+            viewModel.validateButton(nameEditingController.text);
+          });
+        },
+        stateListener: (context, state) {
+          if (state is account_details_state.EditData) {
+            nameEditingController.text = state.accountDetails.name;
+          }
+        },
+        builder: (context, viewModel, state) {
+          if (state is Loading) {
+            return const Center(child: CommonAppLoader());
+          }
+
+          return SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Container(
+                margin: const EdgeInsets.all(16),
+                child: Column(
+                  children: <Widget>[
+                    Visibility(
+                      visible: !newAddress,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ActionText(Localization.value.manageAddress,
+                                onTap: () {
+                              NavigationHandler.navigateTo<void>(
+                                  MyAddressScreenRoute());
+                            }),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  CustomTextField(
-                    hint: "Enter Name",
-                    textEditingController: nameEditingController,
-                    focusNode: nameFocusNode,
-                    nextFocusNode: phoneFocusNode,
-                    validator: validator.validateName,
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    onSubmitted: (val) {
-                      FocusScope.of(context).requestFocus(phoneFocusNode);
-                    },
-                    // containerHeight: 50,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  CommonButton(
-                    title: newAddress ? "Add" : "Edit",
-                    titleColor: AppColors.white,
-                    height: 50,
-                    isEnabled: isButtonEnabled(state),
-                    replaceWithIndicator:
-                        state is account_details_state.SaveDataLoading,
-                    margin: const EdgeInsets.only(bottom: 40),
-                    onTap: () {
-                      onButtonTap(viewModel);
-                    },
-                  ),
-                ],
+                    CustomTextField(
+                      hint: 'Enter Name',
+                      textEditingController: nameEditingController,
+                      focusNode: nameFocusNode,
+                      nextFocusNode: phoneFocusNode,
+                      validator: validator.validateName,
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (val) {
+                        FocusScope.of(context).requestFocus(phoneFocusNode);
+                      },
+                      // containerHeight: 50,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    CommonButton(
+                      title: newAddress ? 'Add' : 'Edit',
+                      titleColor: AppColors.white,
+                      height: 50,
+                      isEnabled: isButtonEnabled(state),
+                      replaceWithIndicator:
+                          state is account_details_state.SaveDataLoading,
+                      margin: const EdgeInsets.only(bottom: 40),
+                      onTap: () {
+                        onButtonTap(viewModel);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
-    );
-  }
+          );
+        },
+      );
 
   void onButtonTap(AddAccountDetailsViewModel viewModel) {
     if (_formKey.currentState!.validate()) {
@@ -133,13 +131,6 @@ class _SaveDataView extends StatelessWidget {
     }
   }
 
-  bool isButtonEnabled(account_details_state.AddAccountDetailsState state) {
-    if (state is account_details_state.ButtonEnabled) {
-      return true;
-    } else if (state is account_details_state.ButtonDisabled) {
-      return false;
-    } else {
-      return false;
-    }
-  }
+  bool isButtonEnabled(account_details_state.AddAccountDetailsState state) =>
+      state is account_details_state.ButtonEnabled;
 }

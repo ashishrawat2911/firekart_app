@@ -7,7 +7,7 @@ class AppDeeplink extends Deeplink {
 
   @override
   Future<String> createDeepLink(String path, Map<String, dynamic>? value,
-      {bool? short}) {
+      {bool? short,}) {
     throw UnimplementedError();
   }
 
