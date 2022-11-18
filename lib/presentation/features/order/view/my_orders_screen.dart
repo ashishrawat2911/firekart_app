@@ -9,7 +9,7 @@ import '../../../../core/utils/date_time_util.dart';
 import '../../../../domain/models/order_model.dart';
 import '../../../res/colors.gen.dart';
 import '../../../widgets/common_app_loader.dart';
-import '../../../widgets/result_api_builder.dart';
+import '../../../widgets/result_state_builder.dart';
 import '../view_model/my_orders_cubit.dart';
 
 class MyOrdersScreen extends StatefulWidget {

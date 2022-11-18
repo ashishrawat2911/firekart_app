@@ -10,14 +10,14 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => OrderModel(
       json['order_id'] as String,
       json['price'] as num,
       (json['order_items'] as List<dynamic>)
-          .map((e) => OrderItemModel.fromJson(e))
+          .map((e) => OrderItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['ordered_at'] as String,
       json['order_status'] as String,
       json['currency'] as String,
       json['payment_id'] as String,
       json['signature'] as String,
-      AddressModel.fromJson(json['order_address']),
+      AddressModel.fromJson(json['order_address'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>

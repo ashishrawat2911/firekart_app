@@ -8,7 +8,7 @@ import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/product_card.dart';
-import '../../../widgets/result_api_builder.dart';
+import '../../../widgets/result_state_builder.dart';
 import '../view_model/all_product_cubit.dart';
 
 class AllProductListScreen extends StatefulWidget {
@@ -41,7 +41,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           actions: <Widget>[
             InkWell(
               onTap: () {
-                NavigationHandler.navigateTo(const SearchItemScreenRoute());
+                NavigationHandler.navigateTo<void>(const SearchItemScreenRoute());
               },
               child: const Padding(
                 padding: EdgeInsets.all(16.0),
@@ -91,7 +91,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       name: productModel.name,
       currency: productModel.currency,
       onTap: () {
-        NavigationHandler.navigateTo(
+        NavigationHandler.navigateTo<void>(
           ProductDetailPageRoute(
             product: productModel,
           ),

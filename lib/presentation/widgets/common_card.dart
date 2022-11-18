@@ -11,7 +11,7 @@ class CommonCard extends StatelessWidget {
       this.elevation,
       this.padding,
       this.onTap,
-      this.color})
+      this.color,})
       : super(key: key);
   final Widget child;
   final EdgeInsets? margin;

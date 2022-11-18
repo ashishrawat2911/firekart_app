@@ -216,7 +216,7 @@ class _$_CartState implements _CartState {
       this.orderInProgress = false,
       this.cartError,
       this.deleteCartError,
-      final List<Cart> cartList = const [],
+      final List<Cart> cartList = const <Cart>[],
       this.selectedAddress,
       this.cartItemDataLoading = const CartDataLoading()})
       : _cartList = cartList;

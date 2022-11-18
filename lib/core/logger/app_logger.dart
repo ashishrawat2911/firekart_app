@@ -2,20 +2,12 @@ import 'package:logger/logger.dart';
 
 var _logger = Logger();
 
-enum LogType {
-  verbose,
-  debug,
-  info,
-  warning,
-  error,
-  wtf,
-  nothing,
-}
-
 class AppLogger {
   static void log(
+    //ignore:avoid-dynamic,avoid_annotating_with_dynamic
     dynamic message, {
     LogType logType = LogType.debug,
+    //ignore:avoid-dynamic,avoid_annotating_with_dynamic
     dynamic error,
     StackTrace? stackTrace,
   }) {
@@ -23,7 +15,9 @@ class AppLogger {
   }
 
   static void errorLog(
+    //ignore:avoid-dynamic,avoid_annotating_with_dynamic
     dynamic message, {
+    //ignore:avoid-dynamic,avoid_annotating_with_dynamic
     dynamic error,
     StackTrace? stackTrace,
   }) {
@@ -53,4 +47,14 @@ class AppLogger {
         return Level.nothing;
     }
   }
+}
+
+enum LogType {
+  verbose,
+  debug,
+  info,
+  warning,
+  error,
+  wtf,
+  nothing,
 }

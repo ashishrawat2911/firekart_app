@@ -80,7 +80,7 @@ class MyAddressViewModel extends ViewModel<MyAddressState> {
   void _saveData(AccountDetails accountDetails) {
     _setAccountDetailsUseCase.execute(accountDetails).then((value) {
       fetchAccountDetails();
-    }).catchError((e) {
+    }).catchError((Exception e) {
       MessageHandler.showSnackBar(title: e.toString());
     });
   }
