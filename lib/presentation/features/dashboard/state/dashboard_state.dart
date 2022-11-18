@@ -8,8 +8,8 @@ part 'dashboard_state.freezed.dart';
 @freezed
 class DashboardState with _$DashboardState {
   const factory DashboardState({
-    @Default(Idle()) ResultState<List<Product>> dealOfTheDay,
-    @Default(Idle()) ResultState<List<Product>> onSale,
-    @Default(Idle()) ResultState<List<Product>> topProducts,
+    @Default(Idle<List<Product>>()) ResultState<List<Product>> dealOfTheDay,
+    @Default(Idle<List<Product>>()) ResultState<List<Product>> onSale,
+    @Default(Idle<List<Product>>()) ResultState<List<Product>> topProducts,
   }) = _DashboardState;
 }

@@ -17,11 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PhoneLoginState {
   String? get codeCountDown => throw _privateConstructorUsedError;
-
   bool get isButtonEnabled => throw _privateConstructorUsedError;
-
   bool get phoneLoading => throw _privateConstructorUsedError;
-
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,7 +31,6 @@ abstract class $PhoneLoginStateCopyWith<$Res> {
   factory $PhoneLoginStateCopyWith(
           PhoneLoginState value, $Res Function(PhoneLoginState) then) =
       _$PhoneLoginStateCopyWithImpl<$Res, PhoneLoginState>;
-
   @useResult
   $Res call(
       {String? codeCountDown,
@@ -50,7 +46,6 @@ class _$PhoneLoginStateCopyWithImpl<$Res, $Val extends PhoneLoginState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -89,7 +84,6 @@ abstract class _$$_PhoneLoginStateCopyWith<$Res>
   factory _$$_PhoneLoginStateCopyWith(
           _$_PhoneLoginState value, $Res Function(_$_PhoneLoginState) then) =
       __$$_PhoneLoginStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -195,16 +189,12 @@ abstract class _PhoneLoginState implements PhoneLoginState {
 
   @override
   String? get codeCountDown;
-
   @override
   bool get isButtonEnabled;
-
   @override
   bool get phoneLoading;
-
   @override
   String? get error;
-
   @override
   @JsonKey(ignore: true)
   _$$_PhoneLoginStateCopyWith<_$_PhoneLoginState> get copyWith =>

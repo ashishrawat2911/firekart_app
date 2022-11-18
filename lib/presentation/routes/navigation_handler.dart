@@ -6,8 +6,6 @@ import 'package:fluttercommerce/core/performance/performance_moniter.dart';
 import '../../di/di.dart';
 import 'app_router.gr.dart';
 
-enum NavigationType { push, pushReplacement, popUntil, pushAndPopUntil }
-
 class NavigationHandler {
   NavigationHandler();
 
@@ -20,19 +18,21 @@ class NavigationHandler {
 
   static RouterDelegate<Object> get routerDelegate => _appRouter.delegate();
 
-  static Future<dynamic> navigateTo(
+  static Future<T?> navigateTo<T>(
     PageRouteInfo route, {
     NavigationType navigationType = NavigationType.push,
   }) async {
-    AppLogger.log("Navigating to ${route.path}");
-    dynamic getNavigation() {
+    AppLogger.log('Navigating to ${route.path}');
+    // ignore:avoid-dynamic
+    Future<T?> getNavigation() {
       switch (navigationType) {
         case NavigationType.push:
-          return _appRouter.push(route);
+          return _appRouter.push<T>(route);
         case NavigationType.pushReplacement:
           return _appRouter.replace(route);
         case NavigationType.popUntil:
-          return _appRouter.popUntilRouteWithName(route.routeName);
+          _appRouter.popUntilRouteWithName(route.routeName);
+          return Future.value(null);
         case NavigationType.pushAndPopUntil:
           _appRouter.popUntilRoot();
           return _appRouter.replace(route);
@@ -41,20 +41,20 @@ class NavigationHandler {
 
     final perfMonitor = inject<PerformanceMonitor>();
     await perfMonitor.startScreenEvent(route.path, properties: {
-      "args": route.args.toString(),
+      'args': route.args.toString(),
     });
     final navigation = getNavigation();
     await perfMonitor.endScreenEvent(route.path, properties: {
-      "args": route.args.toString(),
+      'args': route.args.toString(),
     });
+
     return navigation;
   }
 
-  static Future<dynamic> pop([Object? arguments]) async {
-    return _appRouter.pop(arguments);
-  }
+  static Future<bool> pop<T extends Object?>([T? arguments]) =>
+      _appRouter.pop<T>(arguments);
 
-  static bool canNavigateBack() {
-    return _appRouter.canNavigateBack;
-  }
+  static bool canNavigateBack() => _appRouter.canNavigateBack;
 }
+
+enum NavigationType { push, pushReplacement, popUntil, pushAndPopUntil }

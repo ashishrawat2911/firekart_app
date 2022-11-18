@@ -66,7 +66,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       name: productModel.name,
       currency: productModel.currency,
       onTap: () {
-        NavigationHandler.navigateTo(
+        NavigationHandler.navigateTo<void>(
           ProductDetailPageRoute(
             product: productModel,
           ),

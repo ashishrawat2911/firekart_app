@@ -8,11 +8,11 @@ part 'account_details_model.g.dart';
 class AccountDetailsModel {
   AccountDetailsModel(this.name, this.phoneNumber, this.addresses);
 
-  factory AccountDetailsModel.fromDocument(json) =>
+  factory AccountDetailsModel.fromDocument(Map<String, dynamic> json) =>
       _$AccountDetailsModelFromJson(json);
   String name;
   String? phoneNumber;
-  @JsonKey(defaultValue: [])
+  @JsonKey(defaultValue: <AddressModel>[])
   List<AddressModel> addresses;
 
   Map<String, dynamic> toJson() => _$AccountDetailsModelToJson(this);
@@ -20,7 +20,7 @@ class AccountDetailsModel {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class AddressModel {
-  factory AddressModel.fromJson(json) => _$AddressModelFromJson(json);
+  factory AddressModel.fromJson(Map<String, dynamic> json) => _$AddressModelFromJson(json);
   String name;
   String pincode;
   String address;

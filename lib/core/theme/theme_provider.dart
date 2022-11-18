@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class ThemeProvider {
   static late BuildContext _context;
 
-  static setup(BuildContext context) {
+  static void setup(BuildContext context) {
     _context = context;
   }
 
-  bool get hasDarkMode {
+  static bool get hasDarkMode {
     var brightness = MediaQuery.of(_context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
     return isDarkMode;

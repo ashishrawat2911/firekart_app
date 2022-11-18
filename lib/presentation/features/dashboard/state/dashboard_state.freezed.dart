@@ -18,9 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DashboardState {
   ResultState<List<Product>> get dealOfTheDay =>
       throw _privateConstructorUsedError;
-
   ResultState<List<Product>> get onSale => throw _privateConstructorUsedError;
-
   ResultState<List<Product>> get topProducts =>
       throw _privateConstructorUsedError;
 
@@ -34,7 +32,6 @@ abstract class $DashboardStateCopyWith<$Res> {
   factory $DashboardStateCopyWith(
           DashboardState value, $Res Function(DashboardState) then) =
       _$DashboardStateCopyWithImpl<$Res, DashboardState>;
-
   @useResult
   $Res call(
       {ResultState<List<Product>> dealOfTheDay,
@@ -42,9 +39,7 @@ abstract class $DashboardStateCopyWith<$Res> {
       ResultState<List<Product>> topProducts});
 
   $ResultStateCopyWith<List<Product>, $Res> get dealOfTheDay;
-
   $ResultStateCopyWith<List<Product>, $Res> get onSale;
-
   $ResultStateCopyWith<List<Product>, $Res> get topProducts;
 }
 
@@ -55,7 +50,6 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -115,7 +109,6 @@ abstract class _$$_DashboardStateCopyWith<$Res>
   factory _$$_DashboardStateCopyWith(
           _$_DashboardState value, $Res Function(_$_DashboardState) then) =
       __$$_DashboardStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -125,10 +118,8 @@ abstract class _$$_DashboardStateCopyWith<$Res>
 
   @override
   $ResultStateCopyWith<List<Product>, $Res> get dealOfTheDay;
-
   @override
   $ResultStateCopyWith<List<Product>, $Res> get onSale;
-
   @override
   $ResultStateCopyWith<List<Product>, $Res> get topProducts;
 }
@@ -169,9 +160,9 @@ class __$$_DashboardStateCopyWithImpl<$Res>
 
 class _$_DashboardState implements _DashboardState {
   const _$_DashboardState(
-      {this.dealOfTheDay = const Idle(),
-      this.onSale = const Idle(),
-      this.topProducts = const Idle()});
+      {this.dealOfTheDay = const Idle<List<Product>>(),
+      this.onSale = const Idle<List<Product>>(),
+      this.topProducts = const Idle<List<Product>>()});
 
   @override
   @JsonKey()
@@ -219,13 +210,10 @@ abstract class _DashboardState implements DashboardState {
 
   @override
   ResultState<List<Product>> get dealOfTheDay;
-
   @override
   ResultState<List<Product>> get onSale;
-
   @override
   ResultState<List<Product>> get topProducts;
-
   @override
   @JsonKey(ignore: true)
   _$$_DashboardStateCopyWith<_$_DashboardState> get copyWith =>

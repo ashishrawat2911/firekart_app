@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="editTextEnabledColor">#EC615C</color>
+
+    <color name="primaryColor">#96C160</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+
+    <color name="dropShadow">#afafaf</color>
+
+    <color name="colorFFE57F">#FFE57F</color>
+
+    <color name="color20203E">#20203E</color>
+
+    <color name="color4C4C6F">#4C4C6F</color>
+
+    <color name="color93C2F1">#93C2F1</color>
+
+    <color name="color6EBA49">#6EBA49</color>
+
+    <color name="color96C160">#96C160</color>
+</resources>

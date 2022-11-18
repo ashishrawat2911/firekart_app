@@ -17,11 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductSearchState {
   List<Product> get productList => throw _privateConstructorUsedError;
-
   bool get loading => throw _privateConstructorUsedError;
-
   String? get otp => throw _privateConstructorUsedError;
-
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,7 +31,6 @@ abstract class $ProductSearchStateCopyWith<$Res> {
   factory $ProductSearchStateCopyWith(
           ProductSearchState value, $Res Function(ProductSearchState) then) =
       _$ProductSearchStateCopyWithImpl<$Res, ProductSearchState>;
-
   @useResult
   $Res call(
       {List<Product> productList, bool loading, String? otp, String? error});
@@ -47,7 +43,6 @@ class _$ProductSearchStateCopyWithImpl<$Res, $Val extends ProductSearchState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -86,7 +81,6 @@ abstract class _$$_ProductSearchStateCopyWith<$Res>
   factory _$$_ProductSearchStateCopyWith(_$_ProductSearchState value,
           $Res Function(_$_ProductSearchState) then) =
       __$$_ProductSearchStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -134,14 +128,13 @@ class __$$_ProductSearchStateCopyWithImpl<$Res>
 
 class _$_ProductSearchState implements _ProductSearchState {
   const _$_ProductSearchState(
-      {final List<Product> productList = const [],
+      {final List<Product> productList = const <Product>[],
       this.loading = false,
       this.otp,
       this.error})
       : _productList = productList;
 
   final List<Product> _productList;
-
   @override
   @JsonKey()
   List<Product> get productList {
@@ -195,16 +188,12 @@ abstract class _ProductSearchState implements ProductSearchState {
 
   @override
   List<Product> get productList;
-
   @override
   bool get loading;
-
   @override
   String? get otp;
-
   @override
   String? get error;
-
   @override
   @JsonKey(ignore: true)
   _$$_ProductSearchStateCopyWith<_$_ProductSearchState> get copyWith =>

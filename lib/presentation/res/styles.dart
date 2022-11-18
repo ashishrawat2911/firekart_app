@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
+import 'colors.gen.dart';
 
 class Styles {
   static LinearGradient get appBackGradient => LinearGradient(

@@ -27,7 +27,7 @@ class OrderModel {
       this.signature,
       this.orderAddress);
 
-  factory OrderModel.fromJson(json) => _$OrderModelFromJson(json);
+  factory OrderModel.fromJson(Map<String, dynamic> json) => _$OrderModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OrderModelToJson(this);
 
@@ -39,7 +39,7 @@ class OrderModel {
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class OrderItemModel {
-  factory OrderItemModel.fromJson(json) => _$OrderItemModelFromJson(json);
+  factory OrderItemModel.fromJson(Map<String, dynamic> json) => _$OrderItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OrderItemModelToJson(this);
 

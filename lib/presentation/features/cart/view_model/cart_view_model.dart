@@ -68,7 +68,7 @@ class CartViewModel extends ViewModel<CartState> {
         await _placeOrderUseCase.execute(
             _orderFromCartList(state.cartList, state.selectedAddress!));
         if (NavigationHandler.canNavigateBack()) {
-          NavigationHandler.navigateTo(
+          NavigationHandler.navigateTo<void>(
             const MyOrdersScreenRoute(),
             navigationType: NavigationType.push,
           );
@@ -78,7 +78,8 @@ class CartViewModel extends ViewModel<CartState> {
       }
     } else {
       MessageHandler.showSnackBar(
-          title: Localization.value.connectionNotAvailable);
+        title: Localization.value.connectionNotAvailable,
+      );
     }
     state = state.copyWith(orderInProgress: false);
   }
@@ -86,22 +87,22 @@ class CartViewModel extends ViewModel<CartState> {
   Order _orderFromCartList(List<Cart> cartModel, Address orderAddress) {
     final cartItems = cartModel;
 
-    List<OrderItem> getOrderItems() {
-      return List<OrderItem>.generate(cartItems.length, (index) {
-        final Cart cartModel = cartItems[index];
-        return OrderItem(
-          name: cartModel.name,
-          productId: cartModel.productId,
-          currency: cartModel.currency,
-          price: cartModel.currentPrice,
-          unit: cartModel.unit,
-          image: cartModel.image,
-          noOfItems: cartModel.numOfItems,
-        );
-      });
-    }
+    List<OrderItem> getOrderItems() =>
+        List<OrderItem>.generate(cartItems.length, (index) {
+          final cartModel = cartItems[index];
 
-    final Order orderModel = Order(
+          return OrderItem(
+            name: cartModel.name,
+            productId: cartModel.productId,
+            currency: cartModel.currency,
+            price: cartModel.currentPrice,
+            unit: cartModel.unit,
+            image: cartModel.image,
+            noOfItems: cartModel.numOfItems,
+          );
+        });
+
+    final orderModel = Order(
       orderId:
           "${cartModel.priceInCart}${DateTime.now().millisecondsSinceEpoch}",
       orderItems: getOrderItems(),
@@ -119,12 +120,12 @@ class CartViewModel extends ViewModel<CartState> {
   void selectOrChangeAddress() {
     if (accountDetails == null) return;
     if (state.selectedAddress == null) {
-      NavigationHandler.navigateTo(AddAddressScreenRoute(
+      NavigationHandler.navigateTo<void>(AddAddressScreenRoute(
         newAddress: true,
         accountDetails: accountDetails!,
       ));
     } else {
-      NavigationHandler.navigateTo(
+      NavigationHandler.navigateTo<Address?>(
         MyAddressScreenRoute(
           selectedAddress: true,
         ),
@@ -140,7 +141,7 @@ class CartViewModel extends ViewModel<CartState> {
     if (accountDetails != null) {
       Address? address;
       List.generate(accountDetails.addresses.length, (int index) {
-        final Address add = accountDetails.addresses[index];
+        final add = accountDetails.addresses[index];
         if (add.isDefault) {
           address = add;
         }
@@ -161,7 +162,7 @@ class CartViewModel extends ViewModel<CartState> {
   Future<void> updateCartValues(int index, bool shouldIncrease) async {
     final cart = state.cartList[index];
 
-    final int newCartValue =
+    final newCartValue =
         shouldIncrease ? cart.numOfItems + 1 : cart.numOfItems - 1;
 
     state = state.copyWith(
@@ -180,7 +181,7 @@ class CartViewModel extends ViewModel<CartState> {
 
       _productAddToCartUseCase.execute(cart).then((value) {
         state = state.copyWith(cartList: state.cartList);
-      }).catchError((e) {
+      }).catchError((Exception e) {
         MessageHandler.showSnackBar(title: e.toString());
       });
     } else {
@@ -191,7 +192,7 @@ class CartViewModel extends ViewModel<CartState> {
   }
 
   Future<void> deleteItem(int index, {bool deleteExternally = true}) async {
-    final Cart cartModel = state.cartList[index];
+    final cartModel = state.cartList[index];
     if (deleteExternally) {
       state = state.copyWith(
           cartItemDataLoading:
@@ -205,12 +206,12 @@ class CartViewModel extends ViewModel<CartState> {
     _productDeleteCartUseCase.execute(cartModel.productId).then((value) {
       state.cartList.removeAt(index);
       state = state.copyWith(cartList: state.cartList);
-    }).catchError((e) {
+    }).catchError((Exception e) {
       MessageHandler.showSnackBar(title: e.toString());
     });
     state = state.copyWith(
         cartItemDataLoading:
-            CartDataLoading(index: index, deleteLoading: false));
+            CartDataLoading(index: index, deleteLoading: false),);
   }
 
   void init() {

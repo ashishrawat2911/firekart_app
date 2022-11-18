@@ -1,11 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttercommerce/core/localization/localization.dart';
-import 'package:fluttercommerce/core/state_manager/base_view.dart';
-import 'package:fluttercommerce/core/theme/theme_provider.dart';
-import 'package:fluttercommerce/presentation/res/app_colors.dart';
 
+import '../../../../core/localization/localization.dart';
+import '../../../../core/state_manager/base_view.dart';
+import '../../../../core/theme/theme_provider.dart';
 import '../../../../core/utils/validator.dart';
+import '../../../res/colors.gen.dart';
 import '../../../res/styles.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -21,6 +22,12 @@ class OtpLoginScreen extends StatefulWidget {
 
   @override
   State createState() => _OtpLoginScreenState();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('phoneNumber', phoneNumber));
+  }
 }
 
 class _OtpLoginScreenState extends State<OtpLoginScreen> {
@@ -30,7 +37,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
+
     return BaseView<OtpLoginViewModel, OtpLoginState>(
         onViewModelReady: (viewModel) {
           viewModel.sendOtp(widget.phoneNumber!);
@@ -66,8 +74,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
             ));
   }
 
-  Widget _loginCard(OtpLoginViewModel viewModel, OtpLoginState state) {
-    return Card(
+  Widget _loginCard(OtpLoginViewModel viewModel, OtpLoginState state) => Card(
       margin: const EdgeInsets.only(top: 50, right: 16, left: 16),
       child: Container(
         margin: const EdgeInsets.all(16),
@@ -119,13 +126,12 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               ),
               BlocConsumer<OtpLoginViewModel, OtpLoginState>(
                 bloc: viewModel,
-                listener: (BuildContext context, OtpLoginState state) {
+                listener: (context, state) {
                   if (state.otp != null) {
                     otpNumberController.text = state.otp!;
                   }
                 },
-                builder: (BuildContext context, OtpLoginState state) {
-                  return CommonButton(
+                builder: (context, state) => CommonButton(
                     title: Localization.value.confirmOtp,
                     height: 50,
                     isEnabled: state.isButtonEnabled,
@@ -133,14 +139,13 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     onTap: () {
                       onButtonTap(viewModel);
                     },
-                  );
-                },
+                  ),
               ),
               const SizedBox(
                 height: 20,
               ),
               Builder(
-                builder: (BuildContext context) {
+                builder: (context) {
                   if (state.resendOtpLoading) {
                     return const CommonAppLoader();
                   }
@@ -179,11 +184,21 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
         ),
       ),
     );
-  }
 
   void onButtonTap(OtpLoginViewModel viewModel, {bool isResend = false}) {
     if (_formKey.currentState!.validate()) {
       viewModel.loginWithOtp(otpNumberController.text.trim(), isResend);
     }
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty<TextEditingController>(
+        'otpNumberController',
+        otpNumberController,
+      ))
+      ..add(DiagnosticsProperty<Validator>('validator', validator));
   }
 }

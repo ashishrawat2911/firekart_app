@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MyStateObserver extends BlocObserver {}
+class AppCubitObserver extends BlocObserver {}
 
-runStateObserver() {
-  Bloc.observer = MyStateObserver();
+void runStateObserver() {
+  Bloc.observer = AppCubitObserver();
 }

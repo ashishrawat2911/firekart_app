@@ -3,7 +3,7 @@ import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/theme/theme_provider.dart';
 
 import '../../../../core/state_manager/base_view.dart';
-import '../../../res/app_colors.dart';
+import '../../../res/colors.gen.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/cart_item_card.dart';
 import '../../../widgets/common_button.dart';
