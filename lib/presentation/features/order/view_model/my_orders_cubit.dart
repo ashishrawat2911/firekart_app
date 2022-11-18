@@ -13,7 +13,7 @@ class MyOrdersCubit extends ViewModel<ResultState<List<Order>>> {
   Future<void> fetchOrders() async {
     emit(const ResultState.loading());
     try {
-      List<Order> orderList = await _allOrdersUseCase.execute();
+      final orderList = await _allOrdersUseCase.execute();
       emit(ResultState.data(data: orderList));
     } catch (e) {
       emit(ResultState.error(error: e.toString()));

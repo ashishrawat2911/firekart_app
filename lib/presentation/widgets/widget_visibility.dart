@@ -8,7 +8,5 @@ class WidgetVisibility extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
-    return !visible ? Container() : child;
-  }
+  Widget build(BuildContext context) => !visible ? Container() : child;
 }

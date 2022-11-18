@@ -128,7 +128,7 @@ class __$$_ProductSearchStateCopyWithImpl<$Res>
 
 class _$_ProductSearchState implements _ProductSearchState {
   const _$_ProductSearchState(
-      {final List<Product> productList = const [],
+      {final List<Product> productList = const <Product>[],
       this.loading = false,
       this.otp,
       this.error})

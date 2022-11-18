@@ -57,7 +57,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
           title: Localization.value.connectionNotAvailable);
       return;
     }
-    updateCartValues(productModel, 0, true).then((value) {}).catchError((e) {
+    updateCartValues(productModel, 0, true).then((value) {}).catchError((Exception e) {
       MessageHandler.showSnackBar(title: e.toString());
     }).whenComplete(() {
       state = state.copyWith(addToCardLoading: false);
@@ -79,7 +79,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
       cart.numOfItems = newCartValue;
       _productAddToCartUseCase.execute(cart).then((value) {
         state = state.copyWith(noOfItems: newCartValue);
-      }).catchError((e) {
+      }).catchError((Exception e) {
         MessageHandler.showSnackBar(title: e.toString());
       }).whenComplete(() {
         state = state.copyWith(addToCardLoading: false);
@@ -93,7 +93,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
       _productDeleteCartUseCase.execute(productModel.productId).then((value) {
         state = state.copyWith(showAddButton: true);
         state = state.copyWith(noOfItems: newCartValue);
-      }).catchError((e) {
+      }).catchError((Exception e) {
         MessageHandler.showSnackBar(title: e.toString());
       }).whenComplete(() {
         state = state.copyWith(addToCardLoading: false);

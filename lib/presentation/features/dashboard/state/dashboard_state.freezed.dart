@@ -160,9 +160,9 @@ class __$$_DashboardStateCopyWithImpl<$Res>
 
 class _$_DashboardState implements _DashboardState {
   const _$_DashboardState(
-      {this.dealOfTheDay = const Idle(),
-      this.onSale = const Idle(),
-      this.topProducts = const Idle()});
+      {this.dealOfTheDay = const Idle<List<Product>>(),
+      this.onSale = const Idle<List<Product>>(),
+      this.topProducts = const Idle<List<Product>>()});
 
   @override
   @JsonKey()
