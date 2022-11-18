@@ -36,7 +36,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             title: "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
             isCartEmpty: (state.noOfItems > 0),
             onCartTap: () {
-              NavigationHandler.navigateTo(const CartScreenRoute());
+              NavigationHandler.navigateTo<void>(const CartScreenRoute());
             },
           ),
         ),

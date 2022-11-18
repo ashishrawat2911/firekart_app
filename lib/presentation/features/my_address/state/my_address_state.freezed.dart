@@ -152,7 +152,7 @@ class _$_MyAddressState implements _MyAddressState {
       this.screenError,
       this.buttonLoading = false,
       this.accountDetails,
-      final List<AddressCardState> addressStates = const []})
+      final List<AddressCardState> addressStates = const <AddressCardState>[]})
       : _addressStates = addressStates;
 
   @override

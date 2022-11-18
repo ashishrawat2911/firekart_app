@@ -1,6 +1,6 @@
 abstract class Deeplink {
   Future<String> createDeepLink(String path, Map<String, dynamic>? value,
-      {bool? short});
+      {bool? short,});
 
   Future<Uri?>? initDeepLinks();
 

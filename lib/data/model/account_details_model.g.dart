@@ -11,7 +11,7 @@ AccountDetailsModel _$AccountDetailsModelFromJson(Map<String, dynamic> json) =>
       json['name'] as String,
       json['phoneNumber'] as String?,
       (json['addresses'] as List<dynamic>?)
-              ?.map((e) => AddressModel.fromJson(e))
+              ?.map((e) => AddressModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
     );

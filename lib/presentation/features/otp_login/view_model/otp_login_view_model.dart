@@ -67,7 +67,7 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
     try {
       await firebaseAuth.signInWithCredential(authCred);
 
-      NavigationHandler.navigateTo(
+      NavigationHandler.navigateTo<void>(
         CheckStatusScreenRoute(checkForAccountStatusOnly: true),
         navigationType: NavigationType.pushAndPopUntil,
       );

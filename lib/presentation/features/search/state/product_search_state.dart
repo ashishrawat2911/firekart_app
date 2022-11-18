@@ -7,7 +7,7 @@ part 'product_search_state.freezed.dart';
 @freezed
 class ProductSearchState with _$ProductSearchState {
   const factory ProductSearchState({
-    @Default([]) List<Product> productList,
+    @Default(<Product>[]) List<Product> productList,
     @Default(false) bool loading,
     String? otp,
     String? error,
