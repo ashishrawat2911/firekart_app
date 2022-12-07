@@ -1,6 +1,7 @@
 import 'package:firebase_performance/firebase_performance.dart';
-import 'package:fluttercommerce/core/performance/performance_moniter.dart';
 import 'package:injectable/injectable.dart';
+
+import '../performance_moniter.dart';
 
 @Singleton(as: PerformanceMonitor)
 class FirebasePerformanceMonitor extends PerformanceMonitor {
@@ -18,9 +19,7 @@ class FirebasePerformanceMonitor extends PerformanceMonitor {
     final trace = performance.newTrace(eventName);
     _traceKeys[eventName] = trace;
     await trace.start();
-    properties?.forEach((key, value) {
-      trace.putAttribute(key, value);
-    });
+    properties?.forEach(trace.putAttribute);
   }
 
   @override
@@ -31,11 +30,9 @@ class FirebasePerformanceMonitor extends PerformanceMonitor {
     final trace = _traceKeys[eventName];
 
     if (trace == null) {
-      throw "Event Never Started";
+      throw Exception('Event Never Started');
     }
-    properties?.forEach((key, value) {
-      trace.putAttribute(key, value);
-    });
+    properties?.forEach(trace.putAttribute);
     await trace.stop();
   }
 
