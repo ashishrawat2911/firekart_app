@@ -1,0 +1,11 @@
+framework module app_links {
+  umbrella header "app_links-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module app_links.Swift {
+  header "app_links-Swift.h"
+  requires objc
+}

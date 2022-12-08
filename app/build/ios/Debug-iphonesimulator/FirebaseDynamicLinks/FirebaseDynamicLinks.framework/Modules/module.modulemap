@@ -1,0 +1,6 @@
+framework module FirebaseDynamicLinks {
+  umbrella header "FirebaseDynamicLinks-umbrella.h"
+
+  export *
+  module * { export * }
+}
