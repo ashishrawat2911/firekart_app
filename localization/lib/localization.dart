@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:localization/app_localizations.dart';
+import 'package:localization/l10n/app_localizations.dart';
 
 class Localization {
   static late BuildContext _context;
