@@ -37,8 +37,8 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
           decoration: InputDecoration(
               hintText: widget.hint,
               contentPadding: const EdgeInsets.only(top: 25),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+              prefixIcon: const Padding(
+                padding: EdgeInsets.only(left: 10.0),
                 child: Icon(
                   Icons.search,
                   color: AppColors.black,
@@ -50,15 +50,15 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
               focusColor: AppColors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: AppColors.white, width: 0.0),
+                borderSide: const BorderSide(color: AppColors.white, width: 0.0),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: AppColors.white, width: 0.0),
+                borderSide: const BorderSide(color: AppColors.white, width: 0.0),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: AppColors.white, width: 0.0),
+                borderSide: const BorderSide(color: AppColors.white, width: 0.0),
               ))),
     );
   }
@@ -116,8 +116,8 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
         decoration: InputDecoration(
             hintText: widget.hintText,
             contentPadding: const EdgeInsets.only(top: 25),
-            prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 10.0),
+            prefixIcon: const Padding(
+              padding: EdgeInsets.only(left: 10.0),
               child: Icon(
                 Icons.search,
                 color: AppColors.black,
@@ -144,15 +144,15 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
             focusColor: AppColors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: AppColors.white, width: 0.0),
+              borderSide: const BorderSide(color: AppColors.white, width: 0.0),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: AppColors.white, width: 0.0),
+              borderSide: const BorderSide(color: AppColors.white, width: 0.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: AppColors.white, width: 0.0),
+              borderSide: const BorderSide(color: AppColors.white, width: 0.0),
             )),
       ),
     );

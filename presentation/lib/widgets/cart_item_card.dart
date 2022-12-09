@@ -78,7 +78,7 @@ class CartItemCard extends StatelessWidget {
                         children: [
                           Text(
                             cartItemCardArgs.name,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 15,
                                 color: AppColors.black),
@@ -88,7 +88,7 @@ class CartItemCard extends StatelessWidget {
                           ),
                           Text(
                             "${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, color: AppColors.color4C4C6F),
                           ),
                         ],
@@ -142,7 +142,7 @@ class CartItemCard extends StatelessWidget {
                                       )
                                     : Text(
                                         "${cartItemCardArgs.itemCount}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: AppColors.black,
                                           fontSize: 14,
                                         ),
@@ -160,7 +160,7 @@ class CartItemCard extends StatelessWidget {
                   ),
                   Text(
                     cartItemCardArgs.totalPrice,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.black,
                       fontSize: 14,
                     ),

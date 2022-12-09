@@ -38,3 +38,4 @@ dependency_overrides:
   firebase_core_platform_interface: 4.5.1
 
 flutter:
+  uses-material-design: true

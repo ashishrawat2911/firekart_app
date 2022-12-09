@@ -51,3 +51,7 @@ scripts:
       melos checkout
       melos format
       melos generateAll
+  localization:
+    run: |
+      cd localization
+      flutter gen-l10n
