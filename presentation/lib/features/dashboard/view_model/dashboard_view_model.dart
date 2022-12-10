@@ -4,7 +4,6 @@ import 'package:core/utils/connectivity.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:domain/usecases/get_all_product_usecase.dart';
 import 'package:injectable/injectable.dart';
-
 import 'package:localization/localization.dart';
 
 import '../state/dashboard_state.dart';

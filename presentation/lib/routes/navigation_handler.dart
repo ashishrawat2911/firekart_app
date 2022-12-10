@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:core/di/di.dart';
-import 'package:flutter/material.dart';
 import 'package:core/logger/app_logger.dart';
 import 'package:core/performance/performance_moniter.dart';
+import 'package:flutter/material.dart';
 
 import 'app_router.gr.dart';
 

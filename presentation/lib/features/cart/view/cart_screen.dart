@@ -1,7 +1,6 @@
 import 'package:core/state_manager/base_view.dart';
-import 'package:flutter/material.dart';
-
 import 'package:core/theme/theme_provider.dart';
+import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 
 import '../../../res/colors.gen.dart';

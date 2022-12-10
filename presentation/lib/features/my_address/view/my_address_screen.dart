@@ -1,8 +1,7 @@
 import 'package:core/state_manager/base_view.dart';
+import 'package:core/theme/theme_provider.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:flutter/material.dart';
-
-import 'package:core/theme/theme_provider.dart';
 import 'package:localization/localization.dart';
 
 import '../../../res/colors.gen.dart';
@@ -267,8 +266,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   void addNewNavigation(
       AccountDetails accountDetails, MyAddressViewModel viewModel) {
     NavigationHandler.navigateTo<bool?>(AddAddressScreenRoute(
-            newAddress: true, accountDetails: accountDetails,))
-        .then((value) {
+      newAddress: true,
+      accountDetails: accountDetails,
+    )).then((value) {
       if (value != null && value is bool && value) {
         viewModel.fetchAccountDetails();
       }

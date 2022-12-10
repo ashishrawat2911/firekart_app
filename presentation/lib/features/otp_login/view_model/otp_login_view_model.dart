@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/view_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:domain/usecases/send_otp_usecase.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../routes/app_router.gr.dart';

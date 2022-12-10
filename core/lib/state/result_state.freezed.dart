@@ -26,6 +26,7 @@ mixin _$ResultState<T> {
     required TResult Function(T data, String error) unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
@@ -47,6 +48,7 @@ mixin _$ResultState<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle<T> value) idle,
@@ -57,6 +59,7 @@ mixin _$ResultState<T> {
     required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Idle<T> value)? idle,
@@ -94,6 +97,7 @@ class _$ResultStateCopyWithImpl<T, $Res, $Val extends ResultState<T>>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
@@ -478,6 +482,7 @@ abstract class ReLoading<T> implements ResultState<T> {
 abstract class _$$DataCopyWith<T, $Res> {
   factory _$$DataCopyWith(_$Data<T> value, $Res Function(_$Data<T>) then) =
       __$$DataCopyWithImpl<T, $Res>;
+
   @useResult
   $Res call({T data});
 }
@@ -625,6 +630,7 @@ abstract class Data<T> implements ResultState<T> {
   const factory Data({required final T data}) = _$Data<T>;
 
   T get data;
+
   @JsonKey(ignore: true)
   _$$DataCopyWith<T, _$Data<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -634,6 +640,7 @@ abstract class Data<T> implements ResultState<T> {
 abstract class _$$ErrorCopyWith<T, $Res> {
   factory _$$ErrorCopyWith(_$Error<T> value, $Res Function(_$Error<T>) then) =
       __$$ErrorCopyWithImpl<T, $Res>;
+
   @useResult
   $Res call({String error});
 }
@@ -780,6 +787,7 @@ abstract class Error<T> implements ResultState<T> {
   const factory Error({required final String error}) = _$Error<T>;
 
   String get error;
+
   @JsonKey(ignore: true)
   _$$ErrorCopyWith<T, _$Error<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -790,6 +798,7 @@ abstract class _$$UnNotifiedErrorCopyWith<T, $Res> {
   factory _$$UnNotifiedErrorCopyWith(_$UnNotifiedError<T> value,
           $Res Function(_$UnNotifiedError<T>) then) =
       __$$UnNotifiedErrorCopyWithImpl<T, $Res>;
+
   @useResult
   $Res call({T data, String error});
 }
@@ -949,7 +958,9 @@ abstract class UnNotifiedError<T> implements ResultState<T> {
       required final String error}) = _$UnNotifiedError<T>;
 
   T get data;
+
   String get error;
+
   @JsonKey(ignore: true)
   _$$UnNotifiedErrorCopyWith<T, _$UnNotifiedError<T>> get copyWith =>
       throw _privateConstructorUsedError;

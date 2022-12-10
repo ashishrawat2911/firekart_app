@@ -13,4 +13,3 @@ abstract class AppLoader {
 
   Future<void> showError(String error);
 }
-

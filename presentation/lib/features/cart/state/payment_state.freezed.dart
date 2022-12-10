@@ -24,6 +24,7 @@ mixin _$PaymentState {
     required TResult Function(String response) paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
@@ -41,6 +42,7 @@ mixin _$PaymentState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle value) idle,
@@ -49,6 +51,7 @@ mixin _$PaymentState {
     required TResult Function(PaymentSuccessful value) paymentSuccessful,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Idle value)? idle,
@@ -82,6 +85,7 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
@@ -317,6 +321,7 @@ abstract class _$$PaymentErrorCopyWith<$Res> {
   factory _$$PaymentErrorCopyWith(
           _$PaymentError value, $Res Function(_$PaymentError) then) =
       __$$PaymentErrorCopyWithImpl<$Res>;
+
   @useResult
   $Res call({String errorMessage});
 }
@@ -453,6 +458,7 @@ abstract class PaymentError implements PaymentState {
   const factory PaymentError(final String errorMessage) = _$PaymentError;
 
   String get errorMessage;
+
   @JsonKey(ignore: true)
   _$$PaymentErrorCopyWith<_$PaymentError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -463,6 +469,7 @@ abstract class _$$PaymentSuccessfulCopyWith<$Res> {
   factory _$$PaymentSuccessfulCopyWith(
           _$PaymentSuccessful value, $Res Function(_$PaymentSuccessful) then) =
       __$$PaymentSuccessfulCopyWithImpl<$Res>;
+
   @useResult
   $Res call({String response});
 }
@@ -599,6 +606,7 @@ abstract class PaymentSuccessful implements PaymentState {
   const factory PaymentSuccessful(final String response) = _$PaymentSuccessful;
 
   String get response;
+
   @JsonKey(ignore: true)
   _$$PaymentSuccessfulCopyWith<_$PaymentSuccessful> get copyWith =>
       throw _privateConstructorUsedError;

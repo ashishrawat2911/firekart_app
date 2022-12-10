@@ -8,7 +8,6 @@ import 'package:domain/usecases/delete_product_from_cart_usecase.dart';
 import 'package:domain/usecases/get_cart_status_use_case.dart';
 import 'package:domain/usecases/get_items_in_cart_usecase.dart';
 import 'package:injectable/injectable.dart';
-
 import 'package:localization/localization.dart';
 
 import '../state/add_to_cart_state.dart';
@@ -58,7 +57,9 @@ class ProductViewModel extends ViewModel<AddToCartState> {
           title: Localization.value.connectionNotAvailable);
       return;
     }
-    updateCartValues(productModel, 0, true).then((value) {}).catchError((Exception e) {
+    updateCartValues(productModel, 0, true)
+        .then((value) {})
+        .catchError((Exception e) {
       MessageHandler.showSnackBar(title: e.toString());
     }).whenComplete(() {
       state = state.copyWith(addToCardLoading: false);

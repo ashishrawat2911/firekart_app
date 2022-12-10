@@ -1,8 +1,8 @@
+import 'package:core/state_manager/base_view.dart';
+import 'package:core/theme/theme_provider.dart';
 import 'package:core/utils/validator.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
 import 'package:localization/localization.dart';
 
 import '../../../res/styles.dart';
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       floatingActionButtonLocation:
                           FloatingActionButtonLocation.centerDocked,
                       body: Column(
-                        children: <Widget>[_loginCard(viewModel,state)],
+                        children: <Widget>[_loginCard(viewModel, state)],
                       ),
                     ),
                   ),

@@ -20,7 +20,8 @@ class AccountDetailsModel {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class AddressModel {
-  factory AddressModel.fromJson(Map<String, dynamic> json) => _$AddressModelFromJson(json);
+  factory AddressModel.fromJson(Map<String, dynamic> json) =>
+      _$AddressModelFromJson(json);
   String name;
   String pincode;
   String address;

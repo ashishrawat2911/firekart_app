@@ -1,11 +1,8 @@
 import 'package:core/state_manager/base_view.dart';
-import 'package:flutter/material.dart';
-
 import 'package:core/utils/validator.dart';
-import 'package:presentation/features/add_account_detail/state/add_account_details_state.dart'
-    as account_details_state;
-import 'package:presentation/features/add_account_detail/state/add_account_details_state.dart';
+import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:presentation/features/add_account_detail/state/add_account_details_state.dart';
 import 'package:presentation/res/colors.gen.dart';
 
 import '../../../routes/app_router.gr.dart';
@@ -47,8 +44,8 @@ class _SaveDataView extends StatelessWidget {
   final Validator validator = Validator();
 
   @override
-  Widget build(BuildContext context) => BaseView<AddAccountDetailsViewModel,
-          account_details_state.AddAccountDetailsState>(
+  Widget build(BuildContext context) =>
+      BaseView<AddAccountDetailsViewModel, AddAccountDetailsState>(
         onViewModelReady: (viewModel) {
           if (!newAddress) {
             viewModel.loadPreviousData();
@@ -58,7 +55,7 @@ class _SaveDataView extends StatelessWidget {
           });
         },
         stateListener: (context, state) {
-          if (state is account_details_state.EditData) {
+          if (state is EditData) {
             nameEditingController.text = state.accountDetails.name;
           }
         },
@@ -111,8 +108,7 @@ class _SaveDataView extends StatelessWidget {
                       titleColor: AppColors.white,
                       height: 50,
                       isEnabled: isButtonEnabled(state),
-                      replaceWithIndicator:
-                          state is account_details_state.SaveDataLoading,
+                      replaceWithIndicator: state is SaveDataLoading,
                       margin: const EdgeInsets.only(bottom: 40),
                       onTap: () {
                         onButtonTap(viewModel);
@@ -132,6 +128,5 @@ class _SaveDataView extends StatelessWidget {
     }
   }
 
-  bool isButtonEnabled(account_details_state.AddAccountDetailsState state) =>
-      state is account_details_state.ButtonEnabled;
+  bool isButtonEnabled(AddAccountDetailsState state) => state is ButtonEnabled;
 }

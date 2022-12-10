@@ -1,16 +1,14 @@
 import 'package:core/state/result_state.dart';
+import 'package:core/state_manager/base_view.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:flutter/material.dart';
-
-import 'package:core/state_manager/base_view.dart';
+import 'package:localization/localization.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/product_card.dart';
 import '../../../widgets/result_state_builder.dart';
-import 'package:localization/localization.dart';
-
 import '../view_model/all_product_cubit.dart';
 
 class AllProductListScreen extends StatefulWidget {
@@ -43,7 +41,8 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           actions: <Widget>[
             InkWell(
               onTap: () {
-                NavigationHandler.navigateTo<void>(const SearchItemScreenRoute());
+                NavigationHandler.navigateTo<void>(
+                    const SearchItemScreenRoute());
               },
               child: const Padding(
                 padding: EdgeInsets.all(16.0),

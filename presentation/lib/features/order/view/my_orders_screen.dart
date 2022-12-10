@@ -1,16 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/state/result_state.dart';
+import 'package:core/state_manager/base_view.dart';
+import 'package:core/theme/theme_provider.dart';
 import 'package:core/utils/date_time_util.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:flutter/material.dart';
-import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+import 'package:localization/localization.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/result_state_builder.dart';
-import 'package:localization/localization.dart';
-
 import '../view_model/my_orders_cubit.dart';
 
 class MyOrdersScreen extends StatefulWidget {

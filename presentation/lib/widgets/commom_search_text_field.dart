@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:core/theme/theme_provider.dart';
+import 'package:flutter/material.dart';
 
 import '../res/colors.gen.dart';
 
@@ -50,15 +50,18 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
               focusColor: AppColors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: AppColors.white, width: 0.0),
+                borderSide:
+                    const BorderSide(color: AppColors.white, width: 0.0),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: AppColors.white, width: 0.0),
+                borderSide:
+                    const BorderSide(color: AppColors.white, width: 0.0),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: AppColors.white, width: 0.0),
+                borderSide:
+                    const BorderSide(color: AppColors.white, width: 0.0),
               ))),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/view_model.dart';
 import 'package:core/utils/connectivity.dart';
@@ -210,8 +209,8 @@ class CartViewModel extends ViewModel<CartState> {
       MessageHandler.showSnackBar(title: e.toString());
     });
     state = state.copyWith(
-        cartItemDataLoading:
-            CartDataLoading(index: index, deleteLoading: false),);
+      cartItemDataLoading: CartDataLoading(index: index, deleteLoading: false),
+    );
   }
 
   void init() {

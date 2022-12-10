@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../res/colors.gen.dart';
 
 class CommonCard extends StatelessWidget {
-  const CommonCard(
-      {Key? key,
-      required this.child,
-      this.margin,
-      this.borderRadius,
-      this.elevation,
-      this.padding,
-      this.onTap,
-      this.color,})
-      : super(key: key);
+  const CommonCard({
+    Key? key,
+    required this.child,
+    this.margin,
+    this.borderRadius,
+    this.elevation,
+    this.padding,
+    this.onTap,
+    this.color,
+  }) : super(key: key);
   final Widget child;
   final EdgeInsets? margin;
   final EdgeInsets? padding;
