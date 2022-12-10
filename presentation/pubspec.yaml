@@ -29,10 +29,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  domain:
-    path: ../domain
-  core:
-    path: ../core
   auto_route_generator: ^5.0.2
   injectable_generator: ^2.1.3
   freezed: ^2.1.0+1

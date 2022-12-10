@@ -28,8 +28,8 @@ scripts:
   build:
     run: |
       cd app
-      flutter build apk
-      flutter build ios --release --no-codesign
+      flutter build apk --verbose
+      flutter build ios --release --no-codesign --verbose
   generate:
     run: |
       melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
@@ -56,4 +56,4 @@ scripts:
       cd localization
       flutter gen-l10n
       cd ../
-      melos get
+      melos get 
