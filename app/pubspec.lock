@@ -449,6 +449,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.3+15"
+  firebase_impl:
+    dependency: "direct main"
+    description:
+      path: "../firebase_impl"
+      relative: true
+    source: path
+    version: "0.0.1"
   firebase_performance:
     dependency: transitive
     description:

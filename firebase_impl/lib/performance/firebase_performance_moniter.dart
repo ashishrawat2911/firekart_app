@@ -1,7 +1,7 @@
+import 'package:core/performance/performance_moniter.dart';
 import 'package:firebase_performance/firebase_performance.dart';
 import 'package:injectable/injectable.dart';
 
-import '../performance_moniter.dart';
 
 @Singleton(as: PerformanceMonitor)
 class FirebasePerformanceMonitor extends PerformanceMonitor {

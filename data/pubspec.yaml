@@ -17,8 +17,9 @@ dependencies:
     path: ../domain
   core:
     path: ../core
-  cloud_firestore: ^3.1.0
-  firebase_auth: ^3.2.0
+  firebase_impl:
+    path: ../firebase_impl
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
