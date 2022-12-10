@@ -8,8 +8,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get login => 'लॉगिन';
 
   @override
-  String get phoneLoginText =>
-      'लॉग इन करने या खाता बनाने के लिए अपना नंबर दर्ज करें';
+  String get phoneLoginText => 'लॉग इन करने या खाता बनाने के लिए अपना नंबर दर्ज करें';
 
   @override
   String get continueText => 'जारी रखना';
@@ -30,8 +29,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get mobileVerification => 'मोबाइल वेरिफिकेशन';
 
   @override
-  String get mobileVerificationDesc =>
-      'आपके मोबाइल नंबर पर 6 अंकों के कोड वाला एसएमएस भेजा गया है';
+  String get mobileVerificationDesc => 'आपके मोबाइल नंबर पर 6 अंकों के कोड वाला एसएमएस भेजा गया है';
 
   @override
   String get enterOtp => 'ओटीपी दर्ज करें';

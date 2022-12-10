@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:core/di/di.dart';
 import 'package:core/logger/app_logger.dart';
 import 'package:core/state_manager/app_cubit_observer.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_impl/crashlytics_service.dart';
+import 'package:firebase_impl/firebase_impl.dart';
 import 'package:flutter/material.dart';
 
 import 'app/app.dart';
@@ -15,7 +15,7 @@ class Initializer {
 
   static void initialize(ValueChanged<Widget> onRun) async {
     WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
+    await initializeFirebase();
     registerDependencies();
     runZonedGuarded(() {
       runStateObserver();

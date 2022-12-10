@@ -8,8 +8,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
-  String get phoneLoginText =>
-      'Enter your number to log in or create an account';
+  String get phoneLoginText => 'Enter your number to log in or create an account';
 
   @override
   String get continueText => 'Continue';
@@ -30,8 +29,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mobileVerification => 'Mobile Verification';
 
   @override
-  String get mobileVerificationDesc =>
-      'SMS with a 6 digit code has been sent on your mobile number';
+  String get mobileVerificationDesc => 'SMS with a 6 digit code has been sent on your mobile number';
 
   @override
   String get enterOtp => 'Enter OTP';
