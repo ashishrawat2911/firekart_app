@@ -55,3 +55,5 @@ scripts:
     run: |
       cd localization
       flutter gen-l10n
+      cd ../
+      melos get

@@ -4,7 +4,6 @@
 import 'dart:async' as _i2;
 
 import 'package:domain/di/di.module.dart' as _i3;
-import 'package:domain/di/di.module.dart';
 import 'package:domain/mapper/domain_mapper.dart' as _i34;
 import 'package:domain/usecases/add_product_to_cart_usecase.dart' as _i14;
 import 'package:domain/usecases/delete_product_from_cart_usecase.dart' as _i15;

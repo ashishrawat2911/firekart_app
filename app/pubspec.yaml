@@ -23,6 +23,8 @@ dependencies:
     path: ../data
   localization:
     path: ../localization
+  firebase_impl:
+    path: ../firebase_impl
 
 dev_dependencies:
   flutter_test:
