@@ -11,19 +11,18 @@ dependencies:
   flutter:
     sdk: flutter
   auto_route: ^5.0.1
-  injectable: ^2.1.0
   shimmer: ^2.0.0
   cached_network_image: ^3.1.0+1
   smooth_page_indicator: ^1.0.0+2
   country_code_picker: ^2.0.2
-  freezed_annotation: ^2.1.0
   localization:
     path: ../localization
   core:
     path: ../core
   domain:
     path: ../domain
-
+  shared_dependencies:
+    path: ../shared_dependencies
 
 dev_dependencies:
   flutter_test:
