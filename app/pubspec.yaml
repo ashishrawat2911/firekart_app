@@ -9,9 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  injectable: ^2.1.0
-  freezed_annotation: ^2.1.0
-  #Firebase
   core:
     path: ../core
   domain:
@@ -24,6 +21,8 @@ dependencies:
     path: ../localization
   firebase_impl:
     path: ../firebase_impl
+  shared_dependencies:
+    path: ../shared_dependencies
 
 dev_dependencies:
   flutter_test:
@@ -35,8 +34,6 @@ dev_dependencies:
   injectable_generator: ^2.1.3
 
 
-dependency_overrides:
-  firebase_core_platform_interface: 4.5.1
 
 flutter:
   uses-material-design: true
