@@ -17,8 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddToCartState {
   bool get addToCardLoading => throw _privateConstructorUsedError;
+
   bool get showAddButton => throw _privateConstructorUsedError;
+
   bool get cartDataLoading => throw _privateConstructorUsedError;
+
   num get noOfItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,6 +34,7 @@ abstract class $AddToCartStateCopyWith<$Res> {
   factory $AddToCartStateCopyWith(
           AddToCartState value, $Res Function(AddToCartState) then) =
       _$AddToCartStateCopyWithImpl<$Res, AddToCartState>;
+
   @useResult
   $Res call(
       {bool addToCardLoading,
@@ -46,6 +50,7 @@ class _$AddToCartStateCopyWithImpl<$Res, $Val extends AddToCartState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -84,6 +89,7 @@ abstract class _$$_AddToCartStateCopyWith<$Res>
   factory _$$_AddToCartStateCopyWith(
           _$_AddToCartState value, $Res Function(_$_AddToCartState) then) =
       __$$_AddToCartStateCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -192,12 +198,16 @@ abstract class _AddToCartState implements AddToCartState {
 
   @override
   bool get addToCardLoading;
+
   @override
   bool get showAddButton;
+
   @override
   bool get cartDataLoading;
+
   @override
   num get noOfItems;
+
   @override
   @JsonKey(ignore: true)
   _$$_AddToCartStateCopyWith<_$_AddToCartState> get copyWith =>

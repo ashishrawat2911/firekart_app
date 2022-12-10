@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:core/state_manager/base_view.dart';
+import 'package:flutter/material.dart';
 
 import '../view_model/check_status_bloc.dart';
 

@@ -1,16 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/state_manager/base_view.dart';
+import 'package:core/theme/theme_provider.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:flutter/material.dart';
-import 'package:core/theme/theme_provider.dart';
+import 'package:localization/localization.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/common_view_cart_overlay.dart';
-import 'package:localization/localization.dart';
-
 import '../state/add_to_cart_state.dart';
 import '../view_model/product_view_model.dart';
 

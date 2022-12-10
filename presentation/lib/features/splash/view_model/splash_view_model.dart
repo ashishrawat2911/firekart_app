@@ -18,7 +18,7 @@ class SplashViewModel extends ViewModel<SplashState> {
         CheckStatusScreenRoute(),
         navigationType: NavigationType.pushReplacement,
       );
-      state=(SplashSuccessState());
+      state = (SplashSuccessState());
     });
   }
 }

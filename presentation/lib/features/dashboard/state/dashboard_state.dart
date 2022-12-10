@@ -1,8 +1,6 @@
 import 'package:core/state/result_state.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-
 part 'dashboard_state.freezed.dart';
 
 @freezed

@@ -3,14 +3,14 @@ import 'package:core/theme/theme_provider.dart';
 import 'package:core/utils/validator.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
+
 import '../../../res/colors.gen.dart';
 import '../../../res/styles.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/common_button.dart';
-import 'package:localization/localization.dart';
-
 import '../state/otp_login_state.dart';
 import '../view_model/otp_login_view_model.dart';
 

@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/models/cart_model.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:domain/models/product_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class FirebaseRepository {
   Future<AccountDetails> fetchUserDetails();

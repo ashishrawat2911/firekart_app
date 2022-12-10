@@ -1,7 +1,5 @@
 import 'package:domain/models/account_details_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-
 part 'home_state.freezed.dart';
 
 @freezed

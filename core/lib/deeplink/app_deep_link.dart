@@ -6,8 +6,11 @@ class AppDeeplink extends Deeplink {
   final AppLinks _appLinks = AppLinks();
 
   @override
-  Future<String> createDeepLink(String path, Map<String, dynamic>? value,
-      {bool? short,}) {
+  Future<String> createDeepLink(
+    String path,
+    Map<String, dynamic>? value, {
+    bool? short,
+  }) {
     throw UnimplementedError();
   }
 
