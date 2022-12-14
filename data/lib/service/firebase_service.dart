@@ -5,9 +5,9 @@ import 'package:data/model/account_details_model.dart';
 import 'package:data/model/cart_model.dart';
 import 'package:data/model/order_model.dart';
 import 'package:data/model/product_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_impl/firebase_impl.dart';
 import 'package:flutter/services.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 @injectable
 class FirebaseService {
@@ -117,7 +117,7 @@ class FirebaseService {
                 .where(condition, isEqualTo: true)
                 .get())
             .docs
-            .map((e) => ProductModel.fromJson(e.data() as Map<String, dynamic>))
+            .map((e) =>ProductModel.fromJson(e.data() as Map<String, dynamic>))
             .toList();
       } else {
         return (await _productCollection.get())

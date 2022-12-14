@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ThemeProvider {
   static late BuildContext _context;
 
+  ///ignore:use_setters_to_change_properties
   static void setup(BuildContext context) {
     _context = context;
   }

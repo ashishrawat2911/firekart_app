@@ -17,9 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   int get bottomIndex => throw _privateConstructorUsedError;
-
   int get noOfItemsInCart => throw _privateConstructorUsedError;
-
   AccountDetails? get accountDetails => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +29,6 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
-
   @useResult
   $Res call(
       {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
@@ -44,7 +41,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -77,7 +73,6 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   factory _$$_HomeStateCopyWith(
           _$_HomeState value, $Res Function(_$_HomeState) then) =
       __$$_HomeStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -168,13 +163,10 @@ abstract class _HomeState implements HomeState {
 
   @override
   int get bottomIndex;
-
   @override
   int get noOfItemsInCart;
-
   @override
   AccountDetails? get accountDetails;
-
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

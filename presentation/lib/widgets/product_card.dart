@@ -20,7 +20,7 @@ class ProductCardArgs {
       required this.currentPrice,
       required this.actualPrice,
       required this.quantityPerUnit,
-      required this.unit});
+      required this.unit,});
 }
 
 class ProductCard extends StatelessWidget {
@@ -39,7 +39,7 @@ class ProductCard extends StatelessWidget {
           children: <Widget>[
             ClipRRect(
               borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10),),
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(
@@ -66,14 +66,14 @@ class ProductCard extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "${productCardArgs.currency}${productCardArgs.currentPrice}",
+                        '${productCardArgs.currency}${productCardArgs.currentPrice}',
                         style: ThemeProvider.textTheme.button,
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
-                        "${productCardArgs.currency}${productCardArgs.actualPrice}",
+                        '${productCardArgs.currency}${productCardArgs.actualPrice}',
                         style: ThemeProvider.textTheme.button
                             ?.copyWith(decoration: TextDecoration.lineThrough),
                       ),
@@ -83,7 +83,7 @@ class ProductCard extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    "${productCardArgs.quantityPerUnit}${productCardArgs.unit}",
+                    '${productCardArgs.quantityPerUnit}${productCardArgs.unit}',
                     style: ThemeProvider.textTheme.button,
                   ),
                 ],

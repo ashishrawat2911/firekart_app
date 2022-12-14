@@ -32,9 +32,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) =>
       BaseView<DashboardViewModel, DashboardState>(
-        onViewModelReady: (viewModel) {
-          fetchProductData(viewModel);
-        },
+        onViewModelReady: fetchProductData,
         builder: (context, viewModel, state) => Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
@@ -63,10 +61,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     height: 20,
                   ),
                   productDataBuilder(
-                      state.dealOfTheDay, Localization.value.dealOfTheDay),
+                      state.dealOfTheDay, Localization.value.dealOfTheDay,),
                   productDataBuilder(state.onSale, Localization.value.onSale),
                   productDataBuilder(
-                      state.topProducts, Localization.value.topProducts),
+                      state.topProducts, Localization.value.topProducts,),
                   const SizedBox(
                     height: 20,
                   )
@@ -78,7 +76,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       );
 
   Widget productDataBuilder(
-          ResultState<List<Product>> resultState, String title) =>
+          ResultState<List<Product>> resultState, String title,) =>
       ResultStateBuilder(
         state: resultState,
         errorWidget: (String error) => Column(
@@ -108,14 +106,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               6,
               (index) => Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
+                          topRight: Radius.circular(10),),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(
@@ -184,11 +182,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   onTap: () {
                     late String condition;
                     if (title == Localization.value.dealOfTheDay) {
-                      condition = "deal_of_the_day";
+                      condition = 'deal_of_the_day';
                     } else if (title == Localization.value.topProducts) {
-                      condition = "top_products";
+                      condition = 'top_products';
                     } else if (title == Localization.value.onSale) {
-                      condition = "on_sale";
+                      condition = 'on_sale';
                     }
                     NavigationHandler.navigateTo<void>(
                       AllProductListScreenRoute(productCondition: condition),

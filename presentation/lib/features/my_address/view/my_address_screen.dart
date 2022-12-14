@@ -29,7 +29,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
           elevation: 1,
           title: Text(widget.selectedAddress
               ? Localization.value.selectAddress
-              : Localization.value.myAddress),
+              : Localization.value.myAddress,),
         ),
         body: BaseView<MyAddressViewModel, MyAddressState>(
           onViewModelReady: (viewModel) {
@@ -95,7 +95,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                         index,
                         viewModel,
                         state.addressStates[index],
-                      ))
+                      ),)
             ],
           ),
         ),
@@ -173,7 +173,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                   height: 23,
                 ),
                 data(Icons.place,
-                    '${addressCardState.address.address} ${addressCardState.address.city} ${addressCardState.address.state} ${addressCardState.address.pincode}'),
+                    '${addressCardState.address.address} ${addressCardState.address.city} ${addressCardState.address.state} ${addressCardState.address.pincode}',),
                 const SizedBox(
                   height: 33,
                 ),
@@ -227,7 +227,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                   onTap: () {
                                     viewModel.setAsDefault(index);
                                   },
-                                )),
+                                ),),
                     )
                   ],
                 ),
@@ -240,7 +240,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   Widget noAddressesFound(
-          AccountDetails accountDetails, MyAddressViewModel viewModel) =>
+          AccountDetails accountDetails, MyAddressViewModel viewModel,) =>
       Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -264,11 +264,11 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       );
 
   void addNewNavigation(
-      AccountDetails accountDetails, MyAddressViewModel viewModel) {
+      AccountDetails accountDetails, MyAddressViewModel viewModel,) {
     NavigationHandler.navigateTo<bool?>(AddAddressScreenRoute(
       newAddress: true,
       accountDetails: accountDetails,
-    )).then((value) {
+    ),).then((value) {
       if (value != null && value is bool && value) {
         viewModel.fetchAccountDetails();
       }

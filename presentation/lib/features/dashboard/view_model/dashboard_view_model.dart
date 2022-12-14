@@ -3,8 +3,8 @@ import 'package:core/state_manager/view_model.dart';
 import 'package:core/utils/connectivity.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:domain/usecases/get_all_product_usecase.dart';
-import 'package:injectable/injectable.dart';
 import 'package:localization/localization.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import '../state/dashboard_state.dart';
 
@@ -22,15 +22,15 @@ class DashboardViewModel extends ViewModel<DashboardState> {
     switch (productData) {
       case ProductData.dealOfTheDay:
         state = state.copyWith(dealOfTheDay: const Loading());
-        condition = "deal_of_the_day";
+        condition = 'deal_of_the_day';
         break;
       case ProductData.onSale:
         state = state.copyWith(onSale: const Loading());
-        condition = "on_sale";
+        condition = 'on_sale';
         break;
       case ProductData.topProducts:
         state = state.copyWith(topProducts: const Loading());
-        condition = "top_products";
+        condition = 'top_products';
         break;
     }
     try {

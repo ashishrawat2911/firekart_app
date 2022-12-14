@@ -6,7 +6,7 @@ import 'package:domain/models/order_model.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:domain/repository/firebase_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:injectable/injectable.dart' hide Order;
+import 'package:shared_dependencies/shared_dependencies.dart' hide Order;
 
 import '../service/firebase_service.dart';
 

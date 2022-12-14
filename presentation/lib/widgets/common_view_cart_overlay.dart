@@ -34,7 +34,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                 onTap: args.onCartTap,
                 child: Row(
                   children: <Widget>[
-                    Icon(Icons.shopping_cart, color: AppColors.white),
+                    const Icon(Icons.shopping_cart, color: AppColors.white),
                     const SizedBox(
                       width: 5,
                     ),

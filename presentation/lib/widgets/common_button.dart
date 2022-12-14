@@ -37,7 +37,7 @@ class CommonButton extends StatelessWidget {
       this.hasForwardIcon = false,
       this.replaceWithIndicator = false,
       this.margin,
-      this.isEnabled = true})
+      this.isEnabled = true,})
       : super(key: key);
 
   @override
@@ -64,7 +64,7 @@ class CommonButton extends StatelessWidget {
                       const SizedBox(
                         width: 6,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.arrow_forward,
                         color: AppColors.white,
                         size: 20,
@@ -72,12 +72,12 @@ class CommonButton extends StatelessWidget {
                     ],
                   )
                 : replaceWithIndicator
-                    ? DotProgressIndicator(
+                    ? const DotProgressIndicator(
                         color: AppColors.white,
                       )
                     : buttonTitle(),
           ),
-        ));
+        ),);
   }
 
   Widget buttonTitle() {

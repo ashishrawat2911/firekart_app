@@ -35,10 +35,10 @@ class HomeScreen extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                   icon: const Icon(Icons.home),
-                  label: (Localization.value.home)),
+                  label: Localization.value.home,),
               BottomNavigationBarItem(
                   icon: const Icon(Icons.search),
-                  label: (Localization.value.search)),
+                  label: Localization.value.search,),
               BottomNavigationBarItem(
                   icon: Stack(
                     children: <Widget>[
@@ -48,13 +48,12 @@ class HomeScreen extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20),
                           child: Align(
-                            alignment: Alignment.center,
                             child: CircleAvatar(
                               minRadius: 7,
                               maxRadius: 7,
                               backgroundColor: AppColors.color6EBA49,
                               child: Text(
-                                "${state.noOfItemsInCart}",
+                                '${state.noOfItemsInCart}',
                                 style: ThemeProvider.textTheme.overline,
                               ),
                             ),
@@ -63,10 +62,10 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  label: (Localization.value.cart)),
+                  label: Localization.value.cart,),
               BottomNavigationBarItem(
                   icon: const Icon(Icons.person),
-                  label: (Localization.value.account)),
+                  label: Localization.value.account,),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,

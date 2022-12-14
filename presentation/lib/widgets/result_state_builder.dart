@@ -46,16 +46,16 @@ class ResultStateBuilder<T> extends StatelessWidget {
       ..add(ObjectFlagProperty<ResultLoadingWidget>.has(
         'loadingWidget',
         loadingWidget,
-      ))
+      ),)
       ..add(ObjectFlagProperty<ReturnWidget?>.has('idleWidget', idleWidget))
       ..add(ObjectFlagProperty<ResultErrorWidget<String>>.has(
         'errorWidget',
         errorWidget,
-      ))
+      ),)
       ..add(DiagnosticsProperty<bool>(
         'showLoadingInitially',
         showLoadingInitially,
-      ));
+      ),);
   }
 }
 

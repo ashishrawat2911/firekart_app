@@ -47,6 +47,6 @@ import '../features/splash/view/splash_screen.dart';
     CupertinoRoute<dynamic>(page: AddAddressScreen),
     CupertinoRoute<dynamic>(page: MyOrdersScreen),
   ],
-  replaceInRouteName: "Routes",
+  replaceInRouteName: 'Routes',
 )
 class $AppRouter {}
