@@ -23,7 +23,7 @@ jobs:
           flutter-version: '3.3.7'
           channel: 'stable'
       - run: flutter pub global activate melos
-      - run: melos analyze
+#      - run: melos analyze
       - run: melos get
       - run: melos generateAll
       - run: melos localization
