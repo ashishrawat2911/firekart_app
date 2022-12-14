@@ -107,15 +107,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       ? () {}
                       : () {
                           viewModel.updateCartValues(
-                              widget.product, cartValue, false);
-                        }),
+                              widget.product, cartValue, false,);
+                        },),
               Expanded(
                   child: state.cartDataLoading
                       ? const Center(
                           child: CommonAppLoader(
                           size: 20,
                           strokeWidth: 3,
-                        ))
+                        ),)
                       : Center(
                           child: Text(
                           "$cartValue",
@@ -123,22 +123,22 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             color: AppColors.black,
                             fontSize: 14,
                           ),
-                        ))),
+                        ),),),
               changeCartValues(
                   true,
                   state.cartDataLoading
                       ? () {}
                       : () {
                           viewModel.updateCartValues(
-                              widget.product, cartValue, true);
-                        })
+                              widget.product, cartValue, true,);
+                        },)
             ],
           ),
         ),
         crossFadeState: (cartValue > 0)
             ? CrossFadeState.showSecond
             : CrossFadeState.showFirst,
-        duration: const Duration(milliseconds: 100));
+        duration: const Duration(milliseconds: 100),);
   }
 
   Widget addButton(AddToCartState state, ProductViewModel viewModel) {
@@ -152,7 +152,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           width: 70,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-              border: Border.all(width: 1, color: AppColors.dropShadow)),
+              border: Border.all(width: 1, color: AppColors.dropShadow),),
           child: Text(
             Localization.value.add,
             style: ThemeProvider.textTheme.button?.copyWith(
@@ -168,7 +168,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               child: CommonAppLoader(
             size: 20,
             strokeWidth: 3,
-          ))),
+          ),),),
       crossFadeState: state.addToCardLoading
           ? CrossFadeState.showSecond
           : CrossFadeState.showFirst,
@@ -185,7 +185,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           alignment: Alignment.center,
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: isAdd ? AppColors.primaryColor : AppColors.white),
+              color: isAdd ? AppColors.primaryColor : AppColors.white,),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,

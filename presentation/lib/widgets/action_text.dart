@@ -13,7 +13,7 @@ class ActionText extends StatelessWidget {
   }
 
   TextStyle get actionTextStyle => const TextStyle(
-      fontWeight: FontWeight.w500, fontSize: 14, color: AppColors.primaryColor);
+      fontWeight: FontWeight.w500, fontSize: 14, color: AppColors.primaryColor,);
 
   Widget actionText() {
     return GestureDetector(

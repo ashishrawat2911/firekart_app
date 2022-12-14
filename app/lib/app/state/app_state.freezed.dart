@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppState {
   Locale? get locale => throw _privateConstructorUsedError;
-
   ThemeMode get themeMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +28,6 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
-
   @useResult
   $Res call({Locale? locale, ThemeMode themeMode});
 }
@@ -41,7 +39,6 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -69,7 +66,6 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$$_AppStateCopyWith(
           _$_AppState value, $Res Function(_$_AppState) then) =
       __$$_AppStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({Locale? locale, ThemeMode themeMode});
@@ -144,10 +140,8 @@ abstract class _AppState implements AppState {
 
   @override
   Locale? get locale;
-
   @override
   ThemeMode get themeMode;
-
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>

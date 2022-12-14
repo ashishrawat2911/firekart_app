@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'cart_model.g.dart';
 
@@ -20,5 +20,5 @@ class CartModel {
 
   CartModel(this.productId, this.image, this.name, this.unit, this.currency,
       this.currentPrice, this.quantityPerUnit,
-      [this.numOfItems = 0]);
+      [this.numOfItems = 0,]);
 }

@@ -20,9 +20,9 @@ String getTimeFromTimeStamp(String timestamp) {
     final month = getMonthFromMonthNumber(dateTime.month);
     final year = dateTime.year;
 
-    return "$day $month $year";
+    return '$day $month $year';
   } catch (E) {
-    return "";
+    return '';
   }
 }
 
@@ -32,37 +32,37 @@ String getOrderedTime(String dateTime) {
   }
 
   final DateTime dateT = DateTime.parse(dateTime);
-  return "${getMonthFromMonthNumber(dateT.month)} ${dateT.day} , ${dateT.year} at ${getTime(dateT)}";
+  return '${getMonthFromMonthNumber(dateT.month)} ${dateT.day} , ${dateT.year} at ${getTime(dateT)}';
 }
 
 String getMonthFromMonthNumber(int month) {
   switch (month) {
     case 1:
-      return "January";
+      return 'January';
     case 2:
-      return "February";
+      return 'February';
     case 3:
-      return "March";
+      return 'March';
     case 4:
-      return "April";
+      return 'April';
     case 5:
-      return "May";
+      return 'May';
     case 6:
-      return "June";
+      return 'June';
     case 7:
-      return "July";
+      return 'July';
     case 8:
-      return "August";
+      return 'August';
     case 9:
-      return "September";
+      return 'September';
     case 10:
-      return "October";
+      return 'October';
     case 11:
-      return "November";
+      return 'November';
     case 12:
-      return "December";
+      return 'December';
     default:
-      return "January";
+      return 'January';
   }
 }
 

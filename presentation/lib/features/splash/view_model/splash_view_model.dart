@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:core/state_manager/view_model.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
@@ -18,7 +18,7 @@ class SplashViewModel extends ViewModel<SplashState> {
         CheckStatusScreenRoute(),
         navigationType: NavigationType.pushReplacement,
       );
-      state = (SplashSuccessState());
+      state = SplashSuccessState();
     });
   }
 }

@@ -16,7 +16,7 @@ class Initializer {
   static void initialize(ValueChanged<Widget> onRun) async {
     WidgetsFlutterBinding.ensureInitialized();
     await initializeFirebase();
-    registerDependencies();
+    await registerDependencies();
     runZonedGuarded(() {
       runStateObserver();
       onRun(const App());

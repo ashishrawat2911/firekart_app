@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import 'account_details_model.dart';
 
@@ -17,15 +17,16 @@ class OrderModel {
   AddressModel orderAddress;
 
   OrderModel(
-      this.orderId,
-      this.price,
-      this.orderItems,
-      this.orderedAt,
-      this.orderStatus,
-      this.currency,
-      this.paymentId,
-      this.signature,
-      this.orderAddress);
+    this.orderId,
+    this.price,
+    this.orderItems,
+    this.orderedAt,
+    this.orderStatus,
+    this.currency,
+    this.paymentId,
+    this.signature,
+    this.orderAddress,
+  );
 
   factory OrderModel.fromJson(Map<String, dynamic> json) =>
       _$OrderModelFromJson(json);
@@ -58,6 +59,13 @@ class OrderItemModel {
     return 'OrderItem{productId: $productId, image: $image, name: $name, unit: $unit, currency: $currency, price: $price, noOfItems: $noOfItems}';
   }
 
-  OrderItemModel(this.productId, this.image, this.name, this.unit,
-      this.currency, this.price, this.noOfItems);
+  OrderItemModel(
+    this.productId,
+    this.image,
+    this.name,
+    this.unit,
+    this.currency,
+    this.price,
+    this.noOfItems,
+  );
 }

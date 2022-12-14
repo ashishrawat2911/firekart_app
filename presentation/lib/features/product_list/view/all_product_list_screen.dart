@@ -42,10 +42,10 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
             InkWell(
               onTap: () {
                 NavigationHandler.navigateTo<void>(
-                    const SearchItemScreenRoute());
+                    const SearchItemScreenRoute(),);
               },
               child: const Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16),
                 child: Icon(Icons.search),
               ),
             )

@@ -6,9 +6,9 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Name is Required";
+      return 'Name is Required';
     } else if (!regExp.hasMatch(value.trim())) {
-      return "Name must be a-z and A-Z";
+      return 'Name must be a-z and A-Z';
     }
     return null;
   }
@@ -20,11 +20,11 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Phone number is Required";
+      return 'Phone number is Required';
     } else if (value.length != 10) {
-      return "Phone number must be 10 digits";
+      return 'Phone number must be 10 digits';
     } else if (!regExp.hasMatch(value)) {
-      return "Phone number must be digits";
+      return 'Phone number must be digits';
     }
     return null;
   }
@@ -36,11 +36,11 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Passcode is Required";
+      return 'Passcode is Required';
     } else if (value.length != 6) {
-      return "PassCode must be 6 digits";
+      return 'PassCode must be 6 digits';
     } else if (!regExp.hasMatch(value)) {
-      return "PassCode must be digits";
+      return 'PassCode must be digits';
     }
     return null;
   }
@@ -52,11 +52,11 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Please enter a valid token";
+      return 'Please enter a valid token';
     } else if (value.length != 6) {
-      return "PassCode must be 6 digits";
+      return 'PassCode must be 6 digits';
     } else if (!regExp.hasMatch(value)) {
-      return "PassCode must be digits";
+      return 'PassCode must be digits';
     }
     return null;
   }
@@ -68,11 +68,11 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Passcode is Required";
+      return 'Passcode is Required';
     } else if (value.length != 6) {
-      return "PassCode must be 6 digits";
+      return 'PassCode must be 6 digits';
     } else if (!regExp.hasMatch(value)) {
-      return "PassCode must be digits";
+      return 'PassCode must be digits';
     }
     return null;
   }
@@ -84,13 +84,13 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "PassCode is Required";
+      return 'PassCode is Required';
     } else if (value.length != 6) {
-      return "PassCode must be 6 digits";
+      return 'PassCode must be 6 digits';
     } else if (!regExp.hasMatch(value)) {
-      return "PasscodeCode must be digits";
+      return 'PasscodeCode must be digits';
     } else if (value != confirmValue) {
-      return "Password do not match!";
+      return 'Password do not match!';
     }
     return null;
   }
@@ -103,9 +103,9 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Email is Required";
+      return 'Email is Required';
     } else if (!regExp.hasMatch(value)) {
-      return "Invalid Email";
+      return 'Invalid Email';
     } else {
       return null;
     }
@@ -118,11 +118,11 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "Pincode is Required";
+      return 'Pincode is Required';
     } else if (value.length != 6) {
-      return "Pincode must be 6 digits";
+      return 'Pincode must be 6 digits';
     } else if (!regExp.hasMatch(value)) {
-      return "Pincode must be digits";
+      return 'Pincode must be digits';
     }
     return null;
   }
@@ -134,9 +134,9 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "$text is Required";
+      return '$text is Required';
     } else if (!regExp.hasMatch(value.trim())) {
-      return "$text must be a-z and A-Z";
+      return '$text must be a-z and A-Z';
     }
     return null;
   }
@@ -146,7 +146,7 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return "$desc is Required";
+      return '$desc is Required';
     }
     return null;
   }

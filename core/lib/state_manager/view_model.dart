@@ -9,10 +9,6 @@ abstract class ViewModel<S> extends Cubit<S> {
     emit(value);
   }
 
-  S get state {
-    return super.state;
-  }
-
   void updateState() {
     state = state;
   }
