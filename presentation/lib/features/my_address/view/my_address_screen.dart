@@ -27,9 +27,11 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           elevation: 1,
-          title: Text(widget.selectedAddress
-              ? Localization.value.selectAddress
-              : Localization.value.myAddress,),
+          title: Text(
+            widget.selectedAddress
+                ? Localization.value.selectAddress
+                : Localization.value.myAddress,
+          ),
         ),
         body: BaseView<MyAddressViewModel, MyAddressState>(
           onViewModelReady: (viewModel) {
@@ -37,15 +39,19 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
           },
           // buildWhen: (previous, current) => previous.accountDetails != current.accountDetails,
           builder: (BuildContext context, viewModel, state) {
+            final accountDetails = state.accountDetails;
+            if (accountDetails == null) {
+              return Container();
+            }
             if (state.screenLoading) {
               return const Center(
                 child: CommonAppLoader(),
               );
-            } else if (state.accountDetails != null &&
-                state.addressStates.isNotEmpty) {
-              return addressesView(state.accountDetails!, viewModel, state);
+            }
+            if ( state.addressStates.isNotEmpty) {
+              return addressesView(accountDetails, viewModel, state);
             } else if (state.addressStates.isEmpty) {
-              return noAddressesFound(state.accountDetails!, viewModel);
+              return noAddressesFound(accountDetails, viewModel);
             } else if (state.screenError != null) {
               return Text(state.screenError!);
             } else {
@@ -89,13 +95,14 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 height: 21,
               ),
               ...List<Widget>.generate(
-                  accountDetails.addresses.length,
-                  (int index) => addressCard(
-                        state,
-                        index,
-                        viewModel,
-                        state.addressStates[index],
-                      ),)
+                accountDetails.addresses.length,
+                (int index) => addressCard(
+                  state,
+                  index,
+                  viewModel,
+                  state.addressStates[index],
+                ),
+              )
             ],
           ),
         ),
@@ -172,8 +179,10 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 const SizedBox(
                   height: 23,
                 ),
-                data(Icons.place,
-                    '${addressCardState.address.address} ${addressCardState.address.city} ${addressCardState.address.state} ${addressCardState.address.pincode}',),
+                data(
+                  Icons.place,
+                  '${addressCardState.address.address} ${addressCardState.address.city} ${addressCardState.address.state} ${addressCardState.address.pincode}',
+                ),
                 const SizedBox(
                   height: 33,
                 ),
@@ -192,7 +201,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                 editAddress: addressCardState.address,
                               ),
                             ).then((value) {
-                              if (value != null && value is bool && value) {
+                              if (value != null && value) {
                                 viewModel.fetchAccountDetails();
                               }
                             });
@@ -217,17 +226,18 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                     Visibility(
                       visible: !addressCardState.address.isDefault,
                       child: Container(
-                          margin: const EdgeInsets.only(left: 20),
-                          child: addressCardState.setDefaultLoading
-                              ? const CommonAppLoader(
-                                  size: 20,
-                                )
-                              : ActionText(
-                                  Localization.value.setAsDefaultCaps,
-                                  onTap: () {
-                                    viewModel.setAsDefault(index);
-                                  },
-                                ),),
+                        margin: const EdgeInsets.only(left: 20),
+                        child: addressCardState.setDefaultLoading
+                            ? const CommonAppLoader(
+                                size: 20,
+                              )
+                            : ActionText(
+                                Localization.value.setAsDefaultCaps,
+                                onTap: () {
+                                  viewModel.setAsDefault(index);
+                                },
+                              ),
+                      ),
                     )
                   ],
                 ),
@@ -240,7 +250,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   Widget noAddressesFound(
-          AccountDetails accountDetails, MyAddressViewModel viewModel,) =>
+    AccountDetails accountDetails,
+    MyAddressViewModel viewModel,
+  ) =>
       Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -264,11 +276,15 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       );
 
   void addNewNavigation(
-      AccountDetails accountDetails, MyAddressViewModel viewModel,) {
-    NavigationHandler.navigateTo<bool?>(AddAddressScreenRoute(
-      newAddress: true,
-      accountDetails: accountDetails,
-    ),).then((value) {
+    AccountDetails accountDetails,
+    MyAddressViewModel viewModel,
+  ) {
+    NavigationHandler.navigateTo<bool?>(
+      AddAddressScreenRoute(
+        newAddress: true,
+        accountDetails: accountDetails,
+      ),
+    ).then((value) {
       if (value != null && value is bool && value) {
         viewModel.fetchAccountDetails();
       }
