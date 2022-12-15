@@ -7,8 +7,8 @@ import 'package:domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:domain/usecases/delete_product_from_cart_usecase.dart';
 import 'package:domain/usecases/get_cart_status_use_case.dart';
 import 'package:domain/usecases/get_items_in_cart_usecase.dart';
-import 'package:injectable/injectable.dart';
 import 'package:localization/localization.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import '../state/add_to_cart_state.dart';
 
@@ -34,8 +34,10 @@ class ProductViewModel extends ViewModel<AddToCartState> {
     });
   }
 
-  Future<void> checkItemInCart(String productId,
-      {bool isListening = false}) async {
+  Future<void> checkItemInCart(
+    String productId, {
+    bool isListening = false,
+  }) async {
     if (!isListening) {
       state = state.copyWith(addToCardLoading: true);
     } else {
@@ -54,7 +56,8 @@ class ProductViewModel extends ViewModel<AddToCartState> {
 
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
       MessageHandler.showSnackBar(
-          title: Localization.value.connectionNotAvailable);
+        title: Localization.value.connectionNotAvailable,
+      );
       return;
     }
     updateCartValues(productModel, 0, true)
@@ -67,14 +70,18 @@ class ProductViewModel extends ViewModel<AddToCartState> {
   }
 
   Future<void> updateCartValues(
-      Product productModel, int cartValue, bool shouldIncrease) async {
+    Product productModel,
+    int cartValue,
+    bool shouldIncrease,
+  ) async {
     final int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
     state = state.copyWith(addToCardLoading: true);
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
         MessageHandler.showSnackBar(
-            title: Localization.value.connectionNotAvailable);
+          title: Localization.value.connectionNotAvailable,
+        );
         return;
       }
       final cart = _domainMapper.cartFromProduct(productModel);
@@ -89,7 +96,8 @@ class ProductViewModel extends ViewModel<AddToCartState> {
     } else {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
         MessageHandler.showSnackBar(
-            title: Localization.value.connectionNotAvailable);
+          title: Localization.value.connectionNotAvailable,
+        );
         return;
       }
       _productDeleteCartUseCase.execute(productModel.productId).then((value) {

@@ -30,6 +30,6 @@ class Address {
   bool isDefault;
 
   String wholeAddress() {
-    return "$address $city $state $pincode";
+    return '$address $city $state $pincode';
   }
 }

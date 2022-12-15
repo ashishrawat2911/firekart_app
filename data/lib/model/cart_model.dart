@@ -18,7 +18,14 @@ class CartModel {
 
   Map<String, dynamic> toJson() => _$CartModelToJson(this);
 
-  CartModel(this.productId, this.image, this.name, this.unit, this.currency,
-      this.currentPrice, this.quantityPerUnit,
-      [this.numOfItems = 0,]);
+  CartModel(
+    this.productId,
+    this.image,
+    this.name,
+    this.unit,
+    this.currency,
+    this.currentPrice,
+    this.quantityPerUnit, [
+    this.numOfItems = 0,
+  ]);
 }

@@ -61,10 +61,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     height: 20,
                   ),
                   productDataBuilder(
-                      state.dealOfTheDay, Localization.value.dealOfTheDay,),
+                    state.dealOfTheDay,
+                    Localization.value.dealOfTheDay,
+                  ),
                   productDataBuilder(state.onSale, Localization.value.onSale),
                   productDataBuilder(
-                      state.topProducts, Localization.value.topProducts,),
+                    state.topProducts,
+                    Localization.value.topProducts,
+                  ),
                   const SizedBox(
                     height: 20,
                   )
@@ -76,7 +80,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
       );
 
   Widget productDataBuilder(
-          ResultState<List<Product>> resultState, String title,) =>
+    ResultState<List<Product>> resultState,
+    String title,
+  ) =>
       ResultStateBuilder(
         state: resultState,
         errorWidget: (String error) => Column(
@@ -106,14 +112,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
               6,
               (index) => Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
                       borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),),
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
                       child: AspectRatio(
                         aspectRatio: 1.5,
                         child: Container(

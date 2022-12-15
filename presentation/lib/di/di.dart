@@ -6,4 +6,4 @@ import 'package:injectable/injectable.dart';
     DomainPackageModule,
   ),
 ])
-initMicroPackage() {}
+void initMicroPackage() {}

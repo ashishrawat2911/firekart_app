@@ -40,13 +40,19 @@ class NavigationHandler {
     }
 
     final perfMonitor = inject<PerformanceMonitor>();
-    await perfMonitor.startScreenEvent(route.path, properties: {
-      'args': route.args.toString(),
-    },);
+    await perfMonitor.startScreenEvent(
+      route.path,
+      properties: {
+        'args': route.args.toString(),
+      },
+    );
     final navigation = getNavigation();
-    await perfMonitor.endScreenEvent(route.path, properties: {
-      'args': route.args.toString(),
-    },);
+    await perfMonitor.endScreenEvent(
+      route.path,
+      properties: {
+        'args': route.args.toString(),
+      },
+    );
 
     return navigation;
   }

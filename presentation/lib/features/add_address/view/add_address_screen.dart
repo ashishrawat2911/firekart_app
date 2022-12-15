@@ -86,7 +86,6 @@ class AddAddressScreen extends StatelessWidget {
                       focusNode: nameFocusNode,
                       nextFocusNode: pincodeFocusNode,
                       validator: validator.validateName,
-                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
                         FocusScope.of(context).requestFocus(pincodeFocusNode);
@@ -102,7 +101,6 @@ class AddAddressScreen extends StatelessWidget {
                       focusNode: pincodeFocusNode,
                       nextFocusNode: addressFocusNode,
                       validator: validator.validatePinCode,
-                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
                         FocusScope.of(context).requestFocus(addressFocusNode);
@@ -124,7 +122,6 @@ class AddAddressScreen extends StatelessWidget {
                           return null;
                         }
                       },
-                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
                         FocusScope.of(context).requestFocus(cityFocusNode);
@@ -140,7 +137,6 @@ class AddAddressScreen extends StatelessWidget {
                       focusNode: cityFocusNode,
                       nextFocusNode: stateFocusNode,
                       validator: (val) => validator.validateText(val, 'City'),
-                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
                         FocusScope.of(context).requestFocus(stateFocusNode);
@@ -156,7 +152,6 @@ class AddAddressScreen extends StatelessWidget {
                       focusNode: stateFocusNode,
                       nextFocusNode: phoneFocusNode,
                       validator: (val) => validator.validateText(val, 'State'),
-                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       onSubmitted: (val) {
                         FocusScope.of(context).requestFocus(phoneFocusNode);

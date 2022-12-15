@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:core/state/result_state.dart';
 import 'package:core/state_manager/view_model.dart';
 import 'package:domain/models/product_model.dart';
@@ -11,7 +10,6 @@ class AllProductCubit extends ViewModel<ResultState<List<Product>>> {
       : super(const ResultState.idle());
 
   final GetAllProductsUseCase _getAllProductsUseCase;
-  List<DocumentSnapshot>? documents;
 
   Future<void> fetchProducts([String? condition]) async {
     state = const ResultState.loading();
