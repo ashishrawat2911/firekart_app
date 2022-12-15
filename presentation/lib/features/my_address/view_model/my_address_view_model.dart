@@ -3,15 +3,16 @@ import 'package:core/state_manager/view_model.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/usecases/get_account_details_usecase.dart';
 import 'package:domain/usecases/set_account_details_usecase.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import '../state/my_address_state.dart';
 
 @injectable
 class MyAddressViewModel extends ViewModel<MyAddressState> {
   MyAddressViewModel(
-      this._getAccountDetailsUseCase, this._setAccountDetailsUseCase)
-      : super(const MyAddressState());
+    this._getAccountDetailsUseCase,
+    this._setAccountDetailsUseCase,
+  ) : super(const MyAddressState());
 
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
@@ -25,12 +26,14 @@ class MyAddressViewModel extends ViewModel<MyAddressState> {
 
     for (int i = 0; i < accountDetails.addresses.length; i++) {
       cardStates.add(
-          AddressCardState(address: accountDetails.addresses[i], index: i));
+        AddressCardState(address: accountDetails.addresses[i], index: i),
+      );
     }
     state = state.copyWith(
-        accountDetails: accountDetails,
-        addressStates: cardStates,
-        screenLoading: false);
+      accountDetails: accountDetails,
+      addressStates: cardStates,
+      screenLoading: false,
+    );
   }
 
   Future<void> fetchAccountDetails() async {
@@ -43,7 +46,7 @@ class MyAddressViewModel extends ViewModel<MyAddressState> {
   }
 
   void deleteAddress(int index) {
-    updateLoading(bool value) {
+    void updateLoading(bool value) {
       final addresses = state.addressStates;
       final address =
           addresses[index].copyWith(index: index, editLoading: value);

@@ -32,7 +32,7 @@ class NavigationHandler {
           return _appRouter.replace(route);
         case NavigationType.popUntil:
           _appRouter.popUntilRouteWithName(route.routeName);
-          return Future.value(null);
+          return Future.value();
         case NavigationType.pushAndPopUntil:
           _appRouter.popUntilRoot();
           return _appRouter.replace(route);
@@ -40,13 +40,19 @@ class NavigationHandler {
     }
 
     final perfMonitor = inject<PerformanceMonitor>();
-    await perfMonitor.startScreenEvent(route.path, properties: {
-      'args': route.args.toString(),
-    });
+    await perfMonitor.startScreenEvent(
+      route.path,
+      properties: {
+        'args': route.args.toString(),
+      },
+    );
     final navigation = getNavigation();
-    await perfMonitor.endScreenEvent(route.path, properties: {
-      'args': route.args.toString(),
-    });
+    await perfMonitor.endScreenEvent(
+      route.path,
+      properties: {
+        'args': route.args.toString(),
+      },
+    );
 
     return navigation;
   }

@@ -2,7 +2,7 @@ import 'package:core/state_manager/view_model.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/usecases/get_cart_status_use_case.dart';
 import 'package:domain/usecases/stream_account_details_usecase.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import '../state/home_state.dart';
 
@@ -25,9 +25,7 @@ class HomeScreenViewModel extends ViewModel<HomeState> {
   }
 
   Future<void> refreshListeners() async {
-    _accountDetailsUseCaseUseCase.execute().listen((account) {
-      _addDetails(account);
-    });
+    _accountDetailsUseCaseUseCase.execute().listen(_addDetails);
     _getCartStatusUseCase.execute().listen((event) {});
   }
 

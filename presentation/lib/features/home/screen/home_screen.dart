@@ -34,39 +34,42 @@ class HomeScreen extends StatelessWidget {
             // showUnselectedLabels: true,
             items: [
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.home),
-                  label: (Localization.value.home)),
+                icon: const Icon(Icons.home),
+                label: Localization.value.home,
+              ),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.search),
-                  label: (Localization.value.search)),
+                icon: const Icon(Icons.search),
+                label: Localization.value.search,
+              ),
               BottomNavigationBarItem(
-                  icon: Stack(
-                    children: <Widget>[
-                      const Center(child: Icon(Icons.shopping_cart)),
-                      Visibility(
-                        visible: state.noOfItemsInCart > 0,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: CircleAvatar(
-                              minRadius: 7,
-                              maxRadius: 7,
-                              backgroundColor: AppColors.color6EBA49,
-                              child: Text(
-                                "${state.noOfItemsInCart}",
-                                style: ThemeProvider.textTheme.overline,
-                              ),
+                icon: Stack(
+                  children: <Widget>[
+                    const Center(child: Icon(Icons.shopping_cart)),
+                    Visibility(
+                      visible: state.noOfItemsInCart > 0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Align(
+                          child: CircleAvatar(
+                            minRadius: 7,
+                            maxRadius: 7,
+                            backgroundColor: AppColors.color6EBA49,
+                            child: Text(
+                              '${state.noOfItemsInCart}',
+                              style: ThemeProvider.textTheme.overline,
                             ),
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                  label: (Localization.value.cart)),
+                      ),
+                    )
+                  ],
+                ),
+                label: Localization.value.cart,
+              ),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.person),
-                  label: (Localization.value.account)),
+                icon: const Icon(Icons.person),
+                label: Localization.value.account,
+              ),
             ],
             onTap: viewModel.setBottomBarIndex,
             currentIndex: state.bottomIndex,

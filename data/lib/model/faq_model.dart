@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'faq_model.g.dart';
 

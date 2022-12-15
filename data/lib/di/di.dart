@@ -1,7 +1,9 @@
 import 'package:firebase_impl/di/di.module.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
-@InjectableInit.microPackage(externalPackageModulesBefore: [
-  ExternalModule(FirebaseImplPackageModule),
-])
-initMicroPackage() {}
+@InjectableInit.microPackage(
+  externalPackageModulesBefore: [
+    ExternalModule(FirebaseImplPackageModule),
+  ],
+)
+void initMicroPackage() {}

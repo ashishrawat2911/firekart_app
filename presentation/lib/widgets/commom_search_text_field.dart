@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import '../res/colors.gen.dart';
 
 class CommonSearchTextField extends StatefulWidget {
-  const CommonSearchTextField(
-      {Key? key,
-      @required this.hint,
-      this.onSubmitted,
-      this.onChanged,
-      this.textEditingController,
-      this.focusNode})
-      : super(key: key);
+  const CommonSearchTextField({
+    Key? key,
+    @required this.hint,
+    this.onSubmitted,
+    this.onChanged,
+    this.textEditingController,
+    this.focusNode,
+  }) : super(key: key);
   final String? hint;
   final ValueChanged<String>? onSubmitted;
   final ValueChanged<String>? onChanged;
@@ -28,53 +28,52 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
     return SizedBox(
       height: 50,
       child: TextField(
-          focusNode: widget.focusNode,
-          controller: widget.textEditingController,
-          textInputAction: TextInputAction.search,
-          onSubmitted: widget.onSubmitted,
-          onChanged: widget.onChanged,
-          style: ThemeProvider.textTheme.overline,
-          decoration: InputDecoration(
-              hintText: widget.hint,
-              contentPadding: const EdgeInsets.only(top: 25),
-              prefixIcon: const Padding(
-                padding: EdgeInsets.only(left: 10.0),
-                child: Icon(
-                  Icons.search,
-                  color: AppColors.black,
-                ),
-              ),
-              fillColor: AppColors.white,
-              filled: true,
-              hintStyle: ThemeProvider.textTheme.subtitle1,
-              focusColor: AppColors.white,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide:
-                    const BorderSide(color: AppColors.white, width: 0.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide:
-                    const BorderSide(color: AppColors.white, width: 0.0),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide:
-                    const BorderSide(color: AppColors.white, width: 0.0),
-              ))),
+        focusNode: widget.focusNode,
+        controller: widget.textEditingController,
+        textInputAction: TextInputAction.search,
+        onSubmitted: widget.onSubmitted,
+        onChanged: widget.onChanged,
+        style: ThemeProvider.textTheme.overline,
+        decoration: InputDecoration(
+          hintText: widget.hint,
+          contentPadding: const EdgeInsets.only(top: 25),
+          prefixIcon: const Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: Icon(
+              Icons.search,
+              color: AppColors.black,
+            ),
+          ),
+          fillColor: AppColors.white,
+          filled: true,
+          hintStyle: ThemeProvider.textTheme.subtitle1,
+          focusColor: AppColors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: AppColors.white, width: 0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: AppColors.white, width: 0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: AppColors.white, width: 0),
+          ),
+        ),
+      ),
     );
   }
 }
 
 class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
-  const CommonSearchBar(
-      {Key? key,
-      required this.onTextChanged,
-      this.hintText,
-      this.onBackPressed,
-      this.onClosePressed})
-      : super(key: key);
+  const CommonSearchBar({
+    Key? key,
+    required this.onTextChanged,
+    this.hintText,
+    this.onBackPressed,
+    this.onClosePressed,
+  }) : super(key: key);
   final ValueChanged<String> onTextChanged;
   final VoidCallback? onBackPressed;
   final VoidCallback? onClosePressed;
@@ -117,46 +116,47 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
           widget.onTextChanged(value.trim());
         },
         decoration: InputDecoration(
-            hintText: widget.hintText,
-            contentPadding: const EdgeInsets.only(top: 25),
-            prefixIcon: const Padding(
-              padding: EdgeInsets.only(left: 10.0),
-              child: Icon(
-                Icons.search,
-                color: AppColors.black,
-              ),
+          hintText: widget.hintText,
+          contentPadding: const EdgeInsets.only(top: 25),
+          prefixIcon: const Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: Icon(
+              Icons.search,
+              color: AppColors.black,
             ),
-            suffixIcon: Visibility(
-                visible: showCross,
-                child: IconButton(
-                    icon: const Icon(Icons.clear),
-                    onPressed: () {
-                      if (textEditingController.text == "") {
-                        if (widget.onClosePressed != null) {
-                          widget.onClosePressed!();
-                        }
-                        Navigator.pop(context);
-                      } else {
-                        textEditingController.clear();
-                        widget.onTextChanged("");
-                      }
-                    })),
-            fillColor: AppColors.white,
-            filled: true,
-            hintStyle: ThemeProvider.textTheme.subtitle1,
-            focusColor: AppColors.white,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(color: AppColors.white, width: 0.0),
+          ),
+          suffixIcon: Visibility(
+            visible: showCross,
+            child: IconButton(
+              icon: const Icon(Icons.clear),
+              onPressed: () {
+                if (textEditingController.text == '') {
+                  widget.onClosePressed?.call();
+                  Navigator.pop(context);
+                } else {
+                  textEditingController.clear();
+                  widget.onTextChanged('');
+                }
+              },
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(color: AppColors.white, width: 0.0),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(color: AppColors.white, width: 0.0),
-            )),
+          ),
+          fillColor: AppColors.white,
+          filled: true,
+          hintStyle: ThemeProvider.textTheme.subtitle1,
+          focusColor: AppColors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: AppColors.white, width: 0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: AppColors.white, width: 0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: AppColors.white, width: 0),
+          ),
+        ),
       ),
     );
   }

@@ -21,63 +21,64 @@ class CommonButton extends StatelessWidget {
   final TextAlign? textAlign;
   final EdgeInsets? margin;
 
-  const CommonButton(
-      {Key? key,
-      required this.title,
-      this.onTap,
-      this.textStyle,
-      this.buttonColor,
-      this.titleColor,
-      this.elevation,
-      this.width,
-      this.height,
-      this.fontWeight,
-      this.fontSize,
-      this.textAlign,
-      this.hasForwardIcon = false,
-      this.replaceWithIndicator = false,
-      this.margin,
-      this.isEnabled = true})
-      : super(key: key);
+  const CommonButton({
+    Key? key,
+    required this.title,
+    this.onTap,
+    this.textStyle,
+    this.buttonColor,
+    this.titleColor,
+    this.elevation,
+    this.width,
+    this.height,
+    this.fontWeight,
+    this.fontSize,
+    this.textAlign,
+    this.hasForwardIcon = false,
+    this.replaceWithIndicator = false,
+    this.margin,
+    this.isEnabled = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: height ?? 50,
-        width: width,
-        margin: margin,
-        child: ElevatedButton(
-          onPressed: (!replaceWithIndicator && isEnabled)
-              ? () {
-                  if (onTap != null) {
-                    HapticFeedback.lightImpact();
-                    onTap!();
-                  }
+      height: height ?? 50,
+      width: width,
+      margin: margin,
+      child: ElevatedButton(
+        onPressed: (!replaceWithIndicator && isEnabled)
+            ? () {
+                if (onTap != null) {
+                  HapticFeedback.lightImpact();
+                  onTap!();
                 }
-              : null,
-          child: Center(
-            child: hasForwardIcon
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      buttonTitle(),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
-                        color: AppColors.white,
-                        size: 20,
-                      )
-                    ],
-                  )
-                : replaceWithIndicator
-                    ? DotProgressIndicator(
-                        color: AppColors.white,
-                      )
-                    : buttonTitle(),
-          ),
-        ));
+              }
+            : null,
+        child: Center(
+          child: hasForwardIcon
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buttonTitle(),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    const Icon(
+                      Icons.arrow_forward,
+                      color: AppColors.white,
+                      size: 20,
+                    )
+                  ],
+                )
+              : replaceWithIndicator
+                  ? const DotProgressIndicator(
+                      color: AppColors.white,
+                    )
+                  : buttonTitle(),
+        ),
+      ),
+    );
   }
 
   Widget buttonTitle() {

@@ -6,16 +6,19 @@ import 'package:flutter/material.dart';
 class MessageHandler {
   MessageHandler._();
 
-  static var scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+  static GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
 
   static void showSnackBar({required String? title}) {
     scaffoldMessengerKey.currentState!.hideCurrentSnackBar();
-    scaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
-      content: Text(title!),
-      backgroundColor:
-          Theme.of(scaffoldMessengerKey.currentContext!).primaryColor,
-      duration: const Duration(seconds: 3),
-    ));
+    scaffoldMessengerKey.currentState!.showSnackBar(
+      SnackBar(
+        content: Text(title!),
+        backgroundColor:
+            Theme.of(scaffoldMessengerKey.currentContext!).primaryColor,
+        duration: const Duration(seconds: 3),
+      ),
+    );
   }
 
   /// Creates an Android material alert dialogue and displays it to the user.
@@ -46,7 +49,8 @@ class MessageHandler {
       );
     } else {
       throw Exception(
-          'Platform is not supported. Please only run on iOS or Android devices.');
+        'Platform is not supported. Please only run on iOS or Android devices.',
+      );
     }
   }
 }
@@ -78,12 +82,13 @@ Future<bool?> _showAndroidAlert({
   );
 }
 
-Future<bool?> _showIosAlert(
-    {required BuildContext context,
-    required String title,
-    required String content,
-    required String defaultActionText,
-    String? cancelActionText}) {
+Future<bool?> _showIosAlert({
+  required BuildContext context,
+  required String title,
+  required String content,
+  required String defaultActionText,
+  String? cancelActionText,
+}) {
   return showCupertinoDialog<bool>(
     context: context,
     builder: (context) => CupertinoAlertDialog(

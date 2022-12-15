@@ -50,7 +50,7 @@ class CartViewModel extends ViewModel<CartState> {
     return price;
   }
 
-  String get currency => noOfItemsInCart > 0 ? state.cartList[0].currency : "";
+  String get currency => noOfItemsInCart > 0 ? state.cartList[0].currency : '';
 
   set cartItems(List<Cart> value) {
     state = state.copyWith(cartList: value);
@@ -65,11 +65,11 @@ class CartViewModel extends ViewModel<CartState> {
     if (await ConnectionStatus.getInstance().checkConnection()) {
       try {
         await _placeOrderUseCase.execute(
-            _orderFromCartList(state.cartList, state.selectedAddress!));
+          _orderFromCartList(state.cartList, state.selectedAddress!),
+        );
         if (NavigationHandler.canNavigateBack()) {
-          NavigationHandler.navigateTo<void>(
+          await NavigationHandler.navigateTo<void>(
             const MyOrdersScreenRoute(),
-            navigationType: NavigationType.push,
           );
         }
       } catch (e) {
@@ -111,7 +111,7 @@ class CartViewModel extends ViewModel<CartState> {
       orderAddress: orderAddress,
       currency: cartModel.first.currency,
       orderedAt: DateTime.now().toString(),
-      orderStatus: "Ordered",
+      orderStatus: 'Ordered',
     );
     return orderModel;
   }
@@ -119,10 +119,12 @@ class CartViewModel extends ViewModel<CartState> {
   void selectOrChangeAddress() {
     if (accountDetails == null) return;
     if (state.selectedAddress == null) {
-      NavigationHandler.navigateTo<void>(AddAddressScreenRoute(
-        newAddress: true,
-        accountDetails: accountDetails!,
-      ));
+      NavigationHandler.navigateTo<void>(
+        AddAddressScreenRoute(
+          newAddress: true,
+          accountDetails: accountDetails!,
+        ),
+      );
     } else {
       NavigationHandler.navigateTo<Address?>(
         MyAddressScreenRoute(
@@ -165,12 +167,14 @@ class CartViewModel extends ViewModel<CartState> {
         shouldIncrease ? cart.numOfItems + 1 : cart.numOfItems - 1;
 
     state = state.copyWith(
-        cartItemDataLoading: CartDataLoading(index: index, isLoading: true));
+      cartItemDataLoading: CartDataLoading(index: index, isLoading: true),
+    );
 
     if (newCartValue > 0) {
       if (!(await ConnectionStatus.getInstance().checkConnection())) {
         MessageHandler.showSnackBar(
-            title: Localization.value.connectionNotAvailable);
+          title: Localization.value.connectionNotAvailable,
+        );
         return;
       }
 
@@ -187,19 +191,21 @@ class CartViewModel extends ViewModel<CartState> {
       deleteItem(index, deleteExternally: false);
     }
     state = state.copyWith(
-        cartItemDataLoading: CartDataLoading(index: index, isLoading: false));
+      cartItemDataLoading: CartDataLoading(index: index, isLoading: false),
+    );
   }
 
   Future<void> deleteItem(int index, {bool deleteExternally = true}) async {
     final cartModel = state.cartList[index];
     if (deleteExternally) {
       state = state.copyWith(
-          cartItemDataLoading:
-              CartDataLoading(index: index, deleteLoading: true));
+        cartItemDataLoading: CartDataLoading(index: index, deleteLoading: true),
+      );
     }
     if (!(await ConnectionStatus.getInstance().checkConnection())) {
       MessageHandler.showSnackBar(
-          title: Localization.value.connectionNotAvailable);
+        title: Localization.value.connectionNotAvailable,
+      );
       return;
     }
     _productDeleteCartUseCase.execute(cartModel.productId).then((value) {
@@ -217,9 +223,7 @@ class CartViewModel extends ViewModel<CartState> {
     _getCartStatusUseCase.execute().listen((event) {
       state = state.copyWith(cartList: event);
     });
-    _accountDetailsUseCaseUseCase.execute().listen((event) {
-      addAccountDetails(event);
-    });
+    _accountDetailsUseCaseUseCase.execute().listen(addAccountDetails);
   }
 }
 
@@ -234,5 +238,5 @@ extension CartStatus on List<Cart> {
     return price;
   }
 
-  String get currency => noOfItemsInCart > 0 ? this[0].currency : "";
+  String get currency => noOfItemsInCart > 0 ? this[0].currency : '';
 }
