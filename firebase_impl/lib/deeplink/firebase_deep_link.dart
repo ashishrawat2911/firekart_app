@@ -35,7 +35,7 @@ class FirebaseDeepLink extends Deeplink {
   }) async {
     final packageInfo = await PackageInfo.fromPlatform();
     var packageName = packageInfo.packageName;
-    var appStoreId = "";
+    var appStoreId = '';
     var pageLink = 'https://fluttercommerce.page.link';
     var androidMinimumVersion = 0;
     var iosMinimumVersion = 0;

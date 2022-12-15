@@ -1,6 +1,6 @@
 import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/search_products_use_case.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 import '../state/product_search_state.dart';
 

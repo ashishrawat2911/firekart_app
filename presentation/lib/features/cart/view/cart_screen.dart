@@ -35,8 +35,9 @@ class _CartScreenState extends State<CartScreen> {
               ? cartView(state, viewModel)
               : Container(),
           bottomNavigationBar: Visibility(
-              visible: state.cartList.noOfItemsInCart > 0,
-              child: checkOut(state, viewModel)),
+            visible: state.cartList.noOfItemsInCart > 0,
+            child: checkOut(state, viewModel),
+          ),
         );
       },
     );
@@ -98,30 +99,31 @@ class _CartScreenState extends State<CartScreen> {
 
   Widget applyCoupon() {
     return CommonCard(
-        child: Container(
-      margin: const EdgeInsets.only(left: 20, right: 14, top: 17, bottom: 17),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.local_offer,
-                color: AppColors.color4C4C6F,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(Localization.value.applyCoupon),
-            ],
-          ),
-          Icon(
-            Icons.keyboard_arrow_right,
-            color: AppColors.color4C4C6F,
-          )
-        ],
+      child: Container(
+        margin: const EdgeInsets.only(left: 20, right: 14, top: 17, bottom: 17),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                const Icon(
+                  Icons.local_offer,
+                  color: AppColors.color4C4C6F,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(Localization.value.applyCoupon),
+              ],
+            ),
+            const Icon(
+              Icons.keyboard_arrow_right,
+              color: AppColors.color4C4C6F,
+            )
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget billDetails(CartState state) {
@@ -134,16 +136,18 @@ class _CartScreenState extends State<CartScreen> {
               Text(
                 title,
                 style: TextStyle(
-                    color: AppColors.color20203E,
-                    fontSize: 14,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                  color: AppColors.color20203E,
+                  fontSize: 14,
+                  fontWeight: isFinal ? FontWeight.w500 : null,
+                ),
               ),
               Text(
                 price,
                 style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 16,
-                    fontWeight: isFinal ? FontWeight.w500 : null),
+                  color: AppColors.black,
+                  fontSize: 16,
+                  fontWeight: isFinal ? FontWeight.w500 : null,
+                ),
               ),
             ],
           ),
@@ -163,66 +167,70 @@ class _CartScreenState extends State<CartScreen> {
     }
 
     return CommonCard(
-        child: Container(
-      margin: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            Localization.value.billDetails,
-            style: ThemeProvider.textTheme.bodyText1,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+      child: Container(
+        margin: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              Localization.value.billDetails,
+              style: ThemeProvider.textTheme.bodyText1,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
 //          priceRow(
 //              Localization.value.basketTotal,
 //              "${cartItemStatus.currency}${cartItemStatus.priceInCart}"),
 //          priceRow(
 //              Localization.value.taxAndCharges, "${cartItemStatus.currency}900"),
-          priceRow(Localization.value.toPay,
+            priceRow(
+              Localization.value.toPay,
               "${state.cartList.currency}${state.cartList.priceInCart}",
-              isFinal: true),
-        ],
+              isFinal: true,
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget deliverTo(CartState state, CartViewModel viewModel) {
     return CommonCard(
-        child: Container(
-      margin: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                Localization.value.deliverTo,
-                style: ThemeProvider.textTheme.bodyText1,
-              ),
-              ActionText(
-                state.selectedAddress == null
-                    ? Localization.value.addNewCaps
-                    : Localization.value.changeTextCapital,
-                onTap: () {
-                  viewModel.selectOrChangeAddress();
-                },
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            state.selectedAddress?.wholeAddress() ??
-                Localization.value.noAddressFound,
-            style: ThemeProvider.textTheme.overline,
-          ),
-        ],
+      child: Container(
+        margin: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  Localization.value.deliverTo,
+                  style: ThemeProvider.textTheme.bodyText1,
+                ),
+                ActionText(
+                  state.selectedAddress == null
+                      ? Localization.value.addNewCaps
+                      : Localization.value.changeTextCapital,
+                  onTap: () {
+                    viewModel.selectOrChangeAddress();
+                  },
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              state.selectedAddress?.wholeAddress() ??
+                  Localization.value.noAddressFound,
+              style: ThemeProvider.textTheme.overline,
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget checkOut(CartState state, CartViewModel viewModel) {
@@ -240,7 +248,7 @@ class _CartScreenState extends State<CartScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "${state.cartList.currency} ${state.cartList.priceInCart}",
+                      '${state.cartList.currency} ${state.cartList.priceInCart}',
                       style: ThemeProvider.textTheme.bodyText1,
                     ),
                     ActionText(Localization.value.viewDetailedBillCaps)

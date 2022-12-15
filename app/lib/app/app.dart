@@ -17,7 +17,7 @@ class App extends StatelessWidget {
         builder: (context, viewModel, state) => MaterialApp.router(
           builder: (context, child) {
             Localization.setup(context);
-            ThemeProvider.up = context;
+            ThemeProvider.setup(context);
             return child!;
           },
           locale: state.locale,

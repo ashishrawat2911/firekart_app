@@ -1,4 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'payment_state.freezed.dart';
 

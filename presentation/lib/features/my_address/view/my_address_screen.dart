@@ -48,7 +48,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 child: CommonAppLoader(),
               );
             }
-            if ( state.addressStates.isNotEmpty) {
+            if (state.addressStates.isNotEmpty) {
               return addressesView(accountDetails, viewModel, state);
             } else if (state.addressStates.isEmpty) {
               return noAddressesFound(accountDetails, viewModel);

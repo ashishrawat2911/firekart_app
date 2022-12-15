@@ -84,10 +84,11 @@ class AppTheme {
       cardTheme: CardTheme(
         elevation: 1,
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            side: BorderSide(
-              color: AppColors.white,
-            ),),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          side: BorderSide(
+            color: AppColors.white,
+          ),
+        ),
         color: dark ? AppColors.black : AppColors.white,
       ),
       indicatorColor: AppColors.primaryColor,
