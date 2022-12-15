@@ -6,8 +6,7 @@ import 'package:domain/models/account_details_model.dart';
 import 'package:domain/models/cart_model.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:domain/models/product_model.dart';
-import 'package:injectable/injectable.dart' hide Order;
-import 'package:smartstruct/smartstruct.dart';
+import 'package:shared_dependencies/shared_dependencies.dart' hide Order;
 
 part 'data_mapper.mapper.g.dart';
 

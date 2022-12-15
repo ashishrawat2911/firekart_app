@@ -6,9 +6,14 @@ import '../../di/di.dart';
 
 typedef OnViewModelReady<V> = void Function(V viewModel);
 typedef OnViewModelStateBuilder<V, S> = Widget Function(
-    BuildContext context, V viewModel, S state);
+  BuildContext context,
+  V viewModel,
+  S state,
+);
 typedef OnViewModelBuilder<V> = Widget Function(
-    BuildContext context, V viewModel);
+  BuildContext context,
+  V viewModel,
+);
 typedef OnStateListener<S> = void Function(BuildContext context, S state);
 typedef BuilderCondition<S> = bool Function(S previous, S current);
 

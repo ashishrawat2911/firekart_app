@@ -34,7 +34,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         floatingActionButton: CommonViewCartOverlay(
           args: CommonViewCartOverlayArgs(
             title: "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
-            isCartEmpty: (state.noOfItems > 0),
+            isCartEmpty: state.noOfItems > 0,
             onCartTap: () {
               NavigationHandler.navigateTo<void>(const CartScreenRoute());
             },
@@ -95,50 +95,62 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     int cartValue = 0;
     cartValue = state.noOfItems as int;
     return AnimatedCrossFade(
-        firstChild: addButton(state, viewModel),
-        secondChild: SizedBox(
-          height: 30,
-          width: 110,
-          child: Row(
-            children: [
-              changeCartValues(
-                  false,
-                  state.cartDataLoading
-                      ? () {}
-                      : () {
-                          viewModel.updateCartValues(
-                              widget.product, cartValue, false);
-                        }),
-              Expanded(
-                  child: state.cartDataLoading
-                      ? const Center(
-                          child: CommonAppLoader(
-                          size: 20,
-                          strokeWidth: 3,
-                        ))
-                      : Center(
-                          child: Text(
-                          "$cartValue",
-                          style: TextStyle(
-                            color: AppColors.black,
-                            fontSize: 14,
-                          ),
-                        ))),
-              changeCartValues(
-                  true,
-                  state.cartDataLoading
-                      ? () {}
-                      : () {
-                          viewModel.updateCartValues(
-                              widget.product, cartValue, true);
-                        })
-            ],
-          ),
+      firstChild: addButton(state, viewModel),
+      secondChild: SizedBox(
+        height: 30,
+        width: 110,
+        child: Row(
+          children: [
+            changeCartValues(
+              false,
+              state.cartDataLoading
+                  ? () {}
+                  : () {
+                      viewModel.updateCartValues(
+                        widget.product,
+                        cartValue,
+                        false,
+                      );
+                    },
+            ),
+            Expanded(
+              child: state.cartDataLoading
+                  ? const Center(
+                      child: CommonAppLoader(
+                        size: 20,
+                        strokeWidth: 3,
+                      ),
+                    )
+                  : Center(
+                      child: Text(
+                        '$cartValue',
+                        style: const TextStyle(
+                          color: AppColors.black,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+            ),
+            changeCartValues(
+              true,
+              state.cartDataLoading
+                  ? () {}
+                  : () {
+                      viewModel.updateCartValues(
+                        widget.product,
+                        cartValue,
+                        true,
+                      );
+                    },
+            )
+          ],
         ),
-        crossFadeState: (cartValue > 0)
-            ? CrossFadeState.showSecond
-            : CrossFadeState.showFirst,
-        duration: const Duration(milliseconds: 100));
+      ),
+      crossFadeState: (cartValue > 0)
+          ? CrossFadeState.showSecond
+          : CrossFadeState.showFirst,
+      duration: const Duration(milliseconds: 100),
+    );
   }
 
   Widget addButton(AddToCartState state, ProductViewModel viewModel) {
@@ -152,7 +164,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           width: 70,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-              border: Border.all(width: 1, color: AppColors.dropShadow)),
+            border: Border.all(color: AppColors.dropShadow),
+          ),
           child: Text(
             Localization.value.add,
             style: ThemeProvider.textTheme.button?.copyWith(
@@ -162,13 +175,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         ),
       ),
       secondChild: const SizedBox(
-          height: 30,
-          width: 110,
-          child: Center(
-              child: CommonAppLoader(
+        height: 30,
+        width: 110,
+        child: Center(
+          child: CommonAppLoader(
             size: 20,
             strokeWidth: 3,
-          ))),
+          ),
+        ),
+      ),
       crossFadeState: state.addToCardLoading
           ? CrossFadeState.showSecond
           : CrossFadeState.showFirst,
@@ -184,8 +199,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           width: 32,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isAdd ? AppColors.primaryColor : AppColors.white),
+            shape: BoxShape.circle,
+            color: isAdd ? AppColors.primaryColor : AppColors.white,
+          ),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,

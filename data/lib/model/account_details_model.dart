@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'account_details_model.g.dart';
 
@@ -38,6 +38,13 @@ class AddressModel {
     return 'Address{name: $name, pincode: $pincode, address: $address, city: $city, state: $state, phoneNumber: $phoneNumber, isDefault: $isDefault}';
   }
 
-  AddressModel(this.name, this.pincode, this.address, this.city, this.state,
-      this.phoneNumber, this.isDefault);
+  AddressModel(
+    this.name,
+    this.pincode,
+    this.address,
+    this.city,
+    this.state,
+    this.phoneNumber,
+    this.isDefault,
+  );
 }

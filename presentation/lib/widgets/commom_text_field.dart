@@ -91,7 +91,10 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   void _fieldFocusChange(
-      BuildContext context, FocusNode currentFocus, FocusNode? nextFocus) {
+    BuildContext context,
+    FocusNode currentFocus,
+    FocusNode? nextFocus,
+  ) {
     currentFocus.unfocus();
     if (nextFocus == null) {
       nextFocus?.unfocus();
@@ -136,12 +139,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onFieldSubmitted: widget.onSubmitted ??
             (term) {
               _fieldFocusChange(
-                  widget.context!, widget.focusNode!, widget.nextFocusNode!);
+                widget.context!,
+                widget.focusNode!,
+                widget.nextFocusNode,
+              );
             },
         decoration: InputDecoration(
           contentPadding: widget.contentPadding != null
               ? EdgeInsets.symmetric(
-                  horizontal: widget.contentPadding!, vertical: 2)
+                  horizontal: widget.contentPadding!,
+                  vertical: 2,
+                )
               : null,
           fillColor: widget.fillColor ?? AppColors.white,
           filled: true,
@@ -150,25 +158,26 @@ class _CustomTextFieldState extends State<CustomTextField> {
           prefixIcon: widget.prefix,
           hintStyle: widget.hint!.length < 30
               ? widget.hintStyle
-              : TextStyle(fontSize: 15, color: AppColors.dropShadow),
+              : const TextStyle(fontSize: 15, color: AppColors.dropShadow),
           errorStyle: widget.errorStyle ??
               const TextStyle(
                   // color: AppColors.errorRed,
                   // fontSize: 0,
                   ),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
             // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
-            borderSide: BorderSide(color: AppColors.white, width: 0.0),
+            borderSide: BorderSide(color: AppColors.white, width: 0),
           ),
           disabledBorder: const OutlineInputBorder(
             // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
-            borderSide: BorderSide(color: Colors.transparent, width: 0.0),
+            borderSide: BorderSide(color: Colors.transparent, width: 0),
           ),
           enabledBorder: OutlineInputBorder(
             //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(
-                color: widget.enabledBorderColor!,
-                width: widget.enabledBorderWidth ?? 1.0),
+              color: widget.enabledBorderColor!,
+              width: widget.enabledBorderWidth ?? 1.0,
+            ),
           ),
 //          errorBorder: OutlineInputBorder(
 //              //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),

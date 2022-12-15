@@ -42,10 +42,11 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
             InkWell(
               onTap: () {
                 NavigationHandler.navigateTo<void>(
-                    const SearchItemScreenRoute());
+                  const SearchItemScreenRoute(),
+                );
               },
               child: const Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16),
                 child: Icon(Icons.search),
               ),
             )
@@ -61,9 +62,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           errorWidget: (String error) {
             return Container();
           },
-          dataWidget: (List<Product> value) {
-            return dataWidget(value);
-          },
+          dataWidget: dataWidget,
         ),
       ),
     );

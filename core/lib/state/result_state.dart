@@ -1,4 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'result_state.freezed.dart';
 
@@ -14,6 +14,8 @@ abstract class ResultState<T> with _$ResultState<T> {
 
   const factory ResultState.error({required String error}) = Error<T>;
 
-  const factory ResultState.unNotifiedError(
-      {required T data, required String error}) = UnNotifiedError<T>;
+  const factory ResultState.unNotifiedError({
+    required T data,
+    required String error,
+  }) = UnNotifiedError<T>;
 }

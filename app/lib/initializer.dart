@@ -13,17 +13,25 @@ import 'di/di.dart';
 class Initializer {
   Initializer._();
 
-  static void initialize(ValueChanged<Widget> onRun) async {
+  static Future<void> initialize(ValueChanged<Widget> onRun) async {
     WidgetsFlutterBinding.ensureInitialized();
     await initializeFirebase();
-    registerDependencies();
-    runZonedGuarded(() {
-      runStateObserver();
-      onRun(const App());
-    }, (error, stack) {
-      AppLogger.log('App level error',
-          logType: LogType.error, error: error, stackTrace: stack);
-      inject<CrashlyticsService>().recordError(error, stack);
-    }, zoneSpecification: const ZoneSpecification());
+    await registerDependencies();
+    runZonedGuarded(
+      () {
+        runStateObserver();
+        onRun(const App());
+      },
+      (error, stack) {
+        AppLogger.log(
+          'App level error',
+          logType: LogType.error,
+          error: error,
+          stackTrace: stack,
+        );
+        inject<CrashlyticsService>().recordError(error, stack);
+      },
+      zoneSpecification: const ZoneSpecification(),
+    );
   }
 }

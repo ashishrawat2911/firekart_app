@@ -35,8 +35,12 @@ class CommonExpandableWidget extends StatefulWidget {
       ..add(StringProperty('title', title))
       ..add(DiagnosticsProperty<TextStyle?>('titleStyle', titleStyle))
       ..add(DiagnosticsProperty<EdgeInsets?>('margin', margin))
-      ..add(ObjectFlagProperty<VoidCallback?>.has(
-          'voidCallbackScroll', voidCallbackScroll))
+      ..add(
+        ObjectFlagProperty<VoidCallback?>.has(
+          'voidCallbackScroll',
+          voidCallbackScroll,
+        ),
+      )
       ..add(ColorProperty('color', color));
   }
 }
@@ -54,7 +58,7 @@ class _CommonExpandableWidgetState extends State<CommonExpandableWidget>
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    animation = Tween(begin: 0.0, end: pi).animate(animationController);
+    animation = Tween<double>(begin: 0, end: pi).animate(animationController);
   }
 
   @override
@@ -82,7 +86,7 @@ class _CommonExpandableWidgetState extends State<CommonExpandableWidget>
         behavior: HitTestBehavior.opaque,
         onTap: () {
           if (isOpened) {
-            if (widget.voidCallbackScroll != null) widget.voidCallbackScroll!();
+            widget.voidCallbackScroll?.call();
             animationController.forward();
           } else {
             animationController.reverse();

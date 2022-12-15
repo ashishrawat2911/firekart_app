@@ -6,7 +6,7 @@ import 'package:domain/models/order_model.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:domain/repository/firebase_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:injectable/injectable.dart' hide Order;
+import 'package:shared_dependencies/shared_dependencies.dart' hide Order;
 
 import '../service/firebase_service.dart';
 
@@ -32,21 +32,23 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   @override
   Future<List<Order>> getAllOrders() async {
     final orders = await _firebaseService.getAllOrders();
-    return orders.mapToList((e) => _mapper.orderFromModel(e));
+    return orders.mapToList(_mapper.orderFromModel);
   }
 
   @override
-  Future<List<Product>> getAllProducts(
-      {String? condition, required bool all}) async {
+  Future<List<Product>> getAllProducts({
+    String? condition,
+    required bool all,
+  }) async {
     final products = await _firebaseService.getAllProducts();
-    return products.mapToList((e) => _mapper.productFromModel(e));
+    return products.mapToList(_mapper.productFromModel);
   }
 
   @override
   Stream<List<Cart>> listenToCart() {
     return _firebaseService
         .cartStatusListen()
-        .map((event) => event.mapToList((e) => _mapper.cartFromModel(e)));
+        .map((event) => event.mapToList(_mapper.cartFromModel));
   }
 
   @override
@@ -58,14 +60,14 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   @override
   Future<List<Product>> searchProducts(String query) async {
     final products = await _firebaseService.searchProducts(query);
-    return products.mapToList((e) => _mapper.productFromModel(e));
+    return products.mapToList(_mapper.productFromModel);
   }
 
   @override
   Stream<AccountDetails> streamUserDetails() {
     return _firebaseService
         .streamUserDetails()
-        .map((event) => _mapper.accountDetailsFromModel(event));
+        .map(_mapper.accountDetailsFromModel);
   }
 
   @override

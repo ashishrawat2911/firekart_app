@@ -79,17 +79,20 @@ class CartItemCard extends StatelessWidget {
                           Text(
                             cartItemCardArgs.name,
                             style: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15,
-                                color: AppColors.black),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: AppColors.black,
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           Text(
-                            "${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}",
+                            '${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}',
                             style: const TextStyle(
-                                fontSize: 14, color: AppColors.color4C4C6F),
+                              fontSize: 14,
+                              color: AppColors.color4C4C6F,
+                            ),
                           ),
                         ],
                       )
@@ -103,7 +106,7 @@ class CartItemCard extends StatelessWidget {
                         );
                       }
                       return Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: ActionText(
                           Localization.value.deleteCaps,
                           onTap: () {
@@ -126,35 +129,39 @@ class CartItemCard extends StatelessWidget {
                     child: Row(
                       children: [
                         addButton(
-                            false,
-                            cartItemCardArgs.isLoading
-                                ? () {}
-                                : () {
-                                    cartItemCardArgs
-                                        .onDecrement(cartItemCardArgs.index);
-                                  }),
+                          false,
+                          cartItemCardArgs.isLoading
+                              ? () {}
+                              : () {
+                                  cartItemCardArgs
+                                      .onDecrement(cartItemCardArgs.index);
+                                },
+                        ),
                         Expanded(
-                            child: Center(
-                                child: cartItemCardArgs.isLoading
-                                    ? const CommonAppLoader(
-                                        size: 20,
-                                        strokeWidth: 3,
-                                      )
-                                    : Text(
-                                        "${cartItemCardArgs.itemCount}",
-                                        style: const TextStyle(
-                                          color: AppColors.black,
-                                          fontSize: 14,
-                                        ),
-                                      ))),
+                          child: Center(
+                            child: cartItemCardArgs.isLoading
+                                ? const CommonAppLoader(
+                                    size: 20,
+                                    strokeWidth: 3,
+                                  )
+                                : Text(
+                                    '${cartItemCardArgs.itemCount}',
+                                    style: const TextStyle(
+                                      color: AppColors.black,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                          ),
+                        ),
                         addButton(
-                            true,
-                            cartItemCardArgs.isLoading
-                                ? () {}
-                                : () {
-                                    cartItemCardArgs
-                                        .onIncrement(cartItemCardArgs.index);
-                                  })
+                          true,
+                          cartItemCardArgs.isLoading
+                              ? () {}
+                              : () {
+                                  cartItemCardArgs
+                                      .onIncrement(cartItemCardArgs.index);
+                                },
+                        )
                       ],
                     ),
                   ),
@@ -182,8 +189,9 @@ class CartItemCard extends StatelessWidget {
           width: 32,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isAdd ? AppColors.primaryColor : AppColors.white),
+            shape: BoxShape.circle,
+            color: isAdd ? AppColors.primaryColor : AppColors.white,
+          ),
           child: Center(
             child: Icon(
               isAdd ? Icons.add : Icons.remove,
