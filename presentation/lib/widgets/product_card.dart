@@ -12,15 +12,16 @@ class ProductCardArgs {
   final num quantityPerUnit;
   final String unit;
 
-  ProductCardArgs(
-      {required this.onTap,
-      required this.name,
-      required this.image,
-      required this.currency,
-      required this.currentPrice,
-      required this.actualPrice,
-      required this.quantityPerUnit,
-      required this.unit,});
+  ProductCardArgs({
+    required this.onTap,
+    required this.name,
+    required this.image,
+    required this.currency,
+    required this.currentPrice,
+    required this.actualPrice,
+    required this.quantityPerUnit,
+    required this.unit,
+  });
 }
 
 class ProductCard extends StatelessWidget {
@@ -39,7 +40,9 @@ class ProductCard extends StatelessWidget {
           children: <Widget>[
             ClipRRect(
               borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10),),
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
               child: AspectRatio(
                 aspectRatio: 1.6,
                 child: CachedNetworkImage(

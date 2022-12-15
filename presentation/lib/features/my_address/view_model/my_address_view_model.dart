@@ -10,8 +10,9 @@ import '../state/my_address_state.dart';
 @injectable
 class MyAddressViewModel extends ViewModel<MyAddressState> {
   MyAddressViewModel(
-      this._getAccountDetailsUseCase, this._setAccountDetailsUseCase,)
-      : super(const MyAddressState());
+    this._getAccountDetailsUseCase,
+    this._setAccountDetailsUseCase,
+  ) : super(const MyAddressState());
 
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
@@ -25,12 +26,14 @@ class MyAddressViewModel extends ViewModel<MyAddressState> {
 
     for (int i = 0; i < accountDetails.addresses.length; i++) {
       cardStates.add(
-          AddressCardState(address: accountDetails.addresses[i], index: i),);
+        AddressCardState(address: accountDetails.addresses[i], index: i),
+      );
     }
     state = state.copyWith(
-        accountDetails: accountDetails,
-        addressStates: cardStates,
-        screenLoading: false,);
+      accountDetails: accountDetails,
+      addressStates: cardStates,
+      screenLoading: false,
+    );
   }
 
   Future<void> fetchAccountDetails() async {

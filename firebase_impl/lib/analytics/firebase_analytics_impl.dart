@@ -10,7 +10,7 @@ class FirebaseAnalyticsImpl extends Analytics {
 
   @override
   void logEvent({required String name, required Object value}) {
-    _analytics.logEvent(name: name, parameters: {"value": value});
+    _analytics.logEvent(name: name, parameters: {'value': value});
   }
 
   @override

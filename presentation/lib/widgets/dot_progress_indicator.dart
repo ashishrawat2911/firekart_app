@@ -11,9 +11,10 @@ class DotProgressIndicator extends StatefulWidget {
     this.duration = const Duration(milliseconds: 1400),
     this.controller,
   })  : assert(
-            !(itemBuilder is IndexedWidgetBuilder && color is Color) &&
-                !(itemBuilder == null && color == null),
-            'You should specify either a itemBuilder or a color',),
+          !(itemBuilder is IndexedWidgetBuilder && color is Color) &&
+              !(itemBuilder == null && color == null),
+          'You should specify either a itemBuilder or a color',
+        ),
         assert(size != null),
         super(key: key);
   final Color? color;
@@ -56,8 +57,9 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
               scale: DelayTween(begin: 0, end: 1, delay: i * .2)
                   .animate(_controller),
               child: SizedBox.fromSize(
-                  size: Size.square(widget.size! * 0.5),
-                  child: _itemBuilder(i),),
+                size: Size.square(widget.size! * 0.5),
+                child: _itemBuilder(i),
+              ),
             );
           }),
         ),
@@ -69,7 +71,8 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
       ? widget.itemBuilder!(context, index)
       : DecoratedBox(
           decoration:
-              BoxDecoration(color: widget.color, shape: BoxShape.circle),);
+              BoxDecoration(color: widget.color, shape: BoxShape.circle),
+        );
 }
 
 class DelayTween extends Tween<double> {

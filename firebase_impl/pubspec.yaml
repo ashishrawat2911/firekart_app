@@ -18,6 +18,8 @@ dependencies:
   firebase_core: ^2.4.0
   core:
     path: ../core
+  shared_dependencies:
+    path: ../shared_dependencies
 
 dev_dependencies:
   flutter_test:

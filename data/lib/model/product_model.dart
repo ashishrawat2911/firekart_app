@@ -1,4 +1,3 @@
-
 import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'product_model.g.dart';
@@ -24,21 +23,22 @@ class ProductModel {
   final List<String> nameSearch;
 
   ProductModel(
-      this.productId,
-      this.image,
-      this.name,
-      this.description,
-      this.unit,
-      this.categories,
-      this.currency,
-      this.dealOfTheDay,
-      this.topProducts,
-      this.onSale,
-      this.currentPrice,
-      this.actualPrice,
-      this.quantityPerUnit,
-      this.isProductAvailable,
-      this.nameSearch,);
+    this.productId,
+    this.image,
+    this.name,
+    this.description,
+    this.unit,
+    this.categories,
+    this.currency,
+    this.dealOfTheDay,
+    this.topProducts,
+    this.onSale,
+    this.currentPrice,
+    this.actualPrice,
+    this.quantityPerUnit,
+    this.isProductAvailable,
+    this.nameSearch,
+  );
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
       _$ProductModelFromJson(json);
