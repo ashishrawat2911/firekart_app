@@ -18,6 +18,7 @@ dependencies:
   intl: ^0.17.0
   url_launcher: ^6.0.15
   flutter_bloc: ^8.0.0
+  dartz: 
   shared_dependencies:
     path: ../shared_dependencies
 
