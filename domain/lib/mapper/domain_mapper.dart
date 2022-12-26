@@ -1,7 +1,6 @@
 import 'package:domain/models/cart_model.dart';
 import 'package:domain/models/product_model.dart';
-import 'package:injectable/injectable.dart';
-import 'package:smartstruct/smartstruct.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part 'domain_mapper.mapper.g.dart';
 

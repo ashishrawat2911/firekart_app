@@ -1,6 +1,6 @@
 import 'package:core/analytics/analytics.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 @Injectable(as: Analytics)
 class FirebaseAnalyticsImpl extends Analytics {
