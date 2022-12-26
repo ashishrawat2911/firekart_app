@@ -33,4 +33,14 @@ abstract class FirebaseRepository {
   dynamic getCurrentUser();
 
   Future<void> logoutUser();
+
+  Future<void> setAccountDetails({String? displayName, String? photoUrl});
+
+  Future<bool> sendCode(
+    String phoneNumber, {
+    required Function verificationCompleted,
+    required Function verificationFailed,
+    required Function codeSent,
+    required Function codeAutoRetrievalTimeout,
+  });
 }
