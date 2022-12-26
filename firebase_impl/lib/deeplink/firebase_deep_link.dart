@@ -1,6 +1,6 @@
 import 'package:core/deeplink/deep_link.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 import 'package:package_info/package_info.dart';
 
 @injectable

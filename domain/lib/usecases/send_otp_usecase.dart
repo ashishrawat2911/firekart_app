@@ -1,6 +1,6 @@
 import 'package:data/service/firebase_service.dart';
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 @injectable
 class SendOTPUseCase {

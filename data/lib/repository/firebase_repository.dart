@@ -5,7 +5,6 @@ import 'package:domain/models/cart_model.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:domain/repository/firebase_repository.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_dependencies/shared_dependencies.dart' hide Order;
 
 import '../service/firebase_service.dart';
@@ -96,7 +95,7 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  User? getCurrentUser() {
+  dynamic getCurrentUser() {
     return _firebaseService.getCurrentUser();
   }
 

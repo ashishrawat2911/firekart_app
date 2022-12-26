@@ -1,5 +1,5 @@
 import 'package:domain/repository/firebase_repository.dart';
-import 'package:injectable/injectable.dart' hide Order;
+import 'package:shared_dependencies/shared_dependencies.dart' hide Order;
 
 import '../models/order_model.dart';
 

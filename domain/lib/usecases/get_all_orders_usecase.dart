@@ -1,6 +1,6 @@
 import 'package:domain/models/order_model.dart';
 import 'package:domain/repository/firebase_repository.dart';
-import 'package:injectable/injectable.dart' hide Order;
+import 'package:shared_dependencies/shared_dependencies.dart' hide Order;
 
 @injectable
 class GetAllOrdersUseCase {
