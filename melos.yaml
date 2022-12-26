@@ -28,8 +28,8 @@ scripts:
   build:
     run: |
       cd app
-      flutter build apk --verbose
-      flutter build ios --release --no-codesign --verbose
+      flutter build apk 
+      flutter build ios --release --no-codesign
   generate:
     run: |
       melos exec -c 1 --fail-fast --  flutter packages pub run build_runner build --delete-conflicting-outputs
