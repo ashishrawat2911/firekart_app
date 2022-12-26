@@ -23,7 +23,7 @@ jobs:
           cache: 'gradle'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.0.0"
+          flutter-version: "3.3.9"
           channel: 'stable'
           cache: true
       - run: flutter pub global activate melos
