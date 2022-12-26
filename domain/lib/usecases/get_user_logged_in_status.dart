@@ -10,11 +10,7 @@ class GetUserLoggedInStatusUseCase {
   bool execute() {
     try {
       final user = _firebaseRepository.getCurrentUser();
-      if (user == null) {
-        return false;
-      } else {
-        return true;
-      }
+      return !(user == null);
     } catch (e) {
       return false;
     }

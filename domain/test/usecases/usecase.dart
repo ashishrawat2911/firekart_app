@@ -1,5 +1,6 @@
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/models/cart_model.dart';
+import 'package:domain/models/order_model.dart';
 import 'package:domain/repository/firebase_repository.dart';
 import 'package:mockito/annotations.dart';
 
@@ -7,5 +8,6 @@ import 'package:mockito/annotations.dart';
   FirebaseRepository,
   Cart,
   AccountDetails,
+  Order,
 ])
 void test() {}
