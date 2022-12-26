@@ -8,8 +8,8 @@ import 'package:data/mapper/data_mapper.dart' as _i4;
 import 'package:data/repository/firebase_repository.dart' as _i9;
 import 'package:data/service/firebase_service.dart' as _i5;
 import 'package:domain/repository/firebase_repository.dart' as _i8;
-import 'package:firebase_auth/firebase_auth.dart' as _i7;
 import 'package:firebase_impl/di/di.module.dart' as _i3;
+import 'package:firebase_impl/firebase_impl.dart' as _i7;
 import 'package:injectable/injectable.dart' as _i1;
 
 /// ignore_for_file: unnecessary_lambdas
