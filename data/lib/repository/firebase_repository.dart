@@ -103,4 +103,30 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   Future<void> logoutUser() {
     return _firebaseService.logoutUser();
   }
+
+  @override
+  Future<void> setAccountDetails({String? displayName, String? photoUrl}) {
+    return _firebaseService.setAccountDetails(
+        displayName: displayName, photoUrl: photoUrl);
+  }
+
+  @override
+  Future<bool> sendCode(
+    String phoneNumber, {
+    required Function verificationCompleted,
+    required Function verificationFailed,
+    required Function codeSent,
+    required Function codeAutoRetrievalTimeout,
+  }) {
+    return _firebaseService.sendCode(
+      phoneNumber,
+      verificationCompleted: (phoneAuthCredential) =>
+          verificationCompleted(phoneAuthCredential),
+      verificationFailed: (error) => verificationFailed(error),
+      codeSent: (verificationId, forceResendingToken) =>
+          codeSent(verificationId, forceResendingToken),
+      codeAutoRetrievalTimeout: (verificationId) =>
+          codeAutoRetrievalTimeout(verificationId),
+    );
+  }
 }
