@@ -11,9 +11,6 @@ An Ecommerce application built in Flutter using Firebase.
 * Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/flutter_commerce/wiki/Gettings-Started) section.
 
 
-* Project setup instructions are given
-  at [Wiki](https://github.com/ashishrawat2911/flutter_commerce/wiki/Gettings-Started) section.
-
 # Screenshots
 
 Splash Screen              |  Login Page               | OTP Page               |  Home Page
