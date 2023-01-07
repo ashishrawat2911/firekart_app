@@ -14,6 +14,7 @@ scripts:
     run: |
       melos exec -c 1 --fail-fast -- flutter clean
       melos exec -c 1 --fail-fast -- rm pubspec.lock
+      melos exec -c 1 --fail-fast -- rm -rf /coverage
       melos exec -c 1 --fail-fast -- rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
   get:
     run: |
@@ -25,6 +26,7 @@ scripts:
   test:
     run: |
       melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
+      genhtml coverage/lcov.info -o coverage/html
   build:
     run: |
       cd app

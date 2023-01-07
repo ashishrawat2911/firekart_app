@@ -37,10 +37,12 @@ abstract class FirebaseRepository {
   Future<void> setAccountDetails({String? displayName, String? photoUrl});
 
   Future<bool> sendCode(
-    String phoneNumber, {
-    required Function verificationCompleted,
-    required Function verificationFailed,
-    required Function codeSent,
-    required Function codeAutoRetrievalTimeout,
-  });
+    String phoneNumber,
+    void Function(String error) onError,
+  );
+
+  Future<void> loginWithOtp(
+    String smsCode,
+    void Function(String error) onError,
+  );
 }
