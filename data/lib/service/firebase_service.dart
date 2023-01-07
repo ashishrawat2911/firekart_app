@@ -6,7 +6,6 @@ import 'package:data/model/cart_model.dart';
 import 'package:data/model/order_model.dart';
 import 'package:data/model/product_model.dart';
 import 'package:firebase_impl/firebase_impl.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
 @injectable
@@ -41,33 +40,6 @@ class FirebaseService {
 
   CollectionReference get _cartCollection =>
       _firebaseFireStore.collection('users').doc(getUid()).collection('cart');
-
-  Future<bool> sendCode(
-    String phoneNumber, {
-    required PhoneVerificationCompleted verificationCompleted,
-    required PhoneVerificationFailed verificationFailed,
-    required PhoneCodeSent codeSent,
-    required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
-  }) async {
-    try {
-      return _firebaseAuth
-          .verifyPhoneNumber(
-        phoneNumber: phoneNumber,
-        timeout: const Duration(seconds: 60),
-        verificationCompleted: verificationCompleted,
-        verificationFailed: verificationFailed,
-        codeSent: codeSent,
-        codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
-      )
-          .then((value) {
-        return true;
-      }).catchError((Exception e) {
-        return false;
-      });
-    } on PlatformException {
-      return false;
-    }
-  }
 
   Future<void> setAccountDetails({
     String? displayName,
