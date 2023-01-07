@@ -1,5 +1,6 @@
 import 'package:core/extentions/list_extention.dart';
 import 'package:data/mapper/data_mapper.dart';
+import 'package:data/service/sms_service.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/models/cart_model.dart';
 import 'package:domain/models/order_model.dart';
@@ -13,8 +14,9 @@ import '../service/firebase_service.dart';
 class FirebaseRepositoryImpl extends FirebaseRepository {
   final DataMapper _mapper;
   final FirebaseService _firebaseService;
+  final SmsService _smsService;
 
-  FirebaseRepositoryImpl(this._mapper, this._firebaseService);
+  FirebaseRepositoryImpl(this._mapper, this._firebaseService, this._smsService);
 
   @override
   Future<AccountDetails> fetchUserDetails() async {
@@ -107,26 +109,24 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   @override
   Future<void> setAccountDetails({String? displayName, String? photoUrl}) {
     return _firebaseService.setAccountDetails(
-        displayName: displayName, photoUrl: photoUrl);
+      displayName: displayName,
+      photoUrl: photoUrl,
+    );
+  }
+
+  @override
+  Future<void> loginWithOtp(
+    String smsCode,
+    void Function(String error) onError,
+  ) {
+    return _smsService.loginWithOtp(smsCode, onError);
   }
 
   @override
   Future<bool> sendCode(
-    String phoneNumber, {
-    required Function verificationCompleted,
-    required Function verificationFailed,
-    required Function codeSent,
-    required Function codeAutoRetrievalTimeout,
-  }) {
-    return _firebaseService.sendCode(
-      phoneNumber,
-      verificationCompleted: (phoneAuthCredential) =>
-          verificationCompleted(phoneAuthCredential),
-      verificationFailed: (error) => verificationFailed(error),
-      codeSent: (verificationId, forceResendingToken) =>
-          codeSent(verificationId, forceResendingToken),
-      codeAutoRetrievalTimeout: (verificationId) =>
-          codeAutoRetrievalTimeout(verificationId),
-    );
+    String phoneNumber,
+    void Function(String error) onError,
+  ) {
+    return _smsService.sendCode(phoneNumber, onError);
   }
 }

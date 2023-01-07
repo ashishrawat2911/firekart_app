@@ -12,22 +12,14 @@ class SendOTPUseCase {
     required String phoneNumber,
     required ValueChanged<dynamic> onSuccess,
     required ValueChanged<String> onError,
-    required ValueChanged<String> onVerificationId,
   }) {
-    return firebaseService.sendCode(
-      phoneNumber,
-      verificationCompleted: (phoneAuthCredential) {
-        onSuccess(phoneAuthCredential);
-      },
-      verificationFailed: (error) {
-        onError(error.message ?? '');
-      },
-      codeSent: (verificationId, forceResendingToken) {
-        onVerificationId(verificationId);
-      },
-      codeAutoRetrievalTimeout: (verificationId) {
-        onVerificationId(verificationId);
-      },
-    );
+    return firebaseService.sendCode(phoneNumber, onError);
+  }
+
+  Future<void> loginWithOtp(
+    String smsCode,
+    void Function(String error) onError,
+  ) {
+    return firebaseService.loginWithOtp(smsCode, onError);
   }
 }
