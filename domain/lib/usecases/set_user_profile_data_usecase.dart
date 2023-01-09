@@ -1,9 +1,9 @@
-import 'package:data/service/firebase_service.dart';
+import 'package:domain/repository/firebase_repository.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
 @injectable
 class SetProfileUserDataUseCase {
-  final FirebaseService _firebaseRepository;
+  final FirebaseRepository _firebaseRepository;
 
   SetProfileUserDataUseCase(this._firebaseRepository);
 

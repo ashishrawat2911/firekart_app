@@ -1,5 +1,6 @@
 import 'package:core/extentions/list_extention.dart';
 import 'package:data/mapper/data_mapper.dart';
+import 'package:data/service/sms_service.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/models/cart_model.dart';
 import 'package:domain/models/order_model.dart';
@@ -13,8 +14,9 @@ import '../service/firebase_service.dart';
 class FirebaseRepositoryImpl extends FirebaseRepository {
   final DataMapper _mapper;
   final FirebaseService _firebaseService;
+  final SmsService _smsService;
 
-  FirebaseRepositoryImpl(this._mapper, this._firebaseService);
+  FirebaseRepositoryImpl(this._mapper, this._firebaseService, this._smsService);
 
   @override
   Future<AccountDetails> fetchUserDetails() async {
@@ -102,5 +104,29 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   @override
   Future<void> logoutUser() {
     return _firebaseService.logoutUser();
+  }
+
+  @override
+  Future<void> setAccountDetails({String? displayName, String? photoUrl}) {
+    return _firebaseService.setAccountDetails(
+      displayName: displayName,
+      photoUrl: photoUrl,
+    );
+  }
+
+  @override
+  Future<void> loginWithOtp(
+    String smsCode,
+    void Function(String error) onError,
+  ) {
+    return _smsService.loginWithOtp(smsCode, onError);
+  }
+
+  @override
+  Future<bool> sendCode(
+    String phoneNumber,
+    void Function(String error) onError,
+  ) {
+    return _smsService.sendCode(phoneNumber, onError);
   }
 }
