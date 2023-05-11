@@ -23,7 +23,7 @@ jobs:
           cache: 'gradle'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.3.9"
+          flutter-version: "3.10.0"
           channel: 'stable'
           cache: true
 #      - run: flutter analyze
