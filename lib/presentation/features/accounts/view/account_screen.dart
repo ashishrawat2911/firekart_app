@@ -1,0 +1,116 @@
+import 'package:auto_route/annotations.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/di/di.dart';
+import 'package:fluttercommerce/core/localization/localization.dart';
+import 'package:fluttercommerce/core/theme/theme_provider.dart';
+import 'package:fluttercommerce/domain/models/account_details_model.dart';
+import 'package:fluttercommerce/domain/usecases/logout_usecase.dart';
+import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.dart';
+
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../../../widgets/action_text.dart';
+
+@RoutePage()
+class AccountScreen extends StatefulWidget {
+  const AccountScreen({Key? key}) : super(key: key);
+
+  @override
+  State createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
+  AccountDetails? accountDetails;
+
+  @override
+  void initState() {
+    super.initState();
+    inject<StreamAccountDetailsUseCaseUseCase>().execute().listen((event) {
+      setState(() {
+        accountDetails = event;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(left: 16, right: 16, top: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      if (accountDetails == null)
+                        Container()
+                      else
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              accountDetails!.name,
+                              style: ThemeProvider.textTheme.displayLarge,
+                            ),
+                            Text(
+                              accountDetails!.phoneNumber ?? '',
+                              style: ThemeProvider.textTheme.bodySmall,
+                            ),
+                          ],
+                        ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ActionText(
+                        Localization.value.editCaps,
+                        onTap: () {
+                          NavigationHandler.navigateTo<void>(
+                              AddUserDetailRoute(newAddress: false),);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  title: Text(
+                    Localization.value.myOrders,
+                    style: ThemeProvider.textTheme.bodyMedium,
+                  ),
+                  leading: const Icon(Icons.shopping_basket),
+                  onTap: () {
+                    NavigationHandler.navigateTo<void>(const MyOrdersRoute());
+                  },
+                ),
+                ListTile(
+                  title: Text(
+                    Localization.value.myAddress,
+                    style: ThemeProvider.textTheme.bodyMedium,
+                  ),
+                  leading: const Icon(Icons.place),
+                  onTap: () {
+                    NavigationHandler.navigateTo<void>(MyAddressRoute());
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  title: Text(Localization.value.logout,
+                      style: ThemeProvider.textTheme.bodyMedium,),
+                  leading: const Icon(Icons.exit_to_app),
+                  onTap: () {
+                    inject<LogoutUseCase>().execute().then((value) {
+                      NavigationHandler.navigateTo<void>(
+                        const LoginRoute(),
+                        navigationType: NavigationType.pushAndPopUntil,
+                      );
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+}

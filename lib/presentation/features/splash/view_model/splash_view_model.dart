@@ -1,0 +1,25 @@
+import 'dart:async';
+
+import 'package:fluttercommerce/core/state_manager/view_model.dart';
+import 'package:injectable/injectable.dart' hide Order;
+import 'package:injectable/injectable.dart';
+
+import '../../../routes/app_router.gr.dart';
+import '../../../routes/navigation_handler.dart';
+import '../state/splash_state.dart';
+
+@injectable
+class SplashViewModel extends ViewModel<SplashState> {
+  SplashViewModel() : super(SplashInitialState());
+
+  void startSplash() {
+    const duration = Duration(milliseconds: 1500);
+    Timer(duration, () {
+      NavigationHandler.navigateTo<void>(
+        CheckStatusRoute(),
+        navigationType: NavigationType.pushReplacement,
+      );
+      state = SplashSuccessState();
+    });
+  }
+}
