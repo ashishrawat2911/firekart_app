@@ -5,37 +5,13 @@ import 'app_router.gr.dart';
 
 /*
 * Run this command in terminal
-* flutter packages pub run build_runner build
+* flutter packages pub run build_runner build --delete-conflicting-outputs
 * */
 
 /*
 * Run this command in terminal to watch auto change
-* flutter packages pub run build_runner watch
+* flutter packages pub run build_runner watch --delete-conflicting-outputs
 * */
-
-// @CupertinoAutoRouter(
-//   routes: [
-//     CupertinoRoute(
-//       page: SplashScreen,
-//       initial: true,
-//     ),
-//     CupertinoRoute(page: CheckStatusScreen),
-//     CupertinoRoute(page: LoginScreen),
-//     CupertinoRoute(page: OtpLoginScreen),
-//     CupertinoRoute(page: HomeScreen),
-//     CupertinoRoute(page: DashboardScreen),
-//     CupertinoRoute(page: CartScreen),
-//     CupertinoRoute(page: AccountScreen),
-//     CupertinoRoute(page: SearchItemScreen),
-//     CupertinoRoute(page: ProductDetailPage),
-//     CupertinoRoute(page: AddUserDetailScreen),
-//     CupertinoRoute(page: AllProductListScreen),
-//     CupertinoRoute(page: MyAddressScreen),
-//     CupertinoRoute(page: AddAddressScreen),
-//     CupertinoRoute(page: MyOrdersScreen),
-//   ],
-//   replaceInRouteName: 'Routes',
-// )
 
 @AutoRouterConfig()
 class AppRouter extends $AppRouter {
