@@ -59,3 +59,6 @@ scripts:
       flutter gen-l10n
       cd ../
       melos get 
+  pubUpgrade:
+    run: |
+      flutter pub upgrade --major-versions
