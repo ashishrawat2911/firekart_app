@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+// ignore: implementation_imports
 import 'package:flutter_easyloading/src/theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

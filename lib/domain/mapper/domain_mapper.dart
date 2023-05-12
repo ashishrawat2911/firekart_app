@@ -7,6 +7,7 @@ import 'package:smartstruct/smartstruct.dart';
 part 'domain_mapper.mapper.g.dart';
 
 @Mapper(useInjection: true)
+//ignore: one_member_abstracts
 abstract class DomainMapper {
   Cart cartFromProduct(Product model);
 }
