@@ -188,7 +188,7 @@ class _CartScreenState extends State<CartScreen> {
 //              Localization.value.taxAndCharges, "${cartItemStatus.currency}900"),
             priceRow(
               Localization.value.toPay,
-              "${state.cartList.currency}${state.cartList.priceInCart}",
+              '${state.cartList.currency}${state.cartList.priceInCart}',
               isFinal: true,
             ),
           ],
