@@ -6,7 +6,7 @@ class DotProgressIndicator extends StatefulWidget {
   const DotProgressIndicator({
     Key? key,
     this.color,
-    this.size = 48.0 / 2,
+    this.size = 24.0,
     this.itemBuilder,
     this.duration = const Duration(milliseconds: 1400),
     this.controller,
@@ -15,10 +15,9 @@ class DotProgressIndicator extends StatefulWidget {
               !(itemBuilder == null && color == null),
           'You should specify either a itemBuilder or a color',
         ),
-        assert(size != null),
         super(key: key);
   final Color? color;
-  final double? size;
+  final double size;
   final IndexedWidgetBuilder? itemBuilder;
   final Duration duration;
   final AnimationController? controller;
@@ -49,7 +48,7 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox.fromSize(
-        size: Size(widget.size! * 2, widget.size!),
+        size: Size(widget.size* 2, widget.size),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(3, (i) {
@@ -57,7 +56,7 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
               scale: DelayTween(begin: 0, end: 1, delay: i * .2)
                   .animate(_controller),
               child: SizedBox.fromSize(
-                size: Size.square(widget.size! * 0.5),
+                size: Size.square(widget.size* 0.5),
                 child: _itemBuilder(i),
               ),
             );

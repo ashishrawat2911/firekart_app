@@ -54,10 +54,10 @@ class ProductModel {
 
   List<String> setSearchParam(String name) {
     List<String> nameSearch = [];
-    String temp = '';
+    StringBuffer temp = StringBuffer();
     for (int i = 0; i < name.length; i++) {
-      temp = temp + name[i].toLowerCase();
-      nameSearch.add(temp);
+      temp.write(name[i].toLowerCase());
+      nameSearch.add(temp.toString());
     }
     return nameSearch;
   }
