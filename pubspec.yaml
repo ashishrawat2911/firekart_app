@@ -11,9 +11,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  #core
   app_links: ^3.3.0
   flutter_easyloading: 3.0.5
+  flutter_spinkit: ^5.2.0
   package_info: ^2.0.2
   logger: ^1.1.0
   connectivity_plus: ^4.0.0
@@ -53,8 +53,6 @@ dev_dependencies:
   flutter_gen_runner: ^5.1.0+1
   mockito: ^5.3.2
 
-
-
 flutter_gen:
   output: lib/presentation/res/
   line_length: 80
@@ -67,16 +65,12 @@ flutter_gen:
     inputs:
       - assets/color/colors.xml
     outputs:
-#      package_parameter_enabled: true
       class_name: AppColors
   assets:
     enabled: true
     outputs:
       style: snake-case
-#      package_parameter_enabled: true
       class_name: AppAssets
-
-
 
 flutter:
   uses-material-design: true
