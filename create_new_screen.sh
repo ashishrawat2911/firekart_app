@@ -1,11 +1,27 @@
 FILE_NAME="payment" # prefix of file and folder names
 CLASS_NAME="Payment" # prefix of class name
 PARAMETER_NAME="payment" # prefix of parameters
-
+FILE_HEADER="/*
+ * ----------------------------------------------------------------------------
+ *
+ * This file is part of the Flutter Commerce open-source project, available at:
+ * https://github.com/ashishrawat2911/flutter_commerce
+ *
+ * Created by: Ashish Rawat
+ * ----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2020 Ashish Rawat
+ *
+ * Licensed under the MIT License.
+ *
+ * ----------------------------------------------------------------------------
+ */
+"
 cd lib/presentation/features/ && pwd && mkdir ${FILE_NAME} &&
 cd ${FILE_NAME} &&
 mkdir view_model && cd view_model && touch "${FILE_NAME}_view_model.dart" &&
-echo "import 'package:fluttercommerce/core/state_manager/view_model.dart';
+echo "${FILE_HEADER}
+import 'package:fluttercommerce/core/state_manager/view_model.dart';
 import 'package:fluttercommerce/presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
 import 'package:injectable/injectable.dart';
 
@@ -17,7 +33,8 @@ class "${CLASS_NAME}ViewModel" extends ViewModel<"${CLASS_NAME}State"> {
 }" >> "${FILE_NAME}_view_model.dart" && cd .. && pwd &&
 
 mkdir state && cd state && touch "${FILE_NAME}_state.dart" &&
-echo "import 'package:freezed_annotation/freezed_annotation.dart';
+echo "${FILE_HEADER}
+import 'package:freezed_annotation/freezed_annotation.dart';
 part '"${FILE_NAME}_state".freezed.dart';
 
 @Freezed()
@@ -27,7 +44,8 @@ class "${CLASS_NAME}State" with "_\$${CLASS_NAME}State" {
 
 # Creating _view.dart files in presentation/view module and adding common view class.
 mkdir view && cd view && touch "${FILE_NAME}_view.dart" &&
-echo "import 'package:flutter/material.dart';
+echo "${FILE_HEADER}
+import 'package:flutter/material.dart';
 import 'package:fluttercommerce/presentation/features/${FILE_NAME}/view_model/${FILE_NAME}_view_model.dart';
 import 'package:fluttercommerce/presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
