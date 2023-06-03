@@ -15,49 +15,39 @@
  */
 import 'package:flutter/material.dart';
 
+enum ScreenSize { Small, Normal, Large, ExtraLarge }
+
 class CheckAdaptability {
   CheckAdaptability._();
 
-  static ScreenSize checkScreenSize(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-
-    if (width < 800) {
-      return Small();
-    } else if (width >= 800 && width <= 1200) {
-      return Medium();
-    } else {
-      return Large();
-    }
+  static ScreenSize getSize(BuildContext context) {
+    double deviceWidth = MediaQuery.of(context).size.shortestSide;
+    if (deviceWidth > 900) return ScreenSize.ExtraLarge;
+    if (deviceWidth > 600) return ScreenSize.Large;
+    if (deviceWidth > 300) return ScreenSize.Normal;
+    return ScreenSize.Small;
   }
 
   static void onScreenChange(
     BuildContext context, {
     VoidCallback? onSmallScreen,
-    VoidCallback? onMediumScreen,
+    VoidCallback? onNormalScreen,
     VoidCallback? onLargeScreen,
+    VoidCallback? onExtraLargeScreen,
   }) {
-    final double width = MediaQuery.of(context).size.width;
-
-    if (width < 800) {
-      if (onSmallScreen != null) {
-        onSmallScreen();
-      }
-    } else if (width >= 800 && width <= 1200) {
-      if (onMediumScreen != null) {
-        onMediumScreen();
-      }
-    } else {
-      if (onLargeScreen != null) {
-        onLargeScreen();
-      }
+    switch (getSize(context)) {
+      case ScreenSize.Small:
+        onSmallScreen?.call();
+        break;
+      case ScreenSize.Normal:
+        onNormalScreen?.call();
+        break;
+      case ScreenSize.Large:
+        onLargeScreen?.call();
+        break;
+      case ScreenSize.ExtraLarge:
+        onExtraLargeScreen?.call();
+        break;
     }
   }
 }
-
-class ScreenSize {}
-
-class Small extends ScreenSize {}
-
-class Medium extends ScreenSize {}
-
-class Large extends ScreenSize {}
