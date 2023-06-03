@@ -7,7 +7,7 @@ analyzer:
   exclude:
     - packages/**/example/lib/generated_plugin_registrant.dart
     - "bin/cache/**"
-    - lib/l10n
+    - lib/l10n/*
     - lib/**/*.g.dart
     - lib/**/*.gr.dart
     - lib/**/*.freezed.dart
