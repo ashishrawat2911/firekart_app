@@ -29,13 +29,13 @@ abstract class FirebaseRepository {
 
   Stream<List<Cart>> listenToCart();
 
-  Future<void> placeOrder(Order order);
+  Future<bool> placeOrder(Order order);
 
   Future<List<Product>> searchProducts(String query);
 
   Stream<AccountDetails> streamUserDetails();
 
-  Future<void> addProductToCart(Cart cart);
+  Future<bool> addProductToCart(Cart cart);
 
   Future<void> delProductFromCart(String productId);
 
