@@ -15,6 +15,7 @@ void main() {
 
   test('Test PlaceOrderUseCase', () async {
     final order=MockOrder();
+    when(mockFirebaseRepository.placeOrder(order)).thenAnswer((realInvocation) => Future.value(true));
     await placeOrderUseCase.execute(order);
     verify(mockFirebaseRepository.placeOrder(order));
   });

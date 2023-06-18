@@ -15,17 +15,17 @@
  */
 import 'package:flutter/material.dart';
 
-enum ScreenSize { Small, Normal, Large, ExtraLarge }
+enum ScreenSize { small, normal, large, extraLarge }
 
 class CheckAdaptability {
   CheckAdaptability._();
 
   static ScreenSize getSize(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.shortestSide;
-    if (deviceWidth > 900) return ScreenSize.ExtraLarge;
-    if (deviceWidth > 600) return ScreenSize.Large;
-    if (deviceWidth > 300) return ScreenSize.Normal;
-    return ScreenSize.Small;
+    if (deviceWidth > 900) return ScreenSize.extraLarge;
+    if (deviceWidth > 600) return ScreenSize.large;
+    if (deviceWidth > 300) return ScreenSize.normal;
+    return ScreenSize.small;
   }
 
   static void onScreenChange(
@@ -36,16 +36,16 @@ class CheckAdaptability {
     VoidCallback? onExtraLargeScreen,
   }) {
     switch (getSize(context)) {
-      case ScreenSize.Small:
+      case ScreenSize.small:
         onSmallScreen?.call();
         break;
-      case ScreenSize.Normal:
+      case ScreenSize.normal:
         onNormalScreen?.call();
         break;
-      case ScreenSize.Large:
+      case ScreenSize.large:
         onLargeScreen?.call();
         break;
-      case ScreenSize.ExtraLarge:
+      case ScreenSize.extraLarge:
         onExtraLargeScreen?.call();
         break;
     }

@@ -25,6 +25,6 @@ class PlaceOrderUseCase {
   PlaceOrderUseCase(this._firebaseRepository);
 
   Future<void> execute(Order order) async {
-    return _firebaseRepository.placeOrder(order);
+    await _firebaseRepository.placeOrder(order);
   }
 }
