@@ -68,9 +68,10 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  Future<void> placeOrder(Order order) async {
+  Future<bool> placeOrder(Order order) async {
     await _firebaseService.placeOrder(_mapper.orderToModel(order));
     await _firebaseService.emptyCart();
+    return true;
   }
 
   @override
@@ -87,8 +88,9 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  Future<void> addProductToCart(Cart cart) {
-    return _firebaseService.addProductToCart(_mapper.carToModel(cart));
+  Future<bool> addProductToCart(Cart cart) async{
+    await _firebaseService.addProductToCart(_mapper.carToModel(cart));
+    return true;
   }
 
   @override
