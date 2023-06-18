@@ -81,7 +81,7 @@ class FirebaseService {
             .get())
         .docs;
     return documentList.mapToList(
-          (e) => ProductModel.fromJson(e.data()! as Map<String, dynamic>),
+      (e) => ProductModel.fromJson(e.data()! as Map<String, dynamic>),
     );
   }
 
@@ -108,13 +108,15 @@ class FirebaseService {
                 .get())
             .docs
             .map(
-                (e) => ProductModel.fromJson(e.data()! as Map<String, dynamic>),)
+              (e) => ProductModel.fromJson(e.data()! as Map<String, dynamic>),
+            )
             .toList();
       } else {
         return (await _productCollection.get())
             .docs
             .map(
-                (e) => ProductModel.fromJson(e.data()! as Map<String, dynamic>),)
+              (e) => ProductModel.fromJson(e.data()! as Map<String, dynamic>),
+            )
             .toList();
       }
     }
@@ -150,7 +152,8 @@ class FirebaseService {
           await _cartCollection.doc(productId).get();
       if (documentSnapshot.exists) {
         final CartModel cartModel = CartModel.fromJson(
-            documentSnapshot.data()! as Map<String, dynamic>,);
+          documentSnapshot.data()! as Map<String, dynamic>,
+        );
         return cartModel.numOfItems;
       } else {
         return 0;
@@ -201,8 +204,7 @@ class FirebaseService {
 
   Stream<List<CartModel>> cartStatusListen() {
     return _cartCollection.snapshots().map(
-          (event) =>
-              event.docs
+          (event) => event.docs
               .map((e) => CartModel.fromJson(e.data()! as Map<String, dynamic>))
               .toList(),
         );
