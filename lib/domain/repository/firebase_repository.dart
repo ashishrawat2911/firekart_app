@@ -1,3 +1,18 @@
+/*
+ * ----------------------------------------------------------------------------
+ *
+ * This file is part of the Flutter Commerce open-source project, available at:
+ * https://github.com/ashishrawat2911/flutter_commerce
+ *
+ * Created by: Ashish Rawat
+ * ----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2020 Ashish Rawat
+ *
+ * Licensed under the MIT License.
+ *
+ * ----------------------------------------------------------------------------
+ */
 import 'package:fluttercommerce/domain/models/account_details_model.dart';
 import 'package:fluttercommerce/domain/models/cart_model.dart';
 import 'package:fluttercommerce/domain/models/order_model.dart';
@@ -14,13 +29,13 @@ abstract class FirebaseRepository {
 
   Stream<List<Cart>> listenToCart();
 
-  Future<void> placeOrder(Order order);
+  Future<bool> placeOrder(Order order);
 
   Future<List<Product>> searchProducts(String query);
 
   Stream<AccountDetails> streamUserDetails();
 
-  Future<void> addProductToCart(Cart cart);
+  Future<bool> addProductToCart(Cart cart);
 
   Future<void> delProductFromCart(String productId);
 

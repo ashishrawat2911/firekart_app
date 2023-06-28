@@ -1,3 +1,18 @@
+/*
+ * ----------------------------------------------------------------------------
+ *
+ * This file is part of the Flutter Commerce open-source project, available at:
+ * https://github.com/ashishrawat2911/flutter_commerce
+ *
+ * Created by: Ashish Rawat
+ * ----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2020 Ashish Rawat
+ *
+ * Licensed under the MIT License.
+ *
+ * ----------------------------------------------------------------------------
+ */
 import 'package:fluttercommerce/core/extentions/list_extention.dart';
 import 'package:fluttercommerce/data/mapper/data_mapper.dart';
 import 'package:fluttercommerce/data/service/sms_service.dart';
@@ -53,9 +68,10 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  Future<void> placeOrder(Order order) async {
+  Future<bool> placeOrder(Order order) async {
     await _firebaseService.placeOrder(_mapper.orderToModel(order));
     await _firebaseService.emptyCart();
+    return true;
   }
 
   @override
@@ -72,8 +88,9 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  Future<void> addProductToCart(Cart cart) {
-    return _firebaseService.addProductToCart(_mapper.carToModel(cart));
+  Future<bool> addProductToCart(Cart cart) async{
+    await _firebaseService.addProductToCart(_mapper.carToModel(cart));
+    return true;
   }
 
   @override

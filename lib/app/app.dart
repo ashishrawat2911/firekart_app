@@ -1,4 +1,20 @@
+/*
+ * ----------------------------------------------------------------------------
+ *
+ * This file is part of the Flutter Commerce open-source project, available at:
+ * https://github.com/ashishrawat2911/flutter_commerce
+ *
+ * Created by: Ashish Rawat
+ * ----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2020 Ashish Rawat
+ *
+ * Licensed under the MIT License.
+ *
+ * ----------------------------------------------------------------------------
+ */
 import 'package:flutter/material.dart';
+import 'package:fluttercommerce/core/impl/app_loading_impl.dart';
 import 'package:fluttercommerce/core/localization/localization.dart';
 import 'package:fluttercommerce/core/message_handler/message_handler.dart';
 import 'package:fluttercommerce/core/state_manager/base_view.dart';
@@ -15,11 +31,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BaseView<AppViewModel, AppState>(
         builder: (context, viewModel, state) => MaterialApp.router(
-          builder: (context, child) {
-            Localization.setup(context);
-            ThemeProvider.setup(context);
-            return child!;
-          },
+          builder: AppLoader.initBuilder(
+            builder: (context, child) {
+              Localization.setup(context);
+              ThemeProvider.setup(context);
+              return child!;
+            },
+          ),
           locale: state.locale,
           theme: AppTheme.appTheme(),
           darkTheme: AppTheme.appTheme(dark: true),

@@ -1,3 +1,18 @@
+/*
+ * ----------------------------------------------------------------------------
+ *
+ * This file is part of the Flutter Commerce open-source project, available at:
+ * https://github.com/ashishrawat2911/flutter_commerce
+ *
+ * Created by: Ashish Rawat
+ * ----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2020 Ashish Rawat
+ *
+ * Licensed under the MIT License.
+ *
+ * ----------------------------------------------------------------------------
+ */
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:fluttercommerce/core/deeplink/deep_link.dart';
 import 'package:injectable/injectable.dart' hide Order;

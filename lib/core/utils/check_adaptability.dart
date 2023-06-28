@@ -1,48 +1,53 @@
+/*
+ * ----------------------------------------------------------------------------
+ *
+ * This file is part of the Flutter Commerce open-source project, available at:
+ * https://github.com/ashishrawat2911/flutter_commerce
+ *
+ * Created by: Ashish Rawat
+ * ----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2020 Ashish Rawat
+ *
+ * Licensed under the MIT License.
+ *
+ * ----------------------------------------------------------------------------
+ */
 import 'package:flutter/material.dart';
+
+enum ScreenSize { small, normal, large, extraLarge }
 
 class CheckAdaptability {
   CheckAdaptability._();
 
-  static ScreenSize checkScreenSize(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-
-    if (width < 800) {
-      return Small();
-    } else if (width >= 800 && width <= 1200) {
-      return Medium();
-    } else {
-      return Large();
-    }
+  static ScreenSize getSize(BuildContext context) {
+    double deviceWidth = MediaQuery.of(context).size.shortestSide;
+    if (deviceWidth > 900) return ScreenSize.extraLarge;
+    if (deviceWidth > 600) return ScreenSize.large;
+    if (deviceWidth > 300) return ScreenSize.normal;
+    return ScreenSize.small;
   }
 
   static void onScreenChange(
     BuildContext context, {
     VoidCallback? onSmallScreen,
-    VoidCallback? onMediumScreen,
+    VoidCallback? onNormalScreen,
     VoidCallback? onLargeScreen,
+    VoidCallback? onExtraLargeScreen,
   }) {
-    final double width = MediaQuery.of(context).size.width;
-
-    if (width < 800) {
-      if (onSmallScreen != null) {
-        onSmallScreen();
-      }
-    } else if (width >= 800 && width <= 1200) {
-      if (onMediumScreen != null) {
-        onMediumScreen();
-      }
-    } else {
-      if (onLargeScreen != null) {
-        onLargeScreen();
-      }
+    switch (getSize(context)) {
+      case ScreenSize.small:
+        onSmallScreen?.call();
+        break;
+      case ScreenSize.normal:
+        onNormalScreen?.call();
+        break;
+      case ScreenSize.large:
+        onLargeScreen?.call();
+        break;
+      case ScreenSize.extraLarge:
+        onExtraLargeScreen?.call();
+        break;
     }
   }
 }
-
-class ScreenSize {}
-
-class Small extends ScreenSize {}
-
-class Medium extends ScreenSize {}
-
-class Large extends ScreenSize {}
