@@ -149,9 +149,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     Container(
                       margin: const EdgeInsets.all(5),
-                      child: const Column(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+                        children: const <Widget>[
                           SizedBox(
                             height: 5,
                           ),
