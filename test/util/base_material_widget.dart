@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/impl/app_loading_impl.dart';
-import 'package:fluttercommerce/core/localization/localization.dart';
-import 'package:fluttercommerce/core/message_handler/message_handler.dart';
-import 'package:fluttercommerce/core/theme/theme_provider.dart';
-import 'package:fluttercommerce/presentation/res/app_theme.dart';
+import 'package:firekart/core/impl/app_loading_impl.dart';
+import 'package:firekart/core/localization/localization.dart';
+import 'package:firekart/core/message_handler/message_handler.dart';
+import 'package:firekart/core/theme/theme_provider.dart';
+import 'package:firekart/presentation/res/app_theme.dart';
 
 Widget baseApp(Widget home) {
   return MaterialApp(

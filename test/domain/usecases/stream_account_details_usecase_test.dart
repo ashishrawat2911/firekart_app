@@ -1,5 +1,5 @@
-import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart';
-import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.dart';
+import 'package:firekart/domain/usecases/get_cart_status_use_case.dart';
+import 'package:firekart/domain/usecases/stream_account_details_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

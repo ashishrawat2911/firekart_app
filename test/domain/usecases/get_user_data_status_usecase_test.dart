@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dart';
+import 'package:firekart/domain/usecases/get_user_data_status_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
