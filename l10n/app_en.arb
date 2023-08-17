@@ -63,5 +63,6 @@
   "orderedOnCaps": "ORDERED ON",
   "noAddressFound": "No Address Found",
   "noAddressSelected": "No Address Selected",
-  "connectionNotAvailable": "Network Connection not available"
+  "connectionNotAvailable": "Network Connection not available",
+  "noItemsInCart": "Sorry, No Items in Cart"
 }

@@ -194,8 +194,9 @@ class CartViewModel extends ViewModel<CartState> {
       }
 
       cart.numOfItems = newCartValue;
-
-      state.cartList[index] = cart;
+      List<Cart> updatedCartList = List.from(state.cartList);
+      updatedCartList[index] = cart;
+      state = state.copyWith(cartList: updatedCartList);
 
       await _productAddToCartUseCase.execute(cart).then((value) {
         state = state.copyWith(cartList: state.cartList);
@@ -224,7 +225,7 @@ class CartViewModel extends ViewModel<CartState> {
       return;
     }
     await _productDeleteCartUseCase.execute(cartModel.productId).then((value) {
-      state.cartList.removeAt(index);
+      // state.cartList.removeAt(index);
       state = state.copyWith(cartList: state.cartList);
     }).catchError((e) {
       MessageHandler.showSnackBar(title: e.toString());

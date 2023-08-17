@@ -9,10 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i16;
-import 'package:flutter/foundation.dart' as _i19;
-import 'package:flutter/material.dart' as _i17;
-import 'package:firekart/domain/models/account_details_model.dart'
-    as _i20;
+import 'package:firekart/domain/models/account_details_model.dart' as _i20;
 import 'package:firekart/domain/models/product_model.dart' as _i18;
 import 'package:firekart/presentation/features/accounts/view/account_screen.dart'
     as _i9;
@@ -44,6 +41,8 @@ import 'package:firekart/presentation/features/search/view/search_screen.dart'
     as _i5;
 import 'package:firekart/presentation/features/splash/view/splash_screen.dart'
     as _i3;
+import 'package:flutter/foundation.dart' as _i19;
+import 'package:flutter/material.dart' as _i17;
 
 abstract class $AppRouter extends _i16.RootStackRouter {
   $AppRouter({super.navigatorKey});

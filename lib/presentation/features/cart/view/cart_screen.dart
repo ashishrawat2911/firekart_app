@@ -14,10 +14,10 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
+import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/action_text.dart';
@@ -50,7 +50,20 @@ class _CartScreenState extends State<CartScreen> {
           ),
           body: state.cartList.noOfItemsInCart > 0
               ? cartView(state, viewModel)
-              : Container(),
+              : Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.shopping_cart, size: 100),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        Localization.value.noItemsInCart,
+                      )
+                    ],
+                  ),
+              ),
           bottomNavigationBar: Visibility(
             visible: state.cartList.noOfItemsInCart > 0,
             child: checkOut(state, viewModel),
@@ -170,7 +183,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
           Visibility(
             visible: !isFinal,
-            child: Column(
+            child: const Column(
               children: [
                 SizedBox(
                   height: 15,
