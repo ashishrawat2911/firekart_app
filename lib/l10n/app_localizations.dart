@@ -482,6 +482,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Network Connection not available'**
   String get connectionNotAvailable;
+
+  /// No description provided for @noItemsInCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, No Items in Cart'**
+  String get noItemsInCart;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

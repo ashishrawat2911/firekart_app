@@ -63,5 +63,6 @@
   "orderedOnCaps": "पर आदेश दिया",
   "noAddressFound": "कोई पता नहीं मिला",
   "noAddressSelected": "कोई पता चयनित नहीं",
-  "connectionNotAvailable": "नेटवर्क कनेक्शन उपलब्ध नहीं है"
+  "connectionNotAvailable": "नेटवर्क कनेक्शन उपलब्ध नहीं है",
+  "noItemsInCart": "Sorry, No Items in Cart"
 }

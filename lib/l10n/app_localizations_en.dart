@@ -198,4 +198,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get connectionNotAvailable => 'Network Connection not available';
+
+  @override
+  String get noItemsInCart => 'Sorry, No Items in Cart';
 }
