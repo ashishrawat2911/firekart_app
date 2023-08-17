@@ -1,5 +1,5 @@
-import 'package:fluttercommerce/domain/usecases/logout_usecase.dart';
-import 'package:fluttercommerce/domain/usecases/place_order_usecase.dart';
+import 'package:firekart/domain/usecases/logout_usecase.dart';
+import 'package:firekart/domain/usecases/place_order_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

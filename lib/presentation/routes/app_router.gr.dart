@@ -11,38 +11,38 @@
 import 'package:auto_route/auto_route.dart' as _i16;
 import 'package:flutter/foundation.dart' as _i19;
 import 'package:flutter/material.dart' as _i17;
-import 'package:fluttercommerce/domain/models/account_details_model.dart'
+import 'package:firekart/domain/models/account_details_model.dart'
     as _i20;
-import 'package:fluttercommerce/domain/models/product_model.dart' as _i18;
-import 'package:fluttercommerce/presentation/features/accounts/view/account_screen.dart'
+import 'package:firekart/domain/models/product_model.dart' as _i18;
+import 'package:firekart/presentation/features/accounts/view/account_screen.dart'
     as _i9;
-import 'package:fluttercommerce/presentation/features/add_account_detail/view/add_user_detail_screen.dart'
+import 'package:firekart/presentation/features/add_account_detail/view/add_user_detail_screen.dart'
     as _i13;
-import 'package:fluttercommerce/presentation/features/add_address/view/add_address_screen.dart'
+import 'package:firekart/presentation/features/add_address/view/add_address_screen.dart'
     as _i15;
-import 'package:fluttercommerce/presentation/features/cart/view/cart_screen.dart'
+import 'package:firekart/presentation/features/cart/view/cart_screen.dart'
     as _i12;
-import 'package:fluttercommerce/presentation/features/check_status/view/check_status_check_screen.dart'
+import 'package:firekart/presentation/features/check_status/view/check_status_check_screen.dart'
     as _i10;
-import 'package:fluttercommerce/presentation/features/dashboard/view/dashboard_screen.dart'
+import 'package:firekart/presentation/features/dashboard/view/dashboard_screen.dart'
     as _i6;
-import 'package:fluttercommerce/presentation/features/home/screen/home_screen.dart'
+import 'package:firekart/presentation/features/home/screen/home_screen.dart'
     as _i2;
-import 'package:fluttercommerce/presentation/features/my_address/view/my_address_screen.dart'
+import 'package:firekart/presentation/features/my_address/view/my_address_screen.dart'
     as _i7;
-import 'package:fluttercommerce/presentation/features/order/view/my_orders_screen.dart'
+import 'package:firekart/presentation/features/order/view/my_orders_screen.dart'
     as _i1;
-import 'package:fluttercommerce/presentation/features/otp_login/view/otp_login_screen.dart'
+import 'package:firekart/presentation/features/otp_login/view/otp_login_screen.dart'
     as _i14;
-import 'package:fluttercommerce/presentation/features/phone_login/view/phone_login_screen.dart'
+import 'package:firekart/presentation/features/phone_login/view/phone_login_screen.dart'
     as _i4;
-import 'package:fluttercommerce/presentation/features/product_detail/view/product_detail_page.dart'
+import 'package:firekart/presentation/features/product_detail/view/product_detail_page.dart'
     as _i11;
-import 'package:fluttercommerce/presentation/features/product_list/view/all_product_list_screen.dart'
+import 'package:firekart/presentation/features/product_list/view/all_product_list_screen.dart'
     as _i8;
-import 'package:fluttercommerce/presentation/features/search/view/search_screen.dart'
+import 'package:firekart/presentation/features/search/view/search_screen.dart'
     as _i5;
-import 'package:fluttercommerce/presentation/features/splash/view/splash_screen.dart'
+import 'package:firekart/presentation/features/splash/view/splash_screen.dart'
     as _i3;
 
 abstract class $AppRouter extends _i16.RootStackRouter {

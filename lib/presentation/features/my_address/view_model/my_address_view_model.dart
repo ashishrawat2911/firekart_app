@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -13,11 +13,11 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:fluttercommerce/core/message_handler/message_handler.dart';
-import 'package:fluttercommerce/core/state_manager/view_model.dart';
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
-import 'package:fluttercommerce/domain/usecases/get_account_details_usecase.dart';
-import 'package:fluttercommerce/domain/usecases/set_account_details_usecase.dart';
+import 'package:firekart/core/message_handler/message_handler.dart';
+import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/usecases/get_account_details_usecase.dart';
+import 'package:firekart/domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

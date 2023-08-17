@@ -15,88 +15,88 @@ import 'package:firebase_auth/firebase_auth.dart' as _i8;
 import 'package:firebase_crashlytics/firebase_crashlytics.dart' as _i9;
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart' as _i10;
 import 'package:firebase_performance/firebase_performance.dart' as _i12;
-import 'package:fluttercommerce/app/view_model/app_view_model.dart' as _i4;
-import 'package:fluttercommerce/core/analytics/analytics.dart' as _i20;
-import 'package:fluttercommerce/core/performance/performance_moniter.dart'
+import 'package:firekart/app/view_model/app_view_model.dart' as _i4;
+import 'package:firekart/core/analytics/analytics.dart' as _i20;
+import 'package:firekart/core/performance/performance_moniter.dart'
     as _i14;
-import 'package:fluttercommerce/data/mapper/data_mapper.dart' as _i5;
-import 'package:fluttercommerce/data/repository/firebase_repository.dart'
+import 'package:firekart/data/mapper/data_mapper.dart' as _i5;
+import 'package:firekart/data/repository/firebase_repository.dart'
     as _i25;
-import 'package:fluttercommerce/data/service/firebase_service.dart' as _i13;
-import 'package:fluttercommerce/data/service/sms_service.dart' as _i17;
-import 'package:fluttercommerce/di/firebase_module.dart' as _i55;
-import 'package:fluttercommerce/domain/mapper/domain_mapper.dart' as _i6;
-import 'package:fluttercommerce/domain/repository/firebase_repository.dart'
+import 'package:firekart/data/service/firebase_service.dart' as _i13;
+import 'package:firekart/data/service/sms_service.dart' as _i17;
+import 'package:firekart/di/firebase_module.dart' as _i55;
+import 'package:firekart/domain/mapper/domain_mapper.dart' as _i6;
+import 'package:firekart/domain/repository/firebase_repository.dart'
     as _i24;
-import 'package:fluttercommerce/domain/usecases/add_product_to_cart_usecase.dart'
+import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart'
     as _i37;
-import 'package:fluttercommerce/domain/usecases/delete_product_from_cart_usecase.dart'
+import 'package:firekart/domain/usecases/delete_product_from_cart_usecase.dart'
     as _i38;
-import 'package:fluttercommerce/domain/usecases/get_account_details_usecase.dart'
+import 'package:firekart/domain/usecases/get_account_details_usecase.dart'
     as _i26;
-import 'package:fluttercommerce/domain/usecases/get_all_orders_usecase.dart'
+import 'package:firekart/domain/usecases/get_all_orders_usecase.dart'
     as _i27;
-import 'package:fluttercommerce/domain/usecases/get_all_product_usecase.dart'
+import 'package:firekart/domain/usecases/get_all_product_usecase.dart'
     as _i28;
-import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart'
+import 'package:firekart/domain/usecases/get_cart_status_use_case.dart'
     as _i29;
-import 'package:fluttercommerce/domain/usecases/get_current_user_phone_number_usecase.dart'
+import 'package:firekart/domain/usecases/get_current_user_phone_number_usecase.dart'
     as _i30;
-import 'package:fluttercommerce/domain/usecases/get_items_in_cart_usecase.dart'
+import 'package:firekart/domain/usecases/get_items_in_cart_usecase.dart'
     as _i31;
-import 'package:fluttercommerce/domain/usecases/get_user_data_status_usecase.dart'
+import 'package:firekart/domain/usecases/get_user_data_status_usecase.dart'
     as _i32;
-import 'package:fluttercommerce/domain/usecases/get_user_logged_in_status.dart'
+import 'package:firekart/domain/usecases/get_user_logged_in_status.dart'
     as _i33;
-import 'package:fluttercommerce/domain/usecases/logout_usecase.dart' as _i34;
-import 'package:fluttercommerce/domain/usecases/place_order_usecase.dart'
+import 'package:firekart/domain/usecases/logout_usecase.dart' as _i34;
+import 'package:firekart/domain/usecases/place_order_usecase.dart'
     as _i36;
-import 'package:fluttercommerce/domain/usecases/sample_use_case.dart' as _i19;
-import 'package:fluttercommerce/domain/usecases/search_products_use_case.dart'
+import 'package:firekart/domain/usecases/sample_use_case.dart' as _i19;
+import 'package:firekart/domain/usecases/search_products_use_case.dart'
     as _i40;
-import 'package:fluttercommerce/domain/usecases/send_otp_usecase.dart' as _i41;
-import 'package:fluttercommerce/domain/usecases/set_account_details_usecase.dart'
+import 'package:firekart/domain/usecases/send_otp_usecase.dart' as _i41;
+import 'package:firekart/domain/usecases/set_account_details_usecase.dart'
     as _i42;
-import 'package:fluttercommerce/domain/usecases/set_user_profile_data_usecase.dart'
+import 'package:firekart/domain/usecases/set_user_profile_data_usecase.dart'
     as _i43;
-import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.dart'
+import 'package:firekart/domain/usecases/stream_account_details_usecase.dart'
     as _i44;
-import 'package:fluttercommerce/firebase_impl/analytics/firebase_analytics_impl.dart'
+import 'package:firekart/firebase_impl/analytics/firebase_analytics_impl.dart'
     as _i21;
-import 'package:fluttercommerce/firebase_impl/crashlytics_service.dart' as _i22;
-import 'package:fluttercommerce/firebase_impl/deeplink/firebase_deep_link.dart'
+import 'package:firekart/firebase_impl/crashlytics_service.dart' as _i22;
+import 'package:firekart/firebase_impl/deeplink/firebase_deep_link.dart'
     as _i23;
-import 'package:fluttercommerce/firebase_impl/performance/firebase_performance_moniter.dart'
+import 'package:firekart/firebase_impl/performance/firebase_performance_moniter.dart'
     as _i15;
-import 'package:fluttercommerce/presentation/features/add_account_detail/view_model/add_account_details_view_model.dart'
+import 'package:firekart/presentation/features/add_account_detail/view_model/add_account_details_view_model.dart'
     as _i45;
-import 'package:fluttercommerce/presentation/features/add_address/view_model/add_address_view_model.dart'
+import 'package:firekart/presentation/features/add_address/view_model/add_address_view_model.dart'
     as _i46;
-import 'package:fluttercommerce/presentation/features/app_settings/view_model/app_settings_view_model.dart'
+import 'package:firekart/presentation/features/app_settings/view_model/app_settings_view_model.dart'
     as _i3;
-import 'package:fluttercommerce/presentation/features/cart/view_model/cart_view_model.dart'
+import 'package:firekart/presentation/features/cart/view_model/cart_view_model.dart'
     as _i48;
-import 'package:fluttercommerce/presentation/features/check_status/view_model/check_status_bloc.dart'
+import 'package:firekart/presentation/features/check_status/view_model/check_status_bloc.dart'
     as _i49;
-import 'package:fluttercommerce/presentation/features/dashboard/view_model/dashboard_view_model.dart'
+import 'package:firekart/presentation/features/dashboard/view_model/dashboard_view_model.dart'
     as _i50;
-import 'package:fluttercommerce/presentation/features/home/viewmodel/home_viewmodel.dart'
+import 'package:firekart/presentation/features/home/viewmodel/home_viewmodel.dart'
     as _i51;
-import 'package:fluttercommerce/presentation/features/my_address/view_model/my_address_view_model.dart'
+import 'package:firekart/presentation/features/my_address/view_model/my_address_view_model.dart'
     as _i52;
-import 'package:fluttercommerce/presentation/features/order/view_model/my_orders_cubit.dart'
+import 'package:firekart/presentation/features/order/view_model/my_orders_cubit.dart'
     as _i35;
-import 'package:fluttercommerce/presentation/features/otp_login/view_model/otp_login_view_model.dart'
+import 'package:firekart/presentation/features/otp_login/view_model/otp_login_view_model.dart'
     as _i53;
-import 'package:fluttercommerce/presentation/features/phone_login/view_model/phone_login_view_model.dart'
+import 'package:firekart/presentation/features/phone_login/view_model/phone_login_view_model.dart'
     as _i16;
-import 'package:fluttercommerce/presentation/features/product_detail/view_model/product_view_model.dart'
+import 'package:firekart/presentation/features/product_detail/view_model/product_view_model.dart'
     as _i39;
-import 'package:fluttercommerce/presentation/features/product_list/view_model/all_product_cubit.dart'
+import 'package:firekart/presentation/features/product_list/view_model/all_product_cubit.dart'
     as _i47;
-import 'package:fluttercommerce/presentation/features/search/view_model/product_search_viewmodel.dart'
+import 'package:firekart/presentation/features/search/view_model/product_search_viewmodel.dart'
     as _i54;
-import 'package:fluttercommerce/presentation/features/splash/view_model/splash_view_model.dart'
+import 'package:firekart/presentation/features/splash/view_model/splash_view_model.dart'
     as _i18;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;

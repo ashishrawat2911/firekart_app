@@ -1,4 +1,4 @@
-package com.app.flutter_commerce
+package com.app.firekart
 
 import io.flutter.embedding.android.FlutterActivity
 

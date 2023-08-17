@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -16,11 +16,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/di/di.dart';
-import 'package:fluttercommerce/core/logger/app_logger.dart';
-import 'package:fluttercommerce/core/state_manager/app_cubit_observer.dart';
-import 'package:fluttercommerce/firebase_impl/crashlytics_service.dart';
-import 'package:fluttercommerce/firebase_impl/firebase_impl.dart';
+import 'package:firekart/core/di/di.dart';
+import 'package:firekart/core/logger/app_logger.dart';
+import 'package:firekart/core/state_manager/app_cubit_observer.dart';
+import 'package:firekart/firebase_impl/crashlytics_service.dart';
+import 'package:firekart/firebase_impl/firebase_impl.dart';
 
 import 'app/app.dart';
 import 'di/di.dart';

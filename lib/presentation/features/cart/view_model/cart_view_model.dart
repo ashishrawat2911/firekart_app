@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -13,18 +13,18 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:fluttercommerce/core/localization/localization.dart';
-import 'package:fluttercommerce/core/message_handler/message_handler.dart';
-import 'package:fluttercommerce/core/state_manager/view_model.dart';
-import 'package:fluttercommerce/core/utils/connectivity.dart';
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
-import 'package:fluttercommerce/domain/models/cart_model.dart';
-import 'package:fluttercommerce/domain/models/order_model.dart';
-import 'package:fluttercommerce/domain/usecases/add_product_to_cart_usecase.dart';
-import 'package:fluttercommerce/domain/usecases/delete_product_from_cart_usecase.dart';
-import 'package:fluttercommerce/domain/usecases/get_cart_status_use_case.dart';
-import 'package:fluttercommerce/domain/usecases/place_order_usecase.dart';
-import 'package:fluttercommerce/domain/usecases/stream_account_details_usecase.dart';
+import 'package:firekart/core/localization/localization.dart';
+import 'package:firekart/core/message_handler/message_handler.dart';
+import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:firekart/core/utils/connectivity.dart';
+import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/models/cart_model.dart';
+import 'package:firekart/domain/models/order_model.dart';
+import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart';
+import 'package:firekart/domain/usecases/delete_product_from_cart_usecase.dart';
+import 'package:firekart/domain/usecases/get_cart_status_use_case.dart';
+import 'package:firekart/domain/usecases/place_order_usecase.dart';
+import 'package:firekart/domain/usecases/stream_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 import '../../../routes/app_router.gr.dart';

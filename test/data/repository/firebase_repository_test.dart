@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluttercommerce/data/mapper/data_mapper.dart';
-import 'package:fluttercommerce/data/repository/firebase_repository.dart';
-import 'package:fluttercommerce/data/service/firebase_service.dart';
-import 'package:fluttercommerce/data/service/sms_service.dart';
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
-import 'package:fluttercommerce/domain/models/order_model.dart';
+import 'package:firekart/data/mapper/data_mapper.dart';
+import 'package:firekart/data/repository/firebase_repository.dart';
+import 'package:firekart/data/service/firebase_service.dart';
+import 'package:firekart/data/service/sms_service.dart';
+import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/models/order_model.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 

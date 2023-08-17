@@ -1,5 +1,5 @@
-import 'package:fluttercommerce/domain/usecases/get_all_product_usecase.dart';
-import 'package:fluttercommerce/domain/usecases/search_products_use_case.dart';
+import 'package:firekart/domain/usecases/get_all_product_usecase.dart';
+import 'package:firekart/domain/usecases/search_products_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
