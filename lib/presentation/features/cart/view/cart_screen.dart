@@ -170,7 +170,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
           Visibility(
             visible: !isFinal,
-            child: const Column(
+            child: Column(
               children: [
                 SizedBox(
                   height: 15,

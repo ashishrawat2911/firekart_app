@@ -52,6 +52,8 @@ dev_dependencies:
   auto_route_generator: ^7.1.1
   flutter_gen_runner: ^5.3.1
   mockito: ^5.4.1
+  encrypt: ^5.0.1
+  shared_preferences: ^2.2.0
 
 flutter_gen:
   output: lib/presentation/res/
