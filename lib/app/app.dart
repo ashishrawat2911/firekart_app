@@ -40,7 +40,10 @@ class App extends StatelessWidget {
           ),
           locale: state.locale,
           theme: AppTheme.appTheme(),
-          darkTheme: AppTheme.appTheme(dark: true),
+          darkTheme: AppTheme.appTheme(
+              //TODO: Implement Dark theme
+              // dark: true
+          ),
           themeMode: state.themeMode,
           localizationsDelegates: Localization.localizationsDelegates,
           supportedLocales: Localization.supportedLocales,
