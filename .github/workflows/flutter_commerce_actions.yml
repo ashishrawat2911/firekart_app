@@ -34,7 +34,7 @@ jobs:
         run: echo $KEYSTORE_BASE64 | base64 --decode > "${{ github.workspace }}/firekart.keystore"
       - name: 📝🔐 Create keystore.properties file
         env:
-          KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/app/android/keystore.properties
+          KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/android/app/keystore.properties
         run: |
           echo 'storeFile=${{ github.workspace }}/firekart.keystore' >> $KEYSTORE_PROPERTIES_PATH
           echo 'keyAlias=${{ secrets.KEYALIAS }}' >> $KEYSTORE_PROPERTIES_PATH
