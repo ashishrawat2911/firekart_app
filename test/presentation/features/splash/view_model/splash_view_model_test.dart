@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluttercommerce/initializer.dart';
-import 'package:fluttercommerce/presentation/features/splash/state/splash_state.dart';
-import 'package:fluttercommerce/presentation/features/splash/view_model/splash_view_model.dart';
+import 'package:firekart/initializer.dart';
+import 'package:firekart/presentation/features/splash/state/splash_state.dart';
+import 'package:firekart/presentation/features/splash/view_model/splash_view_model.dart';
 
 void main() {
   test('TestSplash', () {

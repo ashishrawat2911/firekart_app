@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:fluttercommerce/core/deeplink/deep_link.dart';
+import 'package:firekart/core/deeplink/deep_link.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';
@@ -52,14 +52,14 @@ class FirebaseDeepLink extends Deeplink {
     final packageInfo = await PackageInfo.fromPlatform();
     var packageName = packageInfo.packageName;
     var appStoreId = '';
-    var pageLink = 'https://fluttercommerce.page.link';
+    var pageLink = 'https://firekart.page.link';
     var androidMinimumVersion = 0;
     var iosMinimumVersion = 0;
     final parameters = DynamicLinkParameters(
       uriPrefix: pageLink,
       link: Uri(
         scheme: 'http',
-        host: 'fluttercommerce.io',
+        host: 'firekart.io',
         path: path,
         queryParameters: value,
       ),

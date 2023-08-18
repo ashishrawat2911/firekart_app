@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -15,6 +15,7 @@
  */
 import 'dart:io';
 
+import 'package:firekart/core/logger/app_logger.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class MessageHandler {
       GlobalKey<ScaffoldMessengerState>();
 
   static void showSnackBar({required String? title}) {
+    AppLogger.log(title);
     scaffoldMessengerKey.currentState!.hideCurrentSnackBar();
     scaffoldMessengerKey.currentState!.showSnackBar(
       SnackBar(

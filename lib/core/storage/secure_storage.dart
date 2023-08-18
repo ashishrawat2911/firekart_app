@@ -1,5 +1,5 @@
 import 'package:encrypt/encrypt.dart';
-import 'package:fluttercommerce/core/storage/prefrences.dart';
+import 'package:firekart/core/storage/prefrences.dart';
 import 'package:injectable/injectable.dart';
 
 ///Securely holds data in key,value pairs

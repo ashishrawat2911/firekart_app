@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -13,14 +13,14 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:fluttercommerce/data/model/account_details_model.dart';
-import 'package:fluttercommerce/data/model/cart_model.dart';
-import 'package:fluttercommerce/data/model/order_model.dart';
-import 'package:fluttercommerce/data/model/product_model.dart';
-import 'package:fluttercommerce/domain/models/account_details_model.dart';
-import 'package:fluttercommerce/domain/models/cart_model.dart';
-import 'package:fluttercommerce/domain/models/order_model.dart';
-import 'package:fluttercommerce/domain/models/product_model.dart';
+import 'package:firekart/data/model/account_details_model.dart';
+import 'package:firekart/data/model/cart_model.dart';
+import 'package:firekart/data/model/order_model.dart';
+import 'package:firekart/data/model/product_model.dart';
+import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/models/cart_model.dart';
+import 'package:firekart/domain/models/order_model.dart';
+import 'package:firekart/domain/models/product_model.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:smartstruct/smartstruct.dart';
 
