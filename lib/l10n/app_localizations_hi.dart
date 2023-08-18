@@ -198,4 +198,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get connectionNotAvailable => 'नेटवर्क कनेक्शन उपलब्ध नहीं है';
+
+  @override
+  String get noItemsInCart => 'Sorry, No Items in Cart';
 }

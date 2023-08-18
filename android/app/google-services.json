@@ -7,6 +7,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:241530458600:android:aeec20603c8831fd8c545d",
+        "android_client_info": {
+          "package_name": "com.app.firekart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241530458600-4h8lscsii3mu5ppod6dqbohf5d341vg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.firekart",
+            "certificate_hash": "3ffbf4f6d5e2ae43191c556b816cc21609583559"
+          }
+        },
+        {
+          "client_id": "241530458600-qifcl847u3f5gg8thhpbsktdfag26gnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9KZGbUqFymEs57-dUr_Z1FHGNdFPaqUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241530458600-qifcl847u3f5gg8thhpbsktdfag26gnc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "241530458600-gmibtaq1c75gl1pseg2on7ajuaijqkqb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.fluttercommerce"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:241530458600:android:4e36c7955b7db8da8c545d",
         "android_client_info": {
           "package_name": "com.app.fluttercommerce"
@@ -19,6 +63,14 @@
           "android_info": {
             "package_name": "com.app.fluttercommerce",
             "certificate_hash": "3ffbf4f6d5e2ae43191c556b816cc21609583559"
+          }
+        },
+        {
+          "client_id": "241530458600-jhqkv0sbr2onucufnniiseh4mpkd87c2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.fluttercommerce",
+            "certificate_hash": "035e93749d1bd33f2ea35e205d2af5fabbf08edb"
           }
         },
         {

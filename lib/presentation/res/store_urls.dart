@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -15,6 +15,6 @@
  */
 class StoreUrls {
   static const android =
-      'https://play.google.com/store/apps/details?id=com.fluttercommerce.app';
+      'https://play.google.com/store/apps/details?id=com.firekart.app';
   static const iOS = 'https://apps.apple.com/app/';
 }

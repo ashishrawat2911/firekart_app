@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -16,12 +16,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/core/localization/localization.dart';
-import 'package:fluttercommerce/core/state/result_state.dart';
-import 'package:fluttercommerce/core/state_manager/base_view.dart';
-import 'package:fluttercommerce/core/theme/theme_provider.dart';
-import 'package:fluttercommerce/core/utils/date_time_util.dart';
-import 'package:fluttercommerce/domain/models/order_model.dart';
+import 'package:firekart/core/localization/localization.dart';
+import 'package:firekart/core/state/result_state.dart';
+import 'package:firekart/core/state_manager/base_view.dart';
+import 'package:firekart/core/theme/theme_provider.dart';
+import 'package:firekart/core/utils/date_time_util.dart';
+import 'package:firekart/domain/models/order_model.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/common_app_loader.dart';

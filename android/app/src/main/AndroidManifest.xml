@@ -7,10 +7,10 @@
          FlutterApplication and put your custom class here. -->
     <application
             android:name="${applicationName}"
-            android:label="FlutterCommerce"
+            android:label="FireKart"
             android:icon="@mipmap/ic_launcher">
         <activity
-                android:name="com.app.fluttercommerce.MainActivity"
+                android:name="com.app.firekart.MainActivity"
                 android:launchMode="singleTop"
                 android:theme="@style/LaunchTheme"
                 android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

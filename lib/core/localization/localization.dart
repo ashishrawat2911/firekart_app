@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:flutter/material.dart';
-import 'package:fluttercommerce/l10n/app_localizations.dart';
+import 'package:firekart/l10n/app_localizations.dart';
 
 class Localization {
   static late BuildContext _context;

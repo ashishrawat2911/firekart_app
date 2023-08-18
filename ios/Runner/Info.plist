@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>fluttercommerce</string>
+	<string>firekart</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.241530458600-gmibtaq1c75gl1pseg2on7ajuaijqkqb</string>
+				<string>com.googleusercontent.apps.241530458600-ilp3quem9l28kg6cmuaf5ppfi2eedap9</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>Bundle ID</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.app.fluttercommerce</string>
+				<string>com.app.firekart</string>
 			</array>
 		</dict>
 	</array>

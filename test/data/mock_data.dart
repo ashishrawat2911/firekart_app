@@ -1,7 +1,7 @@
-import 'package:fluttercommerce/data/model/account_details_model.dart';
-import 'package:fluttercommerce/data/model/cart_model.dart';
-import 'package:fluttercommerce/data/model/order_model.dart';
-import 'package:fluttercommerce/data/model/product_model.dart';
+import 'package:firekart/data/model/account_details_model.dart';
+import 'package:firekart/data/model/cart_model.dart';
+import 'package:firekart/data/model/order_model.dart';
+import 'package:firekart/data/model/product_model.dart';
 
 OrderModel get mockOrderModel {
   return OrderModel(

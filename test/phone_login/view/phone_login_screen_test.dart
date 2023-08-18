@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -14,12 +14,12 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluttercommerce/core/localization/localization.dart';
-import 'package:fluttercommerce/core/performance/performance_moniter.dart';
-import 'package:fluttercommerce/presentation/features/phone_login/view/phone_login_screen.dart';
-import 'package:fluttercommerce/presentation/features/phone_login/view_model/phone_login_view_model.dart';
-import 'package:fluttercommerce/presentation/widgets/commom_text_field.dart';
-import 'package:fluttercommerce/presentation/widgets/common_button.dart';
+import 'package:firekart/core/localization/localization.dart';
+import 'package:firekart/core/performance/performance_moniter.dart';
+import 'package:firekart/presentation/features/phone_login/view/phone_login_screen.dart';
+import 'package:firekart/presentation/features/phone_login/view_model/phone_login_view_model.dart';
+import 'package:firekart/presentation/widgets/commom_text_field.dart';
+import 'package:firekart/presentation/widgets/common_button.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../util/base_material_widget.dart';

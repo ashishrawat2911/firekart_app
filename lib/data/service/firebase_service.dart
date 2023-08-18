@@ -1,8 +1,8 @@
 /*
  * ----------------------------------------------------------------------------
  *
- * This file is part of the Flutter Commerce open-source project, available at:
- * https://github.com/ashishrawat2911/flutter_commerce
+ * This file is part of the FireKart open-source project, available at:
+ * https://github.com/ashishrawat2911/firekart
  *
  * Created by: Ashish Rawat
  * ----------------------------------------------------------------------------
@@ -15,12 +15,12 @@
  */
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttercommerce/core/extentions/list_extention.dart';
-import 'package:fluttercommerce/core/logger/app_logger.dart';
-import 'package:fluttercommerce/data/model/account_details_model.dart';
-import 'package:fluttercommerce/data/model/cart_model.dart';
-import 'package:fluttercommerce/data/model/order_model.dart';
-import 'package:fluttercommerce/data/model/product_model.dart';
+import 'package:firekart/core/extentions/list_extention.dart';
+import 'package:firekart/core/logger/app_logger.dart';
+import 'package:firekart/data/model/account_details_model.dart';
+import 'package:firekart/data/model/cart_model.dart';
+import 'package:firekart/data/model/order_model.dart';
+import 'package:firekart/data/model/product_model.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

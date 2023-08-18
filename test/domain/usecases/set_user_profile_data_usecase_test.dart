@@ -1,4 +1,4 @@
-import 'package:fluttercommerce/domain/usecases/set_user_profile_data_usecase.dart';
+import 'package:firekart/domain/usecases/set_user_profile_data_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
