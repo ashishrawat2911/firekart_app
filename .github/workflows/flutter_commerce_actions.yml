@@ -28,24 +28,24 @@ jobs:
           flutter-version: "3.10.0"
           channel: 'stable'
           cache: true
-      - name: 🔐 Retrieve base64 keystore and decode it to a file
-        env:
-            KEYSTORE_BASE64: ${{ secrets.FIREKART_KEYSTORE_BASE64 }}
-        run: echo $KEYSTORE_BASE64 | base64 --decode > "${{ github.workspace }}/firekart.keystore"
-      - name: 📝🔐 Create keystore.properties file
-        env:
-          KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/android/app/keystore.properties
-        run: |
-          echo "KEYSTORE_PROPERTIES_PATH: $KEYSTORE_PROPERTIES_PATH"
-          echo "storeFile=\${{ github.workspace }}/firekart.keystore" >> $KEYSTORE_PROPERTIES_PATH
-          echo 'keyAlias=${{ secrets.KEYALIAS }}' >> $KEYSTORE_PROPERTIES_PATH
-          echo 'storePassword=${{ secrets.STOREPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
-          echo 'keyPassword=${{ secrets.KEYPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
-          ls -l $KEYSTORE_PROPERTIES_PATH
+#      - name: 🔐 Retrieve base64 keystore and decode it to a file
+#        env:
+#            KEYSTORE_BASE64: ${{ secrets.FIREKART_KEYSTORE_BASE64 }}
+#        run: echo $KEYSTORE_BASE64 | base64 --decode > "${{ github.workspace }}/firekart.keystore"
+#      - name: 📝🔐 Create keystore.properties file
+#        env:
+#          KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/android/app/keystore.properties
+#        run: |
+#          echo "KEYSTORE_PROPERTIES_PATH: $KEYSTORE_PROPERTIES_PATH"
+#          echo "storeFile=\${{ github.workspace }}/firekart.keystore" >> $KEYSTORE_PROPERTIES_PATH
+#          echo 'keyAlias=${{ secrets.KEYALIAS }}' >> $KEYSTORE_PROPERTIES_PATH
+#          echo 'storePassword=${{ secrets.STOREPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
+#          echo 'keyPassword=${{ secrets.KEYPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
+#          ls -l $KEYSTORE_PROPERTIES_PATH
       - run: flutter pub get
       - run: flutter packages pub run build_runner build --delete-conflicting-outputs
       - run: flutter gen-l10n
       - run: flutter test --no-pub --coverage
-      - run: flutter build apk --verbose
+#      - run: flutter build apk --verbose
       - run: flutter build ios --release --no-codesign
 
