@@ -41,6 +41,7 @@ jobs:
           echo 'keyAlias=${{ secrets.KEYALIAS }}' >> $KEYSTORE_PROPERTIES_PATH
           echo 'storePassword=${{ secrets.STOREPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
           echo 'keyPassword=${{ secrets.KEYPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
+          ls -l $KEYSTORE_PROPERTIES_PATH
       - run: flutter pub get
       - run: flutter packages pub run build_runner build --delete-conflicting-outputs
       - run: flutter gen-l10n
