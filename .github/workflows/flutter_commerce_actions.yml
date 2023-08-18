@@ -36,6 +36,7 @@ jobs:
         env:
           KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/android/app/keystore.properties
         run: |
+          echo "KEYSTORE_PROPERTIES_PATH: $KEYSTORE_PROPERTIES_PATH"
           echo 'storeFile=${{ github.workspace }}/firekart.keystore' >> $KEYSTORE_PROPERTIES_PATH
           echo 'keyAlias=${{ secrets.KEYALIAS }}' >> $KEYSTORE_PROPERTIES_PATH
           echo 'storePassword=${{ secrets.STOREPASSWORD }}' >> $KEYSTORE_PROPERTIES_PATH
