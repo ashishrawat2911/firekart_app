@@ -1,12 +1,12 @@
 import express, {Application} from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-
-dotenv.config();
+import authRoutes from './routes/authRoutes';
+import Database from './database/database';
+import {PORT} from './config/configs';
 
 const app: Application = express();
-const port = process.env.PORT;
+const dbConnection = new Database();
+
 
 // Middleware
 app.use(express.json());
@@ -14,13 +14,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Routes
+app.use('/auth', authRoutes);
 
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || '');
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+process.on('exit', () => {
+    // dbConnection.closeConnection();
 });
 
