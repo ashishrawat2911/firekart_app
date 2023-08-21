@@ -1,12 +1,11 @@
 import express, {Application} from 'express';
 import bodyParser from 'body-parser';
 import authRoutes from './routes/authRoutes';
-import Database from './database/database';
 import {PORT} from './config/configs';
+import {closeDb, initDb} from "./database/database";
 
 const app: Application = express();
-const db = new Database();
-db.initDb()
+initDb()
 
 // Middleware
 app.use(express.json());
@@ -22,6 +21,6 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 process.on('exit', () => {
-    db.closeDb();
+    closeDb();
 });
 
