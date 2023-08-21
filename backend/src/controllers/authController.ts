@@ -1,17 +1,17 @@
 import {Request, Response} from 'express';
 import UserService from '../service/userService';
-import {createToken} from '../utils/jwtUtils';
 import ApiResponse from "../response/apiResponse";
 import ApiResponseMessages from "../response/apiResponseMessages";
 import {validationResult} from "express-validator";
+import UserRepository from "../repository/userRepository";
 
-const userService = new UserService();
+const userService = new UserService(new UserRepository());
 
 export const loginWithPhoneNumber = async (req: Request, res: Response) => {
     try {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return ApiResponse.badRequest(res, "Phone Number is not valid", errors)
+        const error = validationResult(req);
+        if (!error.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberNotValid, error)
         }
         const {phoneNumber} = req.body;
         const otp = await userService.generateOTP(phoneNumber);
@@ -25,20 +25,14 @@ export const verifyOTPAndLogin = async (req: Request, res: Response) => {
     try {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return ApiResponse.badRequest(res, "Phone Number or OTP is not valid", errors)
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
         }
         const {phoneNumber, otp} = req.body;
         const isOTPValid = await userService.verifyOTP(phoneNumber, otp);
 
         if (isOTPValid) {
-            // User verified, generate JWT token and send it
-            let user = await userService.getUserByPhoneNumber(phoneNumber);
-            if (!user) {
-                user = await userService.createUser(phoneNumber)
-            }
-            const token = createToken(user!.id);
+            const token = await userService.createUserIfNotPresent(phoneNumber);
             return ApiResponse.success(res, {token});
-
         } else {
             return ApiResponse.unauthorized(res, ApiResponseMessages.invalidOTP);
         }

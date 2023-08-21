@@ -1,52 +1,50 @@
-import Database from '../database/database';
 import User from '../models/User'
+import UserRepository from "../repository/userRepository";
+import {createJWT} from "../utils/jwtUtils";
 
-class UserService {
-    private db: Database;
-
-    constructor() {
-        this.db = new Database();
+export default class UserService {
+    constructor(private userRepository: UserRepository) {
     }
 
     async generateOTP(phoneNumber: string): Promise<string> {
         const otp = Math.floor(1000 + Math.random() * 9000).toString();
-        const insertQuery = 'INSERT INTO otp_records (phone_number, otp) VALUES (?, ?)';
-        await this.db.executeSql(insertQuery, [phoneNumber, otp]);
+        await this.userRepository.addOTPByPhoneNumber(phoneNumber, otp);
         return otp;
     }
 
     async verifyOTP(phoneNumber: string, otp: string): Promise<boolean> {
         try {
-            const selectQuery = 'SELECT otp FROM otp_records WHERE phone_number = ? ORDER BY created_at DESC LIMIT 1';
-            const result = await this.db.executeSql(selectQuery, [phoneNumber]);
-            if (result[0].otp === otp) {
-                const deleteQuery = 'DELETE FROM otp_records WHERE phone_number = ?';
-                await this.db.executeSql(deleteQuery, [phoneNumber]);
+            const storedOTP = await this.userRepository.getOTPByPhoneNumber(phoneNumber);
+            if (!storedOTP) {
+                return false;
+            }
+            if (storedOTP === otp) {
+                await this.userRepository.deleteOTPByPhoneNumber(phoneNumber);
                 return true;
             }
-        } catch (e) {
-            console.error(e)
+
+            return false;
+        } catch (error) {
+            console.error('An error occurred while verifying OTP:', error);
+            return false;
         }
-        return false;
     }
 
+
     async getUserByPhoneNumber(phoneNumber: string): Promise<User | null> {
-        const selectQuery = 'SELECT * FROM users WHERE phone_number = ?';
-        const rows = await this.db.executeSql(selectQuery, [phoneNumber]);
-        if (rows.length) {
-            return {
-                id: rows[0].id as number,
-                phone_number: rows[0].phone_number as string,
-            };
-        }
-        return null;
+        return this.userRepository.getUserByPhoneNumber(phoneNumber);
     }
 
     async createUser(phoneNumber: string): Promise<User | null> {
-        const insertQuery = 'INSERT INTO users (phone_number) VALUES (?)';
-        await this.db.executeSql(insertQuery, [phoneNumber]);
+        await this.userRepository.addUserByPhoneNumber(phoneNumber)
         return await this.getUserByPhoneNumber(phoneNumber);
     }
-}
 
-export default UserService;
+    async createUserIfNotPresent(phoneNumber: string): Promise<string> {
+        let user = await this.getUserByPhoneNumber(phoneNumber);
+        if (!user) {
+            user = await this.createUser(phoneNumber)
+        }
+        return createJWT(user!.id);
+    }
+}

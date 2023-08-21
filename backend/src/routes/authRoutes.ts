@@ -1,5 +1,5 @@
 import express from 'express';
-import {loginWithPhoneNumber, verifyOTPAndLogin} from '../controllers/AuthController';
+import {loginWithPhoneNumber, verifyOTPAndLogin} from '../controllers/authController';
 import {validateLoginPhoneNumber, validateOTPAndLogin} from "../middlewares/validators/authValidators";
 
 const router = express.Router();
