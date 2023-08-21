@@ -5,8 +5,8 @@ import Database from './database/database';
 import {PORT} from './config/configs';
 
 const app: Application = express();
-const dbConnection = new Database();
-
+const db = new Database();
+db.initDb()
 
 // Middleware
 app.use(express.json());
@@ -22,6 +22,6 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 process.on('exit', () => {
-    // dbConnection.closeConnection();
+    db.closeDb();
 });
 

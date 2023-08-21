@@ -1,6 +1,8 @@
 import {Request, Response} from 'express';
 import UserService from '../service/userService';
 import {createToken} from '../utils/jwtUtils';
+import ApiResponse from "../response/apiResponse";
+import ApiResponseMessages from "../response/apiResponseMessages";
 
 const userService = new UserService();
 
@@ -8,10 +10,9 @@ export const loginWithPhoneNumber = async (req: Request, res: Response) => {
     try {
         const {phoneNumber} = req.body;
         const otp = await userService.generateOTP(phoneNumber);
-        return res.status(200).json({otp});
+        return ApiResponse.success(res, {otp});
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({message: 'An error occurred'});
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }
 };
 
@@ -26,15 +27,14 @@ export const verifyOTPAndLogin = async (req: Request, res: Response) => {
             if (!user) {
                 user = await userService.createUser(phoneNumber)
             }
-
             const token = createToken(user!.id);
-            return res.status(200).json({token});
+            return ApiResponse.success(res, {token});
+
         } else {
-            return res.status(401).json({message: 'Invalid OTP or user not found'});
+            return ApiResponse.unauthorized(res, ApiResponseMessages.invalidOTP);
         }
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({message: 'An error occurred'});
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }
 };
 
