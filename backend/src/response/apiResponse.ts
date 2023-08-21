@@ -9,8 +9,8 @@ export default class ApiResponse {
         res.status(201).json({success: true, data, message});
     }
 
-    public static badRequest(res: Response, message: string): void {
-        res.status(400).json({success: false, message});
+    public static badRequest(res: Response, message: string, error?: any): void {
+        res.status(400).json({success: false, message,error});
     }
 
     public static unauthorized(res: Response, message: string): void {
