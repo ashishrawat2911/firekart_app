@@ -3,11 +3,16 @@ import UserService from '../service/userService';
 import {createToken} from '../utils/jwtUtils';
 import ApiResponse from "../response/apiResponse";
 import ApiResponseMessages from "../response/apiResponseMessages";
+import {validationResult} from "express-validator";
 
 const userService = new UserService();
 
 export const loginWithPhoneNumber = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, "Phone Number is not valid", errors)
+        }
         const {phoneNumber} = req.body;
         const otp = await userService.generateOTP(phoneNumber);
         return ApiResponse.success(res, {otp});
@@ -18,6 +23,10 @@ export const loginWithPhoneNumber = async (req: Request, res: Response) => {
 
 export const verifyOTPAndLogin = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, "Phone Number or OTP is not valid", errors)
+        }
         const {phoneNumber, otp} = req.body;
         const isOTPValid = await userService.verifyOTP(phoneNumber, otp);
 

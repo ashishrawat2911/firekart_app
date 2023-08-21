@@ -1,9 +1,10 @@
 import express from 'express';
 import {loginWithPhoneNumber, verifyOTPAndLogin} from '../controllers/AuthController';
+import {validateLoginPhoneNumber, validateOTPAndLogin} from "../middlewares/validators/authValidators";
 
 const router = express.Router();
 
-router.post('/login', loginWithPhoneNumber);
-router.post('/verify-otp', verifyOTPAndLogin);
+router.post('/login', validateLoginPhoneNumber, loginWithPhoneNumber);
+router.post('/verify-otp', validateOTPAndLogin, verifyOTPAndLogin);
 
 export default router;
