@@ -4,7 +4,7 @@ import {dbConfig} from '../config/configs';
 class Database {
     private pool: mysql.Pool;
 
-    constructor() {
+    initDb() {
         this.pool = mysql.createPool(dbConfig);
 
         this.pool.getConnection((error, connection) => {
@@ -15,6 +15,10 @@ class Database {
                 connection.release();
             }
         });
+    }
+
+    closeDb() {
+        this.pool.end();
     }
 
     async executeSql(query: string, params: any[]): Promise<any> {

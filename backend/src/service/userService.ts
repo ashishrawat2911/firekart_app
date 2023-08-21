@@ -16,12 +16,16 @@ class UserService {
     }
 
     async verifyOTP(phoneNumber: string, otp: string): Promise<boolean> {
-        const selectQuery = 'SELECT otp FROM otp_records WHERE phone_number = ? ORDER BY created_at DESC LIMIT 1';
-        const result = await this.db.executeSql(selectQuery, [phoneNumber]);
-        if (result[0].otp === otp) {
-            const deleteQuery = 'DELETE FROM otp_records WHERE phone_number = ?';
-            await this.db.executeSql(deleteQuery, [phoneNumber]);
-            return true;
+        try {
+            const selectQuery = 'SELECT otp FROM otp_records WHERE phone_number = ? ORDER BY created_at DESC LIMIT 1';
+            const result = await this.db.executeSql(selectQuery, [phoneNumber]);
+            if (result[0].otp === otp) {
+                const deleteQuery = 'DELETE FROM otp_records WHERE phone_number = ?';
+                await this.db.executeSql(deleteQuery, [phoneNumber]);
+                return true;
+            }
+        } catch (e) {
+            console.error(e)
         }
         return false;
     }
@@ -30,13 +34,11 @@ class UserService {
         const selectQuery = 'SELECT * FROM users WHERE phone_number = ?';
         const rows = await this.db.executeSql(selectQuery, [phoneNumber]);
         if (rows.length) {
-            const user: User = {
+            return {
                 id: rows[0].id as number,
                 phone_number: rows[0].phone_number as string,
             };
-            return user;
         }
-
         return null;
     }
 
@@ -45,8 +47,6 @@ class UserService {
         await this.db.executeSql(insertQuery, [phoneNumber]);
         return await this.getUserByPhoneNumber(phoneNumber);
     }
-
-
 }
 
 export default UserService;
