@@ -4,6 +4,7 @@ import authRoutes from './routes/authRoutes';
 import {PORT} from './config/configs';
 import {closeDb, initDb} from "./database/database";
 import productRoutes from "./routes/productRoutes";
+import cartRoutes from "./routes/cartRoutes";
 
 const app: Application = express();
 initDb()
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Routes
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
+app.use('/cart', cartRoutes);
 
 
 // Start the server

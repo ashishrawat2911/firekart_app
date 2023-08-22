@@ -1,13 +1,10 @@
 import {Request, Response} from 'express';
-import UserService from '../service/userService';
 import ApiResponse from "../response/apiResponse";
 import ApiResponseMessages from "../response/apiResponseMessages";
 import {validationResult} from "express-validator";
-import UserRepository from "../repository/userRepository";
 import {createJWT} from "../utils/jwtUtils";
+import {userService} from "../di/di";
 
-const userRepository = new UserRepository()
-const userService = new UserService(userRepository);
 
 export const loginWithPhoneNumber = async (req: Request, res: Response) => {
     try {

@@ -1,12 +1,9 @@
 import {Request, Response} from 'express';
 import ApiResponse from "../response/apiResponse";
 import ApiResponseMessages from "../response/apiResponseMessages";
-import ProductRepository from "../repository/productRepository";
-import ProductService from "../service/productService";
 import {validationResult} from "express-validator";
+import {productService} from "../di/di";
 
-const productRepository = new ProductRepository()
-const productService = new ProductService(productRepository);
 
 export const fetchAllProducts = async (req: Request, res: Response) => {
     try {
