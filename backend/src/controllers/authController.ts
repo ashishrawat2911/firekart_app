@@ -5,8 +5,15 @@ import ApiResponseMessages from "../response/apiResponseMessages";
 import {validationResult} from "express-validator";
 import UserRepository from "../repository/userRepository";
 import {createJWT} from "../utils/jwtUtils";
+import ProductRepository from "../repository/productRepository";
+import OrderRepository from "../repository/orderRepository";
+import CartRepository from "../repository/cartRepository";
 
-const userService = new UserService(new UserRepository());
+const userRepository = new UserRepository()
+const productRepo = new ProductRepository()
+const orderRepository = new OrderRepository()
+const cartRepository = new CartRepository()
+const userService = new UserService(userRepository);
 
 export const loginWithPhoneNumber = async (req: Request, res: Response) => {
     try {
@@ -42,7 +49,7 @@ export const verifyOTPAndLogin = async (req: Request, res: Response) => {
                 user = await userService.createUser(phoneNumber, name)
             }
             const token = await createJWT(user!.id);
-            return ApiResponse.success(res, {token,user});
+            return ApiResponse.success(res, {token, user});
         } else {
             return ApiResponse.unauthorized(res, ApiResponseMessages.invalidOTP);
         }
