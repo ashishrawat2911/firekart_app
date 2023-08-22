@@ -1,6 +1,6 @@
-import User from '../models/User'
 import UserRepository from "../repository/userRepository";
-import {createJWT} from "../utils/jwtUtils";
+import User from "../models/User";
+import Address from "../models/Address";
 
 export default class UserService {
     constructor(private userRepository: UserRepository) {
@@ -35,16 +35,12 @@ export default class UserService {
         return this.userRepository.getUserByPhoneNumber(phoneNumber);
     }
 
-    async createUser(phoneNumber: string): Promise<User | null> {
-        await this.userRepository.addUserByPhoneNumber(phoneNumber)
-        return await this.getUserByPhoneNumber(phoneNumber);
+    async getAddressesByUser(userId: number): Promise<Address[]> {
+        return this.userRepository.getAddressesByUserId(userId);
     }
 
-    async createUserIfNotPresent(phoneNumber: string): Promise<string> {
-        let user = await this.getUserByPhoneNumber(phoneNumber);
-        if (!user) {
-            user = await this.createUser(phoneNumber)
-        }
-        return createJWT(user!.id);
+    async createUser(phoneNumber: string, name: string): Promise<User | null> {
+        await this.userRepository.addUserByPhoneNumber(phoneNumber, name)
+        return await this.getUserByPhoneNumber(phoneNumber);
     }
 }
