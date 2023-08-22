@@ -2,10 +2,9 @@ import Product from "../models/Product";
 import {executeSql} from "../database/database";
 
 export default class ProductRepository {
-    async getAllProducts(): Promise<Product[]> {
-        const query = 'SELECT * FROM Product';
-        const rows = await executeSql(query);
-        return rows;
+    async getAllProducts(offset: number, pageSize: number): Promise<Product[]> {
+        const query = 'SELECT * FROM Product LIMIT ? OFFSET ?';
+        return await executeSql(query, [pageSize, offset]);
     }
 
     async add(): Promise<void> {

@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import authRoutes from './routes/authRoutes';
 import {PORT} from './config/configs';
 import {closeDb, initDb} from "./database/database";
+import productRoutes from "./routes/productRoutes";
 
 const app: Application = express();
 initDb()
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Routes
 app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
 
 
 // Start the server
