@@ -1,0 +1,24 @@
+import {Request, Response} from 'express';
+import ApiResponse from "../response/apiResponse";
+import ApiResponseMessages from "../response/apiResponseMessages";
+import ProductRepository from "../repository/productRepository";
+import ProductService from "../service/productService";
+import {validationResult} from "express-validator";
+
+const productRepository = new ProductRepository()
+const productService = new ProductService(productRepository);
+
+export const fetchAllProducts = async (req: Request, res: Response) => {
+    try {
+        const error = validationResult(req);
+        if (!error.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberNotValid, error)
+        }
+        const {page, offset} = req.body;
+        const data = await productService.getAllProducts(page, offset);
+        return ApiResponse.success(res, data);
+    } catch (error) {
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
+    }
+};
+
