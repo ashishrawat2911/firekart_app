@@ -15,7 +15,7 @@ export default class CartRepository {
             FROM Cart c
                      JOIN Product p ON c.productId = p.id
             WHERE c.userId = ?`;
-        const [rows] = await executeSql(query, [userId]);
+        const rows = await executeSql(query, [userId]);
         return rows;
     }
 
@@ -35,8 +35,13 @@ export default class CartRepository {
         return rows[0].count;
     }
 
-    async updateCartItemQuantity(userId: number, productId: string, quantity: number): Promise<void> {
+    async updateCartItemQuantity(userId: number, productId: number, quantity: number): Promise<void> {
         const query = 'UPDATE Cart SET quantity = ? WHERE userId = ? AND productId = ?';
         await executeSql(query, [quantity, userId, productId]);
+    }
+
+    async deleteAllItemsInCart(userId: number): Promise<void> {
+        const query = 'DELETE FROM Cart WHERE userId = ?';
+        await executeSql(query, [userId]);
     }
 }

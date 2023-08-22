@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./types"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "target": "es2016",
