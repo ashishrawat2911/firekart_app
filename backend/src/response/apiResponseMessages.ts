@@ -9,4 +9,5 @@ export default class ApiResponseMessages {
     public static readonly anErrorOccurred = 'An error occurred';
     public static readonly phoneNumberNotValid = 'Phone Number is not valid';
     public static readonly phoneNumberOrOTPNotValid = 'Phone Number or OTP is not valid';
+    public static readonly userNameNotProvided = 'Name not provided';
 }
