@@ -18,7 +18,7 @@ function closeDb() {
     pool.end();
 }
 
-async function executeSql(query: string, params: any[]): Promise<any> {
+async function executeSql(query: string, params?: any[]): Promise<any> {
     return new Promise((resolve, reject) => {
         pool.getConnection((error, connection) => {
             if (error) {

@@ -1,6 +1,6 @@
 export default interface User {
     id: number;
-    phone_number: string;
+    phoneNumber: string;
     name: string;
 }
 
