@@ -5,14 +5,8 @@ import ApiResponseMessages from "../response/apiResponseMessages";
 import {validationResult} from "express-validator";
 import UserRepository from "../repository/userRepository";
 import {createJWT} from "../utils/jwtUtils";
-import ProductRepository from "../repository/productRepository";
-import OrderRepository from "../repository/orderRepository";
-import CartRepository from "../repository/cartRepository";
 
 const userRepository = new UserRepository()
-const productRepo = new ProductRepository()
-const orderRepository = new OrderRepository()
-const cartRepository = new CartRepository()
 const userService = new UserService(userRepository);
 
 export const loginWithPhoneNumber = async (req: Request, res: Response) => {
