@@ -1,6 +1,6 @@
 import {executeSql} from "../database/database";
-import User from "../models/User";
-import Address from "../models/Address";
+import User from "../models/entity/User";
+import Address from "../models/entity/Address";
 
 export default class UserRepository {
     async addOTPByPhoneNumber(phoneNumber: string, otp: string) {

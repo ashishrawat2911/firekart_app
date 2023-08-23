@@ -1,4 +1,4 @@
-import Cart from "../models/Cart";
+import Cart from "../models/entity/Cart";
 import {executeSql} from "../database/database";
 
 export default class CartRepository {
