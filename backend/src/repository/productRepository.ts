@@ -1,4 +1,4 @@
-import Product from "../models/Product";
+import Product from "../models/entity/Product";
 import {executeSql} from "../database/database";
 
 export default class ProductRepository {

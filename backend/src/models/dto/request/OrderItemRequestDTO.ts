@@ -1,6 +1,5 @@
-export default interface OrderItem {
-    id: number;
-    productId: string;
+export default interface OrderItemRequestDTO {
+    productId: number;
     image: string;
     name: string;
     unit: string;

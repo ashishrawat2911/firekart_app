@@ -5,6 +5,7 @@ import {PORT} from './config/configs';
 import {closeDb, initDb} from "./database/database";
 import productRoutes from "./routes/productRoutes";
 import cartRoutes from "./routes/cartRoutes";
+import orderRoutes from "./routes/orderRoutes";
 
 const app: Application = express();
 initDb()
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
+app.use('/order', orderRoutes);
 
 
 // Start the server

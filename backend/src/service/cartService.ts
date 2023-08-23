@@ -1,5 +1,5 @@
 import CartRepository from "../repository/cartRepository";
-import Cart from "../models/Cart";
+import Cart from "../models/entity/Cart";
 
 export default class CartService {
     constructor(private cartRepository: CartRepository) {

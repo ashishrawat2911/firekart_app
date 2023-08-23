@@ -1,6 +1,6 @@
 import UserRepository from "../repository/userRepository";
-import User from "../models/User";
-import Address from "../models/Address";
+import User from "../models/entity/User";
+import Address from "../models/entity/Address";
 
 export default class UserService {
     constructor(private userRepository: UserRepository) {

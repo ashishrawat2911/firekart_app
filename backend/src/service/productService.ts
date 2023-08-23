@@ -1,5 +1,5 @@
 import ProductRepository from "../repository/productRepository";
-import Product from "../models/Product";
+import Product from "../models/entity/Product";
 
 export default class ProductService {
     constructor(private productRepository: ProductRepository) {
