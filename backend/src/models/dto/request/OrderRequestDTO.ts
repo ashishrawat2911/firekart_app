@@ -6,7 +6,6 @@ export default interface OrderRequestDTO {
     orderItems: OrderItemRequestDTO[];
     orderedAt: string;
     orderStatus: string;
-    currency: string;
     paymentId: string;
     signature: string;
 }

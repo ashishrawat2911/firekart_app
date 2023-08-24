@@ -9,8 +9,8 @@ export default class CartService {
         return this.cartRepository.getAllCartsForUserId(userId);
     }
 
-    async addToCart(userId: number, productId: number, quantity: number): Promise<void> {
-        return this.cartRepository.addProductToCart(userId, productId, quantity);
+    async addToCart(userId: number, productId: number): Promise<void> {
+        return this.cartRepository.addProductToCart(userId, productId, 0);
     }
 
     async deleteFromCart(userId: number, productId: number): Promise<void> {

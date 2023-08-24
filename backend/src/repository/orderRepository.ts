@@ -11,8 +11,8 @@ export default class OrderRepository {
 
     async addOrder(userId: number, order: OrderRequestDTO): Promise<void> {
         // Perform the INSERT operation for the order
-        const insertQuery = 'INSERT INTO Orders (userId, totalPrice, orderedAt, orderStatus) VALUES (?, ?, ?, ?)';
-        const insertParams = [userId, order.price, order.orderedAt, order.orderStatus];
+        const insertQuery = 'INSERT INTO Orders (userId, totalPrice, orderedAt, orderStatus,paymentId,signature) VALUES (?, ?, ?, ?,?,?)';
+        const insertParams = [userId, order.price, order.orderedAt, order.orderStatus, order.paymentId, order.signature];
         const {insertId} = await executeSql(insertQuery, insertParams);
 
         // Perform the INSERT operation for each order item

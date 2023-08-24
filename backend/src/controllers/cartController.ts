@@ -16,8 +16,8 @@ export const fetchAllCarts = async (req: Request, res: Response) => {
 export const addToCart = async (req: Request, res: Response) => {
     try {
         const userId = req.userId
-        const {productId, quantity} = req.body;
-        const data = await cartService.addToCart(userId!, productId, quantity);
+        const {productId} = req.body;
+        const data = await cartService.addToCart(userId!, productId);
         return ApiResponse.success(res, data);
     } catch (error) {
         return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
