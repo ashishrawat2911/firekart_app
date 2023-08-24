@@ -49,6 +49,8 @@ CREATE TABLE Orders (
   totalPrice DECIMAL(10, 2) NOT NULL,
   orderedAt DATETIME NOT NULL,
   orderStatus VARCHAR(50) NOT NULL,
+  paymentId VARCHAR(255) NOT NULL,
+  signature VARCHAR(255) NOT NULL,
   FOREIGN KEY (userId) REFERENCES Users(id)
 );
 
