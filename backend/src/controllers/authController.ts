@@ -15,7 +15,7 @@ export const loginWithPhoneNumber = async (req: Request, res: Response) => {
         const {phoneNumber} = req.body;
         const otp = await userService.generateOTP(phoneNumber);
         const user = await userService.getUserByPhoneNumber(phoneNumber)
-        return ApiResponse.success(res, {otp: otp, newUser: user === null});
+        return ApiResponse.success(res, "OTP sent successfully", {otp: otp, newUser: user === null});
     } catch (error) {
         return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }
@@ -40,7 +40,7 @@ export const verifyOTPAndLogin = async (req: Request, res: Response) => {
                 user = await userService.createUser(phoneNumber, name)
             }
             const token = await createJWT(user!.id);
-            return ApiResponse.success(res, {token, user});
+            return ApiResponse.success(res, "Logged in successfully", {token, user});
         } else {
             return ApiResponse.unauthorized(res, ApiResponseMessages.invalidOTP);
         }
@@ -53,7 +53,16 @@ export const fetchUserDetails = async (req: Request, res: Response) => {
     try {
         const userId = req.userId
         const user = await userService.getUserById(userId!)
-        return ApiResponse.success(res, user);
+        return ApiResponse.success(res, "User fetched successfully", user);
+    } catch (error) {
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
+    }
+};
+export const fetchUserAddress = async (req: Request, res: Response) => {
+    try {
+        const userId = req.userId
+        const user = await userService.getAddressesByUser(userId!)
+        return ApiResponse.success(res, "User fetched successfully", user);
     } catch (error) {
         return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }
