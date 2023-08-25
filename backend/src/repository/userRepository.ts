@@ -31,6 +31,15 @@ export default class UserRepository {
         return null
     }
 
+    async getUserById(id: number): Promise<User | null> {
+        const selectQuery = 'SELECT * FROM Users WHERE id = ?';
+        const rows = await executeSql(selectQuery, [id]);
+        if (rows.length) {
+            return rows[0];
+        }
+        return null
+    }
+
     async addUserByPhoneNumber(phoneNumber: string, name: string) {
         const insertQuery = 'INSERT INTO Users (phoneNumber,name) VALUES (?, ?)';
         await executeSql(insertQuery, [phoneNumber, name]);

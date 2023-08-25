@@ -4,5 +4,7 @@ export default interface Order {
     totalPrice: number;
     orderedAt: string;
     orderStatus: string;
+    paymentId: string;
+    signature: string;
 }
 

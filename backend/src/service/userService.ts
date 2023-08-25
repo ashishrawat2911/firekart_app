@@ -35,6 +35,10 @@ export default class UserService {
         return this.userRepository.getUserByPhoneNumber(phoneNumber);
     }
 
+    async getUserById(id: number): Promise<User | null> {
+        return this.userRepository.getUserById(id);
+    }
+
     async getAddressesByUser(userId: number): Promise<Address[]> {
         return this.userRepository.getAddressesByUserId(userId);
     }
