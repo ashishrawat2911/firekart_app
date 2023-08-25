@@ -1,8 +1,12 @@
 import {Response} from 'express';
 
 export default class ApiResponse {
-    public static success(res: Response, data: any, message?: string): void {
+    public static success(res: Response, message: string, data: any): void {
         res.status(200).json({success: true, data, message});
+    }
+
+    public static emptySuccess(res: Response, message: string): void {
+        res.status(200).json({success: true, message});
     }
 
     public static created(res: Response, data: any, message?: string): void {
@@ -10,7 +14,7 @@ export default class ApiResponse {
     }
 
     public static badRequest(res: Response, message: string, error?: any): void {
-        res.status(400).json({success: false, message,error});
+        res.status(400).json({success: false, message, error});
     }
 
     public static unauthorized(res: Response, message: string): void {

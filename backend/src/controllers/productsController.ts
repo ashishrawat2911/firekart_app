@@ -13,7 +13,7 @@ export const fetchAllProducts = async (req: Request, res: Response) => {
         }
         const {page, offset} = req.body;
         const data = await productService.getAllProducts(page, offset);
-        return ApiResponse.success(res, data);
+        return ApiResponse.success(res, "Product fetch successfully", data);
     } catch (error) {
         return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }
