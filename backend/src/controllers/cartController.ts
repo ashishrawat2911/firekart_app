@@ -28,8 +28,14 @@ export const updateCart = async (req: Request, res: Response) => {
     try {
         const userId = req.userId
         const {productId, quantity} = req.body;
-        const data = await cartService.updateQuantity(userId!, productId, quantity);
-        return ApiResponse.success(res, data);
+        if (quantity === 0) {
+            const data = await cartService.deleteFromCart(userId!, productId);
+            return ApiResponse.success(res, data);
+        } else {
+            const data = await cartService.updateQuantity(userId!, productId, quantity);
+            return ApiResponse.success(res, data);
+        }
+
     } catch (error) {
         return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }

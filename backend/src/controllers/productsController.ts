@@ -19,3 +19,4 @@ export const fetchAllProducts = async (req: Request, res: Response) => {
     }
 };
 
+

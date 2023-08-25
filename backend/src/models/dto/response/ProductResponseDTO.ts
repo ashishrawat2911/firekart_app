@@ -1,4 +1,4 @@
-export default interface Product {
+export default interface ProductResponseDTO {
     id: number;
     image: string;
     name: string;
@@ -6,12 +6,12 @@ export default interface Product {
     unit: string;
     categories: string[];
     currency: string;
-    dealOfTheDay: number;
-    topProducts: number;
-    onSale: number;
+    dealOfTheDay: boolean;
+    topProducts: boolean;
+    onSale: boolean;
     currentPrice: number;
     actualPrice: number;
     quantityPerUnit: number;
-    isProductAvailable: number;
+    isProductAvailable: boolean;
     nameSearch: string[];
 }

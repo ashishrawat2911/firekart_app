@@ -7,5 +7,5 @@ export default interface Cart {
     currency: string;
     currentPrice: number;
     quantityPerUnit: number;
-    numOfItems: number;
+    quantity: number;
 }

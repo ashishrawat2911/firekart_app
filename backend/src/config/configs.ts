@@ -8,6 +8,7 @@ export const dbConfig = {
     password: process.env.DB_PASSWORD ?? "",
     database: process.env.DB_DATABASE ?? "firekart",
     namedPlaceholders: true,
+    decimalNumbers: true,
 };
 
 export const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY ?? "your-default-secret-key";

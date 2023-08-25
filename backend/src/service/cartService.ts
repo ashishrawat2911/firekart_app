@@ -10,7 +10,7 @@ export default class CartService {
     }
 
     async addToCart(userId: number, productId: number): Promise<void> {
-        return this.cartRepository.addProductToCart(userId, productId, 0);
+        return this.cartRepository.addProductToCart(userId, productId, 1);
     }
 
     async deleteFromCart(userId: number, productId: number): Promise<void> {

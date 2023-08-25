@@ -11,7 +11,7 @@ export default class CartRepository {
                    p.currency,
                    p.currentPrice,
                    p.quantityPerUnit,
-                   c.quantity as numOfItems
+                   c.quantity
             FROM Cart c
                      JOIN Product p ON c.productId = p.id
             WHERE c.userId = ?`;

@@ -49,3 +49,12 @@ export const verifyOTPAndLogin = async (req: Request, res: Response) => {
     }
 };
 
+export const fetchUserDetails = async (req: Request, res: Response) => {
+    try {
+        const userId = req.userId
+        const user = await userService.getUserById(userId!)
+        return ApiResponse.success(res, user);
+    } catch (error) {
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
+    }
+};
