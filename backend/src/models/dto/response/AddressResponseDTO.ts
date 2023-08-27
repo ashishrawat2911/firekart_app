@@ -1,4 +1,4 @@
-export default interface Address {
+export default interface AddressResponseDTO {
     id: number;
     userId: number,
     name: string,
@@ -7,5 +7,5 @@ export default interface Address {
     city: string,
     state: string,
     phoneNumber: string,
-    isDefault: number,
+    isDefault: boolean,
 }

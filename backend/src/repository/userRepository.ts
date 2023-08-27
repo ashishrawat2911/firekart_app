@@ -50,4 +50,32 @@ export default class UserRepository {
         const rows = await executeSql(query, [userId]);
         return rows as Address[];
     }
+
+
+    async addAddressByUserId(userId: number, name: string, pincode: string, address: string, city: string, state: string, phoneNumber: string, isDefault: boolean): Promise<void> {
+        const insertQuery = 'INSERT INTO Address (userId, name,pincode,address,city,state,phoneNumber,isDefault) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+        await executeSql(insertQuery, [userId, name, pincode, address, city, state, phoneNumber, isDefault]);
+    }
+
+    async updateAddressesToNotDefault(userId: number): Promise<void> {
+        const query = 'UPDATE Address SET isDefault = false WHERE userId = ?';
+        await executeSql(query, [userId]);
+    }
+
+    async updateAddressToDefault(addressId: number, userId: number): Promise<void> {
+        const query = `
+            UPDATE Address
+            SET isDefault = CASE
+                                WHEN id = ? THEN true
+                                ELSE false
+                END
+            WHERE userId = ?;
+        `;
+        await executeSql(query, [addressId, userId]);
+    }
+
+     async editAddress(addressId: number, newData: any): Promise<void>  {
+        const query = 'UPDATE Address SET ? WHERE id = ?';
+        await executeSql(query, [newData, addressId]);
+    };
 }
