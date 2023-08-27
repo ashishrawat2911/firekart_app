@@ -4,8 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ashishrawat2911/firekart?style=social)](https://github.com/ashishrawat2911/firekart) ![GitHub forks](https://img.shields.io/github/forks/ashishrawat2911/firekart?style=social)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/ashishrawat2911/firekart) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ashishrawat2911/firekart) ![GitHub last commit](https://img.shields.io/github/last-commit/ashishrawat2911/firekart)  ![GitHub issues](https://img.shields.io/github/issues-raw/ashishrawat2911/firekart) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashishrawat2911/firekart)
 
-An Ecommerce application built in Flutter using Firebase.
-
+An Ecommerce application built in Flutter using Nodejs and MySQl.
 
 ## Getting started 
 * Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/firekart/wiki/Gettings-Started) section.
