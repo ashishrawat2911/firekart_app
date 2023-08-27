@@ -2,6 +2,8 @@ import Order from "../models/entity/Order";
 import OrderResponseDTO from "../models/dto/response/OrderResponseDTO";
 import ProductResponseDTO from "../models/dto/response/ProductResponseDTO";
 import Product from "../models/entity/Product";
+import Address from "../models/entity/Address";
+import AddressResponseDTO from "../models/dto/response/AddressResponseDTO";
 
 export function orderEntityToResponseDTO(order: Order): OrderResponseDTO {
     return {
@@ -12,8 +14,8 @@ export function orderEntityToResponseDTO(order: Order): OrderResponseDTO {
         orderStatus: order.orderStatus
     }
 }
-export
-function mapProductToProductResponseDTO(product: Product): ProductResponseDTO {
+
+export function mapProductToProductResponseDTO(product: Product): ProductResponseDTO {
     return {
         id: product.id,
         image: product.image,
@@ -30,6 +32,20 @@ function mapProductToProductResponseDTO(product: Product): ProductResponseDTO {
         quantityPerUnit: product.quantityPerUnit,
         isProductAvailable: product.isProductAvailable === 1,
         nameSearch: product.nameSearch,
+    };
+}
+
+export function mapAddressToAddressResponseDTO(address: Address, userId: number): AddressResponseDTO {
+    return {
+        id: address.id,
+        userId: userId,
+        name: address.name,
+        pincode: address.pincode,
+        address: address.address,
+        city: address.city,
+        state: address.state,
+        phoneNumber: address.phoneNumber,
+        isDefault: address.isDefault === 1
     };
 }
 

@@ -7,6 +7,23 @@ export default class ProductRepository {
         return await executeSql(query, [pageSize, offset]);
     }
 
+    async searchProducts(searchTerm, offset, pageSize) {
+        const query = `
+            SELECT *
+            FROM Product
+            WHERE name LIKE CONCAT('%', ?, '%')
+               OR description LIKE CONCAT('%', ?, '%') LIMIT ?
+            OFFSET ?;
+        `;
+
+        const params = [searchTerm, searchTerm, pageSize, offset];
+
+        const products = await executeSql(query, params);
+        return products;
+
+    }
+
+
     async getProductById(productId: number): Promise<Product | null> {
         const query = 'SELECT * FROM Product WHERE id = ?';
         const rows = await executeSql(query, [productId]);
