@@ -29,13 +29,14 @@ class ProductSearchViewModel extends ViewModel<ProductSearchState> {
 
   Future<void> searchProduct(String query) async {
     state = state.copyWith(loading: true);
-    try {
-      final productList = await _searchProductsUseCase.execute(query);
 
-      state = state.copyWith(productList: productList);
-    } catch (e) {
-      state = state.copyWith(error: '');
-    }
+    final res = await _searchProductsUseCase.execute(query);
+    await res.fold((l) {
+      state = state.copyWith(error: l.errorMessage);
+    }, (r) async {
+      state = state.copyWith(productList: r);
+    });
+
     state = state.copyWith(loading: false);
   }
 }

@@ -16,42 +16,64 @@
 import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/usecases/edit_address_usecase.dart';
 import 'package:firekart/domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
+import '../../../../domain/usecases/add_address_usecase.dart';
 import '../../../routes/navigation_handler.dart';
 import '../state/add_address_state.dart';
 
 @injectable
 class AddAddressViewModel extends ViewModel<AddAddressState> {
-  AddAddressViewModel(this._setAccountDetailsUseCase)
+  AddAddressViewModel(this._setAccountDetailsUseCase, this._addAddressUseCase,
+      this._editAddressUseCase)
       : super(const AddAddressState());
 
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
+  final AddAddressUseCase _addAddressUseCase;
+  final EditAddressUseCase _editAddressUseCase;
 
   Future<void> saveAddress(
-    AccountDetails accountDetails,
-    Address address,
+    AddAddress address,
   ) async {
     state = state.copyWith(buttonLoading: true);
 
-    if (address.isDefault) {
-      List.generate(accountDetails.addresses.length, (index) {
-        accountDetails.addresses[index].isDefault = false;
-      });
-    }
-    accountDetails.addresses.add(address);
-    await _setAccountDetailsUseCase.execute(accountDetails).then((value) {
-      NavigationHandler.pop(true);
-    }).catchError((e) {
-      MessageHandler.showSnackBar(title: e.toString());
-    }).whenComplete(() {
-      state = state.copyWith(buttonLoading: false);
-    });
+    await _addAddressUseCase
+        .execute(address)
+        .then((res) {
+          res.fold((l) {
+            MessageHandler.showSnackBar(title: l.errorMessage);
+          }, (r) {
+            NavigationHandler.pop(true);
+          });
+        })
+        .catchError((e) {})
+        .whenComplete(() {
+          state = state.copyWith(buttonLoading: false);
+        });
   }
 
   void setDefault(bool isDefault) {
     state = state.copyWith(setAsDefault: isDefault);
+  }
+
+  Future<void> editAddress(EditAddress address) async {
+    state = state.copyWith(buttonLoading: true);
+
+    await _editAddressUseCase
+        .execute(address)
+        .then((res) {
+          res.fold((l) {
+            MessageHandler.showSnackBar(title: l.errorMessage);
+          }, (r) {
+            NavigationHandler.pop(true);
+          });
+        })
+        .catchError((e) {})
+        .whenComplete(() {
+          state = state.copyWith(buttonLoading: false);
+        });
   }
 }

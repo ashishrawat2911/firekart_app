@@ -13,7 +13,10 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -21,11 +24,11 @@ import '../models/cart_model.dart';
 
 @injectable
 class GetCartStatusUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
-  GetCartStatusUseCase(this._firebaseRepository);
+  GetCartStatusUseCase(this._repository);
 
-  Stream<List<Cart>> execute() {
-    return _firebaseRepository.listenToCart();
+  Future<Either<NetworkError, List<Cart>>> execute() {
+    return _repository.getCarts();
   }
 }

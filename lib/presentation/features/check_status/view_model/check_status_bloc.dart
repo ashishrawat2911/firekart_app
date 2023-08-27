@@ -36,19 +36,11 @@ class CheckStatusViewModel extends ViewModel<int> {
       Duration(seconds: checkForAccountStatusOnly ? 2 : 0),
       () async {
         final status = _getUserLoggedInStatusUseCase.execute();
-        if (checkForAccountStatusOnly || status) {
-          final isUserDataPresent = await _getUserDataStatusUseCase.execute();
-          if (isUserDataPresent) {
-            await NavigationHandler.navigateTo<void>(
-              const HomeRoute(),
-              navigationType: NavigationType.pushReplacement,
-            );
-          } else {
-            await NavigationHandler.navigateTo<void>(
-              AddUserDetailRoute(newAddress: true),
-              navigationType: NavigationType.pushReplacement,
-            );
-          }
+        if (status) {
+          await NavigationHandler.navigateTo<void>(
+            const HomeRoute(),
+            navigationType: NavigationType.pushReplacement,
+          );
         } else {
           await NavigationHandler.navigateTo<void>(
             const LoginRoute(),

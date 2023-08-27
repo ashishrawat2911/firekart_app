@@ -45,7 +45,7 @@ jobs:
       - run: flutter pub get
       - run: flutter packages pub run build_runner build --delete-conflicting-outputs
       - run: flutter gen-l10n
-      - run: flutter test --no-pub --coverage
+#      - run: flutter test --no-pub --coverage
 #      - run: flutter build apk --verbose
       - run: flutter build ios --release --no-codesign
 

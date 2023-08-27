@@ -91,7 +91,8 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
         );
       },
       actualPrice: productModel.actualPrice,
-      currentPrice: productModel.currentPrice,
+      currentPrice: 0,
+      // currentPrice: productModel.currentPrice,
       quantityPerUnit: productModel.quantityPerUnit,
       unit: productModel.unit,
     );

@@ -20,6 +20,7 @@ mixin _$OtpLoginState {
   bool get isButtonEnabled => throw _privateConstructorUsedError;
   bool get confirmOtpLoading => throw _privateConstructorUsedError;
   bool get resendOtpLoading => throw _privateConstructorUsedError;
+  bool get newUser => throw _privateConstructorUsedError;
   String? get otp => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
@@ -39,6 +40,7 @@ abstract class $OtpLoginStateCopyWith<$Res> {
       bool isButtonEnabled,
       bool confirmOtpLoading,
       bool resendOtpLoading,
+      bool newUser,
       String? otp,
       String? error});
 }
@@ -60,6 +62,7 @@ class _$OtpLoginStateCopyWithImpl<$Res, $Val extends OtpLoginState>
     Object? isButtonEnabled = null,
     Object? confirmOtpLoading = null,
     Object? resendOtpLoading = null,
+    Object? newUser = null,
     Object? otp = freezed,
     Object? error = freezed,
   }) {
@@ -79,6 +82,10 @@ class _$OtpLoginStateCopyWithImpl<$Res, $Val extends OtpLoginState>
       resendOtpLoading: null == resendOtpLoading
           ? _value.resendOtpLoading
           : resendOtpLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      newUser: null == newUser
+          ? _value.newUser
+          : newUser // ignore: cast_nullable_to_non_nullable
               as bool,
       otp: freezed == otp
           ? _value.otp
@@ -105,6 +112,7 @@ abstract class _$$_OtpLoginStateCopyWith<$Res>
       bool isButtonEnabled,
       bool confirmOtpLoading,
       bool resendOtpLoading,
+      bool newUser,
       String? otp,
       String? error});
 }
@@ -124,6 +132,7 @@ class __$$_OtpLoginStateCopyWithImpl<$Res>
     Object? isButtonEnabled = null,
     Object? confirmOtpLoading = null,
     Object? resendOtpLoading = null,
+    Object? newUser = null,
     Object? otp = freezed,
     Object? error = freezed,
   }) {
@@ -143,6 +152,10 @@ class __$$_OtpLoginStateCopyWithImpl<$Res>
       resendOtpLoading: null == resendOtpLoading
           ? _value.resendOtpLoading
           : resendOtpLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      newUser: null == newUser
+          ? _value.newUser
+          : newUser // ignore: cast_nullable_to_non_nullable
               as bool,
       otp: freezed == otp
           ? _value.otp
@@ -164,6 +177,7 @@ class _$_OtpLoginState implements _OtpLoginState {
       this.isButtonEnabled = false,
       this.confirmOtpLoading = false,
       this.resendOtpLoading = false,
+      this.newUser = false,
       this.otp,
       this.error});
 
@@ -179,13 +193,16 @@ class _$_OtpLoginState implements _OtpLoginState {
   @JsonKey()
   final bool resendOtpLoading;
   @override
+  @JsonKey()
+  final bool newUser;
+  @override
   final String? otp;
   @override
   final String? error;
 
   @override
   String toString() {
-    return 'OtpLoginState(codeCountDown: $codeCountDown, isButtonEnabled: $isButtonEnabled, confirmOtpLoading: $confirmOtpLoading, resendOtpLoading: $resendOtpLoading, otp: $otp, error: $error)';
+    return 'OtpLoginState(codeCountDown: $codeCountDown, isButtonEnabled: $isButtonEnabled, confirmOtpLoading: $confirmOtpLoading, resendOtpLoading: $resendOtpLoading, newUser: $newUser, otp: $otp, error: $error)';
   }
 
   @override
@@ -201,13 +218,14 @@ class _$_OtpLoginState implements _OtpLoginState {
                 other.confirmOtpLoading == confirmOtpLoading) &&
             (identical(other.resendOtpLoading, resendOtpLoading) ||
                 other.resendOtpLoading == resendOtpLoading) &&
+            (identical(other.newUser, newUser) || other.newUser == newUser) &&
             (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, codeCountDown, isButtonEnabled,
-      confirmOtpLoading, resendOtpLoading, otp, error);
+      confirmOtpLoading, resendOtpLoading, newUser, otp, error);
 
   @JsonKey(ignore: true)
   @override
@@ -222,6 +240,7 @@ abstract class _OtpLoginState implements OtpLoginState {
       final bool isButtonEnabled,
       final bool confirmOtpLoading,
       final bool resendOtpLoading,
+      final bool newUser,
       final String? otp,
       final String? error}) = _$_OtpLoginState;
 
@@ -233,6 +252,8 @@ abstract class _OtpLoginState implements OtpLoginState {
   bool get confirmOtpLoading;
   @override
   bool get resendOtpLoading;
+  @override
+  bool get newUser;
   @override
   String? get otp;
   @override

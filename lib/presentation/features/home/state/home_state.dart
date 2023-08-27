@@ -24,5 +24,6 @@ abstract class HomeState with _$HomeState {
     @Default(0) int bottomIndex,
     @Default(0) int noOfItemsInCart,
     AccountDetails? accountDetails,
+    @Default([]) List<Address> addresses,
   }) = _HomeState;
 }

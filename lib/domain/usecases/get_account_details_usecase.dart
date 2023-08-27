@@ -13,7 +13,10 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -21,11 +24,11 @@ import '../models/account_details_model.dart';
 
 @injectable
 class GetAccountDetailsUseCase {
-  GetAccountDetailsUseCase(this._firebaseRepository);
+  GetAccountDetailsUseCase(this._repository);
 
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
-  Future<AccountDetails> execute() {
-    return _firebaseRepository.fetchUserDetails();
+  Future<Either<NetworkError, AccountDetails>> execute() {
+    return _repository.getUserDetails();
   }
 }

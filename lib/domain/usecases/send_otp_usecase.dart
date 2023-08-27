@@ -13,29 +13,30 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:flutter/material.dart';
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/models/login.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class SendOTPUseCase {
-  final FirebaseRepository firebaseService;
+  final FirekartRepository _repository;
 
-  SendOTPUseCase(this.firebaseService);
+  SendOTPUseCase(this._repository);
 
-  Future<bool> execute({
+  Future<Either<NetworkError, Login>> execute({
     required String phoneNumber,
-    required ValueChanged<dynamic> onSuccess,
-    required ValueChanged<String> onError,
   }) {
-    return firebaseService.sendCode(phoneNumber, onError);
+    return _repository.login(phoneNumber);
   }
 
-  Future<void> loginWithOtp(
-    String smsCode,
-    void Function(String error) onError,
-  ) {
-    return firebaseService.loginWithOtp(smsCode, onError);
+  Future<Either<NetworkError, void>> loginWithOtp(
+    String phoneNumber,
+    String smsCode, {
+    String? name,
+  }) {
+    return _repository.verifyOtp(phoneNumber, smsCode,name:name);
   }
 }
