@@ -14,12 +14,12 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/core/utils/validator.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -30,13 +30,11 @@ import '../view_model/add_address_view_model.dart';
 @RoutePage()
 class AddAddressScreen extends StatelessWidget {
   AddAddressScreen(
-    this.newAddress,
-    this.accountDetails, {
+    this.newAddress, {
     Key? key,
     this.editAddress,
   }) : super(key: key);
   final bool newAddress;
-  final AccountDetails accountDetails;
   final Address? editAddress;
 
   final TextEditingController nameEditingController = TextEditingController();
@@ -70,6 +68,7 @@ class AddAddressScreen extends StatelessWidget {
           addressEditingController.text = editAddress!.address;
           cityEditingController.text = editAddress!.city;
           phoneEditingController.text = editAddress!.phoneNumber;
+          stateEditingController.text = editAddress!.state;
           viewModel.setDefault(editAddress!.isDefault);
         }
       },
@@ -197,8 +196,10 @@ class AddAddressScreen extends StatelessWidget {
                     Row(
                       children: [
                         StatefulBuilder(
-                          builder: (BuildContext context,
-                              void Function(void Function()) setState,) {
+                          builder: (
+                            BuildContext context,
+                            void Function(void Function()) setState,
+                          ) {
                             return Checkbox(
                               value: state.setAsDefault,
                               onChanged: (bool? value) {
@@ -240,17 +241,32 @@ class AddAddressScreen extends StatelessWidget {
 
   void onButtonTap(AddAddressViewModel viewModel, AddAddressState state) {
     if (_formKey.currentState!.validate()) {
-      final address = Address(
-        name: nameEditingController.text,
-        address: addressEditingController.text,
-        city: cityEditingController.text,
-        isDefault: state.setAsDefault,
-        pincode: pincodeEditingController.text,
-        //todo add the country picker
-        phoneNumber: '+91${phoneEditingController.text}',
-        state: stateEditingController.text,
-      );
-      viewModel.saveAddress(accountDetails, address);
+      if (editAddress == null) {
+        final address = AddAddress(
+          name: nameEditingController.text,
+          address: addressEditingController.text,
+          city: cityEditingController.text,
+          isDefault: state.setAsDefault,
+          pincode: pincodeEditingController.text,
+          //todo add the country picker
+          phoneNumber: '+91${phoneEditingController.text}',
+          state: stateEditingController.text,
+        );
+        viewModel.saveAddress(address);
+      } else {
+        final address = EditAddress(
+          id: editAddress!.id!,
+          name: nameEditingController.text,
+          address: addressEditingController.text,
+          city: cityEditingController.text,
+          isDefault: state.setAsDefault,
+          pincode: pincodeEditingController.text,
+          //todo add the country picker
+          phoneNumber: '+91${phoneEditingController.text}',
+          state: stateEditingController.text,
+        );
+        viewModel.editAddress(address);
+      }
     }
   }
 }

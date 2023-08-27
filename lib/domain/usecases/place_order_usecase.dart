@@ -13,18 +13,22 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/models/add_order_model.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 import '../models/order_model.dart';
 
 @injectable
 class PlaceOrderUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
-  PlaceOrderUseCase(this._firebaseRepository);
+  PlaceOrderUseCase(this._repository);
 
-  Future<void> execute(Order order) async {
-    await _firebaseRepository.placeOrder(order);
+  Future<Either<NetworkError, void>> execute(AddOrder order)  {
+    return _repository.placeOrder(order);
   }
 }

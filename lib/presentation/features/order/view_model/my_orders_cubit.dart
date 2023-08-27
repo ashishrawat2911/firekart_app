@@ -26,11 +26,11 @@ class MyOrdersCubit extends ViewModel<ResultState<List<Order>>> {
 
   Future<void> fetchOrders() async {
     state = const ResultState.loading();
-    try {
-      final orderList = await _allOrdersUseCase.execute();
+    final res = await _allOrdersUseCase.execute();
+    res.fold((l) {
+      state = ResultState.error(error: l.errorMessage);
+    }, (orderList) {
       state = ResultState.data(data: orderList);
-    } catch (e) {
-      state = ResultState.error(error: e.toString());
-    }
+    });
   }
 }

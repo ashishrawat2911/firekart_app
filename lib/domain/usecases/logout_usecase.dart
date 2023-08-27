@@ -13,17 +13,18 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class LogoutUseCase {
-  LogoutUseCase(this._firebaseRepository);
+  LogoutUseCase(this._firekartRepository);
 
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _firekartRepository;
 
   Future<void> execute() {
-    return _firebaseRepository.logoutUser();
+    return _firekartRepository.logout();
   }
 }

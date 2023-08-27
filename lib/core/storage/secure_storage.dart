@@ -1,26 +1,19 @@
-import 'package:encrypt/encrypt.dart';
-import 'package:firekart/core/storage/prefrences.dart';
+import 'package:firekart/core/encrypt/app_encryptor.dart';
+import 'package:firekart/core/storage/prefrences_storage.dart';
 import 'package:injectable/injectable.dart';
 
 ///Securely holds data in key,value pairs
 @singleton
 class SecureStorage {
-  final Preferences _preferences;
+  final PreferencesStorage _storage;
+  final AppEncryptor _encryptor;
 
-  SecureStorage(this._preferences);
+  SecureStorage(this._storage, this._encryptor);
 
-  final key = Key.fromBase64('dzj1DkENgmPBxA+eWKlHng==');
-  final iv = IV.fromBase64('dzj1DkENgmPBxA+eWKlHng==');
-
-  late final _encrypter = Encrypter(AES(
-    key,
-    mode: AESMode.cbc,
-  ));
-
-  Future<String> secureGet(String key) async {
+  String secureGet(String key) {
     try {
-      final value = await _preferences.getString(key);
-      return _encrypter.decrypt16(value, iv: iv);
+      final value = _storage.getString(key);
+      return _encryptor.decrypt(value);
     } catch (e) {
       return "";
     }
@@ -28,14 +21,14 @@ class SecureStorage {
 
   Future secureSet(String key, String value) async {
     if (value != '') {
-      await _preferences.setString(
+      return _storage.setString(
         key,
-        _encrypter.encrypt(value, iv: iv).base16,
+        _encryptor.encrypt(value),
       );
     }
   }
 
   Future<bool> clearAll() {
-    return _preferences.clearAll();
+    return _storage.clearAll();
   }
 }

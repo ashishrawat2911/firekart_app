@@ -22,10 +22,10 @@ class Cart {
     required this.currency,
     required this.currentPrice,
     required this.quantityPerUnit,
-    this.numOfItems = 0,
+    required this.numOfItems,
   });
 
-  String productId;
+  int productId;
   String image;
   String name;
   String unit;

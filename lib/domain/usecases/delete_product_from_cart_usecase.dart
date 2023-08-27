@@ -13,17 +13,19 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class ProductDeleteCartUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
-  ProductDeleteCartUseCase(this._firebaseRepository);
+  ProductDeleteCartUseCase(this._repository);
 
-  Future<void> execute(String productId) {
-    return _firebaseRepository.delProductFromCart(productId);
+  Future<Either<NetworkError, void>> execute(int productId) async {
+    return _repository.deleteFromCart(productId);
   }
 }

@@ -16,20 +16,18 @@
 import 'dart:async';
 
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
-import 'package:firekart/core/state/result_state.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/domain/models/product_model.dart';
 import 'package:firekart/presentation/res/colors.gen.dart';
+import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/product_card.dart';
-import '../../../widgets/result_state_builder.dart';
 import '../state/dashboard_state.dart';
 import '../view_model/dashboard_view_model.dart';
 
@@ -43,8 +41,6 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> fetchProductData(DashboardViewModel viewModel) async {
-    unawaited(viewModel.fetchProductData(ProductData.dealOfTheDay));
-    unawaited(viewModel.fetchProductData(ProductData.onSale));
     unawaited(viewModel.fetchProductData(ProductData.topProducts));
   }
 
@@ -76,18 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: <Widget>[
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  productDataBuilder(
-                    state.dealOfTheDay,
-                    Localization.value.dealOfTheDay,
-                  ),
-                  productDataBuilder(state.onSale, Localization.value.onSale),
-                  productDataBuilder(
-                    state.topProducts,
-                    Localization.value.topProducts,
-                  ),
+                  productsGrids("Products", state.products),
                   const SizedBox(
                     height: 20,
                   )
@@ -96,21 +81,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ),
         ),
-      );
-
-  Widget productDataBuilder(
-    ResultState<List<Product>> resultState,
-    String title,
-  ) =>
-      ResultStateBuilder(
-        state: resultState,
-        errorWidget: (String error) => Column(
-          children: <Widget>[
-            Center(child: Text(error)),
-          ],
-        ),
-        dataWidget: (List<Product> value) => productsGrids(title, value),
-        loadingWidget: (bool isReloading) => productLoader(),
       );
 
   Shimmer productLoader() => Shimmer.fromColors(
@@ -258,7 +228,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           );
         },
         actualPrice: productModel.actualPrice,
-        currentPrice: productModel.currentPrice,
+        currentPrice: 0,
+        // currentPrice: productModel.currentPrice,
         quantityPerUnit: productModel.quantityPerUnit,
         unit: productModel.unit,
       );

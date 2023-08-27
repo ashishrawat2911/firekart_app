@@ -13,17 +13,17 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:firekart/domain/models/cart_model.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class GetItemsInCartUseCase {
-  GetItemsInCartUseCase(this._firebaseRepository);
+  GetItemsInCartUseCase();
 
-  final FirebaseRepository _firebaseRepository;
-
-  Future<int> execute(String productId) {
-    return _firebaseRepository.checkItemInCart(productId);
+  int execute(int productId, List<Cart> carts) {
+    return carts.where((element) {
+      return element.productId == productId;
+    }).first.numOfItems;
   }
 }

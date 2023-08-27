@@ -51,7 +51,7 @@ class _CartScreenState extends State<CartScreen> {
           body: state.cartList.noOfItemsInCart > 0
               ? cartView(state, viewModel)
               : Center(
-                child: Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(Icons.shopping_cart, size: 100),
@@ -63,7 +63,7 @@ class _CartScreenState extends State<CartScreen> {
                       )
                     ],
                   ),
-              ),
+                ),
           bottomNavigationBar: Visibility(
             visible: state.cartList.noOfItemsInCart > 0,
             child: checkOut(state, viewModel),
@@ -95,7 +95,8 @@ class _CartScreenState extends State<CartScreen> {
                           '${cartModel.currency}${cartModel.currentPrice * cartModel.numOfItems}',
                       index: index,
                       deleteLoading: state.cartItemDataLoading.deleteLoading,
-                      isLoading: state.cartItemDataLoading.isLoading,
+                      isLoading: state.cartItemDataLoading.index == index &&
+                          state.cartItemDataLoading.isLoading,
                       onDecrement: (value) {
                         viewModel.updateCartValues(index, false);
                       },
