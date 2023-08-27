@@ -13,18 +13,19 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/models/cart_model.dart';
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class ProductAddToCartUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
-  ProductAddToCartUseCase(this._firebaseRepository);
+  ProductAddToCartUseCase(this._repository);
 
-  Future<void> execute(Cart cart) {
-    return _firebaseRepository.addProductToCart(cart);
+  Future<Either<NetworkError, void>> execute(int productId) {
+    return _repository.addProductToCart(productId);
   }
 }

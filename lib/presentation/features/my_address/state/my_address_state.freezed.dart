@@ -19,7 +19,7 @@ mixin _$MyAddressState {
   bool get screenLoading => throw _privateConstructorUsedError;
   String? get screenError => throw _privateConstructorUsedError;
   bool get buttonLoading => throw _privateConstructorUsedError;
-  AccountDetails? get accountDetails => throw _privateConstructorUsedError;
+  List<Address> get addresses => throw _privateConstructorUsedError;
   List<AddressCardState> get addressStates =>
       throw _privateConstructorUsedError;
 
@@ -38,7 +38,7 @@ abstract class $MyAddressStateCopyWith<$Res> {
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetails? accountDetails,
+      List<Address> addresses,
       List<AddressCardState> addressStates});
 }
 
@@ -58,7 +58,7 @@ class _$MyAddressStateCopyWithImpl<$Res, $Val extends MyAddressState>
     Object? screenLoading = null,
     Object? screenError = freezed,
     Object? buttonLoading = null,
-    Object? accountDetails = freezed,
+    Object? addresses = null,
     Object? addressStates = null,
   }) {
     return _then(_value.copyWith(
@@ -74,10 +74,10 @@ class _$MyAddressStateCopyWithImpl<$Res, $Val extends MyAddressState>
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      accountDetails: freezed == accountDetails
-          ? _value.accountDetails
-          : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetails?,
+      addresses: null == addresses
+          ? _value.addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>,
       addressStates: null == addressStates
           ? _value.addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$_MyAddressStateCopyWith<$Res>
       {bool screenLoading,
       String? screenError,
       bool buttonLoading,
-      AccountDetails? accountDetails,
+      List<Address> addresses,
       List<AddressCardState> addressStates});
 }
 
@@ -116,7 +116,7 @@ class __$$_MyAddressStateCopyWithImpl<$Res>
     Object? screenLoading = null,
     Object? screenError = freezed,
     Object? buttonLoading = null,
-    Object? accountDetails = freezed,
+    Object? addresses = null,
     Object? addressStates = null,
   }) {
     return _then(_$_MyAddressState(
@@ -132,10 +132,10 @@ class __$$_MyAddressStateCopyWithImpl<$Res>
           ? _value.buttonLoading
           : buttonLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      accountDetails: freezed == accountDetails
-          ? _value.accountDetails
-          : accountDetails // ignore: cast_nullable_to_non_nullable
-              as AccountDetails?,
+      addresses: null == addresses
+          ? _value._addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>,
       addressStates: null == addressStates
           ? _value._addressStates
           : addressStates // ignore: cast_nullable_to_non_nullable
@@ -151,9 +151,10 @@ class _$_MyAddressState implements _MyAddressState {
       {this.screenLoading = false,
       this.screenError,
       this.buttonLoading = false,
-      this.accountDetails,
+      final List<Address> addresses = const [],
       final List<AddressCardState> addressStates = const <AddressCardState>[]})
-      : _addressStates = addressStates;
+      : _addresses = addresses,
+        _addressStates = addressStates;
 
   @override
   @JsonKey()
@@ -163,8 +164,15 @@ class _$_MyAddressState implements _MyAddressState {
   @override
   @JsonKey()
   final bool buttonLoading;
+  final List<Address> _addresses;
   @override
-  final AccountDetails? accountDetails;
+  @JsonKey()
+  List<Address> get addresses {
+    if (_addresses is EqualUnmodifiableListView) return _addresses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_addresses);
+  }
+
   final List<AddressCardState> _addressStates;
   @override
   @JsonKey()
@@ -176,7 +184,7 @@ class _$_MyAddressState implements _MyAddressState {
 
   @override
   String toString() {
-    return 'MyAddressState(screenLoading: $screenLoading, screenError: $screenError, buttonLoading: $buttonLoading, accountDetails: $accountDetails, addressStates: $addressStates)';
+    return 'MyAddressState(screenLoading: $screenLoading, screenError: $screenError, buttonLoading: $buttonLoading, addresses: $addresses, addressStates: $addressStates)';
   }
 
   @override
@@ -190,8 +198,8 @@ class _$_MyAddressState implements _MyAddressState {
                 other.screenError == screenError) &&
             (identical(other.buttonLoading, buttonLoading) ||
                 other.buttonLoading == buttonLoading) &&
-            (identical(other.accountDetails, accountDetails) ||
-                other.accountDetails == accountDetails) &&
+            const DeepCollectionEquality()
+                .equals(other._addresses, _addresses) &&
             const DeepCollectionEquality()
                 .equals(other._addressStates, _addressStates));
   }
@@ -202,7 +210,7 @@ class _$_MyAddressState implements _MyAddressState {
       screenLoading,
       screenError,
       buttonLoading,
-      accountDetails,
+      const DeepCollectionEquality().hash(_addresses),
       const DeepCollectionEquality().hash(_addressStates));
 
   @JsonKey(ignore: true)
@@ -217,7 +225,7 @@ abstract class _MyAddressState implements MyAddressState {
       {final bool screenLoading,
       final String? screenError,
       final bool buttonLoading,
-      final AccountDetails? accountDetails,
+      final List<Address> addresses,
       final List<AddressCardState> addressStates}) = _$_MyAddressState;
 
   @override
@@ -227,7 +235,7 @@ abstract class _MyAddressState implements MyAddressState {
   @override
   bool get buttonLoading;
   @override
-  AccountDetails? get accountDetails;
+  List<Address> get addresses;
   @override
   List<AddressCardState> get addressStates;
   @override

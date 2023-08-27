@@ -44,7 +44,7 @@ class Validator {
     return null;
   }
 
-  String? validate6DigitCode(String? value) {
+  String? validate4DigitCode(String? value) {
     const pattern = r'(^[0-9]*$)';
     final regExp = RegExp(pattern);
     if (value == null) {
@@ -52,8 +52,8 @@ class Validator {
     }
     if (value.isEmpty) {
       return 'Passcode is Required';
-    } else if (value.length != 6) {
-      return 'PassCode must be 6 digits';
+    } else if (value.length != 4) {
+      return 'PassCode must be 4 digits';
     } else if (!regExp.hasMatch(value)) {
       return 'PassCode must be digits';
     }

@@ -109,12 +109,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                       ),
                     ],
                   ),
-                  ...List<Widget>.generate(
-                    orderList[orderListIndex].orderItems.length,
-                    (index) => orderCard(
-                      orderList[orderListIndex].orderItems[index],
-                    ),
-                  ),
+                  //TODO Removed Order Items
+                  // ...List<Widget>.generate(
+                  //   orderList[orderListIndex].orderItems.length,
+                  //   (index) => orderCard(
+                  //     orderList[orderListIndex].orderItems[index],
+                  //   ),
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

@@ -14,12 +14,12 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/core/utils/validator.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../res/styles.dart';
@@ -32,9 +32,9 @@ import '../view_model/otp_login_view_model.dart';
 
 @RoutePage()
 class OtpLoginScreen extends StatefulWidget {
-  const OtpLoginScreen({this.phoneNumber, Key? key}) : super(key: key);
+  const OtpLoginScreen({required this.phoneNumber, Key? key}) : super(key: key);
 
-  final String? phoneNumber;
+  final String phoneNumber;
 
   @override
   State createState() => _OtpLoginScreenState();
@@ -48,6 +48,7 @@ class OtpLoginScreen extends StatefulWidget {
 
 class _OtpLoginScreenState extends State<OtpLoginScreen> {
   TextEditingController otpNumberController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   Validator validator = Validator();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -56,43 +57,44 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
     final width = MediaQuery.of(context).size.width;
 
     return BaseView<OtpLoginViewModel, OtpLoginState>(
-        onViewModelReady: (viewModel) {
-          viewModel.sendOtp(widget.phoneNumber!);
-          otpNumberController.addListener(() {
-            viewModel.validateButton(otpNumberController.text);
-          });
-        },
-        stateListener: (context, state) {
-          if (state.otp != null) {
-            otpNumberController.text = state.otp!;
-          }
-        },
-        builder: (context, viewModel, state) => Scaffold(
-              body: Stack(
-                children: <Widget>[
-                  Material(
-                    elevation: 5,
-                    child: Container(
-                      height: 250,
-                      width: width,
-                      decoration: BoxDecoration(
-                        gradient: Styles.appBackGradient,
-                      ),
-                    ),
-                  ),
-                  SafeArea(
-                    child: Scaffold(
-                      backgroundColor: Colors.transparent,
-                      floatingActionButtonLocation:
-                          FloatingActionButtonLocation.centerDocked,
-                      body: Column(
-                        children: <Widget>[_loginCard(viewModel, state)],
-                      ),
-                    ),
-                  ),
-                ],
+      onViewModelReady: (viewModel) {
+        viewModel.sendOtp(widget.phoneNumber);
+        otpNumberController.addListener(() {
+          viewModel.validateButton(otpNumberController.text);
+        });
+      },
+      stateListener: (context, state) {
+        if (state.otp != null) {
+          otpNumberController.text = state.otp!;
+        }
+      },
+      builder: (context, viewModel, state) => Scaffold(
+        body: Stack(
+          children: <Widget>[
+            Material(
+              elevation: 5,
+              child: Container(
+                height: 250,
+                width: width,
+                decoration: BoxDecoration(
+                  gradient: Styles.appBackGradient,
+                ),
               ),
-            ),);
+            ),
+            SafeArea(
+              child: Scaffold(
+                backgroundColor: Colors.transparent,
+                floatingActionButtonLocation:
+                    FloatingActionButtonLocation.centerDocked,
+                body: Column(
+                  children: <Widget>[_loginCard(viewModel, state)],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _loginCard(OtpLoginViewModel viewModel, OtpLoginState state) => Card(
@@ -132,13 +134,23 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     ),
                   ],
                 ),
+                if (state.newUser)
+                  const SizedBox(
+                    height: 20,
+                  ),
+                if (state.newUser)
+                  CustomTextField(
+                    textEditingController: nameController,
+                    hint: Localization.value.name,
+                    validator: validator.validateName,
+                  ),
                 const SizedBox(
                   height: 20,
                 ),
                 CustomTextField(
                   textEditingController: otpNumberController,
                   hint: Localization.value.enterOtp,
-                  validator: validator.validate6DigitCode,
+                  validator: validator.validate4DigitCode,
                   keyboardType: TextInputType.phone,
                 ),
                 const SizedBox(
@@ -163,7 +175,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     }
                     return GestureDetector(
                       onTap: () {
-                        viewModel.sendOtp(widget.phoneNumber!);
+                        viewModel.sendOtp(widget.phoneNumber);
                       },
                       child: Text(
                         Localization.value.resendOtp,
@@ -197,7 +209,8 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
 
   void onButtonTap(OtpLoginViewModel viewModel, {bool isResend = false}) {
     if (_formKey.currentState!.validate()) {
-      viewModel.loginWithOtp(otpNumberController.text.trim(), isResend);
+      viewModel.loginWithOtp(
+          widget.phoneNumber, otpNumberController.text.trim(), isResend,nameController.text);
     }
   }
 
@@ -205,10 +218,12 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty<TextEditingController>(
-        'otpNumberController',
-        otpNumberController,
-      ),)
+      ..add(
+        DiagnosticsProperty<TextEditingController>(
+          'otpNumberController',
+          otpNumberController,
+        ),
+      )
       ..add(DiagnosticsProperty<Validator>('validator', validator));
   }
 }

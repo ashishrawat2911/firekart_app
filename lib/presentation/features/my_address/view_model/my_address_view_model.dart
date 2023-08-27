@@ -15,12 +15,14 @@
  */
 import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/usecases/edit_address_usecase.dart';
 import 'package:firekart/domain/usecases/get_account_details_usecase.dart';
+import 'package:firekart/domain/usecases/get_address_usecase.dart';
 import 'package:firekart/domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
+import '../../../../domain/models/account_details_model.dart';
 import '../state/my_address_state.dart';
 
 @injectable
@@ -28,37 +30,36 @@ class MyAddressViewModel extends ViewModel<MyAddressState> {
   MyAddressViewModel(
     this._getAccountDetailsUseCase,
     this._setAccountDetailsUseCase,
+    this._getAddressUseCase,
+    this._editAddressUseCase,
   ) : super(const MyAddressState());
 
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
-
-  Future<void> listenToAccountDetails(AccountDetails accountDetails) async {
-    setAddress(accountDetails);
-  }
-
-  void setAddress(AccountDetails accountDetails) {
-    final List<AddressCardState> cardStates = [];
-
-    for (int i = 0; i < accountDetails.addresses.length; i++) {
-      cardStates.add(
-        AddressCardState(address: accountDetails.addresses[i], index: i),
-      );
-    }
-    state = state.copyWith(
-      accountDetails: accountDetails,
-      addressStates: cardStates,
-      screenLoading: false,
-    );
-  }
+  final GetAddressUseCase _getAddressUseCase;
+  final EditAddressUseCase _editAddressUseCase;
 
   Future<void> fetchAccountDetails() async {
     state = state.copyWith(screenLoading: true);
-    final AccountDetails accountDetails =
-        await _getAccountDetailsUseCase.execute();
-    accountDetails.addresses = accountDetails.addresses.reversed.toList();
-    setAddress(accountDetails);
-    state = state.copyWith(screenLoading: false);
+
+    final res = await _getAddressUseCase.execute();
+
+    res.fold((l) {
+      MessageHandler.showSnackBar(title: l.errorMessage);
+    }, (addresses) {
+      final List<AddressCardState> cardStates = [];
+
+      for (int i = 0; i < addresses.length; i++) {
+        cardStates.add(
+          AddressCardState(address: addresses[i], index: i),
+        );
+      }
+      state = state.copyWith(
+        addresses: addresses.reversed.toList(),
+        addressStates: cardStates,
+        screenLoading: false,
+      );
+    });
   }
 
   void deleteAddress(int index) {
@@ -72,35 +73,40 @@ class MyAddressViewModel extends ViewModel<MyAddressState> {
 
     updateLoading(true);
 
-    state.accountDetails!.addresses.remove(state.addressStates[index].address);
-    _saveData(state.accountDetails!);
+    state.addresses.remove(state.addressStates[index].address);
+    // _saveData(state.accountDetails!);
     state = state;
 
     updateLoading(false);
   }
 
-  void setAsDefault(int index) {
+  Future<void> setAsDefault(int index) async {
+    void updateLoading(bool value) {
+      // final addresses = state.addressStates;
+      // final address =
+      //     addresses[index].copyWith(index: index, setDefaultLoading: value);
+      // addresses[index] = address;
+      // state = state.copyWith(addressStates: addresses);
+    }
+
+    updateLoading(true);
     final addresses = state.addressStates;
-    final address =
-        addresses[index].copyWith(index: index, setDefaultLoading: true);
-    addresses[index] = address;
-    state = state.copyWith(addressStates: addresses);
-
-    state.accountDetails!.addresses[index].isDefault = true;
-
-    List.generate(state.accountDetails!.addresses.length, (index) {
-      if (index != index) {
-        state.accountDetails!.addresses[index].isDefault = false;
-      }
-    });
-    _saveData(state.accountDetails!);
-  }
-
-  void _saveData(AccountDetails accountDetails) {
-    _setAccountDetailsUseCase.execute(accountDetails).then((value) {
+    final address = addresses[index];
+    final res = await _editAddressUseCase
+        .execute(EditAddress(id: address.address.id, isDefault: true));
+    res.fold((l) {
+      MessageHandler.showSnackBar(title: l.errorMessage);
+    }, (d) {
       fetchAccountDetails();
-    }).catchError(( e) {
-      MessageHandler.showSnackBar(title: e.toString());
     });
   }
+
+//TODO
+// void _saveData(AccountDetails accountDetails) {
+//   _setAccountDetailsUseCase.execute(accountDetails).then((value) {
+//     fetchAccountDetails();
+//   }).catchError((e) {
+//     MessageHandler.showSnackBar(title: e.toString());
+//   });
+// }
 }

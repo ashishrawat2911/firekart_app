@@ -15,11 +15,11 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/domain/models/product_model.dart';
+import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../routes/app_router.gr.dart';
@@ -45,7 +45,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     return BaseView<ProductViewModel, AddToCartState>(
       onViewModelReady: (viewModel) {
         viewModel.checkItemInCart(widget.product.productId);
-        viewModel.listenToProduct(widget.product.productId);
       },
       builder: (context, viewModel, state) => Scaffold(
         floatingActionButton: CommonViewCartOverlay(
