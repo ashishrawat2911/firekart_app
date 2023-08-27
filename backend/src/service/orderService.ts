@@ -2,6 +2,7 @@ import OrderRepository from "../repository/orderRepository";
 import OrderResponseDTO from "../models/dto/response/OrderResponseDTO";
 import OrderRequestDTO from "../models/dto/request/OrderRequestDTO";
 import {orderEntityToResponseDTO} from "../mapper/mapper";
+import {cartService} from "../di/di";
 
 export default class OrderService {
     constructor(private orderRepository: OrderRepository) {
@@ -13,6 +14,7 @@ export default class OrderService {
     }
 
     async placeOrder(userId: number, order: OrderRequestDTO): Promise<void> {
+        await cartService.clearCart(userId);
         return this.orderRepository.addOrder(userId, order)
     }
 }

@@ -67,3 +67,39 @@ export const fetchUserAddress = async (req: Request, res: Response) => {
         return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
     }
 };
+
+export const addAddress = async (req: Request, res: Response) => {
+    try {
+        const userId = req.userId
+        const address = req.body
+        const user = await userService.addAddress(userId!, address)
+        return ApiResponse.success(res, "Address added successfully", user);
+    } catch (error) {
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
+    }
+};
+export const updateDefaultAddress = async (req: Request, res: Response) => {
+    try {
+        const userId = req.userId;
+        const {addressId} = req.params;
+
+        // Call the service function to update the default address
+        const data = await userService.updateAddressToDefault(Number(addressId), Number(userId));
+
+        return ApiResponse.success(res, "Address updated successfully", data);
+    } catch (error) {
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
+    }
+};
+export const editAddress = async (req: Request, res: Response) => {
+    try {
+        const address = req.body;
+        const userId = req.userId;
+
+        const data = await userService.editAddress(userId!, address);
+
+        return ApiResponse.success(res, "Address updated successfully", data);
+    } catch (error) {
+        return ApiResponse.internalServerError(res, ApiResponseMessages.anErrorOccurred, error);
+    }
+};

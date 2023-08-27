@@ -1,11 +1,9 @@
-export default interface Address {
-    id: number;
-    userId: number,
+export default interface AddressRequestDTO {
     name: string,
     pincode: string,
     address: string,
     city: string,
     state: string,
     phoneNumber: string,
-    isDefault: number,
+    isDefault: boolean,
 }
