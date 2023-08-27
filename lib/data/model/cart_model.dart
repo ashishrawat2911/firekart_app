@@ -18,11 +18,11 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'cart_model.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable()
 class CartModel {
   factory CartModel.fromJson(Map<String, dynamic> json) =>
       _$CartModelFromJson(json);
-  String productId;
+  int productId;
   String image;
   String name;
   String unit;
@@ -30,7 +30,7 @@ class CartModel {
   num currentPrice;
   num quantityPerUnit;
   @JsonKey(defaultValue: 0)
-  int numOfItems;
+  int quantity;
 
   Map<String, dynamic> toJson() => _$CartModelToJson(this);
 
@@ -42,6 +42,6 @@ class CartModel {
     this.currency,
     this.currentPrice,
     this.quantityPerUnit, [
-    this.numOfItems = 0,
+    this.quantity = 0,
   ]);
 }

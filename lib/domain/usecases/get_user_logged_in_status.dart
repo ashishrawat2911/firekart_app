@@ -13,22 +13,18 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class GetUserLoggedInStatusUseCase {
-  GetUserLoggedInStatusUseCase(this._firebaseRepository);
+  GetUserLoggedInStatusUseCase(this._repository);
 
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
   bool execute() {
-    try {
-      final user = _firebaseRepository.getCurrentUser();
-      return !(user == null);
-    } catch (e) {
-      return false;
-    }
+    return _repository.isLoggedIn();
   }
 }

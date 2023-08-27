@@ -20,29 +20,21 @@ import 'account_details_model.dart';
 
 part 'order_model.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+@JsonSerializable(explicitToJson: true)
 class OrderModel {
-  String orderId;
+  int id;
   num price;
-  List<OrderItemModel> orderItems;
   String orderedAt;
   String orderStatus;
-  String currency;
   String paymentId;
   String signature;
-  AddressModel orderAddress;
 
-  OrderModel(
-    this.orderId,
-    this.price,
-    this.orderItems,
-    this.orderedAt,
-    this.orderStatus,
-    this.currency,
-    this.paymentId,
-    this.signature,
-    this.orderAddress,
-  );
+  OrderModel(this.id,
+      this.price,
+      this.orderedAt,
+      this.orderStatus,
+      this.paymentId,
+      this.signature,);
 
   factory OrderModel.fromJson(Map<String, dynamic> json) =>
       _$OrderModelFromJson(json);
@@ -51,18 +43,18 @@ class OrderModel {
 
   @override
   String toString() {
-    return 'OrderModel{orderId: $orderId, price: $price, orderItems: $orderItems}';
+    return 'OrderModel{id: $id, price: $price, orderedAt: $orderedAt, orderStatus: $orderStatus, paymentId: $paymentId, signature: $signature}';
   }
 }
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+@JsonSerializable( explicitToJson: true)
 class OrderItemModel {
   factory OrderItemModel.fromJson(Map<String, dynamic> json) =>
       _$OrderItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OrderItemModelToJson(this);
 
-  String productId;
+  int productId;
   String image;
   String name;
   String unit;
@@ -75,13 +67,11 @@ class OrderItemModel {
     return 'OrderItem{productId: $productId, image: $image, name: $name, unit: $unit, currency: $currency, price: $price, noOfItems: $noOfItems}';
   }
 
-  OrderItemModel(
-    this.productId,
-    this.image,
-    this.name,
-    this.unit,
-    this.currency,
-    this.price,
-    this.noOfItems,
-  );
+  OrderItemModel(this.productId,
+      this.image,
+      this.name,
+      this.unit,
+      this.currency,
+      this.price,
+      this.noOfItems,);
 }

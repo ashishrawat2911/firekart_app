@@ -13,30 +13,25 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'account_details_model.dart';
 
 class Order {
   Order({
-    required this.orderId,
+    required this.id,
     required this.price,
-    required this.orderItems,
     required this.orderedAt,
     required this.orderStatus,
-    required this.currency,
+    this.currency = "",
     required this.paymentId,
     required this.signature,
-    required this.orderAddress,
   });
 
-  String orderId;
+  int id;
   num price;
-  List<OrderItem> orderItems;
   String orderedAt;
   String orderStatus;
   String currency;
   String paymentId;
   String signature;
-  Address orderAddress;
 }
 
 class OrderItem {
@@ -50,7 +45,7 @@ class OrderItem {
     required this.noOfItems,
   });
 
-  String productId;
+  int productId;
   String image;
   String name;
   String unit;

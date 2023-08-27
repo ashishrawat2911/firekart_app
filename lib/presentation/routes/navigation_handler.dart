@@ -39,10 +39,10 @@ class NavigationHandler {
   }) async {
     AppLogger.log('Navigating to ${route.routeName}');
     // ignore:avoid-dynamic
-    Future<T?> getNavigation() {
+    // Future<T?> getNavigation() {
       switch (navigationType) {
         case NavigationType.push:
-          return _appRouter.push<T>(route);
+          return _appRouter.push(route);
         case NavigationType.pushReplacement:
           return _appRouter.replace(route);
         case NavigationType.popUntil:
@@ -52,28 +52,28 @@ class NavigationHandler {
           _appRouter.popUntilRoot();
           return _appRouter.replace(route);
       }
-    }
+    // }
 
-    final perfMonitor = inject<PerformanceMonitor>();
-    await perfMonitor.startScreenEvent(
-      route.routeName,
-      properties: {
-        'args': route.args.toString(),
-      },
-    );
-    final navigation = getNavigation();
-    await perfMonitor.endScreenEvent(
-      route.routeName,
-      properties: {
-        'args': route.args.toString(),
-      },
-    );
+    // final perfMonitor = inject<PerformanceMonitor>();
+    // await perfMonitor.startScreenEvent(
+    //   route.routeName,
+    //   properties: {
+    //     'args': route.args.toString(),
+    //   },
+    // );
+    // final navigation = getNavigation();
+    // await perfMonitor.endScreenEvent(
+    //   route.routeName,
+    //   properties: {
+    //     'args': route.args.toString(),
+    //   },
+    // );
 
-    return navigation;
+    // return navigation;
   }
 
   static Future<bool> pop<T extends Object?>([T? arguments]) =>
-      _appRouter.pop<T>(arguments);
+      _appRouter.pop(arguments);
 
   static bool canNavigateBack() => _appRouter.canNavigateBack;
 }

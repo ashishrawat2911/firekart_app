@@ -13,7 +13,10 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -21,11 +24,11 @@ import '../models/product_model.dart';
 
 @injectable
 class SearchProductsUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _firekartRepository;
 
-  SearchProductsUseCase(this._firebaseRepository);
+  SearchProductsUseCase(this._firekartRepository);
 
-  Future<List<Product>> execute(String query) async {
-    return _firebaseRepository.searchProducts(query);
+Future<Either<NetworkError, List<Product>>> execute(String query) async {
+    return _firekartRepository.getAllProducts();
   }
 }

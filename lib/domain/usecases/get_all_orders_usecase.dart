@@ -13,17 +13,19 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/domain/models/order_model.dart';
-import 'package:firekart/domain/repository/firebase_repository.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 @injectable
 class GetAllOrdersUseCase {
-  final FirebaseRepository _firebaseRepository;
+  final FirekartRepository _repository;
 
-  GetAllOrdersUseCase(this._firebaseRepository);
+  GetAllOrdersUseCase(this._repository);
 
-  Future<List<Order>> execute({bool nextOrder = false}) async {
-    return _firebaseRepository.getAllOrders();
+ Future<Either<NetworkError, List<Order>>> execute() async {
+    return _repository.getAllOrders();
   }
 }

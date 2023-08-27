@@ -19,6 +19,7 @@ mixin _$HomeState {
   int get bottomIndex => throw _privateConstructorUsedError;
   int get noOfItemsInCart => throw _privateConstructorUsedError;
   AccountDetails? get accountDetails => throw _privateConstructorUsedError;
+  List<Address> get addresses => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -31,7 +32,10 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
+      {int bottomIndex,
+      int noOfItemsInCart,
+      AccountDetails? accountDetails,
+      List<Address> addresses});
 }
 
 /// @nodoc
@@ -50,6 +54,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? bottomIndex = null,
     Object? noOfItemsInCart = null,
     Object? accountDetails = freezed,
+    Object? addresses = null,
   }) {
     return _then(_value.copyWith(
       bottomIndex: null == bottomIndex
@@ -64,6 +69,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
               as AccountDetails?,
+      addresses: null == addresses
+          ? _value.addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>,
     ) as $Val);
   }
 }
@@ -76,7 +85,10 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int bottomIndex, int noOfItemsInCart, AccountDetails? accountDetails});
+      {int bottomIndex,
+      int noOfItemsInCart,
+      AccountDetails? accountDetails,
+      List<Address> addresses});
 }
 
 /// @nodoc
@@ -93,6 +105,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? bottomIndex = null,
     Object? noOfItemsInCart = null,
     Object? accountDetails = freezed,
+    Object? addresses = null,
   }) {
     return _then(_$_HomeState(
       bottomIndex: null == bottomIndex
@@ -107,6 +120,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.accountDetails
           : accountDetails // ignore: cast_nullable_to_non_nullable
               as AccountDetails?,
+      addresses: null == addresses
+          ? _value._addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>,
     ));
   }
 }
@@ -115,7 +132,11 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
-      {this.bottomIndex = 0, this.noOfItemsInCart = 0, this.accountDetails});
+      {this.bottomIndex = 0,
+      this.noOfItemsInCart = 0,
+      this.accountDetails,
+      final List<Address> addresses = const []})
+      : _addresses = addresses;
 
   @override
   @JsonKey()
@@ -125,10 +146,18 @@ class _$_HomeState implements _HomeState {
   final int noOfItemsInCart;
   @override
   final AccountDetails? accountDetails;
+  final List<Address> _addresses;
+  @override
+  @JsonKey()
+  List<Address> get addresses {
+    if (_addresses is EqualUnmodifiableListView) return _addresses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_addresses);
+  }
 
   @override
   String toString() {
-    return 'HomeState(bottomIndex: $bottomIndex, noOfItemsInCart: $noOfItemsInCart, accountDetails: $accountDetails)';
+    return 'HomeState(bottomIndex: $bottomIndex, noOfItemsInCart: $noOfItemsInCart, accountDetails: $accountDetails, addresses: $addresses)';
   }
 
   @override
@@ -141,12 +170,14 @@ class _$_HomeState implements _HomeState {
             (identical(other.noOfItemsInCart, noOfItemsInCart) ||
                 other.noOfItemsInCart == noOfItemsInCart) &&
             (identical(other.accountDetails, accountDetails) ||
-                other.accountDetails == accountDetails));
+                other.accountDetails == accountDetails) &&
+            const DeepCollectionEquality()
+                .equals(other._addresses, _addresses));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, bottomIndex, noOfItemsInCart, accountDetails);
+  int get hashCode => Object.hash(runtimeType, bottomIndex, noOfItemsInCart,
+      accountDetails, const DeepCollectionEquality().hash(_addresses));
 
   @JsonKey(ignore: true)
   @override
@@ -159,7 +190,8 @@ abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {final int bottomIndex,
       final int noOfItemsInCart,
-      final AccountDetails? accountDetails}) = _$_HomeState;
+      final AccountDetails? accountDetails,
+      final List<Address> addresses}) = _$_HomeState;
 
   @override
   int get bottomIndex;
@@ -167,6 +199,8 @@ abstract class _HomeState implements HomeState {
   int get noOfItemsInCart;
   @override
   AccountDetails? get accountDetails;
+  @override
+  List<Address> get addresses;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

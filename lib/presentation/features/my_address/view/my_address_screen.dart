@@ -14,14 +14,14 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/presentation/routes/app_router.gr.dart';
+import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
-import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -56,8 +56,8 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
           },
           // buildWhen: (previous, current) => previous.accountDetails != current.accountDetails,
           builder: (BuildContext context, viewModel, state) {
-            final accountDetails = state.accountDetails;
-            if (accountDetails == null) {
+            final addresses = state.addresses;
+            if (addresses.isEmpty) {
               return Container();
             }
             if (state.screenLoading) {
@@ -66,9 +66,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
               );
             }
             if (state.addressStates.isNotEmpty) {
-              return addressesView(accountDetails, viewModel, state);
+              return addressesView(addresses, viewModel, state);
             } else if (state.addressStates.isEmpty) {
-              return noAddressesFound(accountDetails, viewModel);
+              return noAddressesFound(addresses, viewModel);
             } else if (state.screenError != null) {
               return Text(state.screenError!);
             } else {
@@ -79,7 +79,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       );
 
   Widget addressesView(
-    AccountDetails accountDetails,
+    List<Address> addresses,
     MyAddressViewModel viewModel,
     MyAddressState state,
   ) =>
@@ -96,13 +96,13 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '${accountDetails.addresses.length} ${Localization.value.savedAddresses}',
+                      '${addresses.length} ${Localization.value.savedAddresses}',
                       style: ThemeProvider.textTheme.labelSmall,
                     ),
                     ActionText(
                       Localization.value.addNewCaps,
                       onTap: () {
-                        addNewNavigation(accountDetails, viewModel);
+                        addNewNavigation(viewModel);
                       },
                     ),
                   ],
@@ -112,7 +112,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                 height: 21,
               ),
               ...List<Widget>.generate(
-                accountDetails.addresses.length,
+                addresses.length,
                 (int index) => addressCard(
                   state,
                   index,
@@ -211,10 +211,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                         ActionText(
                           Localization.value.editCaps,
                           onTap: () {
-                            NavigationHandler.navigateTo<bool?>(
+                            NavigationHandler.navigateTo(
                               AddAddressRoute(
                                 newAddress: false,
-                                accountDetails: addressState.accountDetails!,
                                 editAddress: addressCardState.address,
                               ),
                             ).then((value) {
@@ -267,7 +266,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   }
 
   Widget noAddressesFound(
-    AccountDetails accountDetails,
+    List<Address> addresses,
     MyAddressViewModel viewModel,
   ) =>
       Center(
@@ -284,7 +283,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             ActionText(
               Localization.value.addNewCaps,
               onTap: () {
-                addNewNavigation(accountDetails, viewModel);
+                addNewNavigation(viewModel);
               },
             )
           ],
@@ -292,13 +291,11 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       );
 
   void addNewNavigation(
-    AccountDetails accountDetails,
     MyAddressViewModel viewModel,
   ) {
-    NavigationHandler.navigateTo<bool?>(
+    NavigationHandler.navigateTo(
       AddAddressRoute(
         newAddress: true,
-        accountDetails: accountDetails,
       ),
     ).then((value) {
       if (value != null && value) {

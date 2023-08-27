@@ -24,7 +24,7 @@ abstract class MyAddressState with _$MyAddressState {
     @Default(false) bool screenLoading,
     String? screenError,
     @Default(false) bool buttonLoading,
-    AccountDetails? accountDetails,
+    @Default([]) List<Address> addresses,
     @Default(<AddressCardState>[]) List<AddressCardState> addressStates,
   }) = _MyAddressState;
 }

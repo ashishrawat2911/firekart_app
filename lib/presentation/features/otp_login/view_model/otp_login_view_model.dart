@@ -31,7 +31,7 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
   final SendOTPUseCase _sendOTPUseCase;
 
   void validateButton(String otp) {
-    if (otp.length == 6) {
+    if (otp.length == 4) {
       state = state.copyWith(isButtonEnabled: true);
     } else {
       state = state.copyWith(isButtonEnabled: false);
@@ -39,19 +39,20 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
   }
 
   Future<void> sendOtp(String phoneNumber) async {
-    await _sendOTPUseCase.execute(
-      phoneNumber: phoneNumber,
-      onSuccess: (auth) {
-        state = state.copyWith(otp: '******');
-      },
-      onError: (value) {
-        MessageHandler.showSnackBar(title: value);
-        state = state.copyWith(error: value);
-      },
-    );
+    await _sendOTPUseCase.execute(phoneNumber: phoneNumber).then((value) {
+      value.fold((l) {
+        MessageHandler.showSnackBar(title: l.errorMessage);
+        state = state.copyWith(error: l.errorMessage);
+      }, (r) {
+        state = state.copyWith(
+          newUser: r.newUser,
+        );
+      });
+    });
   }
 
-  void loginWithOtp(String smsCode, bool isResend) {
+  Future<void> loginWithOtp(
+      String phoneNumber, String smsCode, bool isResend, String name) async {
     if (state.resendOtpLoading || state.confirmOtpLoading) {
       return;
     }
@@ -59,14 +60,21 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
       confirmOtpLoading: !isResend,
       resendOtpLoading: isResend,
     );
-    _sendOTPUseCase.loginWithOtp(
-      smsCode,
-      (error) {},
-    ).then((value) {
-      NavigationHandler.navigateTo<void>(
-        CheckStatusRoute(checkForAccountStatusOnly: true),
-        navigationType: NavigationType.pushAndPopUntil,
-      );
+    await _sendOTPUseCase
+        .loginWithOtp(phoneNumber, smsCode, name: name.isEmpty ? null : name)
+        .then((value) {
+      value.fold((l) {
+        state = state.copyWith(
+          confirmOtpLoading: false,
+          resendOtpLoading: false,
+        );
+        MessageHandler.showSnackBar(title: l.errorMessage);
+      }, (r) {
+        NavigationHandler.navigateTo<void>(
+          CheckStatusRoute(checkForAccountStatusOnly: true),
+          navigationType: NavigationType.pushAndPopUntil,
+        );
+      });
     });
   }
 }
