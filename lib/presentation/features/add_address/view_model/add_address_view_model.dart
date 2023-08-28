@@ -26,9 +26,10 @@ import '../state/add_address_state.dart';
 
 @injectable
 class AddAddressViewModel extends ViewModel<AddAddressState> {
-  AddAddressViewModel(this._addAddressUseCase,
-      this._editAddressUseCase,)
-      : super(const AddAddressState());
+  AddAddressViewModel(
+    this._addAddressUseCase,
+    this._editAddressUseCase,
+  ) : super(const AddAddressState());
 
   final AddAddressUseCase _addAddressUseCase;
   final EditAddressUseCase _editAddressUseCase;
@@ -73,5 +74,17 @@ class AddAddressViewModel extends ViewModel<AddAddressState> {
         .whenComplete(() {
           state = state.copyWith(buttonLoading: false);
         });
+  }
+
+  (String, String)? extractCountryCodeAndNumber(String phoneNumber) {
+    RegExp regex =
+        RegExp(r'^\+(\d{2})(\d+)'); // Matches the first 2 digits and the rest
+    Match? match = regex.firstMatch(phoneNumber);
+    if (match != null) {
+      String countryCode = match.group(1)!;
+      String number = match.group(2)!;
+      return (countryCode, number);
+    }
+    return null;
   }
 }
