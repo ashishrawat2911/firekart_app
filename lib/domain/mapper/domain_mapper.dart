@@ -13,10 +13,6 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:injectable/injectable.dart' hide Order;
-import 'package:injectable/injectable.dart';
-
-part 'domain_mapper.mapper.g.dart';
 
 //ignore: one_member_abstracts
 abstract class DomainMapper {

@@ -64,7 +64,7 @@ class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
     // await _setProfileUserDataUseCase.execute(displayName: accountDetails.name);
     //
     // if (isEdit) {
-    //   await NavigationHandler.navigateTo<void>(
+    //   await NavigationHandler.navigateTo(
     //     const HomeRoute(),
     //     navigationType: NavigationType.pushReplacement,
     //   );

@@ -30,7 +30,7 @@ class SplashViewModel extends ViewModel<SplashState> {
   void startSplash() {
     const duration = Duration(milliseconds: 1500);
     Timer(duration, () {
-      NavigationHandler.navigateTo<void>(
+      NavigationHandler.navigateTo(
         CheckStatusRoute(),
         navigationType: NavigationType.pushReplacement,
       );

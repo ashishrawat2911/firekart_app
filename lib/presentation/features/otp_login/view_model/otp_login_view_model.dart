@@ -70,7 +70,7 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
         );
         MessageHandler.showSnackBar(title: l.errorMessage);
       }, (r) {
-        NavigationHandler.navigateTo<void>(
+        NavigationHandler.navigateTo(
           CheckStatusRoute(checkForAccountStatusOnly: true),
           navigationType: NavigationType.pushAndPopUntil,
         );
