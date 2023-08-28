@@ -54,6 +54,17 @@ class HomeScreenViewModel extends ViewModel<HomeState> {
         );
       },
     );
+    await _getCartStatusUseCase.execute().then(
+      (value) {
+        value.forEach(
+          (r) {
+            state = state.copyWith(
+              noOfItemsInCart: r.length,
+            );
+          },
+        );
+      },
+    );
     await _getAddressUseCase.execute().then(
       (value) {
         value.forEach(

@@ -28,7 +28,7 @@ import 'package:firekart/data/app_error_model.dart' as _i4;
 import 'package:firekart/data/default_network_error_handler.dart' as _i19;
 import 'package:firekart/data/mapper/data_mapper.dart' as _i7;
 import 'package:firekart/data/repository/firekart_repository.dart' as _i38;
-import 'package:firekart/data/source/local/localStorage.dart' as _i34;
+import 'package:firekart/data/source/local/local_storage.dart' as _i34;
 import 'package:firekart/data/source/remote/api_service.dart' as _i36;
 import 'package:firekart/di/module/firebase_module.dart' as _i67;
 import 'package:firekart/di/module/network_module.dart' as _i68;

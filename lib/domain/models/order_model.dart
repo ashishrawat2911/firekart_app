@@ -20,7 +20,6 @@ class Order {
     required this.price,
     required this.orderedAt,
     required this.orderStatus,
-    this.currency = "",
     required this.paymentId,
     required this.signature,
   });
@@ -29,7 +28,6 @@ class Order {
   num price;
   String orderedAt;
   String orderStatus;
-  String currency;
   String paymentId;
   String signature;
 }

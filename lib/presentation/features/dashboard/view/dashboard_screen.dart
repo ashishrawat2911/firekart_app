@@ -75,7 +75,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   productsGrids("Products", state.products),
                   const SizedBox(
                     height: 20,
-                  )
+                  ),
                 ],
               ),
             ),
@@ -119,9 +119,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     Container(
                       margin: const EdgeInsets.all(5),
-                      child: Column(
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const <Widget>[
+                        children: <Widget>[
                           SizedBox(
                             height: 5,
                           ),
@@ -145,7 +145,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -14,7 +14,6 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/usecases/get_user_data_status_usecase.dart';
 import 'package:firekart/domain/usecases/get_user_logged_in_status.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
@@ -26,10 +25,8 @@ import '../../../routes/navigation_handler.dart';
 class CheckStatusViewModel extends ViewModel<int> {
   CheckStatusViewModel(
     this._getUserLoggedInStatusUseCase,
-    this._getUserDataStatusUseCase,
-  ) : super(0);
+    ) : super(0);
   final GetUserLoggedInStatusUseCase _getUserLoggedInStatusUseCase;
-  final GetUserDataStatusUseCase _getUserDataStatusUseCase;
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {
     Future.delayed(

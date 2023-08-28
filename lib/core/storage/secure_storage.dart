@@ -15,7 +15,7 @@ class SecureStorage {
       final value = _storage.getString(key);
       return _encryptor.decrypt(value);
     } catch (e) {
-      return "";
+      return '';
     }
   }
 

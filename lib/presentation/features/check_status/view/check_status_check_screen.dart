@@ -14,8 +14,8 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
+import 'package:flutter/material.dart';
 
 import '../view_model/check_status_bloc.dart';
 

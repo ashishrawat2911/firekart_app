@@ -28,6 +28,7 @@ class ProductModel {
   @JsonKey(defaultValue: [])
   final List<String> categories;
   final String currency;
+
   // final bool dealOfTheDay;
   // final bool topProducts;
   // final bool onSale;
@@ -61,6 +62,4 @@ class ProductModel {
       _$ProductModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
-
-
 }

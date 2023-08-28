@@ -13,8 +13,8 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:flutter/material.dart';
 import 'package:firekart/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
 
 class Localization {
   static late BuildContext _context;

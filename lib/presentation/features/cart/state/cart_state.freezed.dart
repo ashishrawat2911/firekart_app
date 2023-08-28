@@ -17,13 +17,21 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CartState {
   int get cartValue => throw _privateConstructorUsedError;
+
   bool get cartDataLoading => throw _privateConstructorUsedError;
+
   bool get cartDeleteLoading => throw _privateConstructorUsedError;
+
   bool get orderInProgress => throw _privateConstructorUsedError;
+
   String? get cartError => throw _privateConstructorUsedError;
+
   String? get deleteCartError => throw _privateConstructorUsedError;
+
   List<Cart> get cartList => throw _privateConstructorUsedError;
+
   Address? get selectedAddress => throw _privateConstructorUsedError;
+
   CartDataLoading get cartItemDataLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,6 +43,7 @@ mixin _$CartState {
 abstract class $CartStateCopyWith<$Res> {
   factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
       _$CartStateCopyWithImpl<$Res, CartState>;
+
   @useResult
   $Res call(
       {int cartValue,
@@ -57,6 +66,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -127,6 +137,7 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
   factory _$$_CartStateCopyWith(
           _$_CartState value, $Res Function(_$_CartState) then) =
       __$$_CartStateCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -238,6 +249,7 @@ class _$_CartState implements _CartState {
   @override
   final String? deleteCartError;
   final List<Cart> _cartList;
+
   @override
   @JsonKey()
   List<Cart> get cartList {
@@ -315,22 +327,31 @@ abstract class _CartState implements CartState {
 
   @override
   int get cartValue;
+
   @override
   bool get cartDataLoading;
+
   @override
   bool get cartDeleteLoading;
+
   @override
   bool get orderInProgress;
+
   @override
   String? get cartError;
+
   @override
   String? get deleteCartError;
+
   @override
   List<Cart> get cartList;
+
   @override
   Address? get selectedAddress;
+
   @override
   CartDataLoading get cartItemDataLoading;
+
   @override
   @JsonKey(ignore: true)
   _$$_CartStateCopyWith<_$_CartState> get copyWith =>
@@ -340,7 +361,9 @@ abstract class _CartState implements CartState {
 /// @nodoc
 mixin _$CartDataLoading {
   int get index => throw _privateConstructorUsedError;
+
   bool get isLoading => throw _privateConstructorUsedError;
+
   bool get deleteLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -353,6 +376,7 @@ abstract class $CartDataLoadingCopyWith<$Res> {
   factory $CartDataLoadingCopyWith(
           CartDataLoading value, $Res Function(CartDataLoading) then) =
       _$CartDataLoadingCopyWithImpl<$Res, CartDataLoading>;
+
   @useResult
   $Res call({int index, bool isLoading, bool deleteLoading});
 }
@@ -364,6 +388,7 @@ class _$CartDataLoadingCopyWithImpl<$Res, $Val extends CartDataLoading>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -397,6 +422,7 @@ abstract class _$$_CartDataLoadingCopyWith<$Res>
   factory _$$_CartDataLoadingCopyWith(
           _$_CartDataLoading value, $Res Function(_$_CartDataLoading) then) =
       __$$_CartDataLoadingCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({int index, bool isLoading, bool deleteLoading});
@@ -485,10 +511,13 @@ abstract class _CartDataLoading implements CartDataLoading {
 
   @override
   int get index;
+
   @override
   bool get isLoading;
+
   @override
   bool get deleteLoading;
+
   @override
   @JsonKey(ignore: true)
   _$$_CartDataLoadingCopyWith<_$_CartDataLoading> get copyWith =>

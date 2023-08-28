@@ -63,7 +63,7 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox.fromSize(
-        size: Size(widget.size* 2, widget.size),
+        size: Size(widget.size * 2, widget.size),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(3, (i) {
@@ -71,7 +71,7 @@ class _DotProgressIndicatorState extends State<DotProgressIndicator>
               scale: DelayTween(begin: 0, end: 1, delay: i * .2)
                   .animate(_controller),
               child: SizedBox.fromSize(
-                size: Size.square(widget.size* 0.5),
+                size: Size.square(widget.size * 0.5),
                 child: _itemBuilder(i),
               ),
             );

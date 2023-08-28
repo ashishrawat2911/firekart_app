@@ -15,11 +15,9 @@
  */
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:firekart/core/di/di.dart';
 import 'package:firekart/core/logger/app_logger.dart';
-import 'package:firekart/core/performance/performance_moniter.dart';
 import 'package:firekart/presentation/routes/app_router.dart';
+import 'package:flutter/material.dart';
 
 class NavigationHandler {
   NavigationHandler();
@@ -40,18 +38,18 @@ class NavigationHandler {
     AppLogger.log('Navigating to ${route.routeName}');
     // ignore:avoid-dynamic
     // Future<T?> getNavigation() {
-      switch (navigationType) {
-        case NavigationType.push:
-          return _appRouter.push(route);
-        case NavigationType.pushReplacement:
-          return _appRouter.replace(route);
-        case NavigationType.popUntil:
-          _appRouter.popUntilRouteWithName(route.routeName);
-          return Future.value();
-        case NavigationType.pushAndPopUntil:
-          _appRouter.popUntilRoot();
-          return _appRouter.replace(route);
-      }
+    switch (navigationType) {
+      case NavigationType.push:
+        return _appRouter.push(route);
+      case NavigationType.pushReplacement:
+        return _appRouter.replace(route);
+      case NavigationType.popUntil:
+        _appRouter.popUntilRouteWithName(route.routeName);
+        return Future.value();
+      case NavigationType.pushAndPopUntil:
+        _appRouter.popUntilRoot();
+        return _appRouter.replace(route);
+    }
     // }
 
     // final perfMonitor = inject<PerformanceMonitor>();
