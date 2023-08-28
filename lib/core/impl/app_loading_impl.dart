@@ -13,13 +13,12 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:firekart/core/logger/app_logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
 // ignore: implementation_imports
 import 'package:flutter_easyloading/src/theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:firekart/core/logger/app_logger.dart';
 
 class AppLoader {
   static TransitionBuilder initBuilder({TransitionBuilder? builder}) {

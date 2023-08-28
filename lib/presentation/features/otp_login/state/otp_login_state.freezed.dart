@@ -17,11 +17,17 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$OtpLoginState {
   String? get codeCountDown => throw _privateConstructorUsedError;
+
   bool get isButtonEnabled => throw _privateConstructorUsedError;
+
   bool get confirmOtpLoading => throw _privateConstructorUsedError;
+
   bool get resendOtpLoading => throw _privateConstructorUsedError;
+
   bool get newUser => throw _privateConstructorUsedError;
+
   String? get otp => throw _privateConstructorUsedError;
+
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,6 +40,7 @@ abstract class $OtpLoginStateCopyWith<$Res> {
   factory $OtpLoginStateCopyWith(
           OtpLoginState value, $Res Function(OtpLoginState) then) =
       _$OtpLoginStateCopyWithImpl<$Res, OtpLoginState>;
+
   @useResult
   $Res call(
       {String? codeCountDown,
@@ -52,6 +59,7 @@ class _$OtpLoginStateCopyWithImpl<$Res, $Val extends OtpLoginState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -105,6 +113,7 @@ abstract class _$$_OtpLoginStateCopyWith<$Res>
   factory _$$_OtpLoginStateCopyWith(
           _$_OtpLoginState value, $Res Function(_$_OtpLoginState) then) =
       __$$_OtpLoginStateCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -246,18 +255,25 @@ abstract class _OtpLoginState implements OtpLoginState {
 
   @override
   String? get codeCountDown;
+
   @override
   bool get isButtonEnabled;
+
   @override
   bool get confirmOtpLoading;
+
   @override
   bool get resendOtpLoading;
+
   @override
   bool get newUser;
+
   @override
   String? get otp;
+
   @override
   String? get error;
+
   @override
   @JsonKey(ignore: true)
   _$$_OtpLoginStateCopyWith<_$_OtpLoginState> get copyWith =>

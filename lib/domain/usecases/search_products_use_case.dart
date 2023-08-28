@@ -15,7 +15,6 @@
  */
 import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-
 import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
@@ -28,7 +27,7 @@ class SearchProductsUseCase {
 
   SearchProductsUseCase(this._firekartRepository);
 
-Future<Either<NetworkError, List<Product>>> execute(String query) async {
+  Future<Either<NetworkError, List<Product>>> execute(String query) async {
     return _firekartRepository.getAllProducts();
   }
 }

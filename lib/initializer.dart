@@ -15,12 +15,12 @@
  */
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:firekart/core/di/di.dart';
 import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/core/state_manager/app_cubit_observer.dart';
 import 'package:firekart/firebase_impl/crashlytics_service.dart';
 import 'package:firekart/firebase_impl/firebase_impl.dart';
+import 'package:flutter/material.dart';
 
 import 'app/app.dart';
 import 'di/di.dart';

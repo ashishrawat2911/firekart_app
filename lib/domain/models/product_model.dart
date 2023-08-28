@@ -21,11 +21,13 @@ class Product {
   final String unit;
   final List<String> categories;
   final String currency;
+
   // final bool topProducts;
   // final bool onSale;
   final num currentPrice;
   final num actualPrice;
   final num quantityPerUnit;
+
   // final bool isProductAvailable;
   // final List<String> nameSearch;
 

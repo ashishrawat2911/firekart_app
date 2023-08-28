@@ -33,7 +33,9 @@ class NetworkError {
         return NetworkError('Service Unavailable', statusCode.toString());
       default:
         return NetworkError(
-            'Unknown Error : invalid_status_code ', statusCode.toString());
+          'Unknown Error : invalid_status_code ',
+          statusCode.toString(),
+        );
     }
   }
 }

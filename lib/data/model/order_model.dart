@@ -16,8 +16,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'account_details_model.dart';
-
 part 'order_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -29,12 +27,14 @@ class OrderModel {
   String paymentId;
   String signature;
 
-  OrderModel(this.id,
-      this.price,
-      this.orderedAt,
-      this.orderStatus,
-      this.paymentId,
-      this.signature,);
+  OrderModel(
+    this.id,
+    this.price,
+    this.orderedAt,
+    this.orderStatus,
+    this.paymentId,
+    this.signature,
+  );
 
   factory OrderModel.fromJson(Map<String, dynamic> json) =>
       _$OrderModelFromJson(json);
@@ -47,7 +47,7 @@ class OrderModel {
   }
 }
 
-@JsonSerializable( explicitToJson: true)
+@JsonSerializable(explicitToJson: true)
 class OrderItemModel {
   factory OrderItemModel.fromJson(Map<String, dynamic> json) =>
       _$OrderItemModelFromJson(json);
@@ -67,11 +67,13 @@ class OrderItemModel {
     return 'OrderItem{productId: $productId, image: $image, name: $name, unit: $unit, currency: $currency, price: $price, noOfItems: $noOfItems}';
   }
 
-  OrderItemModel(this.productId,
-      this.image,
-      this.name,
-      this.unit,
-      this.currency,
-      this.price,
-      this.noOfItems,);
+  OrderItemModel(
+    this.productId,
+    this.image,
+    this.name,
+    this.unit,
+    this.currency,
+    this.price,
+    this.noOfItems,
+  );
 }

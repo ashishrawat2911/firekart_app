@@ -60,7 +60,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       Text(
                         Localization.value.noItemsInCart,
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -150,7 +150,7 @@ class _CartScreenState extends State<CartScreen> {
             const Icon(
               Icons.keyboard_arrow_right,
               color: AppColors.color4C4C6F,
-            )
+            ),
           ],
         ),
       ),
@@ -189,10 +189,10 @@ class _CartScreenState extends State<CartScreen> {
                 SizedBox(
                   height: 15,
                 ),
-                Divider()
+                Divider(),
               ],
             ),
-          )
+          ),
         ],
       );
     }
@@ -247,7 +247,7 @@ class _CartScreenState extends State<CartScreen> {
                   onTap: () {
                     viewModel.selectOrChangeAddress();
                   },
-                )
+                ),
               ],
             ),
             const SizedBox(
@@ -282,7 +282,7 @@ class _CartScreenState extends State<CartScreen> {
                       '${state.cartList.currency} ${state.cartList.priceInCart}',
                       style: ThemeProvider.textTheme.bodyLarge,
                     ),
-                    ActionText(Localization.value.viewDetailedBillCaps)
+                    ActionText(Localization.value.viewDetailedBillCaps),
                   ],
                 ),
               ),
@@ -295,7 +295,7 @@ class _CartScreenState extends State<CartScreen> {
             replaceWithIndicator: state.orderInProgress,
             margin: const EdgeInsets.only(right: 20),
             onTap: viewModel.placeOrder,
-          )
+          ),
         ],
       ),
     );

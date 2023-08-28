@@ -13,9 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:firekart/presentation/res/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:firekart/presentation/res/fonts.gen.dart';
 
 import 'colors.gen.dart';
 
@@ -24,58 +24,58 @@ class AppTheme {
 
   static ThemeData appTheme({bool dark = false}) {
     TextTheme textTheme() => TextTheme(
-      displayLarge: TextStyle(
+          displayLarge: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 22,
             color: dark ? AppColors.white : AppColors.black,
           ),
-      displayMedium: const TextStyle(
+          displayMedium: const TextStyle(
             fontSize: 20,
             color: AppColors.color20203E,
             fontWeight: FontWeight.w500,
           ),
-      displaySmall: const TextStyle(
+          displaySmall: const TextStyle(
             color: AppColors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
-      headlineMedium: const TextStyle(
+          headlineMedium: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 18,
             color: AppColors.color20203E,
           ),
-      headlineSmall: const TextStyle(
+          headlineSmall: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 18,
             color: AppColors.primaryColor,
           ),
-      titleMedium: const TextStyle(
+          titleMedium: const TextStyle(
             fontSize: 16,
             color: AppColors.color4C4C6F,
           ),
-      titleSmall: const TextStyle(
+          titleSmall: const TextStyle(
             color: AppColors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
-      bodyLarge: TextStyle(
+          bodyLarge: TextStyle(
             color: dark ? AppColors.white : AppColors.black,
             fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
-      bodyMedium: TextStyle(
+          bodyMedium: TextStyle(
             color: dark ? AppColors.white : AppColors.black,
             fontSize: 14,
           ),
-      bodySmall: TextStyle(
+          bodySmall: TextStyle(
             fontSize: 14,
             color: dark ? AppColors.color93C2F1 : AppColors.color4C4C6F,
           ),
-      labelLarge: TextStyle(
+          labelLarge: TextStyle(
             color: dark ? AppColors.color93C2F1 : AppColors.color4C4C6F,
             fontSize: 12,
           ),
-      labelSmall: const TextStyle(
+          labelSmall: const TextStyle(
             color: AppColors.color4C4C6F,
             fontSize: 12,
             fontWeight: FontWeight.w500,
