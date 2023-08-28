@@ -98,7 +98,7 @@ class _SaveDataView extends StatelessWidget {
                             ActionText(
                               Localization.value.manageAddress,
                               onTap: () {
-                                NavigationHandler.navigateTo<void>(
+                                NavigationHandler.navigateTo(
                                   MyAddressRoute(),
                                 );
                               },

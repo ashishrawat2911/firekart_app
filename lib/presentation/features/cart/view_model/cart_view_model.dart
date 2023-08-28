@@ -82,7 +82,7 @@ class CartViewModel extends ViewModel<CartState> {
       MessageHandler.showSnackBar(title: l.errorMessage);
     }, (r) async {
       if (NavigationHandler.canNavigateBack()) {
-        await NavigationHandler.navigateTo<void>(
+        await NavigationHandler.navigateTo(
           const MyOrdersRoute(),
         );
       }
@@ -119,7 +119,7 @@ class CartViewModel extends ViewModel<CartState> {
 
   void selectOrChangeAddress() {
     if (state.selectedAddress == null) {
-      NavigationHandler.navigateTo<bool>(
+      NavigationHandler.navigateTo(
         AddAddressRoute(
           newAddress: true,
         ),

@@ -58,7 +58,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           actions: <Widget>[
             InkWell(
               onTap: () {
-                NavigationHandler.navigateTo<void>(
+                NavigationHandler.navigateTo(
                   const SearchItemRoute(),
                 );
               },
@@ -108,7 +108,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       name: productModel.name,
       currency: productModel.currency,
       onTap: () {
-        NavigationHandler.navigateTo<void>(
+        NavigationHandler.navigateTo(
           ProductDetailRoute(
             product: productModel,
           ),

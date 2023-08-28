@@ -83,7 +83,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ActionText(
                         Localization.value.editCaps,
                         onTap: () {
-                          NavigationHandler.navigateTo<void>(
+                          NavigationHandler.navigateTo(
                             AddUserDetailRoute(newAddress: false),
                           );
                         },
@@ -99,7 +99,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                   leading: const Icon(Icons.shopping_basket),
                   onTap: () {
-                    NavigationHandler.navigateTo<void>(const MyOrdersRoute());
+                    NavigationHandler.navigateTo(const MyOrdersRoute());
                   },
                 ),
                 ListTile(
@@ -109,7 +109,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                   leading: const Icon(Icons.place),
                   onTap: () {
-                    NavigationHandler.navigateTo<void>(MyAddressRoute());
+                    NavigationHandler.navigateTo(MyAddressRoute());
                   },
                 ),
                 const Divider(),
@@ -121,7 +121,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   leading: const Icon(Icons.exit_to_app),
                   onTap: () {
                     inject<LogoutUseCase>().execute().then((value) {
-                      NavigationHandler.navigateTo<void>(
+                      NavigationHandler.navigateTo(
                         const LoginRoute(),
                         navigationType: NavigationType.pushAndPopUntil,
                       );
