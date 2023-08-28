@@ -34,12 +34,12 @@ class CheckStatusViewModel extends ViewModel<int> {
       () async {
         final status = _getUserLoggedInStatusUseCase.execute();
         if (status) {
-          await NavigationHandler.navigateTo<void>(
+          await NavigationHandler.navigateTo(
             const HomeRoute(),
             navigationType: NavigationType.pushReplacement,
           );
         } else {
-          await NavigationHandler.navigateTo<void>(
+          await NavigationHandler.navigateTo(
             const LoginRoute(),
             navigationType: NavigationType.pushReplacement,
           );
