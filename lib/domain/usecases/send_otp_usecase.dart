@@ -37,6 +37,6 @@ class SendOTPUseCase {
     String smsCode, {
     String? name,
   }) {
-    return _repository.verifyOtp(phoneNumber, smsCode,name:name);
+    return _repository.verifyOtp(phoneNumber, smsCode, name: name);
   }
 }

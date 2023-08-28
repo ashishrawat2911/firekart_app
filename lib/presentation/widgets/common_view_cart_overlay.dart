@@ -13,9 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
+import 'package:flutter/material.dart';
 
 import '../res/colors.gen.dart';
 

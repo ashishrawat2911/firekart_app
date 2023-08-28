@@ -25,7 +25,7 @@ class GetAllOrdersUseCase {
 
   GetAllOrdersUseCase(this._repository);
 
- Future<Either<NetworkError, List<Order>>> execute() async {
+  Future<Either<NetworkError, List<Order>>> execute() async {
     return _repository.getAllOrders();
   }
 }

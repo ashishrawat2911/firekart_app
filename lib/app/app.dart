@@ -13,7 +13,6 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:flutter/material.dart';
 import 'package:firekart/core/impl/app_loading_impl.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/message_handler/message_handler.dart';
@@ -21,6 +20,7 @@ import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/presentation/res/app_theme.dart';
 import 'package:firekart/presentation/routes/navigation_handler.dart';
+import 'package:flutter/material.dart';
 
 import 'state/app_state.dart';
 import 'view_model/app_view_model.dart';
@@ -43,7 +43,7 @@ class App extends StatelessWidget {
           darkTheme: AppTheme.appTheme(
               //TODO: Implement Dark theme
               // dark: true
-          ),
+              ),
           themeMode: state.themeMode,
           localizationsDelegates: Localization.localizationsDelegates,
           supportedLocales: Localization.supportedLocales,

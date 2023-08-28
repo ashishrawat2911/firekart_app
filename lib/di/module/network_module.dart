@@ -16,9 +16,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:firekart/data/source/local/localStorage.dart';
+import 'package:firekart/data/source/local/local_storage.dart';
 import 'package:firekart/di/di_constants.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -33,13 +32,12 @@ abstract class NetworkModule {
         responseBody: true,
         requestBody: true,
       ))
-        ..options.headers = {
-          'Content-Type': 'application/json; charset=UTF-8',
-          'X-Requested-With': 'XMLHttpRequest',
-          if (_localStorage.token.isNotEmpty)
-            'Authorization': 'Bearer ${_localStorage.token}',
-        }
-        ;
+      ..options.headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest',
+        if (_localStorage.token.isNotEmpty)
+          'Authorization': 'Bearer ${_localStorage.token}',
+      };
 
     // (_dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
     //   return _sslHttpClient;
@@ -52,13 +50,13 @@ abstract class NetworkModule {
 
   @preResolve
   Future<HttpClient> sslHttpClient() async {
-    List<int> certs = [];
-    try {
-      ByteData bytes = await rootBundle.load('');
-      certs = bytes.buffer.asUint8List();
-    } catch (e) {
-      certs = [];
-    }
+    // List<int> certs = [];
+    // try {
+    //   ByteData bytes = await rootBundle.load('');
+    //   certs = bytes.buffer.asUint8List();
+    // } catch (e) {
+    //   certs = [];
+    // }
 
     // SecurityContext sc = SecurityContext();
     // sc.setTrustedCertificatesBytes(certs);

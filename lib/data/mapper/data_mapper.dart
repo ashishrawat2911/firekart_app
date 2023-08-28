@@ -214,8 +214,13 @@ class DataMapper {
       price: addOrder.price,
       signature: addOrder.signature,
       orderItems: addOrder.orderItems
-          .map((e) => AddOrderItemRequestModel(
-              productId: e.productId, price: e.price, noOfItems: e.noOfItems))
+          .map(
+            (e) => AddOrderItemRequestModel(
+              productId: e.productId,
+              price: e.price,
+              noOfItems: e.noOfItems,
+            ),
+          )
           .toList(),
     );
   }

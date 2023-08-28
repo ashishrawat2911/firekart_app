@@ -13,10 +13,10 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firekart/core/di/di.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 typedef OnViewModelReady<V> = void Function(V viewModel);
 typedef OnViewModelStateBuilder<V, S> = Widget Function(

@@ -66,7 +66,9 @@ abstract class ApiService {
 
   @POST('products/')
   Future<NetworkResponse<List<ProductModel>>> getAllProducts(
-      @Field() int page, @Field() int offset);
+    @Field() int page,
+    @Field() int offset,
+  );
 
   @POST('auth/addAddress/')
   Future<EmptyNetworkResponse> addAddress(

@@ -17,7 +17,6 @@ import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
 import 'package:firekart/domain/usecases/edit_address_usecase.dart';
-import 'package:firekart/domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -27,11 +26,10 @@ import '../state/add_address_state.dart';
 
 @injectable
 class AddAddressViewModel extends ViewModel<AddAddressState> {
-  AddAddressViewModel(this._setAccountDetailsUseCase, this._addAddressUseCase,
-      this._editAddressUseCase)
+  AddAddressViewModel(this._addAddressUseCase,
+      this._editAddressUseCase,)
       : super(const AddAddressState());
 
-  final SetAccountDetailsUseCase _setAccountDetailsUseCase;
   final AddAddressUseCase _addAddressUseCase;
   final EditAddressUseCase _editAddressUseCase;
 

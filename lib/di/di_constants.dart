@@ -1,4 +1,3 @@
-class DIConstants{
+class DIConstants {
   static const String baseUrl = 'baseUrl';
-
 }

@@ -3,7 +3,7 @@ import {addToCart, deleteFromCart, fetchAllCarts, updateCart} from "../controlle
 import {authenticateMiddleware} from "../middlewares/authMiddlewares";
 
 const router = express.Router();
-
+//TODO Add Request Validation
 router.get('/', authenticateMiddleware, fetchAllCarts);
 router.post('/', authenticateMiddleware, addToCart);
 router.patch('/', authenticateMiddleware, updateCart);

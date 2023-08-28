@@ -14,12 +14,12 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/utils/validator.dart';
 import 'package:firekart/presentation/features/add_account_detail/state/add_account_details_state.dart';
 import 'package:firekart/presentation/res/colors.gen.dart';
+import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';
@@ -95,11 +95,14 @@ class _SaveDataView extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
-                            ActionText(Localization.value.manageAddress,
-                                onTap: () {
-                                  NavigationHandler.navigateTo<void>(
-                                  MyAddressRoute(),);
-                            },),
+                            ActionText(
+                              Localization.value.manageAddress,
+                              onTap: () {
+                                NavigationHandler.navigateTo<void>(
+                                  MyAddressRoute(),
+                                );
+                              },
+                            ),
                           ],
                         ),
                       ),
