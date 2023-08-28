@@ -52,7 +52,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             title: "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
             isCartEmpty: state.noOfItems > 0,
             onCartTap: () {
-              NavigationHandler.navigateTo<void>(const CartRoute());
+              NavigationHandler.navigateTo(const CartRoute());
             },
           ),
         ),
