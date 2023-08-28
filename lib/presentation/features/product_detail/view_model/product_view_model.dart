@@ -42,12 +42,14 @@ class ProductViewModel extends ViewModel<AddToCartState> {
 
   Future<void> checkItemInCart(int productId) async {
     (await _getCartStatusUseCase.execute()).forEach((carts) async {
-      final int cartValue = _getItemsInCartUseCase.execute(productId, carts);
-      AppLogger.log(cartValue);
-      if (cartValue > 0) {
-        state = state.copyWith(noOfItems: cartValue);
-      } else {
-        state = state.copyWith(showAddButton: true);
+      if (carts.isNotEmpty) {
+        final int cartValue = _getItemsInCartUseCase.execute(productId, carts);
+        AppLogger.log(cartValue);
+        if (cartValue > 0) {
+          state = state.copyWith(noOfItems: cartValue);
+        } else {
+          state = state.copyWith(showAddButton: true);
+        }
       }
     });
   }
