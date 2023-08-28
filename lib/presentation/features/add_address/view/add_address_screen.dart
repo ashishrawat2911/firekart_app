@@ -67,7 +67,10 @@ class AddAddressScreen extends StatelessWidget {
           pincodeEditingController.text = editAddress!.pincode;
           addressEditingController.text = editAddress!.address;
           cityEditingController.text = editAddress!.city;
-          phoneEditingController.text = editAddress!.phoneNumber;
+          phoneEditingController.text = viewModel
+                  .extractCountryCodeAndNumber(editAddress!.phoneNumber)
+                  ?.$2 ??
+              '';
           stateEditingController.text = editAddress!.state;
           viewModel.setDefault(editAddress!.isDefault);
         }
