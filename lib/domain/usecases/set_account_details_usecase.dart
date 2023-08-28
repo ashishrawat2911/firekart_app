@@ -17,8 +17,6 @@
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-import '../models/account_details_model.dart';
-
 @injectable
 class SetAccountDetailsUseCase {
   // SetAccountDetailsUseCase(this._firebaseRepository);

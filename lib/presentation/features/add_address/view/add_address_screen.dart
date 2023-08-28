@@ -213,7 +213,7 @@ class AddAddressScreen extends StatelessWidget {
                         Text(
                           Localization.value.setAsDefaultCaps,
                           style: ThemeProvider.textTheme.bodyLarge,
-                        )
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -255,7 +255,7 @@ class AddAddressScreen extends StatelessWidget {
         viewModel.saveAddress(address);
       } else {
         final address = EditAddress(
-          id: editAddress!.id!,
+          id: editAddress!.id,
           name: nameEditingController.text,
           address: addressEditingController.text,
           city: cityEditingController.text,

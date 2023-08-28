@@ -28,10 +28,11 @@ abstract class FirekartRepository {
 
   Future<Either<NetworkError, Login>> login(String phoneNumber);
 
-  Future<Either<NetworkError, void>> verifyOtp(String phoneNumber,
-      String smsCode, {
-        String? name,
-      });
+  Future<Either<NetworkError, void>> verifyOtp(
+    String phoneNumber,
+    String smsCode, {
+    String? name,
+  });
 
   Future<Either<NetworkError, void>> addProductToCart(int productId);
 

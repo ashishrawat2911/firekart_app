@@ -3,8 +3,8 @@ import 'package:firekart/core/storage/secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
 class _Const {
-  static const String isLoggedIn = "isLoggedInd";
-  static const String token = "token";
+  static const String isLoggedIn = 'isLoggedIn';
+  static const String token = 'token';
 }
 
 @injectable

@@ -14,10 +14,10 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/domain/models/product_model.dart';
+import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/navigation_handler.dart';

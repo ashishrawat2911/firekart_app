@@ -15,13 +15,13 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state/result_state.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/core/utils/date_time_util.dart';
 import 'package:firekart/domain/models/order_model.dart';
+import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -84,22 +84,22 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         return Column(
           children: <Widget>[
             Container(
-                margin: const EdgeInsets.only(top: 20, left: 16, right: 16),
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                Localization.value.orderedOnCaps,
+              margin: const EdgeInsets.only(top: 20, left: 16, right: 16),
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              Localization.value.orderedOnCaps,
                               style: ThemeProvider.textTheme.labelLarge,
                             ),
-                              Text(
-                                getOrderedTime(
+                            Text(
+                              getOrderedTime(
                                 orderList[orderListIndex].orderedAt,
                               ),
                               style: ThemeProvider.textTheme.bodyLarge,
@@ -127,22 +127,23 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           ),
                           const SizedBox(
                             width: 13,
-                            ),
-                            Text(
-                            '${orderList[orderListIndex].currency} ${orderList[orderListIndex].price}',
+                          ),
+                          Text(
+                            //TODO '${orderList[orderListIndex].currency}'
+                                ' ${orderList[orderListIndex].price}',
                             style: ThemeProvider.textTheme.bodyMedium,
                           )
                         ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              orderList[orderListIndex].orderStatus,
-                              style: ThemeProvider.textTheme.bodySmall,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            orderList[orderListIndex].orderStatus,
+                            style: ThemeProvider.textTheme.bodySmall,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
                           getOrderStatusIcon(
                             orderList[orderListIndex].orderStatus,
                           )
@@ -170,39 +171,39 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     return Container(
       margin: const EdgeInsets.only(top: 16, bottom: 20),
       child: Card(
-          child: Container(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                CachedNetworkImage(
-                  imageUrl: orderItem.image,
-                  height: 46,
-                  width: 46,
-                  fit: BoxFit.fill,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      orderItem.name,
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  CachedNetworkImage(
+                    imageUrl: orderItem.image,
+                    height: 46,
+                    width: 46,
+                    fit: BoxFit.fill,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        orderItem.name,
                         style: ThemeProvider.textTheme.bodyMedium,
                       ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
                         '${orderItem.currency} ${orderItem.price} / ${orderItem.unit}',
                         style: ThemeProvider.textTheme.bodySmall,
                       ),
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
               ),
               const SizedBox(
                 height: 10,

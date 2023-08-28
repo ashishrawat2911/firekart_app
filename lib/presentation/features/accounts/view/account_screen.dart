@@ -72,7 +72,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               style: ThemeProvider.textTheme.displayLarge,
                             ),
                             Text(
-                              accountDetails!.phoneNumber ?? '',
+                              accountDetails!.phoneNumber,
                               style: ThemeProvider.textTheme.bodySmall,
                             ),
                           ],

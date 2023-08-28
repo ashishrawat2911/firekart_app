@@ -20,12 +20,10 @@ import 'package:firekart/core/state_manager/view_model.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
 import 'package:firekart/domain/models/add_order_model.dart';
 import 'package:firekart/domain/models/cart_model.dart';
-import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:firekart/domain/usecases/delete_product_from_cart_usecase.dart';
 import 'package:firekart/domain/usecases/get_address_usecase.dart';
 import 'package:firekart/domain/usecases/get_cart_status_use_case.dart';
 import 'package:firekart/domain/usecases/place_order_usecase.dart';
-import 'package:firekart/domain/usecases/stream_account_details_usecase.dart';
 import 'package:firekart/domain/usecases/update_cart_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
@@ -36,19 +34,15 @@ import '../state/cart_state.dart';
 @injectable
 class CartViewModel extends ViewModel<CartState> {
   CartViewModel(
-    this._productAddToCartUseCase,
     this._productDeleteCartUseCase,
     this._placeOrderUseCase,
-    this._accountDetailsUseCaseUseCase,
     this._getCartStatusUseCase,
     this._cartCartUseCase,
     this._getAddressUseCase,
   ) : super(const CartState());
 
-  final ProductAddToCartUseCase _productAddToCartUseCase;
   final ProductDeleteCartUseCase _productDeleteCartUseCase;
   final PlaceOrderUseCase _placeOrderUseCase;
-  final StreamAccountDetailsUseCaseUseCase _accountDetailsUseCaseUseCase;
   final GetAddressUseCase _getAddressUseCase;
   final GetCartStatusUseCase _getCartStatusUseCase;
   final UpdateCartUseCase _cartCartUseCase;

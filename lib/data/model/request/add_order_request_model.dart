@@ -54,6 +54,7 @@ class AddOrderItemRequestModel {
   num noOfItems;
 
   Map<String, dynamic> toJson() => _$AddOrderItemRequestModelToJson(this);
+
   factory AddOrderItemRequestModel.fromJson(Map<String, dynamic> json) =>
       _$AddOrderItemRequestModelFromJson(json);
 }

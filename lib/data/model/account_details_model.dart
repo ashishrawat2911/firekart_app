@@ -13,7 +13,6 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/data/model/address_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 

@@ -37,8 +37,10 @@ abstract class PerformanceMonitor {
 
 class DefaultPerformanceMonitor extends PerformanceMonitor {
   @override
-  Future<void> endEvent(String eventName,
-      {Map<String, String>? properties,}) async {}
+  Future<void> endEvent(
+    String eventName, {
+    Map<String, String>? properties,
+  }) async {}
 
   @override
   Future<void> endScreenEvent(

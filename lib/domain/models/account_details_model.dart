@@ -92,7 +92,7 @@ class EditAddress {
   final bool? isDefault;
 
   EditAddress({
-   required this.id,
+    required this.id,
     this.name,
     this.pincode,
     this.address,
