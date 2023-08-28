@@ -28,7 +28,6 @@ abstract class $DashboardStateCopyWith<$Res> {
   factory $DashboardStateCopyWith(
           DashboardState value, $Res Function(DashboardState) then) =
       _$DashboardStateCopyWithImpl<$Res, DashboardState>;
-
   @useResult
   $Res call({List<Product> products});
 }
@@ -40,7 +39,6 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -64,7 +62,6 @@ abstract class _$$_DashboardStateCopyWith<$Res>
   factory _$$_DashboardStateCopyWith(
           _$_DashboardState value, $Res Function(_$_DashboardState) then) =
       __$$_DashboardStateCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({List<Product> products});
@@ -99,7 +96,6 @@ class _$_DashboardState implements _DashboardState {
       : _products = products;
 
   final List<Product> _products;
-
   @override
   @JsonKey()
   List<Product> get products {
@@ -138,7 +134,6 @@ abstract class _DashboardState implements DashboardState {
 
   @override
   List<Product> get products;
-
   @override
   @JsonKey(ignore: true)
   _$$_DashboardStateCopyWith<_$_DashboardState> get copyWith =>

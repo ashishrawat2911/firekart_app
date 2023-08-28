@@ -26,7 +26,6 @@ mixin _$ResultState<T> {
     required TResult Function(T data, String error) unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
@@ -48,7 +47,6 @@ mixin _$ResultState<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Idle<T> value) idle,
@@ -59,7 +57,6 @@ mixin _$ResultState<T> {
     required TResult Function(UnNotifiedError<T> value) unNotifiedError,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Idle<T> value)? idle,
@@ -95,9 +92,9 @@ class _$ResultStateCopyWithImpl<T, $Res, $Val extends ResultState<T>>
     implements $ResultStateCopyWith<T, $Res> {
   _$ResultStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
