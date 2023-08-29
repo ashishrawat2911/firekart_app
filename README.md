@@ -1,4 +1,4 @@
-# Flutter-Commerce
+# Firekart
 
 ![CI](https://github.com/ashishrawat2911/firekart/workflows/Ecomm/badge.svg)
 [![GitHub stars](https://img.shields.io/github/stars/ashishrawat2911/firekart?style=social)](https://github.com/ashishrawat2911/firekart) ![GitHub forks](https://img.shields.io/github/forks/ashishrawat2911/firekart?style=social)

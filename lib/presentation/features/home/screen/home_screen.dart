@@ -39,12 +39,15 @@ class HomeScreen extends StatelessWidget {
       },
       builder: (context, viewModel, state) {
         return Scaffold(
-          body: const [
-            DashboardScreen(),
-            SearchItemScreen(),
-            CartScreen(),
-            AccountScreen(),
-          ][state.bottomIndex],
+          body: IndexedStack(
+            index: state.bottomIndex,
+            children: const [
+              DashboardScreen(),
+              SearchItemScreen(),
+              CartScreen(),
+              AccountScreen(),
+            ],
+          ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             // showSelectedLabels: true,
