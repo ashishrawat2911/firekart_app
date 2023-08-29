@@ -30,16 +30,17 @@ import 'package:firekart/data/mapper/data_mapper.dart' as _i7;
 import 'package:firekart/data/repository/firekart_repository.dart' as _i37;
 import 'package:firekart/data/source/local/local_storage.dart' as _i33;
 import 'package:firekart/data/source/remote/api_service.dart' as _i35;
-import 'package:firekart/di/module/firebase_module.dart' as _i66;
-import 'package:firekart/di/module/network_module.dart' as _i67;
-import 'package:firekart/di/module/storage_module.dart' as _i68;
+import 'package:firekart/di/module/firebase_module.dart' as _i67;
+import 'package:firekart/di/module/network_module.dart' as _i68;
+import 'package:firekart/di/module/storage_module.dart' as _i69;
 import 'package:firekart/domain/repository/firekart_repository.dart' as _i36;
 import 'package:firekart/domain/usecases/add_address_usecase.dart' as _i54;
 import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart'
     as _i47;
+import 'package:firekart/domain/usecases/cart_usecase.dart' as _i56;
 import 'package:firekart/domain/usecases/delete_product_from_cart_usecase.dart'
     as _i48;
-import 'package:firekart/domain/usecases/edit_address_usecase.dart' as _i59;
+import 'package:firekart/domain/usecases/edit_address_usecase.dart' as _i60;
 import 'package:firekart/domain/usecases/get_account_details_usecase.dart'
     as _i38;
 import 'package:firekart/domain/usecases/get_address_usecase.dart' as _i39;
@@ -76,31 +77,31 @@ import 'package:firekart/firebase_impl/performance/firebase_performance_moniter.
 import 'package:firekart/presentation/features/add_account_detail/view_model/add_account_details_view_model.dart'
     as _i53;
 import 'package:firekart/presentation/features/add_address/view_model/add_address_view_model.dart'
-    as _i65;
+    as _i66;
 import 'package:firekart/presentation/features/app_settings/view_model/app_settings_view_model.dart'
     as _i5;
 import 'package:firekart/presentation/features/cart/view_model/cart_view_model.dart'
-    as _i56;
-import 'package:firekart/presentation/features/check_status/view_model/check_status_bloc.dart'
     as _i57;
-import 'package:firekart/presentation/features/dashboard/view_model/dashboard_view_model.dart'
+import 'package:firekart/presentation/features/check_status/view_model/check_status_bloc.dart'
     as _i58;
+import 'package:firekart/presentation/features/dashboard/view_model/dashboard_view_model.dart'
+    as _i59;
 import 'package:firekart/presentation/features/home/viewmodel/home_viewmodel.dart'
-    as _i60;
-import 'package:firekart/presentation/features/my_address/view_model/my_address_view_model.dart'
     as _i61;
+import 'package:firekart/presentation/features/my_address/view_model/my_address_view_model.dart'
+    as _i62;
 import 'package:firekart/presentation/features/order/view_model/my_orders_cubit.dart'
     as _i45;
 import 'package:firekart/presentation/features/otp_login/view_model/otp_login_view_model.dart'
-    as _i62;
+    as _i63;
 import 'package:firekart/presentation/features/phone_login/view_model/phone_login_view_model.dart'
     as _i21;
 import 'package:firekart/presentation/features/product_detail/view_model/product_view_model.dart'
-    as _i64;
+    as _i65;
 import 'package:firekart/presentation/features/product_list/view_model/all_product_cubit.dart'
     as _i55;
 import 'package:firekart/presentation/features/search/view_model/product_search_viewmodel.dart'
-    as _i63;
+    as _i64;
 import 'package:firekart/presentation/features/splash/view_model/splash_view_model.dart'
     as _i25;
 import 'package:get_it/get_it.dart' as _i1;
@@ -227,50 +228,52 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i54.AddAddressUseCase(gh<_i36.FirekartRepository>()));
     gh.factory<_i55.AllProductCubit>(
         () => _i55.AllProductCubit(gh<_i41.GetAllProductsUseCase>()));
-    gh.factory<_i56.CartViewModel>(() => _i56.CartViewModel(
+    gh.singleton<_i56.CartUseCase>(
+        _i56.CartUseCase(gh<_i36.FirekartRepository>()));
+    gh.factory<_i57.CartViewModel>(() => _i57.CartViewModel(
           gh<_i48.ProductDeleteCartUseCase>(),
           gh<_i46.PlaceOrderUseCase>(),
           gh<_i42.GetCartStatusUseCase>(),
           gh<_i52.UpdateCartUseCase>(),
           gh<_i39.GetAddressUseCase>(),
         ));
-    gh.factory<_i57.CheckStatusViewModel>(() =>
-        _i57.CheckStatusViewModel(gh<_i43.GetUserLoggedInStatusUseCase>()));
-    gh.factory<_i58.DashboardViewModel>(
-        () => _i58.DashboardViewModel(gh<_i41.GetAllProductsUseCase>()));
-    gh.factory<_i59.EditAddressUseCase>(
-        () => _i59.EditAddressUseCase(gh<_i36.FirekartRepository>()));
-    gh.factory<_i60.HomeScreenViewModel>(() => _i60.HomeScreenViewModel(
+    gh.factory<_i58.CheckStatusViewModel>(() =>
+        _i58.CheckStatusViewModel(gh<_i43.GetUserLoggedInStatusUseCase>()));
+    gh.factory<_i59.DashboardViewModel>(
+        () => _i59.DashboardViewModel(gh<_i41.GetAllProductsUseCase>()));
+    gh.factory<_i60.EditAddressUseCase>(
+        () => _i60.EditAddressUseCase(gh<_i36.FirekartRepository>()));
+    gh.factory<_i61.HomeScreenViewModel>(() => _i61.HomeScreenViewModel(
           gh<_i42.GetCartStatusUseCase>(),
           gh<_i51.StreamAccountDetailsUseCaseUseCase>(),
           gh<_i39.GetAddressUseCase>(),
         ));
-    gh.factory<_i61.MyAddressViewModel>(() => _i61.MyAddressViewModel(
+    gh.factory<_i62.MyAddressViewModel>(() => _i62.MyAddressViewModel(
           gh<_i38.GetAccountDetailsUseCase>(),
           gh<_i22.SetAccountDetailsUseCase>(),
           gh<_i39.GetAddressUseCase>(),
-          gh<_i59.EditAddressUseCase>(),
+          gh<_i60.EditAddressUseCase>(),
         ));
-    gh.factory<_i62.OtpLoginViewModel>(
-        () => _i62.OtpLoginViewModel(gh<_i50.SendOTPUseCase>()));
-    gh.factory<_i63.ProductSearchViewModel>(
-        () => _i63.ProductSearchViewModel(gh<_i49.SearchProductsUseCase>()));
-    gh.factory<_i64.ProductViewModel>(() => _i64.ProductViewModel(
+    gh.factory<_i63.OtpLoginViewModel>(
+        () => _i63.OtpLoginViewModel(gh<_i50.SendOTPUseCase>()));
+    gh.factory<_i64.ProductSearchViewModel>(
+        () => _i64.ProductSearchViewModel(gh<_i49.SearchProductsUseCase>()));
+    gh.factory<_i65.ProductViewModel>(() => _i65.ProductViewModel(
           gh<_i15.GetItemsInCartUseCase>(),
           gh<_i47.ProductAddToCartUseCase>(),
           gh<_i42.GetCartStatusUseCase>(),
           gh<_i52.UpdateCartUseCase>(),
         ));
-    gh.factory<_i65.AddAddressViewModel>(() => _i65.AddAddressViewModel(
+    gh.factory<_i66.AddAddressViewModel>(() => _i66.AddAddressViewModel(
           gh<_i54.AddAddressUseCase>(),
-          gh<_i59.EditAddressUseCase>(),
+          gh<_i60.EditAddressUseCase>(),
         ));
     return this;
   }
 }
 
-class _$FirebaseModule extends _i66.FirebaseModule {}
+class _$FirebaseModule extends _i67.FirebaseModule {}
 
-class _$NetworkModule extends _i67.NetworkModule {}
+class _$NetworkModule extends _i68.NetworkModule {}
 
-class _$StorageModule extends _i68.StorageModule {}
+class _$StorageModule extends _i69.StorageModule {}
