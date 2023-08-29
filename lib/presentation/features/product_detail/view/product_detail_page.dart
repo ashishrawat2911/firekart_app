@@ -20,6 +20,7 @@ import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/domain/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../routes/app_router.gr.dart';
@@ -46,61 +47,72 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       onViewModelReady: (viewModel) {
         viewModel.checkItemInCart(widget.product.productId);
       },
-      builder: (context, viewModel, state) => Scaffold(
-        floatingActionButton: CommonViewCartOverlay(
-          args: CommonViewCartOverlayArgs(
-            title: "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
-            isCartEmpty: state.noOfItems > 0,
-            onCartTap: () {
-              NavigationHandler.navigateTo(const CartRoute());
-            },
+      builder: (context, viewModel, state) => VisibilityDetector(
+        onVisibilityChanged: (visibilityInfo) {
+          var visiblePercentage = visibilityInfo.visibleFraction * 100;
+          if (visiblePercentage == 100) {
+            viewModel.checkItemInCart(widget.product.productId);
+          }
+        },
+        key: const Key('ProductDetailPage'),
+        child: Scaffold(
+          floatingActionButton: CommonViewCartOverlay(
+            args: CommonViewCartOverlayArgs(
+              title:
+                  "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
+              isCartEmpty: state.noOfItems > 0,
+              onCartTap: () {
+                NavigationHandler.navigateTo(const CartRoute());
+              },
+            ),
           ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        appBar: AppBar(
-          title: Text(widget.product.name),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              CachedNetworkImage(
-                imageUrl: widget.product.image,
-                fit: BoxFit.fill,
-              ),
-              Container(
-                margin: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      widget.product.name,
-                      style: ThemeProvider.textTheme.displayLarge,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(widget.product.description),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          '${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}',
-                          style: ThemeProvider.textTheme.labelSmall
-                              ?.copyWith(fontSize: 16),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        addCartView(state, viewModel),
-                      ],
-                    ),
-                  ],
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          appBar: AppBar(
+            title: Text(widget.product.name),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                CachedNetworkImage(
+                  imageUrl: widget.product.image,
+                  fit: BoxFit.fill,
                 ),
-              ),
-            ],
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        widget.product.name,
+                        style: ThemeProvider.textTheme.displayLarge,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(widget.product.description),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            '${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}',
+                            style: ThemeProvider.textTheme.labelSmall
+                                ?.copyWith(fontSize: 16),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          addCartView(state, viewModel),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
