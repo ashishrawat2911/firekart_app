@@ -1,12 +1,12 @@
 import express from 'express';
 import {addToCart, deleteFromCart, fetchAllCarts, updateCart} from "../controllers/cartController";
 import {authenticateMiddleware} from "../middlewares/authMiddlewares";
+import {validateAddToCart, validateDeleteFromCart, validateUpdateCart} from "../middlewares/validators/cartValidators";
 
 const router = express.Router();
-//TODO Add Request Validation
 router.get('/', authenticateMiddleware, fetchAllCarts);
-router.post('/', authenticateMiddleware, addToCart);
-router.patch('/', authenticateMiddleware, updateCart);
-router.delete('/', authenticateMiddleware, deleteFromCart);
+router.post('/', validateAddToCart, authenticateMiddleware, addToCart);
+router.patch('/', validateUpdateCart, authenticateMiddleware, updateCart);
+router.delete('/', validateDeleteFromCart, authenticateMiddleware, deleteFromCart);
 
 export default router;
