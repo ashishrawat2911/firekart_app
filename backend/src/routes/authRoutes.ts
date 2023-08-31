@@ -8,17 +8,21 @@ import {
     updateDefaultAddress,
     verifyOTPAndLogin
 } from '../controllers/authController';
-import {validateLoginPhoneNumber, validateOTPAndLogin} from "../middlewares/validators/authValidators";
+import {
+    validateAddress,
+    validateAddressId,
+    validateLoginPhoneNumber,
+    validateOTPAndLogin
+} from "../middlewares/validators/authValidators";
 import {authenticateMiddleware} from "../middlewares/authMiddlewares";
 
 const router = express.Router();
-//TODO Add Request Validation
 router.post('/login', validateLoginPhoneNumber, loginWithPhoneNumber);
 router.post('/verify-otp', validateOTPAndLogin, verifyOTPAndLogin);
 router.get('/userDetails', authenticateMiddleware, fetchUserDetails);
 router.get('/userAddress', authenticateMiddleware, fetchUserAddress);
-router.post('/addAddress', authenticateMiddleware, addAddress);
-router.post('/editAddress', authenticateMiddleware, editAddress);
-router.get('/updateDefaultAddress', authenticateMiddleware, updateDefaultAddress);
+router.post('/addAddress', validateAddress, authenticateMiddleware, addAddress);
+router.post('/editAddress', validateAddressId, authenticateMiddleware, editAddress);
+router.get('/updateDefaultAddress', validateAddressId, authenticateMiddleware, updateDefaultAddress);
 //TODO Add User Name update
 export default router;
