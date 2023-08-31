@@ -14,6 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
+import 'package:country_code_picker_x/country_code_picker_x.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
@@ -57,6 +58,7 @@ class AddAddressScreen extends StatelessWidget {
   final Validator validator = Validator();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  ValueNotifier<String> phoneNumberNotifier = ValueNotifier('+91');
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +69,10 @@ class AddAddressScreen extends StatelessWidget {
           pincodeEditingController.text = editAddress!.pincode;
           addressEditingController.text = editAddress!.address;
           cityEditingController.text = editAddress!.city;
-          phoneEditingController.text = viewModel
-                  .extractCountryCodeAndNumber(editAddress!.phoneNumber)
-                  ?.$2 ??
-              '';
+          final extractPhone =
+              viewModel.extractCountryCodeAndNumber(editAddress!.phoneNumber);
+          phoneEditingController.text = extractPhone?.$2 ?? '';
+          phoneNumberNotifier.value = '+${extractPhone?.$1}';
           stateEditingController.text = editAddress!.state;
           viewModel.setDefault(editAddress!.isDefault);
         }
@@ -180,18 +182,32 @@ class AddAddressScreen extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    CustomTextField(
-                      hint: Localization.value.phoneNumber,
-                      textEditingController: phoneEditingController,
-                      focusNode: phoneFocusNode,
-                      validator: validator.validateMobile,
-                      keyboardType: TextInputType.phone,
-                      onChanged: (val) {
-                        if (validator.validateMobile(val) == null) {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                        }
-                      },
-                      // containerHeight: 50,
+                    Row(
+                      children: [
+                        CountryCodePickerX(
+                          onChanged: (value) {
+                            phoneNumberNotifier.value = value.dialCode!;
+                          },
+                          initialSelection: 'IN',
+                          favorite: const ['+91', 'IN'],
+                        ),
+                        Expanded(
+                          child: CustomTextField(
+                            hint: Localization.value.phoneNumber,
+                            textEditingController: phoneEditingController,
+                            focusNode: phoneFocusNode,
+                            validator: validator.validateMobile,
+                            keyboardType: TextInputType.phone,
+                            onChanged: (val) {
+                              if (validator.validateMobile(val) == null) {
+                                FocusScope.of(context)
+                                    .requestFocus(FocusNode());
+                              }
+                            },
+                            // containerHeight: 50,
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 40,
@@ -264,8 +280,7 @@ class AddAddressScreen extends StatelessWidget {
           city: cityEditingController.text,
           isDefault: state.setAsDefault,
           pincode: pincodeEditingController.text,
-          //todo add the country picker
-          phoneNumber: '+91${phoneEditingController.text}',
+          phoneNumber: '${phoneNumberNotifier.value}${phoneEditingController.text}',
           state: stateEditingController.text,
         );
         viewModel.editAddress(address);
