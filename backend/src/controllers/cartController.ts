@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import ApiResponse from "../response/apiResponse";
 import ApiResponseMessages from "../response/apiResponseMessages";
 import {cartService} from "../di/di";
+import {validationResult} from "express-validator";
 
 
 export const fetchAllCarts = async (req: Request, res: Response) => {
@@ -15,6 +16,10 @@ export const fetchAllCarts = async (req: Request, res: Response) => {
 };
 export const addToCart = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
+        }
         const userId = req.userId
         const {productId} = req.body;
         const data = await cartService.addToCart(userId!, productId);
@@ -26,6 +31,10 @@ export const addToCart = async (req: Request, res: Response) => {
 
 export const updateCart = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
+        }
         const userId = req.userId
         const {productId, quantity} = req.body;
         if (quantity === 0) {
@@ -42,6 +51,10 @@ export const updateCart = async (req: Request, res: Response) => {
 };
 export const deleteFromCart = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
+        }
         const userId = req.userId
         const {productId} = req.body;
         const data = await cartService.deleteFromCart(userId!, productId);

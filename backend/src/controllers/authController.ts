@@ -70,6 +70,10 @@ export const fetchUserAddress = async (req: Request, res: Response) => {
 
 export const addAddress = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
+        }
         const userId = req.userId
         const address = req.body
         const user = await userService.addAddress(userId!, address)
@@ -80,6 +84,10 @@ export const addAddress = async (req: Request, res: Response) => {
 };
 export const updateDefaultAddress = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
+        }
         const userId = req.userId;
         const {addressId} = req.params;
 
@@ -93,6 +101,10 @@ export const updateDefaultAddress = async (req: Request, res: Response) => {
 };
 export const editAddress = async (req: Request, res: Response) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return ApiResponse.badRequest(res, ApiResponseMessages.phoneNumberOrOTPNotValid, errors)
+        }
         const address = req.body;
         const userId = req.userId;
 
