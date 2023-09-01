@@ -22,12 +22,12 @@ class LocalStorage {
     return _secureStorage.secureGet(_Const.token);
   }
 
-  void setAccessToken(String token) {
-    _secureStorage.secureSet(_Const.token, token);
+  Future<void> setAccessToken(String token) {
+    return _secureStorage.secureSet(_Const.token, token);
   }
 
-  void setLogin(bool value) {
-    _preferencesStorage.setBool(_Const.isLoggedIn, value);
+  Future<void> setLogin(bool value) {
+    return _preferencesStorage.setBool(_Const.isLoggedIn, value);
   }
 
   void clear() {
