@@ -99,7 +99,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         children: <Widget>[
                           Text(
                             '${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}',
-                            style: ThemeProvider.textTheme.labelSmall
+                            style: ThemeProvider.textTheme.bodySmall
                                 ?.copyWith(fontSize: 16),
                           ),
                           const SizedBox(
@@ -152,10 +152,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   : Center(
                       child: Text(
                         '$cartValue',
-                        style: const TextStyle(
-                          color: AppColors.black,
-                          fontSize: 14,
-                        ),
+                        style: ThemeProvider.textTheme.bodyMedium,
                       ),
                     ),
             ),
