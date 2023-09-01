@@ -70,6 +70,6 @@ class NetworkErrorHandler {
         networkExceptions = 'unexpected_error_occurred';
       }
     }
-    return NetworkError(networkExceptions, statusCode.toString());
+    return NetworkError(networkExceptions, statusCode);
   }
 }

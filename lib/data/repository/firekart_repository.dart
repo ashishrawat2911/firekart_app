@@ -81,6 +81,7 @@ class FirekartRepositoryImpl extends FirekartRepository {
     } catch (e, s) {
       AppLogger.log(e);
       final networkError = _errorHandler.getNetworkError(e, s);
+      AppLogger.log(networkError);
       return Left(networkError);
     }
   }
@@ -109,8 +110,8 @@ class FirekartRepositoryImpl extends FirekartRepository {
         final res = await _apiService.verifyOtp(
           OTPVerifyRequestModel(phoneNumber, smsCode, name),
         );
-        _localStorage.setLogin(true);
-        _localStorage.setAccessToken(res.data.token);
+        await _localStorage.setLogin(true);
+        await _localStorage.setAccessToken(res.data.token);
       },
     );
   }
@@ -198,13 +199,14 @@ class FirekartRepositoryImpl extends FirekartRepository {
     return getNetworkResult(
       () {
         return _apiService.addAddress(
-            address.address,
-            address.state,
-            address.name,
-            address.phoneNumber,
-            address.city,
-            address.pincode,
-            address.isDefault,);
+          address.address,
+          address.state,
+          address.name,
+          address.phoneNumber,
+          address.city,
+          address.pincode,
+          address.isDefault,
+        );
       },
     );
   }
@@ -247,7 +249,11 @@ class FirekartRepositoryImpl extends FirekartRepository {
   }
 
   @override
-  Future<void> logout() async {
-    _localStorage.clear();
+  Future<Either<NetworkError, void>> logout() async {
+    return getNetworkResult(
+      () async {
+        _localStorage.clear();
+      },
+    );
   }
 }
