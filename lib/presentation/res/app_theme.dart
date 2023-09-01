@@ -29,9 +29,9 @@ class AppTheme {
             fontSize: 22,
             color: dark ? AppColors.white : AppColors.black,
           ),
-          displayMedium: const TextStyle(
+          displayMedium: TextStyle(
             fontSize: 20,
-            color: AppColors.color20203E,
+            color: dark ? AppColors.white : AppColors.color20203E,
             fontWeight: FontWeight.w500,
           ),
           displaySmall: const TextStyle(
@@ -49,12 +49,12 @@ class AppTheme {
             fontSize: 18,
             color: AppColors.primaryColor,
           ),
-          titleMedium: const TextStyle(
+          titleMedium: TextStyle(
             fontSize: 16,
-            color: AppColors.color4C4C6F,
+            color: dark ? AppColors.white : AppColors.color4C4C6F,
           ),
-          titleSmall: const TextStyle(
-            color: AppColors.white,
+          titleSmall: TextStyle(
+            color: dark ? AppColors.white : AppColors.black,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),

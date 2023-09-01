@@ -166,16 +166,14 @@ class _CartScreenState extends State<CartScreen> {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  color: AppColors.color20203E,
+                style: ThemeProvider.textTheme.bodyLarge?.copyWith(
                   fontSize: 14,
                   fontWeight: isFinal ? FontWeight.w500 : null,
                 ),
               ),
               Text(
                 price,
-                style: TextStyle(
-                  color: AppColors.black,
+                style: ThemeProvider.textTheme.titleSmall?.copyWith(
                   fontSize: 16,
                   fontWeight: isFinal ? FontWeight.w500 : null,
                 ),
@@ -256,7 +254,9 @@ class _CartScreenState extends State<CartScreen> {
             Text(
               state.selectedAddress?.wholeAddress() ??
                   Localization.value.noAddressFound,
-              style: ThemeProvider.textTheme.labelSmall,
+              style: ThemeProvider.textTheme.labelLarge?.copyWith(
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ],
         ),
@@ -265,9 +265,8 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   Widget checkOut(CartState state, CartViewModel viewModel) {
-    return Container(
+    return SizedBox(
       height: 94,
-      color: AppColors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

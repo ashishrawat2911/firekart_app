@@ -166,7 +166,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   vertical: 2,
                 )
               : null,
-          fillColor: widget.fillColor ?? AppColors.white,
+          // fillColor: widget.fillColor ?? AppColors.white,
           filled: true,
           hintText: widget.hint,
           suffixIcon: widget.suffix,
@@ -174,30 +174,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
           hintStyle: widget.hint!.length < 30
               ? widget.hintStyle
               : const TextStyle(fontSize: 15, color: AppColors.dropShadow),
-          errorStyle: widget.errorStyle ??
-              const TextStyle(
-                  // color: AppColors.errorRed,
-                  // fontSize: 0,
-                  ),
+          errorStyle: widget.errorStyle,
           border: const OutlineInputBorder(
-            // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(color: AppColors.white, width: 0),
           ),
           disabledBorder: const OutlineInputBorder(
-            // borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(color: Colors.transparent, width: 0),
           ),
           enabledBorder: OutlineInputBorder(
-            //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             borderSide: BorderSide(
               color: widget.enabledBorderColor!,
               width: widget.enabledBorderWidth ?? 1.0,
             ),
           ),
-//          errorBorder: OutlineInputBorder(
-//              //borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
-//              // borderSide: BorderSide(color: AppColors.errorRed, width: 0.0),
-//              ),
         ),
       ),
     );
