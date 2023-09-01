@@ -41,10 +41,10 @@ class App extends StatelessWidget {
           locale: state.locale,
           theme: AppTheme.appTheme(),
           darkTheme: AppTheme.appTheme(
-              //TODO: Implement Dark theme
-              // dark: true
+              // TODO: Implement Dark theme
+              dark: true
               ),
-          themeMode: state.themeMode,
+          themeMode: ThemeMode.dark,
           localizationsDelegates: Localization.localizationsDelegates,
           supportedLocales: Localization.supportedLocales,
           debugShowCheckedModeBanner: false,
