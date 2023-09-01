@@ -178,7 +178,7 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i31.PreferencesStorage>(),
           gh<_i32.SecureStorage>(),
         ));
-    gh.singleton<_i34.Dio>(networkModule.getDio(gh<_i33.LocalStorage>()));
+    gh.factory<_i34.Dio>(() => networkModule.getDio(gh<_i33.LocalStorage>()));
     gh.factory<_i35.ApiService>(() => _i35.ApiService(
           gh<_i34.Dio>(),
           gh<String>(instanceName: 'baseUrl'),
@@ -247,6 +247,7 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i42.GetCartStatusUseCase>(),
           gh<_i51.StreamAccountDetailsUseCaseUseCase>(),
           gh<_i39.GetAddressUseCase>(),
+          gh<_i44.LogoutUseCase>(),
         ));
     gh.factory<_i62.MyAddressViewModel>(() => _i62.MyAddressViewModel(
           gh<_i38.GetAccountDetailsUseCase>(),
