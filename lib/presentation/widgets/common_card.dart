@@ -42,23 +42,11 @@ class CommonCard extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Container(
-        margin: margin,
         padding: padding,
-        decoration: BoxDecoration(
-          color: color ?? AppColors.white,
-          borderRadius: borderRadius,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              //  spreadRadius: elevation ??
-              //  ThemeProvider.cardTheme.elevation,
-              spreadRadius: elevation ?? 0.1,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ],
+        child: Card(
+          margin: margin,
+          child: child,
         ),
-        child: child,
       ),
     );
   }

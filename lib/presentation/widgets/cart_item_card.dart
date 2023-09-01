@@ -15,6 +15,7 @@
  */
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firekart/core/localization/localization.dart';
+import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 
 import '../res/colors.gen.dart';
@@ -93,21 +94,14 @@ class CartItemCard extends StatelessWidget {
                         children: [
                           Text(
                             cartItemCardArgs.name,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                              color: AppColors.black,
-                            ),
+                            style: ThemeProvider.textTheme.bodyLarge,
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           Text(
                             '${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: AppColors.color4C4C6F,
-                            ),
+                            style: ThemeProvider.textTheme.bodySmall,
                           ),
                         ],
                       )
@@ -161,10 +155,7 @@ class CartItemCard extends StatelessWidget {
                                   )
                                 : Text(
                                     '${cartItemCardArgs.itemCount}',
-                                    style: const TextStyle(
-                                      color: AppColors.black,
-                                      fontSize: 14,
-                                    ),
+                                    style: ThemeProvider.textTheme.bodyMedium,
                                   ),
                           ),
                         ),
