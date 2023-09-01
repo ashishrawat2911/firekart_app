@@ -56,5 +56,5 @@ abstract class FirekartRepository {
 
   Future<Either<NetworkError, List<Order>>> getAllOrders();
 
-  Future<void> logout();
+  Future<Either<NetworkError, void>> logout();
 }

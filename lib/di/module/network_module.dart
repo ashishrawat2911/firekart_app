@@ -23,7 +23,7 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class NetworkModule {
-  @singleton
+  @injectable
   Dio getDio(LocalStorage _localStorage) {
     final _dio = Dio();
     _dio
