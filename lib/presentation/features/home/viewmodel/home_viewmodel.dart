@@ -31,7 +31,8 @@ class HomeScreenViewModel extends ViewModel<HomeState> {
   HomeScreenViewModel(
     this._getCartStatusUseCase,
     this._accountDetailsUseCaseUseCase,
-    this._getAddressUseCase, this._logoutUseCase,
+    this._getAddressUseCase,
+    this._logoutUseCase,
   ) : super(const HomeState());
 
   final GetCartStatusUseCase _getCartStatusUseCase;
@@ -82,6 +83,11 @@ class HomeScreenViewModel extends ViewModel<HomeState> {
         );
       },
     );
+    _getCartStatusUseCase.watch().listen((carts) {
+      state = state.copyWith(
+        noOfItemsInCart: carts.length,
+      );
+    });
     await _getAddressUseCase.execute().then(
       (value) {
         value.forEach(
