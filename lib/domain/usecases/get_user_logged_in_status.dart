@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 
-import 'package:firekart/domain/repository/firekart_repository.dart';
+import 'package:firekart/domain/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -22,7 +22,7 @@ import 'package:injectable/injectable.dart';
 class GetUserLoggedInStatusUseCase {
   GetUserLoggedInStatusUseCase(this._repository);
 
-  final FirekartRepository _repository;
+  final AuthRepository _repository;
 
   bool execute() {
     return _repository.isLoggedIn();
