@@ -13,21 +13,17 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:dartz/dartz.dart';
+
+import 'package:dartz/dartz.dart' hide Order;
+import 'package:firekart/domain/models/cart_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/cart_repository.dart';
-import 'package:injectable/injectable.dart' hide Order;
-import 'package:injectable/injectable.dart';
 
-import '../models/cart_model.dart';
+abstract class CartRepository {
+  Future<Either<NetworkError, void>> addProductToCart(int productId);
 
-@injectable
-class GetCartStatusUseCase {
-  final CartRepository _repository;
+  Future<Either<NetworkError, void>> updateCart(int productId, int quantity);
 
-  GetCartStatusUseCase(this._repository);
+  Future<Either<NetworkError, void>> deleteFromCart(int productId);
 
-  Future<Either<NetworkError, List<Cart>>> execute() {
-    return _repository.getCarts();
-  }
+  Future<Either<NetworkError, List<Cart>>> getCarts();
 }

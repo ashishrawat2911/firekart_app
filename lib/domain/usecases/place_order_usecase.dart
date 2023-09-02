@@ -16,12 +16,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/models/add_order_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/firekart_repository.dart';
+import 'package:firekart/domain/repository/order_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 @injectable
 class PlaceOrderUseCase {
-  final FirekartRepository _repository;
+  final OrderRepository _repository;
 
   PlaceOrderUseCase(this._repository);
 

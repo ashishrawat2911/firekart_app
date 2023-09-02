@@ -14,19 +14,10 @@
  * ----------------------------------------------------------------------------
  */
 
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Order;
+import 'package:firekart/domain/models/product_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/auth_repository.dart';
-import 'package:injectable/injectable.dart' hide Order;
-import 'package:injectable/injectable.dart';
 
-@injectable
-class LogoutUseCase {
-  LogoutUseCase(this._firekartRepository);
-
-  final AuthRepository _firekartRepository;
-
-  Future<Either<NetworkError, void>> execute() {
-    return _firekartRepository.logout();
-  }
+abstract class ProductRepository {
+  Future<Either<NetworkError, List<Product>>> getAllProducts();
 }

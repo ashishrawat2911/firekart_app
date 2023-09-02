@@ -15,7 +15,7 @@
  */
 import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/firekart_repository.dart';
+import 'package:firekart/domain/repository/user_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -25,7 +25,7 @@ import '../models/account_details_model.dart';
 class GetAccountDetailsUseCase {
   GetAccountDetailsUseCase(this._repository);
 
-  final FirekartRepository _repository;
+  final UserRepository _repository;
 
   Future<Either<NetworkError, AccountDetails>> execute() {
     return _repository.getUserDetails();
