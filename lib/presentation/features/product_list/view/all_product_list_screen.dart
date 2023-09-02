@@ -21,7 +21,7 @@ import 'package:firekart/domain/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/product_card.dart';
 import '../../../widgets/result_state_builder.dart';
@@ -58,7 +58,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
           actions: <Widget>[
             InkWell(
               onTap: () {
-                NavigationHandler.navigateTo(
+                RouteHandler.routeTo(
                   const SearchItemRoute(),
                 );
               },
@@ -108,7 +108,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       name: productModel.name,
       currency: productModel.currency,
       onTap: () {
-        NavigationHandler.navigateTo(
+        RouteHandler.routeTo(
           ProductDetailRoute(
             product: productModel,
           ),

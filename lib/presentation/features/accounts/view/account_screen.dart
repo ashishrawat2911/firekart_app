@@ -23,7 +23,7 @@ import 'package:firekart/domain/usecases/stream_account_details_usecase.dart';
 import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/action_text.dart';
 
 @RoutePage()
@@ -83,7 +83,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ActionText(
                         Localization.value.editCaps,
                         onTap: () {
-                          NavigationHandler.navigateTo(
+                          RouteHandler.routeTo(
                             AddUserDetailRoute(newAddress: false),
                           );
                         },
@@ -99,7 +99,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                   leading: const Icon(Icons.shopping_basket),
                   onTap: () {
-                    NavigationHandler.navigateTo(const MyOrdersRoute());
+                    RouteHandler.routeTo(const MyOrdersRoute());
                   },
                 ),
                 ListTile(
@@ -109,7 +109,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                   leading: const Icon(Icons.place),
                   onTap: () {
-                    NavigationHandler.navigateTo(MyAddressRoute());
+                    RouteHandler.routeTo(MyAddressRoute());
                   },
                 ),
                 const Divider(),
@@ -121,9 +121,9 @@ class _AccountScreenState extends State<AccountScreen> {
                   leading: const Icon(Icons.exit_to_app),
                   onTap: () {
                     inject<LogoutUseCase>().execute().then((value) {
-                      NavigationHandler.navigateTo(
+                      RouteHandler.routeTo(
                         const LoginRoute(),
-                        navigationType: NavigationType.pushAndPopUntil,
+                        routingType: RoutingType.pushAndPopUntil,
                       );
                     });
                   },

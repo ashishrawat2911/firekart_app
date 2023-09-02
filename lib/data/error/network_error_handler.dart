@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:firekart/core/logger/app_logger.dart';
-import 'package:firekart/data/app_error_model.dart';
+import 'package:firekart/data/error/app_error_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:injectable/injectable.dart';
 

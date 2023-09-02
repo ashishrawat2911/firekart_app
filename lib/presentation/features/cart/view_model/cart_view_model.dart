@@ -28,7 +28,7 @@ import 'package:firekart/domain/usecases/update_cart_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../state/cart_state.dart';
 
 @injectable
@@ -81,8 +81,8 @@ class CartViewModel extends ViewModel<CartState> {
     await res.fold((l) {
       MessageHandler.showSnackBar(title: l.errorMessage);
     }, (r) async {
-      if (NavigationHandler.canNavigateBack()) {
-        await NavigationHandler.navigateTo(
+      if (RouteHandler.canNavigateBack()) {
+        await RouteHandler.routeTo(
           const MyOrdersRoute(),
         );
       }
@@ -119,7 +119,7 @@ class CartViewModel extends ViewModel<CartState> {
 
   void selectOrChangeAddress() {
     if (state.selectedAddress == null) {
-      NavigationHandler.navigateTo(
+      RouteHandler.routeTo(
         AddAddressRoute(
           newAddress: true,
         ),
@@ -129,7 +129,7 @@ class CartViewModel extends ViewModel<CartState> {
         }
       });
     } else {
-      NavigationHandler.navigateTo(
+      RouteHandler.routeTo(
         MyAddressRoute(
           selectedAddress: true,
         ),

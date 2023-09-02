@@ -19,7 +19,7 @@ import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
 import 'package:firekart/domain/usecases/send_otp_usecase.dart';
 import 'package:firekart/presentation/routes/app_router.gr.dart';
-import 'package:firekart/presentation/routes/navigation_handler.dart';
+import 'package:firekart/presentation/routes/route_handler.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -70,9 +70,9 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
         );
         MessageHandler.showSnackBar(title: l.errorMessage);
       }, (r) {
-        NavigationHandler.navigateTo(
+        RouteHandler.routeTo(
           CheckStatusRoute(checkForAccountStatusOnly: true),
-          navigationType: NavigationType.pushAndPopUntil,
+          routingType: RoutingType.pushAndPopUntil,
         );
       });
     });

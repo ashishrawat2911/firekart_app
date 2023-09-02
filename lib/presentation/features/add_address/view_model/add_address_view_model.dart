@@ -21,7 +21,7 @@ import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/usecases/add_address_usecase.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../state/add_address_state.dart';
 
 @injectable
@@ -45,7 +45,7 @@ class AddAddressViewModel extends ViewModel<AddAddressState> {
           res.fold((l) {
             MessageHandler.showSnackBar(title: l.errorMessage);
           }, (r) {
-            NavigationHandler.pop(true);
+            RouteHandler.pop(true);
           });
         })
         .catchError((e) {})
@@ -67,7 +67,7 @@ class AddAddressViewModel extends ViewModel<AddAddressState> {
           res.fold((l) {
             MessageHandler.showSnackBar(title: l.errorMessage);
           }, (r) {
-            NavigationHandler.pop(true);
+            RouteHandler.pop(true);
           });
         })
         .catchError((e) {})
