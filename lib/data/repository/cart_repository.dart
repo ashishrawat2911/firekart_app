@@ -15,7 +15,10 @@
  */
 
 import 'package:dartz/dartz.dart' hide Order;
+import 'package:firekart/core/extentions/list_extention.dart';
 import 'package:firekart/data/error/network_handler.dart';
+import 'package:firekart/data/source/local/dao/cart_dao.dart';
+import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
 import 'package:firekart/domain/models/cart_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
@@ -29,21 +32,58 @@ import '../mapper/data_mapper.dart';
 class CartRepositoryImpl extends CartRepository {
   final DataMapper _dataMapper;
   final ApiService _apiService;
+  final CartDao _cartDao;
 
   CartRepositoryImpl(
     this._dataMapper,
     this._apiService,
+    this._cartDao,
   );
 
   @override
   Future<Either<NetworkError, List<Cart>>> getCarts() {
     return getNetworkResult(
-      () {
-        return _apiService.getCarts().then(
-              (value) => value.data.map(_dataMapper.cartFromModel).toList(),
-            );
+      () async {
+        await _cartDao.deleteCarts();
+        final cartsFromDB =
+            (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
+        if (cartsFromDB.isEmpty) {
+          final cartsFromAPi = await _apiService.getCarts().then(
+                (value) => value.data.map(_dataMapper.cartFromModel).toList(),
+              );
+          await addCartToDB(cartsFromAPi);
+          return cartsFromAPi;
+        } else {
+          return cartsFromDB;
+        }
       },
     );
+  }
+
+  Future addCartToDB(List<Cart> carts) async {
+    await _cartDao.addCarts(
+      carts.mapToList(
+        (e) {
+          return CartTableEntityCompanion.insert(
+            unit: e.unit,
+            quantityPerUnit: e.quantityPerUnit.toDouble(),
+            productId: e.productId,
+            numOfItems: e.numOfItems,
+            image: e.image,
+            currentPrice: e.currentPrice.toDouble(),
+            currency: e.currency,
+            name: e.name,
+          );
+        },
+      ),
+    );
+  }
+
+  @override
+  Stream<List<Cart>> watchCarts() {
+    return _cartDao.watchCarts().map(
+          (event) => event.mapToList(_dataMapper.cartFromDBModel),
+        );
   }
 
   @override
@@ -53,6 +93,7 @@ class CartRepositoryImpl extends CartRepository {
         await _apiService.deleteCart(
           productId,
         );
+        await _cartDao.deleteFromCart(productId);
       },
     );
   }
@@ -64,6 +105,7 @@ class CartRepositoryImpl extends CartRepository {
         await _apiService.addToCart(
           productId,
         );
+        await getCarts();
       },
     );
   }
@@ -73,6 +115,10 @@ class CartRepositoryImpl extends CartRepository {
     return getNetworkResult(
       () async {
         await _apiService.updateCart(
+          productId,
+          quantity,
+        );
+        await _cartDao.updateCart(
           productId,
           quantity,
         );

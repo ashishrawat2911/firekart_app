@@ -209,9 +209,10 @@ class CartViewModel extends ViewModel<CartState> {
   }
 
   Future<void> init() async {
-    final res = await _getCartStatusUseCase.execute();
-    res.forEach((r) {
-      state = state.copyWith(cartList: r);
+    // final res = await _getCartStatusUseCase.execute();
+    // res.forEach((r) {});
+    _getCartStatusUseCase.watch().listen((carts) {
+      state = state.copyWith(cartList: carts);
     });
     await fetchAddress();
   }

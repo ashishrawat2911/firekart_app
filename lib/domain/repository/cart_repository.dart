@@ -26,4 +26,6 @@ abstract class CartRepository {
   Future<Either<NetworkError, void>> deleteFromCart(int productId);
 
   Future<Either<NetworkError, List<Cart>>> getCarts();
+
+  Stream<List<Cart>> watchCarts();
 }

@@ -33,4 +33,9 @@ class Cart {
   num currentPrice;
   num quantityPerUnit;
   int numOfItems;
+
+  @override
+  String toString() {
+    return 'Cart{productId: $productId, image: $image, name: $name, unit: $unit, currency: $currency, currentPrice: $currentPrice, quantityPerUnit: $quantityPerUnit, numOfItems: $numOfItems}';
+  }
 }
