@@ -13,25 +13,14 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:dartz/dartz.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/cart_repository.dart';
+import 'package:firekart/data/source/local/dao/cart_dao.dart';
+import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-import '../models/cart_model.dart';
-
-@injectable
-class GetCartStatusUseCase {
-  final CartRepository _repository;
-
-  GetCartStatusUseCase(this._repository);
-
-  Future<Either<NetworkError, List<Cart>>> execute() {
-    return _repository.getCarts();
-  }
-
-  Stream<List<Cart>> watch() {
-    return _repository.watchCarts();
+@module
+abstract class DatabaseModule {
+  CartDao getCartDao(FirekartDatabase firekartDatabase) {
+    return firekartDatabase.cartDao;
   }
 }

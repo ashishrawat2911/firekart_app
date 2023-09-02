@@ -20,6 +20,7 @@ import 'package:firekart/data/model/order_model.dart';
 import 'package:firekart/data/model/product_model.dart';
 import 'package:firekart/data/model/request/add_order_request_model.dart';
 import 'package:firekart/data/model/response/login_response_model.dart';
+import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
 import 'package:firekart/domain/models/add_order_model.dart';
 import 'package:firekart/domain/models/cart_model.dart';
@@ -159,6 +160,20 @@ class DataMapper {
       model.quantityPerUnit,
     );
     return productmodel;
+  }
+
+  Cart cartFromDBModel(CartTableEntityData model) {
+    final cart = Cart(
+      name: model.name,
+      currency: model.currency,
+      currentPrice: model.currentPrice,
+      image: model.image,
+      numOfItems: model.numOfItems,
+      productId: model.productId,
+      quantityPerUnit: model.quantityPerUnit,
+      unit: model.unit,
+    );
+    return cart;
   }
 
   Cart cartFromModel(CartModel model) {

@@ -22,11 +22,11 @@ class GetItemsInCartUseCase {
   GetItemsInCartUseCase();
 
   int execute(int productId, List<Cart> carts) {
-    return carts
-        .where((element) {
-          return element.productId == productId;
-        })
-        .first
-        .numOfItems;
+    final c = carts.where((element) {
+      return element.productId == productId;
+    });
+    if (c.isEmpty) return 0;
+
+    return c.first.numOfItems;
   }
 }
