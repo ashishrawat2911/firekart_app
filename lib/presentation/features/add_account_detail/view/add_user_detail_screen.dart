@@ -22,7 +22,7 @@ import 'package:firekart/presentation/res/colors.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -98,7 +98,7 @@ class _SaveDataView extends StatelessWidget {
                             ActionText(
                               Localization.value.manageAddress,
                               onTap: () {
-                                NavigationHandler.navigateTo(
+                                RouteHandler.routeTo(
                                   MyAddressRoute(),
                                 );
                               },

@@ -14,10 +14,8 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:dartz/dartz.dart' hide Order;
-import 'package:firekart/core/di/di.dart';
 import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/data/default_network_error_handler.dart';
-import 'package:firekart/data/model/common/base_response.dart';
 import 'package:firekart/data/model/request/otp_verify_request_model.dart';
 import 'package:firekart/data/source/local/local_storage.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
@@ -25,7 +23,6 @@ import 'package:firekart/domain/models/account_details_model.dart';
 import 'package:firekart/domain/models/add_order_model.dart';
 import 'package:firekart/domain/models/cart_model.dart';
 import 'package:firekart/domain/models/login.dart';
-import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/models/order_model.dart';
 import 'package:firekart/domain/models/product_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
@@ -33,30 +30,6 @@ import 'package:firekart/domain/repository/firekart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 import '../mapper/data_mapper.dart';
-
-extension EmptyNetworkResultExtenstion on Future<EmptyNetworkResponse> {
-  Future<Either<NetworkError, EmptyEntity>> getResult() async {
-    try {
-      final res = await this;
-      return Right(EmptyEntity(res.status, res.message));
-    } catch (e, s) {
-      final networkError = inject<NetworkErrorHandler>().getNetworkError(e, s);
-      return Left(networkError);
-    }
-  }
-}
-
-extension NetworkResultExtenstion<T> on Future<NetworkResponse<T>> {
-  Future<Either<NetworkError, NetworkEntity<T>>> getResult() async {
-    try {
-      final res = await this;
-      return Right(NetworkEntity<T>(res.status, res.message, res.data));
-    } catch (e, s) {
-      final networkError = inject<NetworkErrorHandler>().getNetworkError(e, s);
-      return Left(networkError);
-    }
-  }
-}
 
 @Injectable(as: FirekartRepository)
 class FirekartRepositoryImpl extends FirekartRepository {

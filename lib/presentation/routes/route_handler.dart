@@ -19,8 +19,8 @@ import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/presentation/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
-class NavigationHandler {
-  NavigationHandler();
+class RouteHandler {
+  RouteHandler();
 
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
@@ -31,22 +31,22 @@ class NavigationHandler {
 
   static RouterDelegate<Object> get routerDelegate => _appRouter.delegate();
 
-  static Future navigateTo(
+  static Future routeTo(
     PageRouteInfo route, {
-    NavigationType navigationType = NavigationType.push,
+    RoutingType routingType = RoutingType.push,
   }) async {
     AppLogger.log('Navigating to ${route.routeName}');
     // ignore:avoid-dynamic
     // Future<T?> getNavigation() {
-    switch (navigationType) {
-      case NavigationType.push:
+    switch (routingType) {
+      case RoutingType.push:
         return _appRouter.push(route);
-      case NavigationType.pushReplacement:
+      case RoutingType.pushReplacement:
         return _appRouter.replace(route);
-      case NavigationType.popUntil:
+      case RoutingType.popUntil:
         _appRouter.popUntilRouteWithName(route.routeName);
         return Future.value();
-      case NavigationType.pushAndPopUntil:
+      case RoutingType.pushAndPopUntil:
         _appRouter.popUntilRoot();
         return _appRouter.replace(route);
     }
@@ -76,4 +76,4 @@ class NavigationHandler {
   static bool canNavigateBack() => _appRouter.canNavigateBack;
 }
 
-enum NavigationType { push, pushReplacement, popUntil, pushAndPopUntil }
+enum RoutingType { push, pushReplacement, popUntil, pushAndPopUntil }
