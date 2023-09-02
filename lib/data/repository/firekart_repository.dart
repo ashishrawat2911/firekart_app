@@ -15,7 +15,7 @@
  */
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/core/logger/app_logger.dart';
-import 'package:firekart/data/default_network_error_handler.dart';
+import 'package:firekart/data/error/network_error_handler.dart';
 import 'package:firekart/data/model/request/otp_verify_request_model.dart';
 import 'package:firekart/data/source/local/local_storage.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
