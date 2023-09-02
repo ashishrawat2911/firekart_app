@@ -19,7 +19,7 @@ import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/presentation/res/app_theme.dart';
-import 'package:firekart/presentation/routes/navigation_handler.dart';
+import 'package:firekart/presentation/routes/route_handler.dart';
 import 'package:flutter/material.dart';
 
 import 'state/app_state.dart';
@@ -40,16 +40,13 @@ class App extends StatelessWidget {
           ),
           locale: state.locale,
           theme: AppTheme.appTheme(),
-          darkTheme: AppTheme.appTheme(
-              // TODO: Implement Dark theme
-              dark: true
-              ),
-          themeMode: ThemeMode.dark,
+          darkTheme: AppTheme.appTheme(dark: true),
+          themeMode: state.themeMode,
           localizationsDelegates: Localization.localizationsDelegates,
           supportedLocales: Localization.supportedLocales,
           debugShowCheckedModeBanner: false,
-          routerDelegate: NavigationHandler.routerDelegate,
-          routeInformationParser: NavigationHandler.routeInformationParser,
+          routerDelegate: RouteHandler.routerDelegate,
+          routeInformationParser: RouteHandler.routeInformationParser,
           scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
         ),
       );

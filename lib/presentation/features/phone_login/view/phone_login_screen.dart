@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 
 import '../../../res/styles.dart';
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/phone_login_state.dart';
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onButtonTap() {
     if (_formKey.currentState!.validate()) {
-      NavigationHandler.navigateTo(
+      RouteHandler.routeTo(
         OtpLoginRoute(
           phoneNumber: phoneNumberNotifier.value + phoneNumberController.text,
         ),

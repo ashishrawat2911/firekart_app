@@ -25,7 +25,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/product_card.dart';
 import '../state/dashboard_state.dart';
@@ -57,7 +57,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
-              NavigationHandler.navigateTo(AllProductListRoute());
+              RouteHandler.routeTo(AllProductListRoute());
             },
             label: Text(
               Localization.value.viewAllProducts,
@@ -184,7 +184,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     } else if (title == Localization.value.onSale) {
                       condition = 'on_sale';
                     }
-                    NavigationHandler.navigateTo(
+                    RouteHandler.routeTo(
                       AllProductListRoute(productCondition: condition),
                     );
                   },
@@ -221,7 +221,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         name: productModel.name,
         currency: productModel.currency,
         onTap: () {
-          NavigationHandler.navigateTo(
+          RouteHandler.routeTo(
             ProductDetailRoute(
               product: productModel,
             ),

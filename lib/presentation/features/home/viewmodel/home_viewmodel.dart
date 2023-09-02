@@ -23,7 +23,7 @@ import 'package:firekart/presentation/routes/app_router.gr.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../state/home_state.dart';
 
 @injectable
@@ -56,9 +56,9 @@ class HomeScreenViewModel extends ViewModel<HomeState> {
               final res = await _logoutUseCase.execute();
               res.forEach((r) {
                 AppLoader.showToast('Logging out');
-                NavigationHandler.navigateTo(
+                RouteHandler.routeTo(
                   const LoginRoute(),
-                  navigationType: NavigationType.pushAndPopUntil,
+                  routingType: RoutingType.pushAndPopUntil,
                 );
               });
             }

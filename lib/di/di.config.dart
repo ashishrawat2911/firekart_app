@@ -25,7 +25,7 @@ import 'package:firekart/core/performance/performance_moniter.dart' as _i19;
 import 'package:firekart/core/storage/prefrences_storage.dart' as _i31;
 import 'package:firekart/core/storage/secure_storage.dart' as _i32;
 import 'package:firekart/data/app_error_model.dart' as _i4;
-import 'package:firekart/data/default_network_error_handler.dart' as _i18;
+import 'package:firekart/data/network_error_handler.dart' as _i18;
 import 'package:firekart/data/mapper/data_mapper.dart' as _i7;
 import 'package:firekart/data/repository/firekart_repository.dart' as _i37;
 import 'package:firekart/data/source/local/local_storage.dart' as _i33;

@@ -19,7 +19,7 @@ import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 
 @injectable
 class CheckStatusViewModel extends ViewModel<int> {
@@ -34,14 +34,14 @@ class CheckStatusViewModel extends ViewModel<int> {
       () async {
         final status = _getUserLoggedInStatusUseCase.execute();
         if (status) {
-          await NavigationHandler.navigateTo(
+          await RouteHandler.routeTo(
             const HomeRoute(),
-            navigationType: NavigationType.pushReplacement,
+            routingType: RoutingType.pushReplacement,
           );
         } else {
-          await NavigationHandler.navigateTo(
+          await RouteHandler.routeTo(
             const LoginRoute(),
-            navigationType: NavigationType.pushReplacement,
+            routingType: RoutingType.pushReplacement,
           );
         }
       },
