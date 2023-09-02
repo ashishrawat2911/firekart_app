@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../res/styles.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/common_button.dart';
@@ -129,7 +129,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                         ),
                       ),
                       onTap: () {
-                        NavigationHandler.pop(true);
+                        RouteHandler.pop(true);
                       },
                     ),
                   ],
@@ -190,7 +190,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   height: 20,
                 ),
                 InkWell(
-                  onTap: NavigationHandler.pop,
+                  onTap: RouteHandler.pop,
                   child: Text(
                     Localization.value.goBack,
                     style: ThemeProvider.textTheme.bodySmall?.copyWith(

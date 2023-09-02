@@ -22,7 +22,7 @@ import 'package:firekart/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../state/my_address_state.dart';
@@ -156,7 +156,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
       child: InkWell(
         onTap: widget.selectedAddress
             ? () {
-                NavigationHandler.pop(addressCardState.address);
+                RouteHandler.pop(addressCardState.address);
               }
             : null,
         child: Card(
@@ -211,7 +211,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                         ActionText(
                           Localization.value.editCaps,
                           onTap: () {
-                            NavigationHandler.navigateTo(
+                            RouteHandler.routeTo(
                               AddAddressRoute(
                                 newAddress: false,
                                 editAddress: addressCardState.address,
@@ -293,7 +293,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
   void addNewNavigation(
     MyAddressViewModel viewModel,
   ) {
-    NavigationHandler.navigateTo(
+    RouteHandler.routeTo(
       AddAddressRoute(
         newAddress: true,
       ),

@@ -24,7 +24,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/common_view_cart_overlay.dart';
 import '../state/add_to_cart_state.dart';
@@ -62,7 +62,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
               isCartEmpty: state.noOfItems > 0,
               onCartTap: () {
-                NavigationHandler.navigateTo(const CartRoute());
+                RouteHandler.routeTo(const CartRoute());
               },
             ),
           ),

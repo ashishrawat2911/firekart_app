@@ -20,7 +20,7 @@ import 'package:firekart/domain/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';
-import '../../../routes/navigation_handler.dart';
+import '../../../routes/route_handler.dart';
 import '../../../widgets/commom_search_text_field.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/product_card.dart';
@@ -84,7 +84,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       name: productModel.name,
       currency: productModel.currency,
       onTap: () {
-        NavigationHandler.navigateTo(
+        RouteHandler.routeTo(
           ProductDetailRoute(
             product: productModel,
           ),
