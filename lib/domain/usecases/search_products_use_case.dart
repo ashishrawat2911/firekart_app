@@ -15,7 +15,7 @@
  */
 import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/firekart_repository.dart';
+import 'package:firekart/domain/repository/product_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -23,7 +23,7 @@ import '../models/product_model.dart';
 
 @injectable
 class SearchProductsUseCase {
-  final FirekartRepository _firekartRepository;
+  final ProductRepository _firekartRepository;
 
   SearchProductsUseCase(this._firekartRepository);
 

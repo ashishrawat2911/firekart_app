@@ -15,13 +15,13 @@
  */
 import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/firekart_repository.dart';
+import 'package:firekart/domain/repository/cart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @injectable
 class UpdateCartUseCase {
-  final FirekartRepository _repository;
+  final CartRepository _repository;
 
   UpdateCartUseCase(this._repository);
 
