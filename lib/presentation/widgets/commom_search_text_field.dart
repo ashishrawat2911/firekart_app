@@ -88,11 +88,13 @@ class CommonSearchBar extends StatefulWidget implements PreferredSizeWidget {
     this.hintText,
     this.onBackPressed,
     this.onClosePressed,
+    this.autofocus = true,
   }) : super(key: key);
   final ValueChanged<String> onTextChanged;
   final VoidCallback? onBackPressed;
   final VoidCallback? onClosePressed;
   final String? hintText;
+  final bool autofocus;
 
   @override
   State createState() => _CommonSearchBarState();
@@ -125,7 +127,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
     return AppBar(
       title: TextField(
         controller: textEditingController,
-        autofocus: true,
+        autofocus: widget.autofocus,
         focusNode: focusNode,
         onChanged: (value) {
           widget.onTextChanged(value.trim());

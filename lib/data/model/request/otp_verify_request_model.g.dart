@@ -12,6 +12,7 @@ OTPVerifyRequestModel _$OTPVerifyRequestModelFromJson(
       json['phoneNumber'] as String,
       json['otp'] as String,
       json['name'] as String?,
+      json['deviceToken'] as String,
     );
 
 Map<String, dynamic> _$OTPVerifyRequestModelToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$OTPVerifyRequestModelToJson(
       'phoneNumber': instance.phoneNumber,
       'otp': instance.otp,
       'name': instance.name,
+      'deviceToken': instance.deviceToken,
     };

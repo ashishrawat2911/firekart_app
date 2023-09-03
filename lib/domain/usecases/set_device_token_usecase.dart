@@ -13,24 +13,18 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-part 'otp_verify_request_model.g.dart';
+import 'package:firekart/domain/repository/auth_repository.dart';
+import 'package:injectable/injectable.dart' hide Order;
+import 'package:injectable/injectable.dart';
 
-@JsonSerializable()
-class OTPVerifyRequestModel {
-  String phoneNumber;
-  String otp;
-  String? name;
-  String deviceToken;
+@injectable
+class SetDeviceTokenUseCase {
+  SetDeviceTokenUseCase(this._repository);
 
-  Map<String, dynamic> toJson() => _$OTPVerifyRequestModelToJson(this);
+  final AuthRepository _repository;
 
-  OTPVerifyRequestModel(
-    this.phoneNumber,
-    this.otp,
-    this.name,
-    this.deviceToken,
-  );
+  Future<void> execute(String deviceToken) {
+    return _repository.setDeviceToken(deviceToken);
+  }
 }

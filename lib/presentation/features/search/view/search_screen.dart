@@ -42,6 +42,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       builder: (BuildContext context, viewmodel, ProductSearchState state) {
         return Scaffold(
           appBar: CommonSearchBar(
+            autofocus: false,
             hintText: Localization.value.searchItems,
             onTextChanged: (String value) {
               viewmodel.searchProduct(value);
