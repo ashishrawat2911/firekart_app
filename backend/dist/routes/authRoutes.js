@@ -12,7 +12,8 @@ router.post('/login', authValidators_1.validateLoginPhoneNumber, authController_
 router.post('/verify-otp', authValidators_1.validateOTPAndLogin, authController_1.verifyOTPAndLogin);
 router.get('/userDetails', authMiddlewares_1.authenticateMiddleware, authController_1.fetchUserDetails);
 router.get('/userAddress', authMiddlewares_1.authenticateMiddleware, authController_1.fetchUserAddress);
-router.post('/addAddress', authMiddlewares_1.authenticateMiddleware, authController_1.addAddress);
-router.post('/editAddress', authMiddlewares_1.authenticateMiddleware, authController_1.editAddress);
-router.get('/updateDefaultAddress', authMiddlewares_1.authenticateMiddleware, authController_1.updateDefaultAddress);
+router.post('/addAddress', authValidators_1.validateAddress, authMiddlewares_1.authenticateMiddleware, authController_1.addAddress);
+router.post('/editAddress', authValidators_1.validateAddressId, authMiddlewares_1.authenticateMiddleware, authController_1.editAddress);
+router.get('/updateDefaultAddress', authValidators_1.validateAddressId, authMiddlewares_1.authenticateMiddleware, authController_1.updateDefaultAddress);
+//TODO Add User Name update
 exports.default = router;

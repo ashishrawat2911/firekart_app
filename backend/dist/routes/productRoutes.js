@@ -7,5 +7,7 @@ const express_1 = __importDefault(require("express"));
 const productsController_1 = require("../controllers/productsController");
 const productValidators_1 = require("../middlewares/validators/productValidators");
 const router = express_1.default.Router();
+//TODO Add Request Validation
 router.post('/', productValidators_1.validateFetchAllProducts, productsController_1.fetchAllProducts);
+//TODO Add Search Api
 exports.default = router;

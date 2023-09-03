@@ -48,8 +48,8 @@ export default class UserService {
         return addresses.map((addresses) => mapAddressToAddressResponseDTO(addresses, userId));
     }
 
-    async createUser(phoneNumber: string, name: string): Promise<User | null> {
-        await this.userRepository.addUserByPhoneNumber(phoneNumber, name)
+    async createUser(phoneNumber: string, name: string, deviceToken: string): Promise<User | null> {
+        await this.userRepository.addUserByPhoneNumber(phoneNumber, name, deviceToken)
         return await this.getUserByPhoneNumber(phoneNumber);
     }
 
@@ -73,5 +73,13 @@ export default class UserService {
             await this.updateAddressesToNotDefault(userId)
         }
         await this.userRepository.editAddress(address.id, address)
+    }
+
+    async updateDeviceToken(userId: number, deviceToken: string) {
+        await this.userRepository.updateDeviceTokenByUserId(userId, deviceToken)
+    }
+
+    async getDeviceToken(userId: number): Promise<string | null> {
+        return this.userRepository.getDeviceTokenByUserId(userId)
     }
 }
