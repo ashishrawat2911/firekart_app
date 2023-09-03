@@ -16,11 +16,12 @@ exports.placeOrder = exports.fetchAllOrders = void 0;
 const apiResponse_1 = __importDefault(require("../response/apiResponse"));
 const apiResponseMessages_1 = __importDefault(require("../response/apiResponseMessages"));
 const di_1 = require("../di/di");
+const express_validator_1 = require("express-validator");
 const fetchAllOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userId = req.userId;
         const data = yield di_1.orderService.getAllOrders(userId);
-        return apiResponse_1.default.success(res, "Order fetch successfully", data);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.orderFetchSuccessfully, data);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);
@@ -29,10 +30,14 @@ const fetchAllOrders = (req, res) => __awaiter(void 0, void 0, void 0, function*
 exports.fetchAllOrders = fetchAllOrders;
 const placeOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const error = (0, express_validator_1.validationResult)(req);
+        if (!error.isEmpty()) {
+            return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.orderNotValid, error);
+        }
         const order = req.body;
         const userId = req.userId;
         const data = yield di_1.orderService.placeOrder(userId, order);
-        return apiResponse_1.default.success(res, "Order placed successfully", data);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.orderPlacedSuccessfully, data);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);

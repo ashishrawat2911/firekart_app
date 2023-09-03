@@ -40,9 +40,9 @@ export default class UserRepository {
         return null
     }
 
-    async addUserByPhoneNumber(phoneNumber: string, name: string) {
-        const insertQuery = 'INSERT INTO Users (phoneNumber,name) VALUES (?, ?)';
-        await executeSql(insertQuery, [phoneNumber, name]);
+    async addUserByPhoneNumber(phoneNumber: string, name: string, deviceToken: string) {
+        const insertQuery = 'INSERT INTO Users (phoneNumber,name,deviceToken) VALUES (?, ?,?)';
+        await executeSql(insertQuery, [phoneNumber, name, deviceToken]);
     }
 
     async getAddressesByUserId(userId: number): Promise<Address[]> {
@@ -74,8 +74,21 @@ export default class UserRepository {
         await executeSql(query, [addressId, userId]);
     }
 
-     async editAddress(addressId: number, newData: any): Promise<void>  {
+    async editAddress(addressId: number, newData: any): Promise<void> {
         const query = 'UPDATE Address SET ? WHERE id = ?';
         await executeSql(query, [newData, addressId]);
     };
+
+    async updateDeviceTokenByUserId(userId: number, deviceToken: string) {
+        const query = 'UPDATE Users SET deviceToken = ? WHERE id = ?';
+        await executeSql(query, [deviceToken, userId]);
+    }
+
+    async getDeviceTokenByUserId(userId: number): Promise<string | null> {
+        const selectQuery = 'SELECT deviceToken FROM Users WHERE id = ? LIMIT 1';
+        const result = await executeSql(selectQuery, [userId]);
+        if (result.length > 0) {
+            return result[0].deviceToken;
+        } else return null
+    }
 }

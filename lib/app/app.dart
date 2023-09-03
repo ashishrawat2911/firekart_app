@@ -30,6 +30,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BaseView<AppViewModel, AppState>(
+        onViewModelReady: (viewModel) {
+          viewModel.initialize();
+        },
         builder: (context, viewModel, state) => MaterialApp.router(
           builder: AppLoader.initBuilder(
             builder: (context, child) {

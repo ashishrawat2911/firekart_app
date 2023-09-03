@@ -54,10 +54,10 @@ class UserRepository {
             return null;
         });
     }
-    addUserByPhoneNumber(phoneNumber, name) {
+    addUserByPhoneNumber(phoneNumber, name, deviceToken) {
         return __awaiter(this, void 0, void 0, function* () {
-            const insertQuery = 'INSERT INTO Users (phoneNumber,name) VALUES (?, ?)';
-            yield (0, database_1.executeSql)(insertQuery, [phoneNumber, name]);
+            const insertQuery = 'INSERT INTO Users (phoneNumber,name,deviceToken) VALUES (?, ?,?)';
+            yield (0, database_1.executeSql)(insertQuery, [phoneNumber, name, deviceToken]);
         });
     }
     getAddressesByUserId(userId) {
@@ -99,5 +99,22 @@ class UserRepository {
         });
     }
     ;
+    updateDeviceTokenByUserId(userId, deviceToken) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const query = 'UPDATE Users SET deviceToken = ? WHERE id = ?';
+            yield (0, database_1.executeSql)(query, [deviceToken, userId]);
+        });
+    }
+    getDeviceTokenByUserId(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const selectQuery = 'SELECT deviceToken FROM Users WHERE id = ? LIMIT 1';
+            const result = yield (0, database_1.executeSql)(selectQuery, [userId]);
+            if (result.length > 0) {
+                return result[0].deviceToken;
+            }
+            else
+                return null;
+        });
+    }
 }
 exports.default = UserRepository;

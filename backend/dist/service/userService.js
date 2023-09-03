@@ -56,9 +56,9 @@ class UserService {
             return addresses.map((addresses) => (0, mapper_1.mapAddressToAddressResponseDTO)(addresses, userId));
         });
     }
-    createUser(phoneNumber, name) {
+    createUser(phoneNumber, name, deviceToken) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.userRepository.addUserByPhoneNumber(phoneNumber, name);
+            yield this.userRepository.addUserByPhoneNumber(phoneNumber, name, deviceToken);
             return yield this.getUserByPhoneNumber(phoneNumber);
         });
     }
@@ -86,6 +86,16 @@ class UserService {
                 yield this.updateAddressesToNotDefault(userId);
             }
             yield this.userRepository.editAddress(address.id, address);
+        });
+    }
+    updateDeviceToken(userId, deviceToken) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.userRepository.updateDeviceTokenByUserId(userId, deviceToken);
+        });
+    }
+    getDeviceToken(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.userRepository.getDeviceTokenByUserId(userId);
         });
     }
 }

@@ -1,9 +1,11 @@
+import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/core/storage/prefrences_storage.dart';
 import 'package:firekart/core/storage/secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
 class _Const {
   static const String isLoggedIn = 'isLoggedIn';
+  static const String deviceToken = 'deviceToken';
   static const String token = 'token';
 }
 
@@ -22,6 +24,10 @@ class LocalStorage {
     return _secureStorage.secureGet(_Const.token);
   }
 
+  String get deviceToken {
+    return _secureStorage.secureGet(_Const.deviceToken);
+  }
+
   Future<void> setAccessToken(String token) {
     return _secureStorage.secureSet(_Const.token, token);
   }
@@ -33,5 +39,9 @@ class LocalStorage {
   void clear() {
     _preferencesStorage.clearAll();
     _secureStorage.clearAll();
+  }
+
+  Future<void> setDeviceToken(String deviceToken) async {
+    await _secureStorage.secureSet(_Const.deviceToken, deviceToken);
   }
 }

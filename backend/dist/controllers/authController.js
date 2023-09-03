@@ -40,7 +40,7 @@ const verifyOTPAndLogin = (req, res) => __awaiter(void 0, void 0, void 0, functi
         if (!errors.isEmpty()) {
             return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.phoneNumberOrOTPNotValid, errors);
         }
-        const { phoneNumber, otp, name } = req.body;
+        const { phoneNumber, otp, name, deviceToken } = req.body;
         let user = yield di_1.userService.getUserByPhoneNumber(phoneNumber);
         if (!user) {
             if (!name) {
@@ -50,10 +50,13 @@ const verifyOTPAndLogin = (req, res) => __awaiter(void 0, void 0, void 0, functi
         const isOTPValid = yield di_1.userService.verifyOTP(phoneNumber, otp);
         if (isOTPValid) {
             if (!user) {
-                user = yield di_1.userService.createUser(phoneNumber, name);
+                user = yield di_1.userService.createUser(phoneNumber, name, deviceToken);
+            }
+            else {
+                yield di_1.userService.updateDeviceToken(user.id, deviceToken);
             }
             const token = yield (0, jwtUtils_1.createJWT)(user.id);
-            return apiResponse_1.default.success(res, "Logged in successfully", { token, user });
+            return apiResponse_1.default.success(res, apiResponseMessages_1.default.loggedInSuccessfully, { token, user });
         }
         else {
             return apiResponse_1.default.unauthorized(res, apiResponseMessages_1.default.invalidOTP);
@@ -68,7 +71,7 @@ const fetchUserDetails = (req, res) => __awaiter(void 0, void 0, void 0, functio
     try {
         const userId = req.userId;
         const user = yield di_1.userService.getUserById(userId);
-        return apiResponse_1.default.success(res, "User fetched successfully", user);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.userFetchedSuccessfully, user);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);
@@ -79,7 +82,7 @@ const fetchUserAddress = (req, res) => __awaiter(void 0, void 0, void 0, functio
     try {
         const userId = req.userId;
         const user = yield di_1.userService.getAddressesByUser(userId);
-        return apiResponse_1.default.success(res, "User fetched successfully", user);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.addressFetchedSuccessfully, user);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);
@@ -88,10 +91,14 @@ const fetchUserAddress = (req, res) => __awaiter(void 0, void 0, void 0, functio
 exports.fetchUserAddress = fetchUserAddress;
 const addAddress = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const errors = (0, express_validator_1.validationResult)(req);
+        if (!errors.isEmpty()) {
+            return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.addressNotValid, errors);
+        }
         const userId = req.userId;
         const address = req.body;
         const user = yield di_1.userService.addAddress(userId, address);
-        return apiResponse_1.default.success(res, "Address added successfully", user);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.addressAddedSuccessfully, user);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);
@@ -100,11 +107,15 @@ const addAddress = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 exports.addAddress = addAddress;
 const updateDefaultAddress = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const errors = (0, express_validator_1.validationResult)(req);
+        if (!errors.isEmpty()) {
+            return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.addressIdNotValid, errors);
+        }
         const userId = req.userId;
         const { addressId } = req.params;
         // Call the service function to update the default address
         const data = yield di_1.userService.updateAddressToDefault(Number(addressId), Number(userId));
-        return apiResponse_1.default.success(res, "Address updated successfully", data);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.addressUpdatedSuccessfully, data);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);
@@ -113,10 +124,14 @@ const updateDefaultAddress = (req, res) => __awaiter(void 0, void 0, void 0, fun
 exports.updateDefaultAddress = updateDefaultAddress;
 const editAddress = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const errors = (0, express_validator_1.validationResult)(req);
+        if (!errors.isEmpty()) {
+            return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.addressIdNotValid, errors);
+        }
         const address = req.body;
         const userId = req.userId;
         const data = yield di_1.userService.editAddress(userId, address);
-        return apiResponse_1.default.success(res, "Address updated successfully", data);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.addressUpdatedSuccessfully, data);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);
