@@ -11,8 +11,10 @@ const database_1 = require("./database/database");
 const productRoutes_1 = __importDefault(require("./routes/productRoutes"));
 const cartRoutes_1 = __importDefault(require("./routes/cartRoutes"));
 const orderRoutes_1 = __importDefault(require("./routes/orderRoutes"));
+const fcm_1 = require("./fcm/fcm");
 const app = (0, express_1.default)();
 (0, database_1.initDb)();
+(0, fcm_1.initFirebase)();
 // Middleware
 app.use(express_1.default.json());
 app.use(body_parser_1.default.json());

@@ -7,6 +7,7 @@ export const validateLoginPhoneNumber = [
 export const validateOTPAndLogin = [
     body('phoneNumber').notEmpty().withMessage('Invalid phone number'),
     body('otp').notEmpty().isNumeric().withMessage('Invalid OTP'),
+    body('deviceToken').notEmpty().withMessage('Invalid Device Token'),
 ];
 
 

@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a, _b, _c, _d, _e, _f;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PORT = exports.JWT_SECRET_KEY = exports.dbConfig = void 0;
+exports.PORT = exports.JWT_SECRET_KEY = exports.fcmConfig = exports.dbConfig = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.dbConfig = {
@@ -14,6 +14,12 @@ exports.dbConfig = {
     database: (_d = process.env.DB_DATABASE) !== null && _d !== void 0 ? _d : "firekart",
     namedPlaceholders: true,
     decimalNumbers: true,
+};
+exports.fcmConfig = {
+    project_id: process.env.FCM_CLIENT_EMAIL,
+    client_email: process.env.FCM_PROJECT_ID,
+    client_id: process.env.FCM_Client_ID,
+    privateKey: process.env.FCM_PRIVATE_KEY
 };
 exports.JWT_SECRET_KEY = (_e = process.env.JWT_SECRET_KEY) !== null && _e !== void 0 ? _e : "your-default-secret-key";
 exports.PORT = (_f = process.env.PORT) !== null && _f !== void 0 ? _f : "9090";

@@ -59,7 +59,12 @@ class AuthRepositoryImpl extends AuthRepository {
     return getNetworkResult(
       () async {
         final res = await _apiService.verifyOtp(
-          OTPVerifyRequestModel(phoneNumber, smsCode, name),
+          OTPVerifyRequestModel(
+            phoneNumber,
+            smsCode,
+            name,
+            _localStorage.deviceToken,
+          ),
         );
         await _localStorage.setLogin(true);
         await _localStorage.setAccessToken(res.data.token);
@@ -74,5 +79,10 @@ class AuthRepositoryImpl extends AuthRepository {
         _localStorage.clear();
       },
     );
+  }
+
+  @override
+  Future<void> setDeviceToken(String deviceToken) async {
+    await _localStorage.setDeviceToken(deviceToken);
   }
 }
