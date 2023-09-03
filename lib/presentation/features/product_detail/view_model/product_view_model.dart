@@ -41,7 +41,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
   final UpdateCartUseCase _updateCartUseCase;
 
   Future<void> checkItemInCart(int productId) async {
-    (await _getCartStatusUseCase.execute()).forEach((carts) async {
+    _getCartStatusUseCase.watch().listen((carts) {
       if (carts.isNotEmpty) {
         final int cartValue = _getItemsInCartUseCase.execute(productId, carts);
         AppLogger.log(cartValue);
