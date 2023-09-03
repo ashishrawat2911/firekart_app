@@ -21,11 +21,11 @@ const fetchAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, functio
     try {
         const error = (0, express_validator_1.validationResult)(req);
         if (!error.isEmpty()) {
-            return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.phoneNumberNotValid, error);
+            return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.pageOffSetNotValid, error);
         }
         const { page, offset } = req.body;
         const data = yield di_1.productService.getAllProducts(page, offset);
-        return apiResponse_1.default.success(res, "Product fetch successfully", data);
+        return apiResponse_1.default.success(res, apiResponseMessages_1.default.productFetchSuccessfully, data);
     }
     catch (error) {
         return apiResponse_1.default.internalServerError(res, apiResponseMessages_1.default.anErrorOccurred, error);

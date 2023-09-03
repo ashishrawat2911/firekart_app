@@ -1,5 +1,7 @@
 import CartRepository from "../repository/cartRepository";
 import Cart from "../models/entity/Cart";
+import FCMService from "./fcmService";
+import {fcmService} from "../di/di";
 
 export default class CartService {
     constructor(private cartRepository: CartRepository) {

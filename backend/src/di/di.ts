@@ -6,6 +6,7 @@ import UserRepository from "../repository/userRepository";
 import UserService from "../service/userService";
 import OrderRepository from "../repository/orderRepository";
 import OrderService from "../service/orderService";
+import FCMService from "../service/fcmService";
 
 //Repository
 export const cartRepository = new CartRepository()
@@ -18,3 +19,4 @@ export const cartService = new CartService(cartRepository);
 export const productService = new ProductService(productRepository);
 export const userService = new UserService(userRepository);
 export const orderService = new OrderService(orderRepository);
+export const fcmService = new FCMService();

@@ -6,10 +6,11 @@ import {closeDb, initDb} from "./database/database";
 import productRoutes from "./routes/productRoutes";
 import cartRoutes from "./routes/cartRoutes";
 import orderRoutes from "./routes/orderRoutes";
+import {initFirebase} from "./fcm/fcm";
 
 const app: Application = express();
 initDb()
-
+initFirebase()
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json());
