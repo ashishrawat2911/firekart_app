@@ -36,7 +36,7 @@ const admin = __importStar(require("firebase-admin"));
 class FCMService {
     constructor() {
     }
-    sendMessage(title, body, token) {
+    sendMessage(title, body, deviceToken) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const message = {
@@ -44,7 +44,7 @@ class FCMService {
                         title: title,
                         body: body,
                     },
-                    token: token,
+                    token: deviceToken,
                 };
                 const response = yield admin.messaging().send(message);
                 console.log('Successfully sent message:', response);
