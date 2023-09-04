@@ -40,7 +40,7 @@ const verifyOTPAndLogin = (req, res) => __awaiter(void 0, void 0, void 0, functi
         if (!errors.isEmpty()) {
             return apiResponse_1.default.badRequest(res, apiResponseMessages_1.default.phoneNumberOrOTPNotValid, errors);
         }
-        const { phoneNumber, otp, name } = req.body;
+        const { phoneNumber, otp, name, deviceToken } = req.body;
         let user = yield di_1.userService.getUserByPhoneNumber(phoneNumber);
         if (!user) {
             if (!name) {
@@ -50,7 +50,10 @@ const verifyOTPAndLogin = (req, res) => __awaiter(void 0, void 0, void 0, functi
         const isOTPValid = yield di_1.userService.verifyOTP(phoneNumber, otp);
         if (isOTPValid) {
             if (!user) {
-                user = yield di_1.userService.createUser(phoneNumber, name);
+                user = yield di_1.userService.createUser(phoneNumber, name, deviceToken);
+            }
+            else {
+                yield di_1.userService.updateDeviceToken(user.id, deviceToken);
             }
             const token = yield (0, jwtUtils_1.createJWT)(user.id);
             return apiResponse_1.default.success(res, apiResponseMessages_1.default.loggedInSuccessfully, { token, user });

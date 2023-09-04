@@ -24,7 +24,12 @@ class OrderService {
     placeOrder(userId, order) {
         return __awaiter(this, void 0, void 0, function* () {
             yield di_1.cartService.clearCart(userId);
-            return this.orderRepository.addOrder(userId, order);
+            yield this.orderRepository.addOrder(userId, order);
+            const token = yield di_1.userService.getDeviceToken(userId);
+            console.log(token);
+            if (!token) {
+                yield di_1.fcmService.sendMessage("Order Placed", "Order Successfully placed", token);
+            }
         });
     }
 }
