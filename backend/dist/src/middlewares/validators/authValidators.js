@@ -8,6 +8,7 @@ exports.validateLoginPhoneNumber = [
 exports.validateOTPAndLogin = [
     (0, express_validator_1.body)('phoneNumber').notEmpty().withMessage('Invalid phone number'),
     (0, express_validator_1.body)('otp').notEmpty().isNumeric().withMessage('Invalid OTP'),
+    (0, express_validator_1.body)('deviceToken').notEmpty().withMessage('Invalid Device Token'),
 ];
 exports.validateAddress = [
     (0, express_validator_1.body)('name').notEmpty().withMessage('Invalid name'),

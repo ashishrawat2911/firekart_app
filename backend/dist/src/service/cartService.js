@@ -8,11 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const fcmService_1 = __importDefault(require("./fcmService"));
 class CartService {
     constructor(cartRepository) {
         this.cartRepository = cartRepository;
@@ -34,9 +30,6 @@ class CartService {
     }
     updateQuantity(userId, productId, quantity) {
         return __awaiter(this, void 0, void 0, function* () {
-            const dcm = new fcmService_1.default();
-            console.log('FCMService');
-            yield dcm.sendMessage("Cart Added", " Added to cart ", "fuwzpnVElEQGpUyXg0CInA:APA91bHfNJ1q9K6qKaFDCVepjjPeoaQNdN-QGlm8BzgAbzvuRnRGCODhO16Uu9Li1rJiwcdULIbM1CzHCVuPO8ekTJJIc5tYRtCgfL2c_yB4AwNUdhPrxLiQmVX5FNcZWGkzkQL-_wQd");
             return this.cartRepository.updateCartItemQuantity(userId, productId, quantity);
         });
     }
