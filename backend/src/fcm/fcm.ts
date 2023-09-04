@@ -1,8 +1,8 @@
 import * as admin from "firebase-admin";
-import {fcmConfig} from "../config/configs";
+import serviceAccountKey from "../../serviceAccountKey.json";
 
 export function initFirebase() {
     admin.initializeApp({
-        credential: admin.credential.cert(fcmConfig as admin.ServiceAccount),
+        credential: admin.credential.cert(serviceAccountKey as admin.ServiceAccount),
     });
 }
