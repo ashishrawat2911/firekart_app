@@ -135,7 +135,7 @@ class __$$_AddToCartStateCopyWithImpl<$Res>
 class _$_AddToCartState implements _AddToCartState {
   const _$_AddToCartState(
       {this.addToCardLoading = false,
-      this.showAddButton = false,
+      this.showAddButton = true,
       this.cartDataLoading = false,
       this.noOfItems = 0});
 
