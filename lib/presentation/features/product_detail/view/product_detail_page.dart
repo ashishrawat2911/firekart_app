@@ -60,7 +60,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             args: CommonViewCartOverlayArgs(
               title:
                   "${state.noOfItems} item${state.noOfItems > 1 ? "s" : ""} ",
-              isCartEmpty: state.noOfItems > 0,
+              isCartEmpty: !state.showAddButton,
               onCartTap: () {
                 RouteHandler.routeTo(const CartRoute());
               },
@@ -171,7 +171,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ],
         ),
       ),
-      crossFadeState: (cartValue > 0)
+      crossFadeState: (!state.showAddButton)
           ? CrossFadeState.showSecond
           : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 100),

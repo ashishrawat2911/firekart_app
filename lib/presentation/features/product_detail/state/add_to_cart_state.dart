@@ -21,7 +21,7 @@ part 'add_to_cart_state.freezed.dart';
 class AddToCartState with _$AddToCartState {
   const factory AddToCartState({
     @Default(false) bool addToCardLoading,
-    @Default(false) bool showAddButton,
+    @Default(true) bool showAddButton,
     @Default(false) bool cartDataLoading,
     @Default(0) num noOfItems,
   }) = _AddToCartState;
