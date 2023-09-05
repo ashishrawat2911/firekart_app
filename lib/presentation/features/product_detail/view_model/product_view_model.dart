@@ -42,15 +42,19 @@ class ProductViewModel extends ViewModel<AddToCartState> {
 
   Future<void> checkItemInCart(int productId) async {
     _getCartStatusUseCase.watch().listen((carts) {
-      if (carts.isNotEmpty) {
-        final int cartValue = _getItemsInCartUseCase.execute(productId, carts);
-        AppLogger.log(cartValue);
-        if (cartValue > 0) {
-          state = state.copyWith(noOfItems: cartValue);
-        } else {
-          state = state.copyWith(showAddButton: true);
-        }
+      state = state.copyWith(addToCardLoading: true);
+
+      final int cartValue = _getItemsInCartUseCase.execute(productId, carts);
+      AppLogger.log('Cart Value : PD $cartValue');
+      if (cartValue > 0) {
+        state = state.copyWith(
+          noOfItems: cartValue,
+          showAddButton: false,
+        );
+      } else if (cartValue == 0) {
+        state = state.copyWith(showAddButton: true, noOfItems: 0);
       }
+      state = state.copyWith(addToCardLoading: false);
     });
   }
 
@@ -73,7 +77,7 @@ class ProductViewModel extends ViewModel<AddToCartState> {
     bool shouldIncrease,
   ) async {
     final int newCartValue = shouldIncrease ? cartValue + 1 : cartValue - 1;
-    state = state.copyWith(addToCardLoading: true);
+    state = state.copyWith(cartDataLoading: true);
 
     if (newCartValue > 0) {
       await _updateCartUseCase
@@ -85,13 +89,13 @@ class ProductViewModel extends ViewModel<AddToCartState> {
           state = state.copyWith(noOfItems: newCartValue);
         });
       }).whenComplete(() {
-        state = state.copyWith(addToCardLoading: false);
+        state = state.copyWith(cartDataLoading: false);
       });
     } else {
       state = state.copyWith(
         showAddButton: true,
         noOfItems: newCartValue,
-        addToCardLoading: false,
+        cartDataLoading: false,
       );
     }
   }
