@@ -47,6 +47,7 @@ abstract class NetworkModule {
 
   @Named(DIConstants.baseUrl)
   String get baseUrl => 'https://firekart-service.onrender.com/';
+  // String get baseUrl => 'http://localhost:9090/';
 
   @preResolve
   Future<HttpClient> sslHttpClient() async {
