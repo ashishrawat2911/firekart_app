@@ -25,7 +25,7 @@ class LocalStorage {
   }
 
   String get deviceToken {
-    return _secureStorage.secureGet(_Const.deviceToken);
+    return _preferencesStorage.getString(_Const.deviceToken);
   }
 
   Future<void> setAccessToken(String token) {
@@ -42,6 +42,6 @@ class LocalStorage {
   }
 
   Future<void> setDeviceToken(String deviceToken) async {
-    await _secureStorage.secureSet(_Const.deviceToken, deviceToken);
+    await _preferencesStorage.setString(_Const.deviceToken, deviceToken);
   }
 }

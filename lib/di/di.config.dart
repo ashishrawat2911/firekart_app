@@ -218,6 +218,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i45.OrderRepository>(() => _i46.OrderRepositoryImpl(
           gh<_i6.DataMapper>(),
           gh<_i36.ApiService>(),
+          gh<_i29.CartDao>(),
         ));
     gh.factory<_i47.PlaceOrderUseCase>(
         () => _i47.PlaceOrderUseCase(gh<_i45.OrderRepository>()));
