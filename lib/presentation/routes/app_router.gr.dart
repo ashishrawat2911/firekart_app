@@ -77,14 +77,9 @@ abstract class $AppRouter extends _i16.RootStackRouter {
       );
     },
     AllProductListRoute.name: (routeData) {
-      final args = routeData.argsAs<AllProductListRouteArgs>(
-          orElse: () => const AllProductListRouteArgs());
       return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i4.AllProductListScreen(
-          key: args.key,
-          productCondition: args.productCondition,
-        ),
+        child: const _i4.AllProductListScreen(),
       );
     },
     CartRoute.name: (routeData) {
@@ -271,40 +266,16 @@ class AddUserDetailRouteArgs {
 
 /// generated route for
 /// [_i4.AllProductListScreen]
-class AllProductListRoute extends _i16.PageRouteInfo<AllProductListRouteArgs> {
-  AllProductListRoute({
-    _i17.Key? key,
-    String? productCondition,
-    List<_i16.PageRouteInfo>? children,
-  }) : super(
+class AllProductListRoute extends _i16.PageRouteInfo<void> {
+  const AllProductListRoute({List<_i16.PageRouteInfo>? children})
+      : super(
           AllProductListRoute.name,
-          args: AllProductListRouteArgs(
-            key: key,
-            productCondition: productCondition,
-          ),
           initialChildren: children,
         );
 
   static const String name = 'AllProductListRoute';
 
-  static const _i16.PageInfo<AllProductListRouteArgs> page =
-      _i16.PageInfo<AllProductListRouteArgs>(name);
-}
-
-class AllProductListRouteArgs {
-  const AllProductListRouteArgs({
-    this.key,
-    this.productCondition,
-  });
-
-  final _i17.Key? key;
-
-  final String? productCondition;
-
-  @override
-  String toString() {
-    return 'AllProductListRouteArgs{key: $key, productCondition: $productCondition}';
-  }
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for

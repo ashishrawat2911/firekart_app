@@ -27,7 +27,7 @@ class AllProductCubit extends ViewModel<ResultState<List<Product>>> {
 
   final GetAllProductsUseCase _getAllProductsUseCase;
 
-  Future<void> fetchProducts([String? condition]) async {
+  Future<void> fetchProducts() async {
     state = const ResultState.loading();
     final productList = await _getAllProductsUseCase.execute();
     productList.fold((l) {
