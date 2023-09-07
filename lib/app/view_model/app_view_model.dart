@@ -16,7 +16,10 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:firekart/domain/usecases/get_user_logged_in_status.dart';
 import 'package:firekart/domain/usecases/set_device_token_usecase.dart';
+import 'package:firekart/presentation/routes/app_router.gr.dart';
+import 'package:firekart/presentation/routes/route_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
@@ -26,8 +29,10 @@ import '../state/app_state.dart';
 @singleton
 class AppViewModel extends ViewModel<AppState> {
   final SetDeviceTokenUseCase _setDeviceTokenUseCase;
+  final GetUserLoggedInStatusUseCase _loggedInStatusUseCase;
 
-  AppViewModel(this._setDeviceTokenUseCase) : super(const AppState());
+  AppViewModel(this._setDeviceTokenUseCase, this._loggedInStatusUseCase)
+      : super(const AppState());
 
   void initialize() {
     FirebaseMessaging.instance.requestPermission();
@@ -39,18 +44,74 @@ class AppViewModel extends ViewModel<AppState> {
         }
       },
     );
-    FirebaseMessaging.onMessage.listen((message) {
-      AppLogger.log('Message data: ${message.data}');
-    });
+    FirebaseMessaging.onMessage.listen((message) {});
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      AppLogger.log('Message data: ${message.data}');
+      _handleNotification(message.data);
     });
     FirebaseMessaging.onBackgroundMessage((message) async {
-      AppLogger.log('Message data: ${message.data}');
+      _handleNotification(message.data);
     });
   }
 
   void setTheme(ThemeMode themeMode) {
     state = state.copyWith(themeMode: themeMode);
+  }
+
+  void _handleNotification(Map<String, dynamic> notificationData) {
+    String notificationType = notificationData['type'];
+
+    switch (notificationType) {
+      case 'new_product':
+        // Handle new product notification
+        String productId = notificationData['product_id'];
+        String productName = notificationData['product_name'];
+        AppLogger.log(
+            'New Product Alert! Product ID: $productId, Product Name: $productName');
+        break;
+
+      case 'promotion':
+        // Handle promotion or discount notification
+        String discountCode = notificationData['discount_code'];
+        String expiryDate = notificationData['expiry_date'];
+        AppLogger.log(
+            'Limited-Time Offer! Use code $discountCode by $expiryDate.');
+        break;
+
+      case 'order_status':
+        // Handle order status update notification
+        String orderId = notificationData['order_id'];
+        String status = notificationData['status'];
+        AppLogger.log('Order Status Update: Order ID $orderId is now $status.');
+        if (_loggedInStatusUseCase.execute()) {
+          RouteHandler.routeTo(const MyOrdersRoute());
+        }
+        break;
+
+      case 'flash_sale':
+        // Handle flash sale reminder
+        String startTime = notificationData['start_time'];
+        String endTime = notificationData['end_time'];
+        AppLogger.log('Flash Sale Alert! Today from $startTime to $endTime.');
+        break;
+
+      case 'review_request':
+        // Handle review request notification
+        String reviewOrderId = notificationData['order_id'];
+        String reviewProductId = notificationData['product_id'];
+        AppLogger.log(
+            'Share Your Feedback for Order ID $reviewOrderId, Product ID $reviewProductId.');
+        break;
+
+      case 'out_of_stock':
+        // Handle out-of-stock product notification
+        String outOfStockProductId = notificationData['product_id'];
+        String outOfStockProductName = notificationData['product_name'];
+        AppLogger.log(
+            'Product Out of Stock: ID $outOfStockProductId, Name: $outOfStockProductName.');
+        break;
+
+      default:
+        AppLogger.log('Received an unrecognized notification type.');
+    }
   }
 }
