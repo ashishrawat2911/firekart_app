@@ -13,10 +13,10 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
 import 'package:firekart/domain/usecases/get_user_logged_in_status.dart';
+import 'package:firekart/domain/usecases/notification_handler_usecase.dart';
 import 'package:firekart/domain/usecases/set_device_token_usecase.dart';
 import 'package:firekart/presentation/routes/app_router.gr.dart';
 import 'package:firekart/presentation/routes/route_handler.dart';
@@ -30,27 +30,18 @@ import '../state/app_state.dart';
 class AppViewModel extends ViewModel<AppState> {
   final SetDeviceTokenUseCase _setDeviceTokenUseCase;
   final GetUserLoggedInStatusUseCase _loggedInStatusUseCase;
+  final PushNotificationHandlerUseCase _notificationHandlerUseCase;
 
-  AppViewModel(this._setDeviceTokenUseCase, this._loggedInStatusUseCase)
+  AppViewModel(this._setDeviceTokenUseCase, this._loggedInStatusUseCase,
+      this._notificationHandlerUseCase)
       : super(const AppState());
 
   void initialize() {
-    FirebaseMessaging.instance.requestPermission();
-    FirebaseMessaging.instance.getToken().then(
-      (deviceToken) {
-        if (deviceToken != null) {
-          _setDeviceTokenUseCase.execute(deviceToken);
-          AppLogger.log('Device Token: $deviceToken');
-        }
+    _notificationHandlerUseCase.execute(
+      onNotificationData: (notificationData) {
+        _handleNotification(notificationData);
       },
     );
-    FirebaseMessaging.onMessage.listen((message) {});
-    FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      _handleNotification(message.data);
-    });
-    FirebaseMessaging.onBackgroundMessage((message) async {
-      _handleNotification(message.data);
-    });
   }
 
   void setTheme(ThemeMode themeMode) {
