@@ -36,10 +36,10 @@ import 'package:firekart/data/source/local/dao/cart_dao.dart' as _i29;
 import 'package:firekart/data/source/local/db/firekart_database.dart' as _i13;
 import 'package:firekart/data/source/local/local_storage.dart' as _i34;
 import 'package:firekart/data/source/remote/api_service.dart' as _i36;
-import 'package:firekart/di/module/database_module.dart' as _i81;
-import 'package:firekart/di/module/firebase_module.dart' as _i78;
-import 'package:firekart/di/module/network_module.dart' as _i79;
-import 'package:firekart/di/module/storage_module.dart' as _i80;
+import 'package:firekart/di/module/database_module.dart' as _i82;
+import 'package:firekart/di/module/firebase_module.dart' as _i79;
+import 'package:firekart/di/module/network_module.dart' as _i80;
+import 'package:firekart/di/module/storage_module.dart' as _i81;
 import 'package:firekart/domain/repository/auth_repository.dart' as _i37;
 import 'package:firekart/domain/repository/cart_repository.dart' as _i39;
 import 'package:firekart/domain/repository/order_repository.dart' as _i45;
@@ -62,6 +62,8 @@ import 'package:firekart/domain/usecases/get_current_user_phone_number_usecase.d
     as _i14;
 import 'package:firekart/domain/usecases/get_items_in_cart_usecase.dart'
     as _i15;
+import 'package:firekart/domain/usecases/get_product_details_usecase.dart'
+    as _i66;
 import 'package:firekart/domain/usecases/get_user_data_status_usecase.dart'
     as _i16;
 import 'package:firekart/domain/usecases/get_user_logged_in_status.dart'
@@ -77,7 +79,7 @@ import 'package:firekart/domain/usecases/set_device_token_usecase.dart' as _i54;
 import 'package:firekart/domain/usecases/set_user_profile_data_usecase.dart'
     as _i23;
 import 'package:firekart/domain/usecases/stream_account_details_usecase.dart'
-    as _i71;
+    as _i72;
 import 'package:firekart/domain/usecases/update_cart_usecase.dart' as _i55;
 import 'package:firekart/firebase_impl/analytics/firebase_analytics_impl.dart'
     as _i28;
@@ -87,33 +89,33 @@ import 'package:firekart/firebase_impl/deeplink/firebase_deep_link.dart'
 import 'package:firekart/firebase_impl/performance/firebase_performance_moniter.dart'
     as _i20;
 import 'package:firekart/presentation/features/add_account_detail/view_model/add_account_details_view_model.dart'
-    as _i72;
-import 'package:firekart/presentation/features/add_address/view_model/add_address_view_model.dart'
     as _i73;
+import 'package:firekart/presentation/features/add_address/view_model/add_address_view_model.dart'
+    as _i74;
 import 'package:firekart/presentation/features/app_settings/view_model/app_settings_view_model.dart'
     as _i5;
 import 'package:firekart/presentation/features/cart/view_model/cart_view_model.dart'
-    as _i75;
+    as _i76;
 import 'package:firekart/presentation/features/check_status/view_model/check_status_bloc.dart'
     as _i60;
 import 'package:firekart/presentation/features/dashboard/view_model/dashboard_view_model.dart'
-    as _i76;
-import 'package:firekart/presentation/features/home/viewmodel/home_viewmodel.dart'
     as _i77;
+import 'package:firekart/presentation/features/home/viewmodel/home_viewmodel.dart'
+    as _i78;
 import 'package:firekart/presentation/features/my_address/view_model/my_address_view_model.dart'
-    as _i66;
-import 'package:firekart/presentation/features/order/view_model/my_orders_cubit.dart'
     as _i67;
-import 'package:firekart/presentation/features/otp_login/view_model/otp_login_view_model.dart'
+import 'package:firekart/presentation/features/order/view_model/my_orders_cubit.dart'
     as _i68;
+import 'package:firekart/presentation/features/otp_login/view_model/otp_login_view_model.dart'
+    as _i69;
 import 'package:firekart/presentation/features/phone_login/view_model/phone_login_view_model.dart'
     as _i21;
 import 'package:firekart/presentation/features/product_detail/view_model/product_view_model.dart'
-    as _i70;
+    as _i71;
 import 'package:firekart/presentation/features/product_list/view_model/all_product_cubit.dart'
-    as _i74;
+    as _i75;
 import 'package:firekart/presentation/features/search/view_model/product_search_viewmodel.dart'
-    as _i69;
+    as _i70;
 import 'package:firekart/presentation/features/splash/view_model/splash_view_model.dart'
     as _i25;
 import 'package:get_it/get_it.dart' as _i1;
@@ -247,8 +249,10 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i58.AddAddressUseCase>(
         () => _i58.AddAddressUseCase(gh<_i56.UserRepository>()));
-    gh.singleton<_i59.AppViewModel>(
-        _i59.AppViewModel(gh<_i54.SetDeviceTokenUseCase>()));
+    gh.singleton<_i59.AppViewModel>(_i59.AppViewModel(
+      gh<_i54.SetDeviceTokenUseCase>(),
+      gh<_i43.GetUserLoggedInStatusUseCase>(),
+    ));
     gh.factory<_i60.CheckStatusViewModel>(() =>
         _i60.CheckStatusViewModel(gh<_i43.GetUserLoggedInStatusUseCase>()));
     gh.factory<_i61.EditAddressUseCase>(
@@ -261,49 +265,52 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i64.GetAllOrdersUseCase(gh<_i45.OrderRepository>()));
     gh.factory<_i65.GetAllProductsUseCase>(
         () => _i65.GetAllProductsUseCase(gh<_i50.ProductRepository>()));
-    gh.factory<_i66.MyAddressViewModel>(() => _i66.MyAddressViewModel(
+    gh.factory<_i66.GetProductDetailsUseCase>(
+        () => _i66.GetProductDetailsUseCase(gh<_i50.ProductRepository>()));
+    gh.factory<_i67.MyAddressViewModel>(() => _i67.MyAddressViewModel(
           gh<_i62.GetAccountDetailsUseCase>(),
           gh<_i22.SetAccountDetailsUseCase>(),
           gh<_i63.GetAddressUseCase>(),
           gh<_i61.EditAddressUseCase>(),
         ));
-    gh.factory<_i67.MyOrdersCubit>(
-        () => _i67.MyOrdersCubit(gh<_i64.GetAllOrdersUseCase>()));
-    gh.factory<_i68.OtpLoginViewModel>(
-        () => _i68.OtpLoginViewModel(gh<_i53.SendOTPUseCase>()));
-    gh.factory<_i69.ProductSearchViewModel>(
-        () => _i69.ProductSearchViewModel(gh<_i52.SearchProductsUseCase>()));
-    gh.factory<_i70.ProductViewModel>(() => _i70.ProductViewModel(
+    gh.factory<_i68.MyOrdersCubit>(
+        () => _i68.MyOrdersCubit(gh<_i64.GetAllOrdersUseCase>()));
+    gh.factory<_i69.OtpLoginViewModel>(
+        () => _i69.OtpLoginViewModel(gh<_i53.SendOTPUseCase>()));
+    gh.factory<_i70.ProductSearchViewModel>(
+        () => _i70.ProductSearchViewModel(gh<_i52.SearchProductsUseCase>()));
+    gh.factory<_i71.ProductViewModel>(() => _i71.ProductViewModel(
           gh<_i15.GetItemsInCartUseCase>(),
           gh<_i48.ProductAddToCartUseCase>(),
           gh<_i42.GetCartStatusUseCase>(),
           gh<_i55.UpdateCartUseCase>(),
+          gh<_i66.GetProductDetailsUseCase>(),
         ));
-    gh.factory<_i71.StreamAccountDetailsUseCaseUseCase>(() =>
-        _i71.StreamAccountDetailsUseCaseUseCase(gh<_i56.UserRepository>()));
-    gh.factory<_i72.AddAccountDetailsViewModel>(
-        () => _i72.AddAccountDetailsViewModel(
+    gh.factory<_i72.StreamAccountDetailsUseCaseUseCase>(() =>
+        _i72.StreamAccountDetailsUseCaseUseCase(gh<_i56.UserRepository>()));
+    gh.factory<_i73.AddAccountDetailsViewModel>(
+        () => _i73.AddAccountDetailsViewModel(
               gh<_i22.SetAccountDetailsUseCase>(),
               gh<_i62.GetAccountDetailsUseCase>(),
             ));
-    gh.factory<_i73.AddAddressViewModel>(() => _i73.AddAddressViewModel(
+    gh.factory<_i74.AddAddressViewModel>(() => _i74.AddAddressViewModel(
           gh<_i58.AddAddressUseCase>(),
           gh<_i61.EditAddressUseCase>(),
         ));
-    gh.factory<_i74.AllProductCubit>(
-        () => _i74.AllProductCubit(gh<_i65.GetAllProductsUseCase>()));
-    gh.factory<_i75.CartViewModel>(() => _i75.CartViewModel(
+    gh.factory<_i75.AllProductCubit>(
+        () => _i75.AllProductCubit(gh<_i65.GetAllProductsUseCase>()));
+    gh.factory<_i76.CartViewModel>(() => _i76.CartViewModel(
           gh<_i49.ProductDeleteCartUseCase>(),
           gh<_i47.PlaceOrderUseCase>(),
           gh<_i42.GetCartStatusUseCase>(),
           gh<_i55.UpdateCartUseCase>(),
           gh<_i63.GetAddressUseCase>(),
         ));
-    gh.factory<_i76.DashboardViewModel>(
-        () => _i76.DashboardViewModel(gh<_i65.GetAllProductsUseCase>()));
-    gh.factory<_i77.HomeScreenViewModel>(() => _i77.HomeScreenViewModel(
+    gh.factory<_i77.DashboardViewModel>(
+        () => _i77.DashboardViewModel(gh<_i65.GetAllProductsUseCase>()));
+    gh.factory<_i78.HomeScreenViewModel>(() => _i78.HomeScreenViewModel(
           gh<_i42.GetCartStatusUseCase>(),
-          gh<_i71.StreamAccountDetailsUseCaseUseCase>(),
+          gh<_i72.StreamAccountDetailsUseCaseUseCase>(),
           gh<_i63.GetAddressUseCase>(),
           gh<_i44.LogoutUseCase>(),
         ));
@@ -311,10 +318,10 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$FirebaseModule extends _i78.FirebaseModule {}
+class _$FirebaseModule extends _i79.FirebaseModule {}
 
-class _$NetworkModule extends _i79.NetworkModule {}
+class _$NetworkModule extends _i80.NetworkModule {}
 
-class _$StorageModule extends _i80.StorageModule {}
+class _$StorageModule extends _i81.StorageModule {}
 
-class _$DatabaseModule extends _i81.DatabaseModule {}
+class _$DatabaseModule extends _i82.DatabaseModule {}

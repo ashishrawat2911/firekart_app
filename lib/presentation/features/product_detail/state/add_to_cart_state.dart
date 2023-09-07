@@ -13,6 +13,8 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:firekart/domain/models/product_model.dart';
+import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'add_to_cart_state.freezed.dart';
@@ -24,5 +26,15 @@ class AddToCartState with _$AddToCartState {
     @Default(true) bool showAddButton,
     @Default(false) bool cartDataLoading,
     @Default(0) num noOfItems,
+    @Default(ProductState.loading()) ProductState product,
   }) = _AddToCartState;
+}
+
+@freezed
+class ProductState with _$ProductState {
+  const factory ProductState.loading() = ProductLoading;
+
+  const factory ProductState.data(Product product) = ProductData;
+
+  const factory ProductState.error(NetworkError error) = ProductError;
 }

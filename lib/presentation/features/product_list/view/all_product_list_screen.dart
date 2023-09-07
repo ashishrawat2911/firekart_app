@@ -109,7 +109,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
       onTap: () {
         RouteHandler.routeTo(
           ProductDetailRoute(
-            product: productModel,
+            productId: productModel.productId,
           ),
         );
       },

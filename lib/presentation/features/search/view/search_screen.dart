@@ -87,7 +87,7 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       onTap: () {
         RouteHandler.routeTo(
           ProductDetailRoute(
-            product: productModel,
+            productId: productModel.productId,
           ),
         );
       },

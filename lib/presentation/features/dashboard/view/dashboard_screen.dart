@@ -215,7 +215,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         onTap: () {
           RouteHandler.routeTo(
             ProductDetailRoute(
-              product: productModel,
+              productId: productModel.productId,
             ),
           );
         },
