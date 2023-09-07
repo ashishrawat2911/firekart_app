@@ -58,15 +58,20 @@ class AppViewModel extends ViewModel<AppState> {
   }
 
   void _handleNotification(Map<String, dynamic> notificationData) {
+    AppLogger.log('Notification Data: $notificationData');
+
     String notificationType = notificationData['type'];
 
     switch (notificationType) {
       case 'new_product':
         // Handle new product notification
-        String productId = notificationData['product_id'];
+        int productId = notificationData['product_id'];
         String productName = notificationData['product_name'];
-        AppLogger.log(
-            'New Product Alert! Product ID: $productId, Product Name: $productName');
+        RouteHandler.routeTo(
+          ProductDetailRoute(
+            productId: productId,
+          ),
+        );
         break;
 
       case 'promotion':
