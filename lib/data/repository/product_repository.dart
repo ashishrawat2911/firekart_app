@@ -44,4 +44,18 @@ class ProductRepositoryImpl extends ProductRepository {
       },
     );
   }
+
+  @override
+  Future<Either<NetworkError, Product>> getProductsDetails(int productId) {
+    return getNetworkResult(
+      () {
+        return _apiService.getAllProducts(1, 100).then(
+              (value) => _dataMapper.productFromModel(value.data
+                  .where((element) => element.id == productId)
+                  .toList()
+                  .first),
+            );
+      },
+    );
+  }
 }

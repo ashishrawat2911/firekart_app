@@ -20,6 +20,7 @@ import 'package:firekart/domain/models/product_model.dart';
 import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:firekart/domain/usecases/get_cart_status_use_case.dart';
 import 'package:firekart/domain/usecases/get_items_in_cart_usecase.dart';
+import 'package:firekart/domain/usecases/get_product_details_usecase.dart';
 import 'package:firekart/domain/usecases/update_cart_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
@@ -33,12 +34,24 @@ class ProductViewModel extends ViewModel<AddToCartState> {
     this._productAddToCartUseCase,
     this._getCartStatusUseCase,
     this._updateCartUseCase,
+    this._getProductDetailsUseCase,
   ) : super(const AddToCartState());
 
   final GetItemsInCartUseCase _getItemsInCartUseCase;
   final ProductAddToCartUseCase _productAddToCartUseCase;
   final GetCartStatusUseCase _getCartStatusUseCase;
   final UpdateCartUseCase _updateCartUseCase;
+  final GetProductDetailsUseCase _getProductDetailsUseCase;
+
+  Future<void> initialize(int productId) async {
+    final res = await _getProductDetailsUseCase.execute(productId);
+    res.fold((l) {
+      state = state.copyWith(product: ProductError(l));
+    }, (r) {
+      state = state.copyWith(product: ProductData(r));
+    });
+    await checkItemInCart(productId);
+  }
 
   Future<void> checkItemInCart(int productId) async {
     _getCartStatusUseCase.watch().listen((carts) {
