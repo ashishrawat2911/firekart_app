@@ -38,7 +38,7 @@ class ProductRepositoryImpl extends ProductRepository {
   Future<Either<NetworkError, List<Product>>> getAllProducts() {
     return getNetworkResult(
       () {
-        return _apiService.getAllProducts(1, 10).then(
+        return _apiService.getAllProducts(1, 100).then(
               (value) => value.data.map(_dataMapper.productFromModel).toList(),
             );
       },
