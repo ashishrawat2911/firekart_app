@@ -146,7 +146,10 @@ extension GetItInjectableX on _i1.GetIt {
         firebaseModule.firebaseDynamicLinks);
     gh.singleton<_i11.FirebaseFirestore>(firebaseModule.firebaseFireStore);
     gh.singleton<_i12.FirebasePerformance>(firebaseModule.firebasePerformance);
-    gh.singleton<_i13.FirekartDatabase>(_i13.FirekartDatabase());
+    gh.singleton<_i13.FirekartDatabase>(
+      _i13.FirekartDatabase(),
+      dispose: (i) => i.closeDatabase(),
+    );
     gh.factory<_i14.GetCurrentUserPhoneNumberUseCase>(
         () => _i14.GetCurrentUserPhoneNumberUseCase());
     gh.factory<_i15.GetItemsInCartUseCase>(() => _i15.GetItemsInCartUseCase());

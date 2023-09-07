@@ -18,6 +18,11 @@ class FirekartDatabase extends _$FirekartDatabase {
 
   @override
   int get schemaVersion => 1;
+
+  @disposeMethod
+  Future<void> closeDatabase() {
+    return close();
+  }
 }
 
 LazyDatabase _openConnection() {

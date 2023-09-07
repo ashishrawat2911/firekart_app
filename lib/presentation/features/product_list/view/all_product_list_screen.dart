@@ -29,10 +29,9 @@ import '../view_model/all_product_cubit.dart';
 
 @RoutePage()
 class AllProductListScreen extends StatefulWidget {
-  const AllProductListScreen({Key? key, this.productCondition})
-      : super(key: key);
-
-  final String? productCondition;
+  const AllProductListScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State createState() => _AllProductListScreenState();
@@ -50,7 +49,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
   Widget build(BuildContext context) {
     return BaseView<AllProductCubit, ResultState<List<Product>>>(
       onViewModelReady: (viewModel) {
-        viewModel.fetchProducts(widget.productCondition);
+        viewModel.fetchProducts();
       },
       builder: (context, viewModel, state) => Scaffold(
         appBar: AppBar(
@@ -115,8 +114,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
         );
       },
       actualPrice: productModel.actualPrice,
-      currentPrice: 0,
-      // currentPrice: productModel.currentPrice,
+      currentPrice: productModel.currentPrice,
       quantityPerUnit: productModel.quantityPerUnit,
       unit: productModel.unit,
     );

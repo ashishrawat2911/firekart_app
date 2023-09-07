@@ -176,16 +176,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: ActionText(
                   Localization.value.viewAllCaps,
                   onTap: () {
-                    late String condition;
-                    if (title == Localization.value.dealOfTheDay) {
-                      condition = 'deal_of_the_day';
-                    } else if (title == Localization.value.topProducts) {
-                      condition = 'top_products';
-                    } else if (title == Localization.value.onSale) {
-                      condition = 'on_sale';
-                    }
                     RouteHandler.routeTo(
-                      AllProductListRoute(productCondition: condition),
+                      AllProductListRoute(),
                     );
                   },
                 ),
@@ -204,7 +196,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             childAspectRatio: 0.7,
             crossAxisSpacing: 10,
             children: List.generate(
-              products.length > 6 ? 6 : products.length,
+              products.length ,
               (index) => ProductCard(productModelToArgs(products[index])),
             ),
           ),
@@ -228,8 +220,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           );
         },
         actualPrice: productModel.actualPrice,
-        currentPrice: 0,
-        // currentPrice: productModel.currentPrice,
+        currentPrice: productModel.currentPrice,
         quantityPerUnit: productModel.quantityPerUnit,
         unit: productModel.unit,
       );
