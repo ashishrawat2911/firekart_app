@@ -20,10 +20,10 @@ app.use(express_1.default.json());
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 // Routes
-app.use('/auth', authRoutes_1.default);
-app.use('/products', productRoutes_1.default);
-app.use('/cart', cartRoutes_1.default);
-app.use('/order', orderRoutes_1.default);
+app.use('/api/v1/auth', authRoutes_1.default);
+app.use('/api/v1/products', productRoutes_1.default);
+app.use('/api/v1/cart', cartRoutes_1.default);
+app.use('/api/v1/order', orderRoutes_1.default);
 // Start the server
 app.listen(configs_1.PORT, () => {
     console.log(`Server is running on port ${configs_1.PORT}`);
