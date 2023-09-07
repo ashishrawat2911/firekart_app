@@ -32,9 +32,9 @@ import '../view_model/product_view_model.dart';
 
 @RoutePage()
 class ProductDetailPage extends StatefulWidget {
-  const ProductDetailPage(this.product, {Key? key}) : super(key: key);
+  const ProductDetailPage(this.productId, {Key? key}) : super(key: key);
 
-  final Product product;
+  final int productId;
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
@@ -45,13 +45,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return BaseView<ProductViewModel, AddToCartState>(
       onViewModelReady: (viewModel) {
-        viewModel.checkItemInCart(widget.product.productId);
+        viewModel.initialize(widget.productId);
       },
       builder: (context, viewModel, state) => VisibilityDetector(
         onVisibilityChanged: (visibilityInfo) {
           var visiblePercentage = visibilityInfo.visibleFraction * 100;
           if (visiblePercentage == 100) {
-            viewModel.checkItemInCart(widget.product.productId);
+            viewModel.checkItemInCart(widget.productId);
           }
         },
         key: const Key('ProductDetailPage'),
@@ -69,61 +69,76 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           appBar: AppBar(
-            title: Text(widget.product.name),
+            title: Text(state.product is ProductData
+                ? (state.product as ProductData).product.name
+                : ''),
           ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                CachedNetworkImage(
-                  imageUrl: widget.product.image,
-                  fit: BoxFit.fill,
-                ),
-                Container(
-                  margin: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        widget.product.name,
-                        style: ThemeProvider.textTheme.displayLarge,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(widget.product.description),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          body: state.product.when(
+            loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+            data: (product) {
+              return SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    CachedNetworkImage(
+                      imageUrl: product.image,
+                      fit: BoxFit.fill,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            '${widget.product.currency}${widget.product.currentPrice} / ${widget.product.quantityPerUnit} ${widget.product.unit}',
-                            style: ThemeProvider.textTheme.bodySmall
-                                ?.copyWith(fontSize: 16),
+                            product.name,
+                            style: ThemeProvider.textTheme.displayLarge,
                           ),
                           const SizedBox(
-                            width: 10,
+                            height: 10,
                           ),
-                          addCartView(state, viewModel),
+                          Text(product.description),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                '${product.currency}${product.currentPrice} / ${product.quantityPerUnit} ${product.unit}',
+                                style: ThemeProvider.textTheme.bodySmall
+                                    ?.copyWith(fontSize: 16),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              addCartView(state, viewModel, product),
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
+            error: (error) {
+              return Text(error.errorMessage);
+            },
           ),
         ),
       ),
     );
   }
 
-  Widget addCartView(AddToCartState state, ProductViewModel viewModel) {
+  Widget addCartView(
+      AddToCartState state, ProductViewModel viewModel, Product product) {
     int cartValue = 0;
     cartValue = state.noOfItems as int;
     return AnimatedCrossFade(
-      firstChild: addButton(state, viewModel),
+      firstChild: addButton(state, viewModel, product),
       secondChild: SizedBox(
         height: 30,
         width: 110,
@@ -135,7 +150,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ? () {}
                   : () {
                       viewModel.updateCartValues(
-                        widget.product,
+                        product,
                         cartValue,
                         false,
                       );
@@ -162,7 +177,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ? () {}
                   : () {
                       viewModel.updateCartValues(
-                        widget.product,
+                        product,
                         cartValue,
                         true,
                       );
@@ -178,11 +193,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     );
   }
 
-  Widget addButton(AddToCartState state, ProductViewModel viewModel) {
+  Widget addButton(
+      AddToCartState state, ProductViewModel viewModel, Product product) {
     return AnimatedCrossFade(
       firstChild: InkWell(
         onTap: () {
-          viewModel.addToCart(widget.product);
+          viewModel.addToCart(product);
         },
         child: Container(
           height: 30,

@@ -10,7 +10,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i16;
 import 'package:firekart/domain/models/account_details_model.dart' as _i18;
-import 'package:firekart/domain/models/product_model.dart' as _i20;
 import 'package:firekart/presentation/features/accounts/view/account_screen.dart'
     as _i1;
 import 'package:firekart/presentation/features/add_account_detail/view/add_user_detail_screen.dart'
@@ -149,7 +148,7 @@ abstract class $AppRouter extends _i16.RootStackRouter {
       return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i13.ProductDetailPage(
-          args.product,
+          args.productId,
           key: args.key,
         ),
       );
@@ -466,13 +465,13 @@ class OtpLoginRouteArgs {
 /// [_i13.ProductDetailPage]
 class ProductDetailRoute extends _i16.PageRouteInfo<ProductDetailRouteArgs> {
   ProductDetailRoute({
-    required _i20.Product product,
+    required int productId,
     _i17.Key? key,
     List<_i16.PageRouteInfo>? children,
   }) : super(
           ProductDetailRoute.name,
           args: ProductDetailRouteArgs(
-            product: product,
+            productId: productId,
             key: key,
           ),
           initialChildren: children,
@@ -486,17 +485,17 @@ class ProductDetailRoute extends _i16.PageRouteInfo<ProductDetailRouteArgs> {
 
 class ProductDetailRouteArgs {
   const ProductDetailRouteArgs({
-    required this.product,
+    required this.productId,
     this.key,
   });
 
-  final _i20.Product product;
+  final int productId;
 
   final _i17.Key? key;
 
   @override
   String toString() {
-    return 'ProductDetailRouteArgs{product: $product, key: $key}';
+    return 'ProductDetailRouteArgs{productId: $productId, key: $key}';
   }
 }
 

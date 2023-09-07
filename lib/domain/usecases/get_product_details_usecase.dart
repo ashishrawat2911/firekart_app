@@ -13,13 +13,21 @@
  *
  * ----------------------------------------------------------------------------
  */
-
-import 'package:dartz/dartz.dart' hide Order;
-import 'package:firekart/domain/models/product_model.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:firekart/domain/repository/product_repository.dart';
+import 'package:injectable/injectable.dart' hide Order;
+import 'package:injectable/injectable.dart';
 
-abstract class ProductRepository {
-  Future<Either<NetworkError, List<Product>>> getAllProducts();
+import '../models/product_model.dart';
 
-  Future<Either<NetworkError, Product>> getProductsDetails(int productId);
+@injectable
+class GetProductDetailsUseCase {
+  final ProductRepository _repository;
+
+  GetProductDetailsUseCase(this._repository);
+
+  Future<Either<NetworkError, Product>> execute(int productId) {
+    return _repository.getProductsDetails(productId);
+  }
 }
