@@ -28,6 +28,6 @@ class SearchProductsUseCase {
   SearchProductsUseCase(this._firekartRepository);
 
   Future<Either<NetworkError, List<Product>>> execute(String query) async {
-    return _firekartRepository.getAllProducts();
+    return _firekartRepository.getProductsByQuery(query);
   }
 }

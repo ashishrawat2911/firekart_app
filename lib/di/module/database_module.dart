@@ -14,6 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firekart/data/source/local/dao/cart_dao.dart';
+import 'package:firekart/data/source/local/dao/product_dao.dart';
 import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
@@ -22,5 +23,9 @@ import 'package:injectable/injectable.dart';
 abstract class DatabaseModule {
   CartDao getCartDao(FirekartDatabase firekartDatabase) {
     return firekartDatabase.cartDao;
+  }
+
+  ProductDao getProductDao(FirekartDatabase firekartDatabase) {
+    return firekartDatabase.productDao;
   }
 }

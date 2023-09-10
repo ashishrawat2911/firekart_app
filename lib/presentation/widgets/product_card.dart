@@ -60,9 +60,12 @@ class ProductCard extends StatelessWidget {
               ),
               child: AspectRatio(
                 aspectRatio: 1.6,
-                child: CachedNetworkImage(
-                  imageUrl: productCardArgs.image,
-                  fit: BoxFit.fitWidth,
+                child: Hero(
+                  tag: productCardArgs.image,
+                  child: CachedNetworkImage(
+                    imageUrl: productCardArgs.image,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
             ),

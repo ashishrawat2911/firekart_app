@@ -19,7 +19,12 @@ import 'package:firekart/domain/models/product_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 
 abstract class ProductRepository {
-  Future<Either<NetworkError, List<Product>>> getAllProducts();
+  Future<Either<NetworkError, List<Product>>> getAllProducts(
+    int page,
+    int limit,
+  );
 
   Future<Either<NetworkError, Product>> getProductsDetails(int productId);
+
+  Future<Either<NetworkError, List<Product>>> getProductsByQuery(String query);
 }
