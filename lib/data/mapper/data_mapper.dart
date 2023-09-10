@@ -129,7 +129,6 @@ class DataMapper {
 
   Product productFromModel(ProductModel model) {
     final product = Product(
-      categories: model.categories.map((e) => e).toList(),
       // nameSearch: model.nameSearch.map((e) => e).toList(),
       productId: model.id,
       image: model.image,
@@ -146,6 +145,21 @@ class DataMapper {
     return product;
   }
 
+  Product productFromDB(ProductTableEntityData model) {
+    final product = Product(
+      productId: model.id,
+      image: model.image,
+      name: model.name,
+      unit: model.unit,
+      currency: model.currency,
+      currentPrice: model.currentPrice,
+      actualPrice: model.actualPrice,
+      quantityPerUnit: model.quantityPerUnit,
+      description: model.description,
+    );
+    return product;
+  }
+
   ProductModel productToModel(Product model) {
     final productmodel = ProductModel(
       model.productId,
@@ -153,7 +167,6 @@ class DataMapper {
       model.name,
       model.description,
       model.unit,
-      model.categories.map((e) => e).toList(),
       model.currency,
       model.currentPrice,
       model.actualPrice,
