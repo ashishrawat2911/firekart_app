@@ -25,8 +25,8 @@ class ProductModel {
   final String name;
   final String description;
   final String unit;
-  @JsonKey(defaultValue: [])
-  final List<String> categories;
+  // @JsonKey(defaultValue: [])
+  // final List<String> categories;
   final String currency;
 
   // final bool dealOfTheDay;
@@ -46,7 +46,6 @@ class ProductModel {
     this.name,
     this.description,
     this.unit,
-    this.categories,
     this.currency,
     // this.dealOfTheDay,
     // this.topProducts,

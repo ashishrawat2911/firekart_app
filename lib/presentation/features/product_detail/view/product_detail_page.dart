@@ -83,9 +83,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               return SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    CachedNetworkImage(
-                      imageUrl: product.image,
-                      fit: BoxFit.fill,
+                    Hero(
+                      tag: product.image,
+                      child: CachedNetworkImage(
+                        imageUrl: product.image,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.all(16),
