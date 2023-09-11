@@ -7,18 +7,18 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application
-            android:name="${applicationName}"
-            android:label="FireKart"
-            android:icon="@mipmap/ic_launcher"
-            android:networkSecurityConfig="@xml/network_security_config"
+        android:name=".Application"
+        android:icon="@mipmap/ic_launcher"
+        android:label="FireKart"
+        android:networkSecurityConfig="@xml/network_security_config"
 
-    >
+        >
         <activity
-                android:name="com.app.firekart.MainActivity"
-                android:launchMode="singleTop"
-                android:theme="@style/LaunchTheme"
-                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-                android:hardwareAccelerated="true"
+            android:name="com.app.firekart.MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
                 android:windowSoftInputMode="adjustResize"
                 android:enableOnBackInvokedCallback="true"
             android:exported="true">
