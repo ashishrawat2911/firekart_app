@@ -19,7 +19,6 @@ class Product {
   final String name;
   final String description;
   final String unit;
-  final List<String> categories;
   final String currency;
 
   // final bool topProducts;
@@ -32,7 +31,6 @@ class Product {
   // final List<String> nameSearch;
 
   Product({
-    required this.categories,
     // required this.nameSearch,
     required this.productId,
     required this.image,

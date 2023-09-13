@@ -13,6 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:firekart/core/connectivity/network_connectivity.dart';
 import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
 import 'package:firekart/domain/usecases/get_user_logged_in_status.dart';
@@ -31,13 +32,18 @@ class AppViewModel extends ViewModel<AppState> {
   final SetDeviceTokenUseCase _setDeviceTokenUseCase;
   final GetUserLoggedInStatusUseCase _loggedInStatusUseCase;
   final PushNotificationHandlerUseCase _notificationHandlerUseCase;
+  final NetworkConnectivity _networkConnectivity;
 
-  AppViewModel(this._setDeviceTokenUseCase, this._loggedInStatusUseCase,
-      this._notificationHandlerUseCase)
-      : super(const AppState());
+  AppViewModel(
+    this._setDeviceTokenUseCase,
+    this._loggedInStatusUseCase,
+    this._notificationHandlerUseCase,
+    this._networkConnectivity,
+  ) : super(const AppState());
 
-  void initialize() {
-    _notificationHandlerUseCase.execute(
+  Future<void> initialize() async {
+    await _networkConnectivity.initialize();
+    await _notificationHandlerUseCase.execute(
       onNotificationData: (notificationData) {
         _handleNotification(notificationData);
       },

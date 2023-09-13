@@ -30,7 +30,7 @@ class DashboardViewModel extends ViewModel<DashboardState> {
   final GetAllProductsUseCase _getAllProductsUseCase;
 
   Future<void> fetchProductData(ProductData productData) async {
-    final res = await _getAllProductsUseCase.execute();
+    final res = await _getAllProductsUseCase.execute(1, 100);
     res.fold((l) {}, (r) {
       state = state.copyWith(products: r);
     });
