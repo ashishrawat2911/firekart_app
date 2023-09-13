@@ -15,7 +15,12 @@
  */
 
 import 'package:dartz/dartz.dart' hide Order;
+import 'package:drift/drift.dart';
+import 'package:firekart/core/connectivity/network_connectivity.dart';
+import 'package:firekart/core/extentions/list_extention.dart';
 import 'package:firekart/data/error/network_handler.dart';
+import 'package:firekart/data/source/local/dao/product_dao.dart';
+import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
 import 'package:firekart/domain/models/product_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
@@ -28,32 +33,78 @@ import '../mapper/data_mapper.dart';
 class ProductRepositoryImpl extends ProductRepository {
   final DataMapper _dataMapper;
   final ApiService _apiService;
+  final ProductDao _productDao;
+  final NetworkConnectivity _connectivity;
 
   ProductRepositoryImpl(
     this._dataMapper,
     this._apiService,
+    this._productDao,
+    this._connectivity,
   );
 
   @override
-  Future<Either<NetworkError, List<Product>>> getAllProducts() {
+  Future<Either<NetworkError, List<Product>>> getAllProducts(
+    int page,
+    int limit,
+  ) {
     return getNetworkResult(
-      () {
-        return _apiService.getAllProducts(1, 100).then(
-              (value) => value.data.map(_dataMapper.productFromModel).toList(),
-            );
+      () async {
+        if (_connectivity.hasConnection) {
+          final products = await _apiService.getAllProducts(page, limit).then(
+                (value) =>
+                    value.data.map(_dataMapper.productFromModel).toList(),
+              );
+          await addProductToDB(products);
+          return products;
+        } else {
+          return _productDao.getProducts(page, limit).then(
+            (value) {
+              return value.map(_dataMapper.productFromDB).toList();
+            },
+          );
+        }
       },
+    );
+  }
+
+  Future addProductToDB(List<Product> products) async {
+    await _productDao.addProducts(
+      products.mapToList(
+        (e) {
+          return ProductTableEntityCompanion.insert(
+            id: Value(e.productId),
+            unit: e.unit,
+            quantityPerUnit: e.quantityPerUnit.toDouble(),
+            image: e.image,
+            currentPrice: e.currentPrice.toDouble(),
+            currency: e.currency,
+            name: e.name,
+            description: e.description,
+            actualPrice: e.actualPrice.toDouble(),
+          );
+        },
+      ),
     );
   }
 
   @override
   Future<Either<NetworkError, Product>> getProductsDetails(int productId) {
     return getNetworkResult(
-      () {
-        return _apiService.getAllProducts(1, 100).then(
-              (value) => _dataMapper.productFromModel(value.data
-                  .where((element) => element.id == productId)
-                  .toList()
-                  .first),
+      () async {
+        return _productDao
+            .getProductById(productId)
+            .then(_dataMapper.productFromDB);
+      },
+    );
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> getProductsByQuery(String query) {
+    return getNetworkResult(
+      () async {
+        return _productDao.getProductsByQuery(query).then(
+              (value) => value.map(_dataMapper.productFromDB).toList(),
             );
       },
     );

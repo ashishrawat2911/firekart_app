@@ -12,10 +12,6 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       json['name'] as String,
       json['description'] as String,
       json['unit'] as String,
-      (json['categories'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
       json['currency'] as String,
       json['currentPrice'] as num,
       json['actualPrice'] as num,
@@ -29,7 +25,6 @@ Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
       'name': instance.name,
       'description': instance.description,
       'unit': instance.unit,
-      'categories': instance.categories,
       'currency': instance.currency,
       'currentPrice': instance.currentPrice,
       'actualPrice': instance.actualPrice,
