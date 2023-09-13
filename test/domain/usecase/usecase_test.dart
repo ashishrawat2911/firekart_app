@@ -12,4 +12,4 @@ import 'package:mockito/annotations.dart';
   ProductRepository,
   UserRepository,
 ])
-void test() {}
+void main() {}
