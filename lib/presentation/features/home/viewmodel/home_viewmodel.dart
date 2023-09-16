@@ -15,10 +15,10 @@
  */
 import 'package:firekart/core/impl/app_loading_impl.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/usecases/get_address_usecase.dart';
-import 'package:firekart/domain/usecases/get_cart_status_use_case.dart';
-import 'package:firekart/domain/usecases/logout_usecase.dart';
-import 'package:firekart/domain/usecases/stream_account_details_usecase.dart';
+import 'package:domain/usecases/get_address_usecase.dart';
+import 'package:domain/usecases/get_cart_status_use_case.dart';
+import 'package:domain/usecases/logout_usecase.dart';
+import 'package:domain/usecases/stream_account_details_usecase.dart';
 import 'package:firekart/presentation/routes/app_router.gr.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';

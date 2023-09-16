@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/usecases/get_user_logged_in_status.dart';
+import 'package:domain/usecases/get_user_logged_in_status.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

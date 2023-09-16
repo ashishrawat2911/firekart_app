@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/usecases/get_all_product_usecase.dart';
+import 'package:domain/usecases/get_all_product_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

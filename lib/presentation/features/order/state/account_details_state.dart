@@ -13,7 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:domain/models/account_details_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'account_details_state.freezed.dart';

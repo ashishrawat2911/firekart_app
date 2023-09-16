@@ -15,8 +15,8 @@
  */
 import 'package:firekart/core/state/result_state.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/models/order_model.dart';
-import 'package:firekart/domain/usecases/get_all_orders_usecase.dart';
+import 'package:domain/models/order_model.dart';
+import 'package:domain/usecases/get_all_orders_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 @injectable

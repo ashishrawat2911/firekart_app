@@ -22,9 +22,9 @@ import 'package:firekart/data/error/network_handler.dart';
 import 'package:firekart/data/source/local/dao/product_dao.dart';
 import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
-import 'package:firekart/domain/models/product_model.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/product_repository.dart';
+import 'package:domain/models/product_model.dart';
+import 'package:domain/network_result/network_error.dart';
+import 'package:domain/repository/product_repository.dart';
 import 'package:injectable/injectable.dart';
 
 import '../mapper/data_mapper.dart';

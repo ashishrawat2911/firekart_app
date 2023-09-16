@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i16;
-import 'package:firekart/domain/models/account_details_model.dart' as _i18;
+import 'package:domain/models/account_details_model.dart' as _i18;
 import 'package:firekart/presentation/features/accounts/view/account_screen.dart'
     as _i1;
 import 'package:firekart/presentation/features/add_account_detail/view/add_user_detail_screen.dart'

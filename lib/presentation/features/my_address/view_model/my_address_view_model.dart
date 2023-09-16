@@ -15,14 +15,14 @@
  */
 import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/usecases/edit_address_usecase.dart';
-import 'package:firekart/domain/usecases/get_account_details_usecase.dart';
-import 'package:firekart/domain/usecases/get_address_usecase.dart';
-import 'package:firekart/domain/usecases/set_account_details_usecase.dart';
+import 'package:domain/usecases/edit_address_usecase.dart';
+import 'package:domain/usecases/get_account_details_usecase.dart';
+import 'package:domain/usecases/get_address_usecase.dart';
+import 'package:domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-import '../../../../domain/models/account_details_model.dart';
+import 'package:domain/models/account_details_model.dart';
 import '../state/my_address_state.dart';
 
 @injectable

@@ -1,4 +1,4 @@
-import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:domain/network_result/network_error.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

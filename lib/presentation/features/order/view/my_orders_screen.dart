@@ -20,7 +20,7 @@ import 'package:firekart/core/state/result_state.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/core/utils/date_time_util.dart';
-import 'package:firekart/domain/models/order_model.dart';
+import 'package:domain/models/order_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';
