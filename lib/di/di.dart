@@ -15,6 +15,7 @@
  */
 import 'package:data/di/di.module.dart';
 import 'package:firebase_impl/di/di.module.dart';
+import 'package:core/di/di.module.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:presentation/di/di.module.dart';
@@ -22,6 +23,7 @@ import 'package:presentation/di/di.module.dart';
 import 'di.config.dart';
 
 @InjectableInit(asExtension: true, externalPackageModulesBefore: [
+  ExternalModule(CorePackageModule),
   ExternalModule(FirebaseImplPackageModule),
   ExternalModule(DataPackageModule),
   ExternalModule(PresentationPackageModule),
