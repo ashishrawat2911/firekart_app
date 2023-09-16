@@ -9,18 +9,13 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:core/connectivity/network_connectivity.dart' as _i12;
-import 'package:core/di/di.module.dart' as _i6;
-import 'package:data/di/di.module.dart' as _i4;
+import 'package:core/di/di.module.dart' as _i3;
+import 'package:data/di/di.module.dart' as _i5;
 import 'package:domain/di/di.module.dart' as _i7;
-import 'package:domain/usecases/get_user_logged_in_status.dart' as _i10;
-import 'package:domain/usecases/notification_handler_usecase.dart' as _i11;
-import 'package:domain/usecases/set_device_token_usecase.dart' as _i9;
-import 'package:firebase_impl/di/di.module.dart' as _i3;
-import 'package:firekart/app/view_model/app_view_model.dart' as _i8;
+import 'package:firebase_impl/di/di.module.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:presentation/di/di.module.dart' as _i5;
+import 'package:presentation/di/di.module.dart' as _i6;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -33,17 +28,11 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    await _i3.FirebaseImplPackageModule().init(gh);
-    await _i4.DataPackageModule().init(gh);
-    await _i5.PresentationPackageModule().init(gh);
-    await _i6.CorePackageModule().init(gh);
+    await _i3.CorePackageModule().init(gh);
+    await _i4.FirebaseImplPackageModule().init(gh);
+    await _i5.DataPackageModule().init(gh);
+    await _i6.PresentationPackageModule().init(gh);
     await _i7.DomainPackageModule().init(gh);
-    gh.singleton<_i8.AppViewModel>(_i8.AppViewModel(
-      gh<_i9.SetDeviceTokenUseCase>(),
-      gh<_i10.GetUserLoggedInStatusUseCase>(),
-      gh<_i11.PushNotificationHandlerUseCase>(),
-      gh<_i12.NetworkConnectivity>(),
-    ));
     return this;
   }
 }
