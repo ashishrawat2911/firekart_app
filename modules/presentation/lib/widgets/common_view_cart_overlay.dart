@@ -13,7 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:core/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 

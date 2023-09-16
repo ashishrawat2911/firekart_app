@@ -13,7 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:core/logger/app_logger.dart';
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/view_model.dart';

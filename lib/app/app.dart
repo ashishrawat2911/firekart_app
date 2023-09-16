@@ -14,11 +14,11 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:core/impl/app_loading_impl.dart';
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/base_view.dart';
 import 'package:core/theme/theme_provider.dart';
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:presentation/res/app_theme.dart';
 import 'package:presentation/routes/route_handler.dart';
 import 'package:flutter/material.dart';

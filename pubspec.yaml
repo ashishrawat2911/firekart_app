@@ -9,8 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
   package_info: ^2.0.2
   firebase_dynamic_links: ^5.0.8
   firebase_crashlytics: ^3.0.7
@@ -19,11 +17,6 @@ dependencies:
   cloud_firestore: ^4.2.0
   firebase_auth: ^4.2.0
   firebase_core: ^2.4.0
-  shimmer: ^3.0.0
-  cached_network_image: ^3.1.0+1
-  smooth_page_indicator: ^1.0.0+2
-  country_code_picker_x: ^2.0.5
-  visibility_detector: ^0.4.0+2
   firebase_messaging: ^14.6.7
   flutter_local_notifications: ^15.1.1
   #Modules
