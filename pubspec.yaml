@@ -9,14 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_dynamic_links: ^5.0.8
-  firebase_crashlytics: ^3.0.7
-  firebase_performance:
-  firebase_analytics: ^10.0.7
-  cloud_firestore: ^4.2.0
-  firebase_auth: ^4.2.0
-  firebase_core: ^2.4.0
-  firebase_messaging: ^14.6.7
   flutter_local_notifications: ^15.1.1
   #Modules
   domain:
@@ -29,6 +21,8 @@ dependencies:
     path: modules/core
   presentation:
     path: modules/presentation
+  firebase_impl:
+    path: modules/firebase_impl
 
 dev_dependencies:
   flutter_test:
