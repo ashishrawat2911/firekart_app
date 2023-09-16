@@ -19,6 +19,7 @@ dependencies:
   json_annotation: ^4.3.0
   auto_route: ^7.4.0
   path_provider: ^2.0.0
+  package_info: ^2.0.2
 
 dev_dependencies:
   flutter_test:
