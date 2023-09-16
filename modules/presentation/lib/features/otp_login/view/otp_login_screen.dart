@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
 import 'package:core/theme/theme_provider.dart';
 import 'package:core/utils/validator.dart';

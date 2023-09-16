@@ -15,7 +15,7 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:core/state/result_state.dart';
 import 'package:core/state_manager/base_view.dart';
 import 'package:core/theme/theme_provider.dart';

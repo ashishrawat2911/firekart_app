@@ -15,7 +15,7 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:core/di/di.dart';
-import 'package:firekart/localization/localization.dart';
+import 'package:localization/localization.dart';
 import 'package:core/theme/theme_provider.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/usecases/logout_usecase.dart';
