@@ -19,7 +19,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
-import 'package:firekart/domain/models/product_model.dart';
+import 'package:domain/models/product_model.dart';
 import 'package:firekart/presentation/res/colors.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';

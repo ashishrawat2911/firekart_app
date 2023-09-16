@@ -21,12 +21,12 @@ import 'package:firekart/data/model/product_model.dart';
 import 'package:firekart/data/model/request/add_order_request_model.dart';
 import 'package:firekart/data/model/response/login_response_model.dart';
 import 'package:firekart/data/source/local/db/firekart_database.dart';
-import 'package:firekart/domain/models/account_details_model.dart';
-import 'package:firekart/domain/models/add_order_model.dart';
-import 'package:firekart/domain/models/cart_model.dart';
-import 'package:firekart/domain/models/login.dart';
-import 'package:firekart/domain/models/order_model.dart';
-import 'package:firekart/domain/models/product_model.dart';
+import 'package:domain/models/account_details_model.dart';
+import 'package:domain/models/add_order_model.dart';
+import 'package:domain/models/cart_model.dart';
+import 'package:domain/models/login.dart';
+import 'package:domain/models/order_model.dart';
+import 'package:domain/models/product_model.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 @Singleton()

@@ -1,6 +1,5 @@
-flutter analyze
-flutter pub get
-flutter packages pub run build_runner build --delete-conflicting-outputs
+melos get
+melos generateAll
 flutter gen-l10n
 flutter test --no-pub --coverage
 flutter build apk

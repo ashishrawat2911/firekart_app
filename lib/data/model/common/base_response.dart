@@ -1,4 +1,4 @@
-import 'package:firekart/domain/models/network.dart';
+import 'package:domain/models/network.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'base_response.g.dart';

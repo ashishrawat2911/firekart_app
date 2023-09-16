@@ -13,8 +13,8 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/domain/models/product_model.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
+import 'package:domain/models/product_model.dart';
+import 'package:domain/network_result/network_error.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'add_to_cart_state.freezed.dart';

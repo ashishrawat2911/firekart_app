@@ -15,12 +15,12 @@
  */
 import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/models/account_details_model.dart';
-import 'package:firekart/domain/usecases/edit_address_usecase.dart';
+import 'package:domain/models/account_details_model.dart';
+import 'package:domain/usecases/edit_address_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
+import 'package:domain/usecases/add_address_usecase.dart';
 
-import '../../../../domain/usecases/add_address_usecase.dart';
 import '../../../routes/route_handler.dart';
 import '../state/add_address_state.dart';
 

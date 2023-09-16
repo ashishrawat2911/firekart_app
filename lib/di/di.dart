@@ -15,11 +15,14 @@
  */
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-
+import 'package:domain/di/di.module.dart';
 import 'di.config.dart';
 
 @InjectableInit(
   asExtension: true,
+  externalPackageModulesBefore: [
+    ExternalModule(DomainPackageModule),
+  ]
 )
 Future<GetIt> registerDependencies() async {
   return _getIt.init();

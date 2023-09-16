@@ -17,9 +17,9 @@ import 'package:auto_route/annotations.dart';
 import 'package:firekart/core/di/di.dart';
 import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
-import 'package:firekart/domain/models/account_details_model.dart';
-import 'package:firekart/domain/usecases/logout_usecase.dart';
-import 'package:firekart/domain/usecases/stream_account_details_usecase.dart';
+import 'package:domain/models/account_details_model.dart';
+import 'package:domain/usecases/logout_usecase.dart';
+import 'package:domain/usecases/stream_account_details_usecase.dart';
 import 'package:flutter/material.dart';
 
 import '../../../routes/app_router.gr.dart';

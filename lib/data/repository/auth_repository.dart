@@ -20,9 +20,9 @@ import 'package:firekart/data/mapper/data_mapper.dart';
 import 'package:firekart/data/model/request/otp_verify_request_model.dart';
 import 'package:firekart/data/source/local/local_storage.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
-import 'package:firekart/domain/models/login.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/auth_repository.dart';
+import 'package:domain/models/login.dart';
+import 'package:domain/network_result/network_error.dart';
+import 'package:domain/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepository)

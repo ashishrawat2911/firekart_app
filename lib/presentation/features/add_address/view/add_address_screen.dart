@@ -19,7 +19,7 @@ import 'package:firekart/core/localization/localization.dart';
 import 'package:firekart/core/state_manager/base_view.dart';
 import 'package:firekart/core/theme/theme_provider.dart';
 import 'package:firekart/core/utils/validator.dart';
-import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:domain/models/account_details_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../res/colors.gen.dart';

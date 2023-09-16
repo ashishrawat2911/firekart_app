@@ -16,12 +16,12 @@
 import 'package:firekart/core/logger/app_logger.dart';
 import 'package:firekart/core/message_handler/message_handler.dart';
 import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/domain/models/product_model.dart';
-import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart';
-import 'package:firekart/domain/usecases/get_cart_status_use_case.dart';
-import 'package:firekart/domain/usecases/get_items_in_cart_usecase.dart';
-import 'package:firekart/domain/usecases/get_product_details_usecase.dart';
-import 'package:firekart/domain/usecases/update_cart_usecase.dart';
+import 'package:domain/models/product_model.dart';
+import 'package:domain/usecases/add_product_to_cart_usecase.dart';
+import 'package:domain/usecases/get_cart_status_use_case.dart';
+import 'package:domain/usecases/get_items_in_cart_usecase.dart';
+import 'package:domain/usecases/get_product_details_usecase.dart';
+import 'package:domain/usecases/update_cart_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
