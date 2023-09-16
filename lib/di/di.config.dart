@@ -12,10 +12,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart' as _i16;
 import 'package:core/analytics/analytics.dart' as _i20;
 import 'package:core/connectivity/network_connectivity.dart' as _i11;
-import 'package:core/di/di.module.dart' as _i3;
+import 'package:core/di/di.module.dart' as _i5;
 import 'package:core/performance/performance_moniter.dart' as _i18;
-import 'package:data/di/di.module.dart' as _i4;
-import 'package:domain/di/di.module.dart' as _i5;
+import 'package:data/di/di.module.dart' as _i3;
+import 'package:domain/di/di.module.dart' as _i6;
 import 'package:domain/usecases/get_user_logged_in_status.dart' as _i9;
 import 'package:domain/usecases/notification_handler_usecase.dart' as _i10;
 import 'package:domain/usecases/set_device_token_usecase.dart' as _i8;
@@ -35,7 +35,7 @@ import 'package:firekart/firebase_impl/performance/firebase_performance_moniter.
     as _i19;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:presentation/di/di.module.dart' as _i6;
+import 'package:presentation/di/di.module.dart' as _i4;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -48,10 +48,10 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    await _i3.CorePackageModule().init(gh);
-    await _i4.DataPackageModule().init(gh);
-    await _i5.DomainPackageModule().init(gh);
-    await _i6.PresentationPackageModule().init(gh);
+    await _i3.DataPackageModule().init(gh);
+    await _i4.PresentationPackageModule().init(gh);
+    await _i5.CorePackageModule().init(gh);
+    await _i6.DomainPackageModule().init(gh);
     final firebaseModule = _$FirebaseModule();
     gh.singleton<_i7.AppViewModel>(_i7.AppViewModel(
       gh<_i8.SetDeviceTokenUseCase>(),

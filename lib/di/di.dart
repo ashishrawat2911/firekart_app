@@ -13,9 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:core/di/di.module.dart';
 import 'package:data/di/di.module.dart';
-import 'package:domain/di/di.module.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:presentation/di/di.module.dart';
@@ -23,9 +21,7 @@ import 'package:presentation/di/di.module.dart';
 import 'di.config.dart';
 
 @InjectableInit(asExtension: true, externalPackageModulesBefore: [
-  ExternalModule(CorePackageModule),
   ExternalModule(DataPackageModule),
-  ExternalModule(DomainPackageModule),
   ExternalModule(PresentationPackageModule),
 ])
 Future<GetIt> registerDependencies() async {
