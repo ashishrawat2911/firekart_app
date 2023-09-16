@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:firekart/core/deeplink/deep_link.dart';
+import 'package:core/deeplink/deep_link.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 import 'package:package_info/package_info.dart';

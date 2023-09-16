@@ -13,9 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/connectivity/network_connectivity.dart';
-import 'package:firekart/core/logger/app_logger.dart';
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/connectivity/network_connectivity.dart';
+import 'package:core/logger/app_logger.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/get_user_logged_in_status.dart';
 import 'package:domain/usecases/notification_handler_usecase.dart';
 import 'package:domain/usecases/set_device_token_usecase.dart';

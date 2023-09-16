@@ -15,11 +15,11 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firekart/core/localization/localization.dart';
-import 'package:firekart/core/state/result_state.dart';
-import 'package:firekart/core/state_manager/base_view.dart';
-import 'package:firekart/core/theme/theme_provider.dart';
-import 'package:firekart/core/utils/date_time_util.dart';
+import 'package:firekart/localization/localization.dart';
+import 'package:core/state/result_state.dart';
+import 'package:core/state_manager/base_view.dart';
+import 'package:core/theme/theme_provider.dart';
+import 'package:core/utils/date_time_util.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:flutter/material.dart';
 

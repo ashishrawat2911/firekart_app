@@ -13,8 +13,8 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/message_handler/message_handler.dart';
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/message_handler/message_handler.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/usecases/edit_address_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;

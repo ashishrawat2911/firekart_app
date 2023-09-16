@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firebase_performance/firebase_performance.dart';
-import 'package:firekart/core/performance/performance_moniter.dart';
+import 'package:core/performance/performance_moniter.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

@@ -6,18 +6,21 @@ packages:
 scripts:
   analyze: "flutter analyze"
   format: melos exec -c 1 flutter format lib
-  clean: flutter clean
+  clean: | 
+    flutter clean
     rm pubspec.lock
     rm -rf /coverage
     rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
   get: melos bs
-  checkout: melos clean
+  checkout: | 
+    melos clean
     melos get
-  test: melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
+  test: |
+    melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
     genhtml coverage/lcov.info -o coverage/html
     open coverage/html/index.html
 
-  build: cd app
+  build:
     flutter build apk
     flutter build ios --release --no-codesign
 #  generate: flutter packages pub run build_runner build --delete-conflicting-outputs

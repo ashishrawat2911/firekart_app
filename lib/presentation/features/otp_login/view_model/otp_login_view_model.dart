@@ -15,8 +15,8 @@
  */
 import 'dart:async';
 
-import 'package:firekart/core/message_handler/message_handler.dart';
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/message_handler/message_handler.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/send_otp_usecase.dart';
 import 'package:firekart/presentation/routes/app_router.gr.dart';
 import 'package:firekart/presentation/routes/route_handler.dart';

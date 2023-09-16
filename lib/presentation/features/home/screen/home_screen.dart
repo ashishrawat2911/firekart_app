@@ -14,9 +14,9 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:firekart/core/localization/localization.dart';
-import 'package:firekart/core/state_manager/base_view.dart';
-import 'package:firekart/core/theme/theme_provider.dart';
+import 'package:firekart/localization/localization.dart';
+import 'package:core/state_manager/base_view.dart';
+import 'package:core/theme/theme_provider.dart';
 import 'package:firekart/presentation/features/dashboard/view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
