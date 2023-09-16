@@ -13,7 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/state/result_state.dart';
+import 'package:core/state/result_state.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

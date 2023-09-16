@@ -21,7 +21,7 @@ cd lib/presentation/features/ && pwd && mkdir ${FILE_NAME} &&
 cd ${FILE_NAME} &&
 mkdir view_model && cd view_model && touch "${FILE_NAME}_view_model.dart" &&
 echo "${FILE_HEADER}
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:firekart/presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
 import 'package:injectable/injectable.dart';
 
@@ -48,7 +48,7 @@ echo "${FILE_HEADER}
 import 'package:flutter/material.dart';
 import 'package:firekart/presentation/features/${FILE_NAME}/view_model/${FILE_NAME}_view_model.dart';
 import 'package:firekart/presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
-import 'package:firekart/core/state_manager/base_view.dart';
+import 'package:core/state_manager/base_view.dart';
 
 class "${CLASS_NAME}View" extends StatelessWidget {
   const "${CLASS_NAME}View"({Key? key}) : super(key: key);

@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firekart/core/analytics/analytics.dart';
+import 'package:core/analytics/analytics.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

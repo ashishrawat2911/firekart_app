@@ -15,7 +15,7 @@
  */
 import 'dart:async';
 
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

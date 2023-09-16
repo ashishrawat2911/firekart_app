@@ -13,7 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/theme/theme_provider.dart';
+import 'package:core/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 
 import '../res/colors.gen.dart';

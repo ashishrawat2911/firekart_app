@@ -13,9 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/logger/app_logger.dart';
-import 'package:firekart/core/message_handler/message_handler.dart';
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/logger/app_logger.dart';
+import 'package:core/message_handler/message_handler.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:domain/models/product_model.dart';
 import 'package:domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:domain/usecases/get_cart_status_use_case.dart';

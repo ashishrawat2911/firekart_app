@@ -14,9 +14,9 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:firekart/core/localization/localization.dart';
-import 'package:firekart/core/state_manager/base_view.dart';
-import 'package:firekart/core/utils/validator.dart';
+import 'package:firekart/localization/localization.dart';
+import 'package:core/state_manager/base_view.dart';
+import 'package:core/utils/validator.dart';
 import 'package:firekart/presentation/features/add_account_detail/state/add_account_details_state.dart';
 import 'package:firekart/presentation/res/colors.gen.dart';
 import 'package:flutter/material.dart';

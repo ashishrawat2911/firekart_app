@@ -15,8 +15,8 @@
  */
 import 'dart:async';
 
-import 'package:firekart/core/state_manager/view_model.dart';
-import 'package:firekart/core/utils/validator.dart';
+import 'package:core/state_manager/view_model.dart';
+import 'package:core/utils/validator.dart';
 import 'package:domain/usecases/get_account_details_usecase.dart';
 import 'package:domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;

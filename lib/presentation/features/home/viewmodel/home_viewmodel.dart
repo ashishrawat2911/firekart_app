@@ -13,8 +13,8 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/impl/app_loading_impl.dart';
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:core/impl/app_loading_impl.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/get_address_usecase.dart';
 import 'package:domain/usecases/get_cart_status_use_case.dart';
 import 'package:domain/usecases/logout_usecase.dart';

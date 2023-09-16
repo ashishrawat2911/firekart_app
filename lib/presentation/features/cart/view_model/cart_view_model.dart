@@ -13,10 +13,10 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/core/localization/localization.dart';
-import 'package:firekart/core/logger/app_logger.dart';
-import 'package:firekart/core/message_handler/message_handler.dart';
-import 'package:firekart/core/state_manager/view_model.dart';
+import 'package:firekart/localization/localization.dart';
+import 'package:core/logger/app_logger.dart';
+import 'package:core/message_handler/message_handler.dart';
+import 'package:core/state_manager/view_model.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/models/add_order_model.dart';
 import 'package:domain/models/cart_model.dart';
