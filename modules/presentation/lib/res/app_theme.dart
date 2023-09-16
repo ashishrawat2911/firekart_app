@@ -13,7 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firekart/presentation/res/fonts.gen.dart';
+import 'package:presentation/res/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

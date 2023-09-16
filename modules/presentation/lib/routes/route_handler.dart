@@ -16,7 +16,7 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:core/logger/app_logger.dart';
-import 'package:firekart/presentation/routes/app_router.dart';
+import 'package:presentation/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 class RouteHandler {

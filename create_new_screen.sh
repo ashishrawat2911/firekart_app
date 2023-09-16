@@ -22,7 +22,7 @@ cd ${FILE_NAME} &&
 mkdir view_model && cd view_model && touch "${FILE_NAME}_view_model.dart" &&
 echo "${FILE_HEADER}
 import 'package:core/state_manager/view_model.dart';
-import 'package:firekart/presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
+import 'package:presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -46,8 +46,8 @@ class "${CLASS_NAME}State" with "_\$${CLASS_NAME}State" {
 mkdir view && cd view && touch "${FILE_NAME}_view.dart" &&
 echo "${FILE_HEADER}
 import 'package:flutter/material.dart';
-import 'package:firekart/presentation/features/${FILE_NAME}/view_model/${FILE_NAME}_view_model.dart';
-import 'package:firekart/presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
+import 'package:presentation/features/${FILE_NAME}/view_model/${FILE_NAME}_view_model.dart';
+import 'package:presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
 import 'package:core/state_manager/base_view.dart';
 
 class "${CLASS_NAME}View" extends StatelessWidget {
