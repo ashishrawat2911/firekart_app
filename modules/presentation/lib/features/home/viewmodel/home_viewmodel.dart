@@ -19,7 +19,7 @@ import 'package:domain/usecases/get_address_usecase.dart';
 import 'package:domain/usecases/get_cart_status_use_case.dart';
 import 'package:domain/usecases/logout_usecase.dart';
 import 'package:domain/usecases/stream_account_details_usecase.dart';
-import 'package:firekart/presentation/routes/app_router.gr.dart';
+import 'package:presentation/routes/app_router.gr.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 

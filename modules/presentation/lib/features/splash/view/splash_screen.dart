@@ -15,7 +15,7 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:firekart/presentation/res/assets.gen.dart';
+import 'package:presentation/res/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../state/splash_state.dart';
