@@ -21,11 +21,13 @@ import 'package:injectable/injectable.dart';
 import 'package:presentation/di/di.module.dart';
 
 import 'di.config.dart';
+import 'package:domain/di/di.module.dart';
 
 @InjectableInit(asExtension: true, externalPackageModulesBefore: [
   ExternalModule(CorePackageModule),
   ExternalModule(FirebaseImplPackageModule),
   ExternalModule(DataPackageModule),
+  ExternalModule(DomainPackageModule),
   ExternalModule(PresentationPackageModule),
 ])
 Future<GetIt> registerDependencies() async {
