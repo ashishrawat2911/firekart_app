@@ -14,14 +14,15 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:core/impl/app_loading_impl.dart';
-import 'package:localization/localization.dart';
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/base_view.dart';
 import 'package:core/theme/theme_provider.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:presentation/res/app_theme.dart';
 import 'package:presentation/routes/route_handler.dart';
-import 'package:flutter/material.dart';
 
 import 'state/app_state.dart';
 import 'view_model/app_view_model.dart';
@@ -34,24 +35,29 @@ class App extends StatelessWidget {
         onViewModelReady: (viewModel) {
           viewModel.initialize();
         },
-        builder: (context, viewModel, state) => MaterialApp.router(
-          builder: AppLoader.initBuilder(
-            builder: (context, child) {
-              Localization.setup(context);
-              ThemeProvider.setup(context);
-              return child!;
-            },
-          ),
-          locale: state.locale,
-          theme: AppTheme.appTheme(),
-          darkTheme: AppTheme.appTheme(dark: true),
-          themeMode: state.themeMode,
-          localizationsDelegates: Localization.localizationsDelegates,
-          supportedLocales: Localization.supportedLocales,
-          debugShowCheckedModeBanner: false,
-          routerDelegate: RouteHandler.routerDelegate,
-          routeInformationParser: RouteHandler.routeInformationParser,
-          scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
-        ),
+        builder: (context, viewModel, state) => DevicePreview(
+            enabled: !kReleaseMode,
+            builder: (context) {
+              return MaterialApp.router(
+                useInheritedMediaQuery: true,
+                builder: AppLoader.initBuilder(
+                  builder: (context, child) {
+                    Localization.setup(context);
+                    ThemeProvider.setup(context);
+                    return child!;
+                  },
+                ),
+                locale: state.locale,
+                theme: AppTheme.appTheme(),
+                darkTheme: AppTheme.appTheme(dark: true),
+                themeMode: state.themeMode,
+                localizationsDelegates: Localization.localizationsDelegates,
+                supportedLocales: Localization.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                routerDelegate: RouteHandler.routerDelegate,
+                routeInformationParser: RouteHandler.routeInformationParser,
+                scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
+              );
+            }),
       );
 }

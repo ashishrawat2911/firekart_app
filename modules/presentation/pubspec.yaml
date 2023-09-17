@@ -15,7 +15,7 @@ dependencies:
   cached_network_image: ^3.1.0+1
   smooth_page_indicator: ^1.0.0+2
   visibility_detector: ^0.4.0+2
-
+  device_preview: ^1.1.0
   domain:
     path: ../domain
   shared_dependencies:
@@ -37,6 +37,21 @@ dev_dependencies:
 
 
 flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.otf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Medium.otf
+          weight: 500
+        - asset: assets/fonts/poppins/Poppins-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-Bold.otf
+          weight: 700
 flutter_gen:
   output: lib/res/
   line_length: 80
@@ -55,3 +70,5 @@ flutter_gen:
     outputs:
       style: snake-case
       class_name: AppAssets
+      package_parameter_enabled: false
+
