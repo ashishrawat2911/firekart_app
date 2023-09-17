@@ -34,6 +34,7 @@ dev_dependencies:
   injectable_generator: ^2.1.6
   auto_route_generator: ^7.1.1
   mockito: ^5.4.1
+  melos: ^3.1.1
 
 flutter:
   uses-material-design: true

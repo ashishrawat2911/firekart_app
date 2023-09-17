@@ -20,7 +20,7 @@ scripts:
     genhtml coverage/lcov.info -o coverage/html
     open coverage/html/index.html
 
-  build:
+  build: |
     flutter build apk
     flutter build ios --release --no-codesign
 #  generate: flutter packages pub run build_runner build --delete-conflicting-outputs
@@ -36,8 +36,9 @@ scripts:
     melos checkout
     melos format
     melos generateAll
-  localization: cd localization
+  localization: |
+    cd modules/localization
     flutter gen-l10n
-    cd ../
+    cd ../../
     melos get
   pubUpgrade: flutter pub upgrade --major-versions
