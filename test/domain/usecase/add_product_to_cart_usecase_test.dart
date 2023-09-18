@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/cart_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,8 +18,10 @@ void main() {
   });
   test('Test Add product to cart usecase Pass', () async {
     const productId = 123;
-    when(cartRepository.addProductToCart(productId)).thenAnswer((realInvocation) => Future.value(right(dynamic)));
-    await productAddToCartUseCase.execute(productId);
+    when(cartRepository.addProductToCart(productId)).thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    final result = await productAddToCartUseCase.execute(productId);
+    expect(true, result.isRight());
+    expect('success', (result as Right<NetworkError, EmptyEntity>).value.message);
     verify(cartRepository.addProductToCart(productId));
   });
 
