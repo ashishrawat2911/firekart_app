@@ -16,6 +16,7 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:domain/models/login.dart';
+import 'package:domain/models/network.dart';
 import 'package:domain/network_result/network_error.dart';
 
 abstract class AuthRepository {

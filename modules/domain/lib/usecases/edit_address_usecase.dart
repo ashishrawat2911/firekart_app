@@ -20,6 +20,7 @@ import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 import '../models/account_details_model.dart';
+import 'package:domain/models/network.dart';
 
 @injectable
 class EditAddressUseCase {

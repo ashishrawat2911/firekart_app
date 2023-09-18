@@ -18,6 +18,7 @@ import 'package:domain/models/add_order_model.dart';
 import 'package:domain/network_result/network_error.dart';
 import 'package:domain/repository/order_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
+import 'package:domain/models/network.dart';
 
 @injectable
 class PlaceOrderUseCase {
