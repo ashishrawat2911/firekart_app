@@ -46,6 +46,18 @@ class PushNotificationHandlerUseCase {
   Future<void> execute({
     required Function(Map<String, dynamic> notificationData) onNotificationData,
   }) async {
+    await FirebaseMessaging.instance.requestPermission();
+    await FirebaseMessaging.instance.getToken().then(
+      (deviceToken) {
+        if (deviceToken != null) {
+          _setDeviceTokenUseCase.execute(deviceToken);
+          AppLogger.log('Device Token: $deviceToken');
+        }
+      },
+    );
+    FirebaseMessaging.instance.onTokenRefresh.listen(
+      _setDeviceTokenUseCase.execute,
+    );
     void onDidReceiveLocalNotification(
         int id, String? title, String? body, String? payload) {
       if (payload != null) {
@@ -79,18 +91,6 @@ class PushNotificationHandlerUseCase {
             AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(_channel);
 
-    await FirebaseMessaging.instance.requestPermission();
-    await FirebaseMessaging.instance.getToken().then(
-      (deviceToken) {
-        if (deviceToken != null) {
-          _setDeviceTokenUseCase.execute(deviceToken);
-          AppLogger.log('Device Token: $deviceToken');
-        }
-      },
-    );
-    FirebaseMessaging.instance.onTokenRefresh.listen(
-      _setDeviceTokenUseCase.execute,
-    );
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
