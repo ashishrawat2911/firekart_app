@@ -29,7 +29,7 @@ class AllProductCubit extends ViewModel<ResultState<List<Product>>> {
 
   Future<void> fetchProducts() async {
     state = const ResultState.loading();
-    final productList = await _getAllProductsUseCase.execute();
+    final productList = await _getAllProductsUseCase.execute(1,100);
     productList.fold((l) {
       state = ResultState.error(error: l.errorMessage);
     }, (r) {

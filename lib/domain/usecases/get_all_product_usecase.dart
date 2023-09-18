@@ -27,7 +27,7 @@ class GetAllProductsUseCase {
 
   GetAllProductsUseCase(this._repository);
 
-  Future<Either<NetworkError, List<Product>>> execute() {
-    return _repository.getAllProducts();
+  Future<Either<NetworkError, List<Product>>> execute(int page, int limit) {
+    return _repository.getAllProducts(page, limit);
   }
 }
