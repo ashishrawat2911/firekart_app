@@ -16,8 +16,10 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/data/error/network_handler.dart';
+import 'package:firekart/data/model/common/base_response.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
 import 'package:firekart/domain/models/account_details_model.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/user_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -57,7 +59,7 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-  Future<Either<NetworkError, void>> addAddress(AddAddress address) {
+  Future<Either<NetworkError, EmptyEntity>> addAddress(AddAddress address) {
     return getNetworkResult(
       () {
         return _apiService.addAddress(
@@ -68,13 +70,15 @@ class UserRepositoryImpl extends UserRepository {
           address.city,
           address.pincode,
           address.isDefault,
-        );
+        ).then((value){
+          return value.toEntity();
+        });
       },
     );
   }
 
   @override
-  Future<Either<NetworkError, void>> editAddress(EditAddress address) {
+  Future<Either<NetworkError, EmptyEntity>> editAddress(EditAddress address) {
     return getNetworkResult(
       () {
         return _apiService.editAddress(
@@ -86,7 +90,9 @@ class UserRepositoryImpl extends UserRepository {
           address.state,
           address.phoneNumber,
           address.isDefault,
-        );
+        ).then((value){
+          return value.toEntity();
+        });
       },
     );
   }

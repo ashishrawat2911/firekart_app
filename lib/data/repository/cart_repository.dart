@@ -17,10 +17,12 @@
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/core/extentions/list_extention.dart';
 import 'package:firekart/data/error/network_handler.dart';
+import 'package:firekart/data/model/common/base_response.dart';
 import 'package:firekart/data/source/local/dao/cart_dao.dart';
 import 'package:firekart/data/source/local/db/firekart_database.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
 import 'package:firekart/domain/models/cart_model.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/cart_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -45,8 +47,7 @@ class CartRepositoryImpl extends CartRepository {
     return getNetworkResult(
       () async {
         await _cartDao.deleteCarts();
-        final cartsFromDB =
-            (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
+        final cartsFromDB = (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
         if (cartsFromDB.isEmpty) {
           final cartsFromAPi = await _apiService.getCarts().then(
                 (value) => value.data.map(_dataMapper.cartFromModel).toList(),
@@ -87,41 +88,53 @@ class CartRepositoryImpl extends CartRepository {
   }
 
   @override
-  Future<Either<NetworkError, void>> deleteFromCart(int productId) {
+  Future<Either<NetworkError, EmptyEntity>> deleteFromCart(int productId) {
     return getNetworkResult(
       () async {
-        await _apiService.deleteCart(
+        return _apiService
+            .deleteCart(
           productId,
-        );
-        await _cartDao.deleteFromCart(productId);
+        )
+            .then((value) {
+          _cartDao.deleteFromCart(productId);
+          return value.toEntity();
+        });
       },
     );
   }
 
   @override
-  Future<Either<NetworkError, void>> addProductToCart(int productId) async {
+  Future<Either<NetworkError, EmptyEntity>> addProductToCart(int productId) async {
     return getNetworkResult(
       () async {
-        await _apiService.addToCart(
+        return _apiService
+            .addToCart(
           productId,
-        );
-        await getCarts();
+        )
+            .then((value) {
+          getCarts();
+          return value.toEntity();
+        });
       },
     );
   }
 
   @override
-  Future<Either<NetworkError, void>> updateCart(int productId, int quantity) {
+  Future<Either<NetworkError, EmptyEntity>> updateCart(int productId, int quantity) {
     return getNetworkResult(
       () async {
-        await _apiService.updateCart(
+        return _apiService
+            .updateCart(
           productId,
           quantity,
-        );
-        await _cartDao.updateCart(
-          productId,
-          quantity,
-        );
+        )
+            .then((value) {
+          _cartDao.updateCart(
+            productId,
+            quantity,
+          );
+          return value.toEntity();
+        });
       },
     );
   }
