@@ -16,14 +16,15 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/domain/models/cart_model.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 
 abstract class CartRepository {
-  Future<Either<NetworkError, void>> addProductToCart(int productId);
+  Future<Either<NetworkError, EmptyEntity>> addProductToCart(int productId);
 
-  Future<Either<NetworkError, void>> updateCart(int productId, int quantity);
+  Future<Either<NetworkError, EmptyEntity>> updateCart(int productId, int quantity);
 
-  Future<Either<NetworkError, void>> deleteFromCart(int productId);
+  Future<Either<NetworkError, EmptyEntity>> deleteFromCart(int productId);
 
   Future<Either<NetworkError, List<Cart>>> getCarts();
 

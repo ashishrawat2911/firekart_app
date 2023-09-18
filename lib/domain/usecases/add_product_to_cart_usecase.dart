@@ -14,6 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/cart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
@@ -25,7 +26,7 @@ class ProductAddToCartUseCase {
 
   ProductAddToCartUseCase(this._repository);
 
-  Future<Either<NetworkError, void>> execute(int productId) {
+  Future<Either<NetworkError, EmptyEntity>> execute(int productId) {
     return _repository.addProductToCart(productId);
   }
 }
