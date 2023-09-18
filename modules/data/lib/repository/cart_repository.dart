@@ -45,8 +45,7 @@ class CartRepositoryImpl extends CartRepository {
     return getNetworkResult(
       () async {
         await _cartDao.deleteCarts();
-        final cartsFromDB =
-            (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
+        final cartsFromDB = (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
         if (cartsFromDB.isEmpty) {
           final cartsFromAPi = await _apiService.getCarts().then(
                 (value) => value.data.map(_dataMapper.cartFromModel).toList(),
@@ -87,41 +86,53 @@ class CartRepositoryImpl extends CartRepository {
   }
 
   @override
-  Future<Either<NetworkError, void>> deleteFromCart(int productId) {
+  Future<Either<NetworkError, EmptyEntity>> deleteFromCart(int productId) {
     return getNetworkResult(
       () async {
-        await _apiService.deleteCart(
+        return _apiService
+            .deleteCart(
           productId,
-        );
-        await _cartDao.deleteFromCart(productId);
+        )
+            .then((value) {
+          _cartDao.deleteFromCart(productId);
+          return value.toEntity();
+        });
       },
     );
   }
 
   @override
-  Future<Either<NetworkError, void>> addProductToCart(int productId) async {
+  Future<Either<NetworkError, EmptyEntity>> addProductToCart(int productId) async {
     return getNetworkResult(
       () async {
-        await _apiService.addToCart(
+        return _apiService
+            .addToCart(
           productId,
-        );
-        await getCarts();
+        )
+            .then((value) {
+          getCarts();
+          return value.toEntity();
+        });
       },
     );
   }
 
   @override
-  Future<Either<NetworkError, void>> updateCart(int productId, int quantity) {
+  Future<Either<NetworkError, EmptyEntity>> updateCart(int productId, int quantity) {
     return getNetworkResult(
       () async {
-        await _apiService.updateCart(
+        return _apiService
+            .updateCart(
           productId,
           quantity,
-        );
-        await _cartDao.updateCart(
-          productId,
-          quantity,
-        );
+        )
+            .then((value) {
+          _cartDao.updateCart(
+            productId,
+            quantity,
+          );
+          return value.toEntity();
+        });
       },
     );
   }

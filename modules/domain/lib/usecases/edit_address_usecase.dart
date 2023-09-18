@@ -27,7 +27,7 @@ class EditAddressUseCase {
 
   final UserRepository _repository;
 
-  Future<Either<NetworkError, void>> execute(EditAddress address) {
+  Future<Either<NetworkError, EmptyEntity>> execute(EditAddress address) {
     return _repository.editAddress(address);
   }
 }

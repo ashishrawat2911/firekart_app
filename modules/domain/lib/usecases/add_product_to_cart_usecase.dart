@@ -25,7 +25,7 @@ class ProductAddToCartUseCase {
 
   ProductAddToCartUseCase(this._repository);
 
-  Future<Either<NetworkError, void>> execute(int productId) {
+  Future<Either<NetworkError, EmptyEntity>> execute(int productId) {
     return _repository.addProductToCart(productId);
   }
 }

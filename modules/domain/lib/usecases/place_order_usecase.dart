@@ -25,7 +25,7 @@ class PlaceOrderUseCase {
 
   PlaceOrderUseCase(this._repository);
 
-  Future<Either<NetworkError, void>> execute(AddOrder order) {
+  Future<Either<NetworkError, EmptyEntity>> execute(AddOrder order) {
     return _repository.placeOrder(order);
   }
 }
