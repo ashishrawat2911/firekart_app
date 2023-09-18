@@ -16,9 +16,11 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/data/error/network_handler.dart';
+import 'package:firekart/data/model/common/base_response.dart';
 import 'package:firekart/data/source/local/dao/cart_dao.dart';
 import 'package:firekart/data/source/remote/api_service.dart';
 import 'package:firekart/domain/models/add_order_model.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/models/order_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/order_repository.dart';
@@ -39,13 +41,14 @@ class OrderRepositoryImpl extends OrderRepository {
   );
 
   @override
-  Future<Either<NetworkError, void>> placeOrder(AddOrder order) {
+  Future<Either<NetworkError, EmptyEntity>> placeOrder(AddOrder order) {
     return getNetworkResult(
       () {
         return _apiService
             .placeOrder(_dataMapper.addOrderToModel(order))
             .then((value) {
           _cartDao.deleteCarts();
+          return value.toEntity();
         });
       },
     );
