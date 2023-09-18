@@ -15,6 +15,7 @@
  */
 
 import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
@@ -26,7 +27,7 @@ class LogoutUseCase {
 
   final AuthRepository _firekartRepository;
 
-  Future<Either<NetworkError, void>> execute() {
+  Future<Either<NetworkError, EmptyEntity>> execute() {
     return _firekartRepository.logout();
   }
 }

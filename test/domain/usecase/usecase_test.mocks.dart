@@ -6,18 +6,19 @@
 import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:firekart/domain/models/account_details_model.dart' as _i15;
-import 'package:firekart/domain/models/add_order_model.dart' as _i10;
-import 'package:firekart/domain/models/cart_model.dart' as _i8;
+import 'package:firekart/domain/models/account_details_model.dart' as _i16;
+import 'package:firekart/domain/models/add_order_model.dart' as _i11;
+import 'package:firekart/domain/models/cart_model.dart' as _i9;
 import 'package:firekart/domain/models/login.dart' as _i6;
-import 'package:firekart/domain/models/order_model.dart' as _i11;
-import 'package:firekart/domain/models/product_model.dart' as _i13;
+import 'package:firekart/domain/models/network.dart' as _i8;
+import 'package:firekart/domain/models/order_model.dart' as _i12;
+import 'package:firekart/domain/models/product_model.dart' as _i14;
 import 'package:firekart/domain/network_result/network_error.dart' as _i5;
 import 'package:firekart/domain/repository/auth_repository.dart' as _i3;
 import 'package:firekart/domain/repository/cart_repository.dart' as _i7;
-import 'package:firekart/domain/repository/order_repository.dart' as _i9;
-import 'package:firekart/domain/repository/product_repository.dart' as _i12;
-import 'package:firekart/domain/repository/user_repository.dart' as _i14;
+import 'package:firekart/domain/repository/order_repository.dart' as _i10;
+import 'package:firekart/domain/repository/product_repository.dart' as _i13;
+import 'package:firekart/domain/repository/user_repository.dart' as _i15;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -138,24 +139,25 @@ class MockCartRepository extends _i1.Mock implements _i7.CartRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, void>> addProductToCart(
+  _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>> addProductToCart(
           int? productId) =>
       (super.noSuchMethod(
         Invocation.method(
           #addProductToCart,
           [productId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.NetworkError, void>>.value(
-            _FakeEither_0<_i5.NetworkError, void>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>>.value(
+                _FakeEither_0<_i5.NetworkError, _i8.EmptyEntity>(
           this,
           Invocation.method(
             #addProductToCart,
             [productId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, void>> updateCart(
+  _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>> updateCart(
     int? productId,
     int? quantity,
   ) =>
@@ -167,8 +169,9 @@ class MockCartRepository extends _i1.Mock implements _i7.CartRepository {
             quantity,
           ],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.NetworkError, void>>.value(
-            _FakeEither_0<_i5.NetworkError, void>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>>.value(
+                _FakeEither_0<_i5.NetworkError, _i8.EmptyEntity>(
           this,
           Invocation.method(
             #updateCart,
@@ -178,62 +181,63 @@ class MockCartRepository extends _i1.Mock implements _i7.CartRepository {
             ],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, void>> deleteFromCart(
+  _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>> deleteFromCart(
           int? productId) =>
       (super.noSuchMethod(
         Invocation.method(
           #deleteFromCart,
           [productId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.NetworkError, void>>.value(
-            _FakeEither_0<_i5.NetworkError, void>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>>.value(
+                _FakeEither_0<_i5.NetworkError, _i8.EmptyEntity>(
           this,
           Invocation.method(
             #deleteFromCart,
             [productId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, _i8.EmptyEntity>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, List<_i8.Cart>>> getCarts() =>
+  _i4.Future<_i2.Either<_i5.NetworkError, List<_i9.Cart>>> getCarts() =>
       (super.noSuchMethod(
         Invocation.method(
           #getCarts,
           [],
         ),
         returnValue:
-            _i4.Future<_i2.Either<_i5.NetworkError, List<_i8.Cart>>>.value(
-                _FakeEither_0<_i5.NetworkError, List<_i8.Cart>>(
+            _i4.Future<_i2.Either<_i5.NetworkError, List<_i9.Cart>>>.value(
+                _FakeEither_0<_i5.NetworkError, List<_i9.Cart>>(
           this,
           Invocation.method(
             #getCarts,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i8.Cart>>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i9.Cart>>>);
   @override
-  _i4.Stream<List<_i8.Cart>> watchCarts() => (super.noSuchMethod(
+  _i4.Stream<List<_i9.Cart>> watchCarts() => (super.noSuchMethod(
         Invocation.method(
           #watchCarts,
           [],
         ),
-        returnValue: _i4.Stream<List<_i8.Cart>>.empty(),
-      ) as _i4.Stream<List<_i8.Cart>>);
+        returnValue: _i4.Stream<List<_i9.Cart>>.empty(),
+      ) as _i4.Stream<List<_i9.Cart>>);
 }
 
 /// A class which mocks [OrderRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockOrderRepository extends _i1.Mock implements _i9.OrderRepository {
+class MockOrderRepository extends _i1.Mock implements _i10.OrderRepository {
   MockOrderRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
   _i4.Future<_i2.Either<_i5.NetworkError, void>> placeOrder(
-          _i10.AddOrder? order) =>
+          _i11.AddOrder? order) =>
       (super.noSuchMethod(
         Invocation.method(
           #placeOrder,
@@ -249,51 +253,51 @@ class MockOrderRepository extends _i1.Mock implements _i9.OrderRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, List<_i11.Order>>> getAllOrders() =>
+  _i4.Future<_i2.Either<_i5.NetworkError, List<_i12.Order>>> getAllOrders() =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllOrders,
           [],
         ),
         returnValue:
-            _i4.Future<_i2.Either<_i5.NetworkError, List<_i11.Order>>>.value(
-                _FakeEither_0<_i5.NetworkError, List<_i11.Order>>(
+            _i4.Future<_i2.Either<_i5.NetworkError, List<_i12.Order>>>.value(
+                _FakeEither_0<_i5.NetworkError, List<_i12.Order>>(
           this,
           Invocation.method(
             #getAllOrders,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i11.Order>>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i12.Order>>>);
 }
 
 /// A class which mocks [ProductRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockProductRepository extends _i1.Mock implements _i12.ProductRepository {
+class MockProductRepository extends _i1.Mock implements _i13.ProductRepository {
   MockProductRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, List<_i13.Product>>>
+  _i4.Future<_i2.Either<_i5.NetworkError, List<_i14.Product>>>
       getAllProducts() => (super.noSuchMethod(
             Invocation.method(
               #getAllProducts,
               [],
             ),
             returnValue: _i4
-                .Future<_i2.Either<_i5.NetworkError, List<_i13.Product>>>.value(
-                _FakeEither_0<_i5.NetworkError, List<_i13.Product>>(
+                .Future<_i2.Either<_i5.NetworkError, List<_i14.Product>>>.value(
+                _FakeEither_0<_i5.NetworkError, List<_i14.Product>>(
               this,
               Invocation.method(
                 #getAllProducts,
                 [],
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i13.Product>>>);
+          ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i14.Product>>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, _i13.Product>> getProductsDetails(
+  _i4.Future<_i2.Either<_i5.NetworkError, _i14.Product>> getProductsDetails(
           int? productId) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -301,62 +305,62 @@ class MockProductRepository extends _i1.Mock implements _i12.ProductRepository {
           [productId],
         ),
         returnValue:
-            _i4.Future<_i2.Either<_i5.NetworkError, _i13.Product>>.value(
-                _FakeEither_0<_i5.NetworkError, _i13.Product>(
+            _i4.Future<_i2.Either<_i5.NetworkError, _i14.Product>>.value(
+                _FakeEither_0<_i5.NetworkError, _i14.Product>(
           this,
           Invocation.method(
             #getProductsDetails,
             [productId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, _i13.Product>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, _i14.Product>>);
 }
 
 /// A class which mocks [UserRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserRepository extends _i1.Mock implements _i14.UserRepository {
+class MockUserRepository extends _i1.Mock implements _i15.UserRepository {
   MockUserRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, _i15.AccountDetails>>
+  _i4.Future<_i2.Either<_i5.NetworkError, _i16.AccountDetails>>
       getUserDetails() => (super.noSuchMethod(
             Invocation.method(
               #getUserDetails,
               [],
             ),
             returnValue: _i4.Future<
-                    _i2.Either<_i5.NetworkError, _i15.AccountDetails>>.value(
-                _FakeEither_0<_i5.NetworkError, _i15.AccountDetails>(
+                    _i2.Either<_i5.NetworkError, _i16.AccountDetails>>.value(
+                _FakeEither_0<_i5.NetworkError, _i16.AccountDetails>(
               this,
               Invocation.method(
                 #getUserDetails,
                 [],
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.NetworkError, _i15.AccountDetails>>);
+          ) as _i4.Future<_i2.Either<_i5.NetworkError, _i16.AccountDetails>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, List<_i15.Address>>>
+  _i4.Future<_i2.Either<_i5.NetworkError, List<_i16.Address>>>
       fetchUserAddress() => (super.noSuchMethod(
             Invocation.method(
               #fetchUserAddress,
               [],
             ),
             returnValue: _i4
-                .Future<_i2.Either<_i5.NetworkError, List<_i15.Address>>>.value(
-                _FakeEither_0<_i5.NetworkError, List<_i15.Address>>(
+                .Future<_i2.Either<_i5.NetworkError, List<_i16.Address>>>.value(
+                _FakeEither_0<_i5.NetworkError, List<_i16.Address>>(
               this,
               Invocation.method(
                 #fetchUserAddress,
                 [],
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i15.Address>>>);
+          ) as _i4.Future<_i2.Either<_i5.NetworkError, List<_i16.Address>>>);
   @override
   _i4.Future<_i2.Either<_i5.NetworkError, void>> addAddress(
-          _i15.AddAddress? address) =>
+          _i16.AddAddress? address) =>
       (super.noSuchMethod(
         Invocation.method(
           #addAddress,
@@ -373,7 +377,7 @@ class MockUserRepository extends _i1.Mock implements _i14.UserRepository {
       ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
   @override
   _i4.Future<_i2.Either<_i5.NetworkError, void>> editAddress(
-          _i15.EditAddress? address) =>
+          _i16.EditAddress? address) =>
       (super.noSuchMethod(
         Invocation.method(
           #editAddress,
@@ -388,4 +392,113 @@ class MockUserRepository extends _i1.Mock implements _i14.UserRepository {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
+}
+
+/// A class which mocks [AddAddress].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAddAddress extends _i1.Mock implements _i16.AddAddress {
+  MockAddAddress() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  String get name => (super.noSuchMethod(
+        Invocation.getter(#name),
+        returnValue: '',
+      ) as String);
+  @override
+  set name(String? _name) => super.noSuchMethod(
+        Invocation.setter(
+          #name,
+          _name,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get pincode => (super.noSuchMethod(
+        Invocation.getter(#pincode),
+        returnValue: '',
+      ) as String);
+  @override
+  set pincode(String? _pincode) => super.noSuchMethod(
+        Invocation.setter(
+          #pincode,
+          _pincode,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get address => (super.noSuchMethod(
+        Invocation.getter(#address),
+        returnValue: '',
+      ) as String);
+  @override
+  set address(String? _address) => super.noSuchMethod(
+        Invocation.setter(
+          #address,
+          _address,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get city => (super.noSuchMethod(
+        Invocation.getter(#city),
+        returnValue: '',
+      ) as String);
+  @override
+  set city(String? _city) => super.noSuchMethod(
+        Invocation.setter(
+          #city,
+          _city,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: '',
+      ) as String);
+  @override
+  set state(String? _state) => super.noSuchMethod(
+        Invocation.setter(
+          #state,
+          _state,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get phoneNumber => (super.noSuchMethod(
+        Invocation.getter(#phoneNumber),
+        returnValue: '',
+      ) as String);
+  @override
+  set phoneNumber(String? _phoneNumber) => super.noSuchMethod(
+        Invocation.setter(
+          #phoneNumber,
+          _phoneNumber,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  bool get isDefault => (super.noSuchMethod(
+        Invocation.getter(#isDefault),
+        returnValue: false,
+      ) as bool);
+  @override
+  set isDefault(bool? _isDefault) => super.noSuchMethod(
+        Invocation.setter(
+          #isDefault,
+          _isDefault,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String wholeAddress() => (super.noSuchMethod(
+        Invocation.method(
+          #wholeAddress,
+          [],
+        ),
+        returnValue: '',
+      ) as String);
 }
