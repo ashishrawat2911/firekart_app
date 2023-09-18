@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:firekart/domain/models/network.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/repository/cart_repository.dart';
+import 'package:domain/models/network.dart';
+import 'package:domain/network_result/network_error.dart';
+import 'package:domain/repository/cart_repository.dart';
+import 'package:domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:firekart/domain/usecases/add_product_to_cart_usecase.dart';
 import 'package:mockito/mockito.dart';
 
 import 'usecase_test.mocks.dart';

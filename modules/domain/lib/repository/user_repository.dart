@@ -17,6 +17,7 @@
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/network_result/network_error.dart';
+import 'package:domain/models/network.dart';
 
 abstract class UserRepository {
   Future<Either<NetworkError, AccountDetails>> getUserDetails();

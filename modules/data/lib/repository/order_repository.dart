@@ -16,6 +16,7 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:data/error/network_handler.dart';
+import 'package:data/model/common/base_response.dart';
 import 'package:data/source/local/dao/cart_dao.dart';
 import 'package:data/source/remote/api_service.dart';
 import 'package:domain/models/add_order_model.dart';
@@ -25,6 +26,8 @@ import 'package:domain/repository/order_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
 import '../mapper/data_mapper.dart';
+import 'package:domain/models/network.dart';
+import 'package:domain/models/network.dart';
 
 @Injectable(as: OrderRepository)
 class OrderRepositoryImpl extends OrderRepository {
