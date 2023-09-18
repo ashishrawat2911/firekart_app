@@ -39,13 +39,14 @@ class OrderRepositoryImpl extends OrderRepository {
   );
 
   @override
-  Future<Either<NetworkError, void>> placeOrder(AddOrder order) {
+  Future<Either<NetworkError, EmptyEntity>> placeOrder(AddOrder order) {
     return getNetworkResult(
       () {
         return _apiService
             .placeOrder(_dataMapper.addOrderToModel(order))
             .then((value) {
           _cartDao.deleteCarts();
+          return value.toEntity();
         });
       },
     );

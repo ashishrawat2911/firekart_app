@@ -25,6 +25,9 @@ extension NetworkResponseExt<T> on NetworkResponse<T> {
   NetworkEntity<T> toEntity() {
     return NetworkEntity(status, message, data);
   }
+  EmptyEntity toEmptyEntity() {
+    return EmptyEntity(status, message);
+  }
 }
 
 extension EmptyNetworkResponseExt on EmptyNetworkResponse {

@@ -25,7 +25,7 @@ class ProductDeleteCartUseCase {
 
   ProductDeleteCartUseCase(this._repository);
 
-  Future<Either<NetworkError, void>> execute(int productId) async {
+  Future<Either<NetworkError, EmptyEntity>> execute(int productId) async {
     return _repository.deleteFromCart(productId);
   }
 }

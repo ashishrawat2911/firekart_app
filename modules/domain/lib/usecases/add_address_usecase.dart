@@ -27,7 +27,7 @@ class AddAddressUseCase {
 
   final UserRepository _repository;
 
-  Future<Either<NetworkError, void>> execute(AddAddress address) {
+  Future<Either<NetworkError, EmptyEntity>> execute(AddAddress address) {
     return _repository.addAddress(address);
   }
 }

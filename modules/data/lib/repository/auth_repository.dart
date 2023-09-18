@@ -51,32 +51,37 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Either<NetworkError, void>> verifyOtp(
+  Future<Either<NetworkError, EmptyEntity>> verifyOtp(
     String phoneNumber,
     String smsCode, {
     String? name,
   }) {
     return getNetworkResult(
       () async {
-        final res = await _apiService.verifyOtp(
+        return await _apiService
+            .verifyOtp(
           OTPVerifyRequestModel(
             phoneNumber,
             smsCode,
             name,
             _localStorage.deviceToken,
           ),
-        );
-        await _localStorage.setLogin(true);
-        await _localStorage.setAccessToken(res.data.token);
+        )
+            .then((value) async {
+          await _localStorage.setLogin(true);
+          await _localStorage.setAccessToken(value.data.token);
+          return value.toEmptyEntity();
+        });
       },
     );
   }
 
   @override
-  Future<Either<NetworkError, void>> logout() async {
+  Future<Either<NetworkError, EmptyEntity>> logout() async {
     return getNetworkResult(
       () async {
         _localStorage.clear();
+        return EmptyEntity(true, 'Logout');
       },
     );
   }

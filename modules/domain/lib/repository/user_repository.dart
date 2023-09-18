@@ -23,7 +23,7 @@ abstract class UserRepository {
 
   Future<Either<NetworkError, List<Address>>> fetchUserAddress();
 
-  Future<Either<NetworkError, void>> addAddress(AddAddress address);
+  Future<Either<NetworkError, EmptyEntity>> addAddress(AddAddress address);
 
-  Future<Either<NetworkError, void>> editAddress(EditAddress address);
+  Future<Either<NetworkError, EmptyEntity>> editAddress(EditAddress address);
 }

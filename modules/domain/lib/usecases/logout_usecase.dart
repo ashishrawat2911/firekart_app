@@ -26,7 +26,7 @@ class LogoutUseCase {
 
   final AuthRepository _firekartRepository;
 
-  Future<Either<NetworkError, void>> execute() {
+  Future<Either<NetworkError, EmptyEntity>> execute() {
     return _firekartRepository.logout();
   }
 }
