@@ -5,7 +5,7 @@ packages:
 
 scripts:
   analyze: "flutter analyze"
-  format: melos exec -c 1 flutter format lib
+  format: melos exec -c 1 dart format .
   clean: | 
     flutter clean
     rm pubspec.lock

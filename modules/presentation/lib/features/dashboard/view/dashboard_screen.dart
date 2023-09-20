@@ -196,7 +196,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             childAspectRatio: 0.7,
             crossAxisSpacing: 10,
             children: List.generate(
-              products.length ,
+              products.length,
               (index) => ProductCard(productModelToArgs(products[index])),
             ),
           ),

@@ -280,7 +280,8 @@ class AddAddressScreen extends StatelessWidget {
           city: cityEditingController.text,
           isDefault: state.setAsDefault,
           pincode: pincodeEditingController.text,
-          phoneNumber: '${phoneNumberNotifier.value}${phoneEditingController.text}',
+          phoneNumber:
+              '${phoneNumberNotifier.value}${phoneEditingController.text}',
           state: stateEditingController.text,
         );
         viewModel.editAddress(address);

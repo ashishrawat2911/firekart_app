@@ -25,7 +25,7 @@ import '../../../routes/route_handler.dart';
 class CheckStatusViewModel extends ViewModel<int> {
   CheckStatusViewModel(
     this._getUserLoggedInStatusUseCase,
-    ) : super(0);
+  ) : super(0);
   final GetUserLoggedInStatusUseCase _getUserLoggedInStatusUseCase;
 
   Future<void> checkStatus(bool checkForAccountStatusOnly) async {

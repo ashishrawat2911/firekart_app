@@ -27,7 +27,9 @@ class CartDao extends DatabaseAccessor<FirekartDatabase> with _$CartDaoMixin {
   }
 
   Future deleteFromCart(int productId) {
-    return (delete(cartTableEntity)..where((t) => t.productId.isValue(productId))).go();
+    return (delete(cartTableEntity)
+          ..where((t) => t.productId.isValue(productId)))
+        .go();
   }
 
   Future updateCart(int productId, int quantity) {
