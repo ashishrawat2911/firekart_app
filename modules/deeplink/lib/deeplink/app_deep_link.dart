@@ -15,7 +15,9 @@
  */
 import 'package:app_links/app_links.dart';
 import 'package:core/deeplink/deep_link.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class AppDeeplink extends Deeplink {
   final AppLinks _appLinks = AppLinks();
 
