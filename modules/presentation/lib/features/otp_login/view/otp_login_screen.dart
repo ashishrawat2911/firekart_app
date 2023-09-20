@@ -210,7 +210,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   void onButtonTap(OtpLoginViewModel viewModel, {bool isResend = false}) {
     if (_formKey.currentState!.validate()) {
       viewModel.loginWithOtp(widget.phoneNumber,
-          otpNumberController.text.trim(), isResend, nameController.text);
+          otpNumberController.text.trim(), isResend, nameController.text,);
     }
   }
 

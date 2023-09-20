@@ -37,7 +37,9 @@ class CartUseCase {
   }
 
   Future<Either<NetworkError, void>> updateCart(
-      int productId, int quantity) async {
+    int productId,
+    int quantity,
+  ) async {
     await getCarts();
     return _repository.updateCart(productId, quantity);
   }

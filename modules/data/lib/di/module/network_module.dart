@@ -31,7 +31,7 @@ abstract class NetworkModule {
       ..interceptors.add(LogInterceptor(
         responseBody: true,
         requestBody: true,
-      ))
+      ),)
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         'X-Requested-With': 'XMLHttpRequest',

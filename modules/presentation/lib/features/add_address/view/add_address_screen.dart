@@ -14,13 +14,13 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:country_code_picker_x/country_code_picker_x.dart';
-import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
 import 'package:core/theme/theme_provider.dart';
 import 'package:core/utils/validator.dart';
+import 'package:country_code_picker_x/country_code_picker_x.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -58,7 +58,7 @@ class AddAddressScreen extends StatelessWidget {
   final Validator validator = Validator();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  ValueNotifier<String> phoneNumberNotifier = ValueNotifier('+91');
+  final ValueNotifier<String> phoneNumberNotifier = ValueNotifier('+91');
 
   @override
   Widget build(BuildContext context) {

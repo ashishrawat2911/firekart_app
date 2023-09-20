@@ -1,6 +1,6 @@
-import 'package:drift/drift.dart';
 import 'package:data/source/local/db/firekart_database.dart';
 import 'package:data/source/local/model/product_table_entity.dart';
+import 'package:drift/drift.dart';
 
 part 'product_dao.g.dart';
 
@@ -29,8 +29,11 @@ class ProductDao extends DatabaseAccessor<FirekartDatabase>
 
   Future<void> addProducts(List<ProductTableEntityCompanion> products) async {
     await batch((batch) {
-      batch.insertAll(productTableEntity, products,
-          mode: InsertMode.insertOrReplace);
+      batch.insertAll(
+        productTableEntity,
+        products,
+        mode: InsertMode.insertOrReplace,
+      );
     });
   }
 

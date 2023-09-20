@@ -71,7 +71,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           appBar: AppBar(
             title: Text(state.product is ProductData
                 ? (state.product as ProductData).product.name
-                : ''),
+                : '',),
           ),
           body: state.product.when(
             loading: () {
@@ -137,7 +137,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   }
 
   Widget addCartView(
-      AddToCartState state, ProductViewModel viewModel, Product product) {
+      AddToCartState state, ProductViewModel viewModel, Product product,) {
     int cartValue = 0;
     cartValue = state.noOfItems as int;
     return AnimatedCrossFade(
@@ -185,7 +185,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         true,
                       );
                     },
-            )
+            ),
           ],
         ),
       ),
@@ -197,7 +197,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   }
 
   Widget addButton(
-      AddToCartState state, ProductViewModel viewModel, Product product) {
+      AddToCartState state, ProductViewModel viewModel, Product product,) {
     return AnimatedCrossFade(
       firstChild: InkWell(
         onTap: () {

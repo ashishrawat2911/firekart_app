@@ -57,7 +57,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
-              RouteHandler.routeTo(AllProductListRoute());
+              RouteHandler.routeTo(const AllProductListRoute());
             },
             label: Text(
               Localization.value.viewAllProducts,
@@ -72,7 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: <Widget>[
-                  productsGrids("Products", state.products),
+                  productsGrids('Products', state.products),
                   const SizedBox(
                     height: 20,
                   ),
@@ -177,7 +177,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Localization.value.viewAllCaps,
                   onTap: () {
                     RouteHandler.routeTo(
-                      AllProductListRoute(),
+                      const AllProductListRoute(),
                     );
                   },
                 ),

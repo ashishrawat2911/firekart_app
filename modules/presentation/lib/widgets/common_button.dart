@@ -83,7 +83,7 @@ class CommonButton extends StatelessWidget {
                       Icons.arrow_forward,
                       color: AppColors.white,
                       size: 20,
-                    )
+                    ),
                   ],
                 )
               : replaceWithIndicator

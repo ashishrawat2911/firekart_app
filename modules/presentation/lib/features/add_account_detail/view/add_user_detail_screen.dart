@@ -20,7 +20,6 @@ import 'package:core/utils/validator.dart';
 import 'package:presentation/features/add_account_detail/state/add_account_details_state.dart';
 import 'package:presentation/res/colors.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/features/add_account_detail/state/add_account_details_state.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/route_handler.dart';

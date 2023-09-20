@@ -65,7 +65,7 @@ class _AllProductListScreenState extends State<AllProductListScreen> {
                 padding: EdgeInsets.all(16),
                 child: Icon(Icons.search),
               ),
-            )
+            ),
           ],
         ),
         body: ResultStateBuilder(
