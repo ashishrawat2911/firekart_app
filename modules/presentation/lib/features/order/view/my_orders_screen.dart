@@ -130,7 +130,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           ),
                           Text(
                             //TODO '${orderList[orderListIndex].currency}'
-                                ' ${orderList[orderListIndex].price}',
+                            ' ${orderList[orderListIndex].price}',
                             style: ThemeProvider.textTheme.bodyMedium,
                           )
                         ],

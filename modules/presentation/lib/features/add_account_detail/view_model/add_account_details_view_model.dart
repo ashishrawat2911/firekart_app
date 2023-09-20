@@ -29,7 +29,7 @@ class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
   AddAccountDetailsViewModel(
     this._setAccountDetailsUseCase,
     this._getAccountDetailsUseCase,
-    ) : super(const AddAccountDetailsState.idle());
+  ) : super(const AddAccountDetailsState.idle());
 
   final SetAccountDetailsUseCase _setAccountDetailsUseCase;
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;

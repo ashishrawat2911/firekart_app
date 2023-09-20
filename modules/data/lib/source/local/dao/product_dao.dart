@@ -22,7 +22,8 @@ class ProductDao extends DatabaseAccessor<FirekartDatabase>
 
   Future<List<ProductTableEntityData>> getProducts(int page, int limit) {
     // return getProductsCustomQuery(limit, offset).get();
-    return (select(productTableEntity)..limit(limit, offset: (page-1) * limit))
+    return (select(productTableEntity)
+          ..limit(limit, offset: (page - 1) * limit))
         .get();
   }
 

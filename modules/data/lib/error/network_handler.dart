@@ -4,7 +4,6 @@ import 'package:core/logger/app_logger.dart';
 import 'package:data/error/network_error_handler.dart';
 import 'package:domain/network_result/network_error.dart';
 
-
 Future<Either<NetworkError, T>> getNetworkResult<T>(
   Future<T> Function() on,
 ) async {

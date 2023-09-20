@@ -31,5 +31,5 @@ abstract class AuthRepository {
 
   Future<Either<NetworkError, void>> logout();
 
-  Future<void> setDeviceToken(String deviceToken) ;
+  Future<void> setDeviceToken(String deviceToken);
 }
