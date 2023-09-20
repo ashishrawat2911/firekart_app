@@ -6,13 +6,13 @@ packages:
 scripts:
   analyze: "flutter analyze"
   format: melos exec -c 1 dart format .
-  clean: | 
+  clean: |
     flutter clean
     rm pubspec.lock
     rm -rf /coverage
     rm -rf ./build ./android/.gradle ./ios/.symlinks ./ios/Pods ./android/.idea ./.idea ./.dart-tool/build
   get: melos bs
-  checkout: | 
+  checkout: |
     melos clean
     melos get
   test: |
@@ -23,15 +23,15 @@ scripts:
   build: |
     flutter build apk
     flutter build ios --release --no-codesign
-#  generate: flutter packages pub run build_runner build --delete-conflicting-outputs
-#  select-package:
-#      flutter: true
-#
-#  generateWatch: flutter packages pub run build_runner build --delete-conflicting-outputs
-#  select-package:
-#      flutter: true
+  #  generate: flutter packages pub run build_runner build --delete-conflicting-outputs
+  #  select-package:
+  #      flutter: true
+  #
+  #  generateWatch: flutter packages pub run build_runner build --delete-conflicting-outputs
+  #  select-package:
+  #      flutter: true
 
-  generateAll: flutter packages pub run build_runner build --delete-conflicting-outputs
+  generateAll: melos exec -c 1 flutter packages pub run build_runner build --delete-conflicting-outputs --verbose
   refactor: melos analyze
     melos checkout
     melos format

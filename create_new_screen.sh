@@ -23,7 +23,7 @@ mkdir view_model && cd view_model && touch "${FILE_NAME}_view_model.dart" &&
 echo "${FILE_HEADER}
 import 'package:core/state_manager/view_model.dart';
 import 'package:presentation/features/${FILE_NAME}/state/${FILE_NAME}_state.dart';
-import 'package:injectable/injectable.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 @injectable
 class "${CLASS_NAME}ViewModel" extends ViewModel<"${CLASS_NAME}State"> {
@@ -34,7 +34,7 @@ class "${CLASS_NAME}ViewModel" extends ViewModel<"${CLASS_NAME}State"> {
 
 mkdir state && cd state && touch "${FILE_NAME}_state.dart" &&
 echo "${FILE_HEADER}
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 part '"${FILE_NAME}_state".freezed.dart';
 
 @Freezed()
