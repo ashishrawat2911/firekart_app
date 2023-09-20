@@ -24,8 +24,8 @@ import 'package:localization/localization.dart';
 import 'package:presentation/res/app_theme.dart';
 import 'package:presentation/routes/route_handler.dart';
 
-import 'state/app_state.dart';
-import 'view_model/app_view_model.dart';
+import '../state/app_state.dart';
+import '../view_model/app_view_model.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
