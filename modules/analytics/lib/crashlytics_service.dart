@@ -20,9 +20,9 @@ import 'package:injectable/injectable.dart';
 
 @singleton
 class CrashlyticsService {
-  final FirebaseCrashlytics _firebaseCrashlytics;
+  final FirebaseCrashlytics _firebaseCrashlytics = FirebaseCrashlytics.instance;
 
-  CrashlyticsService(this._firebaseCrashlytics) {
+  CrashlyticsService() {
     FlutterError.onError = recordFlutterError;
   }
 

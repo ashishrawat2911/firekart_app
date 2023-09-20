@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_local_notifications: ^15.1.1
+  firebase_core: ^2.4.0
   #Modules
   domain:
     path: modules/domain
@@ -23,6 +23,10 @@ dependencies:
     path: modules/presentation
   firebase_impl:
     path: modules/firebase_impl
+  notification:
+    path: modules/notification
+  analytics:
+    path: modules/analytics
 
 dev_dependencies:
   flutter_test:

@@ -17,10 +17,11 @@ import 'package:core/connectivity/network_connectivity.dart';
 import 'package:core/logger/app_logger.dart';
 import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/get_user_logged_in_status.dart';
-import 'package:domain/usecases/notification_handler_usecase.dart';
+import 'package:domain/usecases/set_device_token_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
+import 'package:notification/push_notification/push_notification_handler.dart';
 import 'package:presentation/routes/app_router.gr.dart';
 import 'package:presentation/routes/route_handler.dart';
 
@@ -29,21 +30,24 @@ import '../state/app_state.dart';
 @singleton
 class AppViewModel extends ViewModel<AppState> {
   final GetUserLoggedInStatusUseCase _loggedInStatusUseCase;
-  final PushNotificationHandlerUseCase _notificationHandlerUseCase;
+  final SetDeviceTokenUseCase _setDeviceTokenUseCase;
+  final PushNotificationHandler _pushNotificationHandler;
   final NetworkConnectivity _networkConnectivity;
 
   AppViewModel(
     this._loggedInStatusUseCase,
-    this._notificationHandlerUseCase,
+    this._pushNotificationHandler,
+    this._setDeviceTokenUseCase,
     this._networkConnectivity,
   ) : super(const AppState());
 
   Future<void> initialize() async {
     await _networkConnectivity.initialize();
-    await _notificationHandlerUseCase.execute(
+    await _pushNotificationHandler.execute(
       onNotificationData: (notificationData) {
         _handleNotification(notificationData);
       },
+      onDeviceToken: _setDeviceTokenUseCase.execute,
     );
   }
 

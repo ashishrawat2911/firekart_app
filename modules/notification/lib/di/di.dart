@@ -13,13 +13,7 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-@module
-abstract class FirebaseModule {
-  @singleton
-  FirebaseDynamicLinks get firebaseDynamicLinks =>
-      FirebaseDynamicLinks.instance;
-}
+@InjectableInit.microPackage()
+void registerCoreDependencies() {}

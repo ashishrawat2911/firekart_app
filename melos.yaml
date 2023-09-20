@@ -1,4 +1,4 @@
-name: firekart
+  name: firekart
 
 packages:
   - /**

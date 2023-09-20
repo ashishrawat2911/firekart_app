@@ -13,16 +13,17 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:firebase_performance/firebase_performance.dart';
 import 'package:core/performance/performance_moniter.dart';
+import 'package:firebase_performance/firebase_performance.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 @Singleton(as: PerformanceMonitor)
 class FirebasePerformanceMonitor extends PerformanceMonitor {
-  final FirebasePerformance performance;
+  final FirebasePerformance performance = FirebasePerformance.instance
+    ..setPerformanceCollectionEnabled(true);
 
-  FirebasePerformanceMonitor(this.performance);
+  FirebasePerformanceMonitor();
 
   final _traceKeys = <String, Trace>{};
 
