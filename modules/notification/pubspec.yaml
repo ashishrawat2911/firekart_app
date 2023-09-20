@@ -1,16 +1,17 @@
-name: firebase_impl
+name: notification
 description: A new Flutter package project.
 version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: '>=3.1.2 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  firebase_dynamic_links: ^5.0.8
+  flutter_local_notifications: ^15.1.1
+  firebase_messaging: ^14.6.7
   shared_dependencies:
     path: ../shared_dependencies
   core:
@@ -22,5 +23,3 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.4.4
   injectable_generator: ^2.1.6
-
-flutter:
