@@ -16,7 +16,7 @@
 import 'package:core/impl/app_loading_impl.dart';
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,6 @@ class App extends StatelessWidget {
               builder: AppLoader.initBuilder(
                 builder: (context, child) {
                   Localization.setup(context);
-                  ThemeProvider.setup(context);
                   return child!;
                 },
               ),

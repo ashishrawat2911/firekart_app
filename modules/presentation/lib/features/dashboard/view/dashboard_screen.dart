@@ -18,8 +18,9 @@ import 'dart:async';
 import 'package:auto_route/annotations.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:domain/models/product_model.dart';
+import 'package:presentation/res/app_theme.dart';
 import 'package:presentation/res/colors.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -61,7 +62,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
             label: Text(
               Localization.value.viewAllProducts,
-              style: ThemeProvider.textTheme.labelSmall?.copyWith(
+              style: context.textTheme.labelSmall?.copyWith(
                 color: AppColors.white,
               ),
             ),
@@ -169,7 +170,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: <Widget>[
               Text(
                 title,
-                style: ThemeProvider.textTheme.displayMedium,
+                style: context.textTheme.displayMedium,
               ),
               Container(
                 margin: const EdgeInsets.only(right: 16),

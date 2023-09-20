@@ -15,8 +15,9 @@
  */
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:localization/localization.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../res/colors.gen.dart';
 import 'action_text.dart';
@@ -94,14 +95,14 @@ class CartItemCard extends StatelessWidget {
                         children: [
                           Text(
                             cartItemCardArgs.name,
-                            style: ThemeProvider.textTheme.bodyLarge,
+                            style: context.textTheme.bodyLarge,
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           Text(
                             '${cartItemCardArgs.price}/ ${cartItemCardArgs.quantity}',
-                            style: ThemeProvider.textTheme.bodySmall,
+                            style: context.textTheme.bodySmall,
                           ),
                         ],
                       ),
@@ -155,7 +156,7 @@ class CartItemCard extends StatelessWidget {
                                   )
                                 : Text(
                                     '${cartItemCardArgs.itemCount}',
-                                    style: ThemeProvider.textTheme.bodyMedium,
+                                    style: context.textTheme.bodyMedium,
                                   ),
                           ),
                         ),

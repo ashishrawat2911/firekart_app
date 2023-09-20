@@ -15,12 +15,12 @@
  */
 import 'package:auto_route/annotations.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
 import 'package:core/utils/validator.dart';
 import 'package:country_code_picker_x/country_code_picker_x.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/commom_text_field.dart';
@@ -97,7 +97,7 @@ class AddAddressScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(bottom: 30),
                         child: Text(
                           Localization.value.addNewAddress,
-                          style: ThemeProvider.textTheme.bodyLarge,
+                          style: context.textTheme.bodyLarge,
                         ),
                       ),
                     ),
@@ -231,7 +231,7 @@ class AddAddressScreen extends StatelessWidget {
                         ),
                         Text(
                           Localization.value.setAsDefaultCaps,
-                          style: ThemeProvider.textTheme.bodyLarge,
+                          style: context.textTheme.bodyLarge,
                         ),
                       ],
                     ),

@@ -17,9 +17,10 @@ import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:domain/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../res/colors.gen.dart';
@@ -97,7 +98,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         children: <Widget>[
                           Text(
                             product.name,
-                            style: ThemeProvider.textTheme.displayLarge,
+                            style: context.textTheme.displayLarge,
                           ),
                           const SizedBox(
                             height: 10,
@@ -111,7 +112,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             children: <Widget>[
                               Text(
                                 '${product.currency}${product.currentPrice} / ${product.quantityPerUnit} ${product.unit}',
-                                style: ThemeProvider.textTheme.bodySmall
+                                style: context.textTheme.bodySmall
                                     ?.copyWith(fontSize: 16),
                               ),
                               const SizedBox(
@@ -170,7 +171,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   : Center(
                       child: Text(
                         '$cartValue',
-                        style: ThemeProvider.textTheme.bodyMedium,
+                        style: context.textTheme.bodyMedium,
                       ),
                     ),
             ),
@@ -212,7 +213,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ),
           child: Text(
             Localization.value.add,
-            style: ThemeProvider.textTheme.labelLarge?.copyWith(
+            style: context.textTheme.labelLarge?.copyWith(
               color: AppColors.primaryColor,
             ),
           ),

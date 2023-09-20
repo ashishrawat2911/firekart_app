@@ -16,9 +16,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:presentation/features/dashboard/view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../accounts/view/account_screen.dart';
@@ -76,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                             backgroundColor: AppColors.color6EBA49,
                             child: Text(
                               '${state.noOfItemsInCart}',
-                              style: ThemeProvider.textTheme.labelSmall,
+                              style: context.textTheme.labelSmall,
                             ),
                           ),
                         ),
