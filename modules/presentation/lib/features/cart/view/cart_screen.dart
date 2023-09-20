@@ -16,8 +16,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/action_text.dart';
@@ -166,14 +167,14 @@ class _CartScreenState extends State<CartScreen> {
             children: [
               Text(
                 title,
-                style: ThemeProvider.textTheme.bodyLarge?.copyWith(
+                style: context.textTheme.bodyLarge?.copyWith(
                   fontSize: 14,
                   fontWeight: isFinal ? FontWeight.w500 : null,
                 ),
               ),
               Text(
                 price,
-                style: ThemeProvider.textTheme.titleSmall?.copyWith(
+                style: context.textTheme.titleSmall?.copyWith(
                   fontSize: 16,
                   fontWeight: isFinal ? FontWeight.w500 : null,
                 ),
@@ -203,7 +204,7 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             Text(
               Localization.value.billDetails,
-              style: ThemeProvider.textTheme.bodyLarge,
+              style: context.textTheme.bodyLarge,
             ),
             const SizedBox(
               height: 20,
@@ -236,7 +237,7 @@ class _CartScreenState extends State<CartScreen> {
               children: [
                 Text(
                   Localization.value.deliverTo,
-                  style: ThemeProvider.textTheme.bodyLarge,
+                  style: context.textTheme.bodyLarge,
                 ),
                 ActionText(
                   state.selectedAddress == null
@@ -254,7 +255,7 @@ class _CartScreenState extends State<CartScreen> {
             Text(
               state.selectedAddress?.wholeAddress() ??
                   Localization.value.noAddressFound,
-              style: ThemeProvider.textTheme.labelLarge?.copyWith(
+              style: context.textTheme.labelLarge?.copyWith(
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -279,7 +280,7 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     Text(
                       '${state.cartList.currency} ${state.cartList.priceInCart}',
-                      style: ThemeProvider.textTheme.bodyLarge,
+                      style: context.textTheme.bodyLarge,
                     ),
                     ActionText(Localization.value.viewDetailedBillCaps),
                   ],

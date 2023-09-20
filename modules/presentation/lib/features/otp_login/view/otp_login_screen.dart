@@ -16,10 +16,11 @@
 import 'package:auto_route/annotations.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:core/utils/validator.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../res/styles.dart';
@@ -107,14 +108,14 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
               children: <Widget>[
                 Text(
                   Localization.value.mobileVerification,
-                  style: ThemeProvider.textTheme.displayMedium,
+                  style: context.textTheme.displayMedium,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 Text(
                   Localization.value.mobileVerificationDesc,
-                  style: ThemeProvider.textTheme.bodyMedium,
+                  style: context.textTheme.bodyMedium,
                 ),
                 const SizedBox(
                   height: 20,
@@ -124,7 +125,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                     InkWell(
                       child: Text(
                         Localization.value.changeNumber,
-                        style: ThemeProvider.textTheme.bodySmall?.copyWith(
+                        style: context.textTheme.bodySmall?.copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
@@ -179,7 +180,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                       },
                       child: Text(
                         Localization.value.resendOtp,
-                        style: ThemeProvider.textTheme.bodySmall?.copyWith(
+                        style: context.textTheme.bodySmall?.copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
@@ -193,7 +194,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                   onTap: RouteHandler.pop,
                   child: Text(
                     Localization.value.goBack,
-                    style: ThemeProvider.textTheme.bodySmall?.copyWith(
+                    style: context.textTheme.bodySmall?.copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),

@@ -18,10 +18,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state/result_state.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:core/utils/date_time_util.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../widgets/common_app_loader.dart';
@@ -96,13 +97,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             Text(
                               Localization.value.orderedOnCaps,
-                              style: ThemeProvider.textTheme.labelLarge,
+                              style: context.textTheme.labelLarge,
                             ),
                             Text(
                               getOrderedTime(
                                 orderList[orderListIndex].orderedAt,
                               ),
-                              style: ThemeProvider.textTheme.bodyLarge,
+                              style: context.textTheme.bodyLarge,
                             ),
                           ],
                         ),
@@ -123,7 +124,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         children: [
                           Text(
                             Localization.value.totalCaps,
-                            style: ThemeProvider.textTheme.labelLarge,
+                            style: context.textTheme.labelLarge,
                           ),
                           const SizedBox(
                             width: 13,
@@ -131,7 +132,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           Text(
                             //TODO '${orderList[orderListIndex].currency}'
                             ' ${orderList[orderListIndex].price}',
-                            style: ThemeProvider.textTheme.bodyMedium,
+                            style: context.textTheme.bodyMedium,
                           ),
                         ],
                       ),
@@ -139,7 +140,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         children: [
                           Text(
                             orderList[orderListIndex].orderStatus,
-                            style: ThemeProvider.textTheme.bodySmall,
+                            style: context.textTheme.bodySmall,
                           ),
                           const SizedBox(
                             width: 10,
@@ -192,14 +193,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                     children: [
                       Text(
                         orderItem.name,
-                        style: ThemeProvider.textTheme.bodyMedium,
+                        style: context.textTheme.bodyMedium,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
                         '${orderItem.currency} ${orderItem.price} / ${orderItem.unit}',
-                        style: ThemeProvider.textTheme.bodySmall,
+                        style: context.textTheme.bodySmall,
                       ),
                     ],
                   ),
@@ -210,7 +211,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               ),
               Text(
                 "${orderItem.noOfItems} item${orderItem.noOfItems > 1 ? "s" : ""}",
-                style: ThemeProvider.textTheme.bodySmall,
+                style: context.textTheme.bodySmall,
               ),
             ],
           ),

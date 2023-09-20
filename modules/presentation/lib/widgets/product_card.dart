@@ -14,8 +14,9 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 class ProductCardArgs {
   final VoidCallback onTap;
@@ -79,7 +80,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     productCardArgs.name,
-                    style: ThemeProvider.textTheme.bodyLarge,
+                    style: context.textTheme.bodyLarge,
                   ),
                   const SizedBox(
                     height: 5,
@@ -88,14 +89,14 @@ class ProductCard extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         '${productCardArgs.currency}${productCardArgs.currentPrice}',
-                        style: ThemeProvider.textTheme.labelLarge,
+                        style: context.textTheme.labelLarge,
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
                         '${productCardArgs.currency}${productCardArgs.actualPrice}',
-                        style: ThemeProvider.textTheme.labelLarge
+                        style: context.textTheme.labelLarge
                             ?.copyWith(decoration: TextDecoration.lineThrough),
                       ),
                     ],
@@ -105,7 +106,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   Text(
                     '${productCardArgs.quantityPerUnit}${productCardArgs.unit}',
-                    style: ThemeProvider.textTheme.labelLarge,
+                    style: context.textTheme.labelLarge,
                   ),
                 ],
               ),

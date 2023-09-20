@@ -14,8 +14,9 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:localization/localization.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../res/colors.gen.dart';
 
@@ -40,7 +41,7 @@ class CommonViewCartOverlay extends StatelessWidget {
             children: <Widget>[
               Text(
                 args.title,
-                style: ThemeProvider.textTheme.titleSmall,
+                style: context.textTheme.titleSmall,
               ),
               const SizedBox(
                 width: 10,
@@ -55,7 +56,7 @@ class CommonViewCartOverlay extends StatelessWidget {
                     ),
                     Text(
                       Localization.value.viewCart,
-                      style: ThemeProvider.textTheme.titleSmall,
+                      style: context.textTheme.titleSmall,
                     ),
                   ],
                 ),

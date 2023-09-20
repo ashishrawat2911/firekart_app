@@ -17,9 +17,10 @@ import 'package:auto_route/annotations.dart';
 import 'package:country_code_picker_x/country_code_picker_x.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:core/utils/validator.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../res/styles.dart';
 import '../../../routes/app_router.gr.dart';
@@ -100,14 +101,14 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               Text(
                 Localization.value.login,
-                style: ThemeProvider.textTheme.displayMedium,
+                style: context.textTheme.displayMedium,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 Localization.value.phoneLoginText,
-                style: ThemeProvider.textTheme.bodyMedium,
+                style: context.textTheme.bodyMedium,
               ),
               const SizedBox(
                 height: 20,

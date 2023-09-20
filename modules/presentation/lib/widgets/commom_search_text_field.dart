@@ -13,8 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../res/colors.gen.dart';
 
@@ -48,7 +49,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
         textInputAction: TextInputAction.search,
         onSubmitted: widget.onSubmitted,
         onChanged: widget.onChanged,
-        style: ThemeProvider.textTheme.labelSmall,
+        style: context.textTheme.labelSmall,
         decoration: InputDecoration(
           hintText: widget.hint,
           contentPadding: const EdgeInsets.only(top: 25),
@@ -61,7 +62,7 @@ class _CommonSearchTextFieldState extends State<CommonSearchTextField> {
           ),
           fillColor: AppColors.white,
           filled: true,
-          hintStyle: ThemeProvider.textTheme.titleMedium,
+          hintStyle: context.textTheme.titleMedium,
           focusColor: AppColors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
@@ -159,7 +160,7 @@ class _CommonSearchBarState extends State<CommonSearchBar> {
           ),
           fillColor: AppColors.white,
           filled: true,
-          hintStyle: ThemeProvider.textTheme.titleMedium,
+          hintStyle: context.textTheme.titleMedium,
           focusColor: AppColors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),

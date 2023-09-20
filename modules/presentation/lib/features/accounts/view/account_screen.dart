@@ -16,11 +16,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:core/di/di.dart';
 import 'package:localization/localization.dart';
-import 'package:core/theme/theme_provider.dart';
+
 import 'package:domain/models/account_details_model.dart';
 import 'package:domain/usecases/logout_usecase.dart';
 import 'package:domain/usecases/stream_account_details_usecase.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/res/app_theme.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/route_handler.dart';
@@ -69,11 +70,11 @@ class _AccountScreenState extends State<AccountScreen> {
                           children: <Widget>[
                             Text(
                               accountDetails!.name,
-                              style: ThemeProvider.textTheme.displayLarge,
+                              style: context.textTheme.displayLarge,
                             ),
                             Text(
                               accountDetails!.phoneNumber,
-                              style: ThemeProvider.textTheme.bodySmall,
+                              style: context.textTheme.bodySmall,
                             ),
                           ],
                         ),
@@ -95,7 +96,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ListTile(
                   title: Text(
                     Localization.value.myOrders,
-                    style: ThemeProvider.textTheme.bodyMedium,
+                    style: context.textTheme.bodyMedium,
                   ),
                   leading: const Icon(Icons.shopping_basket),
                   onTap: () {
@@ -105,7 +106,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ListTile(
                   title: Text(
                     Localization.value.myAddress,
-                    style: ThemeProvider.textTheme.bodyMedium,
+                    style: context.textTheme.bodyMedium,
                   ),
                   leading: const Icon(Icons.place),
                   onTap: () {
@@ -116,7 +117,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ListTile(
                   title: Text(
                     Localization.value.logout,
-                    style: ThemeProvider.textTheme.bodyMedium,
+                    style: context.textTheme.bodyMedium,
                   ),
                   leading: const Icon(Icons.exit_to_app),
                   onTap: () {

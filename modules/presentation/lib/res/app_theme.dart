@@ -13,9 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
-import 'package:presentation/res/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:presentation/res/fonts.gen.dart';
 
 import 'colors.gen.dart';
 
@@ -171,5 +171,17 @@ class AppTheme {
       ),
       // colorScheme: ColorScheme(background: dark ? AppColors.black : AppColors.white),
     );
+  }
+}
+
+extension TextThemeExt on BuildContext {
+  TextTheme get textTheme {
+    return Theme.of(this).textTheme;
+  }
+
+  bool get hasDarkMode {
+    var brightness = MediaQuery.of(this).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
+    return isDarkMode;
   }
 }
