@@ -21,12 +21,12 @@ dependencies:
     path: modules/core
   presentation:
     path: modules/presentation
-  firebase_impl:
-    path: modules/firebase_impl
   notification:
     path: modules/notification
   analytics:
     path: modules/analytics
+  deeplink:
+    path: modules/deeplink
 
 dev_dependencies:
   flutter_test:
