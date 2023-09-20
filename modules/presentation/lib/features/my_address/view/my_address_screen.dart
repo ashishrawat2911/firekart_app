@@ -14,12 +14,12 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:auto_route/annotations.dart';
-import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
 import 'package:core/theme/theme_provider.dart';
 import 'package:domain/models/account_details_model.dart';
-import 'package:presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
+import 'package:presentation/routes/app_router.gr.dart';
 
 import '../../../res/colors.gen.dart';
 import '../../../routes/route_handler.dart';
@@ -119,7 +119,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                   viewModel,
                   state.addressStates[index],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -254,7 +254,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
                                 },
                               ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
@@ -285,7 +285,7 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
               onTap: () {
                 addNewNavigation(viewModel);
               },
-            )
+            ),
           ],
         ),
       );

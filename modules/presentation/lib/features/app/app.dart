@@ -36,28 +36,31 @@ class App extends StatelessWidget {
           viewModel.initialize();
         },
         builder: (context, viewModel, state) => DevicePreview(
-            enabled: !kReleaseMode,
-            builder: (context) {
-              return MaterialApp.router(
-                useInheritedMediaQuery: true,
-                builder: AppLoader.initBuilder(
-                  builder: (context, child) {
-                    Localization.setup(context);
-                    ThemeProvider.setup(context);
-                    return child!;
-                  },
-                ),
-                locale: state.locale,
-                theme: AppTheme.appTheme(),
-                darkTheme: AppTheme.appTheme(dark: true),
-                themeMode: state.themeMode,
-                localizationsDelegates: Localization.localizationsDelegates,
-                supportedLocales: Localization.supportedLocales,
-                debugShowCheckedModeBanner: false,
-                routerDelegate: RouteHandler.routerDelegate,
-                routeInformationParser: RouteHandler.routeInformationParser,
-                scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
-              );
-            }),
+          //ignore: avoid_redundant_argument_values
+          enabled: !kReleaseMode,
+          builder: (context) {
+            return MaterialApp.router(
+              //ignore: deprecated_member_use
+              useInheritedMediaQuery: true,
+              builder: AppLoader.initBuilder(
+                builder: (context, child) {
+                  Localization.setup(context);
+                  ThemeProvider.setup(context);
+                  return child!;
+                },
+              ),
+              locale: state.locale,
+              theme: AppTheme.appTheme(),
+              darkTheme: AppTheme.appTheme(dark: true),
+              themeMode: state.themeMode,
+              localizationsDelegates: Localization.localizationsDelegates,
+              supportedLocales: Localization.supportedLocales,
+              debugShowCheckedModeBanner: false,
+              routerDelegate: RouteHandler.routerDelegate,
+              routeInformationParser: RouteHandler.routeInformationParser,
+              scaffoldMessengerKey: MessageHandler.scaffoldMessengerKey,
+            );
+          },
+        ),
       );
 }

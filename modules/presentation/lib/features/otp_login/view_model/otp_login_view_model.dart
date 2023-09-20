@@ -52,7 +52,7 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
   }
 
   Future<void> loginWithOtp(
-      String phoneNumber, String smsCode, bool isResend, String name) async {
+      String phoneNumber, String smsCode, bool isResend, String name,) async {
     if (state.resendOtpLoading || state.confirmOtpLoading) {
       return;
     }

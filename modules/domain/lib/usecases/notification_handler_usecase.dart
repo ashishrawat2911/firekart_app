@@ -14,11 +14,12 @@
  * ----------------------------------------------------------------------------
  */
 
-import 'dart:convert';
+// import 'dart:convert';
 
 // import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:core/logger/app_logger.dart';
 import 'package:domain/usecases/set_device_token_usecase.dart';
+
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
@@ -50,7 +51,8 @@ class PushNotificationHandlerUseCase {
     // await FirebaseMessaging.instance.getToken().then(
     //   (deviceToken) {
     //     if (deviceToken != null) {
-    //       _setDeviceTokenUseCase.execute(deviceToken);
+    await _setDeviceTokenUseCase.execute('');
+    // _setDeviceTokenUseCase.execute(deviceToken);
     //       AppLogger.log('Device Token: $deviceToken');
     //     }
     //   },

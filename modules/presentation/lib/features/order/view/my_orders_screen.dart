@@ -103,7 +103,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 orderList[orderListIndex].orderedAt,
                               ),
                               style: ThemeProvider.textTheme.bodyLarge,
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -132,7 +132,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                             //TODO '${orderList[orderListIndex].currency}'
                             ' ${orderList[orderListIndex].price}',
                             style: ThemeProvider.textTheme.bodyMedium,
-                          )
+                          ),
                         ],
                       ),
                       Row(
@@ -146,21 +146,21 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           ),
                           getOrderStatusIcon(
                             orderList[orderListIndex].orderStatus,
-                          )
+                          ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(
                     height: 20,
-                  )
+                  ),
                 ],
               ),
             ),
             if (orderListIndex < orderList.length)
               const Divider()
             else
-              Container()
+              Container(),
           ],
         );
       },
@@ -202,7 +202,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         style: ThemeProvider.textTheme.bodySmall,
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
               const SizedBox(

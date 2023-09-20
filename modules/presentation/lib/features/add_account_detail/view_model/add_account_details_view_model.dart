@@ -18,7 +18,6 @@ import 'dart:async';
 import 'package:core/state_manager/view_model.dart';
 import 'package:core/utils/validator.dart';
 import 'package:domain/usecases/get_account_details_usecase.dart';
-import 'package:domain/usecases/set_account_details_usecase.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -27,11 +26,9 @@ import '../state/add_account_details_state.dart';
 @injectable
 class AddAccountDetailsViewModel extends ViewModel<AddAccountDetailsState> {
   AddAccountDetailsViewModel(
-    this._setAccountDetailsUseCase,
     this._getAccountDetailsUseCase,
   ) : super(const AddAccountDetailsState.idle());
 
-  final SetAccountDetailsUseCase _setAccountDetailsUseCase;
   final GetAccountDetailsUseCase _getAccountDetailsUseCase;
 
   final Validator _validator = Validator();

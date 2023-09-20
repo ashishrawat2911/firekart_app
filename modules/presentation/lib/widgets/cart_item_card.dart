@@ -104,7 +104,7 @@ class CartItemCard extends StatelessWidget {
                             style: ThemeProvider.textTheme.bodySmall,
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                   Builder(
@@ -124,7 +124,7 @@ class CartItemCard extends StatelessWidget {
                         ),
                       );
                     },
-                  )
+                  ),
                 ],
               ),
               const SizedBox(
@@ -167,7 +167,7 @@ class CartItemCard extends StatelessWidget {
                                   cartItemCardArgs
                                       .onIncrement(cartItemCardArgs.index);
                                 },
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -177,9 +177,9 @@ class CartItemCard extends StatelessWidget {
                       color: AppColors.black,
                       fontSize: 14,
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

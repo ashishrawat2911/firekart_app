@@ -18,24 +18,21 @@ import 'package:core/logger/app_logger.dart';
 import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/get_user_logged_in_status.dart';
 import 'package:domain/usecases/notification_handler_usecase.dart';
-import 'package:domain/usecases/set_device_token_usecase.dart';
-import 'package:presentation/routes/app_router.gr.dart';
-import 'package:presentation/routes/route_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
+import 'package:presentation/routes/app_router.gr.dart';
+import 'package:presentation/routes/route_handler.dart';
 
 import '../state/app_state.dart';
 
 @singleton
 class AppViewModel extends ViewModel<AppState> {
-  final SetDeviceTokenUseCase _setDeviceTokenUseCase;
   final GetUserLoggedInStatusUseCase _loggedInStatusUseCase;
   final PushNotificationHandlerUseCase _notificationHandlerUseCase;
   final NetworkConnectivity _networkConnectivity;
 
   AppViewModel(
-    this._setDeviceTokenUseCase,
     this._loggedInStatusUseCase,
     this._notificationHandlerUseCase,
     this._networkConnectivity,
@@ -63,7 +60,7 @@ class AppViewModel extends ViewModel<AppState> {
       case 'new_product':
         // Handle new product notification
         int productId = notificationData['product_id'];
-        String productName = notificationData['product_name'];
+        // String productName = notificationData['product_name'];
         RouteHandler.routeTo(
           ProductDetailRoute(
             productId: productId,
@@ -76,7 +73,8 @@ class AppViewModel extends ViewModel<AppState> {
         String discountCode = notificationData['discount_code'];
         String expiryDate = notificationData['expiry_date'];
         AppLogger.log(
-            'Limited-Time Offer! Use code $discountCode by $expiryDate.');
+          'Limited-Time Offer! Use code $discountCode by $expiryDate.',
+        );
         break;
 
       case 'order_status':
@@ -101,7 +99,8 @@ class AppViewModel extends ViewModel<AppState> {
         String reviewOrderId = notificationData['order_id'];
         String reviewProductId = notificationData['product_id'];
         AppLogger.log(
-            'Share Your Feedback for Order ID $reviewOrderId, Product ID $reviewProductId.');
+          'Share Your Feedback for Order ID $reviewOrderId, Product ID $reviewProductId.',
+        );
         break;
 
       case 'out_of_stock':
@@ -109,7 +108,8 @@ class AppViewModel extends ViewModel<AppState> {
         String outOfStockProductId = notificationData['product_id'];
         String outOfStockProductName = notificationData['product_name'];
         AppLogger.log(
-            'Product Out of Stock: ID $outOfStockProductId, Name: $outOfStockProductName.');
+          'Product Out of Stock: ID $outOfStockProductId, Name: $outOfStockProductName.',
+        );
         break;
 
       default:

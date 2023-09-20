@@ -1,4 +1,3 @@
-import 'package:core/logger/app_logger.dart';
 import 'package:core/storage/prefrences_storage.dart';
 import 'package:core/storage/secure_storage.dart';
 import 'package:injectable/injectable.dart';

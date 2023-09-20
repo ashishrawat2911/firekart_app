@@ -16,6 +16,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   visibility_detector: ^0.4.0+2
   device_preview: ^1.1.0
+  flutter_hooks: ^0.20.1
   domain:
     path: ../domain
   shared_dependencies:
