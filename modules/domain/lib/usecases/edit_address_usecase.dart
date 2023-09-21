@@ -20,6 +20,7 @@ import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
 import '../models/account_details_model.dart';
+import 'package:domain/models/network.dart';
 
 @injectable
 class EditAddressUseCase {
@@ -27,7 +28,7 @@ class EditAddressUseCase {
 
   final UserRepository _repository;
 
-  Future<Either<NetworkError, void>> execute(EditAddress address) {
+  Future<Either<NetworkError, EmptyEntity>> execute(EditAddress address) {
     return _repository.editAddress(address);
   }
 }

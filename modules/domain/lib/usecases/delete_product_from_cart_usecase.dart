@@ -18,6 +18,7 @@ import 'package:domain/network_result/network_error.dart';
 import 'package:domain/repository/cart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
+import 'package:domain/models/network.dart';
 
 @injectable
 class ProductDeleteCartUseCase {
@@ -25,7 +26,7 @@ class ProductDeleteCartUseCase {
 
   ProductDeleteCartUseCase(this._repository);
 
-  Future<Either<NetworkError, void>> execute(int productId) async {
+  Future<Either<NetworkError, EmptyEntity>> execute(int productId) async {
     return _repository.deleteFromCart(productId);
   }
 }
