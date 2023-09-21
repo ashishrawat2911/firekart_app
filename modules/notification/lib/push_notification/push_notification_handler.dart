@@ -62,7 +62,11 @@ class PushNotificationHandler {
       onDeviceToken,
     );
     void onDidReceiveLocalNotification(
-        int id, String? title, String? body, String? payload) {
+      int id,
+      String? title,
+      String? body,
+      String? payload,
+    ) {
       if (payload != null) {
         onNotificationData(jsonDecode(payload));
       }
@@ -80,14 +84,17 @@ class PushNotificationHandler {
         AndroidInitializationSettings('app_icon');
     final DarwinInitializationSettings initializationSettingsDarwin =
         DarwinInitializationSettings(
-            onDidReceiveLocalNotification: onDidReceiveLocalNotification);
+      onDidReceiveLocalNotification: onDidReceiveLocalNotification,
+    );
     final InitializationSettings initializationSettings =
         InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsDarwin,
     );
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
+    await flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
+    );
 
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
