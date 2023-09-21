@@ -19,10 +19,10 @@ import 'package:core/state_manager/base_view.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 import 'package:presentation/routes/app_router.gr.dart';
 
-import '../../../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import '../../../routes/route_handler.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/common_app_loader.dart';

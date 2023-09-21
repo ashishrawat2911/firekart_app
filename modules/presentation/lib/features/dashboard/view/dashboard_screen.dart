@@ -20,8 +20,8 @@ import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
 
 import 'package:domain/models/product_model.dart';
-import 'package:presentation/res/app_theme.dart';
-import 'package:presentation/res/colors.gen.dart';
+import 'package:assets/res/app_theme.dart';
+import 'package:assets/res/colors.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 

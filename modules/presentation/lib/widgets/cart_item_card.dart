@@ -13,13 +13,13 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:assets/res/colors.gen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:localization/localization.dart';
 
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../res/colors.gen.dart';
 import 'action_text.dart';
 import 'common_app_loader.dart';
 

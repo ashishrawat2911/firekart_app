@@ -27,6 +27,8 @@ dependencies:
     path: modules/analytics
   deeplink:
     path: modules/deeplink
+  assets:
+    path: modules/assets
 
 dev_dependencies:
   flutter_test:

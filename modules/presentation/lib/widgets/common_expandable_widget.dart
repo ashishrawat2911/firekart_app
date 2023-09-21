@@ -18,7 +18,7 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 
 class CommonExpandableWidget extends StatefulWidget {
   const CommonExpandableWidget({

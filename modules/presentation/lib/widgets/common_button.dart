@@ -16,7 +16,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import 'dot_progress_indicator.dart';
 
 class CommonButton extends StatelessWidget {

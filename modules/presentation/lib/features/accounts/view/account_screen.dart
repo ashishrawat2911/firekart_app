@@ -21,7 +21,7 @@ import 'package:domain/models/account_details_model.dart';
 import 'package:domain/usecases/logout_usecase.dart';
 import 'package:domain/usecases/stream_account_details_usecase.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/route_handler.dart';

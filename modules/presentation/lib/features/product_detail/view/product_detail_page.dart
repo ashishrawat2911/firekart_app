@@ -20,10 +20,10 @@ import 'package:core/state_manager/base_view.dart';
 
 import 'package:domain/models/product_model.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import '../../../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/route_handler.dart';
 import '../../../widgets/common_app_loader.dart';
