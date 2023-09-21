@@ -106,7 +106,8 @@ class CartRepositoryImpl extends CartRepository {
 
   @override
   Future<Either<NetworkError, EmptyEntity>> addProductToCart(
-      int productId) async {
+    int productId,
+  ) async {
     return getNetworkResult(
       () async {
         return _apiService
@@ -123,7 +124,9 @@ class CartRepositoryImpl extends CartRepository {
 
   @override
   Future<Either<NetworkError, EmptyEntity>> updateCart(
-      int productId, int quantity) {
+    int productId,
+    int quantity,
+  ) {
     return getNetworkResult(
       () async {
         return _apiService

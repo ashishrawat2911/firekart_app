@@ -23,7 +23,9 @@ abstract class CartRepository {
   Future<Either<NetworkError, EmptyEntity>> addProductToCart(int productId);
 
   Future<Either<NetworkError, EmptyEntity>> updateCart(
-      int productId, int quantity);
+    int productId,
+    int quantity,
+  );
 
   Future<Either<NetworkError, EmptyEntity>> deleteFromCart(int productId);
 
