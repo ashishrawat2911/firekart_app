@@ -15,6 +15,7 @@
  */
 import 'package:dartz/dartz.dart';
 import 'package:firekart/domain/models/add_order_model.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/order_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
@@ -25,7 +26,7 @@ class PlaceOrderUseCase {
 
   PlaceOrderUseCase(this._repository);
 
-  Future<Either<NetworkError, void>> execute(AddOrder order) {
+  Future<Either<NetworkError, EmptyEntity>> execute(AddOrder order) {
     return _repository.placeOrder(order);
   }
 }

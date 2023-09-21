@@ -14,6 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 import 'package:dartz/dartz.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 import 'package:firekart/domain/repository/user_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
@@ -27,7 +28,7 @@ class AddAddressUseCase {
 
   final UserRepository _repository;
 
-  Future<Either<NetworkError, void>> execute(AddAddress address) {
+  Future<Either<NetworkError, EmptyEntity>> execute(AddAddress address) {
     return _repository.addAddress(address);
   }
 }
