@@ -16,11 +16,12 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/domain/models/add_order_model.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/models/order_model.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 
 abstract class OrderRepository {
-  Future<Either<NetworkError, void>> placeOrder(AddOrder order);
+  Future<Either<NetworkError, EmptyEntity>> placeOrder(AddOrder order);
 
   Future<Either<NetworkError, List<Order>>> getAllOrders();
 }

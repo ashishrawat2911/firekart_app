@@ -16,6 +16,7 @@
 
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:firekart/domain/models/login.dart';
+import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 
 abstract class AuthRepository {
@@ -29,7 +30,7 @@ abstract class AuthRepository {
     String? name,
   });
 
-  Future<Either<NetworkError, void>> logout();
+  Future<Either<NetworkError, EmptyEntity>> logout();
 
   Future<void> setDeviceToken(String deviceToken) ;
 }
