@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:core/state_manager/view_model.dart';

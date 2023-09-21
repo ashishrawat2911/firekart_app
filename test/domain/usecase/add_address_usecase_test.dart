@@ -18,15 +18,16 @@ void main() {
 
   test('Test Add Adress Test to Pass ', () async {
     late MockAddAddress addAddress = MockAddAddress();
-    when(userRepository.addAddress(addAddress)).thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    when(userRepository.addAddress(addAddress)).thenAnswer(
+        (realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
     await addAddressUseCase.execute(addAddress);
     verify(userRepository.addAddress(addAddress));
   });
 
   test('Test Add Adress Test to Pass fail', () async {
     late MockAddAddress addAddress = MockAddAddress();
-    when(userRepository.addAddress(addAddress))
-        .thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
+    when(userRepository.addAddress(addAddress)).thenAnswer(
+        (realInvocation) => Future(() => left(NetworkError('', 402))));
     final result = await addAddressUseCase.execute(addAddress);
     expect(true, result.isLeft());
     expect('', (result as Left<NetworkError, void>).value.errorMessage);

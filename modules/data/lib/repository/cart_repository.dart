@@ -47,7 +47,8 @@ class CartRepositoryImpl extends CartRepository {
     return getNetworkResult(
       () async {
         await _cartDao.deleteCarts();
-        final cartsFromDB = (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
+        final cartsFromDB =
+            (await _cartDao.getCarts()).mapToList(_dataMapper.cartFromDBModel);
         if (cartsFromDB.isEmpty) {
           final cartsFromAPi = await _apiService.getCarts().then(
                 (value) => value.data.map(_dataMapper.cartFromModel).toList(),
@@ -104,7 +105,8 @@ class CartRepositoryImpl extends CartRepository {
   }
 
   @override
-  Future<Either<NetworkError, EmptyEntity>> addProductToCart(int productId) async {
+  Future<Either<NetworkError, EmptyEntity>> addProductToCart(
+      int productId) async {
     return getNetworkResult(
       () async {
         return _apiService
@@ -120,7 +122,8 @@ class CartRepositoryImpl extends CartRepository {
   }
 
   @override
-  Future<Either<NetworkError, EmptyEntity>> updateCart(int productId, int quantity) {
+  Future<Either<NetworkError, EmptyEntity>> updateCart(
+      int productId, int quantity) {
     return getNetworkResult(
       () async {
         return _apiService
