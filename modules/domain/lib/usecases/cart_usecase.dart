@@ -21,6 +21,7 @@ import 'package:domain/network_result/network_error.dart';
 import 'package:domain/repository/cart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
+import 'package:domain/models/network.dart';
 
 @singleton
 class CartUseCase {
@@ -36,10 +37,8 @@ class CartUseCase {
     return res;
   }
 
-  Future<Either<NetworkError, void>> updateCart(
-    int productId,
-    int quantity,
-  ) async {
+  Future<Either<NetworkError, EmptyEntity>> updateCart(
+      int productId, int quantity) async {
     await getCarts();
     return _repository.updateCart(productId, quantity);
   }
