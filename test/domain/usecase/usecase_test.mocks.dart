@@ -532,3 +532,59 @@ class MockAddAddress extends _i1.Mock implements _i16.AddAddress {
         returnValue: '',
       ) as String);
 }
+
+/// A class which mocks [EditAddress].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockEditAddress extends _i1.Mock implements _i16.EditAddress {
+  MockEditAddress() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  int get id => (super.noSuchMethod(
+        Invocation.getter(#id),
+        returnValue: 0,
+      ) as int);
+}
+
+/// A class which mocks [AccountDetails].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAccountDetails extends _i1.Mock implements _i16.AccountDetails {
+  MockAccountDetails() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  int get id => (super.noSuchMethod(
+        Invocation.getter(#id),
+        returnValue: 0,
+      ) as int);
+  @override
+  String get name => (super.noSuchMethod(
+        Invocation.getter(#name),
+        returnValue: '',
+      ) as String);
+  @override
+  set name(String? _name) => super.noSuchMethod(
+        Invocation.setter(
+          #name,
+          _name,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get phoneNumber => (super.noSuchMethod(
+        Invocation.getter(#phoneNumber),
+        returnValue: '',
+      ) as String);
+  @override
+  set phoneNumber(String? _phoneNumber) => super.noSuchMethod(
+        Invocation.setter(
+          #phoneNumber,
+          _phoneNumber,
+        ),
+        returnValueForMissingStub: null,
+      );
+}

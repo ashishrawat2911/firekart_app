@@ -22,7 +22,7 @@ void main() {
     final result = await productAddToCartUseCase.execute(productId);
     expect(true, result.isRight());
     expect('success', (result as Right<NetworkError, EmptyEntity>).value.message);
-    verify(cartRepository.addProductToCart(productId));
+    verify(cartRepository.addProductToCart(productId)).called(1);
   });
 
   test('Test Add product to cart usecase failed', () async {
