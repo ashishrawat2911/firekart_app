@@ -59,3 +59,13 @@ final mockAccountDetails = AccountDetails(
   name: 'John Doe',
   phoneNumber: '555-555-5555',
 );
+
+final mockAddAddress = AddAddress(
+  name: 'John Doe',
+  pincode: '12345',
+  address: '123 Main Street',
+  city: 'Sample City',
+  state: 'Sample State',
+  phoneNumber: '555-555-5555',
+  isDefault: true,
+);
