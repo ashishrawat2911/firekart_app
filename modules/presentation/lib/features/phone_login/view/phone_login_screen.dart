@@ -20,9 +20,9 @@ import 'package:core/state_manager/base_view.dart';
 
 import 'package:core/utils/validator.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../../../res/styles.dart';
+import 'package:assets/res/styles.dart';
 import '../../../routes/app_router.gr.dart';
 import '../../../routes/route_handler.dart';
 import '../../../widgets/commom_text_field.dart';

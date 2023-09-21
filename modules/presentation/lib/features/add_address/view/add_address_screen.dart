@@ -20,9 +20,9 @@ import 'package:country_code_picker_x/country_code_picker_x.dart';
 import 'package:domain/models/account_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../../../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import '../../../widgets/commom_text_field.dart';
 import '../../../widgets/common_button.dart';
 import '../state/add_address_state.dart';

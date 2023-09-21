@@ -22,9 +22,9 @@ import 'package:core/state_manager/base_view.dart';
 import 'package:core/utils/date_time_util.dart';
 import 'package:domain/models/order_model.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../../../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import '../../../widgets/common_app_loader.dart';
 import '../../../widgets/result_state_builder.dart';
 import '../view_model/my_orders_cubit.dart';

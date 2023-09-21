@@ -16,9 +16,9 @@
 import 'package:localization/localization.dart';
 
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 
 class CommonViewCartOverlay extends StatelessWidget {
   const CommonViewCartOverlay({Key? key, required this.args}) : super(key: key);

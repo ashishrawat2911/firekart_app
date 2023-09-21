@@ -16,7 +16,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
 class ProductCardArgs {
   final VoidCallback onTap;

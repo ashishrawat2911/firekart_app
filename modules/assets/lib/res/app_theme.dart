@@ -15,7 +15,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:presentation/res/fonts.gen.dart';
+import 'package:assets/res/fonts.gen.dart';
 
 import 'colors.gen.dart';
 

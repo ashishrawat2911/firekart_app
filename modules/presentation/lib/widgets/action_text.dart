@@ -13,9 +13,8 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:assets/res/colors.gen.dart';
 import 'package:flutter/material.dart';
-
-import '../res/colors.gen.dart';
 
 class ActionText extends StatelessWidget {
   const ActionText(this.title, {Key? key, this.onTap}) : super(key: key);

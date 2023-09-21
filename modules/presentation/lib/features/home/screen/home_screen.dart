@@ -19,9 +19,9 @@ import 'package:core/state_manager/base_view.dart';
 
 import 'package:presentation/features/dashboard/view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../../../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import '../../accounts/view/account_screen.dart';
 import '../../cart/view/cart_screen.dart';
 import '../../search/view/search_screen.dart';

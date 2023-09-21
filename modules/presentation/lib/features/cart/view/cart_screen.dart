@@ -18,9 +18,9 @@ import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';
 
 import 'package:flutter/material.dart';
-import 'package:presentation/res/app_theme.dart';
+import 'package:assets/res/app_theme.dart';
 
-import '../../../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 import '../../../widgets/action_text.dart';
 import '../../../widgets/cart_item_card.dart';
 import '../../../widgets/common_button.dart';

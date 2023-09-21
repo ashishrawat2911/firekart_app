@@ -16,7 +16,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../res/colors.gen.dart';
+import 'package:assets/res/colors.gen.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
