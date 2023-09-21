@@ -37,7 +37,8 @@ class App extends StatelessWidget {
         },
         builder: (context, viewModel, state) => DevicePreview(
           //ignore: avoid_redundant_argument_values
-          enabled: !kReleaseMode,
+          enabled: false,
+          // enabled: !kReleaseMode,
           builder: (context) {
             return MaterialApp.router(
               //ignore: deprecated_member_use
