@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:firekart/domain/models/cart_model.dart';
-import 'package:firekart/domain/models/network.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
-import 'package:firekart/domain/usecases/cart_usecase.dart';
+import 'package:domain/models/cart_model.dart';
+import 'package:domain/models/network.dart';
+import 'package:domain/network_result/network_error.dart';
+import 'package:domain/usecases/cart_usecase.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
