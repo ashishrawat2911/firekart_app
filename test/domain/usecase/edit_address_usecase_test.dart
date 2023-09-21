@@ -20,7 +20,8 @@ void main() {
   });
 
   test('Delete Product From Cart Use Case Test Passed', () async {
-    when(editAddressUseCase.execute(mockEditAddress)).thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    when(editAddressUseCase.execute(mockEditAddress))
+        .thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
     final value = await editAddressUseCase.execute(mockEditAddress);
     verify(editAddressUseCase.execute(mockEditAddress)).called(1);
     expect(true, value.isRight());
@@ -28,8 +29,8 @@ void main() {
   });
 
   test('Delete Product From Cart Use Case Test Failed', () async {
-
-    when(editAddressUseCase.execute(mockEditAddress)).thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
+    when(editAddressUseCase.execute(mockEditAddress))
+        .thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
     final value = await editAddressUseCase.execute(mockEditAddress);
     verify(editAddressUseCase.execute(mockEditAddress)).called(1);
     expect(true, value.isLeft());

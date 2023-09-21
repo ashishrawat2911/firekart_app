@@ -6,6 +6,7 @@ import 'package:firekart/domain/usecases/add_address_usecase.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'usecase_test.dart';
 import 'usecase_test.mocks.dart';
 
 void main() {
@@ -17,10 +18,10 @@ void main() {
   });
 
   test('Test Add Adress Test to Pass ', () async {
-    late MockAddAddress addAddress = MockAddAddress();
-    when(userRepository.addAddress(addAddress)).thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
-   final result= await addAddressUseCase.execute(addAddress);
-    verify(userRepository.addAddress(addAddress)).called(1);
+    when(userRepository.addAddress(mockAddAddress))
+        .thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    final result = await addAddressUseCase.execute(mockAddAddress);
+    verify(userRepository.addAddress(mockAddAddress)).called(1);
     expect(true, result.isRight());
     expect('success', (result as Right<NetworkError, EmptyEntity>).value.message);
   });

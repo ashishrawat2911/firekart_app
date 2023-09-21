@@ -23,7 +23,7 @@ void main() {
     when(cartRepository.getCarts()).thenAnswer((realInvocation) => Future.value(right(carts)));
     final result = await cartUseCase.getCarts();
     verify(cartRepository.getCarts()).called(1);
-    expect(result, Right<NetworkError, List<Cart>>(carts) );
+    expect(result, Right<NetworkError, List<Cart>>(carts));
   });
 
   test('Test Get carts List Failed', () async {
@@ -31,8 +31,7 @@ void main() {
     final result = await cartUseCase.getCarts();
     verify(cartRepository.getCarts()).called(1);
     expect(true, result.isLeft());
-    expect('', (result as Left<NetworkError, List<Cart>>).value.errorMessage );
-
+    expect('', (result as Left<NetworkError, List<Cart>>).value.errorMessage);
   });
 
   test('Test update cart Passed', () async {
@@ -56,17 +55,10 @@ void main() {
     expect('xyz', (result as Left<NetworkError, void>).value.errorMessage);
   });
 
-
-  test('Test get no of items for product',(){
+  test('Test get no of items for product', () {
     const productId = 1;
     List<Cart> carts = [mockCart];
-    final  actualResponse = cartUseCase.getNoOfItemsForAProduct(productId,carts);
+    final actualResponse = cartUseCase.getNoOfItemsForAProduct(productId, carts);
     expect(actualResponse, carts.first.numOfItems);
-
   });
-
-
-
-
-
 }

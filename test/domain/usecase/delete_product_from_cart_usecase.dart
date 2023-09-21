@@ -18,15 +18,17 @@ void main() {
 
   test('Delete Product From Cart Use Case Test Passed', () async {
     const productId = 123;
-    when(deleteCartUseCase.execute(productId)).thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
-  final value= await deleteCartUseCase.execute(productId);
+    when(deleteCartUseCase.execute(productId))
+        .thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    final value = await deleteCartUseCase.execute(productId);
     verify(deleteCartUseCase.execute(productId)).called(1);
     expect(true, value.isRight());
   });
   test('Delete Product From Cart Use Case Test Failed', () async {
     const productId = 123;
-    when(deleteCartUseCase.execute(productId)).thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
-    final value= await deleteCartUseCase.execute(productId);
+    when(deleteCartUseCase.execute(productId))
+        .thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
+    final value = await deleteCartUseCase.execute(productId);
     verify(deleteCartUseCase.execute(productId)).called(1);
     expect(true, value.isLeft());
     expect('', (value as Left<NetworkError, void>).value.errorMessage);
