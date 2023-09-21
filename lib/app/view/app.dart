@@ -18,7 +18,6 @@ import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/base_view.dart';
 
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:presentation/res/app_theme.dart';

@@ -17,11 +17,11 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:domain/models/cart_model.dart';
+import 'package:domain/models/network.dart';
 import 'package:domain/network_result/network_error.dart';
 import 'package:domain/repository/cart_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
-import 'package:domain/models/network.dart';
 
 @singleton
 class CartUseCase {
@@ -38,7 +38,9 @@ class CartUseCase {
   }
 
   Future<Either<NetworkError, EmptyEntity>> updateCart(
-      int productId, int quantity) async {
+    int productId,
+    int quantity,
+  ) async {
     await getCarts();
     return _repository.updateCart(productId, quantity);
   }

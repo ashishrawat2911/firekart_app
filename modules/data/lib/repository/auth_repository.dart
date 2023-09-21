@@ -22,10 +22,10 @@ import 'package:data/model/request/otp_verify_request_model.dart';
 import 'package:data/source/local/local_storage.dart';
 import 'package:data/source/remote/api_service.dart';
 import 'package:domain/models/login.dart';
+import 'package:domain/models/network.dart';
 import 'package:domain/network_result/network_error.dart';
 import 'package:domain/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'package:domain/models/network.dart';
 
 @Injectable(as: AuthRepository)
 class AuthRepositoryImpl extends AuthRepository {
@@ -60,7 +60,7 @@ class AuthRepositoryImpl extends AuthRepository {
   }) {
     return getNetworkResult(
       () async {
-        return await _apiService
+        return _apiService
             .verifyOtp(
           OTPVerifyRequestModel(
             phoneNumber,

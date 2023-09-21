@@ -27,7 +27,6 @@ import 'package:injectable/injectable.dart' hide Order;
 
 import '../mapper/data_mapper.dart';
 import 'package:domain/models/network.dart';
-import 'package:domain/models/network.dart';
 
 @Injectable(as: OrderRepository)
 class OrderRepositoryImpl extends OrderRepository {
