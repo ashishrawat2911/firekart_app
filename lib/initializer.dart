@@ -15,12 +15,13 @@
  */
 import 'dart:async';
 
+import 'package:analytics/crashlytics_service.dart';
 import 'package:core/di/di.dart';
 import 'package:core/logger/app_logger.dart';
 import 'package:core/state_manager/app_cubit_observer.dart';
-import 'package:analytics/crashlytics_service.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
 import 'app/view/app.dart';
 import 'di/di.dart';
 
@@ -28,11 +29,12 @@ class Initializer {
   Initializer._();
 
   static Future<void> initialize(ValueChanged<Widget> onRun) async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await initializeFirebase();
-    await registerDependencies();
-    runZonedGuarded(
-      () {
+    await runZonedGuarded(
+      () async {
+        WidgetsFlutterBinding.ensureInitialized();
+        await initializeFirebase();
+        await registerDependencies();
+
         runStateObserver();
         onRun(const App());
       },
