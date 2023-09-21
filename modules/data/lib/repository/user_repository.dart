@@ -62,7 +62,8 @@ class UserRepositoryImpl extends UserRepository {
   Future<Either<NetworkError, EmptyEntity>> addAddress(AddAddress address) {
     return getNetworkResult(
       () {
-        return _apiService.addAddress(
+        return _apiService
+            .addAddress(
           address.address,
           address.state,
           address.name,
@@ -70,7 +71,8 @@ class UserRepositoryImpl extends UserRepository {
           address.city,
           address.pincode,
           address.isDefault,
-        ).then((value){
+        )
+            .then((value) {
           return value.toEntity();
         });
       },
@@ -81,7 +83,8 @@ class UserRepositoryImpl extends UserRepository {
   Future<Either<NetworkError, EmptyEntity>> editAddress(EditAddress address) {
     return getNetworkResult(
       () {
-        return _apiService.editAddress(
+        return _apiService
+            .editAddress(
           address.id,
           address.name,
           address.pincode,
@@ -90,7 +93,8 @@ class UserRepositoryImpl extends UserRepository {
           address.state,
           address.phoneNumber,
           address.isDefault,
-        ).then((value){
+        )
+            .then((value) {
           return value.toEntity();
         });
       },

@@ -1,4 +1,3 @@
-
 import 'package:auto_route/annotations.dart';
 import 'package:localization/localization.dart';
 import 'package:core/state_manager/base_view.dart';

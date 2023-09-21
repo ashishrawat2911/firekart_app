@@ -28,10 +28,12 @@ abstract class NetworkModule {
     final _dio = Dio();
     _dio
       ..httpClientAdapter
-      ..interceptors.add(LogInterceptor(
-        responseBody: true,
-        requestBody: true,
-      ),)
+      ..interceptors.add(
+        LogInterceptor(
+          responseBody: true,
+          requestBody: true,
+        ),
+      )
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         'X-Requested-With': 'XMLHttpRequest',

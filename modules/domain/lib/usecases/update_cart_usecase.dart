@@ -26,7 +26,8 @@ class UpdateCartUseCase {
 
   UpdateCartUseCase(this._repository);
 
-  Future<Either<NetworkError, EmptyEntity>> execute(int productId, int quantity) {
+  Future<Either<NetworkError, EmptyEntity>> execute(
+      int productId, int quantity) {
     return _repository.updateCart(productId, quantity);
   }
 }
