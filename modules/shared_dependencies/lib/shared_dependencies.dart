@@ -1,0 +1,1 @@
+library shared_dependencies;

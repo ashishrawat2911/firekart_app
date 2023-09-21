@@ -6,9 +6,10 @@
 
 An Ecommerce application built in Flutter using Nodejs and MySQl.
 
-## Getting started 
-* Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/firekart/wiki/Gettings-Started) section.
+## Getting started
 
+* Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/firekart/wiki/Gettings-Started)
+  section.
 
 # Screenshots
 
@@ -24,9 +25,9 @@ Account Screen                  | Edit Details Screen       |   Orders Screen   
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](screenshot/account_screen.png)|![](screenshot/edit_details_screen.png)|![](screenshot/orders_screen.png)|![](screenshot/payment_screen.png)|
 
-Product Screen 1         |  Product Screen 2              |  Product Screen 3              
-:-------------------------:|:-------------------------:|:-------------------------:
-![](screenshot/product_page1.png)|![](screenshot/product_page2.png)|![](screenshot/product_page3.png)
+         Product Screen 1          |  Product Screen 2              |  Product Screen 3              
+:---------------------------------:|:-------------------------:|:-------------------------:
+ ![](screenshot/product_page1.png) |![](screenshot/product_page2.png)|![](screenshot/product_page3.png)
 
 ## Created & Maintained By
 
