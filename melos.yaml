@@ -4,7 +4,7 @@ packages:
   - /**
 
 scripts:
-  analyze: "flutter analyze"
+  analyze: melos exec -c 1 "flutter analyze"
   format: melos exec -c 1 dart format .
   clean: |
     flutter clean
