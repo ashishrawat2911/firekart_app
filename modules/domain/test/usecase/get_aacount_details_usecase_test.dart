@@ -1,10 +1,10 @@
-import 'package:firekart/domain/usecases/get_account_details_usecase.dart';
+import 'package:domain/network_result/network_error.dart';
+import 'package:domain/usecases/get_account_details_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'usecase_test.dart';
 import 'usecase_test.mocks.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firekart/domain/network_result/network_error.dart';
 
 void main() {
   late MockUserRepository userRepository;
