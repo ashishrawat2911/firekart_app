@@ -58,7 +58,7 @@ class AppViewModel extends ViewModel<AppState> {
   void _handleNotification(Map<String, dynamic> notificationData) {
     AppLogger.log('Notification Data: $notificationData');
 
-    String notificationType = notificationData['type'];
+    String notificationType = notificationData['type'] ?? '';
 
     switch (notificationType) {
       case 'new_product':
@@ -117,7 +117,7 @@ class AppViewModel extends ViewModel<AppState> {
         break;
 
       default:
-        AppLogger.log('Received an unrecognized notification type.');
+        AppLogger.errorLog('Received an unrecognized notification type.');
     }
   }
 }
