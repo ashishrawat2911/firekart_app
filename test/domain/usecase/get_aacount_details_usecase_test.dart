@@ -3,9 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'usecase_test.dart';
 import 'usecase_test.mocks.dart';
 import 'package:mockito/mockito.dart';
-
 import 'package:dartz/dartz.dart';
-import 'package:firekart/domain/models/network.dart';
 import 'package:firekart/domain/network_result/network_error.dart';
 
 void main() {
@@ -25,10 +23,9 @@ void main() {
     expect(true, value.isRight());
   });
   test('Get Account Details Test Failed', () async {
-    when(getAccountDetailsUseCase.execute()).thenAnswer((realInvocation) =>Future(() => left(NetworkError('', 402))));
+    when(getAccountDetailsUseCase.execute()).thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
     final value = await getAccountDetailsUseCase.execute();
     expect(true, value.isLeft());
     expect('', (value as Left<NetworkError, void>).value.errorMessage);
   });
-
 }
