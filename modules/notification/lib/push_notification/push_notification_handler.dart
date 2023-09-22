@@ -129,4 +129,13 @@ class PushNotificationHandler {
       onNotificationData(message.data);
     });
   }
+
+  void sendLocalNotification(String title, String body) {
+    flutterLocalNotificationsPlugin.show(
+      1010,
+      title,
+      body,
+      const NotificationDetails(),
+    );
+  }
 }
