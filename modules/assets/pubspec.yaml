@@ -52,5 +52,5 @@ flutter_gen:
     outputs:
       style: snake-case
       class_name: AppAssets
-      package_parameter_enabled: false
+      package_parameter_enabled: true
 
