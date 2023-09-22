@@ -11,6 +11,10 @@ An Ecommerce application built in Flutter using Nodejs and MySQl.
 * Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/firekart/wiki/Gettings-Started)
   section.
 
+## Firekart Backend  ⚙️🗄️👨‍💻
+
+* Firekart Backend is built with Nodejs and MySQl. Check [here](https://github.com/ashishrawat2911/firekart-backend).
+
 # Screenshots
 
 Splash Screen              |  Login Page               | OTP Page               |  Home Page
