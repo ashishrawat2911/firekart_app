@@ -25,14 +25,13 @@ jobs:
           cache: 'gradle'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.13.0"
+          flutter-version: "3.13.4"
           channel: 'stable'
           cache: true
-      - run: flutter pub get
-      - run: flutter packages pub run build_runner build --delete-conflicting-outputs
-      - run: flutter gen-l10n
-      - run: flutter test
-      - run: flutter build apk
-      - run: flutter build ios --release --no-codesign
-
+      - run: flutter pub global activate melos 2.9.0
+      - run: melos get
+      - run: melos analyze
+      - run: melos generateAll
+      - run: melos localization
+      - run: melos build
 

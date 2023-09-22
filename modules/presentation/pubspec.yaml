@@ -1,0 +1,42 @@
+name: presentation
+description: A new Flutter package project.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  country_code_picker_x: ^2.0.5
+  shimmer: ^3.0.0
+  cached_network_image: ^3.1.0+1
+  smooth_page_indicator: ^1.0.0+2
+  visibility_detector: ^0.4.0+2
+  device_preview: ^1.1.0
+  flutter_hooks: ^0.20.1
+  domain:
+    path: ../domain
+  shared_dependencies:
+    path: ../shared_dependencies
+  core:
+    path: ../core
+  localization:
+    path: ../localization
+  assets:
+    path: ../assets
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.4
+  freezed: ^2.3.5
+  injectable_generator: ^2.1.6
+  auto_route_generator: ^7.1.1
+
+
+flutter:
+  uses-material-design: true
