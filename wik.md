@@ -22,7 +22,6 @@ melos generateAll
 ````
 
 * Pub get in packages
-
 ````
 melos get
 ````
