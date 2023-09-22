@@ -1,0 +1,24 @@
+name: domain
+description: A new Flutter package project.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_dependencies:
+    path: ../shared_dependencies
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.4
+  injectable_generator: ^2.1.6
+  mockito: ^5.4.1
+flutter:

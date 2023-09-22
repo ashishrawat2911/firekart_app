@@ -7,49 +7,22 @@ $ git clone https://github.com/ashishrawat2911/firekart.git
 $ cd firekart/
 ```
 
+## Install Melos
+
+````
+flutter pub global activate melos 2.9.0
+````
+
 ## Generate Router and Freezed classs
 
 * Run this command in terminal
 
 ````
-flutter packages pub run build_runner build
+melos generateAll
 ````
 
-* Run this command in terminal to watch auto change
-
+* Pub get in packages
 ````
-flutter packages pub run build_runner watch
+melos get
 ````
-
-* Run this command in terminal to watch auto change and delete previous g.dart files
-
-````
- flutter packages pub run build_runner watch --delete-conflicting-outputs
-````
-
-## [Add Firebase to your Flutter app](https://firebase.google.com/docs/flutter/setup)
-
-# Firestore Database Structure -->
-
-login_screen
-
-## Products List
-
-![](https://raw.githubusercontent.com/ashishrawat2911/firekart/master/screenshot/products_database.png)
-
-## Users List
-
-![](https://raw.githubusercontent.com/ashishrawat2911/firekart/master/screenshot/users_database.png)
-
-## Cart List
-
-![](https://raw.githubusercontent.com/ashishrawat2911/firekart/master/screenshot/cart_list_database.png)
-
-## Orders List
-
-![](https://raw.githubusercontent.com/ashishrawat2911/firekart/master/screenshot/orders_list_database.png)
-
-## My Account
-
-![](https://raw.githubusercontent.com/ashishrawat2911/firekart/master/screenshot/account_database.png)
 
