@@ -27,7 +27,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-@injectable
+@singleton
 class PushNotificationHandler {
   PushNotificationHandler();
 
@@ -39,6 +39,14 @@ class PushNotificationHandler {
     'high_importance_channel', // id
     'High Importance Notifications', // title,
     description: 'This channel is used for important notifications.',
+    // description
+    importance: Importance.max,
+  );
+  final AndroidNotificationChannel _otpChannel =
+      const AndroidNotificationChannel(
+    'OTP', // id
+    'OTP Notifications', // title,
+    description: 'This channel is used for OTP Notifications',
     // description
     importance: Importance.max,
   );
@@ -81,7 +89,7 @@ class PushNotificationHandler {
     }
 
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('app_icon');
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     final DarwinInitializationSettings initializationSettingsDarwin =
         DarwinInitializationSettings(
       onDidReceiveLocalNotification: onDidReceiveLocalNotification,
@@ -100,7 +108,7 @@ class PushNotificationHandler {
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(_channel);
-
+    sendOTPNotification("OTP", "OTP");
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
@@ -130,12 +138,14 @@ class PushNotificationHandler {
     });
   }
 
-  void sendLocalNotification(String title, String body) {
+  void sendOTPNotification(String title, String body) {
     flutterLocalNotificationsPlugin.show(
       1010,
       title,
       body,
-      const NotificationDetails(),
+      NotificationDetails(
+          android:
+              AndroidNotificationDetails(_otpChannel.id, _otpChannel.name)),
     );
   }
 }
