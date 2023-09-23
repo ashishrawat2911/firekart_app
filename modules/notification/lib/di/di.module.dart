@@ -15,7 +15,6 @@ class NotificationPackageModule extends _i1.MicroPackageModule {
 // initializes the registration of main-scope dependencies inside of GetIt
   @override
   _i2.FutureOr<void> init(_i1.GetItHelper gh) {
-    gh.factory<_i3.PushNotificationHandler>(
-        () => _i3.PushNotificationHandler());
+    gh.singleton<_i3.PushNotificationHandler>(_i3.PushNotificationHandler());
   }
 }

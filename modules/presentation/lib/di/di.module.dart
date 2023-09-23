@@ -8,7 +8,7 @@
 import 'dart:async' as _i2;
 
 import 'package:domain/usecases/add_address_usecase.dart' as _i6;
-import 'package:domain/usecases/add_product_to_cart_usecase.dart' as _i33;
+import 'package:domain/usecases/add_product_to_cart_usecase.dart' as _i34;
 import 'package:domain/usecases/delete_product_from_cart_usecase.dart' as _i12;
 import 'package:domain/usecases/edit_address_usecase.dart' as _i7;
 import 'package:domain/usecases/get_account_details_usecase.dart' as _i4;
@@ -16,16 +16,18 @@ import 'package:domain/usecases/get_address_usecase.dart' as _i16;
 import 'package:domain/usecases/get_all_orders_usecase.dart' as _i25;
 import 'package:domain/usecases/get_all_product_usecase.dart' as _i9;
 import 'package:domain/usecases/get_cart_status_use_case.dart' as _i14;
-import 'package:domain/usecases/get_items_in_cart_usecase.dart' as _i32;
-import 'package:domain/usecases/get_product_details_usecase.dart' as _i34;
+import 'package:domain/usecases/get_items_in_cart_usecase.dart' as _i33;
+import 'package:domain/usecases/get_product_details_usecase.dart' as _i35;
 import 'package:domain/usecases/get_user_logged_in_status.dart' as _i18;
 import 'package:domain/usecases/logout_usecase.dart' as _i22;
 import 'package:domain/usecases/place_order_usecase.dart' as _i13;
-import 'package:domain/usecases/search_products_use_case.dart' as _i30;
+import 'package:domain/usecases/search_products_use_case.dart' as _i31;
 import 'package:domain/usecases/send_otp_usecase.dart' as _i27;
 import 'package:domain/usecases/stream_account_details_usecase.dart' as _i21;
 import 'package:domain/usecases/update_cart_usecase.dart' as _i15;
 import 'package:injectable/injectable.dart' as _i1;
+import 'package:notification/push_notification/push_notification_handler.dart'
+    as _i28;
 import 'package:presentation/features/add_account_detail/view_model/add_account_details_view_model.dart'
     as _i3;
 import 'package:presentation/features/add_address/view_model/add_address_view_model.dart'
@@ -47,15 +49,15 @@ import 'package:presentation/features/order/view_model/my_orders_cubit.dart'
 import 'package:presentation/features/otp_login/view_model/otp_login_view_model.dart'
     as _i26;
 import 'package:presentation/features/phone_login/view_model/phone_login_view_model.dart'
-    as _i28;
+    as _i29;
 import 'package:presentation/features/product_detail/view_model/product_view_model.dart'
-    as _i31;
+    as _i32;
 import 'package:presentation/features/product_list/view_model/all_product_cubit.dart'
     as _i8;
 import 'package:presentation/features/search/view_model/product_search_viewmodel.dart'
-    as _i29;
+    as _i30;
 import 'package:presentation/features/splash/view_model/splash_view_model.dart'
-    as _i35;
+    as _i36;
 
 class PresentationPackageModule extends _i1.MicroPackageModule {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -93,18 +95,20 @@ class PresentationPackageModule extends _i1.MicroPackageModule {
         ));
     gh.factory<_i24.MyOrdersCubit>(
         () => _i24.MyOrdersCubit(gh<_i25.GetAllOrdersUseCase>()));
-    gh.factory<_i26.OtpLoginViewModel>(
-        () => _i26.OtpLoginViewModel(gh<_i27.SendOTPUseCase>()));
-    gh.factory<_i28.PhoneLoginViewModel>(() => _i28.PhoneLoginViewModel());
-    gh.factory<_i29.ProductSearchViewModel>(
-        () => _i29.ProductSearchViewModel(gh<_i30.SearchProductsUseCase>()));
-    gh.factory<_i31.ProductViewModel>(() => _i31.ProductViewModel(
-          gh<_i32.GetItemsInCartUseCase>(),
-          gh<_i33.ProductAddToCartUseCase>(),
+    gh.factory<_i26.OtpLoginViewModel>(() => _i26.OtpLoginViewModel(
+          gh<_i27.SendOTPUseCase>(),
+          gh<_i28.PushNotificationHandler>(),
+        ));
+    gh.factory<_i29.PhoneLoginViewModel>(() => _i29.PhoneLoginViewModel());
+    gh.factory<_i30.ProductSearchViewModel>(
+        () => _i30.ProductSearchViewModel(gh<_i31.SearchProductsUseCase>()));
+    gh.factory<_i32.ProductViewModel>(() => _i32.ProductViewModel(
+          gh<_i33.GetItemsInCartUseCase>(),
+          gh<_i34.ProductAddToCartUseCase>(),
           gh<_i14.GetCartStatusUseCase>(),
           gh<_i15.UpdateCartUseCase>(),
-          gh<_i34.GetProductDetailsUseCase>(),
+          gh<_i35.GetProductDetailsUseCase>(),
         ));
-    gh.factory<_i35.SplashViewModel>(() => _i35.SplashViewModel());
+    gh.factory<_i36.SplashViewModel>(() => _i36.SplashViewModel());
   }
 }
