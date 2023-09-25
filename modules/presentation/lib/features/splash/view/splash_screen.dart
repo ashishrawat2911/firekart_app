@@ -13,9 +13,9 @@
  *
  * ----------------------------------------------------------------------------
  */
+import 'package:assets/res/assets.gen.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:core/state_manager/base_view.dart';
-import 'package:assets/res/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../state/splash_state.dart';
@@ -34,7 +34,7 @@ class SplashScreen extends StatelessWidget {
       builder: (context, viewModel, state) => Scaffold(
         //  backgroundColor: AppColors.backGroundColor,
         body: Center(
-          child: AppAssets.images_app_logo.image(
+          child: AppAssets.images.appLogo.image(
             height: 245,
             width: 245,
           ),
