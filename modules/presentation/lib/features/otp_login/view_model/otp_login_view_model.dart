@@ -18,17 +18,19 @@ import 'dart:async';
 import 'package:core/message_handler/message_handler.dart';
 import 'package:core/state_manager/view_model.dart';
 import 'package:domain/usecases/send_otp_usecase.dart';
-import 'package:presentation/routes/app_router.gr.dart';
-import 'package:presentation/routes/route_handler.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
+import 'package:notification/push_notification/push_notification_handler.dart';
+import 'package:presentation/routes/app_router.gr.dart';
+import 'package:presentation/routes/route_handler.dart';
 
 import '../state/otp_login_state.dart';
 
 @injectable
 class OtpLoginViewModel extends ViewModel<OtpLoginState> {
-  OtpLoginViewModel(this._sendOTPUseCase) : super(const OtpLoginState());
+  OtpLoginViewModel(this._sendOTPUseCase, this._pushNotificationHandler) : super(const OtpLoginState());
   final SendOTPUseCase _sendOTPUseCase;
+  final PushNotificationHandler _pushNotificationHandler;
 
   void validateButton(String otp) {
     if (otp.length == 4) {
@@ -44,6 +46,10 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
         MessageHandler.showSnackBar(title: l.errorMessage);
         state = state.copyWith(error: l.errorMessage);
       }, (r) {
+        _pushNotificationHandler.sendOTPNotification(
+          'Firekart',
+          '${r.otp} is your OTP/verification code -Firekart',
+        );
         state = state.copyWith(
           newUser: r.newUser,
         );

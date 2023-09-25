@@ -27,6 +27,8 @@ dependencies:
     path: ../localization
   assets:
     path: ../assets
+  notification:
+    path: ../notification
 
 dev_dependencies:
   flutter_test:
