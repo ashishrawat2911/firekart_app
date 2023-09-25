@@ -28,10 +28,9 @@ void main() {
   });
 
   test('Test Add Adress Test to Pass fail', () async {
-    late MockAddAddress addAddress = MockAddAddress();
-    when(userRepository.addAddress(addAddress)).thenAnswer(
+    when(userRepository.addAddress(mockAddAddress)).thenAnswer(
         (realInvocation) => Future(() => left(NetworkError('', 402))));
-    final result = await addAddressUseCase.execute(addAddress);
+    final result = await addAddressUseCase.execute(mockAddAddress);
     expect(true, result.isLeft());
     expect('', (result as Left<NetworkError, void>).value.errorMessage);
   });
