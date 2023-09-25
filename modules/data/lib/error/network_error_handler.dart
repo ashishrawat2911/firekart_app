@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:core/logger/app_logger.dart';
 import 'package:data/error/app_error_model.dart';
+import 'package:dio/dio.dart';
 import 'package:domain/network_result/network_error.dart';
 import 'package:injectable/injectable.dart';
 
@@ -41,7 +41,6 @@ class NetworkErrorHandler {
               } catch (e) {
                 AppLogger.errorLog(e);
                 networkExceptions = 'invalid_status_code: $statusCode';
-                return NetworkError.fromStatusCode(statusCode);
               }
               break;
             case DioExceptionType.sendTimeout:
