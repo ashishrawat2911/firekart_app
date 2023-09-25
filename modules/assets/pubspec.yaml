@@ -50,7 +50,6 @@ flutter_gen:
   assets:
     enabled: true
     outputs:
-      style: snake-case
       class_name: AppAssets
       package_parameter_enabled: true
 
