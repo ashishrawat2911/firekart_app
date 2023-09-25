@@ -108,7 +108,6 @@ class PushNotificationHandler {
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(_channel);
-    sendOTPNotification("OTP", "OTP");
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
@@ -144,8 +143,8 @@ class PushNotificationHandler {
       title,
       body,
       NotificationDetails(
-          android:
-              AndroidNotificationDetails(_otpChannel.id, _otpChannel.name)),
+        android: AndroidNotificationDetails(_otpChannel.id, _otpChannel.name),
+      ),
     );
   }
 }
