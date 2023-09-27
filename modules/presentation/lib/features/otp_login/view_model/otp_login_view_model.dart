@@ -28,7 +28,8 @@ import '../state/otp_login_state.dart';
 
 @injectable
 class OtpLoginViewModel extends ViewModel<OtpLoginState> {
-  OtpLoginViewModel(this._sendOTPUseCase, this._pushNotificationHandler) : super(const OtpLoginState());
+  OtpLoginViewModel(this._sendOTPUseCase, this._pushNotificationHandler)
+      : super(const OtpLoginState());
   final SendOTPUseCase _sendOTPUseCase;
   final PushNotificationHandler _pushNotificationHandler;
 
@@ -74,10 +75,6 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
         .loginWithOtp(phoneNumber, smsCode, name: name.isEmpty ? null : name)
         .then((value) {
       value.fold((l) {
-        state = state.copyWith(
-          confirmOtpLoading: false,
-          resendOtpLoading: false,
-        );
         MessageHandler.showSnackBar(title: l.errorMessage);
       }, (r) {
         RouteHandler.routeTo(
@@ -85,6 +82,11 @@ class OtpLoginViewModel extends ViewModel<OtpLoginState> {
           routingType: RoutingType.pushAndPopUntil,
         );
       });
+    }).whenComplete(() {
+      state = state.copyWith(
+        confirmOtpLoading: false,
+        resendOtpLoading: false,
+      );
     });
   }
 }
