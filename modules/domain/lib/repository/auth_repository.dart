@@ -24,7 +24,7 @@ abstract class AuthRepository {
 
   Future<Either<NetworkError, Login>> login(String phoneNumber);
 
-  Future<Either<NetworkError, void>> verifyOtp(
+  Future<Either<NetworkError, EmptyEntity>> verifyOtp(
     String phoneNumber,
     String smsCode, {
     String? name,
