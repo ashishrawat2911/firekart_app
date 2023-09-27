@@ -77,11 +77,10 @@ void main() {
     await tester.tap(find.text(Localization.value.resendOtp));
     await tester.pump();
 
-    //TODO Need to fix routing first
-    // when(authRepository.verifyOtp(testPhoneNumber, '1111')).thenAnswer(
-    //   (realInvocation) async => Right(EmptyEntity(true, 'success')),
-    // );
-    // await tester.tap(find.text(Localization.value.confirmOtp));
-    // await tester.pump();
+    when(authRepository.verifyOtp(testPhoneNumber, '1111')).thenAnswer(
+      (realInvocation) async => Right(EmptyEntity(true, 'success')),
+    );
+    await tester.tap(find.text(Localization.value.confirmOtp));
+    await tester.pump();
   });
 }
