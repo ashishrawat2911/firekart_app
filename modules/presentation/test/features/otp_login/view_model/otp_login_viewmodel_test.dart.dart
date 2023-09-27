@@ -57,29 +57,28 @@ void main() {
 
   });
 
-  //TODO Need to fix routing first
-  // test('loginWithOtp handles authentication correctly', () async {
-  //   when(mockAuthRepository.verifyOtp(
-  //     '+1234567890',
-  //     '1234',
-  //     name: 'John Doe',
-  //   )).thenAnswer(
-  //     (_) async => Right(EmptyEntity(true, 'success')),
-  //   );
-  //
-  //   await viewModel.loginWithOtp(
-  //     '+1234567890',
-  //     '1234',
-  //     false,
-  //     'John Doe',
-  //   );
-  //
-  //   verify(mockAuthRepository.verifyOtp(
-  //     '+1234567890',
-  //     '1234',
-  //     name: 'John Doe',
-  //   )).called(1);
-  //
-  //   expect(viewModel.state.confirmOtpLoading, false);
-  // });
+  test('loginWithOtp handles authentication correctly', () async {
+    when(mockAuthRepository.verifyOtp(
+      '+1234567890',
+      '1234',
+      name: 'John Doe',
+    )).thenAnswer(
+      (_) async => Right(EmptyEntity(true, 'success')),
+    );
+
+    await viewModel.loginWithOtp(
+      '+1234567890',
+      '1234',
+      false,
+      'John Doe',
+    );
+
+    verify(mockAuthRepository.verifyOtp(
+      '+1234567890',
+      '1234',
+      name: 'John Doe',
+    )).called(1);
+
+    expect(viewModel.state.confirmOtpLoading, false);
+  });
 }
