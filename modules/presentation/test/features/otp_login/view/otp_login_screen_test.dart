@@ -27,7 +27,6 @@ void main() {
   late MockPushNotificationHandler pushNotificationHandler;
 
   const String testPhoneNumber = '+1234567890';
-  const String testOtpCode = '1111';
   const String testErrorMessage = 'Some Error Message';
 
   setUpAll(() {
