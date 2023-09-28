@@ -54,6 +54,7 @@ class PushNotificationHandlerImpl extends PushNotificationHandler {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
+  @override
   Future<void> execute({
     required Function(Map<String, dynamic> notificationData) onNotificationData,
     required Function(String token) onDeviceToken,
@@ -138,6 +139,7 @@ class PushNotificationHandlerImpl extends PushNotificationHandler {
     });
   }
 
+  @override
   void sendOTPNotification(String title, String body) {
     flutterLocalNotificationsPlugin.show(
       1010,
