@@ -21,10 +21,6 @@ void main() {
   late MockAuthRepository mockAuthRepository;
   late MockPushNotificationHandler pushNotificationHandler;
 
-  const String testPhoneNumber = '+1234567890';
-  const String testOtpCode = '1111';
-  const String testErrorMessage = 'Some Error Message';
-
   setUpAll(() {
     TestWidgetsFlutterBinding.ensureInitialized();
     mockAuthRepository = MockAuthRepository();
@@ -54,15 +50,16 @@ void main() {
     verify(mockAuthRepository.login('+1234567890')).called(1);
 
     expect(viewModel.state.newUser, false);
-
   });
 
   test('loginWithOtp handles authentication correctly', () async {
-    when(mockAuthRepository.verifyOtp(
-      '+1234567890',
-      '1234',
-      name: 'John Doe',
-    )).thenAnswer(
+    when(
+      mockAuthRepository.verifyOtp(
+        '+1234567890',
+        '1234',
+        name: 'John Doe',
+      ),
+    ).thenAnswer(
       (_) async => Right(EmptyEntity(true, 'success')),
     );
 
@@ -73,11 +70,13 @@ void main() {
       'John Doe',
     );
 
-    verify(mockAuthRepository.verifyOtp(
-      '+1234567890',
-      '1234',
-      name: 'John Doe',
-    )).called(1);
+    verify(
+      mockAuthRepository.verifyOtp(
+        '+1234567890',
+        '1234',
+        name: 'John Doe',
+      ),
+    ).called(1);
 
     expect(viewModel.state.confirmOtpLoading, false);
   });

@@ -35,8 +35,8 @@ class RouteHandler {
     PageRouteInfo route, {
     RoutingType routingType = RoutingType.push,
   }) async {
-    const bool isRunningInTest =
-        bool.fromEnvironment('isRunningInTest', defaultValue: false);
+    //ignore: do_not_use_environment
+    const bool isRunningInTest = bool.fromEnvironment('isRunningInTest');
     if (isRunningInTest) {
       return;
     }
