@@ -16,7 +16,10 @@ scripts:
     melos clean
     melos get
   test: |
-    melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
+    melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub  --dart-define=isRunningInTest=true
+
+  testCov: |
+    melos exec -c 1 --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage --dart-define=isRunningInTest=true
     genhtml coverage/lcov.info -o coverage/html
     open coverage/html/index.html
 

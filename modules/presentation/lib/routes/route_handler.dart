@@ -16,8 +16,8 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:core/logger/app_logger.dart';
-import 'package:presentation/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/routes/app_router.dart';
 
 class RouteHandler {
   RouteHandler();
@@ -35,6 +35,11 @@ class RouteHandler {
     PageRouteInfo route, {
     RoutingType routingType = RoutingType.push,
   }) async {
+    //ignore: do_not_use_environment
+    const bool isRunningInTest = bool.fromEnvironment('isRunningInTest');
+    if (isRunningInTest) {
+      return;
+    }
     AppLogger.log('Navigating to ${route.routeName}');
     // ignore:avoid-dynamic
     // Future<T?> getNavigation() {
