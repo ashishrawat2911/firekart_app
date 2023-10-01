@@ -21,7 +21,8 @@ This project is built in Flutter, an open source framework provided by Google, a
 * Note: To view what version is supported look inside the "package-lock.json" and find where it says "engines"
 * The engine field lets you know what versions are supported.
 * The engine field may look like this:
- ```  "engines": {
+ ```
+      "engines": {
         "node": ">=0.10.0"
       }
   ```
