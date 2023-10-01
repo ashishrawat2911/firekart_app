@@ -8,7 +8,7 @@ An Ecommerce application built in Flutter using Nodejs and MySQl.
 
 ## Overview
 The main focus of this project was to create an ecommerce application complete with individual user logins, payment ability, and orders list. It lets the user login, browse products (fruits), choose quantities, view their cart, modify their address, and view past orders all in a user friendly interface.
-This project is built in Flutter, an open source framework provided by Google, and utilizes MySQL to manage the database and NodeJS to create server-side applications.
+This project is built in Flutter, an open source framework provided by Google, and the backend utilizes MySQL to manage the database and NodeJS to create server-side applications.
 
 ## Getting started
 
@@ -25,6 +25,25 @@ This project is built in Flutter, an open source framework provided by Google, a
         "node": ">=0.10.0"
       }
   ```
+# Dependencies Needed
+As listed in the Firekart Backend, there are a few dependencies firekart relies on. Here is how you can install the following dependencies:
+1) Open a command prompt on Windows or a terminal on macOS/Linux.
+2) Navigate to Your Project Directory (Ex: "cd /path/project")
+3) Copy and paste the following commands to install:
+  - Express: Web framework for Node.js.
+    - npm install express
+  - MySQL2: MySQL driver for Node.js.
+    - npm install mysql2
+  - jsonwebtoken: JSON Web Token library for authentication.
+    - npm install jsonwebtoken
+  - bcrypt: Password hashing library.
+    - npm install bcrypt
+  - dotenv: Load environment variables from a .env file.
+    - npm install dotenv
+  - express-validator: Validation and sanitization library for Express.
+    - npm install express-validator
+4) Check the package.json file to see if the installations were successful.
+
 
 # Screenshots
 
