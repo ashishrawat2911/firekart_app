@@ -22,6 +22,7 @@ This project is built in Flutter, an open source framework provided by Google, a
 * The engine field lets you know what versions are supported.
 * The engine field may look like this:
  ```
+[in package-lock.json]
       "engines": {
         "node": ">=0.10.0"
       }
