@@ -6,6 +6,10 @@
 
 An Ecommerce application built in Flutter using Nodejs and MySQl.
 
+## Overview
+The main focus of this project was to create an ecommerce application complete with individual user logins, payment ability, and orders list. It lets the user login, browse products, choose quantities, view their cart, modify their address, and view past orders all in a user friendly interface.
+This project is built in Flutter, an open source framework provided by Google, and utilizes mySQL to manage the database and NodeJS to create server-side applications.
+
 ## Getting started
 
 * Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/firekart/wiki/Gettings-Started)
