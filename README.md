@@ -33,9 +33,11 @@ As listed in the Firekart Backend, there are a few dependencies firekart relies 
 2) Navigate to Your Project Directory (Ex: "cd /path/project")
 3) Copy and paste the following commands to install:
   - Express: Web framework for Node.js.
-    - ``` npm install express ```
+     ``` npm install express ```
   - MySQL2: MySQL driver for Node.js.
-    - npm install mysql2
+    ```
+    npm install mysql2
+    ```
   - jsonwebtoken: JSON Web Token library for authentication.
     - npm install jsonwebtoken
   - bcrypt: Password hashing library.
