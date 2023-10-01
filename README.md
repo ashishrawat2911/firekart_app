@@ -39,7 +39,7 @@ As listed in the Firekart Backend, there are a few dependencies firekart relies 
   - jsonwebtoken: JSON Web Token library for authentication.
     ``` npm install jsonwebtoken ```
   - bcrypt: Password hashing library.
-    ``` npm install bcrypt ```
+    ```npm install bcrypt ```
   - dotenv: Load environment variables from a .env file.
     ``` npm install dotenv ```
   - express-validator: Validation and sanitization library for Express.
