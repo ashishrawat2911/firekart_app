@@ -35,17 +35,15 @@ As listed in the Firekart Backend, there are a few dependencies firekart relies 
   - Express: Web framework for Node.js.
      ``` npm install express ```
   - MySQL2: MySQL driver for Node.js.
-    ```
-    npm install mysql2
-    ```
+    ``` npm install mysql2 ```
   - jsonwebtoken: JSON Web Token library for authentication.
-    - npm install jsonwebtoken
+    ``` npm install jsonwebtoken ```
   - bcrypt: Password hashing library.
-    - npm install bcrypt
+    ``` npm install bcrypt ```
   - dotenv: Load environment variables from a .env file.
-    - npm install dotenv
+    ``` npm install dotenv ```
   - express-validator: Validation and sanitization library for Express.
-    - npm install express-validator
+    ``` npm install express-validator ```
 4) Check the package.json file to see if the installations were successful.
 
 
