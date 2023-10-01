@@ -27,7 +27,7 @@ This project is built in Flutter, an open source framework provided by Google, a
         "node": ">=0.10.0"
       }
   ```
-# Dependencies Needed
+## Dependencies Needed
 As listed in the Firekart Backend, there are a few dependencies firekart relies on. Here is how you can install the following dependencies:
 1) Open a command prompt on Windows or a terminal on macOS/Linux.
 2) Navigate to Your Project Directory (Ex: "cd /path/project")
