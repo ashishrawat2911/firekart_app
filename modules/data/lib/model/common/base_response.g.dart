@@ -21,7 +21,7 @@ Map<String, dynamic> _$NetworkResponseToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'success': instance.status,
+      'success': instance.success,
       'message': instance.message,
       'data': toJsonT(instance.data),
     };

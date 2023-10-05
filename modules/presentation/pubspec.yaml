@@ -27,6 +27,8 @@ dependencies:
     path: ../localization
   assets:
     path: ../assets
+  notification:
+    path: ../notification
 
 dev_dependencies:
   flutter_test:
@@ -36,7 +38,7 @@ dev_dependencies:
   freezed: ^2.3.5
   injectable_generator: ^2.1.6
   auto_route_generator: ^7.1.1
-
+  mockito: ^5.4.1
 
 flutter:
   uses-material-design: true

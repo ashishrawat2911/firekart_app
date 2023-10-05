@@ -9,19 +9,33 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/hour_glass.gif
+  AssetGenImage get hourGlass =>
+      const AssetGenImage('assets/icons/hour_glass.gif');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [hourGlass];
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/app_logo.png
+  AssetGenImage get appLogo =>
+      const AssetGenImage('assets/images/app_logo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [appLogo];
+}
+
 class AppAssets {
   AppAssets._();
 
-  /// File path: assets/icons/hour_glass.gif
-  static const AssetGenImage icons_hour_glass =
-      AssetGenImage('assets/icons/hour_glass.gif');
-
-  /// File path: assets/images/app_logo.png
-  static const AssetGenImage images_app_logo =
-      AssetGenImage('assets/images/app_logo.png');
-
-  /// List of all assets
-  List<AssetGenImage> get values => [icons_hour_glass, images_app_logo];
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {
