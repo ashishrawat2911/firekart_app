@@ -4,6 +4,6 @@ import 'package:injectable/injectable.dart';
 @singleton
 class AppErrorModel {
   NetworkError getNetworkError(Map<String, dynamic> json) {
-    return NetworkError(json['message'] ?? '', json['status'] ?? 0);
+    return NetworkError(json['message'] ?? '', json['status'] ?? false);
   }
 }
