@@ -20,16 +20,14 @@ void main() {
 
   test('Test Get carts List Passed', () async {
     List<Cart> carts = [mockCart];
-    when(cartRepository.getCarts())
-        .thenAnswer((realInvocation) => Future.value(right(carts)));
+    when(cartRepository.getCarts()).thenAnswer((realInvocation) => Future.value(right(carts)));
     final result = await cartUseCase.getCarts();
     verify(cartRepository.getCarts()).called(1);
     expect(result, Right<NetworkError, List<Cart>>(carts));
   });
 
   test('Test Get carts List Failed', () async {
-    when(cartRepository.getCarts()).thenAnswer(
-        (realInvocation) => Future.value(left(NetworkError('', 402))));
+    when(cartRepository.getCarts()).thenAnswer((realInvocation) => Future.value(left(NetworkError('', 402))));
     final result = await cartUseCase.getCarts();
     verify(cartRepository.getCarts()).called(1);
     expect(true, result.isLeft());
@@ -39,20 +37,19 @@ void main() {
   test('Test update cart Passed', () async {
     const quantity = 20;
     const productId = 123;
-    when(cartRepository.updateCart(productId, quantity)).thenAnswer(
-        (realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    when(cartRepository.updateCart(productId, quantity))
+        .thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
     final result = await cartRepository.updateCart(productId, quantity);
     verify(cartRepository.updateCart(productId, quantity)).called(1);
     expect(true, result.isRight());
-    expect(
-        'success', (result as Right<NetworkError, EmptyEntity>).value.message);
+    expect('success', (result as Right<NetworkError, EmptyEntity>).value.message);
   });
 
   test('Test update cart failed', () async {
     const quantity = 20;
     const productId = 123;
-    when(cartRepository.updateCart(productId, quantity)).thenAnswer(
-        (realInvocation) => Future.value(left(NetworkError('xyz', 401))));
+    when(cartRepository.updateCart(productId, quantity))
+        .thenAnswer((realInvocation) => Future.value(left(NetworkError('xyz', 401))));
     final result = await cartRepository.updateCart(productId, quantity);
     expect(true, result.isLeft());
     expect('xyz', (result as Left<NetworkError, void>).value.errorMessage);
@@ -61,8 +58,7 @@ void main() {
   test('Test get no of items for product', () {
     const productId = 1;
     List<Cart> carts = [mockCart];
-    final actualResponse =
-        cartUseCase.getNoOfItemsForAProduct(productId, carts);
+    final actualResponse = cartUseCase.getNoOfItemsForAProduct(productId, carts);
     expect(actualResponse, carts.first.numOfItems);
   });
 }
