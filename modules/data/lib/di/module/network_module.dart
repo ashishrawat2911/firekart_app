@@ -16,8 +16,8 @@
 import 'dart:io';
 
 import 'package:data/di/di.dart';
-import 'package:dio/dio.dart';
 import 'package:data/source/local/local_storage.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
@@ -40,30 +40,14 @@ abstract class NetworkModule {
         if (_localStorage.token.isNotEmpty)
           'Authorization': 'Bearer ${_localStorage.token}',
       };
-
-    // (_dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
-    //   return _sslHttpClient;
-    // };
     return _dio;
   }
 
   @Named(DIConstants.baseUrl)
-  String get baseUrl => 'https://firekart-service.onrender.com/api/v1/';
-  // String get baseUrl => 'http://localhost:9090/';
+  String get baseUrl => 'https://firekart.cyclic.cloud/api/v1/';
 
   @preResolve
   Future<HttpClient> sslHttpClient() async {
-    // List<int> certs = [];
-    // try {
-    //   ByteData bytes = await rootBundle.load('');
-    //   certs = bytes.buffer.asUint8List();
-    // } catch (e) {
-    //   certs = [];
-    // }
-
-    // SecurityContext sc = SecurityContext();
-    // sc.setTrustedCertificatesBytes(certs);
-    // HttpClient httpClient = HttpClient(context: sc);
     HttpClient httpClient = HttpClient();
     return httpClient;
   }
