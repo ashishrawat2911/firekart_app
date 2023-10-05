@@ -76,7 +76,7 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.NetworkError, _i6.Login>>);
   @override
-  _i4.Future<_i2.Either<_i5.NetworkError, void>> verifyOtp(
+  _i4.Future<_i2.Either<_i5.NetworkError, _i7.EmptyEntity>> verifyOtp(
     String? phoneNumber,
     String? smsCode, {
     String? name,
@@ -90,8 +90,9 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
           ],
           {#name: name},
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.NetworkError, void>>.value(
-            _FakeEither_0<_i5.NetworkError, void>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.NetworkError, _i7.EmptyEntity>>.value(
+                _FakeEither_0<_i5.NetworkError, _i7.EmptyEntity>(
           this,
           Invocation.method(
             #verifyOtp,
@@ -102,7 +103,7 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
             {#name: name},
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.NetworkError, void>>);
+      ) as _i4.Future<_i2.Either<_i5.NetworkError, _i7.EmptyEntity>>);
   @override
   _i4.Future<_i2.Either<_i5.NetworkError, _i7.EmptyEntity>> logout() =>
       (super.noSuchMethod(

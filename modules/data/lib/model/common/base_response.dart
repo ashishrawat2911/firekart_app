@@ -6,13 +6,13 @@ part 'base_response.g.dart';
 @JsonSerializable(genericArgumentFactories: true)
 class NetworkResponse<T> {
   @JsonKey(name: 'success')
-  bool status;
+  bool success;
   @JsonKey(name: 'message')
   String message;
   @JsonKey(name: 'data')
   T data;
 
-  NetworkResponse(this.status, this.message, this.data);
+  NetworkResponse(this.success, this.message, this.data);
 
   factory NetworkResponse.fromJson(
     Map<String, dynamic> json,
@@ -23,11 +23,11 @@ class NetworkResponse<T> {
 
 extension NetworkResponseExt<T> on NetworkResponse<T> {
   NetworkEntity<T> toEntity() {
-    return NetworkEntity(status, message, data);
+    return NetworkEntity(success, message, data);
   }
 
   EmptyEntity toEmptyEntity() {
-    return EmptyEntity(status, message);
+    return EmptyEntity(success, message);
   }
 }
 
