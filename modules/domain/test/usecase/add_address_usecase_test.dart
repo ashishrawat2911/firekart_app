@@ -18,13 +18,12 @@ void main() {
   });
 
   test('Test Add Adress Test to Pass ', () async {
-    when(userRepository.addAddress(mockAddAddress)).thenAnswer(
-        (realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
+    when(userRepository.addAddress(mockAddAddress))
+        .thenAnswer((realInvocation) => Future.value(right(EmptyEntity(true, 'success'))));
     final result = await addAddressUseCase.execute(mockAddAddress);
     verify(userRepository.addAddress(mockAddAddress)).called(1);
     expect(true, result.isRight());
-    expect(
-        'success', (result as Right<NetworkError, EmptyEntity>).value.message);
+    expect('success', (result as Right<NetworkError, EmptyEntity>).value.message);
   });
 
   test('Test Add Adress Test to Pass fail', () async {

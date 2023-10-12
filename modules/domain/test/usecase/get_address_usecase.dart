@@ -20,23 +20,17 @@ void main() {
 
   test('Get Address UseCase Test Passed', () async {
     List<Address> addresses = [mockAddress];
-    when(getAddressUseCase.execute())
-        .thenAnswer((realInvocation) => Future.value(right(addresses)));
+    when(getAddressUseCase.execute()).thenAnswer((realInvocation) => Future.value(right(addresses)));
     final value = await getAddressUseCase.execute();
     verify(getAddressUseCase.execute()).called(1);
     expect(true, value.isRight());
-    expect(
-        value,
-        Right<NetworkError, List<Address>>(
-            addresses)); //Test both either classess
-    expect((value as Right<NetworkError, List<Address>>).value,
-        addresses); //Test on addrress class
+    expect(value, Right<NetworkError, List<Address>>(addresses)); //Test both either classess
+    expect((value as Right<NetworkError, List<Address>>).value, addresses); //Test on addrress class
   });
 
   test('Get Address UseCase Test Failed', () async {
     List<Address> addresses = [mockAddress];
-    when(getAddressUseCase.execute()).thenAnswer(
-        (realInvocation) => Future.value(left(NetworkError('', 402))));
+    when(getAddressUseCase.execute()).thenAnswer((realInvocation) => Future.value(left(NetworkError('', 402))));
     final value = await getAddressUseCase.execute();
     verify(getAddressUseCase.execute()).called(1);
     expect(true, value.isLeft());

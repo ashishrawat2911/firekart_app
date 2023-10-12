@@ -17,15 +17,13 @@ void main() {
   });
 
   test('Get Account Details Test Passed', () async {
-    when(getAccountDetailsUseCase.execute()).thenAnswer(
-        (realInvocation) => Future.value(right(mockAccountDetails)));
+    when(getAccountDetailsUseCase.execute()).thenAnswer((realInvocation) => Future.value(right(mockAccountDetails)));
     final value = await getAccountDetailsUseCase.execute();
     verify(getAccountDetailsUseCase.execute()).called(1);
     expect(true, value.isRight());
   });
   test('Get Account Details Test Failed', () async {
-    when(getAccountDetailsUseCase.execute()).thenAnswer(
-        (realInvocation) => Future(() => left(NetworkError('', 402))));
+    when(getAccountDetailsUseCase.execute()).thenAnswer((realInvocation) => Future(() => left(NetworkError('', 402))));
     final value = await getAccountDetailsUseCase.execute();
     expect(true, value.isLeft());
     expect('', (value as Left<NetworkError, void>).value.errorMessage);
