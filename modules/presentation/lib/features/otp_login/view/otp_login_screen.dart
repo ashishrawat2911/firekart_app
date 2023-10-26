@@ -87,8 +87,10 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                 backgroundColor: Colors.transparent,
                 floatingActionButtonLocation:
                     FloatingActionButtonLocation.centerDocked,
-                body: Column(
-                  children: <Widget>[_loginCard(viewModel, state)],
+                body: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[_loginCard(viewModel, state)],
+                  ),
                 ),
               ),
             ),
