@@ -19,4 +19,5 @@ void main() {
   }, (error, stack) {
     CrashlyticsService.recordError(error, stack);
   }, zoneSpecification: ZoneSpecification());
+
 }
