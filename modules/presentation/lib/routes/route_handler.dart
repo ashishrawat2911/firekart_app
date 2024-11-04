@@ -76,7 +76,7 @@ class RouteHandler {
   }
 
   static Future<bool> pop<T extends Object?>([T? arguments]) =>
-      _appRouter.pop(arguments);
+      _appRouter.maybePop<T>(arguments);
 
   static bool canNavigateBack() => _appRouter.canNavigateBack;
 }

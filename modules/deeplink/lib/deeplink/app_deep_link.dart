@@ -32,12 +32,12 @@ class AppDeeplink extends Deeplink {
 
   @override
   Future<Uri?>? initDeepLinks() async {
-    final uri = await _appLinks.getInitialAppLink();
+    final uri = await _appLinks.getInitialLink();
     return uri;
   }
 
   Future<Uri?>? getLatestAppLink() async {
-    final getLatestAppLink = await _appLinks.getLatestAppLink();
+    final getLatestAppLink = await _appLinks.getLatestLink();
     return getLatestAppLink;
   }
 

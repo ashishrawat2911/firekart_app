@@ -14,17 +14,17 @@ dependencies:
   freezed_annotation: ^2.2.0
   dartz:
   injectable: ^2.1.2
-  get_it: ^7.6.0
+  get_it: ^8.0.2
   path: ^1.8.3
   json_annotation: ^4.3.0
-  auto_route: ^7.4.0
+  auto_route: ^9.2.2
   path_provider: ^2.0.0
   package_info: ^2.0.2
-  dio: "5.3.2"
+  dio: ^5.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
   build_runner: ^2.4.4
 
 
